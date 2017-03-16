@@ -1,0 +1,118 @@
+.rka-sidebar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 64px;
+  width: 220px;
+  background: #212121;
+  color: $clr-gray-light;
+  transform: translateX(-220px);
+  transition: transform .4s ease;
+  z-index: 999;
+
+  @include media($desktop) {
+    transform: translateX(0);
+  }
+
+  @include media($mobile) {
+    transform: translateX(-100%);
+
+    &.is-active {
+      width: 100%;
+    }
+  }
+
+  &.is-active {
+    transform: translateX(0);
+    transition: transform .4s ease;
+  }
+}
+
+.rka-sidebar-nav {
+  margin: 0;
+  padding: 0;
+
+  > li {
+    list-style: none;
+  }
+}
+
+.rka-sidebar-subnav {
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+}
+
+.rka-sidebar-sublink,
+.rka-sidebar-link {
+  position: relative;
+  border-left: 8px solid transparent;
+  display: block;
+  color: $clr-white;
+  text-decoration: none;
+  transition: background .2s ease, border .2s ease;
+
+  &.is-active,
+  &:hover {
+    transition: background .2s ease, border .2s ease;
+    color: $clr-white;
+    background: RGBA(255, 255, 255, .05);
+    border-color: $clr-brand-light;
+  }
+}
+
+.rka-sidebar-link {
+  font-size: 18px;
+  padding: $space-md;
+}
+
+.rka-sidebar-sublink {
+  font-size: $font-sm;
+  padding: $space-sm $space-md $space-sm $space-md;
+}
+
+.rka-sidebar-link-icon {
+  transition: .3s ease color;
+  position: absolute;
+  right: $space-md;
+  top: 14px;
+  color: $clr-white;
+
+  .rka-add-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.is-active,
+  &:hover {
+    transition: .3s ease color;
+    color: $clr-brand;
+  }
+}
+
+.rka-sidebar-poweredby {
+  transition: .4s ease opacity;
+  color: $clr-white;
+  font-size: $font-lg;
+  text-decoration: none;
+  position: absolute;
+  bottom: $space-md;
+  left: $space-md;
+  opacity: .2;
+
+  &:hover {
+    transition: .4s ease opacity;
+    opacity: 1;
+  }
+}
+
+.rka-sidebar-liip-logo {
+  display: inline-block;
+  margin-left: 2px;
+  background: url(../img/liip-logo.png) no-repeat;
+  width: 44px;
+  height: 16px;
+  background-size: contain;
+}

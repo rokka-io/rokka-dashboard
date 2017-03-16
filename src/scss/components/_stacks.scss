@@ -1,0 +1,62 @@
+.rka-stacks-list {
+  overflow: hidden;
+  overflow-y: auto;
+  height: calc(100vh - 270px);
+}
+
+.rka-stack-tile {
+  transition: .2s ease background;
+  background: $clr-white;
+  font-size: $font-lg;
+  color: $clr-black;
+  display: block;
+  padding: $space-sm $space-md;
+  margin-bottom: 1px;
+  text-decoration: none;
+
+  &:hover {
+    transition: .1s ease background;
+    background: $clr-gray-lighter;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.rka-stack-img-container {
+  position: relative;
+  background: $clr-gray-lightest;
+  margin: 0 auto;
+  overflow: hidden;
+
+  .is-error + img {
+    display: none;
+  }
+
+  img {
+    display: inline-block;
+    padding: $space-md;
+    vertical-align: top;
+  }
+
+  &:nth-child(odd) {
+    border-top: 1px solid $clr-gray-lighter;
+  }
+}
+
+.rka-stacks-new-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.rka-operation-content {
+  display: none;
+
+  .is-active & {
+    margin-top: $space-md;
+    display: block;
+  }
+}

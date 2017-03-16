@@ -1,0 +1,21 @@
+.rka-box {
+  background: $clr-white;
+  padding: $space-md;
+  min-height: 200px;
+  margin-bottom: $space-md;
+  position: relative;
+}
+
+.rka-box-link {
+  position: absolute;
+  top: $space-md+$space-xs;
+  right: $space-md;
+}
+
+.rka-box-stacks {
+  margin-bottom: 0;
+  @include media($desktop) {
+    height: calc(100vh - 156px);
+    overflow-y: auto;
+  }
+}

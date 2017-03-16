@@ -1,0 +1,198 @@
+.rka-crop-container {
+  text-align: center;
+  overflow: hidden;
+  height: 400px;
+  line-height: 368px;
+  padding: $space-md;
+
+  @include media($mobile) {
+    height: auto;
+    line-height: normal;
+  }
+
+  .ReactCrop--image,
+  .ReactCrop--image-copy, .rka-crop-image {
+    max-height: 368px;
+
+    @include media($mobile) {
+      max-height: none;
+    }
+  }
+}
+
+.rka-focuspoint-icon-container {
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+  position: absolute;
+
+  .rka-focuspoint-icon {
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+}
+
+.rka-crop-actions {
+  height: 58px;
+  position: relative;
+  transition: .3s ease-out margin;
+  margin-top: -60px;
+  background: rgba(0,0,0,.7);
+  text-align: center;
+
+  &.is-active {
+    transition: .3s ease-out margin;
+    margin-top: 0;
+    z-index: 0;
+  }
+}
+
+.rka-crop-action {
+  transition: .3s ease opacity;
+  color: $clr-white;
+  display: inline-block;
+  opacity: 0.5;
+  padding: $space-md;
+
+  &.is-active,
+  &:hover {
+    transition: .2s ease opacity, .3s ease background;
+    background: $clr-brand;
+    opacity: 1;
+  }
+}
+
+.rka-focus-trigger {
+  transition: .3s ease background;
+  border: 1px solid $clr-brand;
+  margin-top: $space-sm;
+  display: inline-block;
+  padding: $space-sm;
+  float: left;
+  width: 50px;
+  height: 38px;
+  color: $clr-brand;
+
+  &.is-active,
+  &:hover {
+    transition: .3s ease background;
+    color: $clr-white;
+    background: $clr-brand;
+  }
+}
+
+.rka-focus-icon {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.rka-focuspoint-icon,
+.rka-focusarea-icon {
+  color: $clr-white;
+  display: inline-block;
+  vertical-align: middle;
+  width: 26px;
+  height: 26px;
+}
+
+.rka-crop-action-container {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  transition: .5s ease-out left;
+  z-index: 9;
+
+  &.is-active {
+    transition: .5s ease-out left;
+    text-align: left;
+    transform: translate(0,0);
+    top: 0;
+    left: 0;
+    width: 10%;
+
+    @include media($mobile) {
+      position: static;
+    }
+
+    .rka-crop-action {
+      &:not(.is-active) {
+        display: none;
+      }
+    }
+  }
+}
+.rka-crop-actions-form {
+  opacity: 0;
+  margin-left: 10%;
+  text-align: left;
+  width: 82%;
+  float: left;
+
+  @include media($mobile) {
+    display: none;
+    background: rgba(0,0,0,.7);
+    margin-left: 0;
+    width: 100%;
+    padding: $space-md;
+  }
+
+  &.is-active {
+    opacity: 1;
+    transition: .3s opacity ease-in;
+    transition-delay: .3s;
+    @include media($mobile) {
+      display: block;
+    }
+  }
+
+  .rka-label {
+    color: $clr-gray-light;
+  }
+  .rka-form-group {
+    margin-top: $space-xs;
+    margin-bottom: 0;
+  }
+  .rka-input-txt {
+    height: 28px;
+  }
+}
+.rka-crop-actions-close-container {
+  width: 8%;
+  float: right;
+  text-align: right;
+
+  @include media($mobile) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+  }
+}
+.rka-crop-actions-close {
+  text-decoration: none;
+  background: $clr-brand;
+  text-align: center;
+  display: inline-block;
+  line-height: 58px;
+  padding: 0 $space-md;
+  font-size: $font-md;
+  color: $clr-white;
+}
+
+.rka-image-metadata-container {
+  padding: $space-md;
+  border: 1px solid $clr-gray-light;
+  position: relative;
+
+  .rka-close-icon {
+    padding: 0;
+    right: 3px;
+    top: 0;
+    font-size: $font-lg;
+  }
+}

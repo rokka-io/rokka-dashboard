@@ -1,0 +1,35 @@
+.rka-alert {
+  transition: .4s ease opacity, .4s ease background;
+  opacity: 0;
+  padding: $space-md $space-md $space-sm;
+  color: $clr-white;
+
+  &.is-error,
+  &.is-pending,
+  &.is-success,
+  &.is-info {
+    transition: .4s ease opacity, .4s ease background;
+    opacity: 1;
+  }
+
+  &.is-success {
+    background: $clr-brand-dark;
+  }
+
+  &.is-error {
+    background: $clr-cranberry;
+  }
+
+  &.is-pending {
+    background: $clr-gray-darker;
+  }
+
+  &.is-info {
+    background: $clr-orange-dark;
+  }
+}
+
+.rka-alert-msg {
+  display: block;
+  margin-bottom: $space-sm;
+}

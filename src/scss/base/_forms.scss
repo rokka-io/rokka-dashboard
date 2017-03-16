@@ -1,0 +1,365 @@
+.rka-checkbox-icon {
+  display: block;
+  border: 2px solid $clr-white;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+}
+
+.rka-checkbox-icon {
+  &.is-checked {
+    border-color: $clr-brand;
+
+    &:after {
+      position: absolute;
+      content: " ";
+      display: block;
+      top: 4px;
+      left: 8px;
+      width: 3px;
+      height: 8px;
+      transform: rotate(45deg);
+      border: solid $clr-brand;
+      border-width: 0 2px 2px 0;
+    }
+  }
+}
+
+.rka-form-group {
+  margin-bottom: $space-md;
+
+  &.has-error {
+    .rka-input-txt, .rka-select {
+      border-color: $clr-cranberry;
+    }
+    .rka-input-range {
+      &::-moz-range-thumb {
+        border-color: $clr-cranberry;
+      }
+      &::-ms-thumb {
+        border-color: $clr-cranberry;
+      }
+      &::-webkit-slider-thumb {
+        border-color: $clr-cranberry;
+      }
+    }
+  }
+}
+
+.rka-label {
+  font-size: $font-xs;
+  color: $clr-gray-darkest;
+  font-weight: $font-bold;
+  display: block;
+  margin-bottom: $space-sm;
+}
+
+.rka-input-txt {
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
+  font-size: $font-sm;
+  border: 1px solid $clr-gray-light;
+  padding: 0 $space-sm;
+  outline: none;
+
+  &:disabled {
+    color: $clr-gray-darkest;
+    background: $clr-gray-lighter;
+  }
+}
+
+.rka-input-range-container {
+  position: relative;
+  text-align: center;
+}
+
+.rka-input-range {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    &::-webkit-slider-thumb {
+      background: $clr-black;
+    }
+
+    &::-moz-range-thumb {
+      background: $clr-black;
+    }
+
+    &::-ms-thumb {
+      background: $clr-black;
+    }
+  }
+
+  &:disabled {
+    &::-webkit-slider-thumb {
+      border-color: $clr-gray-light;
+      background: $clr-gray-light;
+
+      &:hover {
+        border-color: $clr-gray-light;
+        background: $clr-gray-light;
+      }
+    }
+
+    &::-moz-range-thumb {
+      border-color: $clr-gray-light;
+      background: $clr-gray-light;
+
+      &:hover {
+        border-color: $clr-gray-light;
+        background: $clr-gray-light;
+      }
+    }
+
+    &::-ms-thumb {
+      border-color: $clr-gray-light;
+      background: $clr-gray-light;
+
+      &:hover {
+        border-color: $clr-gray-light;
+        background: $clr-gray-light;
+      }
+    }
+  }
+
+  &::-moz-focus-outer {
+    border: 0;
+  }
+
+  // thumb styling for different browsers
+  // needs to be separated by vendor prefix otherwise styles are not applied
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    transition: .3s ease background;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border: 2px solid $clr-gray-darkest;
+    background: $clr-white;
+    border-radius: 50%;
+    transform: translateY(-8px);
+
+    &:hover,
+    &:focus {
+      transition: .3s ease background;
+      background: $clr-black;
+      border-color: $clr-black;
+    }
+  }
+
+  &::-moz-range-thumb {
+    transition: .3s ease background;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border: 2px solid $clr-gray-darkest;
+    background: $clr-white;
+    border-radius: 50%;
+    //transform: translateY(-8px);
+
+    &:hover,
+    &:focus {
+      transition: .3s ease background;
+      background: $clr-black;
+      border-color: $clr-black;
+    }
+  }
+
+  &::-ms-thumb {
+    transition: .3s ease background;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border: 2px solid $clr-gray-darkest;
+    background: $clr-white;
+    border-radius: 50%;
+    transform: translateY(-8px);
+
+    &:hover {
+      transition: .3s ease background;
+      background: $clr-black;
+      border-color: $clr-black;
+    }
+  }
+
+  // track styling by vendor prefix
+  &::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    border-radius: 10px;
+    height: 4px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: $clr-gray-light;
+  }
+
+  &::-moz-range-track {
+    outline: none;
+    border-radius: 10px;
+    height: 4px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: $clr-gray-light;
+  }
+
+  &::-ms-track {
+    border-radius: 10px;
+    height: 4px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: $clr-gray-light;
+  }
+}
+
+.rka-input-range-min,
+.rka-input-range-max {
+  transition: .3s ease opacity;
+  color: $clr-gray-dark;
+  display: inline-block;
+  margin-top: $space-sm;
+  font-weight: 300;
+  opacity: 0;
+
+  &.is-active {
+    transition: .3s ease opacity;
+    opacity: 1;
+  }
+}
+.rka-input-range-min {
+  float: left;
+}
+.rka-input-range-max {
+  float: right;
+}
+.rka-input-range-current {
+  display: inline-block;
+  margin-top: $space-sm;
+  color: $clr-black;
+  font-family: $font-brand-sb;
+  font-weight: 700;
+
+  &.is-disabled {
+    color: $clr-gray-darkest;
+  }
+}
+
+.rka-select {
+  font-size: $font-sm;
+  width: 100%;
+  height: 36px;
+  border: 0;
+  margin-top: 1px;
+  outline: 1px solid $clr-gray-light;
+  background: $clr-white;
+
+  &:disabled {
+    background: $clr-gray-lighter;
+    color: $clr-gray-darkest;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    padding-left: $space-sm;
+    border-radius: 0;
+  }
+}
+
+.rka-checkbox {
+  margin-right: $space-md;
+
+  &.is-disabled {
+    color: $clr-gray-darkest;
+  }
+}
+.rka-checkbox-input {
+  margin-right: $space-sm;
+}
+
+.rka-close-icon {
+  position: absolute;
+  top: $space-sm;
+  padding: 0 $space-sm;
+  right: 46px;
+  color: #D34361;
+  font-size: 32px;
+  text-decoration: none;
+
+  &:after {
+    content: '×';
+  }
+}
+
+.rka-edit-icon {
+  position: absolute;
+  color: $clr-brand-dark;
+  top: $space-md;
+  font-size: 20px;
+  padding: 0 $space-sm;
+  text-decoration: none;
+  right: 78px;
+
+  &:hover,
+  .is-active & {
+    color: $clr-black;
+  }
+
+  &:after {
+    content: '\270E';
+  }
+}
+
+.rka-move-icon {
+  position: absolute;
+  color: $clr-brand-dark;
+  top: $space-md;
+  width: 20px;
+  font-size: 20px;
+  padding: 0 $space-sm;
+  text-decoration: none;
+  right: $space-md;
+
+  &:hover,
+  .is-active & {
+    color: $clr-black;
+  }
+
+  &:after {
+    content: '\21C5';
+  }
+}
+
+.Select-menu-outer {
+  width: calc(100% -1px) !important;
+  max-width: 100%;
+  border: 1px solid $clr-gray-light !important;
+  border-radius: 0 !important;
+}
+
+.Select-option {
+  &.is-selected,
+  &.is-focused {
+    background: $clr-gray-lightest !important;
+  }
+}
+
+.rka-search-input {
+  padding-right: 30px;
+}
+
+.rka-search-icon {
+  cursor: pointer;
+  color: #000;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: $space-sm;
+  top: $space-sm;
+}

@@ -1,0 +1,84 @@
+// colors
+// globals
+$clr-white: #fff;
+$clr-black: #000;
+
+// brand colors
+// brand liip
+$clr-brand-light: #8DB547;
+$clr-brand: #6EA644;
+$clr-brand-dark: #4d852c;
+
+// brand gray
+$clr-gray-lightest: #F7F7F5;
+$clr-gray-lighter: #EBEBE6;
+$clr-gray-light: #DDDDD8;
+$clr-gray: #CECFCA;
+$clr-gray-dark: #C0C1BC;
+$clr-gray-darker: #A5A59F;
+$clr-gray-darkest: #898A81;
+
+// brand cranberry
+$clr-cranberry: #D34361;
+
+// brand orange
+$clr-orange-dark: #ec9506;
+
+  // spacings
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 32px;
+$space-xl: 64px;
+
+// fonts
+// font families
+$font-brand: 'Liip Etica Book', sans-serif;
+$font-brand-sb: 'Liip Etica SemiBold', sans-serif;
+
+// font sizes
+$font-xs: 12px;
+$font-sm: 14px;
+$font-md: 16px;
+$font-lg: 20px;
+$font-xl: 24px;
+
+// font weights
+$font-light: 100;
+$font-regular: 300;
+$font-bold: 700;
+$font-heavy: 900;
+
+// line height
+$lin-sm: 100%;
+$lin-md: 120%;
+$lin-lg: 140%;
+
+// bootstrap sizes
+// grid (bootstrap)
+$grid-gutter-width: 16px !default;
+
+$screen-xs: 468px !default;
+$screen-sm: 768px !default;
+$screen-md: 1024px !default;
+
+$screen-xs-min: $screen-xs !default;
+$screen-sm-min: $screen-sm !default;
+$screen-md-min: $screen-md !default;
+
+$screen-xs-max: $screen-xs - 1 !default;
+$screen-sm-max: $screen-md - 1 !default;
+//$screen-md-max: $screen-md - 1 !default;
+
+$container-xs: ($screen-xs - $grid-gutter-width * 2) !default;
+$container-sm: ($screen-sm - $grid-gutter-width * 2) !default;
+$container-md: ($screen-md - $grid-gutter-width * 2) !default;
+
+// media queries
+$mobile-width: 468px !default;
+$tablet-width: 768px !default;
+$desktop-width: 1024px !default;
+
+$mobile: new-breakpoint(max-width $mobile-width);
+$tablet: new-breakpoint(min-width $mobile-width max-width 1023px);
+$desktop: new-breakpoint(min-width $desktop-width);

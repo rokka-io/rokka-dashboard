@@ -1,0 +1,19 @@
+import React, { Component, PropTypes } from 'react'
+import InputRange from '../forms/InputRange'
+import FormGroup from '../forms/FormGroup'
+
+class Compression extends Component {
+  render () {
+    return (
+      <FormGroup label="Image compression">
+        <InputRange disabled min={0} max={9} value={this.props.value} />
+      </FormGroup>
+    )
+  }
+}
+
+Compression.propTypes = {
+  value: PropTypes.string
+}
+
+export default Compression

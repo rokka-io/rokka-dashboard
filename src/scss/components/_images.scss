@@ -1,0 +1,95 @@
+// image grid
+.rka-image-tile {
+  background: $clr-gray-lightest;
+  width: 100%;
+  height: 160px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  margin-top: $space-md;
+  border: 1px solid rgba(0,0,0,.3);
+
+  &.is-uploaded {
+    animation: .5s ease flash;
+  }
+
+  &.is-clickable {
+    cursor: pointer;
+
+    &:hover {
+      border-color: $clr-brand;
+      box-shadow: 0 0 0 2px $clr-brand;
+    }
+  }
+
+  &.is-highlighted {
+    border-color: $clr-brand-light;
+    box-shadow: 0 0 0 2px $clr-brand-light;
+  }
+}
+
+.rka-image-tile-hd {
+  height: 120px;
+  line-height: 88px;
+  padding: $space-md;
+  text-align: center;
+
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGklEQVQYlWN48ODBf3TMgA0MBYWDzDkUKQQA/Su1D0qvFnQAAAAASUVORK5CYII=') repeat;
+
+  img {
+    display: inline-block;
+    max-height: 100%;
+    max-width: 100%;
+    vertical-align: middle;
+  }
+}
+
+.rka-image-tile-ft {
+  height: 38px;
+  line-height: 38px;
+  background: $clr-white;
+  padding: 0 $space-md;
+  font-size: $font-xs;
+  clear: right;
+
+  .rka-image-tile-name {
+    width: 48%;
+    background-color: $clr-white;
+  }
+
+  .rka-image-tile-specs {
+    text-align: right;
+    float: right;
+    margin-left: $space-xs;
+    color: $clr-gray-darkest;
+    width: 48%;
+  }
+}
+
+.rka-image-preview-link {
+  display: block;
+  font-size: 14px;
+  float: right;
+  color: $clr-white;
+  text-decoration: none;
+}
+
+.rka-image-checkbox-container {
+  display: block;
+  position: absolute;
+  top: $space-md;
+  right: $space-md;
+}
+
+@keyframes flash {
+  from {
+    background: $clr-gray-lightest;
+  }
+  50% {
+    background: $clr-brand;
+    opacity: 0.5;
+  }
+  to {
+    background: $clr-gray-lightest;
+  }
+}

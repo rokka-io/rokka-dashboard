@@ -1,0 +1,52 @@
+.rka-modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .8);
+  z-index: 999;
+  overflow: hidden;
+}
+
+.rka-modal-frame {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  @include media($tablet) {
+    width: 90%;
+  }
+
+  @include media($mobile) {
+    width: 95%;
+  }
+
+  .rka-close-icon {
+    right: $space-md;
+
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.rka-modal-frame-fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+.rka-modal-body {
+  position: relative;
+  background-color: $clr-white;
+  padding: $space-md;
+  margin: $space-lg;
+
+  @include media($mobile) {
+    margin: 0;
+  }
+}

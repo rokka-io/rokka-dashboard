@@ -1,0 +1,126 @@
+.rka-login-page {
+  transition: opacity .5s ease;
+  background: linear-gradient($clr-gray-lightest, $clr-gray) no-repeat fixed;
+  overflow-x: hidden;
+
+  @include media($mobile) {
+    min-height: 100vh;
+    background: $clr-white;
+  }
+
+  &.login-transition-appear {
+    .rka-login-container {
+      opacity: 0;
+      transform: translate(-50%, -80%);
+
+      @include media($mobile) {
+        transform: translate(0,0);
+      }
+    }
+
+    &.login-transition-appear-active {
+      .rka-login-container {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        transition: opacity .3s ease, transform .3s ease;
+
+        @include media($mobile) {
+          transform: translate(0,0);
+          transition: opacity .3s ease;
+        }
+      }
+    }
+  }
+
+  &:after {
+    content: '';
+    background: $clr-brand;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    left: 0;
+    z-index: -1;
+  }
+
+  &.login-transition-leave {
+    &:after {
+      height: 64px;
+      opacity: 1;
+      z-index: 1;
+      transition: opacity .3s ease, height .5s cubic-bezier(.2,.65,.94,.96);
+      transition-delay: .3s;
+    }
+
+    .rka-login-container {
+      opacity: 0;
+      transform: translate(-50%, -80%);
+      transition: opacity .5s ease, transform .5s ease;
+
+      @include media($mobile) {
+        transform: translate(0, 0);
+      }
+    }
+  }
+}
+
+.rka-login-container {
+  background: $clr-white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @include media($desktop) {
+    width: 600px;
+    height: 270px;
+  }
+
+  @include media($tablet) {
+    position: absolute;
+    width: 50%;
+  }
+
+  @include media($mobile) {
+    width: 100%;
+    position: static;
+    transform: translate(0, 0);
+  }
+}
+
+.rka-login-brand {
+  background: $clr-brand;
+  padding: $space-lg $space-md;
+  height: 200px;
+  border-bottom: 2px solid rgba(0,0,0,.1);
+
+  @include media($desktop) {
+    border-right: 2px solid rgba(0,0,0,.1);
+    padding: $space-lg $space-lg $space-lg $space-lg;
+    height: 270px;
+  }
+}
+
+.rka-login-brand-powered {
+  font-size: $font-sm;
+  color: $clr-white;
+  position: absolute;
+  bottom: $space-lg;
+  right: $space-lg+12px;
+
+  @include media($tablet) {
+    bottom: $space-md;
+    left: 22px;
+  }
+}
+
+.rka-login-form-container {
+  background: $clr-white;
+  padding: $space-md;
+
+  @include media($desktop) {
+    padding: $space-lg $space-lg $space-lg $space-sm;
+    height: 270px;
+  }
+}

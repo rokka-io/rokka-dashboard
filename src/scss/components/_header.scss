@@ -1,0 +1,97 @@
+.rka-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  padding: 0 $space-md;
+  height: 64px;
+  line-height: 64px;
+  background: $clr-brand;
+  z-index: 99;
+}
+
+.rka-header-menu-icon {
+  transition: background .4s ease;
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  border-radius: 4px;
+  color: $clr-white;
+  font-size: $font-lg;
+  margin-right: $space-md;
+  vertical-align: middle;
+  position: relative;
+
+  @include media($desktop) {
+    display: none;
+  }
+
+  &.is-active {
+    transition: background .4s ease;
+    border: 1px solid $clr-white;
+    background: rgba(0,0,0,.1);
+  }
+
+  &:after {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    content: "☰";
+    transform: translate(-50%, -50%);
+  }
+}
+
+.rka-header-logo {
+  display: inline-block;
+  width: 140px;
+  height: 32px;
+  background: url(../img/rokka-logo.png);
+  background-size: 100%;
+  vertical-align: middle;
+}
+
+.rka-header-nav {
+  height: $space-xl;
+  line-height: $space-xl;
+  float: right;
+
+  @include media($mobile) {
+    display: none;
+  }
+}
+
+.rka-user {}
+
+.rka-avatar {
+  display: inline-block;
+  border-radius: 50%;
+  background: $clr-white;
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  box-shadow: 0 0 0 3px rgba(0,0,0,.2);
+  overflow: hidden;
+}
+
+.rka-avatar-icon {
+  color: #588536;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+
+.rka-username {
+  display: inline-block;
+  color: $clr-white;
+  margin-left: $space-md/2;
+}
+
+.rka-logout-icon {
+  color: $clr-white;
+  display: inline-block;
+  margin-left: $space-md;
+  width: 23px;
+  height: 23px;
+  float: right;
+  margin-top: 20px;
+}

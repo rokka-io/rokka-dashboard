@@ -1,0 +1,18 @@
+.rka-uploader {
+  padding: $space-md;
+  border: 2px dashed rgba(0,0,0,.1);
+  text-align: center;
+}
+
+.rka-uploader-hd {
+  margin-bottom: $space-sm;
+  text-transform: uppercase;
+  color: $clr-gray-darkest;
+}
+
+.rka-uploader-icon {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  color: $clr-gray-darker;
+}

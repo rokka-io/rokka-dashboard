@@ -1,0 +1,64 @@
+$LiipEticaBook: 'Liip Etica Book';
+$LiipEticaSemiBold: 'Liip Etica SemiBold';
+
+// Liip Etica Book
+@font-face {
+  font-family: $LiipEticaBook;
+  font-weight: 100;
+  src:  url('../fonts/LFT_Etica_Book_Liip.eot');
+  src:  url('../fonts/LFT_Etica_Book_Liip.eot') format('eot'),
+        url('../fonts/LFT_Etica_Book_Liip.woff') format('woff'),
+        url('../fonts/LFT_Etica_Book_Liip.ttf') format('truetype'),
+        url('../fonts/LiipEticaBk.svg') format('svg');
+}
+
+@font-face {
+  font-family: $LiipEticaBook;
+  font-weight: 400;
+  src:  url('../fonts/LFT_Etica_Book_Liip.eot');
+  src:  url('../fonts/LFT_Etica_Book_Liip.eot') format('eot'),
+        url('../fonts/LFT_Etica_Book_Liip.woff') format('woff'),
+        url('../fonts/LFT_Etica_Book_Liip.ttf') format('truetype'),
+        url('../fonts/LiipEticaBk.svg') format('svg');
+}
+
+@font-face {
+  font-family: $LiipEticaBook;
+  font-weight: 700;
+  src:  url('../fonts/LFT_Etica_Book_Liip.eot');
+  src:  url('../fonts/LFT_Etica_Book_Liip.eot') format('eot'),
+        url('../fonts/LFT_Etica_Book_Liip.woff') format('woff'),
+        url('../fonts/LFT_Etica_Book_Liip.ttf') format('truetype'),
+        url('../fonts/LiipEticaBk.svg') format('svg');
+}
+
+// Liip Etica Bold
+@font-face {
+  font-family: $LiipEticaSemiBold;
+  font-weight: 100;
+  src:  url('../fonts/LFT_Etica_Semibold_Liip.eot');
+  src:  url('../fonts/LFT_Etica_Semibold_Liip.eot') format('eot'),
+        url('../fonts/LFT_Etica_Semibold_Liip.woff') format('woff'),
+        url('../fonts/LFT_Etica_Semibold_Liip.ttf') format('truetype'),
+        url('../fonts/LiipEticaSB.svg') format('svg');
+}
+
+@font-face {
+  font-family: $LiipEticaSemiBold;
+  font-weight: 400;
+  src:  url('../fonts/LFT_Etica_Semibold_Liip.eot');
+  src:  url('../fonts/LFT_Etica_Semibold_Liip.eot') format('eot'),
+        url('../fonts/LFT_Etica_Semibold_Liip.woff') format('woff'),
+        url('../fonts/LFT_Etica_Semibold_Liip.ttf') format('truetype'),
+        url('../fonts/LiipEticaSB.svg') format('svg');
+}
+
+@font-face {
+  font-family: $LiipEticaSemiBold;
+  font-weight: 700;
+  src:  url('../fonts/LFT_Etica_Semibold_Liip.eot');
+  src:  url('../fonts/LFT_Etica_Semibold_Liip.eot') format('eot'),
+        url('../fonts/LFT_Etica_Semibold_Liip.woff') format('woff'),
+        url('../fonts/LFT_Etica_Semibold_Liip.ttf') format('truetype'),
+        url('../fonts/LiipEticaSB.svg') format('svg');
+}

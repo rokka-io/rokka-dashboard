@@ -1,0 +1,27 @@
+body {
+  font-family: $LiipEticaBook;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.rka-h1 {
+  font-family: $font-brand-sb;
+  font-size: $font-xl;
+  line-height: $lin-md;
+}
+
+.rka-h2 {
+  font-size: $font-lg;
+  line-height: $lin-md;
+}
+
+.rka-h3 {
+  font-family: $font-brand-sb;
+  font-size: $font-md;
+  font-weight: $font-bold;
+  line-height: $lin-md;
+}
+
+.rka-link {
+  color: $clr-brand-dark;
+}

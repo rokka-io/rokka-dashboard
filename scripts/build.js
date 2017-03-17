@@ -144,8 +144,8 @@ function build (previousSizeMap) {
     }
 
     if (process.env.CI && stats.compilation.warnings.length) {
-      printErrors('Failed to compile.', stats.compilation.warnings)
-      process.exit(1)
+      console.log('Webpack noticed compilation warnings:', stats.compilation.warnings)
+      console.log('Run webpack locally using `npm start` to check which.')
     }
 
     console.log(chalk.green('Compiled successfully.'))

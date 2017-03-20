@@ -25,6 +25,7 @@ class ImageList extends Component {
     super(props)
 
     this.state = {
+      imageError: false,
       images: {
         items: []
       },
@@ -128,6 +129,10 @@ class ImageList extends Component {
       .catch((err) => {
         console.error(err)
       })
+  }
+
+  handleImageError () {
+    this.setState({ imageError: true })
   }
 
   renderImageList () {

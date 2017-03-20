@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import UserMetadataRow from './UserMetadataRow'
 
 const UserMetadata = ({ metadata, addMetadata, onChange, onClickRemove, onClickAdd }) => (
-  <section className="rka-box">
+  <section className="rka-box mb-n">
     <div className="row">
       <div className="col-md-7">
         <h2 className="rka-h2 mb-md">User metadata</h2>

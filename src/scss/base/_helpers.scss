@@ -185,11 +185,9 @@
 .bg-gray-light { background-color: $clr-gray-lighter; }
 // brand
 .bg-brand { background-color: $clr-brand; }
-
-.bg-chess {
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGklEQVQYlWN48ODBf3TMgA0MBYWDzDkUKQQA/Su1D0qvFnQAAAAASUVORK5CYII=") repeat $clr-white;
-}
-
+.bg-brand-gradient { background: linear-gradient(14deg, $clr-brand-lightest 0%, $clr-brand 58%) }
+// chess (mainly for images)
+.bg-chess { background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGklEQVQYlWN48ODBf3TMgA0MBYWDzDkUKQQA/Su1D0qvFnQAAAAASUVORK5CYII=") repeat $clr-white; }
 
 // borders
 .bor-lightest {
@@ -221,6 +219,3 @@
 
 // Visibility
 .vis-h { visibility: hidden; }
-
-// Height
-.no-min-height { min-height: 0; }

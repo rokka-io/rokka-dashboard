@@ -9,6 +9,7 @@ import NewStack from './components/NewStack'
 import NoStackSelected from './components/NoStackSelected'
 import Stacks from './components/Stacks'
 import Stack from './components/Stack'
+import Signup from './components/Signup'
 
 ReactDOM.render(
   <Router history={hashHistory}>
@@ -17,6 +18,9 @@ ReactDOM.render(
       <Route path="images">
         <IndexRoute component={Images} />
         <Route path=":hash" component={ImageDetail} />
+      </Route>
+      <Route path="signup">
+        <IndexRoute component={Signup} />
       </Route>
       <Route path="stacks" component={Stacks}>
         <IndexRoute component={NoStackSelected} />

@@ -7,6 +7,7 @@ html { height: 100%; }
 body {
   background: linear-gradient($clr-gray-lighter, $clr-gray-light) no-repeat fixed;
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 html, body {

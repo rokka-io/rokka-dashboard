@@ -65,16 +65,39 @@
   }
 }
 
+.rka-signup-container,
 .rka-login-container {
+  word-break: break-word;
   background: $clr-white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
 
+.rka-login-container {
   @include media($desktop) {
-    width: 600px;
+    width: 700px;
     height: 270px;
+  }
+
+  @include media($tablet) {
+    position: absolute;
+    width: 50%;
+  }
+
+  @include media($mobile) {
+    overflow-x: hidden;
+    width: 100%;
+    position: static;
+    transform: translate(0, 0);
+  }
+}
+
+.rka-signup-container {
+  @include media($desktop) {
+    width: 750px;
+    height: 440px;
   }
 
   @include media($tablet) {
@@ -89,17 +112,29 @@
   }
 }
 
+.rka-signup-brand,
 .rka-login-brand {
-  background: $clr-brand;
+  background: linear-gradient(14deg, $clr-brand-lightest 0%, $clr-brand 58%);
   padding: $space-lg $space-md;
   height: 200px;
   border-bottom: 2px solid rgba(0,0,0,.1);
   word-break: normal;
 
   @include media($desktop) {
-    border-right: 2px solid rgba(0,0,0,.1);
     padding: $space-lg $space-lg $space-lg $space-lg;
+  }
+}
+
+.rka-login-brand {
+  @include media($desktop) {
     height: 270px;
+  }
+}
+
+.rka-signup-brand {
+  height: 240px;
+  @include media($desktop) {
+    height: 440px;
   }
 }
 
@@ -116,12 +151,25 @@
   }
 }
 
+.rka-signup-form-container,
 .rka-login-form-container {
   background: $clr-white;
   padding: $space-md;
 
   @include media($desktop) {
     padding: $space-lg $space-lg $space-lg $space-sm;
+  }
+}
+
+.rka-login-form-container {
+  @include media($desktop) {
     height: 270px;
+  }
+}
+
+.rka-signup-form-container {
+  word-break: break-word;
+  @include media($desktop) {
+    height: 440px;
   }
 }

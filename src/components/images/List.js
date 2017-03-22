@@ -25,7 +25,6 @@ class ImageList extends Component {
     super(props)
 
     this.state = {
-      imageError: false,
       images: {
         items: []
       },
@@ -131,10 +130,6 @@ class ImageList extends Component {
       })
   }
 
-  handleImageError () {
-    this.setState({ imageError: true })
-  }
-
   renderImageList () {
     if (this.state.loading) {
       return <Spinner />
@@ -152,7 +147,8 @@ class ImageList extends Component {
       const imgUrl = rokka.render.getUrl(this.props.organization, item.hash, item.format, 'dynamic/noop')
 
       return (
-        <Image key={item.hash} url={imgUrl} {...item} onClick={this.props.onClickImage} className={item.hash === highlight ? 'is-highlighted' : null} />
+        <Image key={item.hash} url={imgUrl} {...item} onClick={this.props.onClickImage}
+          className={item.hash === highlight ? 'is-highlighted' : null} />
       )
     })
   }

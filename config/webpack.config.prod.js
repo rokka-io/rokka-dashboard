@@ -82,6 +82,9 @@ module.exports = {
   },
 
   module: {
+    // Hide warning for using a pre build JS file
+    // https://github.com/webpack/webpack/issues/1617
+    noParse: /node_modules\/ajv\/dist\/ajv.bundle.js/,
     // First, run the linter.
     // It's important to do this before Babel processes the JS.
     preLoaders: [

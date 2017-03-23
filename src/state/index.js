@@ -45,7 +45,7 @@ export function toggleSidebar () {
 }
 
 /**
- * Delete a stack
+ * Delete a Image
  *
  * @param {string} hash
  *

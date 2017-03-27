@@ -3,7 +3,7 @@ import ReactCrop from 'react-image-crop'
 import cx from 'classnames'
 import { authRequired } from '../utils/auth'
 import rokka from '../rokka'
-import { setAlert } from '../state'
+import { deleteImage, setAlert } from '../state'
 import { FOCUS_POINT, FOCUS_AREA } from './imagedetail/constants'
 import Header from './imagedetail/Header'
 import Actions from './imagedetail/Actions'
@@ -12,6 +12,7 @@ import FocusPointSvg from './imagedetail/FocusPointSvg'
 import { calculateScale, calculateClickPosition, scalePosition, calculateRenderedPosition, pixelToPercent } from './imagedetail/cropping'
 import BaseLayout from './layouts/BaseLayout'
 import Spinner from './Spinner'
+import Modal from './Modal'
 
 const EMPTY_FOCUS_AREA = {
   x: 0,
@@ -21,6 +22,7 @@ const EMPTY_FOCUS_AREA = {
 }
 
 const DEFAULT_STATE = {
+  confirmDeleteImage: false,
   activeFocusMenu: false,
   activeFocusForm: false,
   activeFocus: null,
@@ -408,7 +410,56 @@ class ImageDetail extends PureComponent {
     })
   }
 
+  onClickDeleteImage () {
+    this.setState({
+      confirmDeleteImage: true
+    })
+  }
+
+  onCancelDeleteImage () {
+    this.setState({
+      confirmDeleteImage: false
+    })
+  }
+
+  onConfirmDeleteImage () {
+    const { hash } = this.state.image
+
+    deleteImage(hash)
+    .then(() => {
+      setTimeout(() => {
+        this.props.router.push(`/images`)
+        setAlert('success', `Image ${hash} has been deleted.`, 5000)
+      }, 2000)
+    })
+    .catch((err) => {
+      console.error(err)
+
+      this.onCancelDeleteImage()
+      setAlert('error', `Error deleting image ${hash}`, 5000)
+    })
+  }
+
   render () {
+    let $confirmDeleteModal = null
+    if (this.state.confirmDeleteImage) {
+      $confirmDeleteModal = (
+        <Modal onClose={() => this.onCancelDeleteImage()}>
+          <h2 className="rka-h1">Do you really want to delete this image?</h2>
+          <p className="mt-lg mb-md txt-md lh-lg">
+            Please confirm whether your image
+            <span className="txt-bold ml-xs">{this.state.image.hash}</span> should be deleted.
+            This is an operation that cannot be undone.
+          </p>
+          <button className="rka-button rka-button-negative mr-md mt-md" onClick={() => this.onConfirmDeleteImage()}>
+            Yes, delete this image
+          </button>
+          <button className="rka-button rka-button-secondary mt-md" onClick={() => this.onCancelDeleteImage()}>
+            Cancel
+          </button>
+        </Modal>
+      )
+    }
     const { image, subjectArea } = this.state
     if (!image) {
       return <BaseLayout {...this.props}><Spinner /></BaseLayout>
@@ -472,6 +523,10 @@ class ImageDetail extends PureComponent {
           onClickAdd={this.onAddMetadata}
           onClickRemove={this.onRemoveMetadata}
         />
+        <div className="pb-md ph-md bg-white">
+          <button className="rka-button rka-button-negative" onClick={() => this.onClickDeleteImage()}>Delete image</button>
+        </div>
+        {$confirmDeleteModal}
       </BaseLayout>
     )
   }

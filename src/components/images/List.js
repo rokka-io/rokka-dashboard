@@ -147,7 +147,8 @@ class ImageList extends Component {
       const imgUrl = rokka.render.getUrl(this.props.organization, item.hash, item.format, 'dynamic/noop')
 
       return (
-        <Image key={item.hash} url={imgUrl} {...item} onClick={this.props.onClickImage} className={item.hash === highlight ? 'is-highlighted' : null} />
+        <Image key={item.hash} url={imgUrl} {...item} onClick={this.props.onClickImage}
+          className={item.hash === highlight ? 'is-highlighted' : null} />
       )
     })
   }

@@ -1,50 +1,66 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 import cx from 'classnames'
 
-const Image = (props) => {
-  const onClick = (e) => {
-    if (props.onClick) {
-      props.onClick(e, props)
+class Image extends Component {
+  constructor () {
+    super()
+    this.state = {
+      imageError: false
     }
   }
 
-  const classes = cx(
-    'rka-image-tile',
-    props.className,
-    {
-      'is-uploaded': props.uploaded,
-      'is-uploading': !props.uploaded,
-      'is-clickable': props.onClick
+  onClick (e) {
+    if (this.props.onClick) {
+      this.props.onClick(e, this.props)
     }
-  )
+  }
 
-  const specs = [
-    props.format ? props.format.toUpperCase() : null,
-    props.size ? `${Math.round(props.size / 1024)}KB` : null,
-    [props.width || '?', props.height || '?'].join('×')
-  ].filter(line => line).join(', ')
+  handleImgError () {
+    this.setState({ imageError: true })
+  }
 
-  return (
-    <div className="col-md-3 col-sm-6 col-xs-12">
-      <div className={classes}
-        onClick={onClick}>
-        <div className="rka-image-tile-hd">
-          {props.uploaded === true &&
-            <span className="rka-image-checkbox-container">
-              <i className="roka-image-checkbox rka-checkbox-icon is-checked" />
-            </span>
-          }
-          <img src={props.url} alt={props.name} />
-        </div>
-        <div className="rka-image-tile-ft">
-          <div className="rka-image-tile-specs txt-ellipsis" title={specs}>
-            {specs}
+  render () {
+    const classes = cx(
+      'rka-image-tile',
+      this.props.className,
+      {
+        'is-uploaded': this.props.uploaded,
+        'is-uploading': !this.props.uploaded,
+        'is-clickable': this.props.onClick
+      }
+    )
+
+    const specs = [
+      this.props.format ? this.props.format.toUpperCase() : null,
+      this.props.size ? `${Math.round(this.props.size / 1024)}KB` : null,
+      [this.props.width || '?', this.props.height || '?'].join('×')
+    ].filter(line => line).join(', ')
+
+    return (
+      <div className="col-md-3 col-sm-6 col-xs-12">
+        <div className={classes}
+          onClick={(e) => this.onClick(e)}>
+          <div className="rka-image-tile-hd">
+            {this.props.uploaded === true &&
+              <span className="rka-image-checkbox-container">
+                <i className="roka-image-checkbox rka-checkbox-icon is-checked" />
+              </span>
+            }
+            { !this.state.imageError
+              ? <img src={this.props.url} alt={this.props.name} onError={() => this.handleImgError()} />
+              : null
+            }
           </div>
-          <div className="rka-image-tile-name txt-ellipsis" title={props.name}>{props.name}</div>
+          <div className="rka-image-tile-ft">
+            <div className="rka-image-tile-specs txt-ellipsis" title={specs}>
+              {specs}
+            </div>
+            <div className="rka-image-tile-name txt-ellipsis" title={this.props.name}>{this.props.name}</div>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 Image.propTypes = {

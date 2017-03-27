@@ -7,6 +7,7 @@ import Noop from './Noop'
 import Resize from './Resize'
 import Rotate from './Rotate'
 import Trim from './Trim'
+import Blur from './Blur'
 
 const operations = {
   composition: Composition,
@@ -15,7 +16,8 @@ const operations = {
   dropshadow: Dropshadow,
   rotate: Rotate,
   trim: Trim,
-  noop: Noop
+  noop: Noop,
+  blur: Blur
 }
 
 const defaults = {

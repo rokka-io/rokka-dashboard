@@ -53,9 +53,9 @@ export function toggleSidebar () {
  */
 export function deleteImage (hash) {
   return rokka.sourceimages.delete(internalState.auth.organization, hash)
-  .then(() => {
-    clearImages()
-  })
+    .then(() => {
+      clearImages()
+    })
 }
 
 /**

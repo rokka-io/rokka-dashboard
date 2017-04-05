@@ -1,6 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
+import Ajv from 'ajv'
 import { authRequired } from '../utils/auth'
 import { createStack, refreshStacks, setAlert } from '../state'
 import Operation from './operations'
@@ -24,6 +25,30 @@ function generateRandomId () {
 class NewStack extends PureComponent {
   constructor (props) {
     super(props)
+
+    const ajv = new Ajv({
+      allErrors: true
+    })
+
+    this.operationValidators = {}
+    console.log(props.operations, ajv)
+    Object.keys(props.operations).forEach(key => {
+      const operation = props.operations[key]
+      if (key === 'resize') {
+        operation.properties.upscale.type = 'boolean'
+      }
+      if (key === 'dropshadow') {
+        operation.required = operation.properties.required
+        delete operation.properties.required
+      }
+      if (key === 'noop' && Array.isArray(operation.properties)) {
+        operation.properties = {}
+      }
+      if (operation.required && operation.required.length === 0) {
+        delete operation.required
+      }
+      this.operationValidators[key] = ajv.compile(operation)
+    })
 
     this.state = {
       name: '',
@@ -88,7 +113,13 @@ class NewStack extends PureComponent {
 
     let updateOperationsState = false
 
-    const operations = this.state.operations.map((operation) => {
+    const operations = this.state.operations.map(operation => {
+      console.log(this.operationValidators)
+      console.log(this.operationValidators[operation.name](operation.options))
+      console.log(this.operationValidators[operation.name].errors)
+      updateOperationsState = true
+      return operation
+      /*
       const required = this.props.operations[operation.name].required || []
       const addedOptions = Object.keys(operation.options)
       const missing = required.filter((field) => {
@@ -105,7 +136,7 @@ class NewStack extends PureComponent {
         updateOperationsState = true
       }
 
-      return operation
+      return operation */
     })
 
     this.setState({

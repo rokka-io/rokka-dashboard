@@ -131,7 +131,7 @@ Resize.propTypes = {
   values: PropTypes.shape({
     width: PropTypes.string,
     height: PropTypes.string,
-    upscale: PropTypes.string,
+    upscale: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     mode: PropTypes.string,
     filter: PropTypes.string
   }),

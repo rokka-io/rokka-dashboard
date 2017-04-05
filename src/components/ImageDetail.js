@@ -125,9 +125,18 @@ class ImageDetail extends PureComponent {
     rokka.sourceimages.get(organization, hash).then(({ body: image }) => {
       image = transformImage(organization, image)
       const updateState = { image }
-      const subjectArea = getSubjectArea(image)
+      let subjectArea = getSubjectArea(image)
 
       if (subjectArea) {
+        // Temporary fix for ROKKA-148 (x/y set to 0 will result in the API not having this property in the response)
+        // should be fixed in the API. In the meantime fix it for the dashboard at least.
+        subjectArea = {
+          width: subjectArea.width,
+          height: subjectArea.height,
+          x: subjectArea.x || 0,
+          y: subjectArea.y || 0
+        }
+
         const subjectAreaType = subjectArea.width === 1 && subjectArea.height === 1 ? FOCUS_POINT : FOCUS_AREA
         updateState.subjectArea = {
           coords: subjectArea,

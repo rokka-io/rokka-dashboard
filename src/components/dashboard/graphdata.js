@@ -35,6 +35,8 @@ function generateStatsPerDay (perDay, stats, exponent = null) {
     if (perDay[i].isSame(currStats.timestamp, 'day')) {
       data.push(toChartData(currStats, exponent))
       statsIdx++
+    } else {
+      data.push(toChartData({value: 0, timestamp: perDay[i]}))
     }
   }
   if (statsIdx !== stats.length) {
@@ -75,7 +77,7 @@ function getTotals ({ bytes_downloaded, space_in_bytes, number_of_files }) {
  */
 export default function getStats (from, to, data) {
   from = moment(from)
-  const daysDiff = moment(to).diff(from, 'days')
+  const daysDiff = moment(to).diff(from, 'days') + 1
   const statsPerDay = Array(daysDiff).fill().map((_, i) => from.clone().add(i, 'day'))
 
   const totals = getTotals(data)

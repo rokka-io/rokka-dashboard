@@ -13,6 +13,13 @@
   padding: $space-sm;
 }
 
+.click-div {
+ cursor: pointer;
+}
+
+.click-div:hover {
+  background: #d7d7d2;
+}
 
 .react-date-picker__month-view--theme-default {
   font-family: $font-brand;
@@ -98,6 +105,11 @@
       &:before {
         background: $clr-brand;
       }
+
+      &:hover {
+        background: #6EA644 padding-box;
+        border: 2px solid transparent;
+      }
     }
   }
 
@@ -145,6 +157,16 @@
   .react-date-picker__month-view-day--range-start {
     .react-date-picker__month-view-day-text {
       background: #4d852c padding-box;
+    }
+  }
+}
+
+.react-date-picker__nav-bar--theme-default {
+  .react-date-picker__nav-bar-arrow {
+    fill: #b9b9b9;
+
+    &:hover {
+      fill: #5c5c5c;
     }
   }
 }

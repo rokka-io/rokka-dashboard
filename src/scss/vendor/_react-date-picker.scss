@@ -30,6 +30,10 @@
     &.react-date-picker__month-view-day--prev-month {
       color: $clr-gray;
     }
+
+    &.react-date-picker__month-view-day--disabled {
+      color: $clr-gray;
+    }
   }
   .react-date-picker__month-view-day--next-month {
     color: $clr-gray;
@@ -159,14 +163,30 @@
       background: #4d852c padding-box;
     }
   }
+
+  .react-date-picker__month-view-day--disabled {
+    cursor: not-allowed;
+
+    .react-date-picker__month-view-day-text {
+      cursor: not-allowed;
+    }
+  }
 }
 
 .react-date-picker__nav-bar--theme-default {
   .react-date-picker__nav-bar-arrow {
-    fill: #676767;
+    fill: #b8b8b8;
 
     &:hover {
-      fill: #676767;
+      fill: #676767 !important;
+    }
+  }
+
+  .react-date-picker__nav-bar-arrow--disabled {
+    cursor: not-allowed;
+
+    &:hover {
+      fill: #b8b8b8 !important;
     }
   }
 }

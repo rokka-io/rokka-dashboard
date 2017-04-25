@@ -21,6 +21,7 @@ class Calendar extends PureComponent {
               onRangeChange={onRangeChange}
               weekNumbers={false}
               locale="en"
+              maxDate={new Date()}
               highlightRangeOnMouseMove
               enableHistoryView={false}
               weekStartDay={1}

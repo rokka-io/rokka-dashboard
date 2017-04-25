@@ -66,18 +66,11 @@ class Stats extends PureComponent {
       })
   }
 
-  render () {
+  renderStatistics () {
     const { stats, totals, symbols } = this.state.stats
-    if (!stats) {
-      return <Spinner />
-    }
 
     return (
       <div>
-        <div className="mb-md clearfix">
-          <h1 className="rka-h1 flo-l">Dashboard</h1>
-          {this.statsDateRange()}
-        </div>
         <div className="row">
           <div className="col-md-4 col-sm-4 txt-c">
             <div className="rka-box no-min-height">
@@ -116,6 +109,20 @@ class Stats extends PureComponent {
             </div>
           </div>
         </div>
+      </div>
+    )
+  }
+
+  render () {
+    const { stats } = this.state.stats
+
+    return (
+      <div>
+        <div className="mb-md clearfix">
+          <h1 className="rka-h1 flo-l">Dashboard</h1>
+          {this.statsDateRange()}
+        </div>
+        { stats ? this.renderStatistics() : <Spinner /> }
       </div>
     )
   }

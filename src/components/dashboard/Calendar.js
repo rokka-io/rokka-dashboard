@@ -19,7 +19,6 @@ class Calendar extends PureComponent {
           <div tabIndex="0" className="flo-r mt-xs calendar-wrapper dis-b" ref={calendarRef}>
             <MonthView
               onRangeChange={onRangeChange}
-              theme={null}
               weekNumbers={false}
               locale="en"
               highlightRangeOnMouseMove

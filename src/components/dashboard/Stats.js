@@ -2,7 +2,6 @@ import React, { PureComponent, PropTypes } from 'react'
 import moment from 'moment'
 import rokka from '../../rokka'
 import Chart from './Chart'
-// import Spinner from '../Spinner'
 import getStats from './graphdata'
 import Calendar from './Calendar'
 
@@ -119,8 +118,6 @@ class Stats extends PureComponent {
   }
 
   render () {
-    // const { stats } = this.state.stats
-
     return (
       <div>
         <div className="mb-md clearfix">

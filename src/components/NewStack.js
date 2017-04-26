@@ -132,9 +132,15 @@ class NewStack extends PureComponent {
 
   onChange (idx, e) {
     const target = e.currentTarget
-    const value = target.value
+    let value = target.value
     const name = target.name
     let operation = this.state.operations[idx]
+
+    const operationDefinition = this.props.operations[operation.name]
+
+    if (operationDefinition && operationDefinition.properties[name].type === 'bool') {
+      value = value === 'true'
+    }
 
     operation = Object.assign({}, operation, {
       options: Object.assign({}, operation.options, {

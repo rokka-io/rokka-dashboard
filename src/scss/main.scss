@@ -40,8 +40,11 @@
 @import 'components/spinner';
 
 // vendor
+@import 'vendor/react-date-picker';
 @import 'vendor/react-select';
 @import 'reactcrop';
+
+@import '~react-date-picker/index.css';
 
 // helpers
 @import 'base/helpers';

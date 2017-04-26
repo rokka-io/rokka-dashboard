@@ -60,6 +60,8 @@
     "moment": "^2.17.1",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
+    "react-click-outside": "^2.2.0",
+    "react-date-picker": "^5.3.28",
     "react-dnd": "^2.2.3",
     "react-dnd-html5-backend": "^2.2.3",
     "react-dom": "^15.4.2",

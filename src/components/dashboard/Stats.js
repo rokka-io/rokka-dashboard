@@ -4,16 +4,22 @@ import rokka from '../../rokka'
 import Chart from './Chart'
 import Spinner from '../Spinner'
 import getStats from './graphdata'
+import Calendar from './Calendar'
 
 class Stats extends PureComponent {
+
   constructor () {
     super()
 
     this.state = {
       from: moment().subtract(1, 'months'),
       to: moment(),
-      stats: {}
+      stats: {},
+      showCalendar: false
     }
+
+    this.onRangeChange = this.onRangeChange.bind(this)
+    this.onBlurHideCalendar = this.onBlurHideCalendar.bind(this)
   }
 
   componentDidMount () {
@@ -21,19 +27,34 @@ class Stats extends PureComponent {
   }
 
   statsDateRange () {
-    const { from, to } = this.state
     return (
-      <p className="flo-r rka-h2 mt-xs">
-        {from.toDate().toLocaleDateString()}
-        <span className="ph-sm">-</span>
-        {to.toDate().toLocaleDateString()}
-      </p>
+      <Calendar
+        onBlurHideCalendar={this.onBlurHideCalendar}
+        onRangeChange={this.onRangeChange}
+        from={this.state.from} to={this.state.to}
+        calendarRef={(calendarRef) => { this.calendarRef = calendarRef }}
+        dateClick={() => { this.setState({showCalendar: !this.state.showCalendar}, () => this.calendarRef.focus()) }}
+        showCalendar={this.state.showCalendar}
+      />
     )
+  }
+
+  onRangeChange (dateString, [from, to], event) {
+    if (!from || !to || !event) {
+      return
+    }
+    this.setState({from: from.dateMoment, to: to.dateMoment, showCalendar: false, stats: {}}, () => this.fetchStats())
+  }
+
+  onBlurHideCalendar (event) {
+    this.setState({showCalendar: false})
   }
 
   fetchStats () {
     const { from, to } = this.state
-    rokka.stats.get(this.props.organization, from.format('YYYY-MM-DD'), to.format('YYYY-MM-DD'))
+    const toPlusOne = to.clone()
+    toPlusOne.add(1, 'day') // We add one day because the API returns the last picked day as 0 Traffic/Storage
+    rokka.stats.get(this.props.organization, from.format('YYYY-MM-DD'), toPlusOne.format('YYYY-MM-DD'))
       .then(({ body }) => {
         this.setState({
           stats: getStats(from, to, body)
@@ -44,18 +65,11 @@ class Stats extends PureComponent {
       })
   }
 
-  render () {
+  renderStatistics () {
     const { stats, totals, symbols } = this.state.stats
-    if (!stats) {
-      return <Spinner />
-    }
 
     return (
       <div>
-        <div className="mb-md clearfix">
-          <h1 className="rka-h1 flo-l">Dashboard</h1>
-          {this.statsDateRange()}
-        </div>
         <div className="row">
           <div className="col-md-4 col-sm-4 txt-c">
             <div className="rka-box no-min-height">
@@ -94,6 +108,20 @@ class Stats extends PureComponent {
             </div>
           </div>
         </div>
+      </div>
+    )
+  }
+
+  render () {
+    const { stats } = this.state.stats
+
+    return (
+      <div>
+        <div className="mb-md clearfix">
+          <h1 className="rka-h1 flo-l">Dashboard</h1>
+          {this.statsDateRange()}
+        </div>
+        { stats ? this.renderStatistics() : <Spinner /> }
       </div>
     )
   }

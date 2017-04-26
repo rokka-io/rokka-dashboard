@@ -2,7 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import moment from 'moment'
 import rokka from '../../rokka'
 import Chart from './Chart'
-import Spinner from '../Spinner'
+// import Spinner from '../Spinner'
 import getStats from './graphdata'
 import Calendar from './Calendar'
 
@@ -72,39 +72,45 @@ class Stats extends PureComponent {
       <div>
         <div className="row">
           <div className="col-md-4 col-sm-4 txt-c">
-            <div className="rka-box no-min-height">
-              <div className="txt-xl pb-sm txt-brand">{totals.traffic.toLocaleString()} {symbols.traffic}</div>
+            <div className="rka-box rka-box-dashboard-short">
+              <div className="txt-xl pb-sm txt-brand">
+                {totals ? totals.traffic.toLocaleString() + symbols.traffic : '-'}
+              </div>
               <div className="txt-md">Traffic</div>
             </div>
           </div>
           <div className="col-md-4 col-sm-4 txt-c">
-            <div className="rka-box no-min-height">
-              <div className="txt-xl pb-sm txt-brand">{totals.space.toLocaleString()} {symbols.space}</div>
+            <div className="rka-box rka-box-dashboard-short">
+              <div className="txt-xl pb-sm txt-brand">
+                {totals ? totals.space.toLocaleString() + symbols.space : '-' }
+              </div>
               <div className="txt-md">Storage</div>
             </div>
           </div>
           <div className="col-md-4 col-sm-4 txt-c">
-            <div className="rka-box no-min-height">
-              <div className="txt-xl pb-sm txt-brand">{totals.files.toLocaleString()}</div>
+            <div className="rka-box rka-box-dashboard-short">
+              <div className="txt-xl pb-sm txt-brand">
+                {totals ? totals.files.toLocaleString() : '-'}
+              </div>
               <div className="txt-md">Images</div>
             </div>
           </div>
         </div>
-        <div className="rka-box">
-          <h2 className="rka-h2">Traffic in {symbols.traffic}</h2>
-          <Chart type="area" data={stats.traffic} yPointSymbol={`{value} ${symbols.traffic}`} />
+        <div className="rka-box rka-box-dashboard-tall">
+          <h2 className="rka-h2">Traffic in {symbols ? symbols.traffic : null}</h2>
+          {stats ? <Chart type="area" data={stats.traffic} yPointSymbol={`{value} ${symbols.traffic}`} /> : null}
         </div>
         <div className="row">
           <div className="col-md-6 col-sm-6">
-            <div className="rka-box">
-              <h2 className="rka-h2">Storage in {symbols.space}</h2>
-              <Chart type="column" data={stats.space} yPointSymbol={`{value} ${symbols.space}`} />
+            <div className="rka-box rka-box-dashboard-tall">
+              <h2 className="rka-h2">Storage in {symbols ? symbols.space : null}</h2>
+              {stats ? <Chart type="column" data={stats.space} yPointSymbol={`{value} ${symbols.space}`} /> : null}
             </div>
           </div>
           <div className="col-md-6 col-sm-6">
-            <div className="rka-box">
+            <div className="rka-box rka-box-dashboard-tall">
               <h2 className="rka-h2">Number of images</h2>
-              <Chart type="column" data={stats.files} />
+              {stats ? <Chart type="column" data={stats.files} /> : null}
             </div>
           </div>
         </div>
@@ -113,7 +119,7 @@ class Stats extends PureComponent {
   }
 
   render () {
-    const { stats } = this.state.stats
+    // const { stats } = this.state.stats
 
     return (
       <div>
@@ -121,7 +127,7 @@ class Stats extends PureComponent {
           <h1 className="rka-h1 flo-l">Dashboard</h1>
           {this.statsDateRange()}
         </div>
-        { stats ? this.renderStatistics() : <Spinner /> }
+        {this.renderStatistics()}
       </div>
     )
   }

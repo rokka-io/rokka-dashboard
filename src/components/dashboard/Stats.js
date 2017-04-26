@@ -27,7 +27,6 @@ class Stats extends PureComponent {
   }
 
   statsDateRange () {
-    /* const { from, to } = this.state */
     return (
       <Calendar
         onBlurHideCalendar={this.onBlurHideCalendar}
@@ -54,7 +53,7 @@ class Stats extends PureComponent {
   fetchStats () {
     const { from, to } = this.state
     const toPlusOne = to.clone()
-    toPlusOne.add(1, 'day')
+    toPlusOne.add(1, 'day') // We add one day because the API returns the last picked day as 0 Traffic/Storage
     rokka.stats.get(this.props.organization, from.format('YYYY-MM-DD'), toPlusOne.format('YYYY-MM-DD'))
       .then(({ body }) => {
         this.setState({

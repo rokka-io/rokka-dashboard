@@ -131,7 +131,7 @@ class Stack extends Component {
           <h2 className="rka-h1">Do you really want to delete this stack?</h2>
           <p className="mt-lg mb-md txt-md lh-lg">
             Please confirm whether your stack
-            <span className="txt-bold">{this.state.stack.name}</span> should be deleted.
+            <span className="txt-bold"> {this.state.stack.name}</span> should be deleted.
             This is an operation that cannot be undone.
           </p>
           <button className="rka-button rka-button-negative mr-md mt-md" onClick={() => this.onConfirmDeleteStack()}>

@@ -21,7 +21,7 @@ function toChartData ({ value, timestamp }, exponent = null) {
 
 function generateStatsPerDay (perDay, stats, exponent = null) {
   const timestamps = stats.map((stat, index) => ({ index, value: moment(stat.timestamp).valueOf() }))
-  timestamps.sort((a, b) => moment(a) - moment(b)).reverse()
+  timestamps.reverse()
   stats = timestamps.map(stat => stats[stat.index])
 
   const data = []
@@ -77,7 +77,7 @@ function getTotals ({ bytes_downloaded, space_in_bytes, number_of_files }) {
  */
 export default function getStats (from, to, data) {
   from = moment(from)
-  const daysDiff = moment(to).diff(from, 'days') + 1
+  const daysDiff = moment(to).diff(from, 'days') + 1 // One is added because the API return one less
   const statsPerDay = Array(daysDiff).fill().map((_, i) => from.clone().add(i, 'day'))
 
   const totals = getTotals(data)

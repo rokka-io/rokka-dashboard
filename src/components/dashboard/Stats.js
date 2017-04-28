@@ -73,7 +73,7 @@ class Stats extends PureComponent {
           <div className="col-md-4 col-sm-4 txt-c">
             <div className="rka-box rka-box-dashboard-short no-min-height">
               <div className="txt-xl pb-sm txt-brand">
-                {totals ? totals.traffic.toLocaleString() + symbols.traffic : '-'}
+                {totals ? `${totals.traffic.toLocaleString()} ${symbols.traffic}` : '-'}
               </div>
               <div className="txt-md">Traffic</div>
             </div>
@@ -81,7 +81,7 @@ class Stats extends PureComponent {
           <div className="col-md-4 col-sm-4 txt-c">
             <div className="rka-box rka-box-dashboard-short no-min-height">
               <div className="txt-xl pb-sm txt-brand">
-                {totals ? totals.space.toLocaleString() + symbols.space : '-' }
+                {totals ? `${totals.space.toLocaleString()} ${symbols.space}` : '-' }
               </div>
               <div className="txt-md">Storage</div>
             </div>

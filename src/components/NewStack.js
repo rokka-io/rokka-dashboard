@@ -236,7 +236,7 @@ class NewStack extends PureComponent {
 
   render () {
     const error = this.state.error ? <div className="rka-alert is-error mb-lg">{this.state.error}</div> : null
-    console.log(this.props.operations)
+
     let $previewButton = null
     if (this.props.previewImage) {
       $previewButton = (

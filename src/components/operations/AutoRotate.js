@@ -10,8 +10,11 @@ class AutoRotate extends Component {
 
   render () {
     const { defaults, values, errors = {} } = this.props
+    // change rotation direction property to what will be decided in the following ticket:
+    // https://jira.liip.ch/browse/ROKKA-157
+    defaults.rotationdirection = defaults.rotation_direction
 
-    const $rotationDirectionOptions = defaults.rotation_direction.values
+    const $rotationDirectionOptions = defaults.rotationdirection.values
     .map((option) => {
       return (
         <option key={option} value={option}>
@@ -49,13 +52,13 @@ class AutoRotate extends Component {
           </FormGroup>
         </div>
         <div className="col-md-4">
-          <FormGroup label="Rotation direction" required={this.isRequired('rotation_direction')}
-            error={errors.rotation_direction}>
+          <FormGroup label="Rotation direction" required={this.isRequired('rotationdirection')}
+            error={errors.rotationdirection}>
             <Select
-              name="rotation_direction"
+              name="rotationdirection"
               className="rka-select"
-              value={values.rotation_direction}
-              defaultValue={defaults.rotation_direction.default}
+              value={values.rotationdirection}
+              defaultValue={defaults.rotationdirection.default}
               onChange={this.props.onChange}>
               {$rotationDirectionOptions}
             </Select>
@@ -77,14 +80,14 @@ AutoRotate.propTypes = {
       min: PropTypes.number,
       max: PropTypes.number
     }),
-    rotation_direction: PropTypes.shape({
+    rotationdirection: PropTypes.shape({
       values: PropTypes.array
     })
   }),
   values: PropTypes.shape({
     height: PropTypes.string,
     width: PropTypes.string,
-    rotation_direction: PropTypes.string
+    rotationdirection: PropTypes.string
   }),
   required: PropTypes.array.isRequired,
   errors: PropTypes.object

@@ -5,6 +5,7 @@ import Crop from './Crop'
 import Dropshadow from './Dropshadow'
 import Noop from './Noop'
 import Resize from './Resize'
+import AutoRotate from './AutoRotate'
 import Rotate from './Rotate'
 import Trim from './Trim'
 import Blur from './Blur'
@@ -14,6 +15,7 @@ const operations = {
   crop: Crop,
   resize: Resize,
   dropshadow: Dropshadow,
+  autorotate: AutoRotate,
   rotate: Rotate,
   trim: Trim,
   noop: Noop,

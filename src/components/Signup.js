@@ -1,8 +1,39 @@
-import React, { Component, PropTypes } from 'react'
-import { authRequired } from '../utils/auth'
+import React, { Component } from 'react'
+import rokka from '../rokka'
 import FramelessLayout from './layouts/FramelessLayout'
 
 class Signup extends Component {
+
+  constructor () {
+    super()
+
+    this.state = {
+      email: '',
+      organization: ''
+    }
+
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  onSubmit (e) {
+    e.preventDefault()
+    console.log(this.state.email)
+    console.log(this.state.organization)
+    rokka.users.create(this.state.email, this.state.organization).then(response => {
+      console.log(response)
+    }).catch()
+  }
+
+  onChange (e) {
+    const target = e.target
+    const value = target.value
+    const name = target.name
+
+    this.setState({
+      [name]: value
+    })
+  }
+
   render () {
     return (
       <FramelessLayout {...this.props}>
@@ -19,25 +50,15 @@ class Signup extends Component {
             </div>
             <div className="col-md-7">
               <div className="rka-signup-form-container">
-                <form onSubmit={this.onLogin}>
-                  <div className="rka-form-group">
-                    <label className="rka-label" htmlFor="name">What should we call you?</label>
-                    <input className="rka-input-txt" type="text" id="name" name="name"
-                      onChange={(e) => this.onChange(e)} />
-                  </div>
+                <form onSubmit={this.onSubmit}>
                   <div className="rka-form-group">
                     <label className="rka-label" htmlFor="organization">Organization</label>
-                    <input className="rka-input-txt" type="text" id="organization" name="organization"
+                    <input className="rka-input-txt" type="text" value={this.state.organization} id="organization" name="organization"
                       onChange={(e) => this.onChange(e)} />
                   </div>
                   <div className="rka-form-group">
                     <label className="rka-label" htmlFor="email">E-mail</label>
-                    <input className="rka-input-txt" type="email" id="email" name="email"
-                      onChange={(e) => this.onChange(e)} />
-                  </div>
-                  <div className="rka-form-group">
-                    <label className="rka-label" htmlFor="description">Describe where and how you plan to use rokka</label>
-                    <input className="rka-input-txt" type="text" id="description" name="description"
+                    <input className="rka-input-txt" value={this.state.email} type="email" id="email" name="email"
                       onChange={(e) => this.onChange(e)} />
                   </div>
                   <input className="rka-button rka-button-brand mt-sm" type="submit" value="Start free trial" />
@@ -55,8 +76,4 @@ class Signup extends Component {
   }
 }
 
-Signup.propTypes = {
-  auth: PropTypes.object
-}
-
-export default authRequired(Signup)
+export default Signup

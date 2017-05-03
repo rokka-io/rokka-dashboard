@@ -9,6 +9,7 @@ import previewImage from './images/previewImage'
 import Spinner from './Spinner'
 import Alert from './Alert'
 import rokka from '../rokka'
+import Options from './Options'
 
 function randomNumber (min, max) {
   return Math.random() * (max - min) + min
@@ -27,6 +28,11 @@ class NewStack extends PureComponent {
 
     this.state = {
       name: '',
+      options: {
+        'png.compression_level': '7',
+        'jpg.quality': '76',
+        'interlacing.mode': 'plane'
+      },
       operations: [],
       operationErrors: {},
       error: null,
@@ -42,6 +48,7 @@ class NewStack extends PureComponent {
 
     this.onChange = this.onChange.bind(this)
     this.onChangeName = this.onChangeName.bind(this)
+    this.onChangeOptions = this.onChangeOptions.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
     this.addOperation = this.addOperation.bind(this)
     this.removeOperation = this.removeOperation.bind(this)
@@ -162,6 +169,18 @@ class NewStack extends PureComponent {
     })
   }
 
+  onChangeOptions (event) {
+    const target = event.target
+    const value = target.type === 'checkbox' ? target.checked : target.value
+    const name = target.name
+
+    this.setState({
+      options: Object.assign({}, this.state.options, {
+        [name]: value
+      })
+    })
+  }
+
   onMoveOperation (dragIndex, hoverIndex) {
     let { operations, activeOperation } = this.state
     const dragOperation = operations[dragIndex]
@@ -273,6 +292,8 @@ class NewStack extends PureComponent {
               <FormGroup label="Name" required>
                 <input type="text" className="rka-input-txt" id="name" name="name" onChange={this.onChangeName} />
               </FormGroup>
+
+              <Options options={this.state.options} onChange={this.onChangeOptions} />
 
               {this.state.operations.map((operation, index) => {
                 return <Operation

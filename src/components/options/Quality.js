@@ -6,14 +6,16 @@ class Quality extends Component {
   render () {
     return (
       <FormGroup label="Image quality">
-        <InputRange min={0} max={100} value={this.props.value} />
+        <InputRange onChange={this.props.onChange} min={0} max={100} value={this.props.value} />
       </FormGroup>
     )
   }
 }
 
 Quality.propTypes = {
-  value: PropTypes.string
+  value: PropTypes.string,
+  onChange: PropTypes.func
+
 }
 
 export default Quality

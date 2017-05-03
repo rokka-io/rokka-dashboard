@@ -6,14 +6,15 @@ class Compression extends Component {
   render () {
     return (
       <FormGroup label="Image compression">
-        <InputRange disabled min={0} max={9} value={this.props.value} />
+        <InputRange onChange={this.props.onChange} min={0} max={9} value={this.props.value} />
       </FormGroup>
     )
   }
 }
 
 Compression.propTypes = {
-  value: PropTypes.string
+  value: PropTypes.string,
+  onChange: PropTypes.func
 }
 
 export default Compression

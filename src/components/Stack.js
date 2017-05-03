@@ -1,15 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 import cx from 'classnames'
 import { authRequired } from '../utils/auth'
-import CompressionOption from './options/Compression'
-import QualityOption from './options/Quality'
-import InterlacingOption from './options/Interlacing'
+
 import Modal from './Modal'
 import previewImage from './images/previewImage'
 
 import factory from './operations/factory'
 import rokka from '../rokka'
 import { deleteStack, setAlert } from '../state'
+import Options from './Options'
 
 const getStackByName = (stacks, name) => {
   let result
@@ -105,22 +104,7 @@ class Stack extends Component {
     let $options = null
     if (options) {
       $options = (
-        <div>
-          <h3 className="rka-h2 mv-md">Options</h3>
-          <div className="bg-gray-lightest pa-md bor-light">
-            <div className="row">
-              <div className="col-md-6">
-                <CompressionOption value={options['png.compression_level']} />
-              </div>
-              <div className="col-md-6">
-                <QualityOption value={options['jpg.quality']} />
-              </div>
-              <div className="col-md-12">
-                <InterlacingOption value={options['interlacing.mode']} />
-              </div>
-            </div>
-          </div>
-        </div>
+        <Options options={options} />
       )
     }
 

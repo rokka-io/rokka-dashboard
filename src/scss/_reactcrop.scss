@@ -19,7 +19,7 @@ $drag-bar-mobile-size: $drag-bar-size + 8;
   overflow: hidden;
   max-width: 100%;
 
-  &.ReactCrop--disabled {
+  &.ReactCrop__disabled {
     cursor: inherit;
   }
 }
@@ -28,18 +28,18 @@ $drag-bar-mobile-size: $drag-bar-size + 8;
   outline: none;
 }
 
-.ReactCrop--image {
+.ReactCrop__image {
   display: block;
   max-width: 100%;
 }
-.ReactCrop--image-copy {
+.ReactCrop__image-copy {
   position: absolute;
   top: 0;
   left: 0;
   max-width: 100%;
 }
 
-.ReactCrop--crop-wrapper {
+.ReactCrop__crop-wrapper {
   position: absolute;
   top: 0;
   right: 0;
@@ -48,15 +48,16 @@ $drag-bar-mobile-size: $drag-bar-size + 8;
   background-color: $cropped-area-overlay-color;
 }
 
-.ReactCrop--crop-selection {
+.ReactCrop__crop-selection {
   position: absolute;
   top: 0;
   left: 0;
   transform: translate3d(0,0,0);
   box-sizing: border-box;
   cursor: move;
+  box-shadow: 0 0 0 9999em rgba(0,0,0,.5);
 
-  .ReactCrop--disabled & {
+  .ReactCrop__disabled & {
     cursor: inherit;
   }
 
@@ -66,7 +67,7 @@ $drag-bar-mobile-size: $drag-bar-size + 8;
   border-image-repeat: repeat;
 }
 
-.ReactCrop--drag-handle {
+.ReactCrop__drag-handle {
   position: absolute;
   width: $drag-handle-width;
   height: $drag-handle-height;
@@ -138,35 +139,35 @@ $drag-bar-mobile-size: $drag-bar-size + 8;
 
 // Use the same specificity as the ords above but just
 // come after.
-.ReactCrop--disabled .ReactCrop--drag-handle {
+.ReactCrop__disabled .ReactCrop__drag-handle {
   cursor: inherit;
 }
 
-.ReactCrop--drag-bar {
+.ReactCrop__drag-bar {
   position: absolute;
 }
-.ReactCrop--drag-bar.ord-n {
+.ReactCrop__drag-bar.ord-n {
   top: 0;
   left: 0;
   width: 100%;
   height: $drag-bar-size;
   margin-top: -($drag-bar-size - 2);
 }
-.ReactCrop--drag-bar.ord-e {
+.ReactCrop__drag-bar.ord-e {
   right: 0;
   top: 0;
   width: $drag-bar-size;
   height: 100%;
   margin-right: -($drag-bar-size - 2);
 }
-.ReactCrop--drag-bar.ord-s {
+.ReactCrop__drag-bar.ord-s {
   bottom: 0;
   left: 0;
   width: 100%;
   height: $drag-bar-size;
   margin-bottom: -($drag-bar-size - 2);
 }
-.ReactCrop--drag-bar.ord-w {
+.ReactCrop__drag-bar.ord-w {
   top: 0;
   left: 0;
   width: $drag-bar-size;
@@ -174,21 +175,21 @@ $drag-bar-mobile-size: $drag-bar-size + 8;
   margin-left: -($drag-bar-size - 2);
 }
 
-.ReactCrop-new-crop .ReactCrop--drag-bar,
-.ReactCrop-new-crop .ReactCrop--drag-handle,
-.ReactCrop-fixed-aspect .ReactCrop--drag-bar {
+.ReactCrop-new-crop .ReactCrop__drag-bar,
+.ReactCrop-new-crop .ReactCrop__drag-handle,
+.ReactCrop-fixed-aspect .ReactCrop__drag-bar {
   display: none;
 }
 
-.ReactCrop-fixed-aspect .ReactCrop--drag-handle.ord-n,
-.ReactCrop-fixed-aspect .ReactCrop--drag-handle.ord-e,
-.ReactCrop-fixed-aspect .ReactCrop--drag-handle.ord-s,
-.ReactCrop-fixed-aspect .ReactCrop--drag-handle.ord-w {
+.ReactCrop-fixed-aspect .ReactCrop__drag-handle.ord-n,
+.ReactCrop-fixed-aspect .ReactCrop__drag-handle.ord-e,
+.ReactCrop-fixed-aspect .ReactCrop__drag-handle.ord-s,
+.ReactCrop-fixed-aspect .ReactCrop__drag-handle.ord-w {
   display: none;
 }
 
 @media (max-width: $mobile-max-width) {
-  .ReactCrop--drag-handle {
+  .ReactCrop__drag-handle {
     width: $drag-handle-mobile-width;
     height: $drag-handle-mobile-height;
   }
@@ -226,19 +227,19 @@ $drag-bar-mobile-size: $drag-bar-size + 8;
     margin-left: -(ceil($drag-handle-mobile-width / 2));
   }
 
-  .ReactCrop--drag-bar.ord-n {
+  .ReactCrop__drag-bar.ord-n {
     height: $drag-bar-mobile-size;
     margin-top: -($drag-bar-mobile-size - 2);
   }
-  .ReactCrop--drag-bar.ord-e {
+  .ReactCrop__drag-bar.ord-e {
     width: $drag-bar-mobile-size;
     margin-right: -($drag-bar-mobile-size - 2);
   }
-  .ReactCrop--drag-bar.ord-s {
+  .ReactCrop__drag-bar.ord-s {
     height: $drag-bar-mobile-size;
     margin-bottom: -($drag-bar-mobile-size - 2);
   }
-  .ReactCrop--drag-bar.ord-w {
+  .ReactCrop__drag-bar.ord-w {
     width: $drag-bar-mobile-size;
     margin-left: -($drag-bar-mobile-size - 2);
   }

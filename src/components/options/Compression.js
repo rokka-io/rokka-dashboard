@@ -6,7 +6,7 @@ class Compression extends Component {
   render () {
     return (
       <FormGroup label="Image compression">
-        <InputRange onChange={this.props.onChange} min={0} max={9} value={this.props.value} />
+        <InputRange onChange={this.props.onChange} min={0} max={9} name="png.compression_level" value={this.props.value} />
       </FormGroup>
     )
   }

@@ -29,9 +29,9 @@ class NewStack extends PureComponent {
     this.state = {
       name: '',
       options: {
-        'png.compression_level': '7',
-        'jpg.quality': '76',
-        'interlacing.mode': 'plane'
+        'png.compression_level': null,
+        'jpg.quality': null,
+        'interlacing.mode': null
       },
       operations: [],
       operationErrors: {},
@@ -293,7 +293,7 @@ class NewStack extends PureComponent {
                 <input type="text" className="rka-input-txt" id="name" name="name" onChange={this.onChangeName} />
               </FormGroup>
 
-              <Options options={this.state.options} onChange={this.onChangeOptions} />
+              <Options defaultOptions={this.props.stackOptions} options={this.state.options} onChange={this.onChangeOptions} />
 
               {this.state.operations.map((operation, index) => {
                 return <Operation
@@ -370,6 +370,7 @@ NewStack.propTypes = {
     organization: PropTypes.string.isRequired
   }).isRequired,
   operations: PropTypes.object.isRequired,
+  stackOptions: PropTypes.object.isRequired,
   router: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,

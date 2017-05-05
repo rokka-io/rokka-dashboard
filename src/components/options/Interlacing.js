@@ -10,7 +10,12 @@ class Interlacing extends Component {
     .map((option) => {
       return (
         <label key={option} className="rka-checkbox is-disabled">
-          <Input className="rka-checkbox-input" type="radio" name="interlacing.mode" value={option}
+          <Input className="rka-checkbox-input" type="radio"
+            none={this.props.none}
+            line={this.props.line}
+            plane={this.props.plane}
+            partition={this.props.partition}
+            name="interlacing.mode" value={option}
             disabled={!this.props.onChange}
             defaultChecked={this.props.value === option}
             onChange={this.props.onChange} />
@@ -29,6 +34,10 @@ class Interlacing extends Component {
 
 Interlacing.propTypes = {
   value: PropTypes.string,
+  none: PropTypes.string,
+  line: PropTypes.string,
+  plane: PropTypes.string,
+  partition: PropTypes.string,
   onChange: PropTypes.func
 
 }

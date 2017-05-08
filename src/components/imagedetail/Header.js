@@ -13,7 +13,7 @@ const Header = ({ image, focusMenuActive, onClickToggleFocusMenu, onClickSave })
         <span className="mr-sm">{`${Math.round(image.size / 1024)}KB`},</span>
         <span className="mr-sm">{[image.width || '?', image.height || '?'].join('×')},</span>
         <span className="mr-sm">{image.format.toUpperCase()},</span>
-        <a className="rka-link" href={image.url} target="_blank">
+        <a className="rka-link rka-hash-link" href={image.url} target="_blank" >
           {image.hash}
           <svg className="rka-link-icon">
             <use xlinkHref={linkicon + '#linkicon'} />

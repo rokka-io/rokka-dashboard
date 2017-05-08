@@ -4,17 +4,10 @@ import FormGroup from '../forms/FormGroup'
 
 class Interlacing extends Component {
   render () {
-    const INTERLACING_OPTIONS = ['none', 'line', 'plane', 'partition']
-
-    const $interlacingOptions = INTERLACING_OPTIONS
-    .map((option) => {
+    const $interlacingOptions = this.props.options.map((option) => {
       return (
         <label key={option} className="rka-checkbox is-disabled">
           <Input className="rka-checkbox-input" type="radio"
-            none={this.props.none}
-            line={this.props.line}
-            plane={this.props.plane}
-            partition={this.props.partition}
             name="interlacing.mode" value={option}
             disabled={!this.props.onChange}
             defaultChecked={this.props.value === option}
@@ -34,12 +27,8 @@ class Interlacing extends Component {
 
 Interlacing.propTypes = {
   value: PropTypes.string,
-  none: PropTypes.string,
-  line: PropTypes.string,
-  plane: PropTypes.string,
-  partition: PropTypes.string,
+  options: PropTypes.array,
   onChange: PropTypes.func
-
 }
 
 export default Interlacing

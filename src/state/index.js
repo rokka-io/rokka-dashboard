@@ -16,7 +16,7 @@ const defaultState = {
   images: [],
   stacks: {},
   operations: {},
-  stackOptions: {},
+  stackOptions: null,
   alert: null
 }
 

@@ -11,31 +11,26 @@ class Options extends Component {
       return null
     }
 
-    console.log(defaultOptions['interlacing.mode'])
-
     return (
       <div>
         <h3 className="rka-h2 mv-md">Options</h3>
         <div className="bg-gray-lightest pa-md bor-light">
           <div className="row">
             <div className="col-md-6">
-              <Compression value={this.props.options['png.compression_level'] || defaultOptions['png.compression_level'].default}
+              <Compression value={this.props.options['png.compression_level']}
                 min={defaultOptions['png.compression_level'].minimum}
                 max={defaultOptions['png.compression_level'].maximum}
                 onChange={this.props.onChange} />
             </div>
             <div className="col-md-6">
-              <Quality value={this.props.options['jpg.quality'] || defaultOptions['jpg.quality'].default}
+              <Quality value={this.props.options['jpg.quality']}
                 min={defaultOptions['jpg.quality'].minimum}
                 max={defaultOptions['jpg.quality'].maximum}
                 onChange={this.props.onChange} />
             </div>
             <div className="col-md-12">
-              <Interlacing value={this.props.options['interlacing.mode'] || defaultOptions['interlacing.mode'].default}
-                none={defaultOptions['jpg.quality'].form}
-                line={defaultOptions['jpg.quality'].form}
-                plane={defaultOptions['jpg.quality'].form}
-                partition={defaultOptions['jpg.quality'].form}
+              <Interlacing value={this.props.options['interlacing.mode']}
+                options={defaultOptions['interlacing.mode'].values}
                 onChange={this.props.onChange} />
             </div>
           </div>

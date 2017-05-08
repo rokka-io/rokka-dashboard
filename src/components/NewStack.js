@@ -65,6 +65,17 @@ class NewStack extends PureComponent {
     if (nextProps.previewImage && this.props.previewImage && nextProps.previewImage.hash !== this.props.previewImage.hash) {
       this.updatePreview(nextProps.previewImage)
     }
+    if (nextProps.stackOptions !== null) {
+      const options = Object.assign({}, this.state.options)
+      Object.keys(nextProps.stackOptions).forEach((optionName) => {
+        if (nextProps.stackOptions[optionName].default !== undefined && options[optionName] === null) {
+          options[optionName] = nextProps.stackOptions[optionName].default
+        }
+      })
+      this.setState({
+        options: options
+      })
+    }
   }
 
   addOperation (e) {
@@ -293,7 +304,7 @@ class NewStack extends PureComponent {
                 <input type="text" className="rka-input-txt" id="name" name="name" onChange={this.onChangeName} />
               </FormGroup>
 
-              <Options defaultOptions={this.props.stackOptions} options={this.state.options} onChange={this.onChangeOptions} />
+              <Options defaultOptions={this.props.stackOptions || {}} options={this.state.options} onChange={this.onChangeOptions} />
 
               {this.state.operations.map((operation, index) => {
                 return <Operation

@@ -81,6 +81,16 @@
   right: $space-md;
 }
 
+.rka-link {
+  .rka-link-icon {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    margin-top: -4px;
+    margin-left: 2px;
+  }
+}
+
 @keyframes flash {
   from {
     background: $clr-gray-lightest;

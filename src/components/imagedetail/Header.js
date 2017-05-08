@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import cx from 'classnames'
 import moment from 'moment'
 import focusIcon from '../../img/focus-icon.svg'
+import linkicon from '../../img/link-icon.svg'
 
 const Header = ({ image, focusMenuActive, onClickToggleFocusMenu, onClickSave }) => (
   <div className="rka-content-header clearfix">
@@ -12,7 +13,12 @@ const Header = ({ image, focusMenuActive, onClickToggleFocusMenu, onClickSave })
         <span className="mr-sm">{`${Math.round(image.size / 1024)}KB`},</span>
         <span className="mr-sm">{[image.width || '?', image.height || '?'].join('×')},</span>
         <span className="mr-sm">{image.format.toUpperCase()},</span>
-        <span>{image.hash}</span>
+        <a className="rka-link" href={image.url} target="_blank">
+          {image.hash}
+          <svg className="rka-link-icon">
+            <use xlinkHref={linkicon + '#linkicon'} />
+          </svg>
+        </a>
       </p>
     </div>
     <div className="flo-r">

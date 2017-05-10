@@ -53,6 +53,7 @@
     "webpack-manifest-plugin": "1.1.0"
   },
   "dependencies": {
+    "ajv": "^4.11.5",
     "bluebird": "^3.4.7",
     "classnames": "^2.2.5",
     "deep-assign": "^2.0.0",

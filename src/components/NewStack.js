@@ -9,6 +9,7 @@ import previewImage from './images/previewImage'
 import Spinner from './Spinner'
 import Alert from './Alert'
 import rokka from '../rokka'
+import Options from './Options'
 
 function randomNumber (min, max) {
   return Math.random() * (max - min) + min
@@ -21,12 +22,31 @@ function generateRandomId () {
   return Date.now() + '-' + randomNumber(min, max)
 }
 
+function generateDefaultValuesStackOptions (options, stackOptions) {
+  Object.keys(stackOptions).forEach((optionName) => {
+    if (stackOptions[optionName].default !== undefined && options[optionName] === null) {
+      options[optionName] = stackOptions[optionName].default
+    }
+  })
+  return options
+}
+
 class NewStack extends PureComponent {
   constructor (props) {
     super(props)
 
+    let options = {
+      'png.compression_level': null,
+      'jpg.quality': null,
+      'interlacing.mode': null
+    }
+    if (props.stackOptions) {
+      options = generateDefaultValuesStackOptions(options, props.stackOptions)
+    }
+
     this.state = {
       name: '',
+      options: options,
       operations: [],
       operationErrors: {},
       error: null,
@@ -42,6 +62,7 @@ class NewStack extends PureComponent {
 
     this.onChange = this.onChange.bind(this)
     this.onChangeName = this.onChangeName.bind(this)
+    this.onChangeOptions = this.onChangeOptions.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
     this.addOperation = this.addOperation.bind(this)
     this.removeOperation = this.removeOperation.bind(this)
@@ -57,6 +78,13 @@ class NewStack extends PureComponent {
   componentWillReceiveProps (nextProps) {
     if (nextProps.previewImage && this.props.previewImage && nextProps.previewImage.hash !== this.props.previewImage.hash) {
       this.updatePreview(nextProps.previewImage)
+    }
+    if (nextProps.stackOptions !== null) {
+      const options = generateDefaultValuesStackOptions(Object.assign({}, this.state.options), nextProps.stackOptions)
+
+      this.setState({
+        options: options
+      })
     }
   }
 
@@ -115,7 +143,7 @@ class NewStack extends PureComponent {
       return
     }
 
-    createStack(this.state.name, this.state.operations)
+    createStack(this.state.name, this.state.operations, this.state.options)
       .then(({ body }) => {
         return Promise.all([body, refreshStacks()])
       })
@@ -159,6 +187,18 @@ class NewStack extends PureComponent {
   onChangeName (e) {
     this.setState({
       name: e.currentTarget.value
+    })
+  }
+
+  onChangeOptions (event) {
+    const target = event.target
+    const value = target.type === 'checkbox' ? target.checked : target.value
+    const name = target.name
+
+    this.setState({
+      options: Object.assign({}, this.state.options, {
+        [name]: value
+      })
     })
   }
 
@@ -274,6 +314,8 @@ class NewStack extends PureComponent {
                 <input type="text" className="rka-input-txt" id="name" name="name" onChange={this.onChangeName} />
               </FormGroup>
 
+              <Options defaultOptions={this.props.stackOptions || {}} options={this.state.options} onChange={this.onChangeOptions} />
+
               {this.state.operations.map((operation, index) => {
                 return <Operation
                   availableOperations={this.props.operations}
@@ -349,6 +391,7 @@ NewStack.propTypes = {
     organization: PropTypes.string.isRequired
   }).isRequired,
   operations: PropTypes.object.isRequired,
+  stackOptions: PropTypes.object,
   router: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,

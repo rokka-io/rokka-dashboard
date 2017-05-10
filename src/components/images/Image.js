@@ -10,9 +10,6 @@ class Image extends Component {
   }
 
   onClick (e) {
-    if (e.target.className.indexOf('rka-link') > -1) {
-      return window.open(e.target.href)
-    }
     if (this.props.onClick) {
       this.props.onClick(e, this.props)
     }
@@ -44,7 +41,8 @@ class Image extends Component {
         <div className={classes}
           onClick={(e) => this.onClick(e)}>
           <div className="rka-image-tile-hd">
-            <a href={this.props.url} target="_blank" className="rka-image-tile-link rka-link">Open in new window</a>
+            <a href={this.props.url} target="_blank" className="rka-image-tile-link rka-link"
+              onClick={(e) => e.stopPropagation()}>Open in new window</a>
             {this.props.uploaded === true &&
               <span className="rka-image-checkbox-container">
                 <i className="roka-image-checkbox rka-checkbox-icon is-checked" />

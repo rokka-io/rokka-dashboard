@@ -5,12 +5,12 @@ import FormGroup from '../forms/FormGroup'
 class Interlacing extends Component {
   render () {
     const $interlacingOptions = this.props.options.map((option) => {
+      const checked = this.props.value === option
       return (
         <label key={option} className="rka-checkbox is-disabled">
           <Input className="rka-checkbox-input" type="radio"
-            name="interlacing.mode" value={option}
+            name="interlacing.mode" value={option} checked={checked}
             disabled={!this.props.onChange}
-            defaultChecked={this.props.value === option}
             onChange={this.props.onChange} />
           {option}
         </label>

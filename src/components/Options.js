@@ -6,7 +6,6 @@ import Interlacing from './options/Interlacing'
 class Options extends Component {
   render () {
     const { defaultOptions } = this.props
-
     if (!Object.keys(defaultOptions).length) {
       return null
     }
@@ -42,8 +41,8 @@ class Options extends Component {
 Options.propTypes = {
   defaultOptions: PropTypes.object.isRequired,
   options: PropTypes.shape({
-    'png.compression_level': PropTypes.string,
-    'jpg.quality': PropTypes.string,
+    'png.compression_level': PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    'jpg.quality': PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     'interlacing.mode': PropTypes.string
   }).isRequired,
   onChange: PropTypes.func

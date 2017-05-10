@@ -208,13 +208,14 @@ export function getDefaultStackOptions () {
 /**
  * Create a new stack
  *
- * @param {string} name
- * @param {Array}  operations
+ * @param {string}      name
+ * @param {Array}       operations
+ * @param {Object|null} options
  *
  * @return {Promise}
  */
-export function createStack (name, operations) {
-  return rokka.stacks.create(internalState.auth.organization, name, operations)
+export function createStack (name, operations, options) {
+  return rokka.stacks.create(internalState.auth.organization, name, operations, options)
 }
 
 /**

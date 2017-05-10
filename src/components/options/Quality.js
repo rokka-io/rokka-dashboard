@@ -16,7 +16,7 @@ class Quality extends Component {
 }
 
 Quality.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   min: PropTypes.number,
   max: PropTypes.number,
   onChange: PropTypes.func

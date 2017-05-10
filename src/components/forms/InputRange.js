@@ -50,7 +50,7 @@ InputRange.propTypes = {
   name: PropTypes.string,
   min: PropTypes.number,
   max: PropTypes.number,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   onChange: PropTypes.func
 }

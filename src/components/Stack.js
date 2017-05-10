@@ -104,7 +104,7 @@ class Stack extends Component {
     let $options = null
     if (options) {
       $options = (
-        <Options options={options} />
+        <Options options={options} defaultOptions={this.props.stackOptions || {}} />
       )
     }
 
@@ -194,6 +194,7 @@ Stack.propTypes = {
   auth: PropTypes.shape({
     organization: PropTypes.string.isRequired
   }).isRequired,
+  stackOptions: PropTypes.object.isRequired,
   operations: PropTypes.object,
   stacks: PropTypes.shape({
     currentOffset: PropTypes.number,

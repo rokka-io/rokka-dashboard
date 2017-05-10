@@ -22,17 +22,31 @@ function generateRandomId () {
   return Date.now() + '-' + randomNumber(min, max)
 }
 
+function generateDefaultValuesStackOptions (options, stackOptions) {
+  Object.keys(stackOptions).forEach((optionName) => {
+    if (stackOptions[optionName].default !== undefined && options[optionName] === null) {
+      options[optionName] = stackOptions[optionName].default
+    }
+  })
+  return options
+}
+
 class NewStack extends PureComponent {
   constructor (props) {
     super(props)
 
+    let options = {
+      'png.compression_level': null,
+      'jpg.quality': null,
+      'interlacing.mode': null
+    }
+    if (props.stackOptions) {
+      options = generateDefaultValuesStackOptions(options, props.stackOptions)
+    }
+
     this.state = {
       name: '',
-      options: {
-        'png.compression_level': null,
-        'jpg.quality': null,
-        'interlacing.mode': null
-      },
+      options: options,
       operations: [],
       operationErrors: {},
       error: null,
@@ -66,12 +80,8 @@ class NewStack extends PureComponent {
       this.updatePreview(nextProps.previewImage)
     }
     if (nextProps.stackOptions !== null) {
-      const options = Object.assign({}, this.state.options)
-      Object.keys(nextProps.stackOptions).forEach((optionName) => {
-        if (nextProps.stackOptions[optionName].default !== undefined && options[optionName] === null) {
-          options[optionName] = nextProps.stackOptions[optionName].default
-        }
-      })
+      const options = generateDefaultValuesStackOptions(Object.assign({}, this.state.options), nextProps.stackOptions)
+
       this.setState({
         options: options
       })
@@ -133,7 +143,7 @@ class NewStack extends PureComponent {
       return
     }
 
-    createStack(this.state.name, this.state.operations)
+    createStack(this.state.name, this.state.operations, this.state.options)
       .then(({ body }) => {
         return Promise.all([body, refreshStacks()])
       })
@@ -381,7 +391,7 @@ NewStack.propTypes = {
     organization: PropTypes.string.isRequired
   }).isRequired,
   operations: PropTypes.object.isRequired,
-  stackOptions: PropTypes.object.isRequired,
+  stackOptions: PropTypes.object,
   router: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,

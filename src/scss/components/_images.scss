@@ -8,6 +8,7 @@
   background-position: center;
   margin-top: $space-md;
   border: 1px solid rgba(0,0,0,.3);
+  z-index: 0;
 
   &.is-uploaded {
     animation: .5s ease flash;
@@ -19,6 +20,11 @@
     &:hover {
       border-color: $clr-brand;
       box-shadow: 0 0 0 2px $clr-brand;
+
+      .rka-image-tile-link {
+        transition: transform .2s ease;
+        transform: translateY(0);
+      }
     }
   }
 
@@ -43,8 +49,28 @@
     vertical-align: middle;
   }
 }
+.rka-image-tile-link {
+  transition: transform .2s ease;
+  transform: translateY(100%);
+  background: rgba(255,255,255,.8);
+  line-height: normal;
+  padding: $space-sm;
+  margin: 0;
+  position: absolute;
+  bottom: 38px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  z-index: 1;
+  .rka-link-icon {
+    position: absolute;
+    margin-left: $space-xs;
+  }
+}
 
 .rka-image-tile-ft {
+  position: relative;
+  z-index: 2;
   height: 38px;
   line-height: 38px;
   background: $clr-white;
@@ -79,6 +105,27 @@
   position: absolute;
   top: $space-md;
   right: $space-md;
+}
+
+.rka-hash-link {
+  display: block;
+  margin-top: $space-xs;
+
+  @include media($desktop) {
+    display: inline-block;
+    margin-top: 0;
+  }
+
+  .rka-link-icon {
+    position: absolute;
+    margin-top: -4px;
+    margin-left: 2px;
+  }
+}
+
+.rka-link-icon {
+  width: 22px;
+  height: 22px;
 }
 
 @keyframes flash {

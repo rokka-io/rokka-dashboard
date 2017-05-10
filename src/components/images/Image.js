@@ -41,6 +41,8 @@ class Image extends Component {
         <div className={classes}
           onClick={(e) => this.onClick(e)}>
           <div className="rka-image-tile-hd">
+            <a href={this.props.url} target="_blank" className="rka-image-tile-link rka-link"
+              onClick={(e) => e.stopPropagation()}>Open in new window</a>
             {this.props.uploaded === true &&
               <span className="rka-image-checkbox-container">
                 <i className="roka-image-checkbox rka-checkbox-icon is-checked" />

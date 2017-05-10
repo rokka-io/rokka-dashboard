@@ -16,6 +16,7 @@ const defaultState = {
   images: [],
   stacks: {},
   operations: {},
+  stackoptions: {},
   alert: null
 }
 
@@ -90,6 +91,7 @@ export function login (organization, apiKey, successCb) {
         updateState({ auth: { organization, apiKey } })
         setCookie(SESSION_COOKIE_KEY, { auth: { organization, apiKey } })
         listOperations()
+        getStackOptions()
       }
 
       if (!successCb) {
@@ -184,6 +186,21 @@ export function listOperations () {
         return
       }
       setAlert('error', 'Error when fetching operations', 10000)
+    })
+}
+
+/**
+ * Get stack options and populate the global state with the result.
+ */
+export function getStackOptions () {
+  rokka.stackoptions.get()
+    .then(({ body }) => {
+      updateState({
+        stackoptions: body
+      })
+    })
+    .catch(err => {
+      console.error(err)
     })
 }
 

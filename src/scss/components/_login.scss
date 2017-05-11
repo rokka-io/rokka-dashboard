@@ -94,6 +94,7 @@
   padding: $space-lg $space-md;
   height: 200px;
   border-bottom: 2px solid rgba(0,0,0,.1);
+  word-break: normal;
 
   @include media($desktop) {
     border-right: 2px solid rgba(0,0,0,.1);

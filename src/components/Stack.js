@@ -7,7 +7,7 @@ import previewImage from './images/previewImage'
 
 import factory from './operations/factory'
 import rokka from '../rokka'
-import { deleteStack, setAlert } from '../state'
+import { cloneStack, deleteStack, setAlert } from '../state'
 import Options from './Options'
 
 const getStackByName = (stacks, name) => {
@@ -83,6 +83,12 @@ class Stack extends Component {
       })
   }
 
+  onClickDuplicateStack () {
+    const name = this.state.stack.name + '_copy'
+    cloneStack(name, this.state.stack.stack_operations, this.state.stack.stack_options)
+    this.props.router.push(`/new-stack`)
+  }
+
   render () {
     if (!this.state.stack) {
       return null
@@ -156,8 +162,13 @@ class Stack extends Component {
 
     return (
       <div>
-        <div className="bg-white pa-md">
-          <h1 className="rka-h1">{this.state.stack.name}</h1>
+        <div className="bg-white pa-md clearfix">
+          <h1 className="rka-h1 flo-l mt-xs">{this.state.stack.name}</h1>
+          <div className="flo-r">
+            <button className="rka-button rka-button-brand" onClick={(e) => this.onClickDuplicateStack(e)}>
+              Clone stack
+            </button>
+          </div>
         </div>
         <div className="rka-box rka-box-stacks pt-n">
           <div className="row">
@@ -194,7 +205,7 @@ Stack.propTypes = {
   auth: PropTypes.shape({
     organization: PropTypes.string.isRequired
   }).isRequired,
-  stackOptions: PropTypes.object.isRequired,
+  stackOptions: PropTypes.object,
   operations: PropTypes.object,
   stacks: PropTypes.shape({
     currentOffset: PropTypes.number,

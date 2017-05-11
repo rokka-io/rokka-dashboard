@@ -12,6 +12,7 @@ if (session && session.auth) {
 
 const defaultState = {
   showSidebar: false,
+  stackClone: {},
   auth: null,
   images: [],
   stacks: {},
@@ -273,6 +274,32 @@ export function subscribe (cb) {
   return () => {
     listener = null
   }
+}
+
+/**
+ * Clone stack
+ *
+ * @param {string} name
+ * @param {object} operations
+ */
+export function cloneStack (name, operations, options) {
+  updateState({
+    stackClone: {
+      name: name,
+      operations: operations,
+      options: options
+    }
+  })
+}
+
+/**
+ * Reset stack clone state
+ *
+ */
+export function resetStackClone () {
+  updateState({
+    stackClone: {}
+  })
 }
 
 // export state as readonly

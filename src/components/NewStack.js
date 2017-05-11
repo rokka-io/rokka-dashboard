@@ -2,7 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 import { authRequired } from '../utils/auth'
-import { createStack, refreshStacks, setAlert } from '../state'
+import { resetStackClone, createStack, refreshStacks, setAlert } from '../state'
 import Operation from './operations'
 import FormGroup from './forms/FormGroup'
 import previewImage from './images/previewImage'
@@ -36,18 +36,25 @@ class NewStack extends PureComponent {
     super(props)
 
     let options = {
-      'png.compression_level': null,
-      'jpg.quality': null,
-      'interlacing.mode': null
+      'png.compression_level': props.stackClone.options ? props.stackClone.options['png.compression_level'] : null,
+      'jpg.quality': props.stackClone.options ? props.stackClone.options['jpg.quality'] : null,
+      'interlacing.mode': props.stackClone.options ? props.stackClone.options['interlacing.mode'] : null
     }
     if (props.stackOptions) {
       options = generateDefaultValuesStackOptions(options, props.stackOptions)
     }
 
+    if (props.stackClone.name) {
+      props.stackClone.operations.forEach((operation, i) => {
+        operation['id'] = i.toString()
+        operation['errors'] = {}
+      })
+    }
+
     this.state = {
-      name: '',
+      name: props.stackClone.name || '',
       options: options,
-      operations: [],
+      operations: props.stackClone.operations || [],
       operationErrors: {},
       error: null,
       activeOperation: 0,
@@ -59,7 +66,6 @@ class NewStack extends PureComponent {
         error: null
       }
     }
-
     this.onChange = this.onChange.bind(this)
     this.onChangeName = this.onChangeName.bind(this)
     this.onChangeOptions = this.onChangeOptions.bind(this)
@@ -69,6 +75,10 @@ class NewStack extends PureComponent {
     this.setActiveOperation = this.setActiveOperation.bind(this)
     this.onMoveOperation = this.onMoveOperation.bind(this)
     this.updatePreview = this.updatePreview.bind(this)
+  }
+
+  componentWillMount () {
+    resetStackClone()
   }
 
   componentDidMount () {
@@ -89,7 +99,7 @@ class NewStack extends PureComponent {
   }
 
   addOperation (e) {
-    e.preventDefault()
+    e && e.preventDefault()
 
     this.setState({
       operations: [
@@ -311,11 +321,13 @@ class NewStack extends PureComponent {
             <div className="col-md-7 col-sm-7">
               <h3 className="rka-h2 mv-md">Stack details</h3>
               <FormGroup label="Name" required>
-                <input type="text" className="rka-input-txt" id="name" name="name" onChange={this.onChangeName} />
+                <input type="text" className="rka-input-txt" id="name" name="name" onChange={this.onChangeName}
+                  value={this.state.name} />
               </FormGroup>
 
               <Options defaultOptions={this.props.stackOptions || {}} options={this.state.options} onChange={this.onChangeOptions} />
 
+              <h3 className="rka-h2 mv-md">Operations</h3>
               {this.state.operations.map((operation, index) => {
                 return <Operation
                   availableOperations={this.props.operations}
@@ -390,6 +402,7 @@ NewStack.propTypes = {
   auth: PropTypes.shape({
     organization: PropTypes.string.isRequired
   }).isRequired,
+  stackClone: PropTypes.object,
   operations: PropTypes.object.isRequired,
   stackOptions: PropTypes.object,
   router: PropTypes.shape({

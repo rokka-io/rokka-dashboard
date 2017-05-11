@@ -162,8 +162,13 @@ class Stack extends Component {
 
     return (
       <div>
-        <div className="bg-white pa-md">
-          <h1 className="rka-h1">{this.state.stack.name}</h1>
+        <div className="bg-white pa-md clearfix">
+          <h1 className="rka-h1 flo-l mt-xs">{this.state.stack.name}</h1>
+          <div className="flo-r">
+            <button className="rka-button rka-button-brand" onClick={(e) => this.onClickDuplicateStack(e)}>
+              Duplicate stack
+            </button>
+          </div>
         </div>
         <div className="rka-box rka-box-stacks pt-n">
           <div className="row">
@@ -184,11 +189,6 @@ class Stack extends Component {
               <div className="mt-lg">
                 <button className="rka-button rka-button-negative" onClick={(e) => this.onClickDeleteStack(e)}>
                   Delete stack
-                </button>
-              </div>
-              <div className="mt-lg">
-                <button className="rka-button rka-button-brand" onClick={(e) => this.onClickDuplicateStack(e)}>
-                  Duplicate
                 </button>
               </div>
             </div>

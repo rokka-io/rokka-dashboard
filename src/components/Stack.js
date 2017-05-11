@@ -166,7 +166,7 @@ class Stack extends Component {
           <h1 className="rka-h1 flo-l mt-xs">{this.state.stack.name}</h1>
           <div className="flo-r">
             <button className="rka-button rka-button-brand" onClick={(e) => this.onClickDuplicateStack(e)}>
-              Duplicate stack
+              Clone stack
             </button>
           </div>
         </div>

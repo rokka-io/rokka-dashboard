@@ -99,7 +99,7 @@ class NewStack extends PureComponent {
   }
 
   addOperation (e) {
-    e ? e.preventDefault() : null
+    e && e.preventDefault()
 
     this.setState({
       operations: [

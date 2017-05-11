@@ -35,7 +35,8 @@ class Options extends Component {
             </div>
             <div className="col-md-12">
               <BaseStack value={this.props.options['basestack']}
-                onChange={this.props.onChange} />
+                onChange={this.props.onChange}
+                stacks={this.props.stacks} />
             </div>
           </div>
         </div>
@@ -51,6 +52,7 @@ Options.propTypes = {
     'interlacing.mode': PropTypes.string,
     'basestack': PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   }).isRequired,
+  stacks: PropTypes.object,
   onChange: PropTypes.func
 }
 

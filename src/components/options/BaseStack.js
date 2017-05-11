@@ -1,9 +1,19 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
-import Input from '../forms/Input'
+import Select from 'react-select'
 import FormGroup from '../forms/FormGroup'
 
 class BaseStack extends Component {
+  constructor (props) {
+    super(props)
+
+    this.onChange = this.onChange.bind(this)
+  }
+
+  onChange (selectedOption) {
+    this.props.onChange({name: 'basestack', value: selectedOption.value})
+  }
+
   render () {
     if (!this.props.onChange) {
       return (
@@ -12,16 +22,26 @@ class BaseStack extends Component {
         </FormGroup>
       )
     }
+
+    if (!this.props.stacks.items) {
+      return null
+    }
+
+    const options = this.props.stacks.items.map(item => {
+      return {
+        value: item.name,
+        label: item.name
+      }
+    })
     return (
       <FormGroup label="Base Stack">
-        <Input
+        <Select
           name="basestack"
-          type="text"
-          className="rka-input-txt"
           placeholder="Enter base stack, default: no base stack used"
-          minLength={this.props.minLength}
           value={this.props.value}
-          onChange={this.props.onChange} />
+          onChange={this.onChange}
+          options={options}
+        />
       </FormGroup>
     )
   }
@@ -29,8 +49,8 @@ class BaseStack extends Component {
 
 BaseStack.propTypes = {
   value: PropTypes.string,
-  minLength: PropTypes.number,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  stacks: PropTypes.object
 }
 
 export default BaseStack

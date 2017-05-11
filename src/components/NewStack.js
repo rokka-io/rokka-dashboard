@@ -202,10 +202,19 @@ class NewStack extends PureComponent {
     })
   }
 
-  onChangeOptions (event) {
-    const target = event.target
-    const value = target.type === 'checkbox' ? target.checked : target.value
-    const name = target.name
+  /**
+   * Triggered when stack options change.
+   *
+   * @param {Object|Event} eventOrOption If a change event is passed, name/value are retrieved from event.target.
+   *                                     If an object with name and value is passed, those are used directly.
+   */
+  onChangeOptions (eventOrOption) {
+    let { target = null, name, value } = eventOrOption
+    if (target) {
+      const target = eventOrOption.target
+      value = target.type === 'checkbox' ? target.checked : target.value
+      name = target.name
+    }
 
     this.setState({
       options: Object.assign({}, this.state.options, {
@@ -327,7 +336,7 @@ class NewStack extends PureComponent {
                   value={this.state.name} />
               </FormGroup>
 
-              <Options defaultOptions={this.props.stackOptions || {}} options={this.state.options} onChange={this.onChangeOptions} />
+              <Options defaultOptions={this.props.stackOptions || {}} options={this.state.options} onChange={this.onChangeOptions} stacks={this.props.stacks} />
 
               <h3 className="rka-h2 mv-md">Operations</h3>
               {this.state.operations.map((operation, index) => {
@@ -407,6 +416,7 @@ NewStack.propTypes = {
   stackClone: PropTypes.object,
   operations: PropTypes.object.isRequired,
   stackOptions: PropTypes.object,
+  stacks: PropTypes.object,
   router: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,

@@ -12,7 +12,7 @@ if (session && session.auth) {
 
 const defaultState = {
   showSidebar: false,
-  stack: {},
+  stackClone: {},
   auth: null,
   images: [],
   stacks: {},
@@ -277,14 +277,14 @@ export function subscribe (cb) {
 }
 
 /**
- * Duplicate Stack
+ * Clone a Stack
  *
  * @param {string} name
  * @param {object} operations
  */
-export function duplicateStack (name, operations, options) {
+export function cloneStack (name, operations, options) {
   updateState({
-    stack: {
+    stackClone: {
       name: name,
       operations: operations,
       options: options

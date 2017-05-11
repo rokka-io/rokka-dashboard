@@ -7,7 +7,7 @@ import previewImage from './images/previewImage'
 
 import factory from './operations/factory'
 import rokka from '../rokka'
-import { duplicateStack, deleteStack, setAlert } from '../state'
+import { cloneStack, deleteStack, setAlert } from '../state'
 import Options from './Options'
 
 const getStackByName = (stacks, name) => {
@@ -85,7 +85,7 @@ class Stack extends Component {
 
   onClickDuplicateStack () {
     const name = this.state.stack.name + '_copy'
-    duplicateStack(name, this.state.stack.stack_operations, this.state.stack.stack_options)
+    cloneStack(name, this.state.stack.stack_operations, this.state.stack.stack_options)
     this.props.router.push(`/new-stack`)
   }
 

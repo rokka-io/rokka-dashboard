@@ -36,25 +36,25 @@ class NewStack extends PureComponent {
     super(props)
 
     let options = {
-      'png.compression_level': props.stack.name ? props.stack.options['png.compression_level'] : null,
-      'jpg.quality': props.stack.name ? props.stack.options['jpg.quality'] : null,
-      'interlacing.mode': props.stack.name ? props.stack.options['interlacing.mode'] : null
+      'png.compression_level': props.stackClone.name ? props.stackClone.options['png.compression_level'] : null,
+      'jpg.quality': props.stackClone.name ? props.stackClone.options['jpg.quality'] : null,
+      'interlacing.mode': props.stackClone.name ? props.stackClone.options['interlacing.mode'] : null
     }
     if (props.stackOptions) {
       options = generateDefaultValuesStackOptions(options, props.stackOptions)
     }
 
-    if (props.stack.name) {
-      props.stack.operations.forEach((operation, i) => {
+    if (props.stackClone.name) {
+      props.stackClone.operations.forEach((operation, i) => {
         operation['id'] = i.toString()
         operation['errors'] = {}
       })
     }
 
     this.state = {
-      name: props.stack.name || '',
+      name: props.stackClone.name || '',
       options: options,
-      operations: props.stack.operations || [],
+      operations: props.stackClone.operations || [],
       operationErrors: {},
       error: null,
       activeOperation: 0,
@@ -399,7 +399,7 @@ NewStack.propTypes = {
   auth: PropTypes.shape({
     organization: PropTypes.string.isRequired
   }).isRequired,
-  stack: PropTypes.object,
+  stackClone: PropTypes.object,
   operations: PropTypes.object.isRequired,
   stackOptions: PropTypes.object,
   router: PropTypes.shape({

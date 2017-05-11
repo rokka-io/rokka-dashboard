@@ -44,10 +44,17 @@ class NewStack extends PureComponent {
       options = generateDefaultValuesStackOptions(options, props.stackOptions)
     }
 
+    if (props.stack.name) {
+      props.stack.operations.forEach((operation, i) => {
+        operation['id'] = i.toString()
+        operation['errors'] = {}
+      })
+    }
+
     this.state = {
-      name: '',
+      name: props.stack.name || '',
       options: options,
-      operations: [],
+      operations: props.stack.operations || [],
       operationErrors: {},
       error: null,
       activeOperation: 0,
@@ -89,7 +96,7 @@ class NewStack extends PureComponent {
   }
 
   addOperation (e) {
-    e.preventDefault()
+    e ? e.preventDefault() : null
 
     this.setState({
       operations: [
@@ -311,11 +318,13 @@ class NewStack extends PureComponent {
             <div className="col-md-7 col-sm-7">
               <h3 className="rka-h2 mv-md">Stack details</h3>
               <FormGroup label="Name" required>
-                <input type="text" className="rka-input-txt" id="name" name="name" onChange={this.onChangeName} />
+                <input type="text" className="rka-input-txt" id="name" name="name" onChange={this.onChangeName}
+                  value={this.state.name} />
               </FormGroup>
 
               <Options defaultOptions={this.props.stackOptions || {}} options={this.state.options} onChange={this.onChangeOptions} />
 
+              <h3 className="rka-h2 mv-md">Operations</h3>
               {this.state.operations.map((operation, index) => {
                 return <Operation
                   availableOperations={this.props.operations}
@@ -390,6 +399,7 @@ NewStack.propTypes = {
   auth: PropTypes.shape({
     organization: PropTypes.string.isRequired
   }).isRequired,
+  stack: PropTypes.object,
   operations: PropTypes.object.isRequired,
   stackOptions: PropTypes.object,
   router: PropTypes.shape({

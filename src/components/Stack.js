@@ -7,7 +7,7 @@ import previewImage from './images/previewImage'
 
 import factory from './operations/factory'
 import rokka from '../rokka'
-import { deleteStack, setAlert } from '../state'
+import { duplicateStack, deleteStack, setAlert } from '../state'
 import Options from './Options'
 
 const getStackByName = (stacks, name) => {
@@ -81,6 +81,12 @@ class Stack extends Component {
         this.onCancelDeleteStack()
         setAlert('error', `Error deleting stack ${name}`, 5000)
       })
+  }
+
+  onClickDuplicateStack () {
+    const name = this.state.stack.name + '_copy'
+    duplicateStack(name, this.state.stack.stack_operations)
+    this.props.router.push(`/new-stack`)
   }
 
   render () {
@@ -180,6 +186,11 @@ class Stack extends Component {
                   Delete stack
                 </button>
               </div>
+              <div className="mt-lg">
+                <button className="rka-button rka-button-brand" onClick={(e) => this.onClickDuplicateStack(e)}>
+                  Duplicate
+                </button>
+              </div>
             </div>
             {$previewSidebar}
           </div>
@@ -194,7 +205,7 @@ Stack.propTypes = {
   auth: PropTypes.shape({
     organization: PropTypes.string.isRequired
   }).isRequired,
-  stackOptions: PropTypes.object.isRequired,
+  stackOptions: PropTypes.object,
   operations: PropTypes.object,
   stacks: PropTypes.shape({
     currentOffset: PropTypes.number,

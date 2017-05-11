@@ -12,6 +12,7 @@ if (session && session.auth) {
 
 const defaultState = {
   showSidebar: false,
+  stack: {},
   auth: null,
   images: [],
   stacks: {},
@@ -273,6 +274,21 @@ export function subscribe (cb) {
   return () => {
     listener = null
   }
+}
+
+/**
+ * Duplicate Stack
+ *
+ * @param {string} name
+ * @param {object} operations
+ */
+export function duplicateStack (name, operations) {
+  updateState({
+    stack: {
+      name: name,
+      operations: operations
+    }
+  })
 }
 
 // export state as readonly

@@ -282,11 +282,12 @@ export function subscribe (cb) {
  * @param {string} name
  * @param {object} operations
  */
-export function duplicateStack (name, operations) {
+export function duplicateStack (name, operations, options) {
   updateState({
     stack: {
       name: name,
-      operations: operations
+      operations: operations,
+      options: options
     }
   })
 }

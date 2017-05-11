@@ -85,7 +85,7 @@ class Stack extends Component {
 
   onClickDuplicateStack () {
     const name = this.state.stack.name + '_copy'
-    duplicateStack(name, this.state.stack.stack_operations)
+    duplicateStack(name, this.state.stack.stack_operations, this.state.stack.stack_options)
     this.props.router.push(`/new-stack`)
   }
 

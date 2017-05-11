@@ -36,9 +36,9 @@ class NewStack extends PureComponent {
     super(props)
 
     let options = {
-      'png.compression_level': null,
-      'jpg.quality': null,
-      'interlacing.mode': null
+      'png.compression_level': props.stack.name ? props.stack.options['png.compression_level'] : null,
+      'jpg.quality': props.stack.name ? props.stack.options['jpg.quality'] : null,
+      'interlacing.mode': props.stack.name ? props.stack.options['interlacing.mode'] : null
     }
     if (props.stackOptions) {
       options = generateDefaultValuesStackOptions(options, props.stackOptions)

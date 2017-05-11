@@ -2,7 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 import { authRequired } from '../utils/auth'
-import { createStack, refreshStacks, setAlert } from '../state'
+import { resetStackClone, createStack, refreshStacks, setAlert } from '../state'
 import Operation from './operations'
 import FormGroup from './forms/FormGroup'
 import previewImage from './images/previewImage'
@@ -66,7 +66,6 @@ class NewStack extends PureComponent {
         error: null
       }
     }
-
     this.onChange = this.onChange.bind(this)
     this.onChangeName = this.onChangeName.bind(this)
     this.onChangeOptions = this.onChangeOptions.bind(this)
@@ -76,6 +75,10 @@ class NewStack extends PureComponent {
     this.setActiveOperation = this.setActiveOperation.bind(this)
     this.onMoveOperation = this.onMoveOperation.bind(this)
     this.updatePreview = this.updatePreview.bind(this)
+  }
+
+  componentWillMount () {
+    resetStackClone()
   }
 
   componentDidMount () {

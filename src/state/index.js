@@ -277,7 +277,7 @@ export function subscribe (cb) {
 }
 
 /**
- * Clone a Stack
+ * Clone stack
  *
  * @param {string} name
  * @param {object} operations
@@ -289,6 +289,16 @@ export function cloneStack (name, operations, options) {
       operations: operations,
       options: options
     }
+  })
+}
+
+/**
+ * Reset stack clone state
+ *
+ */
+export function resetStackClone () {
+  updateState({
+    stackClone: {}
   })
 }
 

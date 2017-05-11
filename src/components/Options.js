@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import Compression from './options/Compression'
-import Quality from './options/Quality'
 import Interlacing from './options/Interlacing'
+import BaseStack from './options/BaseStack'
+import InputRange from './forms/InputRange'
+import FormGroup from './forms/FormGroup'
 
 class Options extends Component {
   render () {
@@ -22,15 +24,30 @@ class Options extends Component {
                 onChange={this.props.onChange} />
             </div>
             <div className="col-md-6">
-              <Quality value={this.props.options['jpg.quality']}
-                min={defaultOptions['jpg.quality'].minimum}
-                max={defaultOptions['jpg.quality'].maximum}
-                onChange={this.props.onChange} />
+              <FormGroup label="JPG Image quality">
+                <InputRange onChange={this.props.onChange}
+                  min={defaultOptions['jpg.quality'].minimum} max={defaultOptions['jpg.quality'].maximum}
+                  name="jpg.quality" value={this.props.options['jpg.quality']}
+                />
+              </FormGroup>
             </div>
-            <div className="col-md-12">
+            <div className="col-md-6">
+              <FormGroup label="WebP Image quality">
+                <InputRange onChange={this.props.onChange}
+                  min={defaultOptions['webp.quality'].minimum} max={defaultOptions['webp.quality'].maximum}
+                  name="webp.quality" value={this.props.options['webp.quality']}
+                />
+              </FormGroup>
+            </div>
+            <div className="col-md-6">
               <Interlacing value={this.props.options['interlacing.mode']}
                 options={defaultOptions['interlacing.mode'].values}
                 onChange={this.props.onChange} />
+            </div>
+            <div className="col-md-12">
+              <BaseStack value={this.props.options['basestack']}
+                onChange={this.props.onChange}
+                stacks={this.props.stacks} />
             </div>
           </div>
         </div>
@@ -43,8 +60,11 @@ Options.propTypes = {
   options: PropTypes.shape({
     'png.compression_level': PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     'jpg.quality': PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    'interlacing.mode': PropTypes.string
+    'webp.quality': PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    'interlacing.mode': PropTypes.string,
+    'basestack': PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   }).isRequired,
+  stacks: PropTypes.object,
   onChange: PropTypes.func
 }
 

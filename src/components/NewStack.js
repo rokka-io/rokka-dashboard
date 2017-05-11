@@ -38,7 +38,9 @@ class NewStack extends PureComponent {
     let options = {
       'png.compression_level': props.stackClone.options ? props.stackClone.options['png.compression_level'] : null,
       'jpg.quality': props.stackClone.options ? props.stackClone.options['jpg.quality'] : null,
-      'interlacing.mode': props.stackClone.options ? props.stackClone.options['interlacing.mode'] : null
+      'webp.quality': props.stackClone.options ? props.stackClone.options['webp.quality'] : null,
+      'interlacing.mode': props.stackClone.options ? props.stackClone.options['interlacing.mode'] : null,
+      'basestack': props.stackClone.options ? props.stackClone.options['basestack'] : null
     }
     if (props.stackOptions) {
       options = generateDefaultValuesStackOptions(options, props.stackOptions)
@@ -66,6 +68,7 @@ class NewStack extends PureComponent {
         error: null
       }
     }
+
     this.onChange = this.onChange.bind(this)
     this.onChangeName = this.onChangeName.bind(this)
     this.onChangeOptions = this.onChangeOptions.bind(this)
@@ -200,10 +203,19 @@ class NewStack extends PureComponent {
     })
   }
 
-  onChangeOptions (event) {
-    const target = event.target
-    const value = target.type === 'checkbox' ? target.checked : target.value
-    const name = target.name
+  /**
+   * Triggered when stack options change.
+   *
+   * @param {Object|Event} eventOrOption If a change event is passed, name/value are retrieved from event.target.
+   *                                     If an object with name and value is passed, those are used directly.
+   */
+  onChangeOptions (eventOrOption) {
+    let { target = null, name, value } = eventOrOption
+    if (target) {
+      const target = eventOrOption.target
+      value = target.type === 'checkbox' ? target.checked : target.value
+      name = target.name
+    }
 
     this.setState({
       options: Object.assign({}, this.state.options, {
@@ -325,7 +337,7 @@ class NewStack extends PureComponent {
                   value={this.state.name} />
               </FormGroup>
 
-              <Options defaultOptions={this.props.stackOptions || {}} options={this.state.options} onChange={this.onChangeOptions} />
+              <Options defaultOptions={this.props.stackOptions || {}} options={this.state.options} onChange={this.onChangeOptions} stacks={this.props.stacks} />
 
               <h3 className="rka-h2 mv-md">Operations</h3>
               {this.state.operations.map((operation, index) => {
@@ -405,6 +417,7 @@ NewStack.propTypes = {
   stackClone: PropTypes.object,
   operations: PropTypes.object.isRequired,
   stackOptions: PropTypes.object,
+  stacks: PropTypes.object,
   router: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,

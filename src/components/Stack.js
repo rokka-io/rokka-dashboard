@@ -109,8 +109,16 @@ class Stack extends Component {
 
     let $options = null
     if (options) {
+      const { stackOptions } = this.props
+      Object.keys(stackOptions).forEach((optionName) => {
+        const optionSet = options[optionName] === undefined || options[optionName] === null
+        if (stackOptions[optionName].default !== undefined && optionSet) {
+          options[optionName] = stackOptions[optionName].default
+        }
+      })
+
       $options = (
-        <Options options={options} defaultOptions={this.props.stackOptions || {}} />
+        <Options options={options} defaultOptions={stackOptions || {}} />
       )
     }
 

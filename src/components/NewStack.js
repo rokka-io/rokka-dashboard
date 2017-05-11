@@ -38,7 +38,8 @@ class NewStack extends PureComponent {
     let options = {
       'png.compression_level': props.stackClone.options ? props.stackClone.options['png.compression_level'] : null,
       'jpg.quality': props.stackClone.options ? props.stackClone.options['jpg.quality'] : null,
-      'interlacing.mode': props.stackClone.options ? props.stackClone.options['interlacing.mode'] : null
+      'interlacing.mode': props.stackClone.options ? props.stackClone.options['interlacing.mode'] : null,
+      'basestack': props.stackClone.options ? props.stackClone.options['basestack'] : null
     }
     if (props.stackOptions) {
       options = generateDefaultValuesStackOptions(options, props.stackOptions)
@@ -66,6 +67,7 @@ class NewStack extends PureComponent {
         error: null
       }
     }
+
     this.onChange = this.onChange.bind(this)
     this.onChangeName = this.onChangeName.bind(this)
     this.onChangeOptions = this.onChangeOptions.bind(this)

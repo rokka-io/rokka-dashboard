@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import Compression from './options/Compression'
 import Quality from './options/Quality'
 import Interlacing from './options/Interlacing'
+import BaseStack from './options/BaseStack'
 
 class Options extends Component {
   render () {
@@ -32,6 +33,10 @@ class Options extends Component {
                 options={defaultOptions['interlacing.mode'].values}
                 onChange={this.props.onChange} />
             </div>
+            <div className="col-md-12">
+              <BaseStack value={this.props.options['basestack']}
+                onChange={this.props.onChange} />
+            </div>
           </div>
         </div>
       </div>
@@ -43,7 +48,8 @@ Options.propTypes = {
   options: PropTypes.shape({
     'png.compression_level': PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     'jpg.quality': PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    'interlacing.mode': PropTypes.string
+    'interlacing.mode': PropTypes.string,
+    'basestack': PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   }).isRequired,
   onChange: PropTypes.func
 }

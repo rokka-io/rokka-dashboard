@@ -38,6 +38,7 @@ class NewStack extends PureComponent {
     let options = {
       'png.compression_level': props.stackClone.options ? props.stackClone.options['png.compression_level'] : null,
       'jpg.quality': props.stackClone.options ? props.stackClone.options['jpg.quality'] : null,
+      'webp.quality': props.stackClone.options ? props.stackClone.options['webp.quality'] : null,
       'interlacing.mode': props.stackClone.options ? props.stackClone.options['interlacing.mode'] : null,
       'basestack': props.stackClone.options ? props.stackClone.options['basestack'] : null
     }

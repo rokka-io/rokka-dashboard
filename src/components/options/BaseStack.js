@@ -16,6 +16,9 @@ class BaseStack extends Component {
 
   render () {
     if (!this.props.onChange) {
+      if (!this.props.value) {
+        return null
+      }
       return (
         <FormGroup label="Base Stack">
           <Link to={`/stacks/${this.props.value}`} className="rka-link">{this.props.value}</Link>

@@ -156,7 +156,15 @@ class NewStack extends PureComponent {
       return
     }
 
-    createStack(this.state.name, this.state.operations, this.state.options)
+    let options = this.state.options
+    Object.keys(options).forEach(key => {
+      const val = options[key]
+      if (val === null || val === this.props.stackOptions[key].default) {
+        delete options[key]
+      }
+    })
+
+    createStack(this.state.name, this.state.operations, options)
       .then(({ body }) => {
         return Promise.all([body, refreshStacks()])
       })

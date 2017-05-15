@@ -3,6 +3,7 @@ import { Link, IndexLink } from 'react-router'
 import { listStacks } from '../state'
 import addIcon from '../img/add-icon.svg'
 import cx from 'classnames'
+import searchIcon from '../img/search.svg'
 
 class Sidebar extends Component {
   loadNextStacks () {
@@ -49,6 +50,12 @@ class Sidebar extends Component {
               </svg>
             </Link>
             <div className={cx('rka-sidebar-subnav', {'is-active': showStacks})}>
+              <div className="rka-stacks-search-container">
+                <input className="rka-input-txt rka-stack-search" type="text" placeholder="Search stack..." />
+                <svg className="rka-stack-search-icon">
+                  <use xlinkHref={searchIcon + '#search-icon'} />
+                </svg>
+              </div>
               <div className={cx('rka-stacks-list', {'is-loaded': !$loadMore})}>
                 {$stacks}
                 <div className="rka-stacks-load">

@@ -37,7 +37,7 @@ class BaseStack extends Component {
       }
     })
     return (
-      <FormGroup label="Base Stack">
+      <FormGroup label="Base Stack" classname="mb-n">
         <Select
           name="basestack"
           placeholder="Enter base stack, default: no base stack used"

@@ -3,8 +3,17 @@ import { Link, IndexLink } from 'react-router'
 import { listStacks } from '../state'
 import addIcon from '../img/add-icon.svg'
 import cx from 'classnames'
+import searchIcon from '../img/search.svg'
 
 class Sidebar extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      items: this.props.stacks.items || []
+    }
+  }
+
   loadNextStacks () {
     listStacks()
   }
@@ -15,12 +24,31 @@ class Sidebar extends Component {
     }
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.stacks.items) {
+      this.setState({
+        items: nextProps.stacks.items
+      })
+    }
+  }
+
+  filterStacks (e) {
+    const query = e.target.value
+    const items = this.props.stacks.items.filter((item) => {
+      return item.name.indexOf(query) > -1
+    })
+
+    this.setState({
+      items
+    })
+  }
+
   render () {
     const routePath = this.props.router.location.pathname
     const showStacks = routePath.indexOf('/stack') >= 0 || routePath === '/new-stack'
-    const { items = [], currentOffset = 0, total = 0 } = this.props.stacks
+    const { currentOffset = 0, total = 0 } = this.props.stacks
 
-    const $stacks = items.map((stack) => {
+    const $stacks = this.state.items.map((stack) => {
       return (
         <Link key={stack.name} to={`/stacks/${stack.name}`} activeClassName="is-active" className="rka-sidebar-sublink txt-ellipsis">{stack.name}</Link>
       )
@@ -49,6 +77,13 @@ class Sidebar extends Component {
               </svg>
             </Link>
             <div className={cx('rka-sidebar-subnav', {'is-active': showStacks})}>
+              <div className="rka-stacks-search-container">
+                <input className="rka-input-txt rka-stack-search" type="text" placeholder="Search stack..."
+                  onChange={(e) => this.filterStacks(e)} />
+                <svg className="rka-stack-search-icon">
+                  <use xlinkHref={searchIcon + '#search-icon'} />
+                </svg>
+              </div>
               <div className={cx('rka-stacks-list', {'is-loaded': !$loadMore})}>
                 {$stacks}
                 <div className="rka-stacks-load">

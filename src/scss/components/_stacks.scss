@@ -1,7 +1,7 @@
 .rka-stacks-list {
   overflow: hidden;
   overflow-y: auto;
-  height: calc(100vh - 270px);
+  height: calc(100vh - 310px);
 }
 
 .rka-stack-tile {
@@ -59,4 +59,38 @@
     margin-top: $space-md;
     display: block;
   }
+}
+
+.rka-stacks-search-container {
+  position: relative;
+  padding: $space-sm $space-md $space-sm $space-md+$space-sm;
+}
+
+.rka-stack-search {
+  transition: border .3s ease;
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  background: none;
+  color: $clr-white;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 $space-lg 0 0;
+
+  &:focus {
+    transition: border .3s ease;
+    border-color: $clr-white;
+
+    & + .rka-stack-search-icon {
+      color: $clr-white;
+    }
+  }
+}
+
+.rka-stack-search-icon {
+  width: 16px;
+  height: 16px;
+  color: $clr-gray-dark;
+  position: absolute;
+  top: 14px;
+  right: 20px;
 }

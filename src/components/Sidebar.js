@@ -39,7 +39,7 @@ class Sidebar extends Component {
     })
 
     this.setState({
-      items: items
+      items
     })
   }
 

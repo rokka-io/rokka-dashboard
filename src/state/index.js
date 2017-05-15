@@ -138,6 +138,7 @@ export function listStacks (limit = 999) {
 
   return rokka.stacks.list(internalState.auth.organization, limit, currentOffset)
     .then(({ body }) => {
+      sortAlphabetically(body.items)
       updateState({
         stacks: {
           currentOffset: currentOffset + limit,
@@ -167,6 +168,23 @@ export function listStacks (limit = 999) {
 export function refreshStacks () {
   internalState.stacks = {}
   return listStacks()
+}
+
+/**
+ * Sorts Alphabetically
+ *
+ * @param {array} items
+ *
+ * @returns {array}
+ */
+export function sortAlphabetically (items) {
+  return items.sort((a, b) => {
+    const nameA = a.name.toUpperCase()
+    const nameB = b.name.toUpperCase()
+    if (nameA < nameB) { return -1 }
+    if (nameA > nameB) { return 1 }
+    return 0
+  })
 }
 
 /**

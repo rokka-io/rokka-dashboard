@@ -25,21 +25,21 @@ class Sidebar extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    this.setState({
-      items: nextProps.stacks.items
-    })
+    if (nextProps.stacks.items) {
+      this.setState({
+        items: nextProps.stacks.items
+      })
+    }
   }
 
   filterStacks (e) {
-    const query = e.currentTarget.value
-    const $items = this.props.stacks.items.filter((item) => {
-      if (item.name.indexOf(query) > -1) {
-        return item.name
-      }
+    const query = e.target.value
+    const items = this.props.stacks.items.filter((item) => {
+      return item.name.indexOf(query) > -1
     })
 
     this.setState({
-      items: $items
+      items: items
     })
   }
 
@@ -48,14 +48,11 @@ class Sidebar extends Component {
     const showStacks = routePath.indexOf('/stack') >= 0 || routePath === '/new-stack'
     const { currentOffset = 0, total = 0 } = this.props.stacks
 
-    let $stacks
-    if (this.state.items) {
-      $stacks = this.state.items.map((stack) => {
-        return (
-          <Link key={stack.name} to={`/stacks/${stack.name}`} activeClassName="is-active" className="rka-sidebar-sublink txt-ellipsis">{stack.name}</Link>
-        )
-      })
-    }
+    const $stacks = this.state.items.map((stack) => {
+      return (
+        <Link key={stack.name} to={`/stacks/${stack.name}`} activeClassName="is-active" className="rka-sidebar-sublink txt-ellipsis">{stack.name}</Link>
+      )
+    })
 
     const $loadMore = currentOffset < total
       ? <button className="rka-button rka-button-brand rka-button-fullwidth"

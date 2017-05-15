@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react'
 import cx from 'classnames'
 import RequiredIndicator from './RequiredIndicator'
 
-const FormGroup = ({ label, children, classname = null, required = false, error = null }) => (
-  <div className={cx('rka-form-group', classname, {'has-error': !!error})}>
+const FormGroup = ({ label, children, className = null, required = false, error = null }) => (
+  <div className={cx('rka-form-group', className, {'has-error': !!error})}>
     <label className="rka-label">
       {label}
       <RequiredIndicator required={required} />
@@ -14,7 +14,7 @@ const FormGroup = ({ label, children, classname = null, required = false, error 
 )
 FormGroup.propTypes = {
   label: PropTypes.string.isRequired,
-  classname: PropTypes.string,
+  className: PropTypes.string,
   children: PropTypes.node.isRequired,
   required: PropTypes.bool,
   error: PropTypes.string

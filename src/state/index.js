@@ -177,7 +177,7 @@ export function refreshStacks () {
  *
  * @returns {array}
  */
-export function sortAlphabetically (items) {
+function sortAlphabetically (items) {
   return items.sort((a, b) => {
     const nameA = a.name.toUpperCase()
     const nameB = b.name.toUpperCase()

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import Input from '../forms/Input'
+import InputColor from '../forms/InputColor'
 import InputRange from '../forms/InputRange'
 import FormGroup from '../forms/FormGroup'
 
@@ -20,9 +20,9 @@ class Rotate extends Component {
           </FormGroup>
         </div>
         <div className="col-md-6">
-          <FormGroup label="Background color" required={this.isRequired('background_color')} error={errors.background_color}>
-            <Input type="text" name="background_color" className="rka-input-txt" placeholder="background color"
-              value={values.background_color} defaultValue={defaults.background_color.default} onChange={this.props.onChange} />
+          <FormGroup label="Background color" required={this.isRequired('background_color')} error={errors.color}>
+            <InputColor name="background_color" value={values.background_color || '000000'}
+              onChange={this.props.onChange} />
           </FormGroup>
         </div>
         <div className="col-md-6">

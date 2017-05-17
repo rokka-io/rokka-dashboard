@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import Input from '../forms/Input'
 import InputRange from '../forms/InputRange'
+import InputColor from '../forms/InputColor'
 import FormGroup from '../forms/FormGroup'
 
 class Dropshadow extends Component {
@@ -34,8 +34,7 @@ class Dropshadow extends Component {
         </div>
         <div className="col-md-4">
           <FormGroup label="Color" required={this.isRequired('color')} error={errors.color}>
-            <Input name="color" type="text" className="rka-input-txt" placeholder="color"
-              value={values.color} defaultValue={defaults.color.default} onChange={this.props.onChange} />
+            <InputColor value={values.color || '000000'} onChange={this.props.onChange} />
           </FormGroup>
         </div>
         <div className="col-md-4">

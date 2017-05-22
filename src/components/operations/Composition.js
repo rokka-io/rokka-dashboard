@@ -54,7 +54,8 @@ class Composition extends PureComponent {
         </div>
         <div className="col-md-6">
           <FormGroup label="Secondary Color" required={this.isRequired('secondary_color')} error={errors.color}>
-            <InputColor name="secondary_color" value={values.secondary_color || '000000'} onChange={this.props.onChange} />
+            <InputColor name="secondary_color" value={values.secondary_color || defaults.secondary_color.default}
+              onChange={this.props.onChange} />
           </FormGroup>
         </div>
         <div className="col-md-6">

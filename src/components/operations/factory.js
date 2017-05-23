@@ -26,9 +26,6 @@ const defaults = {
   resize: {
     upscale: {
       values: ['true', 'false']
-    },
-    mode: {
-      values: ['box', 'absolute', 'fill']
     }
   },
   dropshadow: {

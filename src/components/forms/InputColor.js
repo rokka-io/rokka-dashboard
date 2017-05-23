@@ -35,8 +35,8 @@ class InputColor extends Component {
   render () {
     return (
       <div className="rka-form-group">
-        <input name={this.props.name} type="text" className="rka-input-txt" placeholder="color"
-          value={this.props.value} onClick={() => this.toggleColorPicker()} readOnly disabled={!this.props.onChange} />
+        <input name={this.props.name} type="text" className="rka-input-txt" placeholder={`color (default: ${this.props.defaultValue})`}
+          value={this.props.value || ''} onClick={() => this.toggleColorPicker()} readOnly disabled={!this.props.onChange} />
         { this.state.showColorPicker ? <ChromePicker disableAlpha color={this.props.value}
           onChangeComplete={this.handleChange} />
           : null }
@@ -48,6 +48,7 @@ class InputColor extends Component {
 InputColor.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
+  defaultValue: PropTypes.string,
   onChange: PropTypes.func
 }
 

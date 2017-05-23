@@ -34,7 +34,7 @@ class Dropshadow extends Component {
         </div>
         <div className="col-md-4">
           <FormGroup label="Color" required={this.isRequired('color')} error={errors.color}>
-            <InputColor name="color" value={values.color || defaults.color.default} onChange={this.props.onChange} />
+            <InputColor name="color" value={values.color} defaultValue={defaults.color.default} onChange={this.props.onChange} />
           </FormGroup>
         </div>
         <div className="col-md-4">

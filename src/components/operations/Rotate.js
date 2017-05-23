@@ -21,7 +21,7 @@ class Rotate extends Component {
         </div>
         <div className="col-md-6">
           <FormGroup label="Background color" required={this.isRequired('background_color')} error={errors.color}>
-            <InputColor name="background_color" value={values.background_color || '000000'}
+            <InputColor name="background_color" value={values.background_color} defaultValue={defaults.background_color.default}
               onChange={this.props.onChange} />
           </FormGroup>
         </div>

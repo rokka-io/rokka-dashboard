@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import rokka from '../rokka'
 import FramelessLayout from './layouts/FramelessLayout'
+import { login } from '../state'
 
 class Signup extends Component {
 
@@ -9,7 +10,8 @@ class Signup extends Component {
 
     this.state = {
       email: '',
-      organization: ''
+      organization: '',
+      showTransition: false
     }
 
     this.onSubmit = this.onSubmit.bind(this)
@@ -21,6 +23,9 @@ class Signup extends Component {
     console.log(this.state.organization)
     rokka.users.create(this.state.email, this.state.organization).then(response => {
       console.log(response)
+      if (response.statusCode === 200) {
+        login(this.state.organization, response.body.api_key)
+      }
     }).catch()
   }
 

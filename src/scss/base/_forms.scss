@@ -363,3 +363,11 @@
   right: $space-sm;
   top: $space-sm;
 }
+
+// make chrome picker absolute positioned
+.chrome-picker {
+  position: absolute;
+  top: 54px;
+  left: $space-sm;
+  z-index: 1;
+}

@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import Input from '../forms/Input'
+import InputColor from '../forms/InputColor'
 import Select from '../forms/Select'
 import InputRange from '../forms/InputRange'
 import FormGroup from '../forms/FormGroup'
@@ -52,9 +53,9 @@ class Composition extends PureComponent {
           </FormGroup>
         </div>
         <div className="col-md-6">
-          <FormGroup label="Secondary color" required={this.isRequired('secondary_color')} error={errors.secondary_color}>
-            <Input name="secondary_color" type="text" className="rka-input-txt" placeholder="secondary color"
-              value={values.secondary_color} defaultValue={defaults.secondary_color.default} onChange={this.props.onChange} />
+          <FormGroup label="Secondary Color" required={this.isRequired('secondary_color')} error={errors.color}>
+            <InputColor name="secondary_color" value={values.secondary_color} defaultValue={defaults.secondary_color.default}
+              onChange={this.props.onChange} />
           </FormGroup>
         </div>
         <div className="col-md-6">

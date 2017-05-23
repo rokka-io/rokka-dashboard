@@ -179,10 +179,14 @@ class NewStack extends PureComponent {
       })
   }
 
-  onChange (idx, e) {
-    const target = e.currentTarget
-    let value = target.value
-    const name = target.name
+  onChange (idx, eventOrValue) {
+    let { currentTarget = null, name, value } = eventOrValue
+
+    if (currentTarget) {
+      value = currentTarget.value
+      name = currentTarget.name
+    }
+
     let operation = this.state.operations[idx]
 
     const operationDefinition = this.props.operations[operation.name]

@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import rokka from '../rokka'
 import FramelessLayout from './layouts/FramelessLayout'
 import { login } from '../state'
+import {setAlert} from '../state/index'
 
 class Signup extends Component {
 
@@ -22,11 +23,21 @@ class Signup extends Component {
     console.log(this.state.email)
     console.log(this.state.organization)
     rokka.users.create(this.state.email, this.state.organization).then(response => {
-      console.log(response)
-      if (response.statusCode === 200) {
-        login(this.state.organization, response.body.api_key)
+      login(this.state.organization, response.body.api_key, (done) => {
+        this.props.router.push('/')
+        done()
+      })
+    }).catch((err) => {
+      let message = err.error.error.message
+      console.log(message)
+      if (err.statusCode === 403 || err.statusCode === 404) {
+        setAlert('error', 'Authentication failed')
+      } else if (err.statusCode === 400) {
+        setAlert('error', message)
+      } else if (err.statusCode === 429) {
+        setAlert('error', message)
       }
-    }).catch()
+    })
   }
 
   onChange (e) {
@@ -79,6 +90,12 @@ class Signup extends Component {
       </FramelessLayout>
     )
   }
+}
+
+Signup.propTypes = {
+  router: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired
 }
 
 export default Signup

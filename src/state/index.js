@@ -106,8 +106,12 @@ export function login (organization, apiKey, successCb) {
       if (err.statusCode === 403 || err.statusCode === 404) {
         updateState({ auth: null })
         setAlert('error', 'Authentication failed')
-
-        return
+      } else if (err.statusCode === 400) {
+        updateState({ auth: null })
+        setAlert('error', 'Organization name is not valid')
+      } else if (err.statusCode === 429) {
+        updateState({ auth: null })
+        setAlert('error', 'Too many requests')
       }
       setAlert('error', 'Error getting organizations', 10000)
     })

@@ -19,9 +19,7 @@ ReactDOM.render(
         <IndexRoute component={Images} />
         <Route path=":hash" component={ImageDetail} />
       </Route>
-      <Route path="signup" component={Signup}>
-        <IndexRoute component={Signup} />
-      </Route>
+      <Route path="signup" component={Signup} />
       <Route path="stacks" component={Stacks}>
         <IndexRoute component={NoStackSelected} />
         <Route path=":name" component={Stack} />

@@ -22,6 +22,7 @@ class Signup extends Component {
     e.preventDefault()
     rokka.users.create(this.state.email, this.state.organization).then(response => {
       login(this.state.organization, response.body.api_key, (done) => {
+        setAlert('success', 'Successfully signed up. You will receive an email with the credentials', 5000)
         this.props.router.push('/')
         done()
       })

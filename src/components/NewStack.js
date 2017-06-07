@@ -9,6 +9,7 @@ import previewImage from './images/previewImage'
 import Spinner from './Spinner'
 import Alert from './Alert'
 import rokka from '../rokka'
+import Ajv from 'ajv'
 
 function randomNumber (min, max) {
   return Math.random() * (max - min) + min
@@ -24,6 +25,10 @@ function generateRandomId () {
 class NewStack extends PureComponent {
   constructor (props) {
     super(props)
+
+    const ajv = new Ajv({
+      allErrors: true
+    })
 
     this.state = {
       name: '',

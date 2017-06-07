@@ -20,8 +20,6 @@ class Signup extends Component {
 
   onSubmit (e) {
     e.preventDefault()
-    console.log(this.state.email)
-    console.log(this.state.organization)
     rokka.users.create(this.state.email, this.state.organization).then(response => {
       login(this.state.organization, response.body.api_key, (done) => {
         this.props.router.push('/')
@@ -29,13 +27,12 @@ class Signup extends Component {
       })
     }).catch((err) => {
       let message = err.error.error.message
-      console.log(message)
       if (err.statusCode === 403 || err.statusCode === 404) {
         setAlert('error', 'Authentication failed')
       } else if (err.statusCode === 400) {
         setAlert('error', message)
       } else {
-        setAlert('error', 'Error')
+        setAlert('error', 'Unknown error occurred')
       }
     })
   }

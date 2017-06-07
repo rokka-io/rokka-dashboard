@@ -78,7 +78,7 @@ class Signup extends Component {
                   <p className="txt-gray-darkest mt-md lh-lg">
                     By creating an account,
                     you agree to rokka's
-                    <a href="#" className="pl-xs rka-link">Terms & Conditions</a></p>
+                    <a href="http://rokka.io/assets/pdf/Rokka_Terms_of_use_EN.pdf" target="_blank" className="pl-xs rka-link">Terms & Conditions</a></p>
                 </form>
               </div>
             </div>

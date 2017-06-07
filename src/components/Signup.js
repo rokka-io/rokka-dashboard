@@ -34,8 +34,8 @@ class Signup extends Component {
         setAlert('error', 'Authentication failed')
       } else if (err.statusCode === 400) {
         setAlert('error', message)
-      } else if (err.statusCode === 429) {
-        setAlert('error', message)
+      } else {
+        setAlert('error', 'Error')
       }
     })
   }

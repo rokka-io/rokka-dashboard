@@ -79,11 +79,11 @@ Dropshadow.propTypes = {
     })
   }),
   values: PropTypes.shape({
-    horizontal: PropTypes.string,
-    vertical: PropTypes.string,
-    opacity: PropTypes.string,
-    sigma: PropTypes.string,
-    blur_radius: PropTypes.string
+    horizontal: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    vertical: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    opacity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    sigma: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    blur_radius: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   }),
   required: PropTypes.array.isRequired,
   errors: PropTypes.object

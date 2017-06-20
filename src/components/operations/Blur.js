@@ -54,8 +54,8 @@ Blur.propTypes = {
     })
   }),
   values: PropTypes.shape({
-    radius: PropTypes.string,
-    sigma: PropTypes.string
+    radius: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    sigma: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   }),
   required: PropTypes.array.isRequired,
   errors: PropTypes.object

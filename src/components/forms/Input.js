@@ -5,11 +5,17 @@ const Input = ({ value, defaultValue, placeholder, disabled, ...attrs }) => {
     ? (value || defaultValue)
     : value
 
+  if (attrs.onChange) {
+    attrs.value = val || ''
+  } else {
+    attrs.defaultValue = val
+  }
+
   const ph = defaultValue
     ? `${placeholder || attrs.name || attrs.type} (default: ${defaultValue})`
     : placeholder
 
-  return <input {...attrs} defaultValue={val} placeholder={ph} disabled={disabled || !attrs.onChange} />
+  return <input {...attrs} placeholder={ph} disabled={disabled || !attrs.onChange} />
 }
 
 Input.propTypes = {

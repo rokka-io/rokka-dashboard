@@ -82,8 +82,8 @@ AutoRotate.propTypes = {
     })
   }),
   values: PropTypes.shape({
-    height: PropTypes.string,
-    width: PropTypes.string,
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     rotation_direction: PropTypes.string
   }),
   required: PropTypes.array.isRequired,

@@ -51,7 +51,7 @@ Rotate.propTypes = {
     })
   }),
   values: PropTypes.shape({
-    angle: PropTypes.string,
+    angle: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     background_color: PropTypes.string,
     background_opacity: PropTypes.string
   }),

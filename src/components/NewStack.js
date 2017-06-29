@@ -10,6 +10,7 @@ import Spinner from './Spinner'
 import Alert from './Alert'
 import rokka from '../rokka'
 import Options from './Options'
+import Ajv from 'ajv'
 
 function randomNumber (min, max) {
   return Math.random() * (max - min) + min
@@ -126,24 +127,36 @@ class NewStack extends PureComponent {
 
   onSubmit (e) {
     e.preventDefault()
+    console.log(e)
 
     let updateOperationsState = false
 
-    const operations = this.state.operations.map((operation) => {
-      const required = this.props.operations[operation.name].required || []
-      const addedOptions = Object.keys(operation.options)
-      const missing = required.filter((field) => {
-        const index = addedOptions.indexOf(field)
-        return index === -1 || !operation.options[field].length
-      })
+    const ajv = new Ajv({
+      allErrors: true
+    })
 
-      operation.errors = {}
-      missing.forEach((field) => {
-        operation.errors[field] = `${field} is required`
-      })
+    this.operationValidators = {}
+    Object.keys(this.props.operations).forEach(key => {
+      const operation = this.props.operations[key]
+      if (key === 'noop' && Array.isArray(operation.properties)) {
+        operation.properties = {}
+      }
+      this.operationValidators[key] = ajv.compile(operation)
+    })
 
-      if (missing.length) {
+    const operations = this.state.operations.map(operation => {
+      this.operationValidators[operation.name](operation.options)
+      if (!this.operationValidators[operation.name](operation.options)) {
+        console.log(this.operationValidators[operation.name].errors)
         updateOperationsState = true
+
+        this.operationValidators[operation.name].errors.forEach((e) => {
+          console.log(e.dataPath)
+          operation.errors[e.dataPath.replace('.', '')] = e.message
+          if (e.keyword === 'required') {
+            operation.errors[e.params.missingProperty] = e.message
+          }
+        })
       }
 
       return operation
@@ -193,6 +206,10 @@ class NewStack extends PureComponent {
 
     if (operationDefinition && operationDefinition.properties[name].type === 'bool') {
       value = value === 'true'
+    } else if (operationDefinition && operationDefinition.properties[name].type === 'integer') {
+      value = parseInt(value, 10)
+    } else if (operationDefinition && operationDefinition.properties[name].type === 'number') {
+      value = parseFloat(value)
     }
 
     operation = Object.assign({}, operation, {

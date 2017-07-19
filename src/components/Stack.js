@@ -105,20 +105,24 @@ class Stack extends Component {
       }
     }
 
-    const options = this.state.stack.stack_options
+    let options = this.state.stack.stack_options
 
     let $options = null
     if (options) {
       const { stackOptions } = this.props
-      Object.keys(stackOptions).forEach((optionName) => {
+      Object.keys(stackOptions.properties).forEach((optionName) => {
         const optionSet = options[optionName] === undefined || options[optionName] === null
-        if (stackOptions[optionName].default !== undefined && optionSet) {
-          options[optionName] = stackOptions[optionName].default
+        if (stackOptions.properties[optionName].default !== undefined && optionSet) {
+          options[optionName] = stackOptions.properties[optionName].default
         }
       })
+      options = Object.keys(options).reduce((accumulator, key) => {
+        accumulator[key] = {value: options[key]}
+        return accumulator
+      }, {})
 
       $options = (
-        <Options options={options} defaultOptions={stackOptions || {}} />
+        <Options options={options} defaultOptions={stackOptions.properties || {}} />
       )
     }
 

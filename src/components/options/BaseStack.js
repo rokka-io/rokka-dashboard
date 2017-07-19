@@ -37,7 +37,7 @@ class BaseStack extends Component {
       }
     })
     return (
-      <FormGroup label="Base Stack" className="mb-n">
+      <FormGroup label="Base Stack" className="mb-n" error={this.props.error}>
         <Select
           name="basestack"
           placeholder="Enter base stack, default: no base stack used"
@@ -53,7 +53,8 @@ class BaseStack extends Component {
 BaseStack.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
-  stacks: PropTypes.object
+  stacks: PropTypes.object,
+  error: PropTypes.string
 }
 
 export default BaseStack

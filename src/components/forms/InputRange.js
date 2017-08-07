@@ -12,6 +12,12 @@ class InputRange extends Component {
     }
   }
 
+  componentWillReceiveProps (nextProps) {
+    this.setState({
+      value: nextProps.value || nextProps.defaultValue
+    })
+  }
+
   onChange (e) {
     const val = e.currentTarget.value
     let newVal = val ? parseInt(e.currentTarget.value, 10) : ''

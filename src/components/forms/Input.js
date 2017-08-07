@@ -15,7 +15,7 @@ const Input = ({ value, defaultValue, placeholder, disabled, ...attrs }) => {
     ? `${placeholder || attrs.name || attrs.type} (default: ${defaultValue})`
     : placeholder
 
-  return <input {...attrs} placeholder={ph} disabled={disabled || !attrs.onChange} />
+  return <input {...attrs} value={val} placeholder={ph} disabled={disabled || !attrs.onChange} />
 }
 
 Input.propTypes = {

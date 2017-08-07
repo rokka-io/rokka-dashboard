@@ -228,6 +228,7 @@
   margin-top: $space-sm;
   font-weight: 300;
   opacity: 0;
+  position: absolute;
 
   &.is-active {
     transition: .3s ease opacity;
@@ -235,10 +236,10 @@
   }
 }
 .rka-input-range-min {
-  float: left;
+  left: 0;
 }
 .rka-input-range-max {
-  float: right;
+  right: 0;
 }
 .rka-input-range-current {
   width: auto;

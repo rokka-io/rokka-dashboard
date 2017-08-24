@@ -217,7 +217,7 @@ export function getDefaultStackOptions () {
   rokka.stackoptions.get()
     .then(({ body }) => {
       updateState({
-        stackOptions: body.properties
+        stackOptions: body
       })
     })
     .catch(err => {

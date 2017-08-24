@@ -10,6 +10,7 @@ import Spinner from './Spinner'
 import Alert from './Alert'
 import rokka from '../rokka'
 import Options from './Options'
+import Ajv from 'ajv'
 
 function randomNumber (min, max) {
   return Math.random() * (max - min) + min
@@ -24,8 +25,8 @@ function generateRandomId () {
 
 function generateDefaultValuesStackOptions (options, stackOptions) {
   Object.keys(stackOptions).forEach((optionName) => {
-    if (stackOptions[optionName].default !== undefined && options[optionName] === null) {
-      options[optionName] = stackOptions[optionName].default
+    if (stackOptions[optionName].default !== undefined && options[optionName].value === null) {
+      options[optionName] = {value: stackOptions[optionName].default}
     }
   })
   return options
@@ -36,11 +37,11 @@ class NewStack extends PureComponent {
     super(props)
 
     let options = {
-      'png.compression_level': props.stackClone.options ? props.stackClone.options['png.compression_level'] : null,
-      'jpg.quality': props.stackClone.options ? props.stackClone.options['jpg.quality'] : null,
-      'webp.quality': props.stackClone.options ? props.stackClone.options['webp.quality'] : null,
-      'interlacing.mode': props.stackClone.options ? props.stackClone.options['interlacing.mode'] : null,
-      'basestack': props.stackClone.options ? props.stackClone.options['basestack'] : null
+      'png.compression_level': {value: props.stackClone.options ? props.stackClone.options['png.compression_level'] : null},
+      'jpg.quality': {value: props.stackClone.options ? props.stackClone.options['jpg.quality'] : null},
+      'webp.quality': {value: props.stackClone.options ? props.stackClone.options['webp.quality'] : null},
+      'interlacing.mode': {value: props.stackClone.options ? props.stackClone.options['interlacing.mode'] : null},
+      'basestack': {value: props.stackClone.options ? props.stackClone.options['basestack'] : null}
     }
     if (props.stackOptions) {
       options = generateDefaultValuesStackOptions(options, props.stackOptions)
@@ -89,14 +90,32 @@ class NewStack extends PureComponent {
   }
 
   componentWillReceiveProps (nextProps) {
+    const ajv = new Ajv({
+      allErrors: true
+    })
+
     if (nextProps.previewImage && this.props.previewImage && nextProps.previewImage.hash !== this.props.previewImage.hash) {
       this.updatePreview(nextProps.previewImage)
     }
     if (nextProps.stackOptions !== null) {
-      const options = generateDefaultValuesStackOptions(Object.assign({}, this.state.options), nextProps.stackOptions)
+      const defaultOptions = generateDefaultValuesStackOptions(Object.assign({}, this.state.options), nextProps.stackOptions.properties)
+      this.optionValidator = ajv.compile(nextProps.stackOptions)
 
       this.setState({
-        options: options
+        options: defaultOptions
+      })
+    }
+    if (nextProps.operations !== null) {
+      this.operationValidators = {}
+      Object.keys(nextProps.operations).filter(key => key !== 'noop').forEach(key => {
+        const operation = nextProps.operations[key]
+        if (key === 'grayscale' && Array.isArray(operation.properties)) {
+          operation.properties = {}
+        }
+        if (key === 'resize' && operation.oneOf && typeof operation.oneOf[0] === 'string') {
+          delete operation.oneOf
+        }
+        this.operationValidators[key] = ajv.compile(operation)
       })
     }
   }
@@ -129,37 +148,58 @@ class NewStack extends PureComponent {
 
     let updateOperationsState = false
 
-    const operations = this.state.operations.map((operation) => {
-      const required = this.props.operations[operation.name].required || []
-      const addedOptions = Object.keys(operation.options)
-      const missing = required.filter((field) => {
-        const index = addedOptions.indexOf(field)
-        return index === -1 || !operation.options[field].length
-      })
-
-      operation.errors = {}
-      missing.forEach((field) => {
-        operation.errors[field] = `${field} is required`
-      })
-
-      if (missing.length) {
+    const operations = this.state.operations.map(operation => {
+      const valid = this.operationValidators[operation.name](operation.options)
+      if (!valid) {
         updateOperationsState = true
+
+        this.operationValidators[operation.name].errors.forEach((e) => {
+          if (e.keyword === 'required') {
+            operation.errors[e.params.missingProperty] = e.message
+          } else {
+            operation.errors[e.dataPath.replace('.', '')] = e.message
+          }
+        })
       }
 
       return operation
     })
 
+    let options = {}
+    Object.keys(this.state.options).forEach(key => {
+      const option = this.state.options[key]
+      if (key !== 'basestack' || (key === 'basestack' && option.value !== null)) {
+        options[key] = option.value
+      }
+    })
+
+    let updatedOptions = Object.assign({}, this.state.options)
+    const valid = this.optionValidator(options)
+    if (!valid) {
+      updateOperationsState = true
+
+      this.optionValidator.errors.forEach(e => {
+        if (e.keyword === 'required') {
+          updatedOptions[e.params.missingProperty].error = e.message
+        } else if (e.dataPath.substring(0, 1) === '.') {
+          updatedOptions[e.dataPath.replace('.', '')].error = e.message
+        } else if (e.dataPath.substring(0, 1) === '[') {
+          updatedOptions[e.dataPath.replace(/[\['][^_]/g, '')].error = e.message
+        }
+      })
+    }
+
     this.setState({
-      operations: operations
+      operations: operations,
+      options: updatedOptions
     })
     if (updateOperationsState) {
       return
     }
 
-    let options = this.state.options
     Object.keys(options).forEach(key => {
-      const val = options[key]
-      if (val === null || val === this.props.stackOptions[key].default) {
+      const val = options[key].value
+      if (val === null || val === this.props.stackOptions.properties[key].default) {
         delete options[key]
       }
     })
@@ -193,6 +233,10 @@ class NewStack extends PureComponent {
 
     if (operationDefinition && operationDefinition.properties[name].type === 'bool') {
       value = value === 'true'
+    } else if (operationDefinition && operationDefinition.properties[name].type === 'integer') {
+      value = parseInt(value, 10)
+    } else if (operationDefinition && operationDefinition.properties[name].type === 'number') {
+      value = parseFloat(value)
     }
 
     operation = Object.assign({}, operation, {
@@ -229,9 +273,17 @@ class NewStack extends PureComponent {
       name = target.name
     }
 
+    if (this.props.stackOptions && this.props.stackOptions.properties[name].type === 'bool') {
+      value = value === 'true'
+    } else if (this.props.stackOptions && this.props.stackOptions.properties[name].type === 'integer') {
+      value = parseInt(value, 10)
+    } else if (this.props.stackOptions && this.props.stackOptions.properties[name].type === 'number') {
+      value = parseFloat(value)
+    }
+
     this.setState({
       options: Object.assign({}, this.state.options, {
-        [name]: value
+        [name]: {value}
       })
     })
   }
@@ -349,7 +401,7 @@ class NewStack extends PureComponent {
                   value={this.state.name} />
               </FormGroup>
 
-              <Options defaultOptions={this.props.stackOptions || {}} options={this.state.options} onChange={this.onChangeOptions} stacks={this.props.stacks} />
+              <Options defaultOptions={this.props.stackOptions ? this.props.stackOptions.properties : {}} options={this.state.options} onChange={this.onChangeOptions} stacks={this.props.stacks} />
 
               <h3 className="rka-h2 mv-md">Operations</h3>
               {this.state.operations.map((operation, index) => {
@@ -370,7 +422,7 @@ class NewStack extends PureComponent {
                 <h3 className="rka-h3 mb-md">New operation</h3>
                 <div className="rka-form-group">
                   <select ref="operationsList" className="rka-select">
-                    {Object.keys(this.props.operations).map((name) => <option key={name} value={name}>{name}</option>)}
+                    {Object.keys(this.props.operations).filter(name => name !== 'noop').map((name) => <option key={name} value={name}>{name}</option>)}
                   </select>
                 </div>
                 <a href="#" className="rka-button rka-button-brand rka-button-sm" onClick={this.addOperation}>Add operation</a>

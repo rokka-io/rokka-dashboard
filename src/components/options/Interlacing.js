@@ -18,7 +18,7 @@ class Interlacing extends Component {
     })
 
     return (
-      <FormGroup label="Interlacing mode">
+      <FormGroup label="Interlacing mode" error={this.props.error}>
         {$interlacingOptions}
       </FormGroup>
     )
@@ -28,7 +28,8 @@ class Interlacing extends Component {
 Interlacing.propTypes = {
   value: PropTypes.string,
   options: PropTypes.array,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  error: PropTypes.string
 }
 
 export default Interlacing

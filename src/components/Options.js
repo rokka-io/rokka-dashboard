@@ -8,6 +8,7 @@ import FormGroup from './forms/FormGroup'
 class Options extends Component {
   render () {
     const { defaultOptions } = this.props
+
     if (!Object.keys(defaultOptions).length) {
       return null
     }

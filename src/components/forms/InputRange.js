@@ -13,9 +13,11 @@ class InputRange extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    this.setState({
-      value: nextProps.value || nextProps.defaultValue
-    })
+    if (nextProps.value && !this.state.value) {
+      this.setState({
+        value: nextProps.value || nextProps.defaultValue
+      })
+    }
   }
 
   onChange (e) {
@@ -48,7 +50,7 @@ class InputRange extends Component {
       <div className="rka-input-range-container clearfix">
         <Input name={this.props.name} className="rka-input-range" type="range" disabled={!this.props.onChange} onChange={(e) => this.onChange(e)}
           onBlur={(e) => this.onBlur(e)} min={this.props.min} max={this.props.max} value={this.state.value}
-          defaultValue={this.props.defaultValue} error={this.props.error}
+          defaultValue={this.props.defaultValue}
         />
         <p>
           <span className={cx('rka-input-range-min', { 'is-active': this.state.showMinMax })}>{this.props.min}</span>
@@ -74,8 +76,7 @@ InputRange.propTypes = {
   max: PropTypes.number,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  onChange: PropTypes.func,
-  error: PropTypes.string
+  onChange: PropTypes.func
 }
 
 export default InputRange

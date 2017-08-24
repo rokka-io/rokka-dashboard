@@ -107,9 +107,9 @@ class NewStack extends PureComponent {
     }
     if (nextProps.operations !== null) {
       this.operationValidators = {}
-      Object.keys(nextProps.operations).forEach(key => {
+      Object.keys(nextProps.operations).filter(key => key !== 'noop').forEach(key => {
         const operation = nextProps.operations[key]
-        if (key === 'noop' && Array.isArray(operation.properties)) {
+        if (key === 'grayscale' && Array.isArray(operation.properties)) {
           operation.properties = {}
         }
         if (key === 'resize' && operation.oneOf && typeof operation.oneOf[0] === 'string') {
@@ -422,7 +422,7 @@ class NewStack extends PureComponent {
                 <h3 className="rka-h3 mb-md">New operation</h3>
                 <div className="rka-form-group">
                   <select ref="operationsList" className="rka-select">
-                    {Object.keys(this.props.operations).map((name) => <option key={name} value={name}>{name}</option>)}
+                    {Object.keys(this.props.operations).filter(name => name !== 'noop').map((name) => <option key={name} value={name}>{name}</option>)}
                   </select>
                 </div>
                 <a href="#" className="rka-button rka-button-brand rka-button-sm" onClick={this.addOperation}>Add operation</a>

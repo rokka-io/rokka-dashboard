@@ -1,0 +1,25 @@
+exports[`test Alert does not render if no alert props given 1`] = `null`;
+
+exports[`test Alert renders multiple alerts 1`] = `
+<div
+  className="rka-alert is-error txt-c">
+  <span
+    className="rka-alert-msg">
+    Test alert
+  </span>
+  <span
+    className="rka-alert-msg">
+    Rokka yay
+  </span>
+</div>
+`;
+
+exports[`test Alert renders one alert 1`] = `
+<div
+  className="rka-alert is-error txt-c">
+  <span
+    className="rka-alert-msg">
+    Test alert
+  </span>
+</div>
+`;

@@ -103,7 +103,8 @@
       "web.jsx",
       "jsx",
       "node"
-    ]
+    ],
+    "testRegex": "/test/(?!testutils.js$).*.js$"
   },
   "babel": {
     "presets": [

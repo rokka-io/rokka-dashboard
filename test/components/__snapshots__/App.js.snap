@@ -1,0 +1,16 @@
+exports[`test App does render 1`] = `
+<div
+  className="App">
+  <span
+    alert={null}
+    auth={null}
+    images={Array []}
+    operations={Object {}}
+    showSidebar={false}
+    stackClone={Object {}}
+    stackOptions={null}
+    stacks={Object {}}>
+    Test
+  </span>
+</div>
+`;

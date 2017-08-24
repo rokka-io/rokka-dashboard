@@ -1,0 +1,6 @@
+exports[`test Footer does render 1`] = `
+<footer
+  className="rka-footer">
+  Rokka © 2017
+</footer>
+`;

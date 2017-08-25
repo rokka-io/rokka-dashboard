@@ -1,22 +1,25 @@
 import React, { PropTypes } from 'react'
 
-const Input = ({ value, defaultValue, placeholder, disabled, ...attrs }) => {
-  const val = disabled || !attrs.onChange
+const Input = ({ value, defaultValue, placeholder, disabled, ...props }) => {
+  const val = disabled || !props.onChange
     ? (value || defaultValue)
     : value
 
   const ph = defaultValue
-    ? `${placeholder || attrs.name || attrs.type} (default: ${defaultValue})`
+    ? `${placeholder || props.name || props.type || ''} (default: ${defaultValue})`
     : placeholder
 
-  return <input {...attrs} value={val} placeholder={ph} disabled={disabled || !attrs.onChange} />
+  return <input {...props} value={val} placeholder={ph} disabled={disabled || !props.onChange} />
 }
 
 Input.propTypes = {
   value: PropTypes.any,
   defaultValue: PropTypes.any,
   placeholder: PropTypes.string,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  type: PropTypes.string,
+  name: PropTypes.string
 }
 
 export default Input

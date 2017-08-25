@@ -1,0 +1,58 @@
+exports[`test FormGroup does render 1`] = `
+<div
+  className="rka-form-group">
+  <label
+    className="rka-label">
+    Test
+  </label>
+  <span>
+    Test
+  </span>
+</div>
+`;
+
+exports[`test FormGroup does render with className 1`] = `
+<div
+  className="rka-form-group test">
+  <label
+    className="rka-label">
+    Test
+  </label>
+  <span>
+    Test
+  </span>
+</div>
+`;
+
+exports[`test FormGroup does render with error 1`] = `
+<div
+  className="rka-form-group has-error">
+  <label
+    className="rka-label">
+    Test
+  </label>
+  <span>
+    Test
+  </span>
+  <div
+    className="mt-xs txt-xs txt-cranberry">
+    Test
+  </div>
+</div>
+`;
+
+exports[`test FormGroup does render with required indicator 1`] = `
+<div
+  className="rka-form-group">
+  <label
+    className="rka-label">
+    Test
+    <span>
+       *
+    </span>
+  </label>
+  <span>
+    Test
+  </span>
+</div>
+`;

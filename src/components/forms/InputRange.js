@@ -71,9 +71,9 @@ class InputRange extends Component {
 }
 
 InputRange.propTypes = {
-  name: PropTypes.string,
-  min: PropTypes.number,
-  max: PropTypes.number,
+  name: PropTypes.string.isRequired,
+  min: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   onChange: PropTypes.func

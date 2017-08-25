@@ -1,0 +1,7 @@
+exports[`test RequiredIndicator does render 1`] = `null`;
+
+exports[`test RequiredIndicator does render with required 1`] = `
+<span>
+   *
+</span>
+`;

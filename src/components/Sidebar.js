@@ -9,9 +9,9 @@ class Sidebar extends Component {
   constructor (props) {
     super(props)
 
-    this.state = {
-      items: this.props.stacks.items || []
-    }
+    const { items = [] } = props.stacks
+
+    this.state = { items }
   }
 
   loadNextStacks () {
@@ -103,12 +103,16 @@ class Sidebar extends Component {
 
 Sidebar.propTypes = {
   active: PropTypes.bool.isRequired,
-  router: PropTypes.object.isRequired,
+  router: PropTypes.shape({
+    location: PropTypes.shape({
+      pathname: PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired,
   stacks: PropTypes.shape({
     currentOffset: PropTypes.number,
     items: PropTypes.array,
     total: PropTypes.number
-  })
+  }).isRequired
 }
 
 export default Sidebar

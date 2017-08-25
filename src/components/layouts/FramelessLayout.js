@@ -1,18 +1,15 @@
 import React, { PropTypes } from 'react'
 import Alert from '../Alert'
 
-const FramelessLayout = ({ className, alert = null, ...props }) =>
+const FramelessLayout = ({ children, className = null, alert = null }) =>
   <div className={className}>
     <Alert alert={alert} />
-    {props.children}
+    {children}
   </div>
 
 FramelessLayout.propTypes = {
   children: PropTypes.node.isRequired,
-  alert: PropTypes.shape({
-    type: PropTypes.string,
-    message: PropTypes.string
-  }),
+  alert: PropTypes.object,
   className: PropTypes.string
 }
 

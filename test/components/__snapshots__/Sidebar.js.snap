@@ -64,7 +64,7 @@ exports[`test Sidebar does render 1`] = `
     className="rka-sidebar-poweredby"
     href="https://www.liip.ch/"
     target="_blank">
-    POWERED BY
+    POWERED BY 
     <i
       className="rka-sidebar-liip-logo" />
   </a>
@@ -137,7 +137,7 @@ exports[`test Sidebar does render when active 1`] = `
     className="rka-sidebar-poweredby"
     href="https://www.liip.ch/"
     target="_blank">
-    POWERED BY
+    POWERED BY 
     <i
       className="rka-sidebar-liip-logo" />
   </a>
@@ -240,7 +240,7 @@ exports[`test Sidebar shows load more button 1`] = `
     className="rka-sidebar-poweredby"
     href="https://www.liip.ch/"
     target="_blank">
-    POWERED BY
+    POWERED BY 
     <i
       className="rka-sidebar-liip-logo" />
   </a>
@@ -337,7 +337,7 @@ exports[`test Sidebar shows stacks 1`] = `
     className="rka-sidebar-poweredby"
     href="https://www.liip.ch/"
     target="_blank">
-    POWERED BY
+    POWERED BY 
     <i
       className="rka-sidebar-liip-logo" />
   </a>

@@ -1,0 +1,24 @@
+exports[`test FramelessLayout does render 1`] = `
+<div
+  className={null}>
+  <span>
+    Test
+  </span>
+</div>
+`;
+
+exports[`test FramelessLayout does render with alerts 1`] = `
+<div
+  className={null}>
+  <div
+    className="rka-alert is-error txt-c">
+    <span
+      className="rka-alert-msg">
+      test
+    </span>
+  </div>
+  <span>
+    Test
+  </span>
+</div>
+`;

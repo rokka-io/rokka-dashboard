@@ -301,6 +301,7 @@ export function subscribe (cb) {
  *
  * @param {string} name
  * @param {object} operations
+ * @param {object} options
  */
 export function cloneStack (name, operations, options) {
   updateState({

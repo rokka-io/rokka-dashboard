@@ -50,22 +50,22 @@ class Login extends Component {
                   <h2 className="txt-white rka-h2">Web images done right.</h2>
                   <p className="rka-login-brand-powered">Powered by Liip.</p>
                 </div>
-              </div>
-              <div className="col-md-7">
-                <div className="rka-login-form-container">
-                  <form onSubmit={this.onLogin}>
-                    <div className="rka-form-group">
-                      <label className="rka-label" htmlFor="organization">Organization</label>
-                      <input className="rka-input-txt" type="text" id="organization" name="organization"
-                        defaultValue={this.state.organization} onChange={(e) => this.onChange(e)} />
-                    </div>
-                    <div className="rka-form-group">
-                      <label className="rka-label" htmlFor="apiKey">Api Key</label>
-                      <input className="rka-input-txt" type="password" id="apiKey" name="apiKey"
-                        defaultValue={this.state.apiKey} onChange={(e) => this.onChange(e)} />
-                    </div>
-                    <input className="rka-button rka-button-brand mt-sm" type="submit" value="Login" />
-                  </form>
+                <div className="col-md-7">
+                  <div className="rka-login-form-container">
+                    <form onSubmit={this.onLogin}>
+                      <div className="rka-form-group">
+                        <label className="rka-label" htmlFor="organization">Organization</label>
+                        <input className="rka-input-txt" type="text" id="organization" name="organization"
+                          defaultValue={this.state.organization} onChange={(e) => this.onChange(e)} />
+                      </div>
+                      <div className="rka-form-group">
+                        <label className="rka-label" htmlFor="apiKey">Api Key</label>
+                        <input className="rka-input-txt" type="password" id="apiKey" name="apiKey"
+                          defaultValue={this.state.apiKey} onChange={(e) => this.onChange(e)} />
+                      </div>
+                      <input className="rka-button rka-button-brand mt-sm" type="submit" value="Login" />
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>

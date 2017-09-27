@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import { Link, IndexLink } from 'react-router'
 import { listStacks } from '../state'
 import addIcon from '../img/add-icon.svg'

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import cx from 'classnames'
 import Header from '../Header.js'

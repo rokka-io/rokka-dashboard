@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import InputColor from '../forms/InputColor'
 import InputRange from '../forms/InputRange'
 import FormGroup from '../forms/FormGroup'

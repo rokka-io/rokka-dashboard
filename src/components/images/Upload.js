@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
 import Promise from 'bluebird'
 import rokka from '../../rokka'

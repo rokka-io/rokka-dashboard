@@ -1,4 +1,5 @@
-import React, { PureComponent, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { PureComponent } from 'react'
 import moment from 'moment'
 import rokka from '../../rokka'
 import Chart from './Chart'

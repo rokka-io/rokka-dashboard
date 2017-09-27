@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import rokka from '../rokka'
 import FramelessLayout from './layouts/FramelessLayout'
 import { login, setAlert } from '../state'

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const Input = ({ value, defaultValue, placeholder, disabled, ...props }) => {
   const val = disabled || !props.onChange

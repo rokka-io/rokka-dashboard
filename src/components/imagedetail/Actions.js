@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import cx from 'classnames'
 import { FOCUS_POINT, FOCUS_AREA } from './constants'
 import CropForm from './CropForm'

@@ -1,4 +1,5 @@
-import React, { PureComponent, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { PureComponent } from 'react'
 import ReactCrop from 'react-image-crop'
 import cx from 'classnames'
 import { authRequired } from '../utils/auth'

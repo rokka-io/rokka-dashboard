@@ -3,7 +3,6 @@ import { MonthView } from 'react-date-picker'
 import enhanceWithClickOutside from 'react-click-outside'
 
 class Calendar extends PureComponent {
-
   render () {
     const {onRangeChange, from, to, calendarRef, dateClick, showCalendar} = this.props
     return (
@@ -30,7 +29,7 @@ class Calendar extends PureComponent {
               className="calendar float-r"
             />
           </div>
-          ) : null}
+        ) : null}
       </div>
     )
   }
@@ -38,7 +37,6 @@ class Calendar extends PureComponent {
   handleClickOutside () {
     this.props.onBlurHideCalendar()
   }
-
 }
 
 Calendar.propTypes = {

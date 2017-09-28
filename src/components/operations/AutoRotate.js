@@ -12,13 +12,13 @@ class AutoRotate extends Component {
     const { defaults, values, errors = {} } = this.props
 
     const $rotationDirectionOptions = defaults.rotation_direction.values
-    .map((option) => {
-      return (
-        <option key={option} value={option}>
-          {option}
-        </option>
-      )
-    })
+      .map((option) => {
+        return (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        )
+      })
 
     return (
       <div className="row">

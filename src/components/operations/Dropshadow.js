@@ -4,7 +4,6 @@ import InputColor from '../forms/InputColor'
 import FormGroup from '../forms/FormGroup'
 
 class Dropshadow extends Component {
-
   isRequired (field) {
     return this.props.required.indexOf(field) !== -1
   }

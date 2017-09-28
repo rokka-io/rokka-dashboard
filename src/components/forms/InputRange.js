@@ -55,12 +55,12 @@ class InputRange extends Component {
         <p>
           <span className={cx('rka-input-range-min', { 'is-active': this.state.showMinMax })}>{this.props.min}</span>
           {this.props.onChange
-          ? (
-            <Input name={this.props.name} className="rka-input-txt rka-input-range-current txt-c" size={5} type="text"
-              disabled={!this.props.onChange} onChange={(e) => this.onChange(e)} value={this.state.value}
-            />
+            ? (
+              <Input name={this.props.name} className="rka-input-txt rka-input-range-current txt-c" size={5} type="text"
+                disabled={!this.props.onChange} onChange={(e) => this.onChange(e)} value={this.state.value}
+              />
             )
-          : (<span className={cx('rka-input-range-current txt-bold', { 'is-disabled': !this.props.onChange })}>{this.state.value}</span>)
+            : (<span className={cx('rka-input-range-current txt-bold', { 'is-disabled': !this.props.onChange })}>{this.state.value}</span>)
           }
 
           <span className={cx('rka-input-range-max', { 'is-active': this.state.showMinMax })}>{this.props.max}</span>

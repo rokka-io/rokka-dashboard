@@ -5,7 +5,6 @@ import { login } from '../state'
 import {setAlert} from '../state/index'
 
 class Signup extends Component {
-
   constructor () {
     super()
 

@@ -184,7 +184,7 @@ class NewStack extends PureComponent {
         } else if (e.dataPath.substring(0, 1) === '.') {
           updatedOptions[e.dataPath.replace('.', '')].error = e.message
         } else if (e.dataPath.substring(0, 1) === '[') {
-          updatedOptions[e.dataPath.replace(/[\['][^_]/g, '')].error = e.message
+          updatedOptions[e.dataPath.replace(/[['][^_]/g, '')].error = e.message
         }
       })
     }

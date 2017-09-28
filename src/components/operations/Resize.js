@@ -12,31 +12,31 @@ class Resize extends PureComponent {
     const { defaults, values, errors = {} } = this.props
 
     const $upscaleOptions = defaults.upscale.values
-    .map((option) => {
-      return (
-        <option key={option} value={option}>
-          {option}
-        </option>
-      )
-    })
+      .map((option) => {
+        return (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        )
+      })
 
     const $modeOptions = defaults.mode.values
-    .map((option) => {
-      return (
-        <option key={option} value={option}>
-          {option}
-        </option>
-      )
-    })
+      .map((option) => {
+        return (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        )
+      })
 
     const $filterOptions = defaults.filter.values
-    .map((option) => {
-      return (
-        <option key={option} value={option}>
-          {option}
-        </option>
-      )
-    })
+      .map((option) => {
+        return (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        )
+      })
 
     return (
       <div className="row">

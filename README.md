@@ -2,8 +2,6 @@
 
 A serverless application for [rokka](https://rokka.io) to manage a rokka account.
 
-*⚠️  This repository is a work in progress and an early preview*
-
 ## Features
 
 - Show statistics
@@ -16,9 +14,6 @@ A serverless application for [rokka](https://rokka.io) to manage a rokka account
 
 For using rokka-dashboard you need to clone the repository and run the build for yourself at the moment.
 We plan to add automatic builds in the future.
-
-The `HOMEPAGE_PATH` is a placeholder for the target page where you want to run it.
-For example if you want to run the rokka UI on `https://example.com/rokkaui/` then specify that URL as the target.
 
 This ensures the paths for including scripts etc. are correct in the built HTML and CSS files.
 

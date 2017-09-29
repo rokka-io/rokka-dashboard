@@ -4,7 +4,6 @@ import InputRange from '../forms/InputRange'
 import FormGroup from '../forms/FormGroup'
 
 class Crop extends Component {
-
   isRequired (field) {
     return this.props.required.indexOf(field) !== -1
   }

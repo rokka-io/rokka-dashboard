@@ -6,7 +6,6 @@ import getStats from './graphdata'
 import Calendar from './Calendar'
 
 class Stats extends PureComponent {
-
   constructor () {
     super()
 

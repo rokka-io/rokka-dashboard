@@ -435,18 +435,18 @@ class ImageDetail extends PureComponent {
     const { hash } = this.state.image
 
     deleteImage(hash)
-    .then(() => {
-      setTimeout(() => {
-        this.props.router.push(`/images`)
-        setAlert('success', `Image ${hash} has been deleted.`, 5000)
-      }, 2000)
-    })
-    .catch((err) => {
-      console.error(err)
+      .then(() => {
+        setTimeout(() => {
+          this.props.router.push(`/images`)
+          setAlert('success', `Image ${hash} has been deleted.`, 5000)
+        }, 2000)
+      })
+      .catch((err) => {
+        console.error(err)
 
-      this.onCancelDeleteImage()
-      setAlert('error', `Error deleting image ${hash}`, 5000)
-    })
+        this.onCancelDeleteImage()
+        setAlert('error', `Error deleting image ${hash}`, 5000)
+      })
   }
 
   render () {

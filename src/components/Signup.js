@@ -1,11 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import rokka from '../rokka'
 import FramelessLayout from './layouts/FramelessLayout'
-import { login } from '../state'
-import {setAlert} from '../state/index'
+import { login, setAlert } from '../state'
 
 class Signup extends Component {
-
   constructor () {
     super()
 

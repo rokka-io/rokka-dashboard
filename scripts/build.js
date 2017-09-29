@@ -14,6 +14,13 @@ process.on('unhandledRejection', err => {
 // Ensure environment variables are read.
 require('../config/env')
 
+// rokka-site uses `npm run build {path}`, read that for the homepage path.
+if (process.argv.length === 3) {
+  process.env.PUBLIC_URL = process.argv[2]
+} else {
+  console.warn('No homepage path given, assuming default \'/\'. ')
+}
+
 const path = require('path')
 const chalk = require('chalk')
 const fs = require('fs-extra')

@@ -5,7 +5,9 @@ import renderer from 'react-test-renderer'
 jest.mock('../../../src/state')
 
 // transition group uses findDOMNode which doesn't work when snapshot testing
-jest.mock('react-addons-css-transition-group', () => 'TransitionGroup')
+jest.mock('react-transition-group', () => {
+  return {TransitionGroup: 'TransitionGroup', CSSTransition: 'CSSTransition'}
+})
 
 test('BaseLayout does render', () => {
   const router = {

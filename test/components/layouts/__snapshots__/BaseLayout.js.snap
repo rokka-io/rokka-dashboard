@@ -143,21 +143,26 @@ exports[`BaseLayout does render 1`] = `
       />
     </a>
   </sidebar>
-  <TransitionGroup
-    component="div"
-    transitionAppear={true}
-    transitionAppearTimeout={500}
-    transitionEnterTimeout={0}
-    transitionLeaveTimeout={0}
-    transitionName="page-transition"
-  >
-    <main
-      className="main clearfix"
+  <TransitionGroup>
+    <CSSTransition
+      appear={true}
+      classNames="page-transition"
+      timeout={
+        Object {
+          "appear": 500,
+          "enter": 0,
+          "exit": 0,
+        }
+      }
     >
-      <span>
-        Test Baselayout
-      </span>
-    </main>
+      <main
+        className="main clearfix"
+      >
+        <span>
+          Test Baselayout
+        </span>
+      </main>
+    </CSSTransition>
   </TransitionGroup>
   <footer
     className="rka-footer"
@@ -310,21 +315,26 @@ exports[`BaseLayout does render active sidebar 1`] = `
       />
     </a>
   </sidebar>
-  <TransitionGroup
-    component="div"
-    transitionAppear={true}
-    transitionAppearTimeout={500}
-    transitionEnterTimeout={0}
-    transitionLeaveTimeout={0}
-    transitionName="page-transition"
-  >
-    <main
-      className="main clearfix is-active"
+  <TransitionGroup>
+    <CSSTransition
+      appear={true}
+      classNames="page-transition"
+      timeout={
+        Object {
+          "appear": 500,
+          "enter": 0,
+          "exit": 0,
+        }
+      }
     >
-      <span>
-        Test Baselayout
-      </span>
-    </main>
+      <main
+        className="main clearfix is-active"
+      >
+        <span>
+          Test Baselayout
+        </span>
+      </main>
+    </CSSTransition>
   </TransitionGroup>
   <footer
     className="rka-footer"
@@ -477,30 +487,35 @@ exports[`BaseLayout does render alert 1`] = `
       />
     </a>
   </sidebar>
-  <TransitionGroup
-    component="div"
-    transitionAppear={true}
-    transitionAppearTimeout={500}
-    transitionEnterTimeout={0}
-    transitionLeaveTimeout={0}
-    transitionName="page-transition"
-  >
-    <main
-      className="main clearfix"
+  <TransitionGroup>
+    <CSSTransition
+      appear={true}
+      classNames="page-transition"
+      timeout={
+        Object {
+          "appear": 500,
+          "enter": 0,
+          "exit": 0,
+        }
+      }
     >
-      <div
-        className="rka-alert is-error txt-c"
+      <main
+        className="main clearfix"
       >
-        <span
-          className="rka-alert-msg"
+        <div
+          className="rka-alert is-error txt-c"
         >
-          test
+          <span
+            className="rka-alert-msg"
+          >
+            test
+          </span>
+        </div>
+        <span>
+          Test Baselayout
         </span>
-      </div>
-      <span>
-        Test Baselayout
-      </span>
-    </main>
+      </main>
+    </CSSTransition>
   </TransitionGroup>
   <footer
     className="rka-footer"

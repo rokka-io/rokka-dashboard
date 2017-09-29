@@ -45,6 +45,7 @@
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.6",
     "promise": "8.0.1",
+    "prop-types": "^15.6.0",
     "react": "^15.6.0",
     "react-click-outside": "^2.2.0",
     "react-color": "^2.11.7",

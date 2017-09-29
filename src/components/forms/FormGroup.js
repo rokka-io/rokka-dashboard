@@ -14,8 +14,8 @@ const FormGroup = ({ label, children, className = null, required = false, error 
 )
 FormGroup.propTypes = {
   label: PropTypes.string.isRequired,
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   required: PropTypes.bool,
   error: PropTypes.string
 }

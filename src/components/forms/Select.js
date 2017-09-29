@@ -1,15 +1,15 @@
 import React, { PropTypes } from 'react'
 
-const Select = ({ value, defaultValue, placeholder, disabled, children, ...attrs }) => {
+const Select = ({ value, defaultValue, placeholder, disabled, children, ...props }) => {
   const ph = defaultValue
-    ? `${placeholder || attrs.name || attrs.type} (default: ${defaultValue})`
+    ? `${placeholder || props.name || props.type || ''} (default: ${defaultValue})`
     : placeholder
 
-  const val = disabled || !attrs.onChange
+  const val = disabled || !props.onChange
     ? (value || defaultValue)
     : value
 
-  return <select {...attrs} value={val} placeholder={ph} disabled={disabled || !attrs.onChange}>
+  return <select {...props} value={val} placeholder={ph} disabled={disabled || !props.onChange}>
     <option key="__default">{ph}</option>
     {children}
   </select>
@@ -20,7 +20,10 @@ Select.propTypes = {
   defaultValue: PropTypes.any,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
+  onChange: PropTypes.func,
+  type: PropTypes.string,
+  name: PropTypes.string
 }
 
 export default Select

@@ -32,21 +32,10 @@ function getElementOffset (el) {
  * @return {{x: number, y: number}}
  */
 function getClientPos (e) {
-  let pageX
-  let pageY
-
   if (e.touches) {
-    pageX = e.touches[0].pageX
-    pageY = e.touches[0].pageY
-  } else {
-    pageX = e.pageX
-    pageY = e.pageY
+    return {x: e.touches[0].pageX, y: e.touches[0].pageY}
   }
-
-  return {
-    x: pageX,
-    y: pageY
-  }
+  return {x: e.pageX, y: e.pageY}
 }
 
 /**
@@ -83,10 +72,10 @@ export function calculateClickPosition (evt) {
  * @param {number} scale
  * @return {{x: number, y: number}}
  */
-export function scalePosition (pos, scale) {
+export function scalePosition ({x, y}, scale) {
   return {
-    x: Math.round(pos.x * scale),
-    y: Math.round(pos.y * scale)
+    x: Math.round(x * scale),
+    y: Math.round(y * scale)
   }
 }
 

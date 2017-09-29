@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header does render 1`] = `
+<header
+  className="rka-header"
+>
+  <a
+    className="rka-header-menu-icon"
+    href="#"
+    onClick={[Function]}
+  />
+  <a
+    className="rka-header-logo"
+    onClick={[Function]}
+    style={Object {}}
+  />
+  <nav
+    className="rka-header-nav"
+  >
+    <a
+      className="rka-user"
+    >
+      <div
+        className="rka-avatar"
+      >
+        <svg
+          className="rka-avatar-icon"
+        >
+          <use
+            xlinkHref="avatar-placeholder.svg#avatar"
+          />
+        </svg>
+      </div>
+      <span
+        className="rka-username"
+      >
+        test-organization
+      </span>
+    </a>
+    <a
+      className="rka-logout"
+      href="#"
+      onClick={[Function]}
+    >
+      <svg
+        className="rka-logout-icon"
+      >
+        <use
+          xlinkHref="logout-icon.svg#logout"
+        />
+      </svg>
+    </a>
+  </nav>
+</header>
+`;
+
+exports[`Header does render in active mode 1`] = `
+<header
+  className="rka-header"
+>
+  <a
+    className="rka-header-menu-icon is-active"
+    href="#"
+    onClick={[Function]}
+  />
+  <a
+    className="rka-header-logo"
+    onClick={[Function]}
+    style={Object {}}
+  />
+  <nav
+    className="rka-header-nav"
+  >
+    <a
+      className="rka-user"
+    >
+      <div
+        className="rka-avatar"
+      >
+        <svg
+          className="rka-avatar-icon"
+        >
+          <use
+            xlinkHref="avatar-placeholder.svg#avatar"
+          />
+        </svg>
+      </div>
+      <span
+        className="rka-username"
+      >
+        test-organization
+      </span>
+    </a>
+    <a
+      className="rka-logout"
+      href="#"
+      onClick={[Function]}
+    >
+      <svg
+        className="rka-logout-icon"
+      >
+        <use
+          xlinkHref="logout-icon.svg#logout"
+        />
+      </svg>
+    </a>
+  </nav>
+</header>
+`;

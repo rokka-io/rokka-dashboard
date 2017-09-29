@@ -1,0 +1,511 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseLayout does render 1`] = `
+<div
+  className={undefined}
+>
+  <header
+    className="rka-header"
+  >
+    <a
+      className="rka-header-menu-icon"
+      href="#"
+      onClick={[Function]}
+    />
+    <a
+      className="rka-header-logo"
+      onClick={[Function]}
+      style={Object {}}
+    />
+    <nav
+      className="rka-header-nav"
+    >
+      <a
+        className="rka-user"
+      >
+        <div
+          className="rka-avatar"
+        >
+          <svg
+            className="rka-avatar-icon"
+          >
+            <use
+              xlinkHref="avatar-placeholder.svg#avatar"
+            />
+          </svg>
+        </div>
+        <span
+          className="rka-username"
+        >
+          test-organization
+        </span>
+      </a>
+      <a
+        className="rka-logout"
+        href="#"
+        onClick={[Function]}
+      >
+        <svg
+          className="rka-logout-icon"
+        >
+          <use
+            xlinkHref="logout-icon.svg#logout"
+          />
+        </svg>
+      </a>
+    </nav>
+  </header>
+  <sidebar
+    className="rka-sidebar"
+  >
+    <ul
+      className="rka-sidebar-nav"
+    >
+      <li>
+        <a
+          className="rka-sidebar-link"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a
+          className="rka-sidebar-link"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Images
+        </a>
+      </li>
+      <li
+        className="pos-r"
+      >
+        <a
+          className="rka-sidebar-link"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Stacks
+        </a>
+        <a
+          className="rka-sidebar-link-icon"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <svg
+            className="rka-add-icon"
+          >
+            <use
+              xlinkHref="add-icon.svg#add-icon"
+            />
+          </svg>
+        </a>
+        <div
+          className="rka-sidebar-subnav"
+        >
+          <div
+            className="rka-stacks-search-container"
+          >
+            <input
+              className="rka-input-txt rka-stack-search"
+              onChange={[Function]}
+              placeholder="Search stack..."
+              type="text"
+            />
+            <svg
+              className="rka-stack-search-icon"
+            >
+              <use
+                xlinkHref="search.svg#search-icon"
+              />
+            </svg>
+          </div>
+          <div
+            className="rka-stacks-list is-loaded"
+          >
+            <div
+              className="rka-stacks-load"
+            />
+          </div>
+        </div>
+      </li>
+    </ul>
+    <a
+      className="rka-sidebar-poweredby"
+      href="https://www.liip.ch/"
+      target="_blank"
+    >
+      POWERED BY 
+      <i
+        className="rka-sidebar-liip-logo"
+      />
+    </a>
+  </sidebar>
+  <TransitionGroup
+    component="div"
+    transitionAppear={true}
+    transitionAppearTimeout={500}
+    transitionEnterTimeout={0}
+    transitionLeaveTimeout={0}
+    transitionName="page-transition"
+  >
+    <main
+      className="main clearfix"
+    >
+      <span>
+        Test Baselayout
+      </span>
+    </main>
+  </TransitionGroup>
+  <footer
+    className="rka-footer"
+  >
+    Rokka © 2017
+  </footer>
+</div>
+`;
+
+exports[`BaseLayout does render active sidebar 1`] = `
+<div
+  className={undefined}
+>
+  <header
+    className="rka-header"
+  >
+    <a
+      className="rka-header-menu-icon is-active"
+      href="#"
+      onClick={[Function]}
+    />
+    <a
+      className="rka-header-logo"
+      onClick={[Function]}
+      style={Object {}}
+    />
+    <nav
+      className="rka-header-nav"
+    >
+      <a
+        className="rka-user"
+      >
+        <div
+          className="rka-avatar"
+        >
+          <svg
+            className="rka-avatar-icon"
+          >
+            <use
+              xlinkHref="avatar-placeholder.svg#avatar"
+            />
+          </svg>
+        </div>
+        <span
+          className="rka-username"
+        >
+          test-organization
+        </span>
+      </a>
+      <a
+        className="rka-logout"
+        href="#"
+        onClick={[Function]}
+      >
+        <svg
+          className="rka-logout-icon"
+        >
+          <use
+            xlinkHref="logout-icon.svg#logout"
+          />
+        </svg>
+      </a>
+    </nav>
+  </header>
+  <sidebar
+    className="rka-sidebar is-active"
+  >
+    <ul
+      className="rka-sidebar-nav"
+    >
+      <li>
+        <a
+          className="rka-sidebar-link"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a
+          className="rka-sidebar-link"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Images
+        </a>
+      </li>
+      <li
+        className="pos-r"
+      >
+        <a
+          className="rka-sidebar-link"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Stacks
+        </a>
+        <a
+          className="rka-sidebar-link-icon"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <svg
+            className="rka-add-icon"
+          >
+            <use
+              xlinkHref="add-icon.svg#add-icon"
+            />
+          </svg>
+        </a>
+        <div
+          className="rka-sidebar-subnav"
+        >
+          <div
+            className="rka-stacks-search-container"
+          >
+            <input
+              className="rka-input-txt rka-stack-search"
+              onChange={[Function]}
+              placeholder="Search stack..."
+              type="text"
+            />
+            <svg
+              className="rka-stack-search-icon"
+            >
+              <use
+                xlinkHref="search.svg#search-icon"
+              />
+            </svg>
+          </div>
+          <div
+            className="rka-stacks-list is-loaded"
+          >
+            <div
+              className="rka-stacks-load"
+            />
+          </div>
+        </div>
+      </li>
+    </ul>
+    <a
+      className="rka-sidebar-poweredby"
+      href="https://www.liip.ch/"
+      target="_blank"
+    >
+      POWERED BY 
+      <i
+        className="rka-sidebar-liip-logo"
+      />
+    </a>
+  </sidebar>
+  <TransitionGroup
+    component="div"
+    transitionAppear={true}
+    transitionAppearTimeout={500}
+    transitionEnterTimeout={0}
+    transitionLeaveTimeout={0}
+    transitionName="page-transition"
+  >
+    <main
+      className="main clearfix is-active"
+    >
+      <span>
+        Test Baselayout
+      </span>
+    </main>
+  </TransitionGroup>
+  <footer
+    className="rka-footer"
+  >
+    Rokka © 2017
+  </footer>
+</div>
+`;
+
+exports[`BaseLayout does render alert 1`] = `
+<div
+  className={undefined}
+>
+  <header
+    className="rka-header"
+  >
+    <a
+      className="rka-header-menu-icon"
+      href="#"
+      onClick={[Function]}
+    />
+    <a
+      className="rka-header-logo"
+      onClick={[Function]}
+      style={Object {}}
+    />
+    <nav
+      className="rka-header-nav"
+    >
+      <a
+        className="rka-user"
+      >
+        <div
+          className="rka-avatar"
+        >
+          <svg
+            className="rka-avatar-icon"
+          >
+            <use
+              xlinkHref="avatar-placeholder.svg#avatar"
+            />
+          </svg>
+        </div>
+        <span
+          className="rka-username"
+        >
+          test-organization
+        </span>
+      </a>
+      <a
+        className="rka-logout"
+        href="#"
+        onClick={[Function]}
+      >
+        <svg
+          className="rka-logout-icon"
+        >
+          <use
+            xlinkHref="logout-icon.svg#logout"
+          />
+        </svg>
+      </a>
+    </nav>
+  </header>
+  <sidebar
+    className="rka-sidebar"
+  >
+    <ul
+      className="rka-sidebar-nav"
+    >
+      <li>
+        <a
+          className="rka-sidebar-link"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a
+          className="rka-sidebar-link"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Images
+        </a>
+      </li>
+      <li
+        className="pos-r"
+      >
+        <a
+          className="rka-sidebar-link"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Stacks
+        </a>
+        <a
+          className="rka-sidebar-link-icon"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <svg
+            className="rka-add-icon"
+          >
+            <use
+              xlinkHref="add-icon.svg#add-icon"
+            />
+          </svg>
+        </a>
+        <div
+          className="rka-sidebar-subnav"
+        >
+          <div
+            className="rka-stacks-search-container"
+          >
+            <input
+              className="rka-input-txt rka-stack-search"
+              onChange={[Function]}
+              placeholder="Search stack..."
+              type="text"
+            />
+            <svg
+              className="rka-stack-search-icon"
+            >
+              <use
+                xlinkHref="search.svg#search-icon"
+              />
+            </svg>
+          </div>
+          <div
+            className="rka-stacks-list is-loaded"
+          >
+            <div
+              className="rka-stacks-load"
+            />
+          </div>
+        </div>
+      </li>
+    </ul>
+    <a
+      className="rka-sidebar-poweredby"
+      href="https://www.liip.ch/"
+      target="_blank"
+    >
+      POWERED BY 
+      <i
+        className="rka-sidebar-liip-logo"
+      />
+    </a>
+  </sidebar>
+  <TransitionGroup
+    component="div"
+    transitionAppear={true}
+    transitionAppearTimeout={500}
+    transitionEnterTimeout={0}
+    transitionLeaveTimeout={0}
+    transitionName="page-transition"
+  >
+    <main
+      className="main clearfix"
+    >
+      <div
+        className="rka-alert is-error txt-c"
+      >
+        <span
+          className="rka-alert-msg"
+        >
+          test
+        </span>
+      </div>
+      <span>
+        Test Baselayout
+      </span>
+    </main>
+  </TransitionGroup>
+  <footer
+    className="rka-footer"
+  >
+    Rokka © 2017
+  </footer>
+</div>
+`;

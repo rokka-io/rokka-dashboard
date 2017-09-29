@@ -81,4 +81,3 @@ test('Input is disabled if there is no onChange func', () => {
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
-

@@ -1,12 +1,18 @@
-exports[`test CropForm does render 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CropForm does render 1`] = `
 <div
-  className="row">
+  className="row"
+>
   <div
-    className="col-md-3 col-sm-3">
+    className="col-md-3 col-sm-3"
+  >
     <div
-      className="rka-form-group">
+      className="rka-form-group"
+    >
       <label
-        className="rka-label">
+        className="rka-label"
+      >
         Offset X
       </label>
       <input
@@ -14,15 +20,19 @@ exports[`test CropForm does render 1`] = `
         name="x"
         onChange={[Function]}
         type="text"
-        value="" />
+        value=""
+      />
     </div>
   </div>
   <div
-    className="col-md-3 col-sm-3">
+    className="col-md-3 col-sm-3"
+  >
     <div
-      className="rka-form-group">
+      className="rka-form-group"
+    >
       <label
-        className="rka-label">
+        className="rka-label"
+      >
         Offset Y
       </label>
       <input
@@ -30,15 +40,19 @@ exports[`test CropForm does render 1`] = `
         name="y"
         onChange={[Function]}
         type="text"
-        value="" />
+        value=""
+      />
     </div>
   </div>
   <div
-    className="col-md-3 col-sm-3">
+    className="col-md-3 col-sm-3"
+  >
     <div
-      className="rka-form-group">
+      className="rka-form-group"
+    >
       <label
-        className="rka-label">
+        className="rka-label"
+      >
         Width
       </label>
       <input
@@ -47,15 +61,19 @@ exports[`test CropForm does render 1`] = `
         name="width"
         onChange={[Function]}
         type="text"
-        value="" />
+        value=""
+      />
     </div>
   </div>
   <div
-    className="col-md-3 col-sm-3">
+    className="col-md-3 col-sm-3"
+  >
     <div
-      className="rka-form-group">
+      className="rka-form-group"
+    >
       <label
-        className="rka-label">
+        className="rka-label"
+      >
         Height
       </label>
       <input
@@ -64,21 +82,26 @@ exports[`test CropForm does render 1`] = `
         name="height"
         onChange={[Function]}
         type="text"
-        value="" />
+        value=""
+      />
     </div>
   </div>
 </div>
 `;
 
-exports[`test CropForm does render with parameters 1`] = `
+exports[`CropForm does render with parameters 1`] = `
 <div
-  className="row">
+  className="row"
+>
   <div
-    className="col-md-3 col-sm-3">
+    className="col-md-3 col-sm-3"
+  >
     <div
-      className="rka-form-group">
+      className="rka-form-group"
+    >
       <label
-        className="rka-label">
+        className="rka-label"
+      >
         Offset X
       </label>
       <input
@@ -86,15 +109,19 @@ exports[`test CropForm does render with parameters 1`] = `
         name="x"
         onChange={[Function]}
         type="text"
-        value={1} />
+        value={1}
+      />
     </div>
   </div>
   <div
-    className="col-md-3 col-sm-3">
+    className="col-md-3 col-sm-3"
+  >
     <div
-      className="rka-form-group">
+      className="rka-form-group"
+    >
       <label
-        className="rka-label">
+        className="rka-label"
+      >
         Offset Y
       </label>
       <input
@@ -102,15 +129,19 @@ exports[`test CropForm does render with parameters 1`] = `
         name="y"
         onChange={[Function]}
         type="text"
-        value={2} />
+        value={2}
+      />
     </div>
   </div>
   <div
-    className="col-md-3 col-sm-3">
+    className="col-md-3 col-sm-3"
+  >
     <div
-      className="rka-form-group">
+      className="rka-form-group"
+    >
       <label
-        className="rka-label">
+        className="rka-label"
+      >
         Width
       </label>
       <input
@@ -119,15 +150,19 @@ exports[`test CropForm does render with parameters 1`] = `
         name="width"
         onChange={[Function]}
         type="text"
-        value={100} />
+        value={100}
+      />
     </div>
   </div>
   <div
-    className="col-md-3 col-sm-3">
+    className="col-md-3 col-sm-3"
+  >
     <div
-      className="rka-form-group">
+      className="rka-form-group"
+    >
       <label
-        className="rka-label">
+        className="rka-label"
+      >
         Height
       </label>
       <input
@@ -136,21 +171,26 @@ exports[`test CropForm does render with parameters 1`] = `
         name="height"
         onChange={[Function]}
         type="text"
-        value={100} />
+        value={100}
+      />
     </div>
   </div>
 </div>
 `;
 
-exports[`test CropForm does render with parameters and disabled width/height setting 1`] = `
+exports[`CropForm does render with parameters and disabled width/height setting 1`] = `
 <div
-  className="row">
+  className="row"
+>
   <div
-    className="col-md-3 col-sm-3">
+    className="col-md-3 col-sm-3"
+  >
     <div
-      className="rka-form-group">
+      className="rka-form-group"
+    >
       <label
-        className="rka-label">
+        className="rka-label"
+      >
         Offset X
       </label>
       <input
@@ -158,15 +198,19 @@ exports[`test CropForm does render with parameters and disabled width/height set
         name="x"
         onChange={[Function]}
         type="text"
-        value={1} />
+        value={1}
+      />
     </div>
   </div>
   <div
-    className="col-md-3 col-sm-3">
+    className="col-md-3 col-sm-3"
+  >
     <div
-      className="rka-form-group">
+      className="rka-form-group"
+    >
       <label
-        className="rka-label">
+        className="rka-label"
+      >
         Offset Y
       </label>
       <input
@@ -174,15 +218,19 @@ exports[`test CropForm does render with parameters and disabled width/height set
         name="y"
         onChange={[Function]}
         type="text"
-        value={2} />
+        value={2}
+      />
     </div>
   </div>
   <div
-    className="col-md-3 col-sm-3">
+    className="col-md-3 col-sm-3"
+  >
     <div
-      className="rka-form-group">
+      className="rka-form-group"
+    >
       <label
-        className="rka-label">
+        className="rka-label"
+      >
         Width
       </label>
       <input
@@ -191,15 +239,19 @@ exports[`test CropForm does render with parameters and disabled width/height set
         name="width"
         onChange={[Function]}
         type="text"
-        value={1} />
+        value={1}
+      />
     </div>
   </div>
   <div
-    className="col-md-3 col-sm-3">
+    className="col-md-3 col-sm-3"
+  >
     <div
-      className="rka-form-group">
+      className="rka-form-group"
+    >
       <label
-        className="rka-label">
+        className="rka-label"
+      >
         Height
       </label>
       <input
@@ -208,7 +260,8 @@ exports[`test CropForm does render with parameters and disabled width/height set
         name="height"
         onChange={[Function]}
         type="text"
-        value={1} />
+        value={1}
+      />
     </div>
   </div>
 </div>

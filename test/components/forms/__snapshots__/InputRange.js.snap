@@ -1,6 +1,9 @@
-exports[`test InputRange does render 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputRange does render 1`] = `
 <div
-  className="rka-input-range-container clearfix">
+  className="rka-input-range-container clearfix"
+>
   <input
     className="rka-input-range"
     disabled={true}
@@ -11,25 +14,30 @@ exports[`test InputRange does render 1`] = `
     onChange={[Function]}
     placeholder={undefined}
     type="range"
-    value={undefined} />
+    value={undefined}
+  />
   <p>
     <span
-      className="rka-input-range-min">
+      className="rka-input-range-min"
+    >
       0
     </span>
     <span
-      className="rka-input-range-current txt-bold is-disabled" />
+      className="rka-input-range-current txt-bold is-disabled"
+    />
     <span
-      className="rka-input-range-max">
+      className="rka-input-range-max"
+    >
       100
     </span>
   </p>
 </div>
 `;
 
-exports[`test InputRange does render with a number defaultValue 1`] = `
+exports[`InputRange does render with a number defaultValue 1`] = `
 <div
-  className="rka-input-range-container clearfix">
+  className="rka-input-range-container clearfix"
+>
   <input
     className="rka-input-range"
     disabled={true}
@@ -40,27 +48,32 @@ exports[`test InputRange does render with a number defaultValue 1`] = `
     onChange={[Function]}
     placeholder="Test (default: 12)"
     type="range"
-    value={12} />
+    value={12}
+  />
   <p>
     <span
-      className="rka-input-range-min">
+      className="rka-input-range-min"
+    >
       0
     </span>
     <span
-      className="rka-input-range-current txt-bold is-disabled">
+      className="rka-input-range-current txt-bold is-disabled"
+    >
       12
     </span>
     <span
-      className="rka-input-range-max">
+      className="rka-input-range-max"
+    >
       100
     </span>
   </p>
 </div>
 `;
 
-exports[`test InputRange does render with a number value 1`] = `
+exports[`InputRange does render with a number value 1`] = `
 <div
-  className="rka-input-range-container clearfix">
+  className="rka-input-range-container clearfix"
+>
   <input
     className="rka-input-range"
     disabled={true}
@@ -71,27 +84,32 @@ exports[`test InputRange does render with a number value 1`] = `
     onChange={[Function]}
     placeholder={undefined}
     type="range"
-    value={12} />
+    value={12}
+  />
   <p>
     <span
-      className="rka-input-range-min">
+      className="rka-input-range-min"
+    >
       0
     </span>
     <span
-      className="rka-input-range-current txt-bold is-disabled">
+      className="rka-input-range-current txt-bold is-disabled"
+    >
       12
     </span>
     <span
-      className="rka-input-range-max">
+      className="rka-input-range-max"
+    >
       100
     </span>
   </p>
 </div>
 `;
 
-exports[`test InputRange does render with a string defaultValue 1`] = `
+exports[`InputRange does render with a string defaultValue 1`] = `
 <div
-  className="rka-input-range-container clearfix">
+  className="rka-input-range-container clearfix"
+>
   <input
     className="rka-input-range"
     disabled={true}
@@ -102,27 +120,32 @@ exports[`test InputRange does render with a string defaultValue 1`] = `
     onChange={[Function]}
     placeholder="Test (default: 12)"
     type="range"
-    value="12" />
+    value="12"
+  />
   <p>
     <span
-      className="rka-input-range-min">
+      className="rka-input-range-min"
+    >
       0
     </span>
     <span
-      className="rka-input-range-current txt-bold is-disabled">
+      className="rka-input-range-current txt-bold is-disabled"
+    >
       12
     </span>
     <span
-      className="rka-input-range-max">
+      className="rka-input-range-max"
+    >
       100
     </span>
   </p>
 </div>
 `;
 
-exports[`test InputRange does render with a string value 1`] = `
+exports[`InputRange does render with a string value 1`] = `
 <div
-  className="rka-input-range-container clearfix">
+  className="rka-input-range-container clearfix"
+>
   <input
     className="rka-input-range"
     disabled={true}
@@ -133,27 +156,32 @@ exports[`test InputRange does render with a string value 1`] = `
     onChange={[Function]}
     placeholder={undefined}
     type="range"
-    value="12" />
+    value="12"
+  />
   <p>
     <span
-      className="rka-input-range-min">
+      className="rka-input-range-min"
+    >
       0
     </span>
     <span
-      className="rka-input-range-current txt-bold is-disabled">
+      className="rka-input-range-current txt-bold is-disabled"
+    >
       12
     </span>
     <span
-      className="rka-input-range-max">
+      className="rka-input-range-max"
+    >
       100
     </span>
   </p>
 </div>
 `;
 
-exports[`test InputRange does render with onChange 1`] = `
+exports[`InputRange does render with onChange 1`] = `
 <div
-  className="rka-input-range-container clearfix">
+  className="rka-input-range-container clearfix"
+>
   <input
     className="rka-input-range"
     disabled={false}
@@ -164,10 +192,12 @@ exports[`test InputRange does render with onChange 1`] = `
     onChange={[Function]}
     placeholder={undefined}
     type="range"
-    value={undefined} />
+    value={undefined}
+  />
   <p>
     <span
-      className="rka-input-range-min">
+      className="rka-input-range-min"
+    >
       0
     </span>
     <input
@@ -178,9 +208,11 @@ exports[`test InputRange does render with onChange 1`] = `
       placeholder={undefined}
       size={5}
       type="text"
-      value={undefined} />
+      value={undefined}
+    />
     <span
-      className="rka-input-range-max">
+      className="rka-input-range-max"
+    >
       100
     </span>
   </p>

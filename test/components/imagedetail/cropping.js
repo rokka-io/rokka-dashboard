@@ -1,6 +1,5 @@
 import {
   calculateScale,
-  calculateClickPosition,
   scalePosition,
   calculateRenderedPosition,
   pixelToPercent
@@ -8,33 +7,6 @@ import {
 
 test('calculateScale', () => {
   expect(calculateScale(100, 1000)).toBe(0.1)
-})
-
-test('calculateClickPosition', () => {
-  // eslint-disable no-native-reassign, no-global-assign
-  window.pageYOffset = 10
-  window.pageXOffset = 10
-  // FIXME: doesn't work.
-  document.documentElement.clientTop = 10
-  document.documentElement.clientLeft = 10
-  // eslint-enable no-native-reassign, no-global-assign
-
-  const evt = {
-    pageX: 10,
-    pageY: 20,
-    currentTarget: {
-      parentElement: {
-        getBoundingClientRect () {
-          return {top: 1, left: 1}
-        }
-      }
-    }
-  }
-
-  const {x, y} = calculateClickPosition(evt)
-
-  expect(x).toBe(1)
-  expect(y).toBe(2)
 })
 
 test('scalePosition', () => {

@@ -1,81 +1,107 @@
-exports[`test Header does render 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header does render 1`] = `
 <header
-  className="rka-header">
+  className="rka-header"
+>
   <a
     className="rka-header-menu-icon"
     href="#"
-    onClick={[Function]} />
+    onClick={[Function]}
+  />
   <a
     className="rka-header-logo"
     onClick={[Function]}
-    style={Object {}} />
+    style={Object {}}
+  />
   <nav
-    className="rka-header-nav">
+    className="rka-header-nav"
+  >
     <a
-      className="rka-user">
+      className="rka-user"
+    >
       <div
-        className="rka-avatar">
+        className="rka-avatar"
+      >
         <svg
-          className="rka-avatar-icon">
+          className="rka-avatar-icon"
+        >
           <use
-            xlinkHref="avatar-placeholder.svg#avatar" />
+            xlinkHref="avatar-placeholder.svg#avatar"
+          />
         </svg>
       </div>
       <span
-        className="rka-username">
+        className="rka-username"
+      >
         test-organization
       </span>
     </a>
     <a
       className="rka-logout"
       href="#"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <svg
-        className="rka-logout-icon">
+        className="rka-logout-icon"
+      >
         <use
-          xlinkHref="logout-icon.svg#logout" />
+          xlinkHref="logout-icon.svg#logout"
+        />
       </svg>
     </a>
   </nav>
 </header>
 `;
 
-exports[`test Header does render in active mode 1`] = `
+exports[`Header does render in active mode 1`] = `
 <header
-  className="rka-header">
+  className="rka-header"
+>
   <a
     className="rka-header-menu-icon is-active"
     href="#"
-    onClick={[Function]} />
+    onClick={[Function]}
+  />
   <a
     className="rka-header-logo"
     onClick={[Function]}
-    style={Object {}} />
+    style={Object {}}
+  />
   <nav
-    className="rka-header-nav">
+    className="rka-header-nav"
+  >
     <a
-      className="rka-user">
+      className="rka-user"
+    >
       <div
-        className="rka-avatar">
+        className="rka-avatar"
+      >
         <svg
-          className="rka-avatar-icon">
+          className="rka-avatar-icon"
+        >
           <use
-            xlinkHref="avatar-placeholder.svg#avatar" />
+            xlinkHref="avatar-placeholder.svg#avatar"
+          />
         </svg>
       </div>
       <span
-        className="rka-username">
+        className="rka-username"
+      >
         test-organization
       </span>
     </a>
     <a
       className="rka-logout"
       href="#"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <svg
-        className="rka-logout-icon">
+        className="rka-logout-icon"
+      >
         <use
-          xlinkHref="logout-icon.svg#logout" />
+          xlinkHref="logout-icon.svg#logout"
+        />
       </svg>
     </a>
   </nav>

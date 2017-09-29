@@ -87,16 +87,16 @@ test('InputRange is-active on min/max values', (done) => {
     <InputRange name="Test" min={0} max={100} defaultValue="12" onChange={onChange} />
   )
 
-  expect(component.find('.rka-input-range-min').node.props.className.indexOf('is-active')).toBe(-1)
-  expect(component.find('.rka-input-range-max').node.props.className.indexOf('is-active')).toBe(-1)
+  expect(component.find('.rka-input-range-min').getElement().props.className.indexOf('is-active')).toBe(-1)
+  expect(component.find('.rka-input-range-max').getElement().props.className.indexOf('is-active')).toBe(-1)
 
   component.find('Input.rka-input-range').simulate('change', {currentTarget: {value: '15'}})
 
-  expect(component.find('.rka-input-range-min').node.props.className.indexOf('is-active')).toBeGreaterThan(-1)
-  expect(component.find('.rka-input-range-max').node.props.className.indexOf('is-active')).toBeGreaterThan(-1)
+  expect(component.find('.rka-input-range-min').getElement().props.className.indexOf('is-active')).toBeGreaterThan(-1)
+  expect(component.find('.rka-input-range-max').getElement().props.className.indexOf('is-active')).toBeGreaterThan(-1)
 
   component.find('Input.rka-input-range').simulate('blur')
 
-  expect(component.find('.rka-input-range-min').node.props.className.indexOf('is-active')).toBe(-1)
-  expect(component.find('.rka-input-range-max').node.props.className.indexOf('is-active')).toBe(-1)
+  expect(component.find('.rka-input-range-min').getElement().props.className.indexOf('is-active')).toBe(-1)
+  expect(component.find('.rka-input-range-max').getElement().props.className.indexOf('is-active')).toBe(-1)
 })

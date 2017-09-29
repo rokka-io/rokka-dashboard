@@ -1,54 +1,72 @@
-exports[`test BaseLayout does render 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseLayout does render 1`] = `
 <div
-  className={undefined}>
+  className={undefined}
+>
   <header
-    className="rka-header">
+    className="rka-header"
+  >
     <a
       className="rka-header-menu-icon"
       href="#"
-      onClick={[Function]} />
+      onClick={[Function]}
+    />
     <a
       className="rka-header-logo"
       onClick={[Function]}
-      style={Object {}} />
+      style={Object {}}
+    />
     <nav
-      className="rka-header-nav">
+      className="rka-header-nav"
+    >
       <a
-        className="rka-user">
+        className="rka-user"
+      >
         <div
-          className="rka-avatar">
+          className="rka-avatar"
+        >
           <svg
-            className="rka-avatar-icon">
+            className="rka-avatar-icon"
+          >
             <use
-              xlinkHref="avatar-placeholder.svg#avatar" />
+              xlinkHref="avatar-placeholder.svg#avatar"
+            />
           </svg>
         </div>
         <span
-          className="rka-username">
+          className="rka-username"
+        >
           test-organization
         </span>
       </a>
       <a
         className="rka-logout"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         <svg
-          className="rka-logout-icon">
+          className="rka-logout-icon"
+        >
           <use
-            xlinkHref="logout-icon.svg#logout" />
+            xlinkHref="logout-icon.svg#logout"
+          />
         </svg>
       </a>
     </nav>
   </header>
   <sidebar
-    className="rka-sidebar">
+    className="rka-sidebar"
+  >
     <ul
-      className="rka-sidebar-nav">
+      className="rka-sidebar-nav"
+    >
       <li>
         <a
           className="rka-sidebar-link"
           onClick={[Function]}
-          style={Object {}}>
+          style={Object {}}
+        >
           Dashboard
         </a>
       </li>
@@ -56,47 +74,60 @@ exports[`test BaseLayout does render 1`] = `
         <a
           className="rka-sidebar-link"
           onClick={[Function]}
-          style={Object {}}>
+          style={Object {}}
+        >
           Images
         </a>
       </li>
       <li
-        className="pos-r">
+        className="pos-r"
+      >
         <a
           className="rka-sidebar-link"
           onClick={[Function]}
-          style={Object {}}>
+          style={Object {}}
+        >
           Stacks
         </a>
         <a
           className="rka-sidebar-link-icon"
           onClick={[Function]}
-          style={Object {}}>
+          style={Object {}}
+        >
           <svg
-            className="rka-add-icon">
+            className="rka-add-icon"
+          >
             <use
-              xlinkHref="add-icon.svg#add-icon" />
+              xlinkHref="add-icon.svg#add-icon"
+            />
           </svg>
         </a>
         <div
-          className="rka-sidebar-subnav">
+          className="rka-sidebar-subnav"
+        >
           <div
-            className="rka-stacks-search-container">
+            className="rka-stacks-search-container"
+          >
             <input
               className="rka-input-txt rka-stack-search"
               onChange={[Function]}
               placeholder="Search stack..."
-              type="text" />
+              type="text"
+            />
             <svg
-              className="rka-stack-search-icon">
+              className="rka-stack-search-icon"
+            >
               <use
-                xlinkHref="search.svg#search-icon" />
+                xlinkHref="search.svg#search-icon"
+              />
             </svg>
           </div>
           <div
-            className="rka-stacks-list is-loaded">
+            className="rka-stacks-list is-loaded"
+          >
             <div
-              className="rka-stacks-load" />
+              className="rka-stacks-load"
+            />
           </div>
         </div>
       </li>
@@ -104,10 +135,12 @@ exports[`test BaseLayout does render 1`] = `
     <a
       className="rka-sidebar-poweredby"
       href="https://www.liip.ch/"
-      target="_blank">
+      target="_blank"
+    >
       POWERED BY 
       <i
-        className="rka-sidebar-liip-logo" />
+        className="rka-sidebar-liip-logo"
+      />
     </a>
   </sidebar>
   <TransitionGroup
@@ -116,72 +149,91 @@ exports[`test BaseLayout does render 1`] = `
     transitionAppearTimeout={500}
     transitionEnterTimeout={0}
     transitionLeaveTimeout={0}
-    transitionName="page-transition">
+    transitionName="page-transition"
+  >
     <main
-      className="main clearfix">
+      className="main clearfix"
+    >
       <span>
         Test Baselayout
       </span>
     </main>
   </TransitionGroup>
   <footer
-    className="rka-footer">
+    className="rka-footer"
+  >
     Rokka © 2017
   </footer>
 </div>
 `;
 
-exports[`test BaseLayout does render active sidebar 1`] = `
+exports[`BaseLayout does render active sidebar 1`] = `
 <div
-  className={undefined}>
+  className={undefined}
+>
   <header
-    className="rka-header">
+    className="rka-header"
+  >
     <a
       className="rka-header-menu-icon is-active"
       href="#"
-      onClick={[Function]} />
+      onClick={[Function]}
+    />
     <a
       className="rka-header-logo"
       onClick={[Function]}
-      style={Object {}} />
+      style={Object {}}
+    />
     <nav
-      className="rka-header-nav">
+      className="rka-header-nav"
+    >
       <a
-        className="rka-user">
+        className="rka-user"
+      >
         <div
-          className="rka-avatar">
+          className="rka-avatar"
+        >
           <svg
-            className="rka-avatar-icon">
+            className="rka-avatar-icon"
+          >
             <use
-              xlinkHref="avatar-placeholder.svg#avatar" />
+              xlinkHref="avatar-placeholder.svg#avatar"
+            />
           </svg>
         </div>
         <span
-          className="rka-username">
+          className="rka-username"
+        >
           test-organization
         </span>
       </a>
       <a
         className="rka-logout"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         <svg
-          className="rka-logout-icon">
+          className="rka-logout-icon"
+        >
           <use
-            xlinkHref="logout-icon.svg#logout" />
+            xlinkHref="logout-icon.svg#logout"
+          />
         </svg>
       </a>
     </nav>
   </header>
   <sidebar
-    className="rka-sidebar is-active">
+    className="rka-sidebar is-active"
+  >
     <ul
-      className="rka-sidebar-nav">
+      className="rka-sidebar-nav"
+    >
       <li>
         <a
           className="rka-sidebar-link"
           onClick={[Function]}
-          style={Object {}}>
+          style={Object {}}
+        >
           Dashboard
         </a>
       </li>
@@ -189,47 +241,60 @@ exports[`test BaseLayout does render active sidebar 1`] = `
         <a
           className="rka-sidebar-link"
           onClick={[Function]}
-          style={Object {}}>
+          style={Object {}}
+        >
           Images
         </a>
       </li>
       <li
-        className="pos-r">
+        className="pos-r"
+      >
         <a
           className="rka-sidebar-link"
           onClick={[Function]}
-          style={Object {}}>
+          style={Object {}}
+        >
           Stacks
         </a>
         <a
           className="rka-sidebar-link-icon"
           onClick={[Function]}
-          style={Object {}}>
+          style={Object {}}
+        >
           <svg
-            className="rka-add-icon">
+            className="rka-add-icon"
+          >
             <use
-              xlinkHref="add-icon.svg#add-icon" />
+              xlinkHref="add-icon.svg#add-icon"
+            />
           </svg>
         </a>
         <div
-          className="rka-sidebar-subnav">
+          className="rka-sidebar-subnav"
+        >
           <div
-            className="rka-stacks-search-container">
+            className="rka-stacks-search-container"
+          >
             <input
               className="rka-input-txt rka-stack-search"
               onChange={[Function]}
               placeholder="Search stack..."
-              type="text" />
+              type="text"
+            />
             <svg
-              className="rka-stack-search-icon">
+              className="rka-stack-search-icon"
+            >
               <use
-                xlinkHref="search.svg#search-icon" />
+                xlinkHref="search.svg#search-icon"
+              />
             </svg>
           </div>
           <div
-            className="rka-stacks-list is-loaded">
+            className="rka-stacks-list is-loaded"
+          >
             <div
-              className="rka-stacks-load" />
+              className="rka-stacks-load"
+            />
           </div>
         </div>
       </li>
@@ -237,10 +302,12 @@ exports[`test BaseLayout does render active sidebar 1`] = `
     <a
       className="rka-sidebar-poweredby"
       href="https://www.liip.ch/"
-      target="_blank">
+      target="_blank"
+    >
       POWERED BY 
       <i
-        className="rka-sidebar-liip-logo" />
+        className="rka-sidebar-liip-logo"
+      />
     </a>
   </sidebar>
   <TransitionGroup
@@ -249,72 +316,91 @@ exports[`test BaseLayout does render active sidebar 1`] = `
     transitionAppearTimeout={500}
     transitionEnterTimeout={0}
     transitionLeaveTimeout={0}
-    transitionName="page-transition">
+    transitionName="page-transition"
+  >
     <main
-      className="main clearfix is-active">
+      className="main clearfix is-active"
+    >
       <span>
         Test Baselayout
       </span>
     </main>
   </TransitionGroup>
   <footer
-    className="rka-footer">
+    className="rka-footer"
+  >
     Rokka © 2017
   </footer>
 </div>
 `;
 
-exports[`test BaseLayout does render alert 1`] = `
+exports[`BaseLayout does render alert 1`] = `
 <div
-  className={undefined}>
+  className={undefined}
+>
   <header
-    className="rka-header">
+    className="rka-header"
+  >
     <a
       className="rka-header-menu-icon"
       href="#"
-      onClick={[Function]} />
+      onClick={[Function]}
+    />
     <a
       className="rka-header-logo"
       onClick={[Function]}
-      style={Object {}} />
+      style={Object {}}
+    />
     <nav
-      className="rka-header-nav">
+      className="rka-header-nav"
+    >
       <a
-        className="rka-user">
+        className="rka-user"
+      >
         <div
-          className="rka-avatar">
+          className="rka-avatar"
+        >
           <svg
-            className="rka-avatar-icon">
+            className="rka-avatar-icon"
+          >
             <use
-              xlinkHref="avatar-placeholder.svg#avatar" />
+              xlinkHref="avatar-placeholder.svg#avatar"
+            />
           </svg>
         </div>
         <span
-          className="rka-username">
+          className="rka-username"
+        >
           test-organization
         </span>
       </a>
       <a
         className="rka-logout"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         <svg
-          className="rka-logout-icon">
+          className="rka-logout-icon"
+        >
           <use
-            xlinkHref="logout-icon.svg#logout" />
+            xlinkHref="logout-icon.svg#logout"
+          />
         </svg>
       </a>
     </nav>
   </header>
   <sidebar
-    className="rka-sidebar">
+    className="rka-sidebar"
+  >
     <ul
-      className="rka-sidebar-nav">
+      className="rka-sidebar-nav"
+    >
       <li>
         <a
           className="rka-sidebar-link"
           onClick={[Function]}
-          style={Object {}}>
+          style={Object {}}
+        >
           Dashboard
         </a>
       </li>
@@ -322,47 +408,60 @@ exports[`test BaseLayout does render alert 1`] = `
         <a
           className="rka-sidebar-link"
           onClick={[Function]}
-          style={Object {}}>
+          style={Object {}}
+        >
           Images
         </a>
       </li>
       <li
-        className="pos-r">
+        className="pos-r"
+      >
         <a
           className="rka-sidebar-link"
           onClick={[Function]}
-          style={Object {}}>
+          style={Object {}}
+        >
           Stacks
         </a>
         <a
           className="rka-sidebar-link-icon"
           onClick={[Function]}
-          style={Object {}}>
+          style={Object {}}
+        >
           <svg
-            className="rka-add-icon">
+            className="rka-add-icon"
+          >
             <use
-              xlinkHref="add-icon.svg#add-icon" />
+              xlinkHref="add-icon.svg#add-icon"
+            />
           </svg>
         </a>
         <div
-          className="rka-sidebar-subnav">
+          className="rka-sidebar-subnav"
+        >
           <div
-            className="rka-stacks-search-container">
+            className="rka-stacks-search-container"
+          >
             <input
               className="rka-input-txt rka-stack-search"
               onChange={[Function]}
               placeholder="Search stack..."
-              type="text" />
+              type="text"
+            />
             <svg
-              className="rka-stack-search-icon">
+              className="rka-stack-search-icon"
+            >
               <use
-                xlinkHref="search.svg#search-icon" />
+                xlinkHref="search.svg#search-icon"
+              />
             </svg>
           </div>
           <div
-            className="rka-stacks-list is-loaded">
+            className="rka-stacks-list is-loaded"
+          >
             <div
-              className="rka-stacks-load" />
+              className="rka-stacks-load"
+            />
           </div>
         </div>
       </li>
@@ -370,10 +469,12 @@ exports[`test BaseLayout does render alert 1`] = `
     <a
       className="rka-sidebar-poweredby"
       href="https://www.liip.ch/"
-      target="_blank">
+      target="_blank"
+    >
       POWERED BY 
       <i
-        className="rka-sidebar-liip-logo" />
+        className="rka-sidebar-liip-logo"
+      />
     </a>
   </sidebar>
   <TransitionGroup
@@ -382,13 +483,17 @@ exports[`test BaseLayout does render alert 1`] = `
     transitionAppearTimeout={500}
     transitionEnterTimeout={0}
     transitionLeaveTimeout={0}
-    transitionName="page-transition">
+    transitionName="page-transition"
+  >
     <main
-      className="main clearfix">
+      className="main clearfix"
+    >
       <div
-        className="rka-alert is-error txt-c">
+        className="rka-alert is-error txt-c"
+      >
         <span
-          className="rka-alert-msg">
+          className="rka-alert-msg"
+        >
           test
         </span>
       </div>
@@ -398,7 +503,8 @@ exports[`test BaseLayout does render alert 1`] = `
     </main>
   </TransitionGroup>
   <footer
-    className="rka-footer">
+    className="rka-footer"
+  >
     Rokka © 2017
   </footer>
 </div>

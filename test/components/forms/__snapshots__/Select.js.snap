@@ -1,117 +1,131 @@
-exports[`test Select does forward props 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select does forward props 1`] = `
 <select
   disabled={false}
   foo="bar"
   onChange={[Function]}
   placeholder={undefined}
-  value={undefined}>
+  value={undefined}
+>
   <option />
 </select>
 `;
 
-exports[`test Select does render 1`] = `
+exports[`Select does render 1`] = `
 <select
   disabled={false}
   onChange={[Function]}
   placeholder={undefined}
-  value={undefined}>
+  value={undefined}
+>
   <option />
 </select>
 `;
 
-exports[`test Select does render with options 1`] = `
+exports[`Select does render with options 1`] = `
 <select
   disabled={false}
   onChange={[Function]}
   placeholder={undefined}
-  value={undefined}>
+  value={undefined}
+>
   <option />
   <option
-    value="test">
+    value="test"
+  >
     Test
   </option>
   <option
-    value="test2">
+    value="test2"
+  >
     Test2
   </option>
 </select>
 `;
 
-exports[`test Select is disabled if there is no onChange func 1`] = `
+exports[`Select is disabled if there is no onChange func 1`] = `
 <select
   disabled={true}
   placeholder={undefined}
-  value={undefined}>
+  value={undefined}
+>
   <option />
 </select>
 `;
 
-exports[`test Select shows placeholder 1`] = `
+exports[`Select shows placeholder 1`] = `
 <select
   disabled={false}
   onChange={[Function]}
   placeholder="Placeholder"
-  value={undefined}>
+  value={undefined}
+>
   <option>
     Placeholder
   </option>
 </select>
 `;
 
-exports[`test Select shows placeholder with default value 1`] = `
+exports[`Select shows placeholder with default value 1`] = `
 <select
   disabled={false}
   onChange={[Function]}
   placeholder="Placeholder (default: DefaultValue)"
-  value={undefined}>
+  value={undefined}
+>
   <option>
     Placeholder (default: DefaultValue)
   </option>
 </select>
 `;
 
-exports[`test Select takes defaultValue if disabled 1`] = `
+exports[`Select takes defaultValue if disabled 1`] = `
 <select
   disabled={true}
   placeholder=" (default: DefaultValue)"
-  value="DefaultValue">
+  value="DefaultValue"
+>
   <option>
      (default: DefaultValue)
   </option>
 </select>
 `;
 
-exports[`test Select takes name as placeholder if no placeholder given 1`] = `
+exports[`Select takes name as placeholder if no placeholder given 1`] = `
 <select
   disabled={false}
   name="Name"
   onChange={[Function]}
   placeholder="Name (default: DefaultValue)"
-  value={undefined}>
+  value={undefined}
+>
   <option>
     Name (default: DefaultValue)
   </option>
 </select>
 `;
 
-exports[`test Select takes only value if not disabled 1`] = `
+exports[`Select takes only value if not disabled 1`] = `
 <select
   disabled={true}
   placeholder=" (default: DefaultValue)"
-  value="DefaultValue">
+  value="DefaultValue"
+>
   <option>
      (default: DefaultValue)
   </option>
 </select>
 `;
 
-exports[`test Select takes type as placeholder if no placeholder & name given 1`] = `
+exports[`Select takes type as placeholder if no placeholder & name given 1`] = `
 <select
   disabled={false}
   onChange={[Function]}
   placeholder="Type (default: DefaultValue)"
   type="Type"
-  value={undefined}>
+  value={undefined}
+>
   <option>
     Type (default: DefaultValue)
   </option>

@@ -1,13 +1,18 @@
-exports[`test Sidebar does render 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar does render 1`] = `
 <sidebar
-  className="rka-sidebar">
+  className="rka-sidebar"
+>
   <ul
-    className="rka-sidebar-nav">
+    className="rka-sidebar-nav"
+  >
     <li>
       <a
         className="rka-sidebar-link"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         Dashboard
       </a>
     </li>
@@ -15,47 +20,60 @@ exports[`test Sidebar does render 1`] = `
       <a
         className="rka-sidebar-link"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         Images
       </a>
     </li>
     <li
-      className="pos-r">
+      className="pos-r"
+    >
       <a
         className="rka-sidebar-link"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         Stacks
       </a>
       <a
         className="rka-sidebar-link-icon"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         <svg
-          className="rka-add-icon">
+          className="rka-add-icon"
+        >
           <use
-            xlinkHref="add-icon.svg#add-icon" />
+            xlinkHref="add-icon.svg#add-icon"
+          />
         </svg>
       </a>
       <div
-        className="rka-sidebar-subnav">
+        className="rka-sidebar-subnav"
+      >
         <div
-          className="rka-stacks-search-container">
+          className="rka-stacks-search-container"
+        >
           <input
             className="rka-input-txt rka-stack-search"
             onChange={[Function]}
             placeholder="Search stack..."
-            type="text" />
+            type="text"
+          />
           <svg
-            className="rka-stack-search-icon">
+            className="rka-stack-search-icon"
+          >
             <use
-              xlinkHref="search.svg#search-icon" />
+              xlinkHref="search.svg#search-icon"
+            />
           </svg>
         </div>
         <div
-          className="rka-stacks-list is-loaded">
+          className="rka-stacks-list is-loaded"
+        >
           <div
-            className="rka-stacks-load" />
+            className="rka-stacks-load"
+          />
         </div>
       </div>
     </li>
@@ -63,24 +81,29 @@ exports[`test Sidebar does render 1`] = `
   <a
     className="rka-sidebar-poweredby"
     href="https://www.liip.ch/"
-    target="_blank">
+    target="_blank"
+  >
     POWERED BY 
     <i
-      className="rka-sidebar-liip-logo" />
+      className="rka-sidebar-liip-logo"
+    />
   </a>
 </sidebar>
 `;
 
-exports[`test Sidebar does render when active 1`] = `
+exports[`Sidebar does render when active 1`] = `
 <sidebar
-  className="rka-sidebar is-active">
+  className="rka-sidebar is-active"
+>
   <ul
-    className="rka-sidebar-nav">
+    className="rka-sidebar-nav"
+  >
     <li>
       <a
         className="rka-sidebar-link"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         Dashboard
       </a>
     </li>
@@ -88,47 +111,60 @@ exports[`test Sidebar does render when active 1`] = `
       <a
         className="rka-sidebar-link"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         Images
       </a>
     </li>
     <li
-      className="pos-r">
+      className="pos-r"
+    >
       <a
         className="rka-sidebar-link"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         Stacks
       </a>
       <a
         className="rka-sidebar-link-icon"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         <svg
-          className="rka-add-icon">
+          className="rka-add-icon"
+        >
           <use
-            xlinkHref="add-icon.svg#add-icon" />
+            xlinkHref="add-icon.svg#add-icon"
+          />
         </svg>
       </a>
       <div
-        className="rka-sidebar-subnav">
+        className="rka-sidebar-subnav"
+      >
         <div
-          className="rka-stacks-search-container">
+          className="rka-stacks-search-container"
+        >
           <input
             className="rka-input-txt rka-stack-search"
             onChange={[Function]}
             placeholder="Search stack..."
-            type="text" />
+            type="text"
+          />
           <svg
-            className="rka-stack-search-icon">
+            className="rka-stack-search-icon"
+          >
             <use
-              xlinkHref="search.svg#search-icon" />
+              xlinkHref="search.svg#search-icon"
+            />
           </svg>
         </div>
         <div
-          className="rka-stacks-list is-loaded">
+          className="rka-stacks-list is-loaded"
+        >
           <div
-            className="rka-stacks-load" />
+            className="rka-stacks-load"
+          />
         </div>
       </div>
     </li>
@@ -136,24 +172,29 @@ exports[`test Sidebar does render when active 1`] = `
   <a
     className="rka-sidebar-poweredby"
     href="https://www.liip.ch/"
-    target="_blank">
+    target="_blank"
+  >
     POWERED BY 
     <i
-      className="rka-sidebar-liip-logo" />
+      className="rka-sidebar-liip-logo"
+    />
   </a>
 </sidebar>
 `;
 
-exports[`test Sidebar shows load more button 1`] = `
+exports[`Sidebar shows load more button 1`] = `
 <sidebar
-  className="rka-sidebar is-active">
+  className="rka-sidebar is-active"
+>
   <ul
-    className="rka-sidebar-nav">
+    className="rka-sidebar-nav"
+  >
     <li>
       <a
         className="rka-sidebar-link"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         Dashboard
       </a>
     </li>
@@ -161,74 +202,92 @@ exports[`test Sidebar shows load more button 1`] = `
       <a
         className="rka-sidebar-link"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         Images
       </a>
     </li>
     <li
-      className="pos-r">
+      className="pos-r"
+    >
       <a
         className="rka-sidebar-link"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         Stacks
       </a>
       <a
         className="rka-sidebar-link-icon"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         <svg
-          className="rka-add-icon">
+          className="rka-add-icon"
+        >
           <use
-            xlinkHref="add-icon.svg#add-icon" />
+            xlinkHref="add-icon.svg#add-icon"
+          />
         </svg>
       </a>
       <div
-        className="rka-sidebar-subnav is-active">
+        className="rka-sidebar-subnav is-active"
+      >
         <div
-          className="rka-stacks-search-container">
+          className="rka-stacks-search-container"
+        >
           <input
             className="rka-input-txt rka-stack-search"
             onChange={[Function]}
             placeholder="Search stack..."
-            type="text" />
+            type="text"
+          />
           <svg
-            className="rka-stack-search-icon">
+            className="rka-stack-search-icon"
+          >
             <use
-              xlinkHref="search.svg#search-icon" />
+              xlinkHref="search.svg#search-icon"
+            />
           </svg>
         </div>
         <div
-          className="rka-stacks-list">
+          className="rka-stacks-list"
+        >
           <a
             className="rka-sidebar-sublink txt-ellipsis"
             onClick={[Function]}
-            style={Object {}}>
+            style={Object {}}
+          >
             stack-a
           </a>
           <a
             className="rka-sidebar-sublink txt-ellipsis"
             onClick={[Function]}
-            style={Object {}}>
+            style={Object {}}
+          >
             stack-b
           </a>
           <a
             className="rka-sidebar-sublink txt-ellipsis"
             onClick={[Function]}
-            style={Object {}}>
+            style={Object {}}
+          >
             stack-c
           </a>
           <a
             className="rka-sidebar-sublink txt-ellipsis"
             onClick={[Function]}
-            style={Object {}}>
+            style={Object {}}
+          >
             stack-d
           </a>
           <div
-            className="rka-stacks-load">
+            className="rka-stacks-load"
+          >
             <button
               className="rka-button rka-button-brand rka-button-fullwidth"
-              onClick={[Function]}>
+              onClick={[Function]}
+            >
               Load more
             </button>
           </div>
@@ -239,24 +298,29 @@ exports[`test Sidebar shows load more button 1`] = `
   <a
     className="rka-sidebar-poweredby"
     href="https://www.liip.ch/"
-    target="_blank">
+    target="_blank"
+  >
     POWERED BY 
     <i
-      className="rka-sidebar-liip-logo" />
+      className="rka-sidebar-liip-logo"
+    />
   </a>
 </sidebar>
 `;
 
-exports[`test Sidebar shows stacks 1`] = `
+exports[`Sidebar shows stacks 1`] = `
 <sidebar
-  className="rka-sidebar is-active">
+  className="rka-sidebar is-active"
+>
   <ul
-    className="rka-sidebar-nav">
+    className="rka-sidebar-nav"
+  >
     <li>
       <a
         className="rka-sidebar-link"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         Dashboard
       </a>
     </li>
@@ -264,71 +328,88 @@ exports[`test Sidebar shows stacks 1`] = `
       <a
         className="rka-sidebar-link"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         Images
       </a>
     </li>
     <li
-      className="pos-r">
+      className="pos-r"
+    >
       <a
         className="rka-sidebar-link"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         Stacks
       </a>
       <a
         className="rka-sidebar-link-icon"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         <svg
-          className="rka-add-icon">
+          className="rka-add-icon"
+        >
           <use
-            xlinkHref="add-icon.svg#add-icon" />
+            xlinkHref="add-icon.svg#add-icon"
+          />
         </svg>
       </a>
       <div
-        className="rka-sidebar-subnav is-active">
+        className="rka-sidebar-subnav is-active"
+      >
         <div
-          className="rka-stacks-search-container">
+          className="rka-stacks-search-container"
+        >
           <input
             className="rka-input-txt rka-stack-search"
             onChange={[Function]}
             placeholder="Search stack..."
-            type="text" />
+            type="text"
+          />
           <svg
-            className="rka-stack-search-icon">
+            className="rka-stack-search-icon"
+          >
             <use
-              xlinkHref="search.svg#search-icon" />
+              xlinkHref="search.svg#search-icon"
+            />
           </svg>
         </div>
         <div
-          className="rka-stacks-list is-loaded">
+          className="rka-stacks-list is-loaded"
+        >
           <a
             className="rka-sidebar-sublink txt-ellipsis"
             onClick={[Function]}
-            style={Object {}}>
+            style={Object {}}
+          >
             stack-a
           </a>
           <a
             className="rka-sidebar-sublink txt-ellipsis"
             onClick={[Function]}
-            style={Object {}}>
+            style={Object {}}
+          >
             stack-b
           </a>
           <a
             className="rka-sidebar-sublink txt-ellipsis"
             onClick={[Function]}
-            style={Object {}}>
+            style={Object {}}
+          >
             stack-c
           </a>
           <a
             className="rka-sidebar-sublink txt-ellipsis"
             onClick={[Function]}
-            style={Object {}}>
+            style={Object {}}
+          >
             stack-d
           </a>
           <div
-            className="rka-stacks-load" />
+            className="rka-stacks-load"
+          />
         </div>
       </div>
     </li>
@@ -336,10 +417,12 @@ exports[`test Sidebar shows stacks 1`] = `
   <a
     className="rka-sidebar-poweredby"
     href="https://www.liip.ch/"
-    target="_blank">
+    target="_blank"
+  >
     POWERED BY 
     <i
-      className="rka-sidebar-liip-logo" />
+      className="rka-sidebar-liip-logo"
+    />
   </a>
 </sidebar>
 `;

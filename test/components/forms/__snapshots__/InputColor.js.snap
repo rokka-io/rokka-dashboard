@@ -1,6 +1,9 @@
-exports[`test InputColor does render 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputColor does render 1`] = `
 <div
-  className="rka-form-group">
+  className="rka-form-group"
+>
   <input
     className="rka-input-txt"
     disabled={true}
@@ -9,13 +12,15 @@ exports[`test InputColor does render 1`] = `
     placeholder="color (default: undefined)"
     readOnly={true}
     type="text"
-    value="" />
+    value=""
+  />
 </div>
 `;
 
-exports[`test InputColor does render 2`] = `
+exports[`InputColor does render 2`] = `
 <div
-  className="rka-form-group">
+  className="rka-form-group"
+>
   <input
     className="rka-input-txt"
     disabled={true}
@@ -24,9 +29,10 @@ exports[`test InputColor does render 2`] = `
     placeholder="color (default: undefined)"
     readOnly={true}
     type="text"
-    value="" />
+    value=""
+  />
   <div
-    className="chrome-picker"
+    className="chrome-picker "
     style={
       Object {
         "MozBorderRadius": "2px",
@@ -44,7 +50,8 @@ exports[`test InputColor does render 2`] = `
         "msBoxShadow": "0 0 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3)",
         "width": "225px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -58,7 +65,8 @@ exports[`test InputColor does render 2`] = `
           "position": "relative",
           "width": "100%",
         }
-      }>
+      }
+    >
       <div
         onMouseDown={[Function]}
         onTouchMove={[Function]}
@@ -77,7 +85,8 @@ exports[`test InputColor does render 2`] = `
             "right": "0px",
             "top": "0px",
           }
-        }>
+        }
+      >
         <style>
           
                     .saturation-white {
@@ -105,7 +114,8 @@ exports[`test InputColor does render 2`] = `
               "right": "0px",
               "top": "0px",
             }
-          }>
+          }
+        >
           <div
             className="saturation-black"
             style={
@@ -126,7 +136,8 @@ exports[`test InputColor does render 2`] = `
                 "right": "0px",
                 "top": "0px",
               }
-            } />
+            }
+          />
           <div
             style={
               Object {
@@ -135,7 +146,8 @@ exports[`test InputColor does render 2`] = `
                 "position": "absolute",
                 "top": "70%",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -157,7 +169,8 @@ exports[`test InputColor does render 2`] = `
                   "transform": "translate(-6px, -6px)",
                   "width": "12px",
                 }
-              } />
+              }
+            />
           </div>
         </div>
       </div>
@@ -167,20 +180,23 @@ exports[`test InputColor does render 2`] = `
         Object {
           "padding": "16px 16px 12px",
         }
-      }>
+      }
+    >
       <div
         className="flexbox-fix"
         style={
           Object {
             "display": "flex",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
               "width": "22px",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
@@ -195,7 +211,8 @@ exports[`test InputColor does render 2`] = `
                 "position": "relative",
                 "width": "10px",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -217,7 +234,8 @@ exports[`test InputColor does render 2`] = `
                   "top": "0px",
                   "zIndex": "2",
                 }
-              } />
+              }
+            />
             <div
               style={
                 Object {
@@ -238,7 +256,8 @@ exports[`test InputColor does render 2`] = `
                   "right": "0px",
                   "top": "0px",
                 }
-              } />
+              }
+            />
           </div>
         </div>
         <div
@@ -250,7 +269,8 @@ exports[`test InputColor does render 2`] = `
               "flex": "1",
               "msFlex": "1",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
@@ -258,7 +278,8 @@ exports[`test InputColor does render 2`] = `
                 "marginBottom": "0px",
                 "position": "relative",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -278,7 +299,8 @@ exports[`test InputColor does render 2`] = `
                   "right": "0px",
                   "top": "0px",
                 }
-              }>
+              }
+            >
               <div
                 className="hue-horizontal"
                 onMouseDown={[Function]}
@@ -290,7 +312,8 @@ exports[`test InputColor does render 2`] = `
                     "padding": "0 2px",
                     "position": "relative",
                   }
-                }>
+                }
+              >
                 <style>
                   
                               .hue-horizontal {
@@ -314,7 +337,8 @@ exports[`test InputColor does render 2`] = `
                       "left": "69.44444444444443%",
                       "position": "absolute",
                     }
-                  }>
+                  }
+                >
                   <div
                     style={
                       Object {
@@ -337,7 +361,8 @@ exports[`test InputColor does render 2`] = `
                         "transform": "translate(-6px, -1px)",
                         "width": "12px",
                       }
-                    } />
+                    }
+                  />
                 </div>
               </div>
             </div>
@@ -349,7 +374,8 @@ exports[`test InputColor does render 2`] = `
                 "height": "10px",
                 "position": "relative",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -364,7 +390,8 @@ exports[`test InputColor does render 2`] = `
                   "right": "0px",
                   "top": "0px",
                 }
-              }>
+              }
+            >
               <div
                 style={
                   Object {
@@ -375,7 +402,8 @@ exports[`test InputColor does render 2`] = `
                     "right": "0px",
                     "top": "0px",
                   }
-                }>
+                }
+              >
                 <div
                   style={
                     Object {
@@ -396,7 +424,8 @@ exports[`test InputColor does render 2`] = `
                       "right": "0px",
                       "top": "0px",
                     }
-                  } />
+                  }
+                />
               </div>
               <div
                 style={
@@ -419,7 +448,8 @@ exports[`test InputColor does render 2`] = `
                     "right": "0px",
                     "top": "0px",
                   }
-                } />
+                }
+              />
               <div
                 onMouseDown={[Function]}
                 onTouchMove={[Function]}
@@ -430,14 +460,16 @@ exports[`test InputColor does render 2`] = `
                     "margin": "0 3px",
                     "position": "relative",
                   }
-                }>
+                }
+              >
                 <div
                   style={
                     Object {
                       "left": "100%",
                       "position": "absolute",
                     }
-                  }>
+                  }
+                >
                   <div
                     style={
                       Object {
@@ -460,7 +492,8 @@ exports[`test InputColor does render 2`] = `
                         "transform": "translate(-6px, -1px)",
                         "width": "12px",
                       }
-                    } />
+                    }
+                  />
                 </div>
               </div>
             </div>
@@ -474,7 +507,8 @@ exports[`test InputColor does render 2`] = `
             "display": "flex",
             "paddingTop": "16px",
           }
-        }>
+        }
+      >
         <div
           className="flexbox-fix"
           style={
@@ -487,20 +521,23 @@ exports[`test InputColor does render 2`] = `
               "marginLeft": "-6px",
               "msFlex": "1",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
                 "paddingLeft": "6px",
                 "width": "100%",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
                   "position": "relative",
                 }
-              }>
+              }
+            >
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -527,7 +564,8 @@ exports[`test InputColor does render 2`] = `
                     "width": "100%",
                   }
                 }
-                value="#22194D" />
+                value="#22194D"
+              />
               <span
                 onMouseDown={[Function]}
                 style={
@@ -540,7 +578,8 @@ exports[`test InputColor does render 2`] = `
                     "textAlign": "center",
                     "textTransform": "uppercase",
                   }
-                }>
+                }
+              >
                 hex
               </span>
             </div>
@@ -553,7 +592,8 @@ exports[`test InputColor does render 2`] = `
               "textAlign": "right",
               "width": "32px",
             }
-          }>
+          }
+        >
           <div
             onClick={[Function]}
             style={
@@ -563,7 +603,8 @@ exports[`test InputColor does render 2`] = `
                 "marginTop": "12px",
                 "position": "relative",
               }
-            }>
+            }
+          >
             <svg
               onMouseEnter={[Function]}
               onMouseOut={[Function]}
@@ -580,13 +621,16 @@ exports[`test InputColor does render 2`] = `
                   "width": "24px",
                 }
               }
-              viewBox="0 0 24 24">
+              viewBox="0 0 24 24"
+            >
               <path
                 d="M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z"
-                fill="#333" />
+                fill="#333"
+              />
               <path
                 d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15Z"
-                fill="#333" />
+                fill="#333"
+              />
             </svg>
           </div>
         </div>
@@ -596,9 +640,10 @@ exports[`test InputColor does render 2`] = `
 </div>
 `;
 
-exports[`test InputColor provides shows defaultValue 1`] = `
+exports[`InputColor provides shows defaultValue 1`] = `
 <div
-  className="rka-form-group">
+  className="rka-form-group"
+>
   <input
     className="rka-input-txt"
     disabled={true}
@@ -607,13 +652,15 @@ exports[`test InputColor provides shows defaultValue 1`] = `
     placeholder="color (default: 000000)"
     readOnly={true}
     type="text"
-    value="" />
+    value=""
+  />
 </div>
 `;
 
-exports[`test InputColor provides shows defaultValue 2`] = `
+exports[`InputColor provides shows defaultValue 2`] = `
 <div
-  className="rka-form-group">
+  className="rka-form-group"
+>
   <input
     className="rka-input-txt"
     disabled={true}
@@ -622,9 +669,10 @@ exports[`test InputColor provides shows defaultValue 2`] = `
     placeholder="color (default: 000000)"
     readOnly={true}
     type="text"
-    value="" />
+    value=""
+  />
   <div
-    className="chrome-picker"
+    className="chrome-picker "
     style={
       Object {
         "MozBorderRadius": "2px",
@@ -642,7 +690,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
         "msBoxShadow": "0 0 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3)",
         "width": "225px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -656,7 +705,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
           "position": "relative",
           "width": "100%",
         }
-      }>
+      }
+    >
       <div
         onMouseDown={[Function]}
         onTouchMove={[Function]}
@@ -675,7 +725,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
             "right": "0px",
             "top": "0px",
           }
-        }>
+        }
+      >
         <style>
           
                     .saturation-white {
@@ -703,7 +754,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
               "right": "0px",
               "top": "0px",
             }
-          }>
+          }
+        >
           <div
             className="saturation-black"
             style={
@@ -724,7 +776,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                 "right": "0px",
                 "top": "0px",
               }
-            } />
+            }
+          />
           <div
             style={
               Object {
@@ -733,7 +786,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                 "position": "absolute",
                 "top": "70%",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -755,7 +809,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                   "transform": "translate(-6px, -6px)",
                   "width": "12px",
                 }
-              } />
+              }
+            />
           </div>
         </div>
       </div>
@@ -765,20 +820,23 @@ exports[`test InputColor provides shows defaultValue 2`] = `
         Object {
           "padding": "16px 16px 12px",
         }
-      }>
+      }
+    >
       <div
         className="flexbox-fix"
         style={
           Object {
             "display": "flex",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
               "width": "22px",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
@@ -793,7 +851,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                 "position": "relative",
                 "width": "10px",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -815,7 +874,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                   "top": "0px",
                   "zIndex": "2",
                 }
-              } />
+              }
+            />
             <div
               style={
                 Object {
@@ -836,7 +896,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                   "right": "0px",
                   "top": "0px",
                 }
-              } />
+              }
+            />
           </div>
         </div>
         <div
@@ -848,7 +909,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
               "flex": "1",
               "msFlex": "1",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
@@ -856,7 +918,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                 "marginBottom": "0px",
                 "position": "relative",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -876,7 +939,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                   "right": "0px",
                   "top": "0px",
                 }
-              }>
+              }
+            >
               <div
                 className="hue-horizontal"
                 onMouseDown={[Function]}
@@ -888,7 +952,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                     "padding": "0 2px",
                     "position": "relative",
                   }
-                }>
+                }
+              >
                 <style>
                   
                               .hue-horizontal {
@@ -912,7 +977,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                       "left": "69.44444444444443%",
                       "position": "absolute",
                     }
-                  }>
+                  }
+                >
                   <div
                     style={
                       Object {
@@ -935,7 +1001,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                         "transform": "translate(-6px, -1px)",
                         "width": "12px",
                       }
-                    } />
+                    }
+                  />
                 </div>
               </div>
             </div>
@@ -947,7 +1014,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                 "height": "10px",
                 "position": "relative",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -962,7 +1030,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                   "right": "0px",
                   "top": "0px",
                 }
-              }>
+              }
+            >
               <div
                 style={
                   Object {
@@ -973,7 +1042,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                     "right": "0px",
                     "top": "0px",
                   }
-                }>
+                }
+              >
                 <div
                   style={
                     Object {
@@ -994,7 +1064,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                       "right": "0px",
                       "top": "0px",
                     }
-                  } />
+                  }
+                />
               </div>
               <div
                 style={
@@ -1017,7 +1088,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                     "right": "0px",
                     "top": "0px",
                   }
-                } />
+                }
+              />
               <div
                 onMouseDown={[Function]}
                 onTouchMove={[Function]}
@@ -1028,14 +1100,16 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                     "margin": "0 3px",
                     "position": "relative",
                   }
-                }>
+                }
+              >
                 <div
                   style={
                     Object {
                       "left": "100%",
                       "position": "absolute",
                     }
-                  }>
+                  }
+                >
                   <div
                     style={
                       Object {
@@ -1058,7 +1132,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                         "transform": "translate(-6px, -1px)",
                         "width": "12px",
                       }
-                    } />
+                    }
+                  />
                 </div>
               </div>
             </div>
@@ -1072,7 +1147,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
             "display": "flex",
             "paddingTop": "16px",
           }
-        }>
+        }
+      >
         <div
           className="flexbox-fix"
           style={
@@ -1085,20 +1161,23 @@ exports[`test InputColor provides shows defaultValue 2`] = `
               "marginLeft": "-6px",
               "msFlex": "1",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
                 "paddingLeft": "6px",
                 "width": "100%",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
                   "position": "relative",
                 }
-              }>
+              }
+            >
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -1125,7 +1204,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                     "width": "100%",
                   }
                 }
-                value="#22194D" />
+                value="#22194D"
+              />
               <span
                 onMouseDown={[Function]}
                 style={
@@ -1138,7 +1218,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                     "textAlign": "center",
                     "textTransform": "uppercase",
                   }
-                }>
+                }
+              >
                 hex
               </span>
             </div>
@@ -1151,7 +1232,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
               "textAlign": "right",
               "width": "32px",
             }
-          }>
+          }
+        >
           <div
             onClick={[Function]}
             style={
@@ -1161,7 +1243,8 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                 "marginTop": "12px",
                 "position": "relative",
               }
-            }>
+            }
+          >
             <svg
               onMouseEnter={[Function]}
               onMouseOut={[Function]}
@@ -1178,13 +1261,16 @@ exports[`test InputColor provides shows defaultValue 2`] = `
                   "width": "24px",
                 }
               }
-              viewBox="0 0 24 24">
+              viewBox="0 0 24 24"
+            >
               <path
                 d="M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z"
-                fill="#333" />
+                fill="#333"
+              />
               <path
                 d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15Z"
-                fill="#333" />
+                fill="#333"
+              />
             </svg>
           </div>
         </div>
@@ -1194,9 +1280,10 @@ exports[`test InputColor provides shows defaultValue 2`] = `
 </div>
 `;
 
-exports[`test InputColor provides value 1`] = `
+exports[`InputColor provides value 1`] = `
 <div
-  className="rka-form-group">
+  className="rka-form-group"
+>
   <input
     className="rka-input-txt"
     disabled={true}
@@ -1205,13 +1292,15 @@ exports[`test InputColor provides value 1`] = `
     placeholder="color (default: undefined)"
     readOnly={true}
     type="text"
-    value="000000" />
+    value="000000"
+  />
 </div>
 `;
 
-exports[`test InputColor provides value 2`] = `
+exports[`InputColor provides value 2`] = `
 <div
-  className="rka-form-group">
+  className="rka-form-group"
+>
   <input
     className="rka-input-txt"
     disabled={true}
@@ -1220,9 +1309,10 @@ exports[`test InputColor provides value 2`] = `
     placeholder="color (default: undefined)"
     readOnly={true}
     type="text"
-    value="000000" />
+    value="000000"
+  />
   <div
-    className="chrome-picker"
+    className="chrome-picker "
     style={
       Object {
         "MozBorderRadius": "2px",
@@ -1240,7 +1330,8 @@ exports[`test InputColor provides value 2`] = `
         "msBoxShadow": "0 0 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3)",
         "width": "225px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -1254,7 +1345,8 @@ exports[`test InputColor provides value 2`] = `
           "position": "relative",
           "width": "100%",
         }
-      }>
+      }
+    >
       <div
         onMouseDown={[Function]}
         onTouchMove={[Function]}
@@ -1273,7 +1365,8 @@ exports[`test InputColor provides value 2`] = `
             "right": "0px",
             "top": "0px",
           }
-        }>
+        }
+      >
         <style>
           
                     .saturation-white {
@@ -1301,7 +1394,8 @@ exports[`test InputColor provides value 2`] = `
               "right": "0px",
               "top": "0px",
             }
-          }>
+          }
+        >
           <div
             className="saturation-black"
             style={
@@ -1322,7 +1416,8 @@ exports[`test InputColor provides value 2`] = `
                 "right": "0px",
                 "top": "0px",
               }
-            } />
+            }
+          />
           <div
             style={
               Object {
@@ -1331,7 +1426,8 @@ exports[`test InputColor provides value 2`] = `
                 "position": "absolute",
                 "top": "100%",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -1353,7 +1449,8 @@ exports[`test InputColor provides value 2`] = `
                   "transform": "translate(-6px, -6px)",
                   "width": "12px",
                 }
-              } />
+              }
+            />
           </div>
         </div>
       </div>
@@ -1363,20 +1460,23 @@ exports[`test InputColor provides value 2`] = `
         Object {
           "padding": "16px 16px 12px",
         }
-      }>
+      }
+    >
       <div
         className="flexbox-fix"
         style={
           Object {
             "display": "flex",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
               "width": "22px",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
@@ -1391,7 +1491,8 @@ exports[`test InputColor provides value 2`] = `
                 "position": "relative",
                 "width": "10px",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -1413,7 +1514,8 @@ exports[`test InputColor provides value 2`] = `
                   "top": "0px",
                   "zIndex": "2",
                 }
-              } />
+              }
+            />
             <div
               style={
                 Object {
@@ -1434,7 +1536,8 @@ exports[`test InputColor provides value 2`] = `
                   "right": "0px",
                   "top": "0px",
                 }
-              } />
+              }
+            />
           </div>
         </div>
         <div
@@ -1446,7 +1549,8 @@ exports[`test InputColor provides value 2`] = `
               "flex": "1",
               "msFlex": "1",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
@@ -1454,7 +1558,8 @@ exports[`test InputColor provides value 2`] = `
                 "marginBottom": "0px",
                 "position": "relative",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -1474,7 +1579,8 @@ exports[`test InputColor provides value 2`] = `
                   "right": "0px",
                   "top": "0px",
                 }
-              }>
+              }
+            >
               <div
                 className="hue-horizontal"
                 onMouseDown={[Function]}
@@ -1486,7 +1592,8 @@ exports[`test InputColor provides value 2`] = `
                     "padding": "0 2px",
                     "position": "relative",
                   }
-                }>
+                }
+              >
                 <style>
                   
                               .hue-horizontal {
@@ -1510,7 +1617,8 @@ exports[`test InputColor provides value 2`] = `
                       "left": "0%",
                       "position": "absolute",
                     }
-                  }>
+                  }
+                >
                   <div
                     style={
                       Object {
@@ -1533,7 +1641,8 @@ exports[`test InputColor provides value 2`] = `
                         "transform": "translate(-6px, -1px)",
                         "width": "12px",
                       }
-                    } />
+                    }
+                  />
                 </div>
               </div>
             </div>
@@ -1545,7 +1654,8 @@ exports[`test InputColor provides value 2`] = `
                 "height": "10px",
                 "position": "relative",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -1560,7 +1670,8 @@ exports[`test InputColor provides value 2`] = `
                   "right": "0px",
                   "top": "0px",
                 }
-              }>
+              }
+            >
               <div
                 style={
                   Object {
@@ -1571,7 +1682,8 @@ exports[`test InputColor provides value 2`] = `
                     "right": "0px",
                     "top": "0px",
                   }
-                }>
+                }
+              >
                 <div
                   style={
                     Object {
@@ -1592,7 +1704,8 @@ exports[`test InputColor provides value 2`] = `
                       "right": "0px",
                       "top": "0px",
                     }
-                  } />
+                  }
+                />
               </div>
               <div
                 style={
@@ -1615,7 +1728,8 @@ exports[`test InputColor provides value 2`] = `
                     "right": "0px",
                     "top": "0px",
                   }
-                } />
+                }
+              />
               <div
                 onMouseDown={[Function]}
                 onTouchMove={[Function]}
@@ -1626,14 +1740,16 @@ exports[`test InputColor provides value 2`] = `
                     "margin": "0 3px",
                     "position": "relative",
                   }
-                }>
+                }
+              >
                 <div
                   style={
                     Object {
                       "left": "100%",
                       "position": "absolute",
                     }
-                  }>
+                  }
+                >
                   <div
                     style={
                       Object {
@@ -1656,7 +1772,8 @@ exports[`test InputColor provides value 2`] = `
                         "transform": "translate(-6px, -1px)",
                         "width": "12px",
                       }
-                    } />
+                    }
+                  />
                 </div>
               </div>
             </div>
@@ -1670,7 +1787,8 @@ exports[`test InputColor provides value 2`] = `
             "display": "flex",
             "paddingTop": "16px",
           }
-        }>
+        }
+      >
         <div
           className="flexbox-fix"
           style={
@@ -1683,20 +1801,23 @@ exports[`test InputColor provides value 2`] = `
               "marginLeft": "-6px",
               "msFlex": "1",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
                 "paddingLeft": "6px",
                 "width": "100%",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
                   "position": "relative",
                 }
-              }>
+              }
+            >
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -1723,7 +1844,8 @@ exports[`test InputColor provides value 2`] = `
                     "width": "100%",
                   }
                 }
-                value="#000000" />
+                value="#000000"
+              />
               <span
                 onMouseDown={[Function]}
                 style={
@@ -1736,7 +1858,8 @@ exports[`test InputColor provides value 2`] = `
                     "textAlign": "center",
                     "textTransform": "uppercase",
                   }
-                }>
+                }
+              >
                 hex
               </span>
             </div>
@@ -1749,7 +1872,8 @@ exports[`test InputColor provides value 2`] = `
               "textAlign": "right",
               "width": "32px",
             }
-          }>
+          }
+        >
           <div
             onClick={[Function]}
             style={
@@ -1759,7 +1883,8 @@ exports[`test InputColor provides value 2`] = `
                 "marginTop": "12px",
                 "position": "relative",
               }
-            }>
+            }
+          >
             <svg
               onMouseEnter={[Function]}
               onMouseOut={[Function]}
@@ -1776,13 +1901,16 @@ exports[`test InputColor provides value 2`] = `
                   "width": "24px",
                 }
               }
-              viewBox="0 0 24 24">
+              viewBox="0 0 24 24"
+            >
               <path
                 d="M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z"
-                fill="#333" />
+                fill="#333"
+              />
               <path
                 d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15Z"
-                fill="#333" />
+                fill="#333"
+              />
             </svg>
           </div>
         </div>

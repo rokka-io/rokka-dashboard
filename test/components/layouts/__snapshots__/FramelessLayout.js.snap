@@ -1,19 +1,25 @@
-exports[`test FramelessLayout does render 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FramelessLayout does render 1`] = `
 <div
-  className={null}>
+  className={null}
+>
   <span>
     Test
   </span>
 </div>
 `;
 
-exports[`test FramelessLayout does render with alerts 1`] = `
+exports[`FramelessLayout does render with alerts 1`] = `
 <div
-  className={null}>
+  className={null}
+>
   <div
-    className="rka-alert is-error txt-c">
+    className="rka-alert is-error txt-c"
+  >
     <span
-      className="rka-alert-msg">
+      className="rka-alert-msg"
+    >
       test
     </span>
   </div>

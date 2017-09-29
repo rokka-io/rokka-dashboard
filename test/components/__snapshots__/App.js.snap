@@ -1,6 +1,9 @@
-exports[`test App does render 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App does render 1`] = `
 <div
-  className="App">
+  className="App"
+>
   <span
     alert={null}
     auth={null}
@@ -9,7 +12,8 @@ exports[`test App does render 1`] = `
     showSidebar={false}
     stackClone={Object {}}
     stackOptions={null}
-    stacks={Object {}}>
+    stacks={Object {}}
+  >
     Test
   </span>
 </div>

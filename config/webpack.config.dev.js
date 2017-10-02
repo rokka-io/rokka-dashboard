@@ -9,6 +9,7 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin')
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin')
 const eslintFormatter = require('react-dev-utils/eslintFormatter')
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin')
+const ringConfig = require('@jetbrains/ring-ui/webpack.config').config;
 const getClientEnvironment = require('./env')
 const paths = require('./paths')
 
@@ -106,6 +107,8 @@ module.exports = {
       // TODO: Disable require.ensure as it's not a standard language feature.
       // We are waiting for https://github.com/facebookincubator/create-react-app/issues/2176.
       // { parser: { requireEnsure: false } },
+
+      ...ringConfig.module.rules,
 
       // First, run the linter.
       // It's important to do this before Babel processes the JS.

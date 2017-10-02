@@ -44,7 +44,7 @@
     z-index: -1;
   }
 
-  &.login-transition-leave {
+  &.login-transition-exit {
     &:after {
       height: 64px;
       opacity: 1;

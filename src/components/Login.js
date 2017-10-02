@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TransitionGroup from 'react-addons-css-transition-group'
+import { CSSTransition } from 'react-transition-group'
 import FramelessLayout from './layouts/FramelessLayout'
 import { login } from '../state'
 import cx from 'classnames'
@@ -40,13 +40,8 @@ class Login extends Component {
 
   render () {
     return (
-      <TransitionGroup component="div"
-        transitionName="login-transition"
-        transitionAppear
-        transitionAppearTimeout={0}
-        transitionEnterTimeout={0}
-        transitionLeaveTimeout={0}>
-        <FramelessLayout className={cx('rka-login-page', {'login-transition-leave': this.state.showTransition})} {...this.props}>
+      <CSSTransition appear classNames="login-transition" timeout={0}>
+        <FramelessLayout className={cx('rka-login-page', {'login-transition-exit': this.state.showTransition})} {...this.props}>
           <div className="rka-login-container">
             <div className="row">
               <div className="col-md-5">
@@ -76,7 +71,7 @@ class Login extends Component {
             </div>
           </div>
         </FramelessLayout>
-      </TransitionGroup>
+      </CSSTransition>
     )
   }
 }

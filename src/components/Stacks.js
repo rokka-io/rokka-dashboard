@@ -1,4 +1,5 @@
-import React, { Component, cloneElement, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component, cloneElement } from 'react'
 import { authRequired } from '../utils/auth'
 import BaseLayout from './layouts/BaseLayout'
 

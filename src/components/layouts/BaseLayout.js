@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react'
-import TransitionGroup from 'react-addons-css-transition-group'
+import PropTypes from 'prop-types'
+import React from 'react'
 import cx from 'classnames'
 import Header from '../Header.js'
 import Footer from '../Footer.js'
@@ -10,17 +10,10 @@ const BaseLayout = ({ className, alert = null, ...props }) =>
   <div className={className}>
     <Header auth={props.auth} active={props.showSidebar} />
     <Sidebar active={props.showSidebar} stacks={props.stacks} router={props.router} />
-    <TransitionGroup component="div"
-      transitionName="page-transition"
-      transitionAppear
-      transitionAppearTimeout={500}
-      transitionEnterTimeout={0}
-      transitionLeaveTimeout={0}>
-      <main className={cx('main clearfix', {'is-active': props.showSidebar})}>
-        <Alert alert={alert} />
-        {props.children}
-      </main>
-    </TransitionGroup>
+    <main className={cx('main clearfix', {'is-active': props.showSidebar})}>
+      <Alert alert={alert} />
+      {props.children}
+    </main>
     <Footer />
   </div>
 

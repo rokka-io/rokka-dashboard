@@ -1,4 +1,5 @@
-import React, { PureComponent, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { PureComponent } from 'react'
 import Input from '../forms/Input'
 import InputColor from '../forms/InputColor'
 import Select from '../forms/Select'

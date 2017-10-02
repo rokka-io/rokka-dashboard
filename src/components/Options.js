@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import Compression from './options/Compression'
 import Interlacing from './options/Interlacing'
 import BaseStack from './options/BaseStack'

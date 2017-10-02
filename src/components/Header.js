@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { IndexLink } from 'react-router'
 import { toggleSidebar, logout } from '../state'
 import avatarIcon from '../img/avatar-placeholder.svg'

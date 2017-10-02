@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const Select = ({ value, defaultValue, placeholder, disabled, children, ...props }) => {
   const ph = defaultValue

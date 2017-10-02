@@ -13,3 +13,6 @@ build
 .DS_Store
 .env
 npm-debug.log
+
+# package-lock is unstable still, as far as I know (2017-09-27)
+package-lock.json

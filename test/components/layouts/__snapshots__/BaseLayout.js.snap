@@ -143,22 +143,13 @@ exports[`BaseLayout does render 1`] = `
       />
     </a>
   </sidebar>
-  <TransitionGroup
-    component="div"
-    transitionAppear={true}
-    transitionAppearTimeout={500}
-    transitionEnterTimeout={0}
-    transitionLeaveTimeout={0}
-    transitionName="page-transition"
+  <main
+    className="main clearfix"
   >
-    <main
-      className="main clearfix"
-    >
-      <span>
-        Test Baselayout
-      </span>
-    </main>
-  </TransitionGroup>
+    <span>
+      Test Baselayout
+    </span>
+  </main>
   <footer
     className="rka-footer"
   >
@@ -310,22 +301,13 @@ exports[`BaseLayout does render active sidebar 1`] = `
       />
     </a>
   </sidebar>
-  <TransitionGroup
-    component="div"
-    transitionAppear={true}
-    transitionAppearTimeout={500}
-    transitionEnterTimeout={0}
-    transitionLeaveTimeout={0}
-    transitionName="page-transition"
+  <main
+    className="main clearfix is-active"
   >
-    <main
-      className="main clearfix is-active"
-    >
-      <span>
-        Test Baselayout
-      </span>
-    </main>
-  </TransitionGroup>
+    <span>
+      Test Baselayout
+    </span>
+  </main>
   <footer
     className="rka-footer"
   >
@@ -477,31 +459,22 @@ exports[`BaseLayout does render alert 1`] = `
       />
     </a>
   </sidebar>
-  <TransitionGroup
-    component="div"
-    transitionAppear={true}
-    transitionAppearTimeout={500}
-    transitionEnterTimeout={0}
-    transitionLeaveTimeout={0}
-    transitionName="page-transition"
+  <main
+    className="main clearfix"
   >
-    <main
-      className="main clearfix"
+    <div
+      className="rka-alert is-error txt-c"
     >
-      <div
-        className="rka-alert is-error txt-c"
+      <span
+        className="rka-alert-msg"
       >
-        <span
-          className="rka-alert-msg"
-        >
-          test
-        </span>
-      </div>
-      <span>
-        Test Baselayout
+        test
       </span>
-    </main>
-  </TransitionGroup>
+    </div>
+    <span>
+      Test Baselayout
+    </span>
+  </main>
   <footer
     className="rka-footer"
   >

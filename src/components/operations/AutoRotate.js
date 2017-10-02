@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import Input from '../forms/Input'
 import Select from '../forms/Select'
 import FormGroup from '../forms/FormGroup'

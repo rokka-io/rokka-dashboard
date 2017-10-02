@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import { authRequired } from '../utils/auth'
 import { clearImages } from '../state'
 import BaseLayout from './layouts/BaseLayout'

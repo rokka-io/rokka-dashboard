@@ -1,4 +1,5 @@
-import React, { Component, cloneElement, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component, cloneElement } from 'react'
 import state, { subscribe } from '../state'
 import '../scss/main.scss'
 

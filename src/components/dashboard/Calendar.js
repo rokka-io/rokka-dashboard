@@ -1,53 +1,22 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
-import { MonthView } from 'react-date-picker'
-import enhanceWithClickOutside from 'react-click-outside'
+import DatePicker from '@jetbrains/ring-ui/components/date-picker/date-picker'
 
 class Calendar extends PureComponent {
   render () {
-    const {onRangeChange, from, to, calendarRef, dateClick, showCalendar} = this.props
+    const { onRangeChange, from, to } = this.props
     return (
       <div className="height-smaller flo-r pos-r">
-        <div className="flo-r rka-h2" onClick={dateClick}>
-          <p className="flo-r rka-h2 mt-xs click-div">
-            {from.toDate().toLocaleDateString()}
-            <span className="ph-sm">-</span>
-            {to.toDate().toLocaleDateString()}
-          </p>
-        </div>
-        {showCalendar ? (
-          <div tabIndex="0" className="flo-r mt-xs calendar-wrapper dis-b" ref={calendarRef}>
-            <MonthView
-              onRangeChange={onRangeChange}
-              weekNumbers={false}
-              locale="en"
-              maxDate={new Date()}
-              highlightRangeOnMouseMove
-              enableHistoryView={false}
-              weekStartDay={1}
-              footer={false}
-              defaultRange={[from, to]}
-              className="calendar float-r"
-            />
-          </div>
-        ) : null}
+        <DatePicker from={from} to={to} onChange={onRangeChange} />
       </div>
     )
-  }
-
-  handleClickOutside () {
-    this.props.onBlurHideCalendar()
   }
 }
 
 Calendar.propTypes = {
-  onBlurHideCalendar: PropTypes.func.isRequired,
   onRangeChange: PropTypes.func.isRequired,
   from: PropTypes.object.isRequired,
-  to: PropTypes.object.isRequired,
-  calendarRef: PropTypes.func.isRequired,
-  dateClick: PropTypes.func.isRequired,
-  showCalendar: PropTypes.bool.isRequired
+  to: PropTypes.object.isRequired
 }
 
-export default enhanceWithClickOutside(Calendar)
+export default Calendar

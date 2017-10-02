@@ -43,15 +43,6 @@ img {
       margin-left: $space-md;
     }
   }
-
-  &.page-transition-appear {
-    opacity: 0;
-  }
-
-  &.page-transition-appear-active {
-    opacity: 1;
-    transition: opacity .5s ease;
-  }
 }
 
 .rka-content-header {

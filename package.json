@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@jetbrains/ring-ui": "^0.2.31",
     "ajv": "^5.2.0",
     "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
@@ -48,8 +47,10 @@
     "promise": "8.0.1",
     "prop-types": "^15.6.0",
     "react": "^15.6.0",
+    "react-addons-shallow-compare": "^15.6.2",
     "react-click-outside": "^2.2.0",
     "react-color": "^2.11.7",
+    "react-dates": "^13.0.0",
     "react-dev-utils": "^4.1.0",
     "react-dnd": "^2.2.3",
     "react-dnd-html5-backend": "^2.2.3",

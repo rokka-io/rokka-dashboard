@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import cx from 'classnames'
-import moment from 'moment'
+import moment from '../../utils/moment'
 import focusIcon from '../../img/focus-icon.svg'
 import linkicon from '../../img/link-icon.svg'
 

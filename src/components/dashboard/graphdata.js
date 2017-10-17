@@ -1,4 +1,4 @@
-import moment from 'moment'
+import moment from '../../utils/moment'
 import filesize from 'filesize'
 
 const SYMBOL_EXPONENT = {

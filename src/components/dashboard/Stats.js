@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
-import moment from 'moment'
-import rokka from '../../rokka'
+import moment from '../../utils/moment'
+// import rokka from '../../rokka'
 import Chart from './Chart'
-import getStats from './graphdata'
+// import getStats from './graphdata'
 import Calendar from './Calendar'
 
 class Stats extends PureComponent {
@@ -38,11 +38,16 @@ class Stats extends PureComponent {
     )
   }
 
-  onRangeChange (dateString, [from, to], event) {
-    if (!from || !to || !event) {
-      return
-    }
-    this.setState({from: from.dateMoment, to: to.dateMoment, showCalendar: false, stats: {}}, () => this.fetchStats())
+  onRangeChange ({ startDate, endDate }) {
+    console.log('rangechange', startDate, endDate)
+    const showCalendar = startDate === null || endDate === null
+    console.log(showCalendar)
+    this.setState({
+      from: startDate,
+      to: endDate,
+      stats: !showCalendar ? {} : this.state.stats,
+      showCalendar: showCalendar
+    }, () => !showCalendar && this.fetchStats())
   }
 
   onBlurHideCalendar (event) {
@@ -51,6 +56,8 @@ class Stats extends PureComponent {
 
   fetchStats () {
     const { from, to } = this.state
+    console.log(from, to)
+    /*
     const toPlusOne = to.clone()
     toPlusOne.add(1, 'day') // ROKKA-152: Stats API from/to are exclusive
     rokka.stats.get(this.props.organization, from.format('YYYY-MM-DD'), toPlusOne.format('YYYY-MM-DD'))
@@ -62,6 +69,7 @@ class Stats extends PureComponent {
       .catch(e => {
         console.error(e)
       })
+    */
   }
 
   renderStatistics () {
@@ -130,7 +138,7 @@ class Stats extends PureComponent {
   }
 }
 Stats.propTypes = {
-  organization: PropTypes.string.isRequired
+//  organization: PropTypes.string.isRequired
 }
 
 export default Stats

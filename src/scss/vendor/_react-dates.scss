@@ -1,0 +1,23 @@
+@import '~react-dates/lib/css/_datepicker.css';
+
+.click-div {
+ cursor: pointer;
+}
+
+.click-div:hover {
+  background: #d7d7d2;
+}
+
+.calendar-wrapper {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 1;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.DayPicker {
+}

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { authRequired } from '../utils/auth'
 import BaseLayout from './layouts/BaseLayout'
 import { Link } from 'react-router'
-import ImageList from './images/List'
+// import ImageList from './images/List'
 import Stats from './dashboard/Stats'
 
 class Dashboard extends Component {
@@ -27,7 +27,7 @@ class Dashboard extends Component {
           <div className="rka-box">
             <h2 className="rka-h2">Latest images</h2>
             <Link to="images" className="rka-box-link rka-link">View all</Link>
-            <ImageList onClickImage={this.onClickImage} limit={12} organization={this.props.auth.organization} />
+            {/* <ImageList onClickImage={this.onClickImage} limit={12} organization={this.props.auth.organization} /> */}
           </div>
         </section>
       </BaseLayout>

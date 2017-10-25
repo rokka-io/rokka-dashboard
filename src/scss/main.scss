@@ -38,13 +38,11 @@
 @import 'components/upload-image';
 @import 'components/modal';
 @import 'components/spinner';
-
 // vendor
-@import 'vendor/react-date-picker';
+//@import 'vendor/react-date-picker';
+@import 'vendor/calendar';
 @import 'vendor/react-select';
 @import 'vendor/reactcrop';
-
-@import '~react-date-picker/index.css';
-
+//@import '~react-date-picker/index.css';
 // helpers
 @import 'base/helpers';

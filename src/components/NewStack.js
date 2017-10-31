@@ -232,7 +232,7 @@ class NewStack extends PureComponent {
 
     const operationDefinition = this.props.operations[operation.name]
 
-    if (operationDefinition && operationDefinition.properties[name].type === 'bool') {
+    if (operationDefinition && operationDefinition.properties[name].type === 'boolean') {
       value = value === 'true'
     } else if (operationDefinition && operationDefinition.properties[name].type === 'integer') {
       value = parseInt(value, 10)
@@ -280,7 +280,7 @@ class NewStack extends PureComponent {
       name = target.name
     }
 
-    if (this.props.stackOptions && this.props.stackOptions.properties[name].type === 'bool') {
+    if (this.props.stackOptions && this.props.stackOptions.properties[name].type === 'boolean') {
       value = value === 'true'
     } else if (this.props.stackOptions && this.props.stackOptions.properties[name].type === 'integer') {
       value = parseInt(value, 10)

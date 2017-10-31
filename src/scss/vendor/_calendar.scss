@@ -1,69 +1,174 @@
+.calendar-wrapper {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 1;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.click-div {
+  cursor: pointer;
+ }
+
+ .click-div:hover {
+   background: #d7d7d2;
+ }
+
+ .Calendar {
+   padding: $space-sm;
+   background: $clr-white;
+   border: 1px solid gray;
+   display: inline-flex;
+   align-items: stretch;
+   flex-direction: column;
+   width: 300px;
+ }
+
 .Calendar-grid {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
 }
 
 .Calendar-header {
-    height: 50px;
-    background: #333;
-    color: #fff;
-    text-align: center;
-    line-height: 50px;
-    display: flex;
-    font-size: 20px;
-    justify-content: space-between;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  display: flex;
+  font-size: 20px;
+  justify-content: space-between;
 }
 
 .Calendar-header button {
-    width: 50px;
-    font-size: 20px;
-    border: 0;
-    background: transparent;
-    color: #ddd;
-    cursor: pointer;
+  width: 50px;
+  font-size: 20px;
+  border: 0;
+  background: transparent;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.Calendar-week-day-names {
+  text-transform: uppercase;
 }
 
 .Calendar-grid-item {
-    flex: 0 14.28571%;
-    text-align: center;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+  flex: 0 14.28571%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: $clr-black;
+
+  &.nextMonth,
+  &.prevMonth {
+    color: $clr-gray;
+
+    .weekend {
+      color: rgba($clr-gray, 0.6);
+    }
+  }
+
+  &:nth-child(1n) .selected .text {
+    &:before {
+      display: none;
+    }
+  }
+
+  .date-item {
+    flex: 1;
+    min-width: 40px;
+    min-height: 40px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    cursor: pointer;
-    font-weight: 400;
-    &:hover {
-        background: #fff;
+    z-index: 10;
+
+    .text {
+      flex: inherit;
+      min-width: inherit;
+      min-height: inherit;
+      display: inherit;
+      align-items: inherit;
+      justify-content: inherit;
     }
-    &.nextMonth,
-    &.prevMonth {
-        color: #999;
+
+    &:not(.future):hover {
+      cursor: pointer;
     }
-    &:nth-child(7n+1) {
-        border-left: 1px solid #ddd;
+    &.future:hover {
+      cursor: not-allowed;
     }
-    &:nth-child(-n+7) {
-        border-top: 1px solid #ddd;
+
+    // .hoverable because a multi not() selector would be needed which doesn't work yet.
+    &.hoverable:hover .text {
+      color: $clr-white;
+      background: $clr-brand;
+      border: 2px solid transparent;
+      border-radius: 50%;
     }
-    >.fill {
-        flex: 1;
-        padding: 1rem;
+  }
+  .future {
+    color: $clr-gray;
+
+    &.weekend {
+      color: rgba($clr-gray, 0.6);
     }
-    >.today {
-        font-weight: 700;
+  }
+  .today {
+    color: $clr-brand;
+    font-family: $font-brand-sb;
+  }
+
+  .weekend {
+    color: rgba($clr-black, 0.6);
+  }
+
+  .selected {
+    color: $clr-white;
+
+    &.weekend {
+      color: rgba($clr-white, 0.6);
     }
-    >.weekend {
-        background: rgb(241, 241, 241);
-        &:hover {
-            background: #fff;
-        }
+
+    .text {
+      background: $clr-brand padding-box;
+      border: 2px solid transparent;
+      position: relative;
+
+      &:hover {
+        background: $clr-brand-dark padding-box;
+      }
+
+      &:before, &:after {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        content: "";
+        background: $clr-brand padding-box;
+      }
+      &:before {
+        right: 50%;
+      }
+      &:after {
+        left: 50%;
+      }
     }
-    >.selected {
-        background: rgb(242, 253, 221);
-        &:hover {
-            background: rgb(236, 255, 239);
-        }
+  }
+  .first, .last {
+    .text {
+      border-radius: 50%;
+      background: $clr-brand-dark padding-box;
     }
+  }
+  .first .text:before, .last .text:after {
+    display: none;
+  }
 }

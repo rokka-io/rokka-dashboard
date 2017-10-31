@@ -236,11 +236,14 @@ class NewStack extends PureComponent {
       value = value === 'true'
     } else if (operationDefinition && operationDefinition.properties[name].type === 'integer') {
       value = parseInt(value, 10)
+      if (isNaN(value)) {
+        value = ''
+      }
     } else if (operationDefinition && operationDefinition.properties[name].type === 'number') {
       value = parseFloat(value)
-    }
-    if (isNaN(value)) {
-      value = ''
+      if (isNaN(value)) {
+        value = ''
+      }
     }
 
     operation = Object.assign({}, operation, {

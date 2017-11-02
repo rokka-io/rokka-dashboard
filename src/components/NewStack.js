@@ -33,32 +33,39 @@ function generateDefaultValuesStackOptions (options, stackOptions) {
   return options
 }
 
+const OPTIONS = ['png.compression_level', 'jpg.quality', 'webp.quality', 'interlacing.mode', 'basestack']
+
 class NewStack extends PureComponent {
   constructor (props) {
     super(props)
 
-    let options = {
-      'png.compression_level': {value: props.stackClone.options ? props.stackClone.options['png.compression_level'] : null},
-      'jpg.quality': {value: props.stackClone.options ? props.stackClone.options['jpg.quality'] : null},
-      'webp.quality': {value: props.stackClone.options ? props.stackClone.options['webp.quality'] : null},
-      'interlacing.mode': {value: props.stackClone.options ? props.stackClone.options['interlacing.mode'] : null},
-      'basestack': {value: props.stackClone.options ? props.stackClone.options['basestack'] : null}
-    }
+    const { stackClone } = props
+
+    let options = OPTIONS.reduce((acc, name) => {
+      let value = null
+      if (stackClone.options && stackClone.options[name]) {
+        value = stackClone.options[name]
+      }
+      acc[name] = { value }
+
+      return acc
+    }, {})
+
     if (props.stackOptions) {
       options = generateDefaultValuesStackOptions(options, props.stackOptions)
     }
 
-    if (props.stackClone.operations) {
-      props.stackClone.operations.forEach((operation, i) => {
+    if (stackClone.operations) {
+      stackClone.operations.forEach((operation, i) => {
         operation['id'] = i.toString()
         operation['errors'] = {}
       })
     }
 
     this.state = {
-      name: props.stackClone.name || '',
+      name: stackClone.name || '',
       options: options,
-      operations: props.stackClone.operations || [],
+      operations: stackClone.operations || [],
       operationErrors: {},
       error: null,
       activeOperation: 0,
@@ -389,7 +396,7 @@ class NewStack extends PureComponent {
             {$previewButton}
             <input
               type="submit"
-              disabled={this.state.name === '' || !this.state.operations.length}
+              disabled={this.state.name === ''}
               className="rka-button rka-button-brand"
               value="Create stack"
             />

@@ -82,6 +82,7 @@
             "src/**/*.{js,jsx}"
         ],
         "setupFiles": [
+            "<rootDir>/test/requestAnimationFrame.js",
             "<rootDir>/config/polyfills.js",
             "<rootDir>/test/setupTests.js"
         ],
@@ -106,7 +107,7 @@
             "jsx",
             "node"
         ],
-        "testRegex": "/test/(?!setupTests.js$).*.js$"
+        "testRegex": "/test/(?!(setupTests|requestAnimationFrame).js$).*.js$"
     },
     "babel": {
         "presets": [

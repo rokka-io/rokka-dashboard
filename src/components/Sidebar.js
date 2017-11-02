@@ -60,7 +60,7 @@ class Sidebar extends Component {
         onClick={() => this.loadNextStacks()}>Load more</button> : null
 
     return (
-      <sidebar className={cx('rka-sidebar', {'is-active': this.props.active})}>
+      <nav className={cx('rka-sidebar', {'is-active': this.props.active})}>
         <ul className="rka-sidebar-nav">
           <li>
             <IndexLink to="/" className="rka-sidebar-link" activeClassName="is-active">Dashboard</IndexLink>
@@ -97,7 +97,7 @@ class Sidebar extends Component {
         <a href="https://www.liip.ch/" target="_blank" className="rka-sidebar-poweredby">
           POWERED BY <i className="rka-sidebar-liip-logo" />
         </a>
-      </sidebar>
+      </nav>
     )
   }
 }

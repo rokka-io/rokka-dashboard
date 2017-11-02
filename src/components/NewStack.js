@@ -48,7 +48,7 @@ class NewStack extends PureComponent {
       options = generateDefaultValuesStackOptions(options, props.stackOptions)
     }
 
-    if (props.stackClone.name) {
+    if (props.stackClone.operations) {
       props.stackClone.operations.forEach((operation, i) => {
         operation['id'] = i.toString()
         operation['errors'] = {}

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Sidebar does render 1`] = `
-<sidebar
+<nav
   className="rka-sidebar"
 >
   <ul
@@ -88,11 +88,11 @@ exports[`Sidebar does render 1`] = `
       className="rka-sidebar-liip-logo"
     />
   </a>
-</sidebar>
+</nav>
 `;
 
 exports[`Sidebar does render when active 1`] = `
-<sidebar
+<nav
   className="rka-sidebar is-active"
 >
   <ul
@@ -179,11 +179,11 @@ exports[`Sidebar does render when active 1`] = `
       className="rka-sidebar-liip-logo"
     />
   </a>
-</sidebar>
+</nav>
 `;
 
 exports[`Sidebar shows load more button 1`] = `
-<sidebar
+<nav
   className="rka-sidebar is-active"
 >
   <ul
@@ -305,11 +305,11 @@ exports[`Sidebar shows load more button 1`] = `
       className="rka-sidebar-liip-logo"
     />
   </a>
-</sidebar>
+</nav>
 `;
 
 exports[`Sidebar shows stacks 1`] = `
-<sidebar
+<nav
   className="rka-sidebar is-active"
 >
   <ul
@@ -424,5 +424,5 @@ exports[`Sidebar shows stacks 1`] = `
       className="rka-sidebar-liip-logo"
     />
   </a>
-</sidebar>
+</nav>
 `;

@@ -42,16 +42,20 @@ class Calendar extends PureComponent {
 
   onPickDate (date) {
     let { start, end, temporaryEnd } = this.state
+    // when a range is selected and a new date is clicked on, remove all selections
     if (start && end) {
       start = null
       end = null
       temporaryEnd = null
     }
+    // start can only be null if all else is null -> start with range selection
     if (start === null) {
       start = date
+    // only set end date if it's not the same as the start date (min 1 day between)
     } else if (!start.isSame(date, 'day')) {
       end = date
     }
+    // switch start + end if start is later than end
     if (start && end && end.isBefore(start, 'day')) {
       const intermediate = start
       start = end
@@ -59,6 +63,7 @@ class Calendar extends PureComponent {
     }
     this.setState({start, end, temporaryEnd}, () => {
       const { start, end } = this.state
+      // if start + end, trigger range change to fetch stats
       if (start && end) {
         this.props.onRangeChange(start, end)
       }

@@ -118,14 +118,14 @@ class Calendar extends PureComponent {
               date={this.state.date}
               onPickDate={(date) => this.onPickDate(date)}
               weekOffset={1}
-              renderHeader={(date, handlePrevMonth, handleNextMonth) => (
+              renderHeader={({ date, onPrevMonth, onNextMonth }) => (
                 <div>
                   <div className="Calendar-header">
-                    <button onClick={handlePrevMonth}>«</button>
+                    <button onClick={onPrevMonth}>«</button>
                     <div className="Calendar-header-currentDate">
                       {date.format('MMMM YYYY')}
                     </div>
-                    <button onClick={handleNextMonth}>»</button>
+                    <button onClick={onNextMonth}>»</button>
                   </div>
                   <div className="Calendar-grid Calendar-week-day-names mb-sm">
                     <div className="Calendar-grid-item">Mon</div>

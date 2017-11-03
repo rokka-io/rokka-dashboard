@@ -4,6 +4,10 @@ import rokka from '../rokka'
 import FramelessLayout from './layouts/FramelessLayout'
 import { login, setAlert } from '../state'
 
+function hasUpperCase (str) {
+  return str.toLowerCase() !== str
+}
+
 class Signup extends Component {
   constructor () {
     super()
@@ -11,7 +15,8 @@ class Signup extends Component {
     this.state = {
       email: '',
       organization: '',
-      showTransition: false
+      showTransition: false,
+      organizationOnlyLowercaseError: false
     }
 
     this.onSubmit = this.onSubmit.bind(this)
@@ -38,16 +43,26 @@ class Signup extends Component {
   }
 
   onChange (e) {
+    let { organizationOnlyLowercaseError } = this.state
+
     const target = e.target
-    const value = target.value
+    let value = target.value
     const name = target.name
 
+    if (name === 'organization' && hasUpperCase(value)) {
+      value = value.toLowerCase()
+      organizationOnlyLowercaseError = true
+    }
+
     this.setState({
-      [name]: value
+      [name]: value,
+      organizationOnlyLowercaseError
     })
   }
 
   render () {
+    const { organization, organizationOnlyLowercaseError, email } = this.state
+
     return (
       <FramelessLayout {...this.props}>
         <div className="rka-signup-container">
@@ -66,12 +81,13 @@ class Signup extends Component {
                 <form onSubmit={this.onSubmit}>
                   <div className="rka-form-group">
                     <label className="rka-label" htmlFor="organization">Organization</label>
-                    <input className="rka-input-txt" type="text" value={this.state.organization} id="organization" name="organization"
+                    <input className="rka-input-txt" type="text" value={organization} id="organization" name="organization"
                       onChange={(e) => this.onChange(e)} />
+                    {organizationOnlyLowercaseError && <div className="mt-xs txt-xs txt-gray">Organizations can only be in lowercase</div>}
                   </div>
                   <div className="rka-form-group">
                     <label className="rka-label" htmlFor="email">E-mail</label>
-                    <input className="rka-input-txt" value={this.state.email} type="email" id="email" name="email"
+                    <input className="rka-input-txt" value={email} type="email" id="email" name="email"
                       onChange={(e) => this.onChange(e)} />
                   </div>
                   <input className="rka-button rka-button-brand mt-sm" type="submit" value="Start free trial" />

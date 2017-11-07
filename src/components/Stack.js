@@ -96,17 +96,18 @@ class Stack extends Component {
     }
 
     const { previewImage = null } = this.props
+    const { stack } = this.state
     const { organization } = this.props.auth
 
     let previewImages = {}
     if (previewImage) {
       previewImages = {
         original: rokka.render.getUrl(organization, previewImage.hash, previewImage.format),
-        dynamic: rokka.render.getUrl(organization, previewImage.hash, previewImage.format, this.state.stack.name)
+        dynamic: rokka.render.getUrl(organization, previewImage.hash, previewImage.format, stack.name)
       }
     }
 
-    let options = this.state.stack.stack_options
+    let options = stack.stack_options
 
     let $options = null
     if (options) {
@@ -127,6 +128,25 @@ class Stack extends Component {
       )
     }
 
+    const { stack_operations: stackOperations = null } = stack
+    let $operations = null
+    if (stackOperations) {
+      $operations = (
+        <div>
+          <h3 className="rka-h2 mv-md">Operations</h3>
+          {stack.stack_operations.map((operation, index) => {
+            return (
+              <div className={cx('pa-md', 'bor-light', 'mb-xs', {'bg-gray-lightest': index % 2})}
+                key={`${stack.name}-operation-${operation.name}-${index}`}>
+                <h3 className="rka-h3 mb-md">{operation.name}</h3>
+                {factory(this.props.operations, operation.name, operation.options)}
+              </div>
+            )
+          })}
+        </div>
+      )
+    }
+
     let $confirmDeleteModal = null
     if (this.state.confirmDeleteStack) {
       $confirmDeleteModal = (
@@ -134,7 +154,7 @@ class Stack extends Component {
           <h2 className="rka-h1">Do you really want to delete this stack?</h2>
           <p className="mt-lg mb-md txt-md lh-lg">
             Please confirm whether your stack
-            <span className="txt-bold"> {this.state.stack.name}</span> should be deleted.
+            <span className="txt-bold"> {stack.name}</span> should be deleted.
             This is an operation that cannot be undone.
           </p>
           <button className="rka-button rka-button-negative mr-md mt-md" onClick={() => this.onConfirmDeleteStack()}>
@@ -176,7 +196,7 @@ class Stack extends Component {
     return (
       <div>
         <div className="bg-white pa-md clearfix">
-          <h1 className="rka-h1 flo-l mt-xs">{this.state.stack.name}</h1>
+          <h1 className="rka-h1 flo-l mt-xs">{stack.name}</h1>
           <div className="flo-r">
             <button className="rka-button rka-button-brand" onClick={(e) => this.onClickDuplicateStack(e)}>
               Clone stack
@@ -188,16 +208,7 @@ class Stack extends Component {
             <div className="col-md-7 col-sm-7">
               <form>
                 {$options}
-                <h3 className="rka-h2 mv-md">Operations</h3>
-                {this.state.stack.stack_operations.map((operation, index) => {
-                  return (
-                    <div className={cx('pa-md', 'bor-light', 'mb-xs', {'bg-gray-lightest': index % 2})}
-                      key={`${this.state.stack.name}-operation-${operation.name}-${index}`}>
-                      <h3 className="rka-h3 mb-md">{operation.name}</h3>
-                      {factory(this.props.operations, operation.name, operation.options)}
-                    </div>
-                  )
-                })}
+                {$operations}
               </form>
               <div className="mt-lg">
                 <button className="rka-button rka-button-negative" onClick={(e) => this.onClickDeleteStack(e)}>

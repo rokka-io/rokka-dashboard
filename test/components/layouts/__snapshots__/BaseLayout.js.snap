@@ -55,7 +55,7 @@ exports[`BaseLayout does render 1`] = `
       </a>
     </nav>
   </header>
-  <sidebar
+  <nav
     className="rka-sidebar"
   >
     <ul
@@ -142,7 +142,7 @@ exports[`BaseLayout does render 1`] = `
         className="rka-sidebar-liip-logo"
       />
     </a>
-  </sidebar>
+  </nav>
   <main
     className="main clearfix"
   >
@@ -213,7 +213,7 @@ exports[`BaseLayout does render active sidebar 1`] = `
       </a>
     </nav>
   </header>
-  <sidebar
+  <nav
     className="rka-sidebar is-active"
   >
     <ul
@@ -300,7 +300,7 @@ exports[`BaseLayout does render active sidebar 1`] = `
         className="rka-sidebar-liip-logo"
       />
     </a>
-  </sidebar>
+  </nav>
   <main
     className="main clearfix is-active"
   >
@@ -371,7 +371,7 @@ exports[`BaseLayout does render alert 1`] = `
       </a>
     </nav>
   </header>
-  <sidebar
+  <nav
     className="rka-sidebar"
   >
     <ul
@@ -458,7 +458,7 @@ exports[`BaseLayout does render alert 1`] = `
         className="rka-sidebar-liip-logo"
       />
     </a>
-  </sidebar>
+  </nav>
   <main
     className="main clearfix"
   >

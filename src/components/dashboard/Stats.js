@@ -19,6 +19,7 @@ class Stats extends PureComponent {
 
     this.onRangeChange = this.onRangeChange.bind(this)
     this.onBlurHideCalendar = this.onBlurHideCalendar.bind(this)
+    this.toggleCalendar = this.toggleCalendar.bind(this)
   }
 
   componentDidMount () {
@@ -28,21 +29,23 @@ class Stats extends PureComponent {
   statsDateRange () {
     return (
       <Calendar
-        onBlurHideCalendar={this.onBlurHideCalendar}
+        close={this.onBlurHideCalendar}
         onRangeChange={this.onRangeChange}
         from={this.state.from} to={this.state.to}
-        calendarRef={(calendarRef) => { this.calendarRef = calendarRef }}
-        dateClick={() => { this.setState({showCalendar: !this.state.showCalendar}, () => this.calendarRef.focus()) }}
+        onDateClick={this.toggleCalendar}
         showCalendar={this.state.showCalendar}
       />
     )
   }
 
-  onRangeChange (dateString, [from, to], event) {
-    if (!from || !to || !event) {
-      return
-    }
-    this.setState({from: from.dateMoment, to: to.dateMoment, showCalendar: false, stats: {}}, () => this.fetchStats())
+  toggleCalendar () {
+    this.setState({
+      showCalendar: !this.state.showCalendar
+    })
+  }
+
+  onRangeChange (from, to) {
+    this.setState({from, to, showCalendar: false, stats: {}}, () => this.fetchStats())
   }
 
   onBlurHideCalendar (event) {

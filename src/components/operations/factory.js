@@ -28,6 +28,9 @@ const defaults = {
   resize: {
     upscale: {
       values: ['true', 'false']
+    },
+    upscale_dpr: {
+      values: ['true', 'false']
     }
   },
   dropshadow: {

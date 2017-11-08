@@ -21,6 +21,15 @@ class Resize extends PureComponent {
         )
       })
 
+    const $upscaleDPROptions = defaults.upscale_dpr.values
+      .map((option) => {
+        return (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        )
+      })
+
     const $modeOptions = defaults.mode.values
       .map((option) => {
         return (
@@ -40,68 +49,84 @@ class Resize extends PureComponent {
       })
 
     return (
-      <div className="row">
-        <div className="col-md-4">
-          <FormGroup label="Width" required={this.isRequired('width')} error={errors.width}>
-            <Input
-              name="width"
-              type="text"
-              className="rka-input-txt"
-              placeholder="width"
-              value={values.width}
-              defaultValue={defaults.width.default}
-              onChange={this.props.onChange}
-            />
-          </FormGroup>
+      <div>
+        <div className="row">
+          <div className="col-md-4">
+            <FormGroup label="Width" required={this.isRequired('width')} error={errors.width}>
+              <Input
+                name="width"
+                type="text"
+                className="rka-input-txt"
+                placeholder="width"
+                value={values.width}
+                defaultValue={defaults.width.default}
+                onChange={this.props.onChange}
+              />
+            </FormGroup>
+          </div>
+          <div className="col-md-4">
+            <FormGroup label="Height" required={this.isRequired('height')} error={errors.height}>
+              <Input
+                name="height"
+                type="text"
+                className="rka-input-txt"
+                placeholder="height"
+                value={values.height}
+                defaultValue={defaults.height.default}
+                onChange={this.props.onChange}
+              />
+            </FormGroup>
+          </div>
+          <div className="col-md-4">
+            <FormGroup label="Upscale" required={this.isRequired('upscale')} error={errors.upscale}>
+              <Select
+                name="upscale"
+                className="rka-select"
+                value={values.upscale}
+                defaultValue={defaults.upscale.default}
+                onChange={this.props.onChange}>
+                {$upscaleOptions}
+              </Select>
+            </FormGroup>
+          </div>
         </div>
-        <div className="col-md-4">
-          <FormGroup label="Height" required={this.isRequired('height')} error={errors.height}>
-            <Input
-              name="height"
-              type="text"
-              className="rka-input-txt"
-              placeholder="height"
-              value={values.height}
-              defaultValue={defaults.height.default}
-              onChange={this.props.onChange}
-            />
-          </FormGroup>
-        </div>
-        <div className="col-md-4">
-          <FormGroup label="Upscale" required={this.isRequired('upscale')} error={errors.upscale}>
-            <Select
-              name="upscale"
-              className="rka-select"
-              value={values.upscale}
-              defaultValue={defaults.upscale.default}
-              onChange={this.props.onChange}>
-              {$upscaleOptions}
-            </Select>
-          </FormGroup>
-        </div>
-        <div className="col-md-6">
-          <FormGroup label="Mode" required={this.isRequired('mode')} error={errors.mode}>
-            <Select
-              name="mode"
-              className="rka-select"
-              value={values.mode}
-              defaultValue={defaults.mode.default}
-              onChange={this.props.onChange}>
-              {$modeOptions}
-            </Select>
-          </FormGroup>
-        </div>
-        <div className="col-md-6">
-          <FormGroup label="Filter" required={this.isRequired('filter')} error={errors.filter}>
-            <Select
-              name="filter"
-              className="rka-select"
-              value={values.filter}
-              defaultValue={defaults.filter.default}
-              onChange={this.props.onChange}>
-              {$filterOptions}
-            </Select>
-          </FormGroup>
+        <div className="row">
+          <div className="col-md-4">
+            <FormGroup label="Upscale DPR" required={this.isRequired('upscale_dpr')} error={errors.upscale_dpr}>
+              <Select
+                name="upscale_dpr"
+                className="rka-select"
+                value={values.upscale_dpr}
+                defaultValue={defaults.upscale_dpr.default}
+                onChange={this.props.onChange}>
+                {$upscaleDPROptions}
+              </Select>
+            </FormGroup>
+          </div>
+          <div className="col-md-4">
+            <FormGroup label="Mode" required={this.isRequired('mode')} error={errors.mode}>
+              <Select
+                name="mode"
+                className="rka-select"
+                value={values.mode}
+                defaultValue={defaults.mode.default}
+                onChange={this.props.onChange}>
+                {$modeOptions}
+              </Select>
+            </FormGroup>
+          </div>
+          <div className="col-md-4">
+            <FormGroup label="Filter" required={this.isRequired('filter')} error={errors.filter}>
+              <Select
+                name="filter"
+                className="rka-select"
+                value={values.filter}
+                defaultValue={defaults.filter.default}
+                onChange={this.props.onChange}>
+                {$filterOptions}
+              </Select>
+            </FormGroup>
+          </div>
         </div>
       </div>
     )
@@ -122,6 +147,9 @@ Resize.propTypes = {
     upscale: PropTypes.shape({
       values: PropTypes.array
     }),
+    upscale_dpr: PropTypes.shape({
+      values: PropTypes.array
+    }),
     mode: PropTypes.shape({
       values: PropTypes.array
     }),
@@ -133,6 +161,7 @@ Resize.propTypes = {
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     upscale: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    upscale_dpr: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     mode: PropTypes.string,
     filter: PropTypes.string
   }),

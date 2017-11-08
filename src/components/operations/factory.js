@@ -9,6 +9,7 @@ import Grayscale from './Grayscale'
 import Noop from './Noop'
 import Resize from './Resize'
 import Rotate from './Rotate'
+import Sepia from './Sepia'
 import Trim from './Trim'
 
 const operations = {
@@ -21,6 +22,7 @@ const operations = {
   noop: Noop,
   resize: Resize,
   rotate: Rotate,
+  sepia: Sepia,
   trim: Trim
 }
 
@@ -36,6 +38,11 @@ const defaults = {
   dropshadow: {
     blur_radius: {
       maximum: 10000
+    }
+  },
+  sepia: {
+    threshold: {
+      maximum: 100
     }
   }
 }

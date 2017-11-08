@@ -1,25 +1,27 @@
 import deepAssign from 'deep-assign'
 import React, { createElement } from 'react'
+import AutoRotate from './AutoRotate'
+import Blur from './Blur'
 import Composition from './Composition'
 import Crop from './Crop'
 import Dropshadow from './Dropshadow'
+import Grayscale from './Grayscale'
 import Noop from './Noop'
 import Resize from './Resize'
-import AutoRotate from './AutoRotate'
 import Rotate from './Rotate'
 import Trim from './Trim'
-import Blur from './Blur'
 
 const operations = {
+  autorotate: AutoRotate,
+  blur: Blur,
   composition: Composition,
   crop: Crop,
-  resize: Resize,
   dropshadow: Dropshadow,
-  autorotate: AutoRotate,
-  rotate: Rotate,
-  trim: Trim,
+  grayscale: Grayscale,
   noop: Noop,
-  blur: Blur
+  resize: Resize,
+  rotate: Rotate,
+  trim: Trim
 }
 
 const defaults = {

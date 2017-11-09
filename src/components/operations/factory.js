@@ -35,6 +35,11 @@ const defaults = {
       values: ['true', 'false']
     }
   },
+  rotate: {
+    angle: {
+      default: 0
+    }
+  },
   dropshadow: {
     blur_radius: {
       maximum: 10000

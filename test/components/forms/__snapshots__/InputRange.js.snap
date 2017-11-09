@@ -46,7 +46,7 @@ exports[`InputRange does render with a number defaultValue 1`] = `
     name="Test"
     onBlur={[Function]}
     onChange={[Function]}
-    placeholder="Test (default: 12)"
+    placeholder={undefined}
     type="range"
     value={12}
   />
@@ -118,7 +118,7 @@ exports[`InputRange does render with a string defaultValue 1`] = `
     name="Test"
     onBlur={[Function]}
     onChange={[Function]}
-    placeholder="Test (default: 12)"
+    placeholder={undefined}
     type="range"
     value="12"
   />

@@ -1,36 +1,53 @@
 import deepAssign from 'deep-assign'
 import React, { createElement } from 'react'
+import AutoRotate from './AutoRotate'
+import Blur from './Blur'
 import Composition from './Composition'
 import Crop from './Crop'
 import Dropshadow from './Dropshadow'
+import Grayscale from './Grayscale'
 import Noop from './Noop'
 import Resize from './Resize'
-import AutoRotate from './AutoRotate'
 import Rotate from './Rotate'
+import Sepia from './Sepia'
 import Trim from './Trim'
-import Blur from './Blur'
 
 const operations = {
+  autorotate: AutoRotate,
+  blur: Blur,
   composition: Composition,
   crop: Crop,
-  resize: Resize,
   dropshadow: Dropshadow,
-  autorotate: AutoRotate,
-  rotate: Rotate,
-  trim: Trim,
+  grayscale: Grayscale,
   noop: Noop,
-  blur: Blur
+  resize: Resize,
+  rotate: Rotate,
+  sepia: Sepia,
+  trim: Trim
 }
 
 const defaults = {
   resize: {
     upscale: {
       values: ['true', 'false']
+    },
+    upscale_dpr: {
+      values: ['true', 'false']
+    }
+  },
+  rotate: {
+    angle: {
+      default: 0
     }
   },
   dropshadow: {
     blur_radius: {
       maximum: 10000
+    }
+  },
+  sepia: {
+    threshold: {
+      maximum: 100
     }
   }
 }

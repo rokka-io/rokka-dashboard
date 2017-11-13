@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import rokka from '../rokka'
+import Spinner from './Spinner'
 import FramelessLayout from './layouts/FramelessLayout'
 import { login, setAlert } from '../state'
+import cx from 'classnames'
 
 function hasUpperCase (str) {
   return str.toLowerCase() !== str
@@ -16,6 +18,7 @@ class Signup extends Component {
       email: '',
       organization: '',
       showTransition: false,
+      showLoader: false,
       organizationOnlyLowercaseError: false
     }
 
@@ -24,13 +27,16 @@ class Signup extends Component {
 
   onSubmit (e) {
     e.preventDefault()
+    this.setState({ showLoader: true })
     rokka.users.create(this.state.email, this.state.organization).then(response => {
       login(this.state.organization, response.body.api_key, (done) => {
         setAlert('success', 'Successfully signed up. You will receive an email with the credentials', 5000)
+        this.setState({ showLoader: false })
         this.props.router.push('/')
         done()
       })
     }).catch((err) => {
+      this.setState({ showLoader: false })
       let message = err.error.error.message
       if (err.statusCode === 403 || err.statusCode === 404) {
         setAlert('error', 'Authentication failed')
@@ -90,7 +96,9 @@ class Signup extends Component {
                     <input className="rka-input-txt" value={email} type="email" id="email" name="email"
                       onChange={(e) => this.onChange(e)} />
                   </div>
-                  <input className="rka-button rka-button-brand mt-sm" type="submit" value="Start free trial" />
+                  <button className={cx('rka-button rka-button-brand mt-sm', {'disabled': this.state.showLoader})} type="submit">
+                    { this.state.showLoader ? <div className="sk-cube-small sk-cube-white"><Spinner /></div> : 'Start free trial' }
+                  </button>
                   <p className="txt-gray-darkest mt-md lh-lg">
                     By creating an account,
                     you agree to rokka's

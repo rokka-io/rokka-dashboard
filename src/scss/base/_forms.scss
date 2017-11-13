@@ -55,6 +55,7 @@
 }
 
 .rka-input-txt {
+  transition: border .4s ease;
   width: 100%;
   height: 38px;
   line-height: 38px;
@@ -62,6 +63,11 @@
   border: 1px solid $clr-gray-light;
   padding: 0 $space-sm;
   outline: none;
+
+  &:focus {
+    transition: border .4s ease;
+    border-color: $clr-gray-darker;
+  }
 
   &:disabled {
     color: $clr-gray-darkest;
@@ -263,6 +269,11 @@
   outline: 1px solid $clr-gray-light;
   background: $clr-white;
 
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+
   &:disabled {
     background: $clr-gray-lighter;
     color: $clr-gray-darkest;
@@ -341,7 +352,7 @@
 .Select-menu-outer {
   width: calc(100% -1px) !important;
   max-width: 100%;
-  border: 1px solid $clr-gray-light !important;
+  border: 1px solid $clr-gray-darker !important;
   border-radius: 0 !important;
 }
 

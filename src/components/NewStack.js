@@ -12,6 +12,7 @@ import Alert from './Alert'
 import rokka from '../rokka'
 import Options from './Options'
 import Ajv from 'ajv'
+import cx from 'classnames'
 
 function randomNumber (min, max) {
   return Math.random() * (max - min) + min
@@ -69,6 +70,7 @@ class NewStack extends PureComponent {
       operationErrors: {},
       error: null,
       activeOperation: 0,
+      showLoader: false,
       preview: {
         stack: null,
         imageLoading: false,
@@ -153,6 +155,7 @@ class NewStack extends PureComponent {
 
   onSubmit (e) {
     e.preventDefault()
+    this.setState({ showLoader: true })
 
     let updateOperationsState = false
 
@@ -218,10 +221,12 @@ class NewStack extends PureComponent {
       })
       .then(([result]) => {
         setAlert('success', `Stack ${result.name} created successfully.`, 2000)
+        this.setState({ showLoader: false })
         this.props.router.push(`/stacks/${result.name}`)
       })
       .catch((error) => {
         this.setState({
+          showLoader: false,
           error: error.error.error.message
         })
       })
@@ -397,12 +402,12 @@ class NewStack extends PureComponent {
           <h1 className="rka-h1 flo-l mt-xs">New stack</h1>
           <div className="flo-r">
             {$previewButton}
-            <input
-              type="submit"
-              disabled={this.state.name === ''}
-              className="rka-button rka-button-brand"
-              value="Create stack"
-            />
+            <button
+              className={cx('rka-button rka-button-brand',
+                { 'disabled flo-r': this.state.showLoader || this.state.name === '' })}
+              type="submit">
+              { this.state.showLoader ? <div className="sk-cube-small sk-cube-white"><Spinner /></div> : 'Create stack' }
+            </button>
           </div>
         </div>
         <section className="rka-box rka-box-stacks pt-n">

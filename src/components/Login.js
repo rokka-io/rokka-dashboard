@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import FramelessLayout from './layouts/FramelessLayout'
+import Spinner from './Spinner'
 import { login } from '../state'
 import cx from 'classnames'
 
@@ -11,6 +12,7 @@ class Login extends Component {
     this.state = {
       organization: null,
       apiKey: null,
+      showLoader: false,
       showTransition: false
     }
 
@@ -20,12 +22,20 @@ class Login extends Component {
   onLogin (e) {
     e.preventDefault()
 
+    this.setState({ showLoader: true })
+
     const successCb = (done) => {
-      this.setState({ showTransition: true })
+      this.setState({
+        showTransition: true,
+        showLoader: false
+      })
       setTimeout(done, 900)
     }
 
     login(this.state.organization, this.state.apiKey, successCb)
+      .catch(() => {
+        this.setState({showLoader: false})
+      })
   }
 
   onChange (e) {
@@ -64,7 +74,9 @@ class Login extends Component {
                       <input className="rka-input-txt" type="password" id="apiKey" name="apiKey"
                         defaultValue={this.state.apiKey} onChange={(e) => this.onChange(e)} />
                     </div>
-                    <input className="rka-button rka-button-brand mt-sm" type="submit" value="Login" />
+                    <button className={cx('rka-button rka-button-brand mt-sm', {'disabled': this.state.showLoader})} type="submit">
+                      { this.state.showLoader ? <div className="sk-cube-small sk-cube-white"><Spinner /></div> : 'Login' }
+                    </button>
                   </form>
                 </div>
               </div>

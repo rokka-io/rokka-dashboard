@@ -10,8 +10,16 @@
 
 .Select--single {
   > .Select-control {
+    transition: border .4s ease;
     .Select-value {
       line-height: 38px;
+    }
+  }
+
+  &.is-focused {
+    > .Select-control {
+      transition: border .4s ease;
+      border: 1px solid $clr-gray-darker;
     }
   }
 }

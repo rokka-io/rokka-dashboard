@@ -50,6 +50,11 @@
   background: transparent;
   color: #ddd;
   cursor: pointer;
+  outline: none;
+
+  &:hover {
+    color: $clr-black;
+  }
 }
 
 .Calendar-week-day-names {

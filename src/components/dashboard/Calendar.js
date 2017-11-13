@@ -13,7 +13,7 @@ class Calendar extends PureComponent {
     this.state = {
       originalStart: props.from,
       originalEnd: props.to,
-      date: this.today,
+      date: this.today.clone(),
       start: props.from,
       end: props.to,
       temporaryEnd: null
@@ -41,7 +41,12 @@ class Calendar extends PureComponent {
   }
 
   onPickDate (date) {
+    if (date.isAfter(this.today, 'day')) {
+      return
+    }
+
     let { start, end, temporaryEnd } = this.state
+
     // when a range is selected and a new date is clicked on, remove all selections
     if (start && end) {
       start = null

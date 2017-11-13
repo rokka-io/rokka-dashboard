@@ -74,7 +74,7 @@ class Login extends Component {
                       <input className="rka-input-txt" type="password" id="apiKey" name="apiKey"
                         defaultValue={this.state.apiKey} onChange={(e) => this.onChange(e)} />
                     </div>
-                    <button className="rka-button rka-button-brand mt-sm" ref="loginButton" type="submit">
+                    <button className="rka-button rka-button-brand mt-sm" type="submit">
                       { this.state.showLoader ? <div className="sk-cube-small sk-cube-white"><Spinner /></div> : 'Login' }
                     </button>
                   </form>

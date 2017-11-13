@@ -4,6 +4,7 @@ import rokka from '../rokka'
 import Spinner from './Spinner'
 import FramelessLayout from './layouts/FramelessLayout'
 import { login, setAlert } from '../state'
+import cx from 'classnames'
 
 function hasUpperCase (str) {
   return str.toLowerCase() !== str
@@ -95,7 +96,7 @@ class Signup extends Component {
                     <input className="rka-input-txt" value={email} type="email" id="email" name="email"
                       onChange={(e) => this.onChange(e)} />
                   </div>
-                  <button className="rka-button rka-button-brand mt-sm" type="submit">
+                  <button className={cx('rka-button rka-button-brand mt-sm', {'disabled': this.state.showLoader})} type="submit">
                     { this.state.showLoader ? <div className="sk-cube-small sk-cube-white"><Spinner /></div> : 'Start free trial' }
                   </button>
                   <p className="txt-gray-darkest mt-md lh-lg">

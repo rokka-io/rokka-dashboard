@@ -117,6 +117,7 @@ export function login (organization, apiKey, successCb) {
         setAlert('error', 'Too many requests')
       }
       setAlert('error', 'Error getting organizations', 10000)
+      throw err
     })
 }
 

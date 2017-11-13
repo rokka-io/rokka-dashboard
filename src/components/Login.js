@@ -33,9 +33,9 @@ class Login extends Component {
     }
 
     login(this.state.organization, this.state.apiKey, successCb)
-    .catch(() => {
-      this.setState({showLoader: false})
-    })
+      .catch(() => {
+        this.setState({showLoader: false})
+      })
   }
 
   onChange (e) {

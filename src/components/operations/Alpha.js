@@ -48,7 +48,7 @@ Alpha.propTypes = {
     })
   }),
   values: PropTypes.shape({
-    rotation_direction: PropTypes.string
+    mode: PropTypes.string
   }),
   required: PropTypes.array.isRequired,
   errors: PropTypes.object

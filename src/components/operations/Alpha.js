@@ -11,7 +11,6 @@ class Alpha extends Component {
   render () {
     const { defaults, values, errors = {} } = this.props
 
-    console.log(defaults, values, errors)
     const $alphaModeOptions = defaults.mode.values
       .map((option) => {
         return (

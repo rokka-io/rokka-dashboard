@@ -268,6 +268,7 @@
   margin-top: 1px;
   outline: 1px solid $clr-gray-light;
   background: $clr-white;
+  text-transform: capitalize;
 
   &:-moz-focusring {
     color: transparent;

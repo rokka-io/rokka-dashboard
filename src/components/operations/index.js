@@ -38,7 +38,7 @@ const Operation = ({
           <a className="rka-close-icon" href="#" onClick={e => removeOperation(e, index)} title="Remove" />
           <a className="rka-edit-icon" href="#" onClick={e => setActiveOperation(e, index)} />
           <a className="rka-move-icon" href="#" onClick={e => e.preventDefault()} />
-          <h3 className="rka-h3">{operation.name}</h3>
+          <h3 className="rka-h3 txt-cap">{operation.name}</h3>
         </div>
       )}
       <div className={cx({'semi-transparent': isOver})}>

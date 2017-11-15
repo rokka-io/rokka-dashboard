@@ -441,7 +441,7 @@ class NewStack extends PureComponent {
                 <h3 className="rka-h3 mb-md">New operation</h3>
                 <div className="rka-form-group">
                   <select ref="operationsList" className="rka-select">
-                    {Object.keys(this.props.operations).filter(name => name !== 'noop').map((name) => <option key={name} value={name}>{name}</option>)}
+                    {Object.keys(this.props.operations).filter(name => name !== 'noop').sort().map((name) => <option key={name} value={name}>{name}</option>)}
                   </select>
                 </div>
                 <a href="#" className="rka-button rka-button-brand rka-button-sm" onClick={this.addOperation}>Add operation</a>

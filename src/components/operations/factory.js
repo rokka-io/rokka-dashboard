@@ -1,5 +1,6 @@
 import deepAssign from 'deep-assign'
 import React, { createElement } from 'react'
+import Alpha from './Alpha'
 import AutoRotate from './AutoRotate'
 import Blur from './Blur'
 import Composition from './Composition'
@@ -13,6 +14,7 @@ import Sepia from './Sepia'
 import Trim from './Trim'
 
 const operations = {
+  alpha: Alpha,
   autorotate: AutoRotate,
   blur: Blur,
   composition: Composition,

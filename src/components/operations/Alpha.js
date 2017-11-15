@@ -11,14 +11,9 @@ class Alpha extends Component {
   render () {
     const { defaults, values, errors = {} } = this.props
 
-    const $alphaModeOptions = defaults.mode.values
-      .map((option) => {
-        return (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        )
-      })
+    const $alphaModeOptions = defaults.mode.values.map(option => (
+      <option key={option} value={option}>{option}</option>
+    ))
 
     return (
       <div className="row">

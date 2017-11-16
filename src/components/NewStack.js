@@ -36,11 +36,11 @@ function generateDefaultValuesStackOptions (options, stackOptions) {
 
 const OPTIONS = ['png.compression_level', 'jpg.quality', 'webp.quality', 'interlacing.mode', 'basestack']
 
-class NewStack extends PureComponent {
+export class NewStack extends PureComponent {
   constructor (props) {
     super(props)
 
-    const { stackClone } = props
+    const { stackClone = {} } = props
 
     let options = OPTIONS.reduce((acc, name) => {
       let value = null

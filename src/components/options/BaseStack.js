@@ -16,33 +16,35 @@ class BaseStack extends Component {
   }
 
   render () {
-    if (!this.props.onChange) {
-      if (!this.props.value) {
+    const { onChange, value, stacks = {}, error } = this.props
+
+    if (!onChange) {
+      if (!value) {
         return null
       }
       return (
         <FormGroup label="Base Stack">
-          <Link to={`/stacks/${this.props.value}`} className="rka-link">{this.props.value}</Link>
+          <Link to={`/stacks/${value}`} className="rka-link">{value}</Link>
         </FormGroup>
       )
     }
 
-    if (!this.props.stacks.items) {
+    if (!stacks.items) {
       return null
     }
 
-    const options = this.props.stacks.items.map(item => {
+    const options = stacks.items.map(item => {
       return {
         value: item.name,
         label: item.name
       }
     })
     return (
-      <FormGroup label="Base Stack" className="mb-n" error={this.props.error}>
+      <FormGroup label="Base Stack" className="mb-n" error={error}>
         <Select
           name="basestack"
           placeholder="Enter base stack, default: no base stack used"
-          value={this.props.value}
+          value={value}
           onChange={this.onChange}
           options={options}
         />

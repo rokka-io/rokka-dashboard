@@ -1,1 +1,328 @@
-{"resize":{"properties":{"width":{"type":"integer","minimum":1,"maximum":10000,"description":"Width of resize."},"height":{"type":"integer","minimum":1,"maximum":10000,"description":"Height of resize."},"mode":{"type":"string","default":"box","values":["box","absolute","fill"],"description":"Mode of resizing operation. Please see operations documentation for details on each one."},"upscale":{"type":"boolean","default":true,"description":"Allow the resulting image to be bigger than the original one."},"upscale_dpr":{"type":"boolean","default":true,"description":"With the dpr stack option set, allow the resulting image to be \u0022dpr\u0022 times bigger than the original one, even if \u0022upscale\u0022 is false."},"filter":{"type":"string","default":"blackman","values":["blackman","bessel","box","catrom","cubic","gaussian","hamming","hanning","hermite","lanczos","mitchell","quadratic","point","sinc","triangle"],"description":"The filter used for resizing. Default filter works well for most use cases."}},"oneOf":["width","height"],"description":""},"rotate":{"properties":{"angle":{"type":"number","minimum":0,"maximum":360,"description":"Clockwise rotation angle of the image. Can be fractional, example: \u0022120.3\u0022"},"background_color":{"type":"string","default":"FFFFFF","pattern":"[0-9a-fA-F]{6}","description":"Color to use in background in hex without the # sign, example: \u00220F0F0F\u0022"},"background_opacity":{"type":"number","default":0,"minimum":0,"maximum":100,"description":"Opacity of background. Default is 0, transparent. Goes up to 100 for opaque."}},"required":["angle"],"description":""},"autorotate":{"properties":{"width":{"type":"integer","minimum":1,"maximum":10000,"description":"Width of box to rotate to fit."},"height":{"type":"integer","minimum":1,"maximum":10000,"description":"Height of box to rotate to fit."},"rotation_direction":{"type":"string","values":["clockwise","counterclockwise"],"description":"Direction of rotation if we rotate. Clockwise or counterclockwise."}},"required":[],"description":""},"dropshadow":{"properties":{"horizontal":{"type":"integer","minimum":-100,"maximum":100,"default":0,"description":"Horizontal offset of shadow."},"vertical":{"type":"integer","minimum":-100,"maximum":100,"default":0,"description":"Vertical offset of shadow."},"opacity":{"type":"integer","minimum":0,"maximum":100,"default":100,"description":"Opacity of shadow. Default is 0, transparent. Goes up to 100 for opaque."},"sigma":{"type":"number","minimum":0,"default":0.5,"description":"Sigma controls the fuzziness of the shadow within the radius. Small values like 0.5 work best for good results."},"blur_radius":{"type":"number","minimum":0,"default":0,"description":"Radius of edge blurring, controls how far it can spread."},"color":{"type":"string","default":"000000","pattern":"[0-9a-fA-F]{6}","description":"Color to use for shadow in hex without the # sign, example: \u00220F0F0F\u0022"}},"required":[],"description":""},"trim":{"properties":{"fuzzy":{"type":"number","minimum":0,"maximum":100,"default":0,"description":"How fuzzy the color look up is to remove as background. The value 0 is a good default for clear images."}},"required":[],"description":""},"noop":{"properties":{},"required":[],"description":"Deprecated! Use an empty stack operations collection to get the same behaviour"},"crop":{"properties":{"width":{"type":"integer","minimum":1,"maximum":10000,"description":"Width to which the image will be cropped."},"height":{"type":"integer","minimum":1,"maximum":10000,"description":"Height to which the image will be cropped."},"anchor":{"type":"string","default":"auto","pattern":"\\b(subjectarea|face|auto|((center|left|right|(0|[1-9][0-9]{0,3}|10000))[_-](center|top|bottom|(0|[1-9][0-9]{0,3}|10000))))\\b","description":"Anchor from where to crop from. Please see the operations documentation for details."},"mode":{"type":"string","default":"absolute","values":["absolute","ratio"],"description":"If width and height should be taken as absolute values or as a ratio."},"scale":{"type":"number","minimum":0,"maximum":100,"default":100,"description":"Scales the crop box down to the specified percentage. Use mainly with the ratio mode."}},"required":["width","height"],"description":""},"composition":{"properties":{"mode":{"type":"string","values":["foreground"],"description":"Mode of composition. Please refer to the documentation for details."},"width":{"type":"integer","minimum":1,"maximum":10000,"description":"Width of the composed image."},"height":{"type":"integer","minimum":1,"maximum":10000,"description":"Height of the composed image."},"anchor":{"type":"string","default":"auto","pattern":"\\b(subjectarea|face|auto|((center|left|right|(0|[1-9][0-9]{0,3}|10000))[_-](center|top|bottom|(0|[1-9][0-9]{0,3}|10000))))\\b","description":"Anchor where to place the composition, based on mode. Please see the operations documentation for details."},"secondary_color":{"type":"string","default":"000000","pattern":"[0-9a-fA-F]{6}","description":"Color to use as filler in hex without the # sign, example: \u00220F0F0F\u0022"},"secondary_opacity":{"type":"integer","default":100,"minimum":0,"maximum":100,"description":"Opacity of filler. Default is 0, transparent. Goes up to 100 for opaque."}},"required":["mode","width","height"],"description":""},"blur":{"properties":{"sigma":{"type":"integer","minimum":0,"maximum":100,"default":4,"description":"Affects how blurred the image is"},"radius":{"type":"integer","minimum":0,"maximum":1500,"default":0,"description":"Sets the radius of the blur"}},"required":["sigma","radius"],"description":""},"grayscale":{"properties":{},"required":[],"description":""},"sepia":{"properties":{"threshold":{"type":"number","minimum":0,"default":80,"description":"Optional threshold for sepia toning. Defaults to 80"}},"required":[],"description":""},"alpha":{"properties":{"mode":{"type":"string","default":"mask","values":["mask","remove","extract"],"description":"Mode of alpha operation. Please see operations documentation for details on each one."}},"required":[],"description":""}}
+{
+  "resize": {
+    "properties": {
+      "width": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10000,
+        "description": "Width of resize."
+      },
+      "height": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10000,
+        "description": "Height of resize."
+      },
+      "mode": {
+        "type": "string",
+        "default": "box",
+        "values": [
+          "box",
+          "absolute",
+          "fill"
+        ],
+        "description": "Mode of resizing operation. Please see operations documentation for details on each one."
+      },
+      "upscale": {
+        "type": "boolean",
+        "default": true,
+        "description": "Allow the resulting image to be bigger than the original one."
+      },
+      "upscale_dpr": {
+        "type": "boolean",
+        "default": true,
+        "description": "With the dpr stack option set, allow the resulting image to be \u0022dpr\u0022 times bigger than the original one, even if \u0022upscale\u0022 is false."
+      },
+      "filter": {
+        "type": "string",
+        "default": "blackman",
+        "values": [
+          "blackman",
+          "bessel",
+          "box",
+          "catrom",
+          "cubic",
+          "gaussian",
+          "hamming",
+          "hanning",
+          "hermite",
+          "lanczos",
+          "mitchell",
+          "quadratic",
+          "point",
+          "sinc",
+          "triangle"
+        ],
+        "description": "The filter used for resizing. Default filter works well for most use cases."
+      }
+    },
+    "oneOf": [
+      "width",
+      "height"
+    ],
+    "description": ""
+  },
+  "rotate": {
+    "properties": {
+      "angle": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 360,
+        "description": "Clockwise rotation angle of the image. Can be fractional, example: \u0022120.3\u0022"
+      },
+      "background_color": {
+        "type": "string",
+        "default": "FFFFFF",
+        "pattern": "[0-9a-fA-F]{6}",
+        "description": "Color to use in background in hex without the # sign, example: \u00220F0F0F\u0022"
+      },
+      "background_opacity": {
+        "type": "number",
+        "default": 0,
+        "minimum": 0,
+        "maximum": 100,
+        "description": "Opacity of background. Default is 0, transparent. Goes up to 100 for opaque."
+      }
+    },
+    "required": [
+      "angle"
+    ],
+    "description": ""
+  },
+  "autorotate": {
+    "properties": {
+      "width": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10000,
+        "description": "Width of box to rotate to fit."
+      },
+      "height": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10000,
+        "description": "Height of box to rotate to fit."
+      },
+      "rotation_direction": {
+        "type": "string",
+        "values": [
+          "clockwise",
+          "counterclockwise"
+        ],
+        "description": "Direction of rotation if we rotate. Clockwise or counterclockwise."
+      }
+    },
+    "required": [],
+    "description": ""
+  },
+  "dropshadow": {
+    "properties": {
+      "horizontal": {
+        "type": "integer",
+        "minimum": -100,
+        "maximum": 100,
+        "default": 0,
+        "description": "Horizontal offset of shadow."
+      },
+      "vertical": {
+        "type": "integer",
+        "minimum": -100,
+        "maximum": 100,
+        "default": 0,
+        "description": "Vertical offset of shadow."
+      },
+      "opacity": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100,
+        "default": 100,
+        "description": "Opacity of shadow. Default is 0, transparent. Goes up to 100 for opaque."
+      },
+      "sigma": {
+        "type": "number",
+        "minimum": 0,
+        "default": 0.5,
+        "description": "Sigma controls the fuzziness of the shadow within the radius. Small values like 0.5 work best for good results."
+      },
+      "blur_radius": {
+        "type": "number",
+        "minimum": 0,
+        "default": 0,
+        "description": "Radius of edge blurring, controls how far it can spread."
+      },
+      "color": {
+        "type": "string",
+        "default": "000000",
+        "pattern": "[0-9a-fA-F]{6}",
+        "description": "Color to use for shadow in hex without the # sign, example: \u00220F0F0F\u0022"
+      }
+    },
+    "required": [],
+    "description": ""
+  },
+  "trim": {
+    "properties": {
+      "fuzzy": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100,
+        "default": 0,
+        "description": "How fuzzy the color look up is to remove as background. The value 0 is a good default for clear images."
+      }
+    },
+    "required": [],
+    "description": ""
+  },
+  "noop": {
+    "properties": {},
+    "required": [],
+    "description": "Deprecated! Use an empty stack operations collection to get the same behaviour"
+  },
+  "crop": {
+    "properties": {
+      "width": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10000,
+        "description": "Width to which the image will be cropped."
+      },
+      "height": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10000,
+        "description": "Height to which the image will be cropped."
+      },
+      "anchor": {
+        "type": "string",
+        "default": "auto",
+        "pattern": "\\b(subjectarea|face|auto|((center|left|right|(0|[1-9][0-9]{0,3}|10000))[_-](center|top|bottom|(0|[1-9][0-9]{0,3}|10000))))\\b",
+        "description": "Anchor from where to crop from. Please see the operations documentation for details."
+      },
+      "mode": {
+        "type": "string",
+        "default": "absolute",
+        "values": [
+          "absolute",
+          "ratio"
+        ],
+        "description": "If width and height should be taken as absolute values or as a ratio."
+      },
+      "scale": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100,
+        "default": 100,
+        "description": "Scales the crop box down to the specified percentage. Use mainly with the ratio mode."
+      }
+    },
+    "required": [
+      "width",
+      "height"
+    ],
+    "description": ""
+  },
+  "composition": {
+    "properties": {
+      "mode": {
+        "type": "string",
+        "values": [
+          "foreground"
+        ],
+        "description": "Mode of composition. Please refer to the documentation for details."
+      },
+      "width": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10000,
+        "description": "Width of the composed image."
+      },
+      "height": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10000,
+        "description": "Height of the composed image."
+      },
+      "anchor": {
+        "type": "string",
+        "default": "auto",
+        "pattern": "\\b(subjectarea|face|auto|((center|left|right|(0|[1-9][0-9]{0,3}|10000))[_-](center|top|bottom|(0|[1-9][0-9]{0,3}|10000))))\\b",
+        "description": "Anchor where to place the composition, based on mode. Please see the operations documentation for details."
+      },
+      "secondary_color": {
+        "type": "string",
+        "default": "000000",
+        "pattern": "[0-9a-fA-F]{6}",
+        "description": "Color to use as filler in hex without the # sign, example: \u00220F0F0F\u0022"
+      },
+      "secondary_opacity": {
+        "type": "integer",
+        "default": 100,
+        "minimum": 0,
+        "maximum": 100,
+        "description": "Opacity of filler. Default is 0, transparent. Goes up to 100 for opaque."
+      }
+    },
+    "required": [
+      "mode",
+      "width",
+      "height"
+    ],
+    "description": ""
+  },
+  "blur": {
+    "properties": {
+      "sigma": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100,
+        "default": 4,
+        "description": "Affects how blurred the image is"
+      },
+      "radius": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 1500,
+        "default": 0,
+        "description": "Sets the radius of the blur"
+      }
+    },
+    "required": [
+      "sigma",
+      "radius"
+    ],
+    "description": ""
+  },
+  "grayscale": {
+    "properties": {},
+    "required": [],
+    "description": ""
+  },
+  "sepia": {
+    "properties": {
+      "threshold": {
+        "type": "number",
+        "minimum": 0,
+        "default": 80,
+        "description": "Optional threshold for sepia toning. Defaults to 80"
+      }
+    },
+    "required": [],
+    "description": ""
+  },
+  "alpha": {
+    "properties": {
+      "mode": {
+        "type": "string",
+        "default": "mask",
+        "values": [
+          "mask",
+          "remove",
+          "extract"
+        ],
+        "description": "Mode of alpha operation. Please see operations documentation for details on each one."
+      }
+    },
+    "required": [],
+    "description": ""
+  }
+}

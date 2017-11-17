@@ -5,11 +5,13 @@ import FormGroup from '../forms/FormGroup'
 
 class Compression extends Component {
   render () {
+    const { onChange, min, max, value, error } = this.props
+
     return (
-      <FormGroup label="PNG Image compression" error={this.props.error}>
-        <InputRange onChange={this.props.onChange}
-          min={this.props.min} max={this.props.max}
-          name="png.compression_level" value={this.props.value}
+      <FormGroup label="PNG Image compression" error={error}>
+        <InputRange onChange={onChange}
+          min={min} max={max}
+          name="png.compression_level" value={value}
         />
       </FormGroup>
     )

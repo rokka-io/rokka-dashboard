@@ -459,7 +459,7 @@ exports[`NewStack does render with stackOptions 1`] = `
                       onChange={[Function]}
                       placeholder={undefined}
                       type="range"
-                      value={undefined}
+                      value={7}
                     />
                     <p>
                       <span
@@ -475,7 +475,7 @@ exports[`NewStack does render with stackOptions 1`] = `
                         placeholder={undefined}
                         size={5}
                         type="text"
-                        value={undefined}
+                        value={7}
                       />
                       <span
                         className="rka-input-range-max"
@@ -510,7 +510,7 @@ exports[`NewStack does render with stackOptions 1`] = `
                       onChange={[Function]}
                       placeholder={undefined}
                       type="range"
-                      value={undefined}
+                      value={76}
                     />
                     <p>
                       <span
@@ -526,7 +526,7 @@ exports[`NewStack does render with stackOptions 1`] = `
                         placeholder={undefined}
                         size={5}
                         type="text"
-                        value={undefined}
+                        value={76}
                       />
                       <span
                         className="rka-input-range-max"
@@ -561,7 +561,7 @@ exports[`NewStack does render with stackOptions 1`] = `
                       onChange={[Function]}
                       placeholder={undefined}
                       type="range"
-                      value={undefined}
+                      value={80}
                     />
                     <p>
                       <span
@@ -577,7 +577,7 @@ exports[`NewStack does render with stackOptions 1`] = `
                         placeholder={undefined}
                         size={5}
                         type="text"
-                        value={undefined}
+                        value={80}
                       />
                       <span
                         className="rka-input-range-max"
@@ -633,7 +633,7 @@ exports[`NewStack does render with stackOptions 1`] = `
                     className="rka-checkbox is-disabled"
                   >
                     <input
-                      checked={false}
+                      checked={true}
                       className="rka-checkbox-input"
                       disabled={false}
                       name="interlacing.mode"
@@ -913,7 +913,7 @@ exports[`NewStack does render with stacks 1`] = `
                       onChange={[Function]}
                       placeholder={undefined}
                       type="range"
-                      value={undefined}
+                      value={7}
                     />
                     <p>
                       <span
@@ -929,7 +929,7 @@ exports[`NewStack does render with stacks 1`] = `
                         placeholder={undefined}
                         size={5}
                         type="text"
-                        value={undefined}
+                        value={7}
                       />
                       <span
                         className="rka-input-range-max"
@@ -964,7 +964,7 @@ exports[`NewStack does render with stacks 1`] = `
                       onChange={[Function]}
                       placeholder={undefined}
                       type="range"
-                      value={undefined}
+                      value={76}
                     />
                     <p>
                       <span
@@ -980,7 +980,7 @@ exports[`NewStack does render with stacks 1`] = `
                         placeholder={undefined}
                         size={5}
                         type="text"
-                        value={undefined}
+                        value={76}
                       />
                       <span
                         className="rka-input-range-max"
@@ -1015,7 +1015,7 @@ exports[`NewStack does render with stacks 1`] = `
                       onChange={[Function]}
                       placeholder={undefined}
                       type="range"
-                      value={undefined}
+                      value={80}
                     />
                     <p>
                       <span
@@ -1031,7 +1031,7 @@ exports[`NewStack does render with stacks 1`] = `
                         placeholder={undefined}
                         size={5}
                         type="text"
-                        value={undefined}
+                        value={80}
                       />
                       <span
                         className="rka-input-range-max"
@@ -1087,7 +1087,7 @@ exports[`NewStack does render with stacks 1`] = `
                     className="rka-checkbox is-disabled"
                   >
                     <input
-                      checked={false}
+                      checked={true}
                       className="rka-checkbox-input"
                       disabled={false}
                       name="interlacing.mode"

@@ -26,12 +26,20 @@
       "upscale": {
         "type": "boolean",
         "default": true,
-        "description": "Allow the resulting image to be bigger than the original one."
+        "description": "Allow the resulting image to be bigger than the original one.",
+        "values": [
+          true,
+          false
+        ]
       },
       "upscale_dpr": {
         "type": "boolean",
         "default": true,
-        "description": "With the dpr stack option set, allow the resulting image to be \u0022dpr\u0022 times bigger than the original one, even if \u0022upscale\u0022 is false."
+        "description": "With the dpr stack option set, allow the resulting image to be \u0022dpr\u0022 times bigger than the original one, even if \u0022upscale\u0022 is false.",
+        "values": [
+          true,
+          false
+        ]
       },
       "filter": {
         "type": "string",

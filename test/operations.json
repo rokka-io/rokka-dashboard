@@ -312,6 +312,7 @@
       "threshold": {
         "type": "number",
         "minimum": 0,
+        "maximum": 100,
         "default": 80,
         "description": "Optional threshold for sepia toning. Defaults to 80"
       }

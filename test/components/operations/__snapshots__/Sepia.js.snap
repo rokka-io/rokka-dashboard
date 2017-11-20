@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sepia does render 1`] = `
+<div
+  className="rka-form-group"
+>
+  <label
+    className="rka-label"
+  >
+    Threshold
+  </label>
+  <div
+    className="rka-input-range-container clearfix"
+  >
+    <input
+      className="rka-input-range"
+      disabled={true}
+      max={100}
+      min={0}
+      name="threshold"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder={undefined}
+      type="range"
+      value={80}
+    />
+    <p>
+      <span
+        className="rka-input-range-min"
+      >
+        0
+      </span>
+      <span
+        className="rka-input-range-current txt-bold is-disabled"
+      >
+        80
+      </span>
+      <span
+        className="rka-input-range-max"
+      >
+        100
+      </span>
+    </p>
+  </div>
+</div>
+`;

@@ -141,12 +141,14 @@
       "sigma": {
         "type": "number",
         "minimum": 0,
+        "maximum": 100,
         "default": 0.5,
         "description": "Sigma controls the fuzziness of the shadow within the radius. Small values like 0.5 work best for good results."
       },
       "blur_radius": {
         "type": "number",
         "minimum": 0,
+        "maximum": 100,
         "default": 0,
         "description": "Radius of edge blurring, controls how far it can spread."
       },

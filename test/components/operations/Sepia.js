@@ -1,11 +1,15 @@
 import React from 'react'
-import Alpha from '../../../src/components/operations/Alpha'
+import Sepia from '../../../src/components/operations/Sepia'
 import renderer from 'react-test-renderer'
 import operations from '../../operations.json'
 
-test('Alpha does render', () => {
+const sepiaValues = {
+  fuzzy: '10'
+}
+
+test('Sepia does render', () => {
   const component = renderer.create(
-    <Alpha values={operations.alpha.properties.mode} defaults={operations.alpha.properties} required={[]} />
+    <Sepia values={sepiaValues} defaults={operations.sepia.properties} required={[]} />
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

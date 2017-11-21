@@ -1,11 +1,15 @@
 import React from 'react'
-import Alpha from '../../../src/components/operations/Alpha'
+import Trim from '../../../src/components/operations/Trim'
 import renderer from 'react-test-renderer'
 import operations from '../../operations.json'
 
-test('Alpha does render', () => {
+const trimValues = {
+  fuzzy: '10'
+}
+
+test('Trim does render', () => {
   const component = renderer.create(
-    <Alpha values={operations.alpha.properties.mode} defaults={operations.alpha.properties} required={[]} />
+    <Trim values={trimValues} defaults={operations.trim.properties} required={[]} />
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

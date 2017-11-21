@@ -101,7 +101,7 @@ Composition.propTypes = {
     height: PropTypes.string,
     anchor: PropTypes.string,
     secondary_color: PropTypes.string,
-    secondary_opacity: PropTypes.string
+    secondary_opacity: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   }),
   required: PropTypes.array.isRequired,
   errors: PropTypes.object

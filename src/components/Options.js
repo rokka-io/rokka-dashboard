@@ -13,6 +13,7 @@ class Options extends Component {
     if (!Object.keys(defaultOptions).length) {
       return null
     }
+
     return (
       <div>
         <h3 className="rka-h2 mv-md">Options</h3>

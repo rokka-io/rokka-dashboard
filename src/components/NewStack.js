@@ -34,6 +34,10 @@ function generateDefaultValuesStackOptions (options, stackOptions) {
   return options
 }
 
+const ajv = new Ajv({
+  allErrors: true
+})
+
 const OPTIONS = ['png.compression_level', 'jpg.quality', 'webp.quality', 'interlacing.mode', 'basestack']
 
 export class NewStack extends PureComponent {
@@ -53,7 +57,8 @@ export class NewStack extends PureComponent {
     }, {})
 
     if (props.stackOptions) {
-      options = generateDefaultValuesStackOptions(options, props.stackOptions)
+      options = generateDefaultValuesStackOptions(options, props.stackOptions.properties)
+      this.optionValidator = ajv.compile(props.stackOptions)
     }
 
     if (stackClone.operations) {
@@ -100,14 +105,10 @@ export class NewStack extends PureComponent {
   }
 
   componentWillReceiveProps (nextProps) {
-    const ajv = new Ajv({
-      allErrors: true
-    })
-
     if (nextProps.previewImage && this.props.previewImage && nextProps.previewImage.hash !== this.props.previewImage.hash) {
       this.updatePreview(nextProps.previewImage)
     }
-    if (nextProps.stackOptions !== null) {
+    if (nextProps.stackOptions !== null && !this.optionValidator) {
       const defaultOptions = generateDefaultValuesStackOptions(Object.assign({}, this.state.options), nextProps.stackOptions.properties)
       this.optionValidator = ajv.compile(nextProps.stackOptions)
 

@@ -76,6 +76,7 @@ export class NewStack extends PureComponent {
       error: null,
       activeOperation: 0,
       showLoader: false,
+      activeTab: 'options',
       preview: {
         stack: null,
         imageLoading: false,
@@ -347,6 +348,13 @@ export class NewStack extends PureComponent {
     })
   }
 
+  toggleTab (e) {
+    e && e.preventDefault()
+    this.setState({
+      activeTab: e.currentTarget.name
+    })
+  }
+
   updatePreview (previewImage = null) {
     if (!previewImage) {
       return
@@ -421,31 +429,58 @@ export class NewStack extends PureComponent {
                   value={this.state.name} />
               </FormGroup>
 
-              <Options defaultOptions={this.props.stackOptions ? this.props.stackOptions.properties : {}} options={this.state.options} onChange={this.onChangeOptions} stacks={this.props.stacks} />
+              <ul className="rka-newstack-tabs">
+                <li>
+                  <button name="options" className={cx('rka-newstack-tab', {'is-active': this.state.activeTab === 'options'})}
+                    onClick={(e) => this.toggleTab(e)}>Options</button>
+                </li>
+                <li>
+                  <button name="operations" className={cx('rka-newstack-tab', {'is-active': this.state.activeTab === 'operations'})}
+                    onClick={(e) => this.toggleTab(e)}>Operations</button>
+                </li>
+                <li>
+                  <button name="expressions" className={cx('rka-newstack-tab', {'is-active': this.state.activeTab === 'expressions'})}
+                    onClick={(e) => this.toggleTab(e)}>Expressions</button>
+                </li>
+              </ul>
 
-              <h3 className="rka-h2 mv-md">Operations</h3>
-              {this.state.operations.map((operation, index) => {
-                return <Operation
-                  availableOperations={this.props.operations}
-                  key={`operation-${operation.id}-${operation.name}`}
-                  operation={operation}
-                  index={index}
-                  isActive={index === this.state.activeOperation}
-                  onChange={this.onChange}
-                  removeOperation={this.removeOperation}
-                  setActiveOperation={this.setActiveOperation}
-                  onMoveOperation={this.onMoveOperation}
-                />
-              })}
+              <div className={cx({'dis-n': this.state.activeTab !== 'options'})}>
+                <Options defaultOptions={this.props.stackOptions ? this.props.stackOptions.properties : {}} options={this.state.options} onChange={this.onChangeOptions} stacks={this.props.stacks} />
+              </div>
 
-              <div className="pa-md bor-light mt-md">
-                <h3 className="rka-h3 mb-md">New operation</h3>
-                <div className="rka-form-group">
-                  <select ref="operationsList" className="rka-select">
-                    {Object.keys(this.props.operations).filter(name => name !== 'noop').sort().map((name) => <option key={name} value={name}>{name}</option>)}
-                  </select>
+              <div className={cx({'dis-n': this.state.activeTab !== 'operations'})}>
+                {this.state.operations.map((operation, index) => {
+                  return <Operation
+                    availableOperations={this.props.operations}
+                    key={`operation-${operation.id}-${operation.name}`}
+                    operation={operation}
+                    index={index}
+                    isActive={index === this.state.activeOperation}
+                    onChange={this.onChange}
+                    removeOperation={this.removeOperation}
+                    setActiveOperation={this.setActiveOperation}
+                    onMoveOperation={this.onMoveOperation}
+                  />
+                })}
+                <div className="pa-md bor-light">
+                  <h3 className="rka-h3 mb-md">New operation</h3>
+                  <div className="rka-form-group">
+                    <select ref="operationsList" className="rka-select">
+                      {Object.keys(this.props.operations).filter(name => name !== 'noop').sort().map((name) => <option key={name} value={name}>{name}</option>)}
+                    </select>
+                  </div>
+                  <a href="#" className="rka-button rka-button-brand rka-button-sm" onClick={this.addOperation}>Add operation</a>
                 </div>
-                <a href="#" className="rka-button rka-button-brand rka-button-sm" onClick={this.addOperation}>Add operation</a>
+              </div>
+
+              <div className={cx({'dis-n': this.state.activeTab !== 'expressions'})}>
+                <div className="pa-md bor-light">
+                  <h3 className="rka-h3 mb-md">New Expression</h3>
+                  <div className="rka-form-group">
+                    <input type="text" className="rka-input-txt" name="expression" placeholder="Expression..." value="" />
+                  </div>
+                  <a href="#" className="rka-button rka-button-brand rka-button-sm" onClick={this.addExpression}>Add expression</a>
+                </div>
               </div>
             </div>
             {this.renderPreviewSidebar()}

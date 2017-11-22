@@ -67,7 +67,7 @@ $screen-xs-min: $screen-xs !default;
 $screen-sm-min: $screen-sm !default;
 $screen-md-min: $screen-md !default;
 
-$screen-xs-max: $screen-xs - 1 !default;
+$screen-xs-max: $screen-sm - 1 !default;
 $screen-sm-max: $screen-md - 1 !default;
 //$screen-md-max: $screen-md - 1 !default;
 
@@ -76,10 +76,9 @@ $container-sm: ($screen-sm - $grid-gutter-width * 2) !default;
 $container-md: ($screen-md - $grid-gutter-width * 2) !default;
 
 // media queries
-$mobile-width: 468px !default;
 $tablet-width: 768px !default;
 $desktop-width: 1024px !default;
 
-$mobile: new-breakpoint(max-width $mobile-width);
-$tablet: new-breakpoint(min-width $mobile-width max-width 1023px);
+$mobile: new-breakpoint(max-width 767px);
+$tablet: new-breakpoint(min-width $tablet-width max-width 1023px);
 $desktop: new-breakpoint(min-width $desktop-width);

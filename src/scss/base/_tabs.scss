@@ -12,7 +12,7 @@
   padding: $space-sm $space-md;
   margin-right: $space-md;
   color: $clr-gray-darkest;
-  background-color: $clr-gray-lighter;
+  background-color: $clr-gray-lightest;
   border-style: solid;
   border-width: 1px 1px 0 1px;
   border-color: $clr-gray-light;
@@ -25,6 +25,11 @@
     padding: $space-sm;
     margin-right: $space-xs;
     font-size: $font-xs;
+  }
+
+  &:hover {
+    color: $clr-black;
+    background-color: $clr-white;
   }
 
   &.is-active {

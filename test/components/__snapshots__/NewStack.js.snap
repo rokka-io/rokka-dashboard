@@ -66,89 +66,153 @@ exports[`NewStack does render with a previewImage 1`] = `
             value=""
           />
         </div>
-        <h3
-          className="rka-h2 mv-md"
+        <ul
+          className="rka-newstack-tabs"
         >
-          Operations
-        </h3>
-        <div
-          className="pa-md bor-light mt-md"
-        >
-          <h3
-            className="rka-h3 mb-md"
-          >
-            New operation
-          </h3>
-          <div
-            className="rka-form-group"
-          >
-            <select
-              className="rka-select"
+          <li>
+            <button
+              className="rka-newstack-tab is-active"
+              name="options"
+              onClick={[Function]}
             >
-              <option
-                value="alpha"
-              >
-                alpha
-              </option>
-              <option
-                value="autorotate"
-              >
-                autorotate
-              </option>
-              <option
-                value="blur"
-              >
-                blur
-              </option>
-              <option
-                value="composition"
-              >
-                composition
-              </option>
-              <option
-                value="crop"
-              >
-                crop
-              </option>
-              <option
-                value="dropshadow"
-              >
-                dropshadow
-              </option>
-              <option
-                value="grayscale"
-              >
-                grayscale
-              </option>
-              <option
-                value="resize"
-              >
-                resize
-              </option>
-              <option
-                value="rotate"
-              >
-                rotate
-              </option>
-              <option
-                value="sepia"
-              >
-                sepia
-              </option>
-              <option
-                value="trim"
-              >
-                trim
-              </option>
-            </select>
-          </div>
-          <a
-            className="rka-button rka-button-brand rka-button-sm"
-            href="#"
-            onClick={[Function]}
+              Options
+            </button>
+          </li>
+          <li>
+            <button
+              className="rka-newstack-tab"
+              name="operations"
+              onClick={[Function]}
+            >
+              Operations
+            </button>
+          </li>
+          <li>
+            <button
+              className="rka-newstack-tab"
+              name="expressions"
+              onClick={[Function]}
+            >
+              Expressions
+            </button>
+          </li>
+        </ul>
+        <div
+          className=""
+        />
+        <div
+          className="dis-n"
+        >
+          <div
+            className="pa-md bor-light"
           >
-            Add operation
-          </a>
+            <h3
+              className="rka-h3 mb-md"
+            >
+              New operation
+            </h3>
+            <div
+              className="rka-form-group"
+            >
+              <select
+                className="rka-select"
+              >
+                <option
+                  value="alpha"
+                >
+                  alpha
+                </option>
+                <option
+                  value="autorotate"
+                >
+                  autorotate
+                </option>
+                <option
+                  value="blur"
+                >
+                  blur
+                </option>
+                <option
+                  value="composition"
+                >
+                  composition
+                </option>
+                <option
+                  value="crop"
+                >
+                  crop
+                </option>
+                <option
+                  value="dropshadow"
+                >
+                  dropshadow
+                </option>
+                <option
+                  value="grayscale"
+                >
+                  grayscale
+                </option>
+                <option
+                  value="resize"
+                >
+                  resize
+                </option>
+                <option
+                  value="rotate"
+                >
+                  rotate
+                </option>
+                <option
+                  value="sepia"
+                >
+                  sepia
+                </option>
+                <option
+                  value="trim"
+                >
+                  trim
+                </option>
+              </select>
+            </div>
+            <a
+              className="rka-button rka-button-brand rka-button-sm"
+              href="#"
+              onClick={[Function]}
+            >
+              Add operation
+            </a>
+          </div>
+        </div>
+        <div
+          className="dis-n"
+        >
+          <div
+            className="pa-md bor-light"
+          >
+            <h3
+              className="rka-h3 mb-md"
+            >
+              New Expression
+            </h3>
+            <div
+              className="rka-form-group"
+            >
+              <input
+                className="rka-input-txt"
+                name="expression"
+                placeholder="Expression..."
+                type="text"
+                value=""
+              />
+            </div>
+            <a
+              className="rka-button rka-button-brand rka-button-sm"
+              href="#"
+              onClick={undefined}
+            >
+              Add expression
+            </a>
+          </div>
         </div>
       </div>
       <div
@@ -267,89 +331,153 @@ exports[`NewStack does render with minimal props 1`] = `
             value=""
           />
         </div>
-        <h3
-          className="rka-h2 mv-md"
+        <ul
+          className="rka-newstack-tabs"
         >
-          Operations
-        </h3>
-        <div
-          className="pa-md bor-light mt-md"
-        >
-          <h3
-            className="rka-h3 mb-md"
-          >
-            New operation
-          </h3>
-          <div
-            className="rka-form-group"
-          >
-            <select
-              className="rka-select"
+          <li>
+            <button
+              className="rka-newstack-tab is-active"
+              name="options"
+              onClick={[Function]}
             >
-              <option
-                value="alpha"
-              >
-                alpha
-              </option>
-              <option
-                value="autorotate"
-              >
-                autorotate
-              </option>
-              <option
-                value="blur"
-              >
-                blur
-              </option>
-              <option
-                value="composition"
-              >
-                composition
-              </option>
-              <option
-                value="crop"
-              >
-                crop
-              </option>
-              <option
-                value="dropshadow"
-              >
-                dropshadow
-              </option>
-              <option
-                value="grayscale"
-              >
-                grayscale
-              </option>
-              <option
-                value="resize"
-              >
-                resize
-              </option>
-              <option
-                value="rotate"
-              >
-                rotate
-              </option>
-              <option
-                value="sepia"
-              >
-                sepia
-              </option>
-              <option
-                value="trim"
-              >
-                trim
-              </option>
-            </select>
-          </div>
-          <a
-            className="rka-button rka-button-brand rka-button-sm"
-            href="#"
-            onClick={[Function]}
+              Options
+            </button>
+          </li>
+          <li>
+            <button
+              className="rka-newstack-tab"
+              name="operations"
+              onClick={[Function]}
+            >
+              Operations
+            </button>
+          </li>
+          <li>
+            <button
+              className="rka-newstack-tab"
+              name="expressions"
+              onClick={[Function]}
+            >
+              Expressions
+            </button>
+          </li>
+        </ul>
+        <div
+          className=""
+        />
+        <div
+          className="dis-n"
+        >
+          <div
+            className="pa-md bor-light"
           >
-            Add operation
-          </a>
+            <h3
+              className="rka-h3 mb-md"
+            >
+              New operation
+            </h3>
+            <div
+              className="rka-form-group"
+            >
+              <select
+                className="rka-select"
+              >
+                <option
+                  value="alpha"
+                >
+                  alpha
+                </option>
+                <option
+                  value="autorotate"
+                >
+                  autorotate
+                </option>
+                <option
+                  value="blur"
+                >
+                  blur
+                </option>
+                <option
+                  value="composition"
+                >
+                  composition
+                </option>
+                <option
+                  value="crop"
+                >
+                  crop
+                </option>
+                <option
+                  value="dropshadow"
+                >
+                  dropshadow
+                </option>
+                <option
+                  value="grayscale"
+                >
+                  grayscale
+                </option>
+                <option
+                  value="resize"
+                >
+                  resize
+                </option>
+                <option
+                  value="rotate"
+                >
+                  rotate
+                </option>
+                <option
+                  value="sepia"
+                >
+                  sepia
+                </option>
+                <option
+                  value="trim"
+                >
+                  trim
+                </option>
+              </select>
+            </div>
+            <a
+              className="rka-button rka-button-brand rka-button-sm"
+              href="#"
+              onClick={[Function]}
+            >
+              Add operation
+            </a>
+          </div>
+        </div>
+        <div
+          className="dis-n"
+        >
+          <div
+            className="pa-md bor-light"
+          >
+            <h3
+              className="rka-h3 mb-md"
+            >
+              New Expression
+            </h3>
+            <div
+              className="rka-form-group"
+            >
+              <input
+                className="rka-input-txt"
+                name="expression"
+                placeholder="Expression..."
+                type="text"
+                value=""
+              />
+            </div>
+            <a
+              className="rka-button rka-button-brand rka-button-sm"
+              href="#"
+              onClick={undefined}
+            >
+              Add expression
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -423,14 +551,42 @@ exports[`NewStack does render with stackOptions 1`] = `
             value=""
           />
         </div>
-        <div>
-          <h3
-            className="rka-h2 mv-md"
-          >
-            Options
-          </h3>
+        <ul
+          className="rka-newstack-tabs"
+        >
+          <li>
+            <button
+              className="rka-newstack-tab is-active"
+              name="options"
+              onClick={[Function]}
+            >
+              Options
+            </button>
+          </li>
+          <li>
+            <button
+              className="rka-newstack-tab"
+              name="operations"
+              onClick={[Function]}
+            >
+              Operations
+            </button>
+          </li>
+          <li>
+            <button
+              className="rka-newstack-tab"
+              name="expressions"
+              onClick={[Function]}
+            >
+              Expressions
+            </button>
+          </li>
+        </ul>
+        <div
+          className=""
+        >
           <div
-            className="bg-gray-lightest pa-md bor-light"
+            className="pa-md bor-light"
           >
             <div
               className="row"
@@ -667,89 +823,119 @@ exports[`NewStack does render with stackOptions 1`] = `
             </div>
           </div>
         </div>
-        <h3
-          className="rka-h2 mv-md"
-        >
-          Operations
-        </h3>
         <div
-          className="pa-md bor-light mt-md"
+          className="dis-n"
         >
-          <h3
-            className="rka-h3 mb-md"
-          >
-            New operation
-          </h3>
           <div
-            className="rka-form-group"
+            className="pa-md bor-light"
           >
-            <select
-              className="rka-select"
+            <h3
+              className="rka-h3 mb-md"
             >
-              <option
-                value="alpha"
+              New operation
+            </h3>
+            <div
+              className="rka-form-group"
+            >
+              <select
+                className="rka-select"
               >
-                alpha
-              </option>
-              <option
-                value="autorotate"
-              >
-                autorotate
-              </option>
-              <option
-                value="blur"
-              >
-                blur
-              </option>
-              <option
-                value="composition"
-              >
-                composition
-              </option>
-              <option
-                value="crop"
-              >
-                crop
-              </option>
-              <option
-                value="dropshadow"
-              >
-                dropshadow
-              </option>
-              <option
-                value="grayscale"
-              >
-                grayscale
-              </option>
-              <option
-                value="resize"
-              >
-                resize
-              </option>
-              <option
-                value="rotate"
-              >
-                rotate
-              </option>
-              <option
-                value="sepia"
-              >
-                sepia
-              </option>
-              <option
-                value="trim"
-              >
-                trim
-              </option>
-            </select>
+                <option
+                  value="alpha"
+                >
+                  alpha
+                </option>
+                <option
+                  value="autorotate"
+                >
+                  autorotate
+                </option>
+                <option
+                  value="blur"
+                >
+                  blur
+                </option>
+                <option
+                  value="composition"
+                >
+                  composition
+                </option>
+                <option
+                  value="crop"
+                >
+                  crop
+                </option>
+                <option
+                  value="dropshadow"
+                >
+                  dropshadow
+                </option>
+                <option
+                  value="grayscale"
+                >
+                  grayscale
+                </option>
+                <option
+                  value="resize"
+                >
+                  resize
+                </option>
+                <option
+                  value="rotate"
+                >
+                  rotate
+                </option>
+                <option
+                  value="sepia"
+                >
+                  sepia
+                </option>
+                <option
+                  value="trim"
+                >
+                  trim
+                </option>
+              </select>
+            </div>
+            <a
+              className="rka-button rka-button-brand rka-button-sm"
+              href="#"
+              onClick={[Function]}
+            >
+              Add operation
+            </a>
           </div>
-          <a
-            className="rka-button rka-button-brand rka-button-sm"
-            href="#"
-            onClick={[Function]}
+        </div>
+        <div
+          className="dis-n"
+        >
+          <div
+            className="pa-md bor-light"
           >
-            Add operation
-          </a>
+            <h3
+              className="rka-h3 mb-md"
+            >
+              New Expression
+            </h3>
+            <div
+              className="rka-form-group"
+            >
+              <input
+                className="rka-input-txt"
+                name="expression"
+                placeholder="Expression..."
+                type="text"
+                value=""
+              />
+            </div>
+            <a
+              className="rka-button rka-button-brand rka-button-sm"
+              href="#"
+              onClick={undefined}
+            >
+              Add expression
+            </a>
+          </div>
         </div>
       </div>
       <div
@@ -877,14 +1063,42 @@ exports[`NewStack does render with stacks 1`] = `
             value=""
           />
         </div>
-        <div>
-          <h3
-            className="rka-h2 mv-md"
-          >
-            Options
-          </h3>
+        <ul
+          className="rka-newstack-tabs"
+        >
+          <li>
+            <button
+              className="rka-newstack-tab is-active"
+              name="options"
+              onClick={[Function]}
+            >
+              Options
+            </button>
+          </li>
+          <li>
+            <button
+              className="rka-newstack-tab"
+              name="operations"
+              onClick={[Function]}
+            >
+              Operations
+            </button>
+          </li>
+          <li>
+            <button
+              className="rka-newstack-tab"
+              name="expressions"
+              onClick={[Function]}
+            >
+              Expressions
+            </button>
+          </li>
+        </ul>
+        <div
+          className=""
+        >
           <div
-            className="bg-gray-lightest pa-md bor-light"
+            className="pa-md bor-light"
           >
             <div
               className="row"
@@ -1220,89 +1434,119 @@ exports[`NewStack does render with stacks 1`] = `
             </div>
           </div>
         </div>
-        <h3
-          className="rka-h2 mv-md"
-        >
-          Operations
-        </h3>
         <div
-          className="pa-md bor-light mt-md"
+          className="dis-n"
         >
-          <h3
-            className="rka-h3 mb-md"
-          >
-            New operation
-          </h3>
           <div
-            className="rka-form-group"
+            className="pa-md bor-light"
           >
-            <select
-              className="rka-select"
+            <h3
+              className="rka-h3 mb-md"
             >
-              <option
-                value="alpha"
+              New operation
+            </h3>
+            <div
+              className="rka-form-group"
+            >
+              <select
+                className="rka-select"
               >
-                alpha
-              </option>
-              <option
-                value="autorotate"
-              >
-                autorotate
-              </option>
-              <option
-                value="blur"
-              >
-                blur
-              </option>
-              <option
-                value="composition"
-              >
-                composition
-              </option>
-              <option
-                value="crop"
-              >
-                crop
-              </option>
-              <option
-                value="dropshadow"
-              >
-                dropshadow
-              </option>
-              <option
-                value="grayscale"
-              >
-                grayscale
-              </option>
-              <option
-                value="resize"
-              >
-                resize
-              </option>
-              <option
-                value="rotate"
-              >
-                rotate
-              </option>
-              <option
-                value="sepia"
-              >
-                sepia
-              </option>
-              <option
-                value="trim"
-              >
-                trim
-              </option>
-            </select>
+                <option
+                  value="alpha"
+                >
+                  alpha
+                </option>
+                <option
+                  value="autorotate"
+                >
+                  autorotate
+                </option>
+                <option
+                  value="blur"
+                >
+                  blur
+                </option>
+                <option
+                  value="composition"
+                >
+                  composition
+                </option>
+                <option
+                  value="crop"
+                >
+                  crop
+                </option>
+                <option
+                  value="dropshadow"
+                >
+                  dropshadow
+                </option>
+                <option
+                  value="grayscale"
+                >
+                  grayscale
+                </option>
+                <option
+                  value="resize"
+                >
+                  resize
+                </option>
+                <option
+                  value="rotate"
+                >
+                  rotate
+                </option>
+                <option
+                  value="sepia"
+                >
+                  sepia
+                </option>
+                <option
+                  value="trim"
+                >
+                  trim
+                </option>
+              </select>
+            </div>
+            <a
+              className="rka-button rka-button-brand rka-button-sm"
+              href="#"
+              onClick={[Function]}
+            >
+              Add operation
+            </a>
           </div>
-          <a
-            className="rka-button rka-button-brand rka-button-sm"
-            href="#"
-            onClick={[Function]}
+        </div>
+        <div
+          className="dis-n"
+        >
+          <div
+            className="pa-md bor-light"
           >
-            Add operation
-          </a>
+            <h3
+              className="rka-h3 mb-md"
+            >
+              New Expression
+            </h3>
+            <div
+              className="rka-form-group"
+            >
+              <input
+                className="rka-input-txt"
+                name="expression"
+                placeholder="Expression..."
+                type="text"
+                value=""
+              />
+            </div>
+            <a
+              className="rka-button rka-button-brand rka-button-sm"
+              href="#"
+              onClick={undefined}
+            >
+              Add expression
+            </a>
+          </div>
         </div>
       </div>
       <div

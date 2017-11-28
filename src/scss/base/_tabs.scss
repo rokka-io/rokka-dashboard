@@ -1,9 +1,14 @@
 .rka-newstack-tabs {
   @include clearfix();
-
+  //border-bottom: 1px solid $clr-gray-light;
   > li {
     float: left;
   }
+}
+
+.rka-newstack-tabs-content {
+  padding: $space-md;
+  border: 1px solid $clr-gray-light;
 }
 
 .rka-newstack-tab {
@@ -12,10 +17,8 @@
   padding: $space-sm $space-md;
   margin-right: $space-md;
   color: $clr-gray-darkest;
-  background-color: $clr-gray-lightest;
-  border-style: solid;
-  border-width: 1px 1px 0 1px;
-  border-color: $clr-gray-light;
+  background-color: $clr-gray-lighter;
+  border: 1px solid $clr-gray-light;
   border-radius: 0;
   position: relative;
   z-index: 1;
@@ -35,5 +38,6 @@
   &.is-active {
     background-color: $clr-white;
     color: $clr-black;
+    border-bottom-color: transparent;
   }
 }

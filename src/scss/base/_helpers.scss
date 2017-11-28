@@ -192,6 +192,9 @@
 .bg-chess { background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGklEQVQYlWN48ODBf3TMgA0MBYWDzDkUKQQA/Su1D0qvFnQAAAAASUVORK5CYII=") repeat $clr-white; }
 
 // borders
+.bor-b-light {
+  border-bottom: 1px solid $clr-gray-light;
+}
 .bor-lightest {
   border: 1px solid $clr-gray-lightest;
 }

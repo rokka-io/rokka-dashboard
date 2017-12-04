@@ -39,14 +39,35 @@ class Resize extends PureComponent {
         )
       })
 
-    const $filterOptions = defaults.filter.values
-      .map((option) => {
-        return (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        )
-      })
+    /* deprecated - remove after 2018-06-01 */
+    let $filterOptions = null
+    if (!this.props.onChange && values.filter) {
+      const FILTER_OPTIONS = [
+        'blackman',
+        'bessel',
+        'box',
+        'catrom',
+        'cubic',
+        'gaussian',
+        'hamming',
+        'hanning',
+        'hermite',
+        'lanczos',
+        'mitchell',
+        'quadratic',
+        'point',
+        'sinc',
+        'triangle'
+      ]
+      $filterOptions = FILTER_OPTIONS
+        .map((option) => {
+          return (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          )
+        })
+    }
 
     return (
       <div>
@@ -115,18 +136,19 @@ class Resize extends PureComponent {
               </Select>
             </FormGroup>
           </div>
-          <div className="col-md-4">
-            <FormGroup label="Filter" required={this.isRequired('filter')} error={errors.filter}>
-              <Select
-                name="filter"
-                className="rka-select"
-                value={values.filter}
-                defaultValue={defaults.filter.default}
-                onChange={this.props.onChange}>
-                {$filterOptions}
-              </Select>
-            </FormGroup>
-          </div>
+          {/* deprecated - remove after 2018-06-01 */}
+          {!this.props.onChange && values.filter && (
+            <div className="col-md-4">
+              <FormGroup label="Filter">
+                <Select
+                  name="filter"
+                  className="rka-select"
+                  value={values.filter}>
+                  {$filterOptions}
+                </Select>
+              </FormGroup>
+            </div>
+          )}
         </div>
       </div>
     )
@@ -152,9 +174,6 @@ Resize.propTypes = {
     }),
     mode: PropTypes.shape({
       values: PropTypes.array
-    }),
-    filter: PropTypes.shape({
-      values: PropTypes.array
     })
   }),
   values: PropTypes.shape({
@@ -163,6 +182,7 @@ Resize.propTypes = {
     upscale: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     upscale_dpr: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     mode: PropTypes.string,
+    // deprecated - remove after 2018-06-01
     filter: PropTypes.string
   }),
   required: PropTypes.array.isRequired,

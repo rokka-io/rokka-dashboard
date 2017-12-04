@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import cx from 'classnames'
+import ErrorBoundary from '../ErrorBoundary'
 import Header from '../Header.js'
 import Footer from '../Footer.js'
 import Sidebar from '../Sidebar.js'
@@ -12,7 +13,9 @@ const BaseLayout = ({ className, alert = null, ...props }) =>
     <Sidebar active={props.showSidebar} stacks={props.stacks} router={props.router} />
     <main className={cx('main clearfix', {'is-active': props.showSidebar})}>
       <Alert alert={alert} />
-      {props.children}
+      <ErrorBoundary>
+        {props.children}
+      </ErrorBoundary>
     </main>
     <Footer />
   </div>

@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sepia does render 1`] = `
+exports[`Sepia does render 1`] = `null`;
+
+exports[`Sepia does render with threshold value 1`] = `
 <div
   className="rka-form-group"
 >
@@ -22,7 +24,7 @@ exports[`Sepia does render 1`] = `
       onChange={[Function]}
       placeholder={undefined}
       type="range"
-      value={80}
+      value="10"
     />
     <p>
       <span
@@ -33,7 +35,7 @@ exports[`Sepia does render 1`] = `
       <span
         className="rka-input-range-current txt-bold is-disabled"
       >
-        80
+        10
       </span>
       <span
         className="rka-input-range-max"

@@ -4,22 +4,22 @@ import InputRange from '../forms/InputRange.js'
 import FormGroup from '../forms/FormGroup'
 
 class Sepia extends Component {
-  isRequired (field) {
-    return this.props.required.indexOf(field) !== -1
-  }
-
   render () {
-    const { defaults, values, errors = {} } = this.props
+    const { values } = this.props
+
+    /* threshold is deprecated - remove check and FormGroup code after 2018-06-01 */
+    if (this.props.onChange || !values.threshold) {
+      return null
+    }
 
     return (
-      <FormGroup label="Threshold" required={this.isRequired('threshold')} error={errors.threshold}>
+      <FormGroup label="Threshold">
         <InputRange
           name="threshold"
-          min={defaults.threshold.minimum}
-          max={defaults.threshold.maximum}
+          min={0}
+          max={100}
           value={values.threshold}
-          defaultValue={defaults.threshold.default}
-          onChange={this.props.onChange}
+          defaultValue={80}
         />
       </FormGroup>
     )
@@ -28,17 +28,10 @@ class Sepia extends Component {
 
 Sepia.propTypes = {
   onChange: PropTypes.func,
-  defaults: PropTypes.shape({
-    fuzzy: PropTypes.shape({
-      minimum: PropTypes.number,
-      maximum: PropTypes.number
-    })
-  }),
+  // threshold is deprecated, remove after 2018-06-01
   values: PropTypes.shape({
-    fuzzy: PropTypes.string
-  }),
-  required: PropTypes.array.isRequired,
-  errors: PropTypes.object
+    threshold: PropTypes.string
+  })
 }
 
 export default Sepia

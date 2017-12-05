@@ -25,18 +25,20 @@ class Blur extends Component {
             />
           </FormGroup>
         </div>
-        <div className="col-md-6">
-          <FormGroup label="Blur Radius" required={this.isRequired('radius')} error={errors.radius}>
-            <InputRange
-              name="radius"
-              min={defaults.radius.minimum}
-              max={defaults.radius.maximum}
-              value={values.radius}
-              defaultValue={defaults.radius.default}
-              onChange={this.props.onChange}
-            />
-          </FormGroup>
-        </div>
+        {/* deprecated - remove after 2018-06-01 */}
+        {!this.props.onChange && values.radius && (
+          <div className="col-md-6">
+            <FormGroup label="Blur Radius">
+              <InputRange
+                name="radius"
+                min={0}
+                max={1500}
+                value={values.radius}
+                defaultValue={0}
+              />
+            </FormGroup>
+          </div>
+        )}
       </div>
     )
   }
@@ -45,10 +47,6 @@ class Blur extends Component {
 Blur.propTypes = {
   onChange: PropTypes.func,
   defaults: PropTypes.shape({
-    radius: PropTypes.shape({
-      minimum: PropTypes.number,
-      maximum: PropTypes.number
-    }),
     sigma: PropTypes.shape({
       minimum: PropTypes.number,
       maximum: PropTypes.number

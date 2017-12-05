@@ -46,11 +46,6 @@ const defaults = {
     blur_radius: {
       maximum: 10000
     }
-  },
-  sepia: {
-    threshold: {
-      maximum: 100
-    }
   }
 }
 

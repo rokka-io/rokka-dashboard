@@ -1156,13 +1156,6 @@ exports[`NewStack does render with stacks 1`] = `
                             }
                           }
                         >
-                          <style
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "input#undefined::-ms-clear {display: none;}",
-                              }
-                            }
-                          />
                           <input
                             aria-activedescendant="react-select-2--value"
                             aria-describedby={undefined}

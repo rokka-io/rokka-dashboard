@@ -72,6 +72,8 @@ export class NewStack extends PureComponent {
       name: stackClone.name || '',
       options: options,
       operations: stackClone.operations || [],
+      expressions: [],
+      expressionOptions: options,
       operationErrors: {},
       error: null,
       activeOperation: 0,
@@ -91,6 +93,7 @@ export class NewStack extends PureComponent {
     this.onChangeOptions = this.onChangeOptions.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
     this.addOperation = this.addOperation.bind(this)
+    this.addExpression = this.addExpression.bind(this)
     this.removeOperation = this.removeOperation.bind(this)
     this.setActiveOperation = this.setActiveOperation.bind(this)
     this.onMoveOperation = this.onMoveOperation.bind(this)
@@ -152,6 +155,22 @@ export class NewStack extends PureComponent {
       preview: Object.assign({}, this.state.preview, {
         updated: false
       })
+    })
+  }
+
+  addExpression (e) {
+    e && e.preventDefault()
+
+    this.setState({
+      expressions: [
+        ...this.state.expressions,
+        {
+          expression: this.refs.expression.value,
+          overrides: {
+            options: this.state.expressionOptions
+          }
+        }
+      ]
     })
   }
 
@@ -217,7 +236,7 @@ export class NewStack extends PureComponent {
       }
     })
 
-    createStack(this.state.name, this.state.operations, options)
+    createStack(this.state.name, this.state.operations, options, this.state.expressions)
       .then(({ body }) => {
         return Promise.all([body, refreshStacks()])
       })
@@ -476,9 +495,16 @@ export class NewStack extends PureComponent {
 
                 <div className={cx({'dis-n': this.state.activeTab !== 'expressions'})}>
                   <div className="mt-md">
+                    {this.state.expressions.map((expression, index) => {
+                      return <div key={`foobar-${index}`}><span>{expression.expression}</span><span>{expression.overrides.options}</span></div>
+                    })}
+
                     <h3 className="rka-h3 mb-md">New Expression</h3>
                     <div className="rka-form-group">
-                      <input type="text" className="rka-input-txt" name="expression" placeholder="Expression..." value="" />
+                      <input type="text" className="rka-input-txt" name="expression" placeholder="Expression string..." ref="expression" />
+                    </div>
+                    <div className="mv-md">
+                      <Options defaultOptions={this.props.stackOptions ? this.props.stackOptions.properties : {}} options={this.state.expressionOptions} onChange={this.onChangeOptions} stacks={this.props.stacks} />
                     </div>
                     <a href="#" className="rka-button rka-button-brand rka-button-sm" onClick={this.addExpression}>Add expression</a>
                   </div>

@@ -1,0 +1,43 @@
+.rka-newstack-tabs {
+  @include clearfix();
+  //border-bottom: 1px solid $clr-gray-light;
+  > li {
+    float: left;
+  }
+}
+
+.rka-newstack-tabs-content {
+  padding: $space-md;
+  border: 1px solid $clr-gray-light;
+}
+
+.rka-newstack-tab {
+  cursor: pointer;
+  font-size: $font-sm;
+  padding: $space-sm $space-md;
+  margin-right: $space-md;
+  color: $clr-gray-darkest;
+  background-color: $clr-gray-lighter;
+  border: 1px solid $clr-gray-light;
+  border-radius: 0;
+  position: relative;
+  z-index: 1;
+  margin-bottom: -1px;
+
+  @include media($mobile) {
+    padding: $space-sm;
+    margin-right: $space-xs;
+    font-size: $font-xs;
+  }
+
+  &:hover {
+    color: $clr-black;
+    background-color: $clr-white;
+  }
+
+  &.is-active {
+    background-color: $clr-white;
+    color: $clr-black;
+    border-bottom-color: transparent;
+  }
+}

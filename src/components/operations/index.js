@@ -22,11 +22,11 @@ const Operation = ({
   connectDropTarget
 }) => {
   const hasErrors = Object.keys(operation.errors).length
-  const className = cx('pa-md', 'mb-xs', 'pos-r', {
+  const className = cx('pa-md', 'pos-r', {
     'bg-gray-lightest': index % 2,
     'is-active': isActive || hasErrors,
     'bor-cranberry': hasErrors,
-    'bor-light': !hasErrors,
+    'bor-b-light': !hasErrors,
     'opaque': isDragging,
     'bor-brand-light-dashed': isOver
   })

@@ -233,11 +233,12 @@ export function getDefaultStackOptions () {
  * @param {string}      name
  * @param {Array}       operations
  * @param {Object|null} options
+ * @param {Object|null} expressions
  *
  * @return {Promise}
  */
-export function createStack (name, operations, options) {
-  return rokka.stacks.create(internalState.auth.organization, name, operations, options)
+export function createStack (name, operations, options, expressions) {
+  return rokka.stacks.create(internalState.auth.organization, name, operations, options, expressions)
 }
 
 /**

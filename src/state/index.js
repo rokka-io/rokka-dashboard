@@ -305,6 +305,7 @@ export function subscribe (cb) {
  * @param {object} options
  */
 export function cloneStack (name, operations, options) {
+  console.log(name, operations, options)
   updateState({
     stackClone: {
       name: name,

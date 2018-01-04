@@ -1244,3 +1244,125 @@ exports[`NewStack does render with stacks 1`] = `
   </section>
 </form>
 `;
+
+exports[`newStack does render with clone stack props 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="bg-white pa-md clearfix"
+  >
+    <h1
+      className="rka-h1 flo-l mt-xs"
+    >
+      New stack
+    </h1>
+    <div
+      className="flo-r"
+    >
+      <button
+        className="rka-button rka-button-brand disabled flo-r"
+        type="submit"
+      >
+        Create stack
+      </button>
+    </div>
+  </div>
+  <section
+    className="rka-box rka-box-stacks pt-n"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-7 col-sm-7"
+      >
+        <h3
+          className="rka-h2 mv-md"
+        >
+          Stack details
+        </h3>
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Name
+            <span>
+               *
+            </span>
+          </label>
+          <input
+            className="rka-input-txt"
+            id="name"
+            name="name"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+        <h3
+          className="rka-h2 mv-md"
+        >
+          Operations
+        </h3>
+        <div
+          className="pa-md bor-light mt-md"
+        >
+          <h3
+            className="rka-h3 mb-md"
+          >
+            New operation
+          </h3>
+          <div
+            className="rka-form-group"
+          >
+            <select
+              className="rka-select"
+            >
+              <option
+                value="0"
+              >
+                0
+              </option>
+              <option
+                value="1"
+              >
+                1
+              </option>
+              <option
+                value="2"
+              >
+                2
+              </option>
+              <option
+                value="3"
+              >
+                3
+              </option>
+              <option
+                value="4"
+              >
+                4
+              </option>
+              <option
+                value="5"
+              >
+                5
+              </option>
+            </select>
+          </div>
+          <a
+            className="rka-button rka-button-brand rka-button-sm"
+            href="#"
+            onClick={[Function]}
+          >
+            Add operation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+`;

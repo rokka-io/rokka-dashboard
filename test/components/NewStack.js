@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer'
 import { NewStack } from '../../src/components/NewStack'
 import operations from '../operations.json'
 import stackOptions from '../stackoptions.json'
+import cloneStack from '../cloneStack.json'
 
 // N.B. this test currently triggers a warning because
 //      onComponentDidMount calls an update on the state.
@@ -140,6 +141,37 @@ test('NewStack does render with stacks', () => {
     previewImage,
     stackOptions,
     stacks
+  }
+
+  const component = renderer.create(
+    <NewStack {...props} />
+  )
+  let tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+test('newStack does render with clone stack props', () => {
+  const auth = {
+    organization: 'test-org'
+  }
+  const router = {
+    push: () => {
+      throw new Error('should not be called')
+    }
+  }
+  const stackClone = cloneStack
+  const onOpenChoosePreviewImage = () => {
+    throw new Error('should not be called')
+  }
+  const loadPreviewImage = () => {}
+
+  const props = {
+    auth,
+    operations,
+    stackClone,
+    router,
+    onOpenChoosePreviewImage,
+    loadPreviewImage
   }
 
   const component = renderer.create(

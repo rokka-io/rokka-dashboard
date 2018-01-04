@@ -1,0 +1,64 @@
+{
+  "operations": [
+    {
+      "errors": {},
+      "id": "0",
+      "name": "alpha",
+      "options": {
+        "mode": "mask"
+      }
+    },
+    {
+      "errors": {},
+      "id": "1",
+      "name": "blur",
+      "options": {
+        "sigma": 39
+      }
+    },
+    {
+      "errors": {},
+      "id": "2",
+      "name": "crop",
+      "options": {
+        "height": 5276,
+        "width": 5100
+      }
+    },
+    {
+      "errors": {},
+      "id": "3",
+      "name": "dropshadow",
+      "options": {
+        "blur_radius": 0,
+        "horizontal": -26,
+        "opacity": 73,
+        "vertical": 40
+      }
+    },
+    {
+      "errors": {},
+      "id": "4",
+      "name": "resize",
+      "options": {
+        "height": 1080,
+        "width": 1920
+      }
+    },
+    {
+      "errors": {},
+      "id": "5",
+      "name": "rotate",
+      "options": {
+        "angle": 69,
+        "background_opacity": 20
+      }
+    }
+  ],
+  "options": {
+    "interlacing.mode": "line",
+    "jpg.quality": 85,
+    "png.compression_level": 6,
+    "webp.quality": 56
+  }
+}

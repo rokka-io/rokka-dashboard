@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { NewStack } from '../../src/components/NewStack'
+import NewStack from '../../src/components/NewStack'
 import operations from '../operations.json'
 import stackOptions from '../stackoptions.json'
 import cloneStack from '../cloneStack.json'

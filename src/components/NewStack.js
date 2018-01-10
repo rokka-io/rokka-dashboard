@@ -8,11 +8,11 @@ import Operation from './operations'
 import FormGroup from './forms/FormGroup'
 import previewImage from './images/previewImage'
 import Spinner from './Spinner'
-import Alert from './Alert'
 import rokka from '../rokka'
 import Options from './Options'
 import Ajv from 'ajv'
 import cx from 'classnames'
+import PreviewSidebar from './newStack/PreviewSidebar'
 
 function randomNumber (min, max) {
   return Math.random() * (max - min) + min
@@ -448,49 +448,17 @@ export class NewStack extends PureComponent {
                 <a href="#" className="rka-button rka-button-brand rka-button-sm" onClick={this.addOperation}>Add operation</a>
               </div>
             </div>
-            {this.renderPreviewSidebar()}
+            <PreviewSidebar
+              organization={this.props.auth.organization}
+              previewImage={this.props.previewImage}
+              currentPreviewImage={this.state.preview.image}
+              onChange={this.props.onOpenChoosePreviewImage}
+              error={this.state.preview.error}
+              imageLoading={this.state.preview.imageLoading}
+            />
           </div>
         </section>
       </form>
-    )
-  }
-
-  renderPreviewSidebar () {
-    const { previewImage } = this.props
-    if (!previewImage) {
-      return null
-    }
-
-    const { organization } = this.props.auth
-    const previewImages = {
-      original: rokka.render.getUrl(organization, previewImage.hash, previewImage.format),
-      dynamic: this.state.preview.image
-        ? this.state.preview.image.src
-        : rokka.render.getUrl(organization, previewImage.hash, previewImage.format)
-    }
-
-    return (
-      <div className="col-md-5 col-sm-5">
-        <h3 className="rka-h2 mv-md">
-          Preview
-          <a href="#" onClick={this.props.onOpenChoosePreviewImage} className="rka-link flo-r txt-sm">
-            Change picture
-          </a>
-        </h3>
-        <div className="rka-stack-img-container bg-chess mb-xs bor-light txt-c">
-          <p className="pa-md bg-white txt-l">
-            Customized <a href={previewImages.dynamic} className="rka-link flo-r" target="_blank">Open in new window</a>
-          </p>
-          { this.state.preview.error ? <Alert alert={{ type: 'error', message: this.state.preview.error }} /> : null }
-          { this.state.preview.imageLoading ? <Spinner /> : <img src={previewImages.dynamic} /> }
-        </div>
-        <div className="rka-stack-img-container bg-chess bor-light txt-c">
-          <p className="pa-md bg-white txt-l">
-            Original <a href={previewImages.original} className="rka-link flo-r" target="_blank">Open in new window</a>
-          </p>
-          <img src={previewImages.original} />
-        </div>
-      </div>
     )
   }
 }

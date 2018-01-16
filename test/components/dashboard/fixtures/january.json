@@ -1,0 +1,113 @@
+{
+  "space_in_bytes": [
+    {
+      "timestamp": "2018-01-16T00:00:00+00:00",
+      "value": 95833764,
+      "unit": "Bytes"
+    },
+    {
+      "timestamp": "2018-01-15T00:00:00+00:00",
+      "value": 0,
+      "unit": "Bytes"
+    },
+    {
+      "timestamp": "2018-01-14T00:00:00+00:00",
+      "value": 196324703,
+      "unit": "Bytes"
+    },
+    {
+      "timestamp": "2018-01-13T00:00:00+00:00",
+      "value": 196324703,
+      "unit": "Bytes"
+    },
+    {
+      "timestamp": "2018-01-12T00:00:00+00:00",
+      "value": 196324703,
+      "unit": "Bytes"
+    },
+    {
+      "timestamp": "2018-01-11T00:00:00+00:00",
+      "value": 196339255,
+      "unit": "Bytes"
+    },
+    {
+      "timestamp": "2018-01-10T00:00:00+00:00",
+      "value": 0,
+      "unit": "Bytes"
+    },
+    {
+      "timestamp": "2018-01-09T00:00:00+00:00",
+      "value": 0,
+      "unit": "Bytes"
+    }
+  ],
+  "number_of_files": [
+    {
+      "timestamp": "2018-01-16T00:00:00+00:00",
+      "value": 353,
+      "unit": null
+    },
+    {
+      "timestamp": "2018-01-15T00:00:00+00:00",
+      "value": 0,
+      "unit": null
+    },
+    {
+      "timestamp": "2018-01-14T00:00:00+00:00",
+      "value": 210,
+      "unit": null
+    },
+    {
+      "timestamp": "2018-01-13T00:00:00+00:00",
+      "value": 210,
+      "unit": null
+    },
+    {
+      "timestamp": "2018-01-12T00:00:00+00:00",
+      "value": 210,
+      "unit": null
+    },
+    {
+      "timestamp": "2018-01-11T00:00:00+00:00",
+      "value": 211,
+      "unit": null
+    },
+    {
+      "timestamp": "2018-01-10T00:00:00+00:00",
+      "value": 0,
+      "unit": null
+    },
+    {
+      "timestamp": "2018-01-09T00:00:00+00:00",
+      "value": 0,
+      "unit": null
+    }
+  ],
+  "bytes_downloaded": [
+    {
+      "timestamp": "2018-01-16T00:00:00+00:00",
+      "value": 3144460,
+      "unit": null
+    },
+    {
+      "timestamp": "2018-01-15T00:00:00+00:00",
+      "value": 117534504,
+      "unit": null
+    },
+    {
+      "timestamp": "2018-01-13T00:00:00+00:00",
+      "value": 1427623,
+      "unit": null
+    },
+    {
+      "timestamp": "2018-01-12T00:00:00+00:00",
+      "value": 211162190,
+      "unit": null
+    },
+    {
+      "timestamp": "2018-01-11T00:00:00+00:00",
+      "value": 51633090,
+      "unit": null
+    }
+  ]
+}

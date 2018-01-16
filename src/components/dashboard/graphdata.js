@@ -21,7 +21,6 @@ function toChartData ({ value, timestamp }, exponent = null) {
 
 function generateStatsPerDay (perDay, stats, exponent = null) {
   const timestamps = stats.map((stat, index) => ({ index, value: moment(stat.timestamp).valueOf() }))
-  timestamps.reverse()
   stats = timestamps.map(stat => stats[stat.index])
 
   const data = []
@@ -80,9 +79,15 @@ export default function getStats (from, to, data) {
   const daysDiff = moment(to).diff(from, 'days') + 1 // One is added because the API return one less
   const statsPerDay = Array(daysDiff).fill().map((_, i) => from.clone().add(i, 'day'))
 
-  const totals = getTotals(data)
+  const sortedData = {
+    bytes_downloaded: data.bytes_downloaded.sort((a, b) => moment(a.timestamp) - moment(b.timestamp)),
+    number_of_files: data.number_of_files.sort((a, b) => moment(a.timestamp) - moment(b.timestamp)),
+    space_in_bytes: data.space_in_bytes.sort((a, b) => moment(a.timestamp) - moment(b.timestamp))
+  }
 
-  const { bytes_downloaded, space_in_bytes } = data
+  const totals = getTotals(sortedData)
+
+  const { bytes_downloaded, space_in_bytes } = sortedData
   const averageTraffic = bytes_downloaded.length ? totals.traffic / bytes_downloaded.length : 0
   const averageSpace = space_in_bytes.length ? totals.space / space_in_bytes.length : 0
   const average = {
@@ -97,7 +102,7 @@ export default function getStats (from, to, data) {
   totals.space = filesize(totals.space, {exponent: spaceExponent, round: 0, output: 'object'}).value
 
   return {
-    stats: transformData(statsPerDay, data, trafficExponent, spaceExponent),
+    stats: transformData(statsPerDay, sortedData, trafficExponent, spaceExponent),
     totals: totals,
     symbols: {
       traffic: average.traffic.symbol,

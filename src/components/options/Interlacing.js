@@ -20,16 +20,13 @@ class Interlacing extends Component {
 
     if (!this.props.onChange && this.props.options) {
       return (
-        <div>
-          {/* deprecated - remove after 2018-06-01 */}
-          <FormGroup label="Interlacing mode" error={this.props.error}>
-            {$interlacingOptions}
-          </FormGroup>
-        </div>
+        <FormGroup label="Interlacing mode" error={this.props.error}>
+          {$interlacingOptions}
+        </FormGroup>
       )
     }
 
-    return (null)
+    return null
   }
 }
 

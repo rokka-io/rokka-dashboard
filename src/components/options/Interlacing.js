@@ -18,16 +18,18 @@ class Interlacing extends Component {
       )
     })
 
-    return (
-      <div>
-        {/* deprecated - remove after 2018-06-01 */}
-        {!this.props.onChange && this.props.options && (
+    if (!this.props.onChange && this.props.options) {
+      return (
+        <div>
+          {/* deprecated - remove after 2018-06-01 */}
           <FormGroup label="Interlacing mode" error={this.props.error}>
             {$interlacingOptions}
           </FormGroup>
-        )}
-      </div>
-    )
+        </div>
+      )
+    }
+
+    return (null)
   }
 }
 

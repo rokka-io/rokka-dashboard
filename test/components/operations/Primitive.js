@@ -3,12 +3,8 @@ import Primitive from '../../../src/components/operations/Primitive'
 import renderer from 'react-test-renderer'
 import operations from '../../operations.json'
 
-const primitiveValues = {
-  count: 30,
-  mode: 5
-}
-
 test('Primitive does render', () => {
+  const primitiveValues = {}
   const component = renderer.create(
     <Primitive values={primitiveValues} defaults={operations.primitive.properties} required={[]} />
   )
@@ -16,8 +12,11 @@ test('Primitive does render', () => {
   expect(tree).toMatchSnapshot()
 })
 
-test('Sepia does render without values', () => {
-  const primitiveValues = {}
+test('Primitive does render with threshold values', () => {
+  const primitiveValues = {
+    count: 30,
+    mode: 5
+  }
   const component = renderer.create(
     <Primitive values={primitiveValues} defaults={operations.primitive.properties} required={[]} />
   )

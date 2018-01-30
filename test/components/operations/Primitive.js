@@ -15,3 +15,12 @@ test('Primitive does render', () => {
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+test('Sepia does render without values', () => {
+  const primitiveValues = {}
+  const component = renderer.create(
+    <Primitive values={primitiveValues} defaults={operations.primitive.properties} required={[]} />
+  )
+  let tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
+})

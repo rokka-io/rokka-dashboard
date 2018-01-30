@@ -121,6 +121,11 @@ exports[`NewStack does render with a previewImage 1`] = `
                 grayscale
               </option>
               <option
+                value="primitive"
+              >
+                primitive
+              </option>
+              <option
                 value="resize"
               >
                 resize
@@ -320,6 +325,11 @@ exports[`NewStack does render with minimal props 1`] = `
                 value="grayscale"
               >
                 grayscale
+              </option>
+              <option
+                value="primitive"
+              >
+                primitive
               </option>
               <option
                 value="resize"
@@ -650,6 +660,11 @@ exports[`NewStack does render with stackOptions 1`] = `
                 value="grayscale"
               >
                 grayscale
+              </option>
+              <option
+                value="primitive"
+              >
+                primitive
               </option>
               <option
                 value="resize"
@@ -1126,6 +1141,11 @@ exports[`NewStack does render with stacks 1`] = `
                 value="grayscale"
               >
                 grayscale
+              </option>
+              <option
+                value="primitive"
+              >
+                primitive
               </option>
               <option
                 value="resize"

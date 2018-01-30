@@ -8,6 +8,7 @@ import Crop from './Crop'
 import Dropshadow from './Dropshadow'
 import Grayscale from './Grayscale'
 import Noop from './Noop'
+import Primitive from './Primitive'
 import Resize from './Resize'
 import Rotate from './Rotate'
 import Sepia from './Sepia'
@@ -22,6 +23,7 @@ const operations = {
   dropshadow: Dropshadow,
   grayscale: Grayscale,
   noop: Noop,
+  primitive: Primitive,
   resize: Resize,
   rotate: Rotate,
   sepia: Sepia,

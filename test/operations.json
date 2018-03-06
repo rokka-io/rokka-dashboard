@@ -273,9 +273,6 @@
       }
     },
     "required": [
-      "mode",
-      "width",
-      "height"
     ],
     "description": ""
   },

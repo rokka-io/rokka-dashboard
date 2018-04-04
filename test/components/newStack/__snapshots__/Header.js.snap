@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header does render with all props set 1`] = `
+<div
+  className="bg-white pa-md clearfix"
+>
+  <h1
+    className="rka-h1 flo-l mt-xs"
+  >
+    New stack
+  </h1>
+  <div
+    className="flo-r"
+  >
+    <button
+      className="rka-button rka-button-secondary mr-md"
+      disabled={true}
+      href="#"
+      onClick={[Function]}
+      type="button"
+    >
+      Update preview
+    </button>
+    <button
+      className="rka-button rka-button-brand disabled flo-r"
+      type="submit"
+    >
+      <div
+        className="sk-cube-small sk-cube-white"
+      >
+        <div
+          className="sk-folding-cube"
+        >
+          <div
+            className="sk-cube1 sk-cube"
+          />
+          <div
+            className="sk-cube2 sk-cube"
+          />
+          <div
+            className="sk-cube4 sk-cube"
+          />
+          <div
+            className="sk-cube3 sk-cube"
+          />
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Header does render with minimal props 1`] = `
+<div
+  className="bg-white pa-md clearfix"
+>
+  <h1
+    className="rka-h1 flo-l mt-xs"
+  >
+    New stack
+  </h1>
+  <div
+    className="flo-r"
+  >
+    <button
+      className="rka-button rka-button-brand"
+      type="submit"
+    >
+      Create stack
+    </button>
+  </div>
+</div>
+`;

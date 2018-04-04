@@ -4,14 +4,12 @@ import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 import { authRequired } from '../utils/auth'
 import { resetStackClone, createStack, refreshStacks, setAlert } from '../state'
-import Operation from './operations'
-import FormGroup from './forms/FormGroup'
 import previewImage from './images/previewImage'
 import rokka from '../rokka'
-import Options from './Options'
 import Ajv from 'ajv'
 import PreviewSidebar from './newStack/PreviewSidebar'
 import Header from './newStack/Header'
+import OperationList from './newStack/OperationList'
 
 function randomNumber (min, max) {
   return Math.random() * (max - min) + min
@@ -81,7 +79,8 @@ export class NewStack extends PureComponent {
         updated: true,
         image: null,
         error: null
-      }
+      },
+      selectedOperation: null
     }
 
     this.onChange = this.onChange.bind(this)
@@ -92,6 +91,7 @@ export class NewStack extends PureComponent {
     this.removeOperation = this.removeOperation.bind(this)
     this.setActiveOperation = this.setActiveOperation.bind(this)
     this.onMoveOperation = this.onMoveOperation.bind(this)
+    this.onSelectAddOperation = this.onSelectAddOperation.bind(this)
     this.updatePreview = this.updatePreview.bind(this)
   }
 
@@ -141,7 +141,7 @@ export class NewStack extends PureComponent {
           // otherwise when moving an operation from index 0 to 1, the element might need to be recreated
           // and react-dnd looses track of it.
           id: generateRandomId(),
-          name: this.refs.operationsList.value,
+          name: this.state.selectedOperation,
           options: {},
           errors: {}
         }
@@ -150,6 +150,12 @@ export class NewStack extends PureComponent {
       preview: Object.assign({}, this.state.preview, {
         updated: false
       })
+    })
+  }
+
+  onSelectAddOperation (e) {
+    this.setState({
+      selectedOperation: e.currentTarget.value
     })
   }
 
@@ -394,40 +400,23 @@ export class NewStack extends PureComponent {
         <section className="rka-box rka-box-stacks pt-n">
           {error}
           <div className="row">
-            <div className="col-md-7 col-sm-7">
-              <h3 className="rka-h2 mv-md">Stack details</h3>
-              <FormGroup label="Name" required>
-                <input type="text" className="rka-input-txt" id="name" name="name" onChange={this.onChangeName}
-                  value={this.state.name} />
-              </FormGroup>
-
-              <Options defaultOptions={this.props.stackOptions ? this.props.stackOptions.properties : {}} options={this.state.options} onChange={this.onChangeOptions} stacks={this.props.stacks} />
-
-              <h3 className="rka-h2 mv-md">Operations</h3>
-              {this.state.operations.map((operation, index) => {
-                return <Operation
-                  availableOperations={this.props.operations}
-                  key={`operation-${operation.id}-${operation.name}`}
-                  operation={operation}
-                  index={index}
-                  isActive={index === this.state.activeOperation}
-                  onChange={this.onChange}
-                  removeOperation={this.removeOperation}
-                  setActiveOperation={this.setActiveOperation}
-                  onMoveOperation={this.onMoveOperation}
-                />
-              })}
-
-              <div className="pa-md bor-light mt-md">
-                <h3 className="rka-h3 mb-md">New operation</h3>
-                <div className="rka-form-group">
-                  <select ref="operationsList" className="rka-select">
-                    {Object.keys(this.props.operations).filter(name => name !== 'noop').sort().map((name) => <option key={name} value={name}>{name}</option>)}
-                  </select>
-                </div>
-                <a href="#" className="rka-button rka-button-brand rka-button-sm" onClick={this.addOperation}>Add operation</a>
-              </div>
-            </div>
+            <OperationList
+              name={this.state.name}
+              options={this.state.options}
+              stacks={this.props.stacks}
+              onChangeName={this.onChangeName}
+              onChangeOptions={this.onChangeOptions}
+              onChangeOperation={this.onChange}
+              addOperation={this.addOperation}
+              removeOperation={this.removeOperation}
+              setActiveOperation={this.setActiveOperation}
+              onMoveOperation={this.onMoveOperation}
+              onSelectAddOperation={this.onSelectAddOperation}
+              activeOperation={this.state.activeOperation}
+              addedOperations={this.state.operations}
+              availableOperations={this.props.operations}
+              stackOptions={this.props.stackOptions}
+            />
             <PreviewSidebar
               organization={this.props.auth.organization}
               previewImage={this.props.previewImage}

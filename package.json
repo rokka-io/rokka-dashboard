@@ -116,5 +116,8 @@
   },
   "engines": {
     "node": "~8"
+  },
+  "devDependencies": {
+    "react-dnd-test-backend": "^2.6.0"
   }
 }

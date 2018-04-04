@@ -4,7 +4,6 @@ import rokka from '../../rokka'
 import Alert from '../Alert'
 import Spinner from '../Spinner'
 
-// TODO: Naming
 const PreviewSidebar = ({organization, onChange, previewImage = null, currentPreviewImage = null, error = null, imageLoading = false}) => {
   if (!previewImage) {
     return null

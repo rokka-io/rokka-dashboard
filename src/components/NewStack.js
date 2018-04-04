@@ -7,12 +7,11 @@ import { resetStackClone, createStack, refreshStacks, setAlert } from '../state'
 import Operation from './operations'
 import FormGroup from './forms/FormGroup'
 import previewImage from './images/previewImage'
-import Spinner from './Spinner'
 import rokka from '../rokka'
 import Options from './Options'
 import Ajv from 'ajv'
-import cx from 'classnames'
 import PreviewSidebar from './newStack/PreviewSidebar'
+import Header from './newStack/Header'
 
 function randomNumber (min, max) {
   return Math.random() * (max - min) + min
@@ -383,34 +382,15 @@ export class NewStack extends PureComponent {
   render () {
     const error = this.state.error ? <div className="rka-alert is-error mb-lg">{this.state.error}</div> : null
 
-    let $previewButton = null
-    if (this.props.previewImage) {
-      $previewButton = (
-        <button
-          type="button"
-          href="#"
-          onClick={(e) => { e.preventDefault(); this.updatePreview(this.props.previewImage) }}
-          disabled={this.state.preview.updated}
-          className="rka-button rka-button-secondary mr-md">
-          Update preview
-        </button>
-      )
-    }
-
     return (
       <form onSubmit={this.onSubmit}>
-        <div className="bg-white pa-md clearfix">
-          <h1 className="rka-h1 flo-l mt-xs">New stack</h1>
-          <div className="flo-r">
-            {$previewButton}
-            <button
-              className={cx('rka-button rka-button-brand',
-                { 'disabled flo-r': this.state.showLoader || this.state.name === '' })}
-              type="submit">
-              { this.state.showLoader ? <div className="sk-cube-small sk-cube-white"><Spinner /></div> : 'Create stack' }
-            </button>
-          </div>
-        </div>
+        <Header
+          previewImage={this.props.previewImage}
+          updatePreview={(img) => this.updatePreview(img)}
+          createStackBtnDisabled={this.state.showLoader || this.state.name === ''}
+          isPreviewCurrent={this.state.preview.updated}
+          showLoader={this.state.showLoader}
+        />
         <section className="rka-box rka-box-stacks pt-n">
           {error}
           <div className="row">

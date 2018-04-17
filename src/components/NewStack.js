@@ -9,7 +9,7 @@ import rokka from '../rokka'
 import Ajv from 'ajv'
 import PreviewSidebar from './newStack/PreviewSidebar'
 import Header from './newStack/Header'
-import OperationList from './newStack/OperationList'
+import OperationListContainer from './newStack/OperationListContainer'
 
 function randomNumber (min, max) {
   return Math.random() * (max - min) + min
@@ -400,7 +400,7 @@ export class NewStack extends PureComponent {
         <section className="rka-box rka-box-stacks pt-n">
           {error}
           <div className="row">
-            <OperationList
+            <OperationListContainer
               name={this.state.name}
               options={this.state.options}
               stacks={this.props.stacks}

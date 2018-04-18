@@ -49,6 +49,7 @@ function generateStatsPerDay (perDay, stats, exponent = null) {
   return data
 }
 
+// eslint-disable-next-line camelcase
 function transformData (statsPerDay, { bytes_downloaded, space_in_bytes, number_of_files }, trafficExponent, spaceExponent) {
   return {
     traffic: generateStatsPerDay(statsPerDay, bytes_downloaded, trafficExponent),
@@ -57,6 +58,7 @@ function transformData (statsPerDay, { bytes_downloaded, space_in_bytes, number_
   }
 }
 
+// eslint-disable-next-line camelcase
 function getTotals ({ bytes_downloaded, space_in_bytes, number_of_files }) {
   const currentSpaceUsed = space_in_bytes[space_in_bytes.length - 1]
   const currentFilesUsed = number_of_files[number_of_files.length - 1]
@@ -87,6 +89,7 @@ export default function getStats (from, to, data) {
 
   const totals = getTotals(sortedData)
 
+  // eslint-disable-next-line camelcase
   const { bytes_downloaded, space_in_bytes } = sortedData
   const averageTraffic = bytes_downloaded.length ? totals.traffic / bytes_downloaded.length : 0
   const averageSpace = space_in_bytes.length ? totals.space / space_in_bytes.length : 0

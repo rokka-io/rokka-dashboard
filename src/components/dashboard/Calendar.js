@@ -143,15 +143,15 @@ class Calendar extends PureComponent {
                   </div>
                 </div>
               )}
-              renderDay={date => {
-                const first = start && start.isSame(date, 'day')
-                const last = end && end.isSame(date, 'day')
-                const inRange = start && end && date.isBetween(start, end, 'day', '[]')
-                const future = date.isAfter(this.today, 'day')
+              renderDay={({day, classNames, onPickDate}) => {
+                const first = start && start.isSame(day, 'day')
+                const last = end && end.isSame(day, 'day')
+                const inRange = start && end && day.isBetween(start, end, 'day', '[]')
+                const future = day.isAfter(this.today, 'day')
                 const hoverable = !future && !inRange
-                const className = cx('date-item', {
-                  'today': date.isSame(this.today, 'day'),
-                  'weekend': date.isoWeekday() >= 6,
+                const className = cx('date-item', 'Calendar-grid-item', classNames, {
+                  'today Calendar-grid-item--current': day.isSame(this.today, 'day'),
+                  'weekend': day.isoWeekday() >= 6,
                   'selected': inRange,
                   future,
                   first,
@@ -159,9 +159,9 @@ class Calendar extends PureComponent {
                   hoverable
                 })
                 return (
-                  <div className={className} onMouseOver={() => !future && this.onMouseOver(date)}>
+                  <div key={day.format()} className={className} onMouseOver={() => !future && this.onMouseOver(day)} onClick={e => onPickDate(day)}>
                     <div className="text">
-                      {date.format('D')}
+                      {day.format('D')}
                     </div>
                   </div>
                 )

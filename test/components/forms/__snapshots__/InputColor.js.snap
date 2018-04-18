@@ -89,15 +89,15 @@ exports[`InputColor does render 2`] = `
       >
         <style>
           
-                    .saturation-white {
-                      background: -webkit-linear-gradient(to right, #fff, rgba(255,255,255,0));
-                      background: linear-gradient(to right, #fff, rgba(255,255,255,0));
-                    }
-                    .saturation-black {
-                      background: -webkit-linear-gradient(to top, #000, rgba(0,0,0,0));
-                      background: linear-gradient(to top, #000, rgba(0,0,0,0));
-                    }
-                  
+          .saturation-white {
+            background: -webkit-linear-gradient(to right, #fff, rgba(255,255,255,0));
+            background: linear-gradient(to right, #fff, rgba(255,255,255,0));
+          }
+          .saturation-black {
+            background: -webkit-linear-gradient(to top, #000, rgba(0,0,0,0));
+            background: linear-gradient(to top, #000, rgba(0,0,0,0));
+          }
+        
         </style>
         <div
           className="saturation-white"
@@ -245,7 +245,7 @@ exports[`InputColor does render 2`] = `
                   "OBoxShadow": undefined,
                   "WebkitBorderRadius": undefined,
                   "WebkitBoxShadow": undefined,
-                  "background": "url(null) center left",
+                  "background": "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAAK0lEQVQ4jWNkYGAQYcAP3uCTZCKgmSAYNWAwGMBIhBq86WTgvTBqABUMAABXlAEzkiIyLgAAAABJRU5ErkJggg==) center left",
                   "borderRadius": undefined,
                   "bottom": "0px",
                   "boxShadow": undefined,
@@ -308,7 +308,12 @@ exports[`InputColor does render 2`] = `
                 onTouchStart={[Function]}
                 style={
                   Object {
+                    "MozBorderRadius": undefined,
+                    "OBorderRadius": undefined,
+                    "WebkitBorderRadius": undefined,
+                    "borderRadius": undefined,
                     "height": "100%",
+                    "msBorderRadius": undefined,
                     "padding": "0 2px",
                     "position": "relative",
                   }
@@ -316,20 +321,20 @@ exports[`InputColor does render 2`] = `
               >
                 <style>
                   
-                              .hue-horizontal {
-                                background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0
-                                  33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-                                background: -webkit-linear-gradient(to right, #f00 0%, #ff0
-                                  17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-                              }
-                  
-                              .hue-vertical {
-                                background: linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
-                                  #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-                                background: -webkit-linear-gradient(to top, #f00 0%, #ff0 17%,
-                                  #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-                              }
-                            
+            .hue-horizontal {
+              background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0
+                33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+              background: -webkit-linear-gradient(to right, #f00 0%, #ff0
+                17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+            }
+
+            .hue-vertical {
+              background: linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
+                #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+              background: -webkit-linear-gradient(to top, #f00 0%, #ff0 17%,
+                #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+            }
+          
                 </style>
                 <div
                   style={
@@ -395,8 +400,13 @@ exports[`InputColor does render 2`] = `
               <div
                 style={
                   Object {
+                    "MozBorderRadius": undefined,
+                    "OBorderRadius": undefined,
+                    "WebkitBorderRadius": undefined,
+                    "borderRadius": undefined,
                     "bottom": "0px",
                     "left": "0px",
+                    "msBorderRadius": undefined,
                     "overflow": "hidden",
                     "position": "absolute",
                     "right": "0px",
@@ -413,7 +423,7 @@ exports[`InputColor does render 2`] = `
                       "OBoxShadow": undefined,
                       "WebkitBorderRadius": undefined,
                       "WebkitBoxShadow": undefined,
-                      "background": "url(null) center left",
+                      "background": "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAAK0lEQVQ4jWNkYGAQYcAP3uCTZCKgmSAYNWAwGMBIhBq86WTgvTBqABUMAABXlAEzkiIyLgAAAABJRU5ErkJggg==) center left",
                       "borderRadius": undefined,
                       "bottom": "0px",
                       "boxShadow": undefined,
@@ -437,7 +447,7 @@ exports[`InputColor does render 2`] = `
                     "WebkitBorderRadius": undefined,
                     "WebkitBoxShadow": undefined,
                     "background": "linear-gradient(to right, rgba(34,25,77, 0) 0%,
-                             rgba(34,25,77, 1) 100%)",
+           rgba(34,25,77, 1) 100%)",
                     "borderRadius": undefined,
                     "bottom": "0px",
                     "boxShadow": undefined,
@@ -729,15 +739,15 @@ exports[`InputColor provides shows defaultValue 2`] = `
       >
         <style>
           
-                    .saturation-white {
-                      background: -webkit-linear-gradient(to right, #fff, rgba(255,255,255,0));
-                      background: linear-gradient(to right, #fff, rgba(255,255,255,0));
-                    }
-                    .saturation-black {
-                      background: -webkit-linear-gradient(to top, #000, rgba(0,0,0,0));
-                      background: linear-gradient(to top, #000, rgba(0,0,0,0));
-                    }
-                  
+          .saturation-white {
+            background: -webkit-linear-gradient(to right, #fff, rgba(255,255,255,0));
+            background: linear-gradient(to right, #fff, rgba(255,255,255,0));
+          }
+          .saturation-black {
+            background: -webkit-linear-gradient(to top, #000, rgba(0,0,0,0));
+            background: linear-gradient(to top, #000, rgba(0,0,0,0));
+          }
+        
         </style>
         <div
           className="saturation-white"
@@ -885,7 +895,7 @@ exports[`InputColor provides shows defaultValue 2`] = `
                   "OBoxShadow": undefined,
                   "WebkitBorderRadius": undefined,
                   "WebkitBoxShadow": undefined,
-                  "background": "url(null) center left",
+                  "background": "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAAK0lEQVQ4jWNkYGAQYcAP3uCTZCKgmSAYNWAwGMBIhBq86WTgvTBqABUMAABXlAEzkiIyLgAAAABJRU5ErkJggg==) center left",
                   "borderRadius": undefined,
                   "bottom": "0px",
                   "boxShadow": undefined,
@@ -948,7 +958,12 @@ exports[`InputColor provides shows defaultValue 2`] = `
                 onTouchStart={[Function]}
                 style={
                   Object {
+                    "MozBorderRadius": undefined,
+                    "OBorderRadius": undefined,
+                    "WebkitBorderRadius": undefined,
+                    "borderRadius": undefined,
                     "height": "100%",
+                    "msBorderRadius": undefined,
                     "padding": "0 2px",
                     "position": "relative",
                   }
@@ -956,20 +971,20 @@ exports[`InputColor provides shows defaultValue 2`] = `
               >
                 <style>
                   
-                              .hue-horizontal {
-                                background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0
-                                  33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-                                background: -webkit-linear-gradient(to right, #f00 0%, #ff0
-                                  17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-                              }
-                  
-                              .hue-vertical {
-                                background: linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
-                                  #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-                                background: -webkit-linear-gradient(to top, #f00 0%, #ff0 17%,
-                                  #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-                              }
-                            
+            .hue-horizontal {
+              background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0
+                33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+              background: -webkit-linear-gradient(to right, #f00 0%, #ff0
+                17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+            }
+
+            .hue-vertical {
+              background: linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
+                #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+              background: -webkit-linear-gradient(to top, #f00 0%, #ff0 17%,
+                #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+            }
+          
                 </style>
                 <div
                   style={
@@ -1035,8 +1050,13 @@ exports[`InputColor provides shows defaultValue 2`] = `
               <div
                 style={
                   Object {
+                    "MozBorderRadius": undefined,
+                    "OBorderRadius": undefined,
+                    "WebkitBorderRadius": undefined,
+                    "borderRadius": undefined,
                     "bottom": "0px",
                     "left": "0px",
+                    "msBorderRadius": undefined,
                     "overflow": "hidden",
                     "position": "absolute",
                     "right": "0px",
@@ -1053,7 +1073,7 @@ exports[`InputColor provides shows defaultValue 2`] = `
                       "OBoxShadow": undefined,
                       "WebkitBorderRadius": undefined,
                       "WebkitBoxShadow": undefined,
-                      "background": "url(null) center left",
+                      "background": "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAAK0lEQVQ4jWNkYGAQYcAP3uCTZCKgmSAYNWAwGMBIhBq86WTgvTBqABUMAABXlAEzkiIyLgAAAABJRU5ErkJggg==) center left",
                       "borderRadius": undefined,
                       "bottom": "0px",
                       "boxShadow": undefined,
@@ -1077,7 +1097,7 @@ exports[`InputColor provides shows defaultValue 2`] = `
                     "WebkitBorderRadius": undefined,
                     "WebkitBoxShadow": undefined,
                     "background": "linear-gradient(to right, rgba(34,25,77, 0) 0%,
-                             rgba(34,25,77, 1) 100%)",
+           rgba(34,25,77, 1) 100%)",
                     "borderRadius": undefined,
                     "bottom": "0px",
                     "boxShadow": undefined,
@@ -1369,15 +1389,15 @@ exports[`InputColor provides value 2`] = `
       >
         <style>
           
-                    .saturation-white {
-                      background: -webkit-linear-gradient(to right, #fff, rgba(255,255,255,0));
-                      background: linear-gradient(to right, #fff, rgba(255,255,255,0));
-                    }
-                    .saturation-black {
-                      background: -webkit-linear-gradient(to top, #000, rgba(0,0,0,0));
-                      background: linear-gradient(to top, #000, rgba(0,0,0,0));
-                    }
-                  
+          .saturation-white {
+            background: -webkit-linear-gradient(to right, #fff, rgba(255,255,255,0));
+            background: linear-gradient(to right, #fff, rgba(255,255,255,0));
+          }
+          .saturation-black {
+            background: -webkit-linear-gradient(to top, #000, rgba(0,0,0,0));
+            background: linear-gradient(to top, #000, rgba(0,0,0,0));
+          }
+        
         </style>
         <div
           className="saturation-white"
@@ -1525,7 +1545,7 @@ exports[`InputColor provides value 2`] = `
                   "OBoxShadow": undefined,
                   "WebkitBorderRadius": undefined,
                   "WebkitBoxShadow": undefined,
-                  "background": "url(null) center left",
+                  "background": "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAAK0lEQVQ4jWNkYGAQYcAP3uCTZCKgmSAYNWAwGMBIhBq86WTgvTBqABUMAABXlAEzkiIyLgAAAABJRU5ErkJggg==) center left",
                   "borderRadius": undefined,
                   "bottom": "0px",
                   "boxShadow": undefined,
@@ -1588,7 +1608,12 @@ exports[`InputColor provides value 2`] = `
                 onTouchStart={[Function]}
                 style={
                   Object {
+                    "MozBorderRadius": undefined,
+                    "OBorderRadius": undefined,
+                    "WebkitBorderRadius": undefined,
+                    "borderRadius": undefined,
                     "height": "100%",
+                    "msBorderRadius": undefined,
                     "padding": "0 2px",
                     "position": "relative",
                   }
@@ -1596,20 +1621,20 @@ exports[`InputColor provides value 2`] = `
               >
                 <style>
                   
-                              .hue-horizontal {
-                                background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0
-                                  33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-                                background: -webkit-linear-gradient(to right, #f00 0%, #ff0
-                                  17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-                              }
-                  
-                              .hue-vertical {
-                                background: linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
-                                  #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-                                background: -webkit-linear-gradient(to top, #f00 0%, #ff0 17%,
-                                  #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
-                              }
-                            
+            .hue-horizontal {
+              background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0
+                33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+              background: -webkit-linear-gradient(to right, #f00 0%, #ff0
+                17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+            }
+
+            .hue-vertical {
+              background: linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
+                #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+              background: -webkit-linear-gradient(to top, #f00 0%, #ff0 17%,
+                #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+            }
+          
                 </style>
                 <div
                   style={
@@ -1675,8 +1700,13 @@ exports[`InputColor provides value 2`] = `
               <div
                 style={
                   Object {
+                    "MozBorderRadius": undefined,
+                    "OBorderRadius": undefined,
+                    "WebkitBorderRadius": undefined,
+                    "borderRadius": undefined,
                     "bottom": "0px",
                     "left": "0px",
+                    "msBorderRadius": undefined,
                     "overflow": "hidden",
                     "position": "absolute",
                     "right": "0px",
@@ -1693,7 +1723,7 @@ exports[`InputColor provides value 2`] = `
                       "OBoxShadow": undefined,
                       "WebkitBorderRadius": undefined,
                       "WebkitBoxShadow": undefined,
-                      "background": "url(null) center left",
+                      "background": "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAAK0lEQVQ4jWNkYGAQYcAP3uCTZCKgmSAYNWAwGMBIhBq86WTgvTBqABUMAABXlAEzkiIyLgAAAABJRU5ErkJggg==) center left",
                       "borderRadius": undefined,
                       "bottom": "0px",
                       "boxShadow": undefined,
@@ -1717,7 +1747,7 @@ exports[`InputColor provides value 2`] = `
                     "WebkitBorderRadius": undefined,
                     "WebkitBoxShadow": undefined,
                     "background": "linear-gradient(to right, rgba(0,0,0, 0) 0%,
-                             rgba(0,0,0, 1) 100%)",
+           rgba(0,0,0, 1) 100%)",
                     "borderRadius": undefined,
                     "bottom": "0px",
                     "boxShadow": undefined,

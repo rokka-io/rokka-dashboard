@@ -84,7 +84,7 @@
     }
   }
 
-  .date-item {
+  &.date-item {
     flex: 1;
     min-width: 40px;
     min-height: 40px;
@@ -117,23 +117,23 @@
       border-radius: 50%;
     }
   }
-  .future {
+  &.future {
     color: $clr-gray;
 
     &.weekend {
       color: rgba($clr-gray, 0.6);
     }
   }
-  .today {
+  &.today {
     color: $clr-brand;
     font-family: $font-brand-sb;
   }
 
-  .weekend {
+  &.weekend {
     color: rgba($clr-black, 0.6);
   }
 
-  .selected {
+  &.selected {
     color: $clr-white;
 
     &.weekend {
@@ -159,21 +159,23 @@
         content: "";
         background: $clr-brand padding-box;
       }
-      &:before {
-        right: 50%;
-      }
       &:after {
         left: 50%;
       }
     }
   }
-  .first, .last {
+  &.first, &.last {
     .text {
       border-radius: 50%;
       background: $clr-brand-dark padding-box;
+
+      &:before {
+        right: 50%;
+        width: 50%;
+      }
     }
   }
-  .first .text:before, .last .text:after {
+  &.first .text:before, &.last .text:after {
     display: none;
   }
 }

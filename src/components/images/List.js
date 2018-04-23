@@ -21,6 +21,8 @@ function getRokkaType (key) {
   }
 }
 
+const defaultSearchField = 'name'
+
 class ImageList extends Component {
   constructor (props) {
     super(props)
@@ -31,7 +33,7 @@ class ImageList extends Component {
       },
       loading: true,
       currentOffset: 0,
-      searchField: 'name',
+      searchField: defaultSearchField,
       searchValue: '',
       sortField: 'created',
       sortOrder: 'desc',
@@ -53,10 +55,12 @@ class ImageList extends Component {
 
     if (name === 'searchField' && value === null) {
       stateChange.searchValue = ''
+      stateChange.searchField = ''
       reload = true
     }
+
     // allow searching/sorting for/by custom field names
-    if ((name === 'searchField' || name === 'sortField') && !this.state.fields[value]) {
+    if ((name === 'searchField' || name === 'sortField') && !this.state.fields[value] && value !== null && !value.includes('user:')) {
       stateChange.fields = Object.assign({}, this.state.fields, {
         [value]: {type: 'unknown', value: `user:${value}`}
       })

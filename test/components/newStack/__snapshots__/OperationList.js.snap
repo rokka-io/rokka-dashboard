@@ -379,6 +379,7 @@ exports[`OperationList does render with all props 1`] = `
       <select
         className="rka-select"
         onChange={[Function]}
+        value=""
       >
         <option
           value="crop"
@@ -451,6 +452,7 @@ exports[`OperationList does render with minimal props 1`] = `
       <select
         className="rka-select"
         onChange={[Function]}
+        value=""
       />
     </div>
     <a

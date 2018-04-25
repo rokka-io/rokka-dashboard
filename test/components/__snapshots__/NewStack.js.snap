@@ -85,6 +85,7 @@ exports[`NewStack does render with a previewImage 1`] = `
             <select
               className="rka-select"
               onChange={[Function]}
+              value="alpha"
             >
               <option
                 value="alpha"
@@ -292,6 +293,7 @@ exports[`NewStack does render with minimal props 1`] = `
             <select
               className="rka-select"
               onChange={[Function]}
+              value="alpha"
             >
               <option
                 value="alpha"
@@ -628,6 +630,7 @@ exports[`NewStack does render with stackOptions 1`] = `
             <select
               className="rka-select"
               onChange={[Function]}
+              value="alpha"
             >
               <option
                 value="alpha"
@@ -1110,6 +1113,7 @@ exports[`NewStack does render with stacks 1`] = `
             <select
               className="rka-select"
               onChange={[Function]}
+              value="alpha"
             >
               <option
                 value="alpha"

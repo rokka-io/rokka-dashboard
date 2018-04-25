@@ -16,6 +16,7 @@ const OperationList = ({
   setActiveOperation,
   onMoveOperation,
   onSelectAddOperation,
+  selectedOperation,
   activeOperation = 0,
   addedOperations = [],
   availableOperations = {},
@@ -54,7 +55,7 @@ const OperationList = ({
       <div className="pa-md bor-light mt-md">
         <h3 className="rka-h3 mb-md">New operation</h3>
         <div className="rka-form-group">
-          <select className="rka-select" onChange={onSelectAddOperation}>
+          <select className="rka-select" onChange={onSelectAddOperation} value={selectedOperation}>
             {Object.keys(availableOperations).filter(name => name !== 'noop').sort().map((name) => <option key={name} value={name}>{name}</option>)}
           </select>
         </div>
@@ -74,6 +75,7 @@ OperationList.propTypes = {
   setActiveOperation: PropTypes.func.isRequired,
   onMoveOperation: PropTypes.func.isRequired,
   onSelectAddOperation: PropTypes.func.isRequired,
+  selectedOperation: PropTypes.string.isRequired,
   activeOperation: PropTypes.number,
   addedOperations: PropTypes.array,
   availableOperations: PropTypes.object,

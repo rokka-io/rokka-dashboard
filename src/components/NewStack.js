@@ -65,6 +65,12 @@ export class NewStack extends PureComponent {
       })
     }
 
+    let selectedOperation = ''
+    const opKeys = Object.keys(props.operations).sort()
+    if (opKeys.length) {
+      selectedOperation = opKeys[0]
+    }
+
     this.state = {
       name: stackClone.name || '',
       options: options,
@@ -80,7 +86,7 @@ export class NewStack extends PureComponent {
         image: null,
         error: null
       },
-      selectedOperation: null
+      selectedOperation
     }
 
     this.onChange = this.onChange.bind(this)
@@ -127,6 +133,10 @@ export class NewStack extends PureComponent {
         }
         this.operationValidators[key] = ajv.compile(operation)
       })
+      const opKeys = Object.keys(nextProps.operations).sort()
+      if (opKeys.length && this.state.selectedOperation === '') {
+        this.setState({ selectedOperation: opKeys[0] })
+      }
     }
   }
 
@@ -416,6 +426,7 @@ export class NewStack extends PureComponent {
               addedOperations={this.state.operations}
               availableOperations={this.props.operations}
               stackOptions={this.props.stackOptions}
+              selectedOperation={this.state.selectedOperation}
             />
             <PreviewSidebar
               organization={this.props.auth.organization}

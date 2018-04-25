@@ -29,7 +29,8 @@ test('OperationList does render with minimal props', () => {
     removeOperation: failingFunc,
     setActiveOperation: failingFunc,
     onMoveOperation: failingFunc,
-    onSelectAddOperation: failingFunc
+    onSelectAddOperation: failingFunc,
+    selectedOperation: ''
   }
   const component = renderer.create(
     <OperationList {...props} />
@@ -53,6 +54,7 @@ test('OperationList does render with all props', () => {
     setActiveOperation: failingFunc,
     onMoveOperation: failingFunc,
     onSelectAddOperation: failingFunc,
+    selectedOperation: '',
     activeOperation: 1,
     availableOperations: {
       rotate: {

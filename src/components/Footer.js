@@ -4,7 +4,7 @@ class Footer extends Component {
   render () {
     return (
       <footer className="rka-footer">
-        Rokka &copy; 2017
+        Rokka &copy; 2018
       </footer>
     )
   }

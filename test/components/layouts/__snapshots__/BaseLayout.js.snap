@@ -153,7 +153,7 @@ exports[`BaseLayout does render 1`] = `
   <footer
     className="rka-footer"
   >
-    Rokka © 2017
+    Rokka © 2018
   </footer>
 </div>
 `;
@@ -311,7 +311,7 @@ exports[`BaseLayout does render active sidebar 1`] = `
   <footer
     className="rka-footer"
   >
-    Rokka © 2017
+    Rokka © 2018
   </footer>
 </div>
 `;
@@ -478,7 +478,7 @@ exports[`BaseLayout does render alert 1`] = `
   <footer
     className="rka-footer"
   >
-    Rokka © 2017
+    Rokka © 2018
   </footer>
 </div>
 `;

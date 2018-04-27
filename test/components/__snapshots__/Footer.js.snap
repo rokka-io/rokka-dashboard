@@ -4,6 +4,6 @@ exports[`Footer does render 1`] = `
 <footer
   className="rka-footer"
 >
-  Rokka © 2017
+  Rokka © 2018
 </footer>
 `;

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import cx from 'classnames'
 import { authRequired } from '../utils/auth'
 
@@ -28,7 +28,7 @@ const getStackByName = (stacks, name) => {
   return result
 }
 
-class Stack extends Component {
+class Stack extends PureComponent {
   constructor (props) {
     super(props)
 

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import rokka from '../rokka'
 import Spinner from './Spinner'
 import FramelessLayout from './layouts/FramelessLayout'
@@ -10,7 +10,7 @@ function hasUpperCase (str) {
   return str.toLowerCase() !== str
 }
 
-class Signup extends Component {
+class Signup extends PureComponent {
   constructor () {
     super()
 

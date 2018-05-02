@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import React, { Component, cloneElement } from 'react'
+import React, { PureComponent, cloneElement } from 'react'
 import { authRequired } from '../utils/auth'
 import BaseLayout from './layouts/BaseLayout'
 
-class Stacks extends Component {
+class Stacks extends PureComponent {
   render () {
     return (
       <BaseLayout {...this.props}>

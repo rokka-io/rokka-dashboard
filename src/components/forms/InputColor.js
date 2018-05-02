@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { ChromePicker } from 'react-color'
 import enhanceWithClickOutside from 'react-click-outside'
 
-class InputColor extends Component {
+class InputColor extends PureComponent {
   constructor (props) {
     super(props)
 

@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import React, { Component, cloneElement } from 'react'
+import React, { PureComponent, cloneElement } from 'react'
 import state, { subscribe } from '../state'
 import '../scss/main.scss'
 
-class App extends Component {
+class App extends PureComponent {
   constructor (props) {
     super(props)
 

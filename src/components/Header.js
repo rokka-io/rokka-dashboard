@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { IndexLink } from 'react-router'
+import { Link } from 'react-router-dom'
 import { toggleSidebar, logout } from '../state'
 import avatarIcon from '../img/avatar-placeholder.svg'
 import logoutIcon from '../img/logout-icon.svg'
@@ -10,7 +10,7 @@ const Header = (props) =>
   <header className="rka-header">
     <a href="#" className={cx('rka-header-menu-icon', {'is-active': props.active})}
       onClick={(e) => { toggleSidebar(); e.preventDefault() }} />
-    <IndexLink to="/" className="rka-header-logo" />
+    <Link to="/" className="rka-header-logo" />
     <nav className="rka-header-nav">
       <a className="rka-user">
         {/* !user (avatar placeholder) */}

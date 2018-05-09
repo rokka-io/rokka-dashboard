@@ -33,7 +33,7 @@ class Stack extends Component {
     super(props)
 
     this.state = {
-      stack: getStackByName(props.stacks.items, props.params.name)
+      stack: getStackByName(props.stacks.items, props.router.match.params.name)
     }
   }
 
@@ -43,14 +43,16 @@ class Stack extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    this.setState({
-      stack: getStackByName(nextProps.stacks.items, nextProps.params.name)
-    })
+    if (nextProps.router.match.params.name !== this.props.router.match.params.name) {
+      this.setState({
+        stack: getStackByName(nextProps.stacks.items, nextProps.router.match.params.name)
+      })
+    }
   }
 
   componentWillMount () {
     if (!this.props.stacks.items) {
-      this.props.router.replace({
+      this.props.router.history.replace({
         pathname: '/stacks'
       })
     }
@@ -73,7 +75,7 @@ class Stack extends Component {
 
     deleteStack(name)
       .then(() => {
-        this.props.router.push(`/stacks`)
+        this.props.router.history.push(`/stacks`)
         setAlert('success', `Stack ${name} has been deleted.`, 5000)
       })
       .catch((err) => {
@@ -87,7 +89,7 @@ class Stack extends Component {
   onClickDuplicateStack () {
     const name = this.state.stack.name + '_copy'
     cloneStack(name, this.state.stack.stack_operations, this.state.stack.stack_options)
-    this.props.router.push(`/new-stack`)
+    this.props.router.history.push(`/new-stack`)
   }
 
   render () {
@@ -236,10 +238,17 @@ Stack.propTypes = {
     items: PropTypes.array,
     total: PropTypes.number
   }),
-  params: PropTypes.shape({
-    name: PropTypes.string.isRequired
+  router: PropTypes.shape({
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        name: PropTypes.string
+      }).isRequired
+    }),
+    history: PropTypes.shape({
+      replace: PropTypes.func.isRequired,
+      push: PropTypes.func.isRequired
+    })
   }).isRequired,
-  router: PropTypes.object.isRequired,
   // from previewImage
   onOpenChoosePreviewImage: PropTypes.func.isRequired,
   loadPreviewImage: PropTypes.func.isRequired,

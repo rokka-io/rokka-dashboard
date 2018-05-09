@@ -10,6 +10,7 @@ import Ajv from 'ajv'
 import PreviewSidebar from './newStack/PreviewSidebar'
 import Header from './newStack/Header'
 import OperationList from './newStack/OperationList'
+import BaseLayout from './layouts/BaseLayout'
 
 function randomNumber (min, max) {
   return Math.random() * (max - min) + min
@@ -238,7 +239,7 @@ export class NewStack extends PureComponent {
       .then(([result]) => {
         setAlert('success', `Stack ${result.name} created successfully.`, 2000)
         this.setState({ showLoader: false })
-        this.props.router.push(`/stacks/${result.name}`)
+        this.props.router.history.push(`/stacks/${result.name}`)
       })
       .catch((error) => {
         this.setState({
@@ -399,46 +400,54 @@ export class NewStack extends PureComponent {
     const error = this.state.error ? <div className="rka-alert is-error mb-lg">{this.state.error}</div> : null
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <Header
-          previewImage={this.props.previewImage}
-          updatePreview={(img) => this.updatePreview(img)}
-          createStackBtnDisabled={this.state.showLoader || this.state.name === ''}
-          isPreviewCurrent={this.state.preview.updated}
-          showLoader={this.state.showLoader}
-        />
-        <section className="rka-box rka-box-stacks pt-n">
-          {error}
+      <BaseLayout {...this.props}>
+        <div className="section">
           <div className="row">
-            <OperationList
-              name={this.state.name}
-              options={this.state.options}
-              stacks={this.props.stacks}
-              onChangeName={this.onChangeName}
-              onChangeOptions={this.onChangeOptions}
-              onChangeOperation={this.onChange}
-              addOperation={this.addOperation}
-              removeOperation={this.removeOperation}
-              setActiveOperation={this.setActiveOperation}
-              onMoveOperation={this.onMoveOperation}
-              onSelectAddOperation={this.onSelectAddOperation}
-              activeOperation={this.state.activeOperation}
-              addedOperations={this.state.operations}
-              availableOperations={this.props.operations}
-              stackOptions={this.props.stackOptions}
-              selectedOperation={this.state.selectedOperation}
-            />
-            <PreviewSidebar
-              organization={this.props.auth.organization}
-              previewImage={this.props.previewImage}
-              currentPreviewImage={this.state.preview.image}
-              onChange={this.props.onOpenChoosePreviewImage}
-              error={this.state.preview.error}
-              imageLoading={this.state.preview.imageLoading}
-            />
+            <div className="col-md-12">
+              <form onSubmit={this.onSubmit}>
+                <Header
+                  previewImage={this.props.previewImage}
+                  updatePreview={(img) => this.updatePreview(img)}
+                  createStackBtnDisabled={this.state.showLoader || this.state.name === ''}
+                  isPreviewCurrent={this.state.preview.updated}
+                  showLoader={this.state.showLoader}
+                />
+                <section className="rka-box rka-box-stacks pt-n">
+                  {error}
+                  <div className="row">
+                    <OperationList
+                      name={this.state.name}
+                      options={this.state.options}
+                      stacks={this.props.stacks}
+                      onChangeName={this.onChangeName}
+                      onChangeOptions={this.onChangeOptions}
+                      onChangeOperation={this.onChange}
+                      addOperation={this.addOperation}
+                      removeOperation={this.removeOperation}
+                      setActiveOperation={this.setActiveOperation}
+                      onMoveOperation={this.onMoveOperation}
+                      onSelectAddOperation={this.onSelectAddOperation}
+                      activeOperation={this.state.activeOperation}
+                      addedOperations={this.state.operations}
+                      availableOperations={this.props.operations}
+                      stackOptions={this.props.stackOptions}
+                      selectedOperation={this.state.selectedOperation}
+                    />
+                    <PreviewSidebar
+                      organization={this.props.auth.organization}
+                      previewImage={this.props.previewImage}
+                      currentPreviewImage={this.state.preview.image}
+                      onChange={this.props.onOpenChoosePreviewImage}
+                      error={this.state.preview.error}
+                      imageLoading={this.state.preview.imageLoading}
+                    />
+                  </div>
+                </section>
+              </form>
+            </div>
           </div>
-        </section>
-      </form>
+        </div>
+      </BaseLayout>
     )
   }
 }
@@ -451,7 +460,9 @@ NewStack.propTypes = {
   stackOptions: PropTypes.object,
   stacks: PropTypes.object,
   router: PropTypes.shape({
-    push: PropTypes.func.isRequired
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    })
   }).isRequired,
   // from previewImage
   onOpenChoosePreviewImage: PropTypes.func.isRequired,

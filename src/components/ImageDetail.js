@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { PureComponent } from 'react'
+import React, { Fragment, PureComponent } from 'react'
 import ReactCrop from 'react-image-crop'
 import cx from 'classnames'
 import { authRequired } from '../utils/auth'
@@ -112,12 +112,12 @@ class ImageDetail extends PureComponent {
   }
 
   componentDidMount () {
-    this.getImage(this.props.params.hash)
+    this.getImage(this.props.router.match.params.hash)
   }
 
   componentWillReceiveProps (nextProps) {
-    if (nextProps.params.hash !== this.props.params.hash) {
-      this.getImage(nextProps.params.hash)
+    if (nextProps.router.match.params.hash !== this.props.router.match.params.hash) {
+      this.getImage(nextProps.router.match.params.hash)
     }
   }
 
@@ -199,7 +199,11 @@ class ImageDetail extends PureComponent {
   onSave (e) {
     e.preventDefault()
 
-    const { params: { hash }, auth: { organization } } = this.props
+    const { router: { match }, auth: { organization } } = this.props
+    const { params: { hash } } = match
+
+    console.log(this.props.router)
+
     const { image: { user_metadata: metadata }, subjectArea } = this.state
     const imageHasSubjectArea = getSubjectArea(this.state.image) !== null
     const userMetadata = {}
@@ -224,7 +228,7 @@ class ImageDetail extends PureComponent {
 
           this.setState(DEFAULT_STATE)
 
-          this.props.router.push(`/images/${newImageHash}`)
+          this.props.router.history.push(`/images/${newImageHash}`)
           alertMessages.push('subject area has been removed')
         })
       } else if (subjectArea.type && subjectArea.coordsChanged) {
@@ -233,7 +237,7 @@ class ImageDetail extends PureComponent {
 
           this.setState(DEFAULT_STATE)
 
-          this.props.router.push(`/images/${newImageHash}`)
+          this.props.router.history.push(`/images/${newImageHash}`)
           alertMessages.push('subject area updated')
         })
       }
@@ -448,7 +452,7 @@ class ImageDetail extends PureComponent {
     deleteImage(hash)
       .then(() => {
         setTimeout(() => {
-          this.props.router.push(`/images`)
+          this.props.router.history.push(`/images`)
           setAlert('success', `Image ${hash} has been deleted.`, 5000)
         }, 2000)
       })
@@ -507,7 +511,7 @@ class ImageDetail extends PureComponent {
     })
 
     return (
-      <BaseLayout {...this.props}>
+      <Fragment>
         <Header image={image} focusMenuActive={menuActive} onClickToggleFocusMenu={this.toggleFocusMenu} onClickSave={this.onSave} />
         <section className="mb-n bg-chess bor-light">
           <Actions
@@ -547,7 +551,7 @@ class ImageDetail extends PureComponent {
           <button className="rka-button rka-button-negative" onClick={() => this.onClickDeleteImage()}>Delete image</button>
         </div>
         {$confirmDeleteModal}
-      </BaseLayout>
+      </Fragment>
     )
   }
 }
@@ -555,11 +559,15 @@ ImageDetail.propTypes = {
   auth: PropTypes.shape({
     organization: PropTypes.string.isRequired
   }).isRequired,
-  params: PropTypes.shape({
-    hash: PropTypes.string.isRequired
-  }).isRequired,
   router: PropTypes.shape({
-    push: PropTypes.func.isRequired
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        hash: PropTypes.string.isRequired
+      }).isRequired
+    }).isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired
   }).isRequired
 }
 

@@ -4,17 +4,92 @@ exports[`App does render 1`] = `
 <div
   className="App"
 >
-  <span
-    alert={null}
-    auth={null}
-    images={Array []}
-    operations={Object {}}
-    showSidebar={false}
-    stackClone={Object {}}
-    stackOptions={null}
-    stacks={Object {}}
+  <div
+    className="rka-login-page"
   >
-    Test
-  </span>
+    <div
+      className="rka-login-container"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-5"
+        >
+          <div
+            className="rka-login-brand"
+          >
+            <i
+              className="rka-header-logo mb-lg"
+            />
+            <h2
+              className="txt-white rka-h2"
+            >
+              Web images done right.
+            </h2>
+            <p
+              className="rka-login-brand-powered"
+            >
+              Powered by Liip.
+            </p>
+          </div>
+        </div>
+        <div
+          className="col-md-7"
+        >
+          <div
+            className="rka-login-form-container"
+          >
+            <form
+              onSubmit={[Function]}
+            >
+              <div
+                className="rka-form-group"
+              >
+                <label
+                  className="rka-label"
+                  htmlFor="organization"
+                >
+                  Organization
+                </label>
+                <input
+                  className="rka-input-txt"
+                  defaultValue={null}
+                  id="organization"
+                  name="organization"
+                  onChange={[Function]}
+                  type="text"
+                />
+              </div>
+              <div
+                className="rka-form-group"
+              >
+                <label
+                  className="rka-label"
+                  htmlFor="apiKey"
+                >
+                  Api Key
+                </label>
+                <input
+                  className="rka-input-txt"
+                  defaultValue={null}
+                  id="apiKey"
+                  name="apiKey"
+                  onChange={[Function]}
+                  type="password"
+                />
+              </div>
+              <button
+                className="rka-button rka-button-brand mt-sm"
+                type="submit"
+              >
+                Login
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;

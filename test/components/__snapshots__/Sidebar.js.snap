@@ -9,7 +9,9 @@ exports[`Sidebar does render 1`] = `
   >
     <li>
       <a
-        className="rka-sidebar-link"
+        aria-current="true"
+        className="rka-sidebar-link is-active"
+        href="/"
         onClick={[Function]}
         style={Object {}}
       >
@@ -18,9 +20,11 @@ exports[`Sidebar does render 1`] = `
     </li>
     <li>
       <a
+        aria-current={false}
         className="rka-sidebar-link"
+        href="/images"
         onClick={[Function]}
-        style={Object {}}
+        style={undefined}
       >
         Images
       </a>
@@ -29,16 +33,20 @@ exports[`Sidebar does render 1`] = `
       className="pos-r"
     >
       <a
+        aria-current={false}
         className="rka-sidebar-link"
+        href="/stacks"
         onClick={[Function]}
-        style={Object {}}
+        style={undefined}
       >
         Stacks
       </a>
       <a
+        aria-current={false}
         className="rka-sidebar-link-icon"
+        href="/new-stack"
         onClick={[Function]}
-        style={Object {}}
+        style={undefined}
       >
         <svg
           className="rka-add-icon"
@@ -100,18 +108,22 @@ exports[`Sidebar does render when active 1`] = `
   >
     <li>
       <a
+        aria-current={false}
         className="rka-sidebar-link"
+        href="/"
         onClick={[Function]}
-        style={Object {}}
+        style={undefined}
       >
         Dashboard
       </a>
     </li>
     <li>
       <a
+        aria-current={false}
         className="rka-sidebar-link"
+        href="/images"
         onClick={[Function]}
-        style={Object {}}
+        style={undefined}
       >
         Images
       </a>
@@ -120,16 +132,20 @@ exports[`Sidebar does render when active 1`] = `
       className="pos-r"
     >
       <a
-        className="rka-sidebar-link"
+        aria-current="true"
+        className="rka-sidebar-link is-active"
+        href="/stacks"
         onClick={[Function]}
         style={Object {}}
       >
         Stacks
       </a>
       <a
+        aria-current={false}
         className="rka-sidebar-link-icon"
+        href="/new-stack"
         onClick={[Function]}
-        style={Object {}}
+        style={undefined}
       >
         <svg
           className="rka-add-icon"
@@ -191,7 +207,9 @@ exports[`Sidebar shows load more button 1`] = `
   >
     <li>
       <a
-        className="rka-sidebar-link"
+        aria-current="true"
+        className="rka-sidebar-link is-active"
+        href="/"
         onClick={[Function]}
         style={Object {}}
       >
@@ -200,9 +218,11 @@ exports[`Sidebar shows load more button 1`] = `
     </li>
     <li>
       <a
+        aria-current={false}
         className="rka-sidebar-link"
+        href="/images"
         onClick={[Function]}
-        style={Object {}}
+        style={undefined}
       >
         Images
       </a>
@@ -211,16 +231,20 @@ exports[`Sidebar shows load more button 1`] = `
       className="pos-r"
     >
       <a
+        aria-current={false}
         className="rka-sidebar-link"
+        href="/stacks"
         onClick={[Function]}
-        style={Object {}}
+        style={undefined}
       >
         Stacks
       </a>
       <a
+        aria-current={false}
         className="rka-sidebar-link-icon"
+        href="/new-stack"
         onClick={[Function]}
-        style={Object {}}
+        style={undefined}
       >
         <svg
           className="rka-add-icon"
@@ -231,7 +255,7 @@ exports[`Sidebar shows load more button 1`] = `
         </svg>
       </a>
       <div
-        className="rka-sidebar-subnav is-active"
+        className="rka-sidebar-subnav"
       >
         <div
           className="rka-stacks-search-container"
@@ -254,30 +278,38 @@ exports[`Sidebar shows load more button 1`] = `
           className="rka-stacks-list"
         >
           <a
+            aria-current={false}
             className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-a"
             onClick={[Function]}
-            style={Object {}}
+            style={undefined}
           >
             stack-a
           </a>
           <a
+            aria-current={false}
             className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-b"
             onClick={[Function]}
-            style={Object {}}
+            style={undefined}
           >
             stack-b
           </a>
           <a
+            aria-current={false}
             className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-c"
             onClick={[Function]}
-            style={Object {}}
+            style={undefined}
           >
             stack-c
           </a>
           <a
+            aria-current={false}
             className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-d"
             onClick={[Function]}
-            style={Object {}}
+            style={undefined}
           >
             stack-d
           </a>
@@ -317,7 +349,9 @@ exports[`Sidebar shows stacks 1`] = `
   >
     <li>
       <a
-        className="rka-sidebar-link"
+        aria-current="true"
+        className="rka-sidebar-link is-active"
+        href="/"
         onClick={[Function]}
         style={Object {}}
       >
@@ -326,9 +360,11 @@ exports[`Sidebar shows stacks 1`] = `
     </li>
     <li>
       <a
+        aria-current={false}
         className="rka-sidebar-link"
+        href="/images"
         onClick={[Function]}
-        style={Object {}}
+        style={undefined}
       >
         Images
       </a>
@@ -337,16 +373,20 @@ exports[`Sidebar shows stacks 1`] = `
       className="pos-r"
     >
       <a
+        aria-current={false}
         className="rka-sidebar-link"
+        href="/stacks"
         onClick={[Function]}
-        style={Object {}}
+        style={undefined}
       >
         Stacks
       </a>
       <a
+        aria-current={false}
         className="rka-sidebar-link-icon"
+        href="/new-stack"
         onClick={[Function]}
-        style={Object {}}
+        style={undefined}
       >
         <svg
           className="rka-add-icon"
@@ -357,7 +397,7 @@ exports[`Sidebar shows stacks 1`] = `
         </svg>
       </a>
       <div
-        className="rka-sidebar-subnav is-active"
+        className="rka-sidebar-subnav"
       >
         <div
           className="rka-stacks-search-container"
@@ -380,30 +420,38 @@ exports[`Sidebar shows stacks 1`] = `
           className="rka-stacks-list is-loaded"
         >
           <a
+            aria-current={false}
             className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-a"
             onClick={[Function]}
-            style={Object {}}
+            style={undefined}
           >
             stack-a
           </a>
           <a
+            aria-current={false}
             className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-b"
             onClick={[Function]}
-            style={Object {}}
+            style={undefined}
           >
             stack-b
           </a>
           <a
+            aria-current={false}
             className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-c"
             onClick={[Function]}
-            style={Object {}}
+            style={undefined}
           >
             stack-c
           </a>
           <a
+            aria-current={false}
             className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-d"
             onClick={[Function]}
-            style={Object {}}
+            style={undefined}
           >
             stack-d
           </a>

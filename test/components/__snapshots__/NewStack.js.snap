@@ -1,2432 +1,3411 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NewStack does render with a previewImage 1`] = `
-<form
-  onSubmit={[Function]}
+<div
+  className={undefined}
 >
-  <div
-    className="bg-white pa-md clearfix"
+  <header
+    className="rka-header"
   >
-    <h1
-      className="rka-h1 flo-l mt-xs"
+    <a
+      className="rka-header-menu-icon is-active"
+      href="#"
+      onClick={[Function]}
+    />
+    <a
+      className="rka-header-logo"
+      href="/"
+      onClick={[Function]}
+    />
+    <nav
+      className="rka-header-nav"
     >
-      New stack
-    </h1>
-    <div
-      className="flo-r"
-    >
-      <button
-        className="rka-button rka-button-secondary mr-md"
-        disabled={true}
+      <a
+        className="rka-user"
+      >
+        <div
+          className="rka-avatar"
+        >
+          <svg
+            className="rka-avatar-icon"
+          >
+            <use
+              xlinkHref="avatar-placeholder.svg#avatar"
+            />
+          </svg>
+        </div>
+        <span
+          className="rka-username"
+        >
+          test-org
+        </span>
+      </a>
+      <a
+        className="rka-logout"
         href="#"
         onClick={[Function]}
-        type="button"
       >
-        Update preview
-      </button>
-      <button
-        className="rka-button rka-button-brand disabled flo-r"
-        type="submit"
-      >
-        Create stack
-      </button>
-    </div>
-  </div>
-  <section
-    className="rka-box rka-box-stacks pt-n"
-  >
-    <div
-      className="row"
-    >
-      <div
-        className="col-md-7 col-sm-7"
-      >
-        <h3
-          className="rka-h2 mv-md"
+        <svg
+          className="rka-logout-icon"
         >
-          Stack details
-        </h3>
-        <div
-          className="rka-form-group"
-        >
-          <label
-            className="rka-label"
-          >
-            Name
-            <span>
-               *
-            </span>
-          </label>
-          <input
-            className="rka-input-txt"
-            id="name"
-            name="name"
-            onChange={[Function]}
-            type="text"
-            value=""
+          <use
+            xlinkHref="logout-icon.svg#logout"
           />
-        </div>
-        <h3
-          className="rka-h2 mv-md"
+        </svg>
+      </a>
+    </nav>
+  </header>
+  <nav
+    className="rka-sidebar is-active"
+  >
+    <ul
+      className="rka-sidebar-nav"
+    >
+      <li>
+        <a
+          aria-current="true"
+          className="rka-sidebar-link is-active"
+          href="/"
+          onClick={[Function]}
+          style={Object {}}
         >
-          Operations
-        </h3>
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={false}
+          className="rka-sidebar-link"
+          href="/images"
+          onClick={[Function]}
+          style={undefined}
+        >
+          Images
+        </a>
+      </li>
+      <li
+        className="pos-r"
+      >
+        <a
+          aria-current={false}
+          className="rka-sidebar-link"
+          href="/stacks"
+          onClick={[Function]}
+          style={undefined}
+        >
+          Stacks
+        </a>
+        <a
+          aria-current={false}
+          className="rka-sidebar-link-icon"
+          href="/new-stack"
+          onClick={[Function]}
+          style={undefined}
+        >
+          <svg
+            className="rka-add-icon"
+          >
+            <use
+              xlinkHref="add-icon.svg#add-icon"
+            />
+          </svg>
+        </a>
         <div
-          className="pa-md bor-light mt-md"
+          className="rka-sidebar-subnav is-active"
         >
-          <h3
-            className="rka-h3 mb-md"
-          >
-            New operation
-          </h3>
           <div
-            className="rka-form-group"
+            className="rka-stacks-search-container"
           >
-            <select
-              className="rka-select"
+            <input
+              className="rka-input-txt rka-stack-search"
               onChange={[Function]}
-              value="alpha"
+              placeholder="Search stack..."
+              type="text"
+            />
+            <svg
+              className="rka-stack-search-icon"
             >
-              <option
-                value="alpha"
-              >
-                alpha
-              </option>
-              <option
-                value="autorotate"
-              >
-                autorotate
-              </option>
-              <option
-                value="blur"
-              >
-                blur
-              </option>
-              <option
-                value="composition"
-              >
-                composition
-              </option>
-              <option
-                value="crop"
-              >
-                crop
-              </option>
-              <option
-                value="dropshadow"
-              >
-                dropshadow
-              </option>
-              <option
-                value="grayscale"
-              >
-                grayscale
-              </option>
-              <option
-                value="primitive"
-              >
-                primitive
-              </option>
-              <option
-                value="resize"
-              >
-                resize
-              </option>
-              <option
-                value="rotate"
-              >
-                rotate
-              </option>
-              <option
-                value="sepia"
-              >
-                sepia
-              </option>
-              <option
-                value="trim"
-              >
-                trim
-              </option>
-            </select>
+              <use
+                xlinkHref="search.svg#search-icon"
+              />
+            </svg>
           </div>
-          <a
-            className="rka-button rka-button-brand rka-button-sm"
-            href="#"
-            onClick={[Function]}
-          >
-            Add operation
-          </a>
-        </div>
-      </div>
-      <div
-        className="col-md-5 col-sm-5"
-      >
-        <h3
-          className="rka-h2 mv-md"
-        >
-          Preview
-          <a
-            className="rka-link flo-r txt-sm"
-            href="#"
-            onClick={[Function]}
-          >
-            Change picture
-          </a>
-        </h3>
-        <div
-          className="rka-stack-img-container bg-chess mb-xs bor-light txt-c"
-        >
-          <p
-            className="pa-md bg-white txt-l"
-          >
-            Customized 
-            <a
-              className="rka-link flo-r"
-              href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
-              target="_blank"
-            >
-              Open in new window
-            </a>
-          </p>
-          <img
-            src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
-          />
-        </div>
-        <div
-          className="rka-stack-img-container bg-chess bor-light txt-c"
-        >
-          <p
-            className="pa-md bg-white txt-l"
-          >
-            Original 
-            <a
-              className="rka-link flo-r"
-              href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
-              target="_blank"
-            >
-              Open in new window
-            </a>
-          </p>
-          <img
-            src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-</form>
-`;
-
-exports[`NewStack does render with minimal props 1`] = `
-<form
-  onSubmit={[Function]}
->
-  <div
-    className="bg-white pa-md clearfix"
-  >
-    <h1
-      className="rka-h1 flo-l mt-xs"
-    >
-      New stack
-    </h1>
-    <div
-      className="flo-r"
-    >
-      <button
-        className="rka-button rka-button-brand disabled flo-r"
-        type="submit"
-      >
-        Create stack
-      </button>
-    </div>
-  </div>
-  <section
-    className="rka-box rka-box-stacks pt-n"
-  >
-    <div
-      className="row"
-    >
-      <div
-        className="col-md-7 col-sm-7"
-      >
-        <h3
-          className="rka-h2 mv-md"
-        >
-          Stack details
-        </h3>
-        <div
-          className="rka-form-group"
-        >
-          <label
-            className="rka-label"
-          >
-            Name
-            <span>
-               *
-            </span>
-          </label>
-          <input
-            className="rka-input-txt"
-            id="name"
-            name="name"
-            onChange={[Function]}
-            type="text"
-            value=""
-          />
-        </div>
-        <h3
-          className="rka-h2 mv-md"
-        >
-          Operations
-        </h3>
-        <div
-          className="pa-md bor-light mt-md"
-        >
-          <h3
-            className="rka-h3 mb-md"
-          >
-            New operation
-          </h3>
           <div
-            className="rka-form-group"
-          >
-            <select
-              className="rka-select"
-              onChange={[Function]}
-              value="alpha"
-            >
-              <option
-                value="alpha"
-              >
-                alpha
-              </option>
-              <option
-                value="autorotate"
-              >
-                autorotate
-              </option>
-              <option
-                value="blur"
-              >
-                blur
-              </option>
-              <option
-                value="composition"
-              >
-                composition
-              </option>
-              <option
-                value="crop"
-              >
-                crop
-              </option>
-              <option
-                value="dropshadow"
-              >
-                dropshadow
-              </option>
-              <option
-                value="grayscale"
-              >
-                grayscale
-              </option>
-              <option
-                value="primitive"
-              >
-                primitive
-              </option>
-              <option
-                value="resize"
-              >
-                resize
-              </option>
-              <option
-                value="rotate"
-              >
-                rotate
-              </option>
-              <option
-                value="sepia"
-              >
-                sepia
-              </option>
-              <option
-                value="trim"
-              >
-                trim
-              </option>
-            </select>
-          </div>
-          <a
-            className="rka-button rka-button-brand rka-button-sm"
-            href="#"
-            onClick={[Function]}
-          >
-            Add operation
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-</form>
-`;
-
-exports[`NewStack does render with stackOptions 1`] = `
-<form
-  onSubmit={[Function]}
->
-  <div
-    className="bg-white pa-md clearfix"
-  >
-    <h1
-      className="rka-h1 flo-l mt-xs"
-    >
-      New stack
-    </h1>
-    <div
-      className="flo-r"
-    >
-      <button
-        className="rka-button rka-button-secondary mr-md"
-        disabled={true}
-        href="#"
-        onClick={[Function]}
-        type="button"
-      >
-        Update preview
-      </button>
-      <button
-        className="rka-button rka-button-brand disabled flo-r"
-        type="submit"
-      >
-        Create stack
-      </button>
-    </div>
-  </div>
-  <section
-    className="rka-box rka-box-stacks pt-n"
-  >
-    <div
-      className="row"
-    >
-      <div
-        className="col-md-7 col-sm-7"
-      >
-        <h3
-          className="rka-h2 mv-md"
-        >
-          Stack details
-        </h3>
-        <div
-          className="rka-form-group"
-        >
-          <label
-            className="rka-label"
-          >
-            Name
-            <span>
-               *
-            </span>
-          </label>
-          <input
-            className="rka-input-txt"
-            id="name"
-            name="name"
-            onChange={[Function]}
-            type="text"
-            value=""
-          />
-        </div>
-        <div>
-          <h3
-            className="rka-h2 mv-md"
-          >
-            Options
-          </h3>
-          <div
-            className="bg-gray-lightest pa-md bor-light"
+            className="rka-stacks-list is-loaded"
           >
             <div
-              className="row"
-            >
-              <div
-                className="col-md-6"
-              >
-                <div
-                  className="rka-form-group"
-                >
-                  <label
-                    className="rka-label"
-                  >
-                    PNG Image compression
-                  </label>
-                  <div
-                    className="rka-input-range-container clearfix"
-                  >
-                    <input
-                      className="rka-input-range"
-                      disabled={false}
-                      max={9}
-                      min={0}
-                      name="png.compression_level"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      placeholder={undefined}
-                      type="range"
-                      value={7}
-                    />
-                    <p>
-                      <span
-                        className="rka-input-range-min"
-                      >
-                        0
-                      </span>
-                      <input
-                        className="rka-input-txt rka-input-range-current txt-c"
-                        disabled={false}
-                        name="png.compression_level"
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        size={5}
-                        type="text"
-                        value={7}
-                      />
-                      <span
-                        className="rka-input-range-max"
-                      >
-                        9
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-md-6"
-              >
-                <div
-                  className="rka-form-group"
-                >
-                  <label
-                    className="rka-label"
-                  >
-                    JPG Image quality
-                  </label>
-                  <div
-                    className="rka-input-range-container clearfix"
-                  >
-                    <input
-                      className="rka-input-range"
-                      disabled={false}
-                      max={100}
-                      min={1}
-                      name="jpg.quality"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      placeholder={undefined}
-                      type="range"
-                      value={76}
-                    />
-                    <p>
-                      <span
-                        className="rka-input-range-min"
-                      >
-                        1
-                      </span>
-                      <input
-                        className="rka-input-txt rka-input-range-current txt-c"
-                        disabled={false}
-                        name="jpg.quality"
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        size={5}
-                        type="text"
-                        value={76}
-                      />
-                      <span
-                        className="rka-input-range-max"
-                      >
-                        100
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-md-6"
-              >
-                <div
-                  className="rka-form-group"
-                >
-                  <label
-                    className="rka-label"
-                  >
-                    WebP Image quality
-                  </label>
-                  <div
-                    className="rka-input-range-container clearfix"
-                  >
-                    <input
-                      className="rka-input-range"
-                      disabled={false}
-                      max={100}
-                      min={1}
-                      name="webp.quality"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      placeholder={undefined}
-                      type="range"
-                      value={80}
-                    />
-                    <p>
-                      <span
-                        className="rka-input-range-min"
-                      >
-                        1
-                      </span>
-                      <input
-                        className="rka-input-txt rka-input-range-current txt-c"
-                        disabled={false}
-                        name="webp.quality"
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        size={5}
-                        type="text"
-                        value={80}
-                      />
-                      <span
-                        className="rka-input-range-max"
-                      >
-                        100
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-md-6"
-              />
-              <div
-                className="col-md-12"
-              />
-            </div>
+              className="rka-stacks-load"
+            />
           </div>
         </div>
-        <h3
-          className="rka-h2 mv-md"
-        >
-          Operations
-        </h3>
-        <div
-          className="pa-md bor-light mt-md"
-        >
-          <h3
-            className="rka-h3 mb-md"
-          >
-            New operation
-          </h3>
-          <div
-            className="rka-form-group"
-          >
-            <select
-              className="rka-select"
-              onChange={[Function]}
-              value="alpha"
-            >
-              <option
-                value="alpha"
-              >
-                alpha
-              </option>
-              <option
-                value="autorotate"
-              >
-                autorotate
-              </option>
-              <option
-                value="blur"
-              >
-                blur
-              </option>
-              <option
-                value="composition"
-              >
-                composition
-              </option>
-              <option
-                value="crop"
-              >
-                crop
-              </option>
-              <option
-                value="dropshadow"
-              >
-                dropshadow
-              </option>
-              <option
-                value="grayscale"
-              >
-                grayscale
-              </option>
-              <option
-                value="primitive"
-              >
-                primitive
-              </option>
-              <option
-                value="resize"
-              >
-                resize
-              </option>
-              <option
-                value="rotate"
-              >
-                rotate
-              </option>
-              <option
-                value="sepia"
-              >
-                sepia
-              </option>
-              <option
-                value="trim"
-              >
-                trim
-              </option>
-            </select>
-          </div>
-          <a
-            className="rka-button rka-button-brand rka-button-sm"
-            href="#"
-            onClick={[Function]}
-          >
-            Add operation
-          </a>
-        </div>
-      </div>
-      <div
-        className="col-md-5 col-sm-5"
-      >
-        <h3
-          className="rka-h2 mv-md"
-        >
-          Preview
-          <a
-            className="rka-link flo-r txt-sm"
-            href="#"
-            onClick={[Function]}
-          >
-            Change picture
-          </a>
-        </h3>
-        <div
-          className="rka-stack-img-container bg-chess mb-xs bor-light txt-c"
-        >
-          <p
-            className="pa-md bg-white txt-l"
-          >
-            Customized 
-            <a
-              className="rka-link flo-r"
-              href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
-              target="_blank"
-            >
-              Open in new window
-            </a>
-          </p>
-          <img
-            src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
-          />
-        </div>
-        <div
-          className="rka-stack-img-container bg-chess bor-light txt-c"
-        >
-          <p
-            className="pa-md bg-white txt-l"
-          >
-            Original 
-            <a
-              className="rka-link flo-r"
-              href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
-              target="_blank"
-            >
-              Open in new window
-            </a>
-          </p>
-          <img
-            src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-</form>
-`;
-
-exports[`NewStack does render with stacks 1`] = `
-<form
-  onSubmit={[Function]}
->
-  <div
-    className="bg-white pa-md clearfix"
-  >
-    <h1
-      className="rka-h1 flo-l mt-xs"
+      </li>
+    </ul>
+    <a
+      className="rka-sidebar-poweredby"
+      href="https://www.liip.ch/"
+      target="_blank"
     >
-      New stack
-    </h1>
-    <div
-      className="flo-r"
-    >
-      <button
-        className="rka-button rka-button-secondary mr-md"
-        disabled={true}
-        href="#"
-        onClick={[Function]}
-        type="button"
-      >
-        Update preview
-      </button>
-      <button
-        className="rka-button rka-button-brand disabled flo-r"
-        type="submit"
-      >
-        Create stack
-      </button>
-    </div>
-  </div>
-  <section
-    className="rka-box rka-box-stacks pt-n"
+      POWERED BY 
+      <i
+        className="rka-sidebar-liip-logo"
+      />
+    </a>
+  </nav>
+  <main
+    className="main clearfix is-active"
   >
     <div
-      className="row"
+      className="section"
     >
       <div
-        className="col-md-7 col-sm-7"
+        className="row"
       >
-        <h3
-          className="rka-h2 mv-md"
-        >
-          Stack details
-        </h3>
         <div
-          className="rka-form-group"
+          className="col-md-12"
         >
-          <label
-            className="rka-label"
-          >
-            Name
-            <span>
-               *
-            </span>
-          </label>
-          <input
-            className="rka-input-txt"
-            id="name"
-            name="name"
-            onChange={[Function]}
-            type="text"
-            value=""
-          />
-        </div>
-        <div>
-          <h3
-            className="rka-h2 mv-md"
-          >
-            Options
-          </h3>
-          <div
-            className="bg-gray-lightest pa-md bor-light"
+          <form
+            onSubmit={[Function]}
           >
             <div
-              className="row"
+              className="bg-white pa-md clearfix"
             >
-              <div
-                className="col-md-6"
+              <h1
+                className="rka-h1 flo-l mt-xs"
               >
-                <div
-                  className="rka-form-group"
-                >
-                  <label
-                    className="rka-label"
-                  >
-                    PNG Image compression
-                  </label>
-                  <div
-                    className="rka-input-range-container clearfix"
-                  >
-                    <input
-                      className="rka-input-range"
-                      disabled={false}
-                      max={9}
-                      min={0}
-                      name="png.compression_level"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      placeholder={undefined}
-                      type="range"
-                      value={7}
-                    />
-                    <p>
-                      <span
-                        className="rka-input-range-min"
-                      >
-                        0
-                      </span>
-                      <input
-                        className="rka-input-txt rka-input-range-current txt-c"
-                        disabled={false}
-                        name="png.compression_level"
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        size={5}
-                        type="text"
-                        value={7}
-                      />
-                      <span
-                        className="rka-input-range-max"
-                      >
-                        9
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
+                New stack
+              </h1>
               <div
-                className="col-md-6"
+                className="flo-r"
               >
-                <div
-                  className="rka-form-group"
+                <button
+                  className="rka-button rka-button-secondary mr-md"
+                  disabled={true}
+                  href="#"
+                  onClick={[Function]}
+                  type="button"
                 >
-                  <label
-                    className="rka-label"
-                  >
-                    JPG Image quality
-                  </label>
-                  <div
-                    className="rka-input-range-container clearfix"
-                  >
-                    <input
-                      className="rka-input-range"
-                      disabled={false}
-                      max={100}
-                      min={1}
-                      name="jpg.quality"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      placeholder={undefined}
-                      type="range"
-                      value={76}
-                    />
-                    <p>
-                      <span
-                        className="rka-input-range-min"
-                      >
-                        1
-                      </span>
-                      <input
-                        className="rka-input-txt rka-input-range-current txt-c"
-                        disabled={false}
-                        name="jpg.quality"
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        size={5}
-                        type="text"
-                        value={76}
-                      />
-                      <span
-                        className="rka-input-range-max"
-                      >
-                        100
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-md-6"
-              >
-                <div
-                  className="rka-form-group"
+                  Update preview
+                </button>
+                <button
+                  className="rka-button rka-button-brand disabled flo-r"
+                  type="submit"
                 >
-                  <label
-                    className="rka-label"
-                  >
-                    WebP Image quality
-                  </label>
-                  <div
-                    className="rka-input-range-container clearfix"
-                  >
-                    <input
-                      className="rka-input-range"
-                      disabled={false}
-                      max={100}
-                      min={1}
-                      name="webp.quality"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      placeholder={undefined}
-                      type="range"
-                      value={80}
-                    />
-                    <p>
-                      <span
-                        className="rka-input-range-min"
-                      >
-                        1
-                      </span>
-                      <input
-                        className="rka-input-txt rka-input-range-current txt-c"
-                        disabled={false}
-                        name="webp.quality"
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        size={5}
-                        type="text"
-                        value={80}
-                      />
-                      <span
-                        className="rka-input-range-max"
-                      >
-                        100
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-md-6"
-              />
-              <div
-                className="col-md-12"
-              >
-                <div
-                  className="rka-form-group mb-n"
-                >
-                  <label
-                    className="rka-label"
-                  >
-                    Base Stack
-                  </label>
-                  <div
-                    className="Select is-clearable is-searchable Select--single"
-                    style={undefined}
-                  >
-                    <div
-                      className="Select-control"
-                      onKeyDown={[Function]}
-                      onMouseDown={[Function]}
-                      onTouchEnd={[Function]}
-                      onTouchMove={[Function]}
-                      onTouchStart={[Function]}
-                      style={undefined}
-                    >
-                      <span
-                        className="Select-multi-value-wrapper"
-                        id="react-select-2--value"
-                      >
-                        <div
-                          className="Select-placeholder"
-                        >
-                          Enter base stack, default: no base stack used
-                        </div>
-                        <div
-                          className="Select-input"
-                          style={
-                            Object {
-                              "display": "inline-block",
-                            }
-                          }
-                        >
-                          <input
-                            aria-activedescendant="react-select-2--value"
-                            aria-describedby={undefined}
-                            aria-expanded="false"
-                            aria-haspopup="false"
-                            aria-label={undefined}
-                            aria-labelledby={undefined}
-                            aria-owns=""
-                            className={undefined}
-                            id={undefined}
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            required={false}
-                            role="combobox"
-                            style={
-                              Object {
-                                "boxSizing": "content-box",
-                                "width": "5px",
-                              }
-                            }
-                            tabIndex={undefined}
-                            value=""
-                          />
-                          <div
-                            style={
-                              Object {
-                                "height": 0,
-                                "left": 0,
-                                "overflow": "scroll",
-                                "position": "absolute",
-                                "top": 0,
-                                "visibility": "hidden",
-                                "whiteSpace": "pre",
-                              }
-                            }
-                          >
-                            
-                          </div>
-                        </div>
-                      </span>
-                      <span
-                        className="Select-arrow-zone"
-                        onMouseDown={[Function]}
-                      >
-                        <span
-                          className="Select-arrow"
-                          onMouseDown={[Function]}
-                        />
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  Create stack
+                </button>
               </div>
             </div>
-          </div>
-        </div>
-        <h3
-          className="rka-h2 mv-md"
-        >
-          Operations
-        </h3>
-        <div
-          className="pa-md bor-light mt-md"
-        >
-          <h3
-            className="rka-h3 mb-md"
-          >
-            New operation
-          </h3>
-          <div
-            className="rka-form-group"
-          >
-            <select
-              className="rka-select"
-              onChange={[Function]}
-              value="alpha"
-            >
-              <option
-                value="alpha"
-              >
-                alpha
-              </option>
-              <option
-                value="autorotate"
-              >
-                autorotate
-              </option>
-              <option
-                value="blur"
-              >
-                blur
-              </option>
-              <option
-                value="composition"
-              >
-                composition
-              </option>
-              <option
-                value="crop"
-              >
-                crop
-              </option>
-              <option
-                value="dropshadow"
-              >
-                dropshadow
-              </option>
-              <option
-                value="grayscale"
-              >
-                grayscale
-              </option>
-              <option
-                value="primitive"
-              >
-                primitive
-              </option>
-              <option
-                value="resize"
-              >
-                resize
-              </option>
-              <option
-                value="rotate"
-              >
-                rotate
-              </option>
-              <option
-                value="sepia"
-              >
-                sepia
-              </option>
-              <option
-                value="trim"
-              >
-                trim
-              </option>
-            </select>
-          </div>
-          <a
-            className="rka-button rka-button-brand rka-button-sm"
-            href="#"
-            onClick={[Function]}
-          >
-            Add operation
-          </a>
-        </div>
-      </div>
-      <div
-        className="col-md-5 col-sm-5"
-      >
-        <h3
-          className="rka-h2 mv-md"
-        >
-          Preview
-          <a
-            className="rka-link flo-r txt-sm"
-            href="#"
-            onClick={[Function]}
-          >
-            Change picture
-          </a>
-        </h3>
-        <div
-          className="rka-stack-img-container bg-chess mb-xs bor-light txt-c"
-        >
-          <p
-            className="pa-md bg-white txt-l"
-          >
-            Customized 
-            <a
-              className="rka-link flo-r"
-              href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
-              target="_blank"
-            >
-              Open in new window
-            </a>
-          </p>
-          <img
-            src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
-          />
-        </div>
-        <div
-          className="rka-stack-img-container bg-chess bor-light txt-c"
-        >
-          <p
-            className="pa-md bg-white txt-l"
-          >
-            Original 
-            <a
-              className="rka-link flo-r"
-              href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
-              target="_blank"
-            >
-              Open in new window
-            </a>
-          </p>
-          <img
-            src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-</form>
-`;
-
-exports[`newStack does render with clone stack props 1`] = `
-<form
-  onSubmit={[Function]}
->
-  <div
-    className="bg-white pa-md clearfix"
-  >
-    <h1
-      className="rka-h1 flo-l mt-xs"
-    >
-      New stack
-    </h1>
-    <div
-      className="flo-r"
-    >
-      <button
-        className="rka-button rka-button-brand"
-        type="submit"
-      >
-        Create stack
-      </button>
-    </div>
-  </div>
-  <section
-    className="rka-box rka-box-stacks pt-n"
-  >
-    <div
-      className="row"
-    >
-      <div
-        className="col-md-7 col-sm-7"
-      >
-        <h3
-          className="rka-h2 mv-md"
-        >
-          Stack details
-        </h3>
-        <div
-          className="rka-form-group"
-        >
-          <label
-            className="rka-label"
-          >
-            Name
-            <span>
-               *
-            </span>
-          </label>
-          <input
-            className="rka-input-txt"
-            id="name"
-            name="name"
-            onChange={[Function]}
-            type="text"
-            value="Test clone stack"
-          />
-        </div>
-        <h3
-          className="rka-h2 mv-md"
-        >
-          Operations
-        </h3>
-        <div
-          className="pa-md mb-xs pos-r is-active bor-light"
-        >
-          <div>
-            <a
-              className="rka-close-icon"
-              href="#"
-              onClick={[Function]}
-              title="Remove"
-            />
-            <a
-              className="rka-edit-icon"
-              href="#"
-              onClick={[Function]}
-            />
-            <a
-              className="rka-move-icon"
-              href="#"
-              onClick={[Function]}
-            />
-            <h3
-              className="rka-h3 txt-cap"
-            >
-              alpha
-            </h3>
-          </div>
-          <div
-            className=""
-          >
-            <div
-              className="rka-operation-content"
+            <section
+              className="rka-box rka-box-stacks pt-n"
             >
               <div
                 className="row"
               >
                 <div
-                  className="col-md-6"
+                  className="col-md-7 col-sm-7"
                 >
+                  <h3
+                    className="rka-h2 mv-md"
+                  >
+                    Stack details
+                  </h3>
                   <div
                     className="rka-form-group"
                   >
                     <label
                       className="rka-label"
                     >
-                      Alpha mode
-                    </label>
-                    <select
-                      className="rka-select"
-                      disabled={false}
-                      name="mode"
-                      onChange={[Function]}
-                      placeholder="mode (default: mask)"
-                      value="mask"
-                    >
-                      <option>
-                        mode (default: mask)
-                      </option>
-                      <option
-                        value="mask"
-                      >
-                        mask
-                      </option>
-                      <option
-                        value="remove"
-                      >
-                        remove
-                      </option>
-                      <option
-                        value="extract"
-                      >
-                        extract
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="pa-md mb-xs pos-r bg-gray-lightest bor-light"
-        >
-          <div>
-            <a
-              className="rka-close-icon"
-              href="#"
-              onClick={[Function]}
-              title="Remove"
-            />
-            <a
-              className="rka-edit-icon"
-              href="#"
-              onClick={[Function]}
-            />
-            <a
-              className="rka-move-icon"
-              href="#"
-              onClick={[Function]}
-            />
-            <h3
-              className="rka-h3 txt-cap"
-            >
-              blur
-            </h3>
-          </div>
-          <div
-            className=""
-          >
-            <div
-              className="rka-operation-content"
-            >
-              <div
-                className="row"
-              >
-                <div
-                  className="col-md-6"
-                >
-                  <div
-                    className="rka-form-group"
-                  >
-                    <label
-                      className="rka-label"
-                    >
-                      Blur Sigma
+                      Name
                       <span>
                          *
                       </span>
-                    </label>
-                    <div
-                      className="rka-input-range-container clearfix"
-                    >
-                      <input
-                        className="rka-input-range"
-                        disabled={false}
-                        max={100}
-                        min={0}
-                        name="sigma"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        type="range"
-                        value={39}
-                      />
-                      <p>
-                        <span
-                          className="rka-input-range-min"
-                        >
-                          0
-                        </span>
-                        <input
-                          className="rka-input-txt rka-input-range-current txt-c"
-                          disabled={false}
-                          name="sigma"
-                          onChange={[Function]}
-                          placeholder={undefined}
-                          size={5}
-                          type="text"
-                          value={39}
-                        />
-                        <span
-                          className="rka-input-range-max"
-                        >
-                          100
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="pa-md mb-xs pos-r bor-light"
-        >
-          <div>
-            <a
-              className="rka-close-icon"
-              href="#"
-              onClick={[Function]}
-              title="Remove"
-            />
-            <a
-              className="rka-edit-icon"
-              href="#"
-              onClick={[Function]}
-            />
-            <a
-              className="rka-move-icon"
-              href="#"
-              onClick={[Function]}
-            />
-            <h3
-              className="rka-h3 txt-cap"
-            >
-              crop
-            </h3>
-          </div>
-          <div
-            className=""
-          >
-            <div
-              className="rka-operation-content"
-            >
-              <div
-                className="row"
-              >
-                <div
-                  className="col-md-6"
-                >
-                  <div
-                    className="rka-form-group"
-                  >
-                    <label
-                      className="rka-label"
-                    >
-                      Width
-                      <span>
-                         *
-                      </span>
-                    </label>
-                    <div
-                      className="rka-input-range-container clearfix"
-                    >
-                      <input
-                        className="rka-input-range"
-                        disabled={false}
-                        max={10000}
-                        min={1}
-                        name="width"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        type="range"
-                        value={5100}
-                      />
-                      <p>
-                        <span
-                          className="rka-input-range-min"
-                        >
-                          1
-                        </span>
-                        <input
-                          className="rka-input-txt rka-input-range-current txt-c"
-                          disabled={false}
-                          name="width"
-                          onChange={[Function]}
-                          placeholder={undefined}
-                          size={5}
-                          type="text"
-                          value={5100}
-                        />
-                        <span
-                          className="rka-input-range-max"
-                        >
-                          10000
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-md-6"
-                >
-                  <div
-                    className="rka-form-group"
-                  >
-                    <label
-                      className="rka-label"
-                    >
-                      Height
-                      <span>
-                         *
-                      </span>
-                    </label>
-                    <div
-                      className="rka-input-range-container clearfix"
-                    >
-                      <input
-                        className="rka-input-range"
-                        disabled={false}
-                        max={10000}
-                        min={1}
-                        name="height"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        type="range"
-                        value={5276}
-                      />
-                      <p>
-                        <span
-                          className="rka-input-range-min"
-                        >
-                          1
-                        </span>
-                        <input
-                          className="rka-input-txt rka-input-range-current txt-c"
-                          disabled={false}
-                          name="height"
-                          onChange={[Function]}
-                          placeholder={undefined}
-                          size={5}
-                          type="text"
-                          value={5276}
-                        />
-                        <span
-                          className="rka-input-range-max"
-                        >
-                          10000
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-md-6"
-                >
-                  <div
-                    className="rka-form-group"
-                  >
-                    <label
-                      className="rka-label"
-                    >
-                      Anchor
                     </label>
                     <input
                       className="rka-input-txt"
-                      disabled={false}
-                      name="anchor"
+                      id="name"
+                      name="name"
                       onChange={[Function]}
-                      placeholder="Anchor (default: auto)"
                       type="text"
-                      value={undefined}
+                      value=""
+                    />
+                  </div>
+                  <h3
+                    className="rka-h2 mv-md"
+                  >
+                    Operations
+                  </h3>
+                  <div
+                    className="pa-md bor-light mt-md"
+                  >
+                    <h3
+                      className="rka-h3 mb-md"
+                    >
+                      New operation
+                    </h3>
+                    <div
+                      className="rka-form-group"
+                    >
+                      <select
+                        className="rka-select"
+                        onChange={[Function]}
+                        value="alpha"
+                      >
+                        <option
+                          value="alpha"
+                        >
+                          alpha
+                        </option>
+                        <option
+                          value="autorotate"
+                        >
+                          autorotate
+                        </option>
+                        <option
+                          value="blur"
+                        >
+                          blur
+                        </option>
+                        <option
+                          value="composition"
+                        >
+                          composition
+                        </option>
+                        <option
+                          value="crop"
+                        >
+                          crop
+                        </option>
+                        <option
+                          value="dropshadow"
+                        >
+                          dropshadow
+                        </option>
+                        <option
+                          value="grayscale"
+                        >
+                          grayscale
+                        </option>
+                        <option
+                          value="primitive"
+                        >
+                          primitive
+                        </option>
+                        <option
+                          value="resize"
+                        >
+                          resize
+                        </option>
+                        <option
+                          value="rotate"
+                        >
+                          rotate
+                        </option>
+                        <option
+                          value="sepia"
+                        >
+                          sepia
+                        </option>
+                        <option
+                          value="trim"
+                        >
+                          trim
+                        </option>
+                      </select>
+                    </div>
+                    <a
+                      className="rka-button rka-button-brand rka-button-sm"
+                      href="#"
+                      onClick={[Function]}
+                    >
+                      Add operation
+                    </a>
+                  </div>
+                </div>
+                <div
+                  className="col-md-5 col-sm-5"
+                >
+                  <h3
+                    className="rka-h2 mv-md"
+                  >
+                    Preview
+                    <a
+                      className="rka-link flo-r txt-sm"
+                      href="#"
+                      onClick={[Function]}
+                    >
+                      Change picture
+                    </a>
+                  </h3>
+                  <div
+                    className="rka-stack-img-container bg-chess mb-xs bor-light txt-c"
+                  >
+                    <p
+                      className="pa-md bg-white txt-l"
+                    >
+                      Customized 
+                      <a
+                        className="rka-link flo-r"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                        target="_blank"
+                      >
+                        Open in new window
+                      </a>
+                    </p>
+                    <img
+                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                    />
+                  </div>
+                  <div
+                    className="rka-stack-img-container bg-chess bor-light txt-c"
+                  >
+                    <p
+                      className="pa-md bg-white txt-l"
+                    >
+                      Original 
+                      <a
+                        className="rka-link flo-r"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                        target="_blank"
+                      >
+                        Open in new window
+                      </a>
+                    </p>
+                    <img
+                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
                     />
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </section>
+          </form>
         </div>
+      </div>
+    </div>
+  </main>
+  <footer
+    className="rka-footer"
+  >
+    Rokka © 2018
+  </footer>
+</div>
+`;
+
+exports[`NewStack does render with minimal props 1`] = `
+<div
+  className={undefined}
+>
+  <header
+    className="rka-header"
+  >
+    <a
+      className="rka-header-menu-icon is-active"
+      href="#"
+      onClick={[Function]}
+    />
+    <a
+      className="rka-header-logo"
+      href="/"
+      onClick={[Function]}
+    />
+    <nav
+      className="rka-header-nav"
+    >
+      <a
+        className="rka-user"
+      >
         <div
-          className="pa-md mb-xs pos-r bg-gray-lightest bor-light"
+          className="rka-avatar"
         >
-          <div>
-            <a
-              className="rka-close-icon"
-              href="#"
-              onClick={[Function]}
-              title="Remove"
+          <svg
+            className="rka-avatar-icon"
+          >
+            <use
+              xlinkHref="avatar-placeholder.svg#avatar"
             />
-            <a
-              className="rka-edit-icon"
-              href="#"
-              onClick={[Function]}
+          </svg>
+        </div>
+        <span
+          className="rka-username"
+        >
+          test-org
+        </span>
+      </a>
+      <a
+        className="rka-logout"
+        href="#"
+        onClick={[Function]}
+      >
+        <svg
+          className="rka-logout-icon"
+        >
+          <use
+            xlinkHref="logout-icon.svg#logout"
+          />
+        </svg>
+      </a>
+    </nav>
+  </header>
+  <nav
+    className="rka-sidebar is-active"
+  >
+    <ul
+      className="rka-sidebar-nav"
+    >
+      <li>
+        <a
+          aria-current="true"
+          className="rka-sidebar-link is-active"
+          href="/"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={false}
+          className="rka-sidebar-link"
+          href="/images"
+          onClick={[Function]}
+          style={undefined}
+        >
+          Images
+        </a>
+      </li>
+      <li
+        className="pos-r"
+      >
+        <a
+          aria-current={false}
+          className="rka-sidebar-link"
+          href="/stacks"
+          onClick={[Function]}
+          style={undefined}
+        >
+          Stacks
+        </a>
+        <a
+          aria-current={false}
+          className="rka-sidebar-link-icon"
+          href="/new-stack"
+          onClick={[Function]}
+          style={undefined}
+        >
+          <svg
+            className="rka-add-icon"
+          >
+            <use
+              xlinkHref="add-icon.svg#add-icon"
             />
-            <a
-              className="rka-move-icon"
-              href="#"
-              onClick={[Function]}
+          </svg>
+        </a>
+        <div
+          className="rka-sidebar-subnav is-active"
+        >
+          <div
+            className="rka-stacks-search-container"
+          >
+            <input
+              className="rka-input-txt rka-stack-search"
+              onChange={[Function]}
+              placeholder="Search stack..."
+              type="text"
             />
-            <h3
-              className="rka-h3 txt-cap"
+            <svg
+              className="rka-stack-search-icon"
             >
-              dropshadow
-            </h3>
+              <use
+                xlinkHref="search.svg#search-icon"
+              />
+            </svg>
           </div>
           <div
-            className=""
+            className="rka-stacks-list is-loaded"
           >
             <div
-              className="rka-operation-content"
+              className="rka-stacks-load"
+            />
+          </div>
+        </div>
+      </li>
+    </ul>
+    <a
+      className="rka-sidebar-poweredby"
+      href="https://www.liip.ch/"
+      target="_blank"
+    >
+      POWERED BY 
+      <i
+        className="rka-sidebar-liip-logo"
+      />
+    </a>
+  </nav>
+  <main
+    className="main clearfix is-active"
+  >
+    <div
+      className="section"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-12"
+        >
+          <form
+            onSubmit={[Function]}
+          >
+            <div
+              className="bg-white pa-md clearfix"
+            >
+              <h1
+                className="rka-h1 flo-l mt-xs"
+              >
+                New stack
+              </h1>
+              <div
+                className="flo-r"
+              >
+                <button
+                  className="rka-button rka-button-brand disabled flo-r"
+                  type="submit"
+                >
+                  Create stack
+                </button>
+              </div>
+            </div>
+            <section
+              className="rka-box rka-box-stacks pt-n"
             >
               <div
                 className="row"
               >
                 <div
-                  className="col-md-4"
+                  className="col-md-7 col-sm-7"
                 >
+                  <h3
+                    className="rka-h2 mv-md"
+                  >
+                    Stack details
+                  </h3>
                   <div
                     className="rka-form-group"
                   >
                     <label
                       className="rka-label"
                     >
-                      Horizontal
-                    </label>
-                    <div
-                      className="rka-input-range-container clearfix"
-                    >
-                      <input
-                        className="rka-input-range"
-                        disabled={false}
-                        max={100}
-                        min={-100}
-                        name="horizontal"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        type="range"
-                        value={-26}
-                      />
-                      <p>
-                        <span
-                          className="rka-input-range-min"
-                        >
-                          -100
-                        </span>
-                        <input
-                          className="rka-input-txt rka-input-range-current txt-c"
-                          disabled={false}
-                          name="horizontal"
-                          onChange={[Function]}
-                          placeholder={undefined}
-                          size={5}
-                          type="text"
-                          value={-26}
-                        />
-                        <span
-                          className="rka-input-range-max"
-                        >
-                          100
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-md-4"
-                >
-                  <div
-                    className="rka-form-group"
-                  >
-                    <label
-                      className="rka-label"
-                    >
-                      Vertical
-                    </label>
-                    <div
-                      className="rka-input-range-container clearfix"
-                    >
-                      <input
-                        className="rka-input-range"
-                        disabled={false}
-                        max={100}
-                        min={-100}
-                        name="vertical"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        type="range"
-                        value={40}
-                      />
-                      <p>
-                        <span
-                          className="rka-input-range-min"
-                        >
-                          -100
-                        </span>
-                        <input
-                          className="rka-input-txt rka-input-range-current txt-c"
-                          disabled={false}
-                          name="vertical"
-                          onChange={[Function]}
-                          placeholder={undefined}
-                          size={5}
-                          type="text"
-                          value={40}
-                        />
-                        <span
-                          className="rka-input-range-max"
-                        >
-                          100
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-md-4"
-                >
-                  <div
-                    className="rka-form-group"
-                  >
-                    <label
-                      className="rka-label"
-                    >
-                      Opacity
-                    </label>
-                    <div
-                      className="rka-input-range-container clearfix"
-                    >
-                      <input
-                        className="rka-input-range"
-                        disabled={false}
-                        max={100}
-                        min={0}
-                        name="opacity"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        type="range"
-                        value={73}
-                      />
-                      <p>
-                        <span
-                          className="rka-input-range-min"
-                        >
-                          0
-                        </span>
-                        <input
-                          className="rka-input-txt rka-input-range-current txt-c"
-                          disabled={false}
-                          name="opacity"
-                          onChange={[Function]}
-                          placeholder={undefined}
-                          size={5}
-                          type="text"
-                          value={73}
-                        />
-                        <span
-                          className="rka-input-range-max"
-                        >
-                          100
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-md-4"
-                >
-                  <div
-                    className="rka-form-group"
-                  >
-                    <label
-                      className="rka-label"
-                    >
-                      Color
-                    </label>
-                    <div
-                      className="rka-form-group"
-                    >
-                      <input
-                        className="rka-input-txt"
-                        disabled={false}
-                        name="color"
-                        onClick={[Function]}
-                        placeholder="color (default: 000000)"
-                        readOnly={true}
-                        type="text"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-md-4"
-                >
-                  <div
-                    className="rka-form-group"
-                  >
-                    <label
-                      className="rka-label"
-                    >
-                      Blur radius
-                    </label>
-                    <div
-                      className="rka-input-range-container clearfix"
-                    >
-                      <input
-                        className="rka-input-range"
-                        disabled={false}
-                        max={10000}
-                        min={0}
-                        name="blur_radius"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        type="range"
-                        value={0}
-                      />
-                      <p>
-                        <span
-                          className="rka-input-range-min"
-                        >
-                          0
-                        </span>
-                        <input
-                          className="rka-input-txt rka-input-range-current txt-c"
-                          disabled={false}
-                          name="blur_radius"
-                          onChange={[Function]}
-                          placeholder={undefined}
-                          size={5}
-                          type="text"
-                          value={0}
-                        />
-                        <span
-                          className="rka-input-range-max"
-                        >
-                          10000
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-md-4"
-                >
-                  <div
-                    className="rka-form-group"
-                  >
-                    <label
-                      className="rka-label"
-                    >
-                      Sigma
-                    </label>
-                    <div
-                      className="rka-input-range-container clearfix"
-                    >
-                      <input
-                        className="rka-input-range"
-                        disabled={false}
-                        max={100}
-                        min={0}
-                        name="sigma"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        type="range"
-                        value={0.5}
-                      />
-                      <p>
-                        <span
-                          className="rka-input-range-min"
-                        >
-                          0
-                        </span>
-                        <input
-                          className="rka-input-txt rka-input-range-current txt-c"
-                          disabled={false}
-                          name="sigma"
-                          onChange={[Function]}
-                          placeholder={undefined}
-                          size={5}
-                          type="text"
-                          value={0.5}
-                        />
-                        <span
-                          className="rka-input-range-max"
-                        >
-                          100
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="pa-md mb-xs pos-r bor-light"
-        >
-          <div>
-            <a
-              className="rka-close-icon"
-              href="#"
-              onClick={[Function]}
-              title="Remove"
-            />
-            <a
-              className="rka-edit-icon"
-              href="#"
-              onClick={[Function]}
-            />
-            <a
-              className="rka-move-icon"
-              href="#"
-              onClick={[Function]}
-            />
-            <h3
-              className="rka-h3 txt-cap"
-            >
-              resize
-            </h3>
-          </div>
-          <div
-            className=""
-          >
-            <div
-              className="rka-operation-content"
-            >
-              <div>
-                <div
-                  className="row"
-                >
-                  <div
-                    className="col-md-4"
-                  >
-                    <div
-                      className="rka-form-group"
-                    >
-                      <label
-                        className="rka-label"
-                      >
-                        Width
-                      </label>
-                      <input
-                        className="rka-input-txt"
-                        disabled={false}
-                        name="width"
-                        onChange={[Function]}
-                        placeholder="width"
-                        type="text"
-                        value={1920}
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="col-md-4"
-                  >
-                    <div
-                      className="rka-form-group"
-                    >
-                      <label
-                        className="rka-label"
-                      >
-                        Height
-                      </label>
-                      <input
-                        className="rka-input-txt"
-                        disabled={false}
-                        name="height"
-                        onChange={[Function]}
-                        placeholder="height"
-                        type="text"
-                        value={1080}
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="col-md-4"
-                  >
-                    <div
-                      className="rka-form-group"
-                    >
-                      <label
-                        className="rka-label"
-                      >
-                        Upscale
-                      </label>
-                      <select
-                        className="rka-select"
-                        disabled={false}
-                        name="upscale"
-                        onChange={[Function]}
-                        placeholder="upscale (default: true)"
-                        value={undefined}
-                      >
-                        <option>
-                          upscale (default: true)
-                        </option>
-                        <option
-                          value="true"
-                        >
-                          true
-                        </option>
-                        <option
-                          value="false"
-                        >
-                          false
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="row"
-                >
-                  <div
-                    className="col-md-4"
-                  >
-                    <div
-                      className="rka-form-group"
-                    >
-                      <label
-                        className="rka-label"
-                      >
-                        Upscale DPR
-                      </label>
-                      <select
-                        className="rka-select"
-                        disabled={false}
-                        name="upscale_dpr"
-                        onChange={[Function]}
-                        placeholder="upscale_dpr (default: true)"
-                        value={undefined}
-                      >
-                        <option>
-                          upscale_dpr (default: true)
-                        </option>
-                        <option
-                          value="true"
-                        >
-                          true
-                        </option>
-                        <option
-                          value="false"
-                        >
-                          false
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                  <div
-                    className="col-md-4"
-                  >
-                    <div
-                      className="rka-form-group"
-                    >
-                      <label
-                        className="rka-label"
-                      >
-                        Mode
-                      </label>
-                      <select
-                        className="rka-select"
-                        disabled={false}
-                        name="mode"
-                        onChange={[Function]}
-                        placeholder="mode (default: box)"
-                        value={undefined}
-                      >
-                        <option>
-                          mode (default: box)
-                        </option>
-                        <option
-                          value="box"
-                        >
-                          box
-                        </option>
-                        <option
-                          value="absolute"
-                        >
-                          absolute
-                        </option>
-                        <option
-                          value="fill"
-                        >
-                          fill
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="pa-md mb-xs pos-r bg-gray-lightest bor-light"
-        >
-          <div>
-            <a
-              className="rka-close-icon"
-              href="#"
-              onClick={[Function]}
-              title="Remove"
-            />
-            <a
-              className="rka-edit-icon"
-              href="#"
-              onClick={[Function]}
-            />
-            <a
-              className="rka-move-icon"
-              href="#"
-              onClick={[Function]}
-            />
-            <h3
-              className="rka-h3 txt-cap"
-            >
-              rotate
-            </h3>
-          </div>
-          <div
-            className=""
-          >
-            <div
-              className="rka-operation-content"
-            >
-              <div
-                className="row"
-              >
-                <div
-                  className="col-md-12"
-                >
-                  <div
-                    className="rka-form-group"
-                  >
-                    <label
-                      className="rka-label"
-                    >
-                      Angle
+                      Name
                       <span>
                          *
                       </span>
                     </label>
-                    <div
-                      className="rka-input-range-container clearfix"
-                    >
-                      <input
-                        className="rka-input-range"
-                        disabled={false}
-                        max={360}
-                        min={0}
-                        name="angle"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        type="range"
-                        value={69}
-                      />
-                      <p>
-                        <span
-                          className="rka-input-range-min"
-                        >
-                          0
-                        </span>
-                        <input
-                          className="rka-input-txt rka-input-range-current txt-c"
-                          disabled={false}
-                          name="angle"
-                          onChange={[Function]}
-                          placeholder={undefined}
-                          size={5}
-                          type="text"
-                          value={69}
-                        />
-                        <span
-                          className="rka-input-range-max"
-                        >
-                          360
-                        </span>
-                      </p>
-                    </div>
+                    <input
+                      className="rka-input-txt"
+                      id="name"
+                      name="name"
+                      onChange={[Function]}
+                      type="text"
+                      value=""
+                    />
                   </div>
-                </div>
-                <div
-                  className="col-md-6"
-                >
-                  <div
-                    className="rka-form-group"
+                  <h3
+                    className="rka-h2 mv-md"
                   >
-                    <label
-                      className="rka-label"
+                    Operations
+                  </h3>
+                  <div
+                    className="pa-md bor-light mt-md"
+                  >
+                    <h3
+                      className="rka-h3 mb-md"
                     >
-                      Background color
-                    </label>
+                      New operation
+                    </h3>
                     <div
                       className="rka-form-group"
                     >
-                      <input
-                        className="rka-input-txt"
-                        disabled={false}
-                        name="background_color"
-                        onClick={[Function]}
-                        placeholder="color (default: FFFFFF)"
-                        readOnly={true}
-                        type="text"
-                        value=""
-                      />
+                      <select
+                        className="rka-select"
+                        onChange={[Function]}
+                        value="alpha"
+                      >
+                        <option
+                          value="alpha"
+                        >
+                          alpha
+                        </option>
+                        <option
+                          value="autorotate"
+                        >
+                          autorotate
+                        </option>
+                        <option
+                          value="blur"
+                        >
+                          blur
+                        </option>
+                        <option
+                          value="composition"
+                        >
+                          composition
+                        </option>
+                        <option
+                          value="crop"
+                        >
+                          crop
+                        </option>
+                        <option
+                          value="dropshadow"
+                        >
+                          dropshadow
+                        </option>
+                        <option
+                          value="grayscale"
+                        >
+                          grayscale
+                        </option>
+                        <option
+                          value="primitive"
+                        >
+                          primitive
+                        </option>
+                        <option
+                          value="resize"
+                        >
+                          resize
+                        </option>
+                        <option
+                          value="rotate"
+                        >
+                          rotate
+                        </option>
+                        <option
+                          value="sepia"
+                        >
+                          sepia
+                        </option>
+                        <option
+                          value="trim"
+                        >
+                          trim
+                        </option>
+                      </select>
                     </div>
+                    <a
+                      className="rka-button rka-button-brand rka-button-sm"
+                      href="#"
+                      onClick={[Function]}
+                    >
+                      Add operation
+                    </a>
                   </div>
                 </div>
-                <div
-                  className="col-md-6"
+              </div>
+            </section>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer
+    className="rka-footer"
+  >
+    Rokka © 2018
+  </footer>
+</div>
+`;
+
+exports[`NewStack does render with stackOptions 1`] = `
+<div
+  className={undefined}
+>
+  <header
+    className="rka-header"
+  >
+    <a
+      className="rka-header-menu-icon is-active"
+      href="#"
+      onClick={[Function]}
+    />
+    <a
+      className="rka-header-logo"
+      href="/"
+      onClick={[Function]}
+    />
+    <nav
+      className="rka-header-nav"
+    >
+      <a
+        className="rka-user"
+      >
+        <div
+          className="rka-avatar"
+        >
+          <svg
+            className="rka-avatar-icon"
+          >
+            <use
+              xlinkHref="avatar-placeholder.svg#avatar"
+            />
+          </svg>
+        </div>
+        <span
+          className="rka-username"
+        >
+          test-org
+        </span>
+      </a>
+      <a
+        className="rka-logout"
+        href="#"
+        onClick={[Function]}
+      >
+        <svg
+          className="rka-logout-icon"
+        >
+          <use
+            xlinkHref="logout-icon.svg#logout"
+          />
+        </svg>
+      </a>
+    </nav>
+  </header>
+  <nav
+    className="rka-sidebar is-active"
+  >
+    <ul
+      className="rka-sidebar-nav"
+    >
+      <li>
+        <a
+          aria-current="true"
+          className="rka-sidebar-link is-active"
+          href="/"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={false}
+          className="rka-sidebar-link"
+          href="/images"
+          onClick={[Function]}
+          style={undefined}
+        >
+          Images
+        </a>
+      </li>
+      <li
+        className="pos-r"
+      >
+        <a
+          aria-current={false}
+          className="rka-sidebar-link"
+          href="/stacks"
+          onClick={[Function]}
+          style={undefined}
+        >
+          Stacks
+        </a>
+        <a
+          aria-current={false}
+          className="rka-sidebar-link-icon"
+          href="/new-stack"
+          onClick={[Function]}
+          style={undefined}
+        >
+          <svg
+            className="rka-add-icon"
+          >
+            <use
+              xlinkHref="add-icon.svg#add-icon"
+            />
+          </svg>
+        </a>
+        <div
+          className="rka-sidebar-subnav is-active"
+        >
+          <div
+            className="rka-stacks-search-container"
+          >
+            <input
+              className="rka-input-txt rka-stack-search"
+              onChange={[Function]}
+              placeholder="Search stack..."
+              type="text"
+            />
+            <svg
+              className="rka-stack-search-icon"
+            >
+              <use
+                xlinkHref="search.svg#search-icon"
+              />
+            </svg>
+          </div>
+          <div
+            className="rka-stacks-list is-loaded"
+          >
+            <div
+              className="rka-stacks-load"
+            />
+          </div>
+        </div>
+      </li>
+    </ul>
+    <a
+      className="rka-sidebar-poweredby"
+      href="https://www.liip.ch/"
+      target="_blank"
+    >
+      POWERED BY 
+      <i
+        className="rka-sidebar-liip-logo"
+      />
+    </a>
+  </nav>
+  <main
+    className="main clearfix is-active"
+  >
+    <div
+      className="section"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-12"
+        >
+          <form
+            onSubmit={[Function]}
+          >
+            <div
+              className="bg-white pa-md clearfix"
+            >
+              <h1
+                className="rka-h1 flo-l mt-xs"
+              >
+                New stack
+              </h1>
+              <div
+                className="flo-r"
+              >
+                <button
+                  className="rka-button rka-button-secondary mr-md"
+                  disabled={true}
+                  href="#"
+                  onClick={[Function]}
+                  type="button"
                 >
+                  Update preview
+                </button>
+                <button
+                  className="rka-button rka-button-brand disabled flo-r"
+                  type="submit"
+                >
+                  Create stack
+                </button>
+              </div>
+            </div>
+            <section
+              className="rka-box rka-box-stacks pt-n"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col-md-7 col-sm-7"
+                >
+                  <h3
+                    className="rka-h2 mv-md"
+                  >
+                    Stack details
+                  </h3>
                   <div
                     className="rka-form-group"
                   >
                     <label
                       className="rka-label"
                     >
-                      Background opacity
+                      Name
+                      <span>
+                         *
+                      </span>
                     </label>
-                    <div
-                      className="rka-input-range-container clearfix"
+                    <input
+                      className="rka-input-txt"
+                      id="name"
+                      name="name"
+                      onChange={[Function]}
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <div>
+                    <h3
+                      className="rka-h2 mv-md"
                     >
-                      <input
-                        className="rka-input-range"
-                        disabled={false}
-                        max={100}
-                        min={0}
-                        name="background_opacity"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        placeholder={undefined}
-                        type="range"
-                        value={20}
-                      />
-                      <p>
-                        <span
-                          className="rka-input-range-min"
+                      Options
+                    </h3>
+                    <div
+                      className="bg-gray-lightest pa-md bor-light"
+                    >
+                      <div
+                        className="row"
+                      >
+                        <div
+                          className="col-md-6"
                         >
-                          0
-                        </span>
-                        <input
-                          className="rka-input-txt rka-input-range-current txt-c"
-                          disabled={false}
-                          name="background_opacity"
-                          onChange={[Function]}
-                          placeholder={undefined}
-                          size={5}
-                          type="text"
-                          value={20}
+                          <div
+                            className="rka-form-group"
+                          >
+                            <label
+                              className="rka-label"
+                            >
+                              PNG Image compression
+                            </label>
+                            <div
+                              className="rka-input-range-container clearfix"
+                            >
+                              <input
+                                className="rka-input-range"
+                                disabled={false}
+                                max={9}
+                                min={0}
+                                name="png.compression_level"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder={undefined}
+                                type="range"
+                                value={7}
+                              />
+                              <p>
+                                <span
+                                  className="rka-input-range-min"
+                                >
+                                  0
+                                </span>
+                                <input
+                                  className="rka-input-txt rka-input-range-current txt-c"
+                                  disabled={false}
+                                  name="png.compression_level"
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  size={5}
+                                  type="text"
+                                  value={7}
+                                />
+                                <span
+                                  className="rka-input-range-max"
+                                >
+                                  9
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="col-md-6"
+                        >
+                          <div
+                            className="rka-form-group"
+                          >
+                            <label
+                              className="rka-label"
+                            >
+                              JPG Image quality
+                            </label>
+                            <div
+                              className="rka-input-range-container clearfix"
+                            >
+                              <input
+                                className="rka-input-range"
+                                disabled={false}
+                                max={100}
+                                min={1}
+                                name="jpg.quality"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder={undefined}
+                                type="range"
+                                value={76}
+                              />
+                              <p>
+                                <span
+                                  className="rka-input-range-min"
+                                >
+                                  1
+                                </span>
+                                <input
+                                  className="rka-input-txt rka-input-range-current txt-c"
+                                  disabled={false}
+                                  name="jpg.quality"
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  size={5}
+                                  type="text"
+                                  value={76}
+                                />
+                                <span
+                                  className="rka-input-range-max"
+                                >
+                                  100
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="col-md-6"
+                        >
+                          <div
+                            className="rka-form-group"
+                          >
+                            <label
+                              className="rka-label"
+                            >
+                              WebP Image quality
+                            </label>
+                            <div
+                              className="rka-input-range-container clearfix"
+                            >
+                              <input
+                                className="rka-input-range"
+                                disabled={false}
+                                max={100}
+                                min={1}
+                                name="webp.quality"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder={undefined}
+                                type="range"
+                                value={80}
+                              />
+                              <p>
+                                <span
+                                  className="rka-input-range-min"
+                                >
+                                  1
+                                </span>
+                                <input
+                                  className="rka-input-txt rka-input-range-current txt-c"
+                                  disabled={false}
+                                  name="webp.quality"
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  size={5}
+                                  type="text"
+                                  value={80}
+                                />
+                                <span
+                                  className="rka-input-range-max"
+                                >
+                                  100
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="col-md-6"
                         />
-                        <span
-                          className="rka-input-range-max"
+                        <div
+                          className="col-md-12"
                         >
-                          100
-                        </span>
-                      </p>
+                          <div
+                            className="rka-form-group mb-n"
+                          >
+                            <label
+                              className="rka-label"
+                            >
+                              Base Stack
+                            </label>
+                            <div
+                              className="Select is-clearable is-searchable Select--single"
+                              style={undefined}
+                            >
+                              <div
+                                className="Select-control"
+                                onKeyDown={[Function]}
+                                onMouseDown={[Function]}
+                                onTouchEnd={[Function]}
+                                onTouchMove={[Function]}
+                                onTouchStart={[Function]}
+                                style={undefined}
+                              >
+                                <span
+                                  className="Select-multi-value-wrapper"
+                                  id="react-select-2--value"
+                                >
+                                  <div
+                                    className="Select-placeholder"
+                                  >
+                                    Enter base stack, default: no base stack used
+                                  </div>
+                                  <div
+                                    className="Select-input"
+                                    style={
+                                      Object {
+                                        "display": "inline-block",
+                                      }
+                                    }
+                                  >
+                                    <input
+                                      aria-activedescendant="react-select-2--value"
+                                      aria-describedby={undefined}
+                                      aria-expanded="false"
+                                      aria-haspopup="false"
+                                      aria-label={undefined}
+                                      aria-labelledby={undefined}
+                                      aria-owns=""
+                                      className={undefined}
+                                      id={undefined}
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onFocus={[Function]}
+                                      required={false}
+                                      role="combobox"
+                                      style={
+                                        Object {
+                                          "boxSizing": "content-box",
+                                          "width": "5px",
+                                        }
+                                      }
+                                      tabIndex={undefined}
+                                      value=""
+                                    />
+                                    <div
+                                      style={
+                                        Object {
+                                          "height": 0,
+                                          "left": 0,
+                                          "overflow": "scroll",
+                                          "position": "absolute",
+                                          "top": 0,
+                                          "visibility": "hidden",
+                                          "whiteSpace": "pre",
+                                        }
+                                      }
+                                    >
+                                      
+                                    </div>
+                                  </div>
+                                </span>
+                                <span
+                                  className="Select-arrow-zone"
+                                  onMouseDown={[Function]}
+                                >
+                                  <span
+                                    className="Select-arrow"
+                                    onMouseDown={[Function]}
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                  <h3
+                    className="rka-h2 mv-md"
+                  >
+                    Operations
+                  </h3>
+                  <div
+                    className="pa-md bor-light mt-md"
+                  >
+                    <h3
+                      className="rka-h3 mb-md"
+                    >
+                      New operation
+                    </h3>
+                    <div
+                      className="rka-form-group"
+                    >
+                      <select
+                        className="rka-select"
+                        onChange={[Function]}
+                        value="alpha"
+                      >
+                        <option
+                          value="alpha"
+                        >
+                          alpha
+                        </option>
+                        <option
+                          value="autorotate"
+                        >
+                          autorotate
+                        </option>
+                        <option
+                          value="blur"
+                        >
+                          blur
+                        </option>
+                        <option
+                          value="composition"
+                        >
+                          composition
+                        </option>
+                        <option
+                          value="crop"
+                        >
+                          crop
+                        </option>
+                        <option
+                          value="dropshadow"
+                        >
+                          dropshadow
+                        </option>
+                        <option
+                          value="grayscale"
+                        >
+                          grayscale
+                        </option>
+                        <option
+                          value="primitive"
+                        >
+                          primitive
+                        </option>
+                        <option
+                          value="resize"
+                        >
+                          resize
+                        </option>
+                        <option
+                          value="rotate"
+                        >
+                          rotate
+                        </option>
+                        <option
+                          value="sepia"
+                        >
+                          sepia
+                        </option>
+                        <option
+                          value="trim"
+                        >
+                          trim
+                        </option>
+                      </select>
+                    </div>
+                    <a
+                      className="rka-button rka-button-brand rka-button-sm"
+                      href="#"
+                      onClick={[Function]}
+                    >
+                      Add operation
+                    </a>
+                  </div>
+                </div>
+                <div
+                  className="col-md-5 col-sm-5"
+                >
+                  <h3
+                    className="rka-h2 mv-md"
+                  >
+                    Preview
+                    <a
+                      className="rka-link flo-r txt-sm"
+                      href="#"
+                      onClick={[Function]}
+                    >
+                      Change picture
+                    </a>
+                  </h3>
+                  <div
+                    className="rka-stack-img-container bg-chess mb-xs bor-light txt-c"
+                  >
+                    <p
+                      className="pa-md bg-white txt-l"
+                    >
+                      Customized 
+                      <a
+                        className="rka-link flo-r"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                        target="_blank"
+                      >
+                        Open in new window
+                      </a>
+                    </p>
+                    <img
+                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                    />
+                  </div>
+                  <div
+                    className="rka-stack-img-container bg-chess bor-light txt-c"
+                  >
+                    <p
+                      className="pa-md bg-white txt-l"
+                    >
+                      Original 
+                      <a
+                        className="rka-link flo-r"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                        target="_blank"
+                      >
+                        Open in new window
+                      </a>
+                    </p>
+                    <img
+                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                    />
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="pa-md bor-light mt-md"
-        >
-          <h3
-            className="rka-h3 mb-md"
-          >
-            New operation
-          </h3>
-          <div
-            className="rka-form-group"
-          >
-            <select
-              className="rka-select"
-              onChange={[Function]}
-              value="alpha"
-            >
-              <option
-                value="alpha"
-              >
-                alpha
-              </option>
-              <option
-                value="autorotate"
-              >
-                autorotate
-              </option>
-              <option
-                value="blur"
-              >
-                blur
-              </option>
-              <option
-                value="composition"
-              >
-                composition
-              </option>
-              <option
-                value="crop"
-              >
-                crop
-              </option>
-              <option
-                value="dropshadow"
-              >
-                dropshadow
-              </option>
-              <option
-                value="grayscale"
-              >
-                grayscale
-              </option>
-              <option
-                value="primitive"
-              >
-                primitive
-              </option>
-              <option
-                value="resize"
-              >
-                resize
-              </option>
-              <option
-                value="rotate"
-              >
-                rotate
-              </option>
-              <option
-                value="sepia"
-              >
-                sepia
-              </option>
-              <option
-                value="trim"
-              >
-                trim
-              </option>
-            </select>
-          </div>
-          <a
-            className="rka-button rka-button-brand rka-button-sm"
-            href="#"
-            onClick={[Function]}
-          >
-            Add operation
-          </a>
+            </section>
+          </form>
         </div>
       </div>
     </div>
-  </section>
-</form>
+  </main>
+  <footer
+    className="rka-footer"
+  >
+    Rokka © 2018
+  </footer>
+</div>
+`;
+
+exports[`NewStack does render with stacks 1`] = `
+<div
+  className={undefined}
+>
+  <header
+    className="rka-header"
+  >
+    <a
+      className="rka-header-menu-icon is-active"
+      href="#"
+      onClick={[Function]}
+    />
+    <a
+      className="rka-header-logo"
+      href="/"
+      onClick={[Function]}
+    />
+    <nav
+      className="rka-header-nav"
+    >
+      <a
+        className="rka-user"
+      >
+        <div
+          className="rka-avatar"
+        >
+          <svg
+            className="rka-avatar-icon"
+          >
+            <use
+              xlinkHref="avatar-placeholder.svg#avatar"
+            />
+          </svg>
+        </div>
+        <span
+          className="rka-username"
+        >
+          test-org
+        </span>
+      </a>
+      <a
+        className="rka-logout"
+        href="#"
+        onClick={[Function]}
+      >
+        <svg
+          className="rka-logout-icon"
+        >
+          <use
+            xlinkHref="logout-icon.svg#logout"
+          />
+        </svg>
+      </a>
+    </nav>
+  </header>
+  <nav
+    className="rka-sidebar is-active"
+  >
+    <ul
+      className="rka-sidebar-nav"
+    >
+      <li>
+        <a
+          aria-current="true"
+          className="rka-sidebar-link is-active"
+          href="/"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={false}
+          className="rka-sidebar-link"
+          href="/images"
+          onClick={[Function]}
+          style={undefined}
+        >
+          Images
+        </a>
+      </li>
+      <li
+        className="pos-r"
+      >
+        <a
+          aria-current={false}
+          className="rka-sidebar-link"
+          href="/stacks"
+          onClick={[Function]}
+          style={undefined}
+        >
+          Stacks
+        </a>
+        <a
+          aria-current={false}
+          className="rka-sidebar-link-icon"
+          href="/new-stack"
+          onClick={[Function]}
+          style={undefined}
+        >
+          <svg
+            className="rka-add-icon"
+          >
+            <use
+              xlinkHref="add-icon.svg#add-icon"
+            />
+          </svg>
+        </a>
+        <div
+          className="rka-sidebar-subnav is-active"
+        >
+          <div
+            className="rka-stacks-search-container"
+          >
+            <input
+              className="rka-input-txt rka-stack-search"
+              onChange={[Function]}
+              placeholder="Search stack..."
+              type="text"
+            />
+            <svg
+              className="rka-stack-search-icon"
+            >
+              <use
+                xlinkHref="search.svg#search-icon"
+              />
+            </svg>
+          </div>
+          <div
+            className="rka-stacks-list is-loaded"
+          >
+            <a
+              aria-current={false}
+              className="rka-sidebar-sublink txt-ellipsis"
+              href="/stacks/stack-a"
+              onClick={[Function]}
+              style={undefined}
+            >
+              stack-a
+            </a>
+            <a
+              aria-current={false}
+              className="rka-sidebar-sublink txt-ellipsis"
+              href="/stacks/stack-b"
+              onClick={[Function]}
+              style={undefined}
+            >
+              stack-b
+            </a>
+            <a
+              aria-current={false}
+              className="rka-sidebar-sublink txt-ellipsis"
+              href="/stacks/stack-c"
+              onClick={[Function]}
+              style={undefined}
+            >
+              stack-c
+            </a>
+            <div
+              className="rka-stacks-load"
+            />
+          </div>
+        </div>
+      </li>
+    </ul>
+    <a
+      className="rka-sidebar-poweredby"
+      href="https://www.liip.ch/"
+      target="_blank"
+    >
+      POWERED BY 
+      <i
+        className="rka-sidebar-liip-logo"
+      />
+    </a>
+  </nav>
+  <main
+    className="main clearfix is-active"
+  >
+    <div
+      className="section"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-12"
+        >
+          <form
+            onSubmit={[Function]}
+          >
+            <div
+              className="bg-white pa-md clearfix"
+            >
+              <h1
+                className="rka-h1 flo-l mt-xs"
+              >
+                New stack
+              </h1>
+              <div
+                className="flo-r"
+              >
+                <button
+                  className="rka-button rka-button-secondary mr-md"
+                  disabled={true}
+                  href="#"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Update preview
+                </button>
+                <button
+                  className="rka-button rka-button-brand disabled flo-r"
+                  type="submit"
+                >
+                  Create stack
+                </button>
+              </div>
+            </div>
+            <section
+              className="rka-box rka-box-stacks pt-n"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col-md-7 col-sm-7"
+                >
+                  <h3
+                    className="rka-h2 mv-md"
+                  >
+                    Stack details
+                  </h3>
+                  <div
+                    className="rka-form-group"
+                  >
+                    <label
+                      className="rka-label"
+                    >
+                      Name
+                      <span>
+                         *
+                      </span>
+                    </label>
+                    <input
+                      className="rka-input-txt"
+                      id="name"
+                      name="name"
+                      onChange={[Function]}
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <div>
+                    <h3
+                      className="rka-h2 mv-md"
+                    >
+                      Options
+                    </h3>
+                    <div
+                      className="bg-gray-lightest pa-md bor-light"
+                    >
+                      <div
+                        className="row"
+                      >
+                        <div
+                          className="col-md-6"
+                        >
+                          <div
+                            className="rka-form-group"
+                          >
+                            <label
+                              className="rka-label"
+                            >
+                              PNG Image compression
+                            </label>
+                            <div
+                              className="rka-input-range-container clearfix"
+                            >
+                              <input
+                                className="rka-input-range"
+                                disabled={false}
+                                max={9}
+                                min={0}
+                                name="png.compression_level"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder={undefined}
+                                type="range"
+                                value={7}
+                              />
+                              <p>
+                                <span
+                                  className="rka-input-range-min"
+                                >
+                                  0
+                                </span>
+                                <input
+                                  className="rka-input-txt rka-input-range-current txt-c"
+                                  disabled={false}
+                                  name="png.compression_level"
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  size={5}
+                                  type="text"
+                                  value={7}
+                                />
+                                <span
+                                  className="rka-input-range-max"
+                                >
+                                  9
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="col-md-6"
+                        >
+                          <div
+                            className="rka-form-group"
+                          >
+                            <label
+                              className="rka-label"
+                            >
+                              JPG Image quality
+                            </label>
+                            <div
+                              className="rka-input-range-container clearfix"
+                            >
+                              <input
+                                className="rka-input-range"
+                                disabled={false}
+                                max={100}
+                                min={1}
+                                name="jpg.quality"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder={undefined}
+                                type="range"
+                                value={76}
+                              />
+                              <p>
+                                <span
+                                  className="rka-input-range-min"
+                                >
+                                  1
+                                </span>
+                                <input
+                                  className="rka-input-txt rka-input-range-current txt-c"
+                                  disabled={false}
+                                  name="jpg.quality"
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  size={5}
+                                  type="text"
+                                  value={76}
+                                />
+                                <span
+                                  className="rka-input-range-max"
+                                >
+                                  100
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="col-md-6"
+                        >
+                          <div
+                            className="rka-form-group"
+                          >
+                            <label
+                              className="rka-label"
+                            >
+                              WebP Image quality
+                            </label>
+                            <div
+                              className="rka-input-range-container clearfix"
+                            >
+                              <input
+                                className="rka-input-range"
+                                disabled={false}
+                                max={100}
+                                min={1}
+                                name="webp.quality"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder={undefined}
+                                type="range"
+                                value={80}
+                              />
+                              <p>
+                                <span
+                                  className="rka-input-range-min"
+                                >
+                                  1
+                                </span>
+                                <input
+                                  className="rka-input-txt rka-input-range-current txt-c"
+                                  disabled={false}
+                                  name="webp.quality"
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  size={5}
+                                  type="text"
+                                  value={80}
+                                />
+                                <span
+                                  className="rka-input-range-max"
+                                >
+                                  100
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="col-md-6"
+                        />
+                        <div
+                          className="col-md-12"
+                        >
+                          <div
+                            className="rka-form-group mb-n"
+                          >
+                            <label
+                              className="rka-label"
+                            >
+                              Base Stack
+                            </label>
+                            <div
+                              className="Select is-clearable is-searchable Select--single"
+                              style={undefined}
+                            >
+                              <div
+                                className="Select-control"
+                                onKeyDown={[Function]}
+                                onMouseDown={[Function]}
+                                onTouchEnd={[Function]}
+                                onTouchMove={[Function]}
+                                onTouchStart={[Function]}
+                                style={undefined}
+                              >
+                                <span
+                                  className="Select-multi-value-wrapper"
+                                  id="react-select-3--value"
+                                >
+                                  <div
+                                    className="Select-placeholder"
+                                  >
+                                    Enter base stack, default: no base stack used
+                                  </div>
+                                  <div
+                                    className="Select-input"
+                                    style={
+                                      Object {
+                                        "display": "inline-block",
+                                      }
+                                    }
+                                  >
+                                    <input
+                                      aria-activedescendant="react-select-3--value"
+                                      aria-describedby={undefined}
+                                      aria-expanded="false"
+                                      aria-haspopup="false"
+                                      aria-label={undefined}
+                                      aria-labelledby={undefined}
+                                      aria-owns=""
+                                      className={undefined}
+                                      id={undefined}
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onFocus={[Function]}
+                                      required={false}
+                                      role="combobox"
+                                      style={
+                                        Object {
+                                          "boxSizing": "content-box",
+                                          "width": "5px",
+                                        }
+                                      }
+                                      tabIndex={undefined}
+                                      value=""
+                                    />
+                                    <div
+                                      style={
+                                        Object {
+                                          "height": 0,
+                                          "left": 0,
+                                          "overflow": "scroll",
+                                          "position": "absolute",
+                                          "top": 0,
+                                          "visibility": "hidden",
+                                          "whiteSpace": "pre",
+                                        }
+                                      }
+                                    >
+                                      
+                                    </div>
+                                  </div>
+                                </span>
+                                <span
+                                  className="Select-arrow-zone"
+                                  onMouseDown={[Function]}
+                                >
+                                  <span
+                                    className="Select-arrow"
+                                    onMouseDown={[Function]}
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <h3
+                    className="rka-h2 mv-md"
+                  >
+                    Operations
+                  </h3>
+                  <div
+                    className="pa-md bor-light mt-md"
+                  >
+                    <h3
+                      className="rka-h3 mb-md"
+                    >
+                      New operation
+                    </h3>
+                    <div
+                      className="rka-form-group"
+                    >
+                      <select
+                        className="rka-select"
+                        onChange={[Function]}
+                        value="alpha"
+                      >
+                        <option
+                          value="alpha"
+                        >
+                          alpha
+                        </option>
+                        <option
+                          value="autorotate"
+                        >
+                          autorotate
+                        </option>
+                        <option
+                          value="blur"
+                        >
+                          blur
+                        </option>
+                        <option
+                          value="composition"
+                        >
+                          composition
+                        </option>
+                        <option
+                          value="crop"
+                        >
+                          crop
+                        </option>
+                        <option
+                          value="dropshadow"
+                        >
+                          dropshadow
+                        </option>
+                        <option
+                          value="grayscale"
+                        >
+                          grayscale
+                        </option>
+                        <option
+                          value="primitive"
+                        >
+                          primitive
+                        </option>
+                        <option
+                          value="resize"
+                        >
+                          resize
+                        </option>
+                        <option
+                          value="rotate"
+                        >
+                          rotate
+                        </option>
+                        <option
+                          value="sepia"
+                        >
+                          sepia
+                        </option>
+                        <option
+                          value="trim"
+                        >
+                          trim
+                        </option>
+                      </select>
+                    </div>
+                    <a
+                      className="rka-button rka-button-brand rka-button-sm"
+                      href="#"
+                      onClick={[Function]}
+                    >
+                      Add operation
+                    </a>
+                  </div>
+                </div>
+                <div
+                  className="col-md-5 col-sm-5"
+                >
+                  <h3
+                    className="rka-h2 mv-md"
+                  >
+                    Preview
+                    <a
+                      className="rka-link flo-r txt-sm"
+                      href="#"
+                      onClick={[Function]}
+                    >
+                      Change picture
+                    </a>
+                  </h3>
+                  <div
+                    className="rka-stack-img-container bg-chess mb-xs bor-light txt-c"
+                  >
+                    <p
+                      className="pa-md bg-white txt-l"
+                    >
+                      Customized 
+                      <a
+                        className="rka-link flo-r"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                        target="_blank"
+                      >
+                        Open in new window
+                      </a>
+                    </p>
+                    <img
+                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                    />
+                  </div>
+                  <div
+                    className="rka-stack-img-container bg-chess bor-light txt-c"
+                  >
+                    <p
+                      className="pa-md bg-white txt-l"
+                    >
+                      Original 
+                      <a
+                        className="rka-link flo-r"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                        target="_blank"
+                      >
+                        Open in new window
+                      </a>
+                    </p>
+                    <img
+                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer
+    className="rka-footer"
+  >
+    Rokka © 2018
+  </footer>
+</div>
+`;
+
+exports[`newStack does render with clone stack props 1`] = `
+<div
+  className={undefined}
+>
+  <header
+    className="rka-header"
+  >
+    <a
+      className="rka-header-menu-icon is-active"
+      href="#"
+      onClick={[Function]}
+    />
+    <a
+      className="rka-header-logo"
+      href="/"
+      onClick={[Function]}
+    />
+    <nav
+      className="rka-header-nav"
+    >
+      <a
+        className="rka-user"
+      >
+        <div
+          className="rka-avatar"
+        >
+          <svg
+            className="rka-avatar-icon"
+          >
+            <use
+              xlinkHref="avatar-placeholder.svg#avatar"
+            />
+          </svg>
+        </div>
+        <span
+          className="rka-username"
+        >
+          test-org
+        </span>
+      </a>
+      <a
+        className="rka-logout"
+        href="#"
+        onClick={[Function]}
+      >
+        <svg
+          className="rka-logout-icon"
+        >
+          <use
+            xlinkHref="logout-icon.svg#logout"
+          />
+        </svg>
+      </a>
+    </nav>
+  </header>
+  <nav
+    className="rka-sidebar is-active"
+  >
+    <ul
+      className="rka-sidebar-nav"
+    >
+      <li>
+        <a
+          aria-current="true"
+          className="rka-sidebar-link is-active"
+          href="/"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={false}
+          className="rka-sidebar-link"
+          href="/images"
+          onClick={[Function]}
+          style={undefined}
+        >
+          Images
+        </a>
+      </li>
+      <li
+        className="pos-r"
+      >
+        <a
+          aria-current={false}
+          className="rka-sidebar-link"
+          href="/stacks"
+          onClick={[Function]}
+          style={undefined}
+        >
+          Stacks
+        </a>
+        <a
+          aria-current={false}
+          className="rka-sidebar-link-icon"
+          href="/new-stack"
+          onClick={[Function]}
+          style={undefined}
+        >
+          <svg
+            className="rka-add-icon"
+          >
+            <use
+              xlinkHref="add-icon.svg#add-icon"
+            />
+          </svg>
+        </a>
+        <div
+          className="rka-sidebar-subnav is-active"
+        >
+          <div
+            className="rka-stacks-search-container"
+          >
+            <input
+              className="rka-input-txt rka-stack-search"
+              onChange={[Function]}
+              placeholder="Search stack..."
+              type="text"
+            />
+            <svg
+              className="rka-stack-search-icon"
+            >
+              <use
+                xlinkHref="search.svg#search-icon"
+              />
+            </svg>
+          </div>
+          <div
+            className="rka-stacks-list is-loaded"
+          >
+            <div
+              className="rka-stacks-load"
+            />
+          </div>
+        </div>
+      </li>
+    </ul>
+    <a
+      className="rka-sidebar-poweredby"
+      href="https://www.liip.ch/"
+      target="_blank"
+    >
+      POWERED BY 
+      <i
+        className="rka-sidebar-liip-logo"
+      />
+    </a>
+  </nav>
+  <main
+    className="main clearfix is-active"
+  >
+    <div
+      className="section"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-12"
+        >
+          <form
+            onSubmit={[Function]}
+          >
+            <div
+              className="bg-white pa-md clearfix"
+            >
+              <h1
+                className="rka-h1 flo-l mt-xs"
+              >
+                New stack
+              </h1>
+              <div
+                className="flo-r"
+              >
+                <button
+                  className="rka-button rka-button-brand"
+                  type="submit"
+                >
+                  Create stack
+                </button>
+              </div>
+            </div>
+            <section
+              className="rka-box rka-box-stacks pt-n"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col-md-7 col-sm-7"
+                >
+                  <h3
+                    className="rka-h2 mv-md"
+                  >
+                    Stack details
+                  </h3>
+                  <div
+                    className="rka-form-group"
+                  >
+                    <label
+                      className="rka-label"
+                    >
+                      Name
+                      <span>
+                         *
+                      </span>
+                    </label>
+                    <input
+                      className="rka-input-txt"
+                      id="name"
+                      name="name"
+                      onChange={[Function]}
+                      type="text"
+                      value="Test clone stack"
+                    />
+                  </div>
+                  <h3
+                    className="rka-h2 mv-md"
+                  >
+                    Operations
+                  </h3>
+                  <div
+                    className="pa-md mb-xs pos-r is-active bor-light"
+                  >
+                    <div>
+                      <a
+                        className="rka-close-icon"
+                        href="#"
+                        onClick={[Function]}
+                        title="Remove"
+                      />
+                      <a
+                        className="rka-edit-icon"
+                        href="#"
+                        onClick={[Function]}
+                      />
+                      <a
+                        className="rka-move-icon"
+                        href="#"
+                        onClick={[Function]}
+                      />
+                      <h3
+                        className="rka-h3 txt-cap"
+                      >
+                        alpha
+                      </h3>
+                    </div>
+                    <div
+                      className=""
+                    >
+                      <div
+                        className="rka-operation-content"
+                      >
+                        <div
+                          className="row"
+                        >
+                          <div
+                            className="col-md-6"
+                          >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label"
+                              >
+                                Alpha mode
+                              </label>
+                              <select
+                                className="rka-select"
+                                disabled={false}
+                                name="mode"
+                                onChange={[Function]}
+                                placeholder="mode (default: mask)"
+                                value="mask"
+                              >
+                                <option>
+                                  mode (default: mask)
+                                </option>
+                                <option
+                                  value="mask"
+                                >
+                                  mask
+                                </option>
+                                <option
+                                  value="remove"
+                                >
+                                  remove
+                                </option>
+                                <option
+                                  value="extract"
+                                >
+                                  extract
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="pa-md mb-xs pos-r bg-gray-lightest bor-light"
+                  >
+                    <div>
+                      <a
+                        className="rka-close-icon"
+                        href="#"
+                        onClick={[Function]}
+                        title="Remove"
+                      />
+                      <a
+                        className="rka-edit-icon"
+                        href="#"
+                        onClick={[Function]}
+                      />
+                      <a
+                        className="rka-move-icon"
+                        href="#"
+                        onClick={[Function]}
+                      />
+                      <h3
+                        className="rka-h3 txt-cap"
+                      >
+                        blur
+                      </h3>
+                    </div>
+                    <div
+                      className=""
+                    >
+                      <div
+                        className="rka-operation-content"
+                      >
+                        <div
+                          className="row"
+                        >
+                          <div
+                            className="col-md-6"
+                          >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label"
+                              >
+                                Blur Sigma
+                                <span>
+                                   *
+                                </span>
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={100}
+                                  min={0}
+                                  name="sigma"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  type="range"
+                                  value={39}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="sigma"
+                                    onChange={[Function]}
+                                    placeholder={undefined}
+                                    size={5}
+                                    type="text"
+                                    value={39}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    100
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="pa-md mb-xs pos-r bor-light"
+                  >
+                    <div>
+                      <a
+                        className="rka-close-icon"
+                        href="#"
+                        onClick={[Function]}
+                        title="Remove"
+                      />
+                      <a
+                        className="rka-edit-icon"
+                        href="#"
+                        onClick={[Function]}
+                      />
+                      <a
+                        className="rka-move-icon"
+                        href="#"
+                        onClick={[Function]}
+                      />
+                      <h3
+                        className="rka-h3 txt-cap"
+                      >
+                        crop
+                      </h3>
+                    </div>
+                    <div
+                      className=""
+                    >
+                      <div
+                        className="rka-operation-content"
+                      >
+                        <div
+                          className="row"
+                        >
+                          <div
+                            className="col-md-6"
+                          >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label"
+                              >
+                                Width
+                                <span>
+                                   *
+                                </span>
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={1}
+                                  name="width"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  type="range"
+                                  value={5100}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    1
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="width"
+                                    onChange={[Function]}
+                                    placeholder={undefined}
+                                    size={5}
+                                    type="text"
+                                    value={5100}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    10000
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            className="col-md-6"
+                          >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label"
+                              >
+                                Height
+                                <span>
+                                   *
+                                </span>
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={1}
+                                  name="height"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  type="range"
+                                  value={5276}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    1
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="height"
+                                    onChange={[Function]}
+                                    placeholder={undefined}
+                                    size={5}
+                                    type="text"
+                                    value={5276}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    10000
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            className="col-md-6"
+                          >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label"
+                              >
+                                Anchor
+                              </label>
+                              <input
+                                className="rka-input-txt"
+                                disabled={false}
+                                name="anchor"
+                                onChange={[Function]}
+                                placeholder="Anchor (default: auto)"
+                                type="text"
+                                value={undefined}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="pa-md mb-xs pos-r bg-gray-lightest bor-light"
+                  >
+                    <div>
+                      <a
+                        className="rka-close-icon"
+                        href="#"
+                        onClick={[Function]}
+                        title="Remove"
+                      />
+                      <a
+                        className="rka-edit-icon"
+                        href="#"
+                        onClick={[Function]}
+                      />
+                      <a
+                        className="rka-move-icon"
+                        href="#"
+                        onClick={[Function]}
+                      />
+                      <h3
+                        className="rka-h3 txt-cap"
+                      >
+                        dropshadow
+                      </h3>
+                    </div>
+                    <div
+                      className=""
+                    >
+                      <div
+                        className="rka-operation-content"
+                      >
+                        <div
+                          className="row"
+                        >
+                          <div
+                            className="col-md-4"
+                          >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label"
+                              >
+                                Horizontal
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={100}
+                                  min={-100}
+                                  name="horizontal"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  type="range"
+                                  value={-26}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    -100
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="horizontal"
+                                    onChange={[Function]}
+                                    placeholder={undefined}
+                                    size={5}
+                                    type="text"
+                                    value={-26}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    100
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            className="col-md-4"
+                          >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label"
+                              >
+                                Vertical
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={100}
+                                  min={-100}
+                                  name="vertical"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  type="range"
+                                  value={40}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    -100
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="vertical"
+                                    onChange={[Function]}
+                                    placeholder={undefined}
+                                    size={5}
+                                    type="text"
+                                    value={40}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    100
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            className="col-md-4"
+                          >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label"
+                              >
+                                Opacity
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={100}
+                                  min={0}
+                                  name="opacity"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  type="range"
+                                  value={73}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="opacity"
+                                    onChange={[Function]}
+                                    placeholder={undefined}
+                                    size={5}
+                                    type="text"
+                                    value={73}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    100
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            className="col-md-4"
+                          >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label"
+                              >
+                                Color
+                              </label>
+                              <div
+                                className="rka-form-group"
+                              >
+                                <input
+                                  className="rka-input-txt"
+                                  disabled={false}
+                                  name="color"
+                                  onClick={[Function]}
+                                  placeholder="color (default: 000000)"
+                                  readOnly={true}
+                                  type="text"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            className="col-md-4"
+                          >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label"
+                              >
+                                Blur radius
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={0}
+                                  name="blur_radius"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  type="range"
+                                  value={0}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="blur_radius"
+                                    onChange={[Function]}
+                                    placeholder={undefined}
+                                    size={5}
+                                    type="text"
+                                    value={0}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    10000
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            className="col-md-4"
+                          >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label"
+                              >
+                                Sigma
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={100}
+                                  min={0}
+                                  name="sigma"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  type="range"
+                                  value={0.5}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="sigma"
+                                    onChange={[Function]}
+                                    placeholder={undefined}
+                                    size={5}
+                                    type="text"
+                                    value={0.5}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    100
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="pa-md mb-xs pos-r bor-light"
+                  >
+                    <div>
+                      <a
+                        className="rka-close-icon"
+                        href="#"
+                        onClick={[Function]}
+                        title="Remove"
+                      />
+                      <a
+                        className="rka-edit-icon"
+                        href="#"
+                        onClick={[Function]}
+                      />
+                      <a
+                        className="rka-move-icon"
+                        href="#"
+                        onClick={[Function]}
+                      />
+                      <h3
+                        className="rka-h3 txt-cap"
+                      >
+                        resize
+                      </h3>
+                    </div>
+                    <div
+                      className=""
+                    >
+                      <div
+                        className="rka-operation-content"
+                      >
+                        <div>
+                          <div
+                            className="row"
+                          >
+                            <div
+                              className="col-md-4"
+                            >
+                              <div
+                                className="rka-form-group"
+                              >
+                                <label
+                                  className="rka-label"
+                                >
+                                  Width
+                                </label>
+                                <input
+                                  className="rka-input-txt"
+                                  disabled={false}
+                                  name="width"
+                                  onChange={[Function]}
+                                  placeholder="width"
+                                  type="text"
+                                  value={1920}
+                                />
+                              </div>
+                            </div>
+                            <div
+                              className="col-md-4"
+                            >
+                              <div
+                                className="rka-form-group"
+                              >
+                                <label
+                                  className="rka-label"
+                                >
+                                  Height
+                                </label>
+                                <input
+                                  className="rka-input-txt"
+                                  disabled={false}
+                                  name="height"
+                                  onChange={[Function]}
+                                  placeholder="height"
+                                  type="text"
+                                  value={1080}
+                                />
+                              </div>
+                            </div>
+                            <div
+                              className="col-md-4"
+                            >
+                              <div
+                                className="rka-form-group"
+                              >
+                                <label
+                                  className="rka-label"
+                                >
+                                  Upscale
+                                </label>
+                                <select
+                                  className="rka-select"
+                                  disabled={false}
+                                  name="upscale"
+                                  onChange={[Function]}
+                                  placeholder="upscale (default: true)"
+                                  value={undefined}
+                                >
+                                  <option>
+                                    upscale (default: true)
+                                  </option>
+                                  <option
+                                    value="true"
+                                  >
+                                    true
+                                  </option>
+                                  <option
+                                    value="false"
+                                  >
+                                    false
+                                  </option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            className="row"
+                          >
+                            <div
+                              className="col-md-4"
+                            >
+                              <div
+                                className="rka-form-group"
+                              >
+                                <label
+                                  className="rka-label"
+                                >
+                                  Upscale DPR
+                                </label>
+                                <select
+                                  className="rka-select"
+                                  disabled={false}
+                                  name="upscale_dpr"
+                                  onChange={[Function]}
+                                  placeholder="upscale_dpr (default: true)"
+                                  value={undefined}
+                                >
+                                  <option>
+                                    upscale_dpr (default: true)
+                                  </option>
+                                  <option
+                                    value="true"
+                                  >
+                                    true
+                                  </option>
+                                  <option
+                                    value="false"
+                                  >
+                                    false
+                                  </option>
+                                </select>
+                              </div>
+                            </div>
+                            <div
+                              className="col-md-4"
+                            >
+                              <div
+                                className="rka-form-group"
+                              >
+                                <label
+                                  className="rka-label"
+                                >
+                                  Mode
+                                </label>
+                                <select
+                                  className="rka-select"
+                                  disabled={false}
+                                  name="mode"
+                                  onChange={[Function]}
+                                  placeholder="mode (default: box)"
+                                  value={undefined}
+                                >
+                                  <option>
+                                    mode (default: box)
+                                  </option>
+                                  <option
+                                    value="box"
+                                  >
+                                    box
+                                  </option>
+                                  <option
+                                    value="absolute"
+                                  >
+                                    absolute
+                                  </option>
+                                  <option
+                                    value="fill"
+                                  >
+                                    fill
+                                  </option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="pa-md mb-xs pos-r bg-gray-lightest bor-light"
+                  >
+                    <div>
+                      <a
+                        className="rka-close-icon"
+                        href="#"
+                        onClick={[Function]}
+                        title="Remove"
+                      />
+                      <a
+                        className="rka-edit-icon"
+                        href="#"
+                        onClick={[Function]}
+                      />
+                      <a
+                        className="rka-move-icon"
+                        href="#"
+                        onClick={[Function]}
+                      />
+                      <h3
+                        className="rka-h3 txt-cap"
+                      >
+                        rotate
+                      </h3>
+                    </div>
+                    <div
+                      className=""
+                    >
+                      <div
+                        className="rka-operation-content"
+                      >
+                        <div
+                          className="row"
+                        >
+                          <div
+                            className="col-md-12"
+                          >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label"
+                              >
+                                Angle
+                                <span>
+                                   *
+                                </span>
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={360}
+                                  min={0}
+                                  name="angle"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  type="range"
+                                  value={69}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="angle"
+                                    onChange={[Function]}
+                                    placeholder={undefined}
+                                    size={5}
+                                    type="text"
+                                    value={69}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    360
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            className="col-md-6"
+                          >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label"
+                              >
+                                Background color
+                              </label>
+                              <div
+                                className="rka-form-group"
+                              >
+                                <input
+                                  className="rka-input-txt"
+                                  disabled={false}
+                                  name="background_color"
+                                  onClick={[Function]}
+                                  placeholder="color (default: FFFFFF)"
+                                  readOnly={true}
+                                  type="text"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            className="col-md-6"
+                          >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label"
+                              >
+                                Background opacity
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={100}
+                                  min={0}
+                                  name="background_opacity"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  placeholder={undefined}
+                                  type="range"
+                                  value={20}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="background_opacity"
+                                    onChange={[Function]}
+                                    placeholder={undefined}
+                                    size={5}
+                                    type="text"
+                                    value={20}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    100
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="pa-md bor-light mt-md"
+                  >
+                    <h3
+                      className="rka-h3 mb-md"
+                    >
+                      New operation
+                    </h3>
+                    <div
+                      className="rka-form-group"
+                    >
+                      <select
+                        className="rka-select"
+                        onChange={[Function]}
+                        value="alpha"
+                      >
+                        <option
+                          value="alpha"
+                        >
+                          alpha
+                        </option>
+                        <option
+                          value="autorotate"
+                        >
+                          autorotate
+                        </option>
+                        <option
+                          value="blur"
+                        >
+                          blur
+                        </option>
+                        <option
+                          value="composition"
+                        >
+                          composition
+                        </option>
+                        <option
+                          value="crop"
+                        >
+                          crop
+                        </option>
+                        <option
+                          value="dropshadow"
+                        >
+                          dropshadow
+                        </option>
+                        <option
+                          value="grayscale"
+                        >
+                          grayscale
+                        </option>
+                        <option
+                          value="primitive"
+                        >
+                          primitive
+                        </option>
+                        <option
+                          value="resize"
+                        >
+                          resize
+                        </option>
+                        <option
+                          value="rotate"
+                        >
+                          rotate
+                        </option>
+                        <option
+                          value="sepia"
+                        >
+                          sepia
+                        </option>
+                        <option
+                          value="trim"
+                        >
+                          trim
+                        </option>
+                      </select>
+                    </div>
+                    <a
+                      className="rka-button rka-button-brand rka-button-sm"
+                      href="#"
+                      onClick={[Function]}
+                    >
+                      Add operation
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer
+    className="rka-footer"
+  >
+    Rokka © 2018
+  </footer>
+</div>
 `;

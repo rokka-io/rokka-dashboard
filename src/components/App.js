@@ -1,6 +1,12 @@
-import PropTypes from 'prop-types'
-import React, { Component, cloneElement } from 'react'
+import React, { Component } from 'react'
+import { Route } from 'react-router'
+import { HashRouter } from 'react-router-dom'
 import state, { subscribe } from '../state'
+import Dashboard from './Dashboard'
+import Images from './Images'
+import Signup from './Signup'
+import Stacks from './Stacks'
+import NewStack from './NewStack'
 import '../scss/main.scss'
 
 class App extends Component {
@@ -20,15 +26,17 @@ class App extends Component {
 
   render () {
     return (
-      <div className="App">
-        {this.props.children && cloneElement(this.props.children, this.state)}
-      </div>
+      <HashRouter>
+        <div className="App">
+          <Route path="/" exact render={props => <Dashboard router={props} {...this.state} />} />
+          <Route path="/images" render={props => <Images router={props} {...this.state} />} />
+          <Route path="/signup" render={props => <Signup router={props} {...this.state} />} />
+          <Route path="/stacks" render={props => <Stacks router={props} {...this.state} />} />
+          <Route path="/new-stack" render={props => <NewStack router={props} {...this.state} />} />
+        </div>
+      </HashRouter>
     )
   }
-}
-
-App.propTypes = {
-  children: PropTypes.element.isRequired
 }
 
 export default App

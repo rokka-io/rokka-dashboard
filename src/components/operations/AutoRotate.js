@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Input from '../forms/Input'
 import Select from '../forms/Select'
 import FormGroup from '../forms/FormGroup'
 
-class AutoRotate extends Component {
+class AutoRotate extends PureComponent {
   isRequired (field) {
     return this.props.required.indexOf(field) !== -1
   }

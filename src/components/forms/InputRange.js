@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import cx from 'classnames'
 import Input from './Input'
 
-class InputRange extends Component {
+class InputRange extends PureComponent {
   constructor (props) {
     super(props)
 
@@ -39,11 +39,6 @@ class InputRange extends Component {
     this.setState({
       showMinMax: false
     })
-  }
-
-  shouldComponentUpdate (nextProps, nextState) {
-    return nextState.value !== this.state.value ||
-      nextState.showMinMax !== this.state.showMinMax
   }
 
   render () {

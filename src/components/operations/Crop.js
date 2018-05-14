@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Input from '../forms/Input'
 import InputRange from '../forms/InputRange'
 import FormGroup from '../forms/FormGroup'
 
-class Crop extends Component {
+class Crop extends PureComponent {
   isRequired (field) {
     return this.props.required.indexOf(field) !== -1
   }

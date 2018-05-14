@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import InputRange from '../forms/InputRange'
 import FormGroup from '../forms/FormGroup'
 
-class Primitive extends Component {
+class Primitive extends PureComponent {
   render () {
     const { defaults, values, errors = {} } = this.props
 

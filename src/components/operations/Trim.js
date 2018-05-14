@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import InputRange from '../forms/InputRange.js'
 import FormGroup from '../forms/FormGroup'
 
-class Trim extends Component {
+class Trim extends PureComponent {
   isRequired (field) {
     return this.props.required.indexOf(field) !== -1
   }

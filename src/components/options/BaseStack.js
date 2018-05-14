@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Link } from 'react-router'
 import Select from 'react-select'
 import FormGroup from '../forms/FormGroup'
 
-class BaseStack extends Component {
+class BaseStack extends PureComponent {
   constructor (props) {
     super(props)
 

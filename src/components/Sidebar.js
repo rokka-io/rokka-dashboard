@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Link, IndexLink } from 'react-router'
 import { listStacks } from '../state'
 import addIcon from '../img/add-icon.svg'
 import cx from 'classnames'
 import searchIcon from '../img/search.svg'
 
-class Sidebar extends Component {
+class Sidebar extends PureComponent {
   constructor (props) {
     super(props)
 

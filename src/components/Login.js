@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import FramelessLayout from './layouts/FramelessLayout'
 import Spinner from './Spinner'
 import { login } from '../state'
 import cx from 'classnames'
 
-class Login extends Component {
+class Login extends PureComponent {
   constructor () {
     super()
 

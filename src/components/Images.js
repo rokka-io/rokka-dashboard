@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { authRequired } from '../utils/auth'
 import { clearImages } from '../state'
 import BaseLayout from './layouts/BaseLayout'
 import ImageList from './images/List'
 import UploadImage from './images/Upload'
 
-class Images extends Component {
+class Images extends PureComponent {
   constructor () {
     super()
 

@@ -88,8 +88,8 @@ function transformImage (organization, image) {
 }
 
 class ImageDetail extends PureComponent {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
 
     this.state = DEFAULT_STATE
 
@@ -105,6 +105,7 @@ class ImageDetail extends PureComponent {
     this.onRemoveMetadata = this.onRemoveMetadata.bind(this)
     this.onCropComplete = this.onCropComplete.bind(this)
     this.onCropChange = this.onCropChange.bind(this)
+    this.onImageCropChange = this.onImageCropChange.bind(this)
     this.onImageClick = this.onImageClick.bind(this)
     this.requestOnResizeTick = this.requestOnResizeTick.bind(this)
     this.onResize = this.onResize.bind(this)
@@ -250,11 +251,7 @@ class ImageDetail extends PureComponent {
     const { user_metadata: metadata } = image
 
     this.setState({
-      addMetadata: {
-        name: undefined,
-        type: undefined,
-        value: undefined
-      },
+      addMetadata: DEFAULT_STATE.addMetadata,
       image: Object.assign({}, image, {
         user_metadata: [...metadata, {
           key: `${addMetadata.type}:${addMetadata.name}`,
@@ -312,6 +309,19 @@ class ImageDetail extends PureComponent {
           height: Math.round(pixelCrop.height)
         },
         coordsChanged: true
+      })
+    })
+  }
+
+  onImageCropChange (crop, pixelCrop) {
+    this.setState({
+      subjectArea: Object.assign({}, this.state.subjectArea, {
+        coords: {
+          x: Math.round(pixelCrop.x),
+          y: Math.round(pixelCrop.y),
+          width: Math.round(pixelCrop.width),
+          height: Math.round(pixelCrop.height)
+        }
       })
     })
   }
@@ -510,7 +520,7 @@ class ImageDetail extends PureComponent {
           />
           <div className="rka-crop-container pos-r">
             {type === FOCUS_AREA
-              ? <ReactCrop src={image.url} crop={coords} onComplete={this.onCropComplete} />
+              ? <ReactCrop src={image.url} crop={coords} onChange={this.onImageCropChange} onComplete={this.onCropComplete} />
               : null
             }
             <div className="ove-h dis-ib pos-r va-m">

@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import renderer from 'react-test-renderer'
-import NewStack from '../../src/components/NewStack'
+import { DragDropContext } from 'react-dnd'
+import TestBackend from 'react-dnd-test-backend'
+import { NewStack } from '../../src/components/NewStack'
 import operations from '../operations.json'
 import stackOptions from '../stackoptions.json'
 import cloneStack from '../cloneStack.json'
@@ -8,6 +10,16 @@ import cloneStack from '../cloneStack.json'
 // N.B. this test currently triggers a warning because
 //      onComponentDidMount calls an update on the state.
 //      Making this better testable is one of the goals of refactoring.
+
+function wrapInTestContext (DecoratedComponent) {
+  class TestContextContainer extends Component {
+    render () {
+      return <DecoratedComponent {...this.props} />
+    }
+  }
+
+  return DragDropContext(TestBackend)(TestContextContainer)
+}
 
 test('NewStack does render with minimal props', () => {
   const auth = {
@@ -174,8 +186,9 @@ test('newStack does render with clone stack props', () => {
     loadPreviewImage
   }
 
+  const WrappedNewStack = wrapInTestContext(NewStack)
   const component = renderer.create(
-    <NewStack {...props} />
+    <WrappedNewStack {...props} />
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

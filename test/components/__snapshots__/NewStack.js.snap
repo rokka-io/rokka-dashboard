@@ -1270,7 +1270,7 @@ exports[`newStack does render with clone stack props 1`] = `
         className="flo-r"
       >
         <button
-          className="rka-button rka-button-brand disabled flo-r"
+          className="rka-button rka-button-brand"
           type="submit"
         >
           Create stack
@@ -1308,7 +1308,7 @@ exports[`newStack does render with clone stack props 1`] = `
               name="name"
               onChange={[Function]}
               type="text"
-              value=""
+              value="Test clone stack"
             />
           </div>
           <h3

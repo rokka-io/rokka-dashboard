@@ -29,7 +29,7 @@ exports[`Image does render with all props 1`] = `
       <img
         alt="Example name"
         onError={[Function]}
-        src="http://example.org/image.png"
+        src="http://example.org/image.src.png"
       />
     </div>
     <div
@@ -74,7 +74,7 @@ exports[`Image does render with minimal props 1`] = `
       <img
         alt="Example name"
         onError={[Function]}
-        src="http://example.org/image.png"
+        src="http://example.org/image.src.png"
       />
     </div>
     <div

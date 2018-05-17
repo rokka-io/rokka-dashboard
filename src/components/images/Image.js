@@ -50,7 +50,7 @@ class Image extends Component {
               </span>
             }
             { !this.state.imageError
-              ? <img src={this.props.url} alt={this.props.name} onError={() => this.handleImgError()} />
+              ? <img src={this.props.src} alt={this.props.name} onError={() => this.handleImgError()} />
               : null
             }
           </div>
@@ -68,6 +68,7 @@ class Image extends Component {
 
 Image.propTypes = {
   url: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   width: PropTypes.number,
   height: PropTypes.number,

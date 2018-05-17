@@ -149,11 +149,19 @@ class ImageList extends Component {
     const { highlight } = this.props
 
     return this.state.images.items.map((item) => {
-      const imgUrl = rokka.render.getUrl(this.props.organization, item.hash, item.format, 'dynamic/noop')
+      const format = item.format === 'jpg' ? 'jpg' : 'png'
+      const imgUrl = rokka.render.getUrl(this.props.organization, item.hash, format, 'dynamic')
+      const imgSrc = rokka.render.getUrl(this.props.organization, item.hash, format, 'dynamic/resize-height-120')
 
       return (
-        <Image key={item.hash} url={imgUrl} {...item} onClick={this.props.onClickImage}
-          className={item.hash === highlight ? 'is-highlighted' : null} />
+        <Image
+          key={item.hash}
+          url={imgUrl}
+          src={imgSrc}
+          {...item}
+          onClick={this.props.onClickImage}
+          className={item.hash === highlight ? 'is-highlighted' : null}
+        />
       )
     })
   }

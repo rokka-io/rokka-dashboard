@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer'
 
 test('Image does render with minimal props', () => {
   const component = renderer.create(
-    <Image url="http://example.org/image.png" name="Example name" />
+    <Image url="http://example.org/image.png" src="http://example.org/image.src.png" name="Example name" />
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -15,6 +15,7 @@ test('Image does render with all props', () => {
   const component = renderer.create(
     <Image
       url="http://example.org/image.png"
+      src="http://example.org/image.src.png"
       name="Example name"
       width={100}
       height={100}
@@ -35,6 +36,7 @@ test('Image onError triggers an error', () => {
   const component = shallow(
     <Image
       url="http://example.org/image.png"
+      src="http://example.org/image.src.png"
       name="Example name"
       width={100}
       height={100}

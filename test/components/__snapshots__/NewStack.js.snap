@@ -344,14 +344,14 @@ exports[`NewStack does render with a previewImage 1`] = `
                       Customized 
                       <a
                         className="rka-link flo-r"
-                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                         target="_blank"
                       >
                         Open in new window
                       </a>
                     </p>
                     <img
-                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                     />
                   </div>
                   <div
@@ -363,14 +363,14 @@ exports[`NewStack does render with a previewImage 1`] = `
                       Original 
                       <a
                         className="rka-link flo-r"
-                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                         target="_blank"
                       >
                         Open in new window
                       </a>
                     </p>
                     <img
-                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                     />
                   </div>
                 </div>
@@ -1325,14 +1325,14 @@ exports[`NewStack does render with stackOptions 1`] = `
                       Customized 
                       <a
                         className="rka-link flo-r"
-                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                         target="_blank"
                       >
                         Open in new window
                       </a>
                     </p>
                     <img
-                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                     />
                   </div>
                   <div
@@ -1344,14 +1344,14 @@ exports[`NewStack does render with stackOptions 1`] = `
                       Original 
                       <a
                         className="rka-link flo-r"
-                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                         target="_blank"
                       >
                         Open in new window
                       </a>
                     </p>
                     <img
-                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                     />
                   </div>
                 </div>
@@ -2007,14 +2007,14 @@ exports[`NewStack does render with stacks 1`] = `
                       Customized 
                       <a
                         className="rka-link flo-r"
-                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                         target="_blank"
                       >
                         Open in new window
                       </a>
                     </p>
                     <img
-                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                     />
                   </div>
                   <div
@@ -2026,14 +2026,14 @@ exports[`NewStack does render with stacks 1`] = `
                       Original 
                       <a
                         className="rka-link flo-r"
-                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                         target="_blank"
                       >
                         Open in new window
                       </a>
                     </p>
                     <img
-                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.image/png"
+                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                     />
                   </div>
                 </div>

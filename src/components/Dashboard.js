@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { authRequired } from '../utils/auth'
 import BaseLayout from './layouts/BaseLayout'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import ImageList from './images/List'
 import Stats from './dashboard/Stats'
 
@@ -16,7 +16,7 @@ class Dashboard extends Component {
   onClickImage (e, image) {
     e.preventDefault()
 
-    this.props.router.push(`/images/${image.hash}`)
+    this.props.router.history.push(`/images/${image.hash}`)
   }
 
   render () {
@@ -39,7 +39,9 @@ Dashboard.propTypes = {
     organization: PropTypes.string.isRequired
   }).isRequired,
   router: PropTypes.shape({
-    push: PropTypes.func.isRequired
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired
   }).isRequired
 }
 

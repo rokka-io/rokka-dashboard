@@ -11,8 +11,8 @@ exports[`Header does render 1`] = `
   />
   <a
     className="rka-header-logo"
+    href="/"
     onClick={[Function]}
-    style={Object {}}
   />
   <nav
     className="rka-header-nav"
@@ -65,8 +65,8 @@ exports[`Header does render in active mode 1`] = `
   />
   <a
     className="rka-header-logo"
+    href="/"
     onClick={[Function]}
-    style={Object {}}
   />
   <nav
     className="rka-header-nav"

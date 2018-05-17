@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { authRequired } from '../utils/auth'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 class NoStackSelected extends Component {
   render () {

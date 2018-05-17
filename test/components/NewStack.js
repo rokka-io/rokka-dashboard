@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import renderer from 'react-test-renderer'
 import { DragDropContext } from 'react-dnd'
 import TestBackend from 'react-dnd-test-backend'
+import { MemoryRouter } from 'react-router'
 import { NewStack } from '../../src/components/NewStack'
 import operations from '../operations.json'
 import stackOptions from '../stackoptions.json'
@@ -21,14 +22,23 @@ function wrapInTestContext (DecoratedComponent) {
   return DragDropContext(TestBackend)(TestContextContainer)
 }
 
-test('NewStack does render with minimal props', () => {
-  const auth = {
-    organization: 'test-org'
-  }
-  const router = {
+const router = {
+  location: {
+    pathname: '/new-stack'
+  },
+  history: {
     push: () => {
       throw new Error('should not be called')
     }
+  }
+}
+const stacks = {
+  items: []
+}
+
+test('NewStack does render with minimal props', () => {
+  const auth = {
+    organization: 'test-org'
   }
   const onOpenChoosePreviewImage = () => {
     throw new Error('should not be called')
@@ -39,12 +49,15 @@ test('NewStack does render with minimal props', () => {
     auth,
     operations,
     router,
+    stacks,
     onOpenChoosePreviewImage,
     loadPreviewImage
   }
 
   const component = renderer.create(
-    <NewStack {...props} />
+    <MemoryRouter>
+      <NewStack {...props} />
+    </MemoryRouter>
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -54,11 +67,6 @@ test('NewStack does render with a previewImage', () => {
   const auth = {
     organization: 'test-org'
   }
-  const router = {
-    push: () => {
-      throw new Error('should not be called')
-    }
-  }
   const onOpenChoosePreviewImage = () => {
     throw new Error('should not be called')
   }
@@ -72,13 +80,16 @@ test('NewStack does render with a previewImage', () => {
     auth,
     operations,
     router,
+    stacks,
     onOpenChoosePreviewImage,
     loadPreviewImage,
     previewImage
   }
 
   const component = renderer.create(
-    <NewStack {...props} />
+    <MemoryRouter>
+      <NewStack {...props} />
+    </MemoryRouter>
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -88,11 +99,6 @@ test('NewStack does render with stackOptions', () => {
   const auth = {
     organization: 'test-org'
   }
-  const router = {
-    push: () => {
-      throw new Error('should not be called')
-    }
-  }
   const onOpenChoosePreviewImage = () => {
     throw new Error('should not be called')
   }
@@ -106,6 +112,7 @@ test('NewStack does render with stackOptions', () => {
     auth,
     operations,
     router,
+    stacks,
     onOpenChoosePreviewImage,
     loadPreviewImage,
     previewImage,
@@ -113,7 +120,9 @@ test('NewStack does render with stackOptions', () => {
   }
 
   const component = renderer.create(
-    <NewStack {...props} />
+    <MemoryRouter>
+      <NewStack {...props} />
+    </MemoryRouter>
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -122,11 +131,6 @@ test('NewStack does render with stackOptions', () => {
 test('NewStack does render with stacks', () => {
   const auth = {
     organization: 'test-org'
-  }
-  const router = {
-    push: () => {
-      throw new Error('should not be called')
-    }
   }
   const onOpenChoosePreviewImage = () => {
     throw new Error('should not be called')
@@ -148,15 +152,17 @@ test('NewStack does render with stacks', () => {
     auth,
     operations,
     router,
+    stacks,
     onOpenChoosePreviewImage,
     loadPreviewImage,
     previewImage,
-    stackOptions,
-    stacks
+    stackOptions
   }
 
   const component = renderer.create(
-    <NewStack {...props} />
+    <MemoryRouter>
+      <NewStack {...props} />
+    </MemoryRouter>
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -165,11 +171,6 @@ test('NewStack does render with stacks', () => {
 test('newStack does render with clone stack props', () => {
   const auth = {
     organization: 'test-org'
-  }
-  const router = {
-    push: () => {
-      throw new Error('should not be called')
-    }
   }
   const stackClone = cloneStack
   const onOpenChoosePreviewImage = () => {
@@ -182,13 +183,16 @@ test('newStack does render with clone stack props', () => {
     operations,
     stackClone,
     router,
+    stacks,
     onOpenChoosePreviewImage,
     loadPreviewImage
   }
 
   const WrappedNewStack = wrapInTestContext(NewStack)
   const component = renderer.create(
-    <WrappedNewStack {...props} />
+    <MemoryRouter>
+      <WrappedNewStack {...props} />
+    </MemoryRouter>
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

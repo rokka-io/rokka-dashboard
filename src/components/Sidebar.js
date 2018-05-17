@@ -1,10 +1,17 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Link, IndexLink } from 'react-router'
+import { NavLink } from 'react-router-dom'
 import { listStacks } from '../state'
 import addIcon from '../img/add-icon.svg'
 import cx from 'classnames'
 import searchIcon from '../img/search.svg'
+
+function isStacksActive (match, location) {
+  if (match) {
+    return true
+  }
+  return location.pathname === '/new-stack'
+}
 
 class Sidebar extends Component {
   constructor (props) {
@@ -20,17 +27,18 @@ class Sidebar extends Component {
   }
 
   componentDidMount () {
-    if (!this.props.stacks.items) {
+    if (!this.props.stacks.items && !this.state.items.length) {
       this.loadNextStacks()
     }
   }
 
-  componentWillReceiveProps (nextProps) {
+  static getDerivedStateFromProps (nextProps) {
     if (nextProps.stacks.items) {
-      this.setState({
+      return {
         items: nextProps.stacks.items
-      })
+      }
     }
+    return null
   }
 
   filterStacks (e) {
@@ -51,7 +59,14 @@ class Sidebar extends Component {
 
     const $stacks = this.state.items.map((stack) => {
       return (
-        <Link key={stack.name} to={`/stacks/${stack.name}`} activeClassName="is-active" className="rka-sidebar-sublink txt-ellipsis">{stack.name}</Link>
+        <NavLink
+          key={stack.name}
+          to={`/stacks/${stack.name}`}
+          activeClassName="is-active"
+          className="rka-sidebar-sublink txt-ellipsis"
+        >
+          {stack.name}
+        </NavLink>
       )
     })
 
@@ -63,20 +78,20 @@ class Sidebar extends Component {
       <nav className={cx('rka-sidebar', {'is-active': this.props.active})}>
         <ul className="rka-sidebar-nav">
           <li>
-            <IndexLink to="/" className="rka-sidebar-link" activeClassName="is-active">Dashboard</IndexLink>
+            <NavLink to="/" exact className="rka-sidebar-link" activeClassName="is-active">Dashboard</NavLink>
           </li>
           <li>
-            <Link to="/images" className="rka-sidebar-link" activeClassName="is-active">Images</Link>
+            <NavLink to="/images" className="rka-sidebar-link" activeClassName="is-active">Images</NavLink>
           </li>
           <li className="pos-r">
-            <Link to="/stacks" className="rka-sidebar-link" activeClassName="is-active">
+            <NavLink to="/stacks" className="rka-sidebar-link" activeClassName="is-active" isActive={isStacksActive}>
               Stacks
-            </Link>
-            <Link to="new-stack" className="rka-sidebar-link-icon" activeClassName="is-active">
+            </NavLink>
+            <NavLink to="/new-stack" className="rka-sidebar-link-icon" activeClassName="is-active">
               <svg className="rka-add-icon">
                 <use xlinkHref={addIcon + '#add-icon'} />
               </svg>
-            </Link>
+            </NavLink>
             <div className={cx('rka-sidebar-subnav', {'is-active': showStacks})}>
               <div className="rka-stacks-search-container">
                 <input className="rka-input-txt rka-stack-search" type="text" placeholder="Search stack..."

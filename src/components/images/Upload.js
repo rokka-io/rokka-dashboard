@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Dropzone from 'react-dropzone'
 import Promise from 'bluebird'
 import rokka from '../../rokka'
@@ -11,7 +11,7 @@ const UPLOAD_PENDING = 1
 const UPLOAD_SUCCESSFUL = 2
 const UPLOAD_ERROR = 3
 
-class UploadImage extends Component {
+class UploadImage extends PureComponent {
   constructor (props) {
     super(props)
 

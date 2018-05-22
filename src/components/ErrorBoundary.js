@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 // See https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html for an explanation
-class ErrorBoundary extends Component {
+class ErrorBoundary extends PureComponent {
   constructor (props) {
     super(props)
     this.state = { hasError: false }

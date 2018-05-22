@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { NavLink } from 'react-router-dom'
 import { listStacks } from '../state'
 import addIcon from '../img/add-icon.svg'
@@ -13,7 +13,7 @@ function isStacksActive (match, location) {
   return location.pathname === '/new-stack'
 }
 
-class Sidebar extends Component {
+class Sidebar extends PureComponent {
   constructor (props) {
     super(props)
 

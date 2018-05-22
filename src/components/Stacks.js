@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Route } from 'react-router'
 import { authRequired } from '../utils/auth'
 import BaseLayout from './layouts/BaseLayout'
 import NoStackSelected from './NoStackSelected'
 import Stack from './Stack'
 
-class Stacks extends Component {
+class Stacks extends PureComponent {
   render () {
     return (
       <BaseLayout {...this.props}>

@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import InputColor from '../forms/InputColor'
 import InputRange from '../forms/InputRange'
 import FormGroup from '../forms/FormGroup'
 
-class Rotate extends Component {
+class Rotate extends PureComponent {
   isRequired (field) {
     return this.props.required.indexOf(field) !== -1
   }

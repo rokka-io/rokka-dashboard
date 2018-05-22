@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component, Fragment } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import { authRequired } from '../utils/auth'
 import { clearImages } from '../state'
 import BaseLayout from './layouts/BaseLayout'
@@ -23,7 +23,7 @@ ImageListContainer.propTypes = {
   images: PropTypes.array
 }
 
-class Images extends Component {
+class Images extends PureComponent {
   constructor () {
     super()
 

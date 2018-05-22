@@ -202,8 +202,6 @@ class ImageDetail extends PureComponent {
     const { router: { match }, auth: { organization } } = this.props
     const { params: { hash } } = match
 
-    console.log(this.props.router)
-
     const { image: { user_metadata: metadata }, subjectArea } = this.state
     const imageHasSubjectArea = getSubjectArea(this.state.image) !== null
     const userMetadata = {}

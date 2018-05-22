@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import InputRange from '../forms/InputRange'
 import FormGroup from '../forms/FormGroup'
 
-class Compression extends Component {
+class Compression extends PureComponent {
   render () {
     const { onChange, min, max, value, error } = this.props
 

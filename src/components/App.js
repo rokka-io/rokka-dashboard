@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Route } from 'react-router'
 import { HashRouter } from 'react-router-dom'
 import state, { subscribe } from '../state'
@@ -9,7 +9,7 @@ import Stacks from './Stacks'
 import NewStack from './NewStack'
 import '../scss/main.scss'
 
-class App extends Component {
+class App extends PureComponent {
   constructor (props) {
     super(props)
 

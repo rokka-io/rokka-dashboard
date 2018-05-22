@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import cx from 'classnames'
 
-class Modal extends Component {
+class Modal extends PureComponent {
   constructor (props) {
     super(props)
 

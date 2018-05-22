@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Input from '../forms/Input'
 import FormGroup from '../forms/FormGroup'
 
-class Interlacing extends Component {
+class Interlacing extends PureComponent {
   render () {
     const $interlacingOptions = this.props.options.map((option) => {
       const checked = this.props.value === option

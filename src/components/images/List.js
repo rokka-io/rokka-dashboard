@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import rokka from '../../rokka'
 import Image from './Image'
 import SearchForm from './SearchForm'
@@ -23,7 +23,7 @@ function getRokkaType (key) {
 
 const defaultSearchField = 'name'
 
-class ImageList extends Component {
+class ImageList extends PureComponent {
   constructor (props) {
     super(props)
 

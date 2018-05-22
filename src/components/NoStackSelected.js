@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { authRequired } from '../utils/auth'
 import { Link } from 'react-router-dom'
 
-class NoStackSelected extends Component {
+class NoStackSelected extends PureComponent {
   render () {
     return (
       <div>

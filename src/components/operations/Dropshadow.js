@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import InputRange from '../forms/InputRange'
 import InputColor from '../forms/InputColor'
 import FormGroup from '../forms/FormGroup'
 
-class Dropshadow extends Component {
+class Dropshadow extends PureComponent {
   isRequired (field) {
     return this.props.required.indexOf(field) !== -1
   }

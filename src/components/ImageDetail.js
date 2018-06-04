@@ -66,7 +66,8 @@ function getSubjectArea (image) {
 }
 
 function transformImage (organization, image) {
-  image.url = rokka.render.getUrl(organization, image.hash, image.format, 'dynamic/noop')
+  const format = image.format === 'jpg' ? 'jpg' : 'png'
+  image.url = rokka.render.getUrl(organization, image.hash, format, 'dynamic/noop')
 
   const { user_metadata: metadata = {} } = image
 

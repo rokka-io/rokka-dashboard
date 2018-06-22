@@ -172,8 +172,19 @@ class ImageList extends PureComponent {
     let $uploadedImages = null
     if (this.props.images) {
       $uploadedImages = this.props.images.map((image, idx) => {
-        return <Image key={idx + image.name} {...image} onClick={this.props.onClickImage}
-          className={image.hash === highlight ? 'is-highlighted' : null} />
+        const format = image.format === 'jpg' ? 'jpg' : 'png'
+        const imgUrl = rokka.render.getUrl(this.props.organization, image.hash, format, 'dynamic')
+        const imgSrc = rokka.render.getUrl(this.props.organization, image.hash, format, 'dynamic/resize-height-120')
+        return (
+          <Image
+            key={idx + image.name}
+            url={imgUrl}
+            src={imgSrc}
+            {...image}
+            onClick={this.props.onClickImage}
+            className={image.hash === highlight ? 'is-highlighted' : null}
+          />
+        )
       })
     }
 

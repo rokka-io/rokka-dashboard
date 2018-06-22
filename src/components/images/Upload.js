@@ -10,6 +10,7 @@ const UPLOAD_DEFAULT = 0
 const UPLOAD_PENDING = 1
 const UPLOAD_SUCCESSFUL = 2
 const UPLOAD_ERROR = 3
+const FILE_MAX_SIZE = 400000000
 
 class UploadImage extends PureComponent {
   constructor (props) {
@@ -17,16 +18,30 @@ class UploadImage extends PureComponent {
 
     this.state = {
       upload: UPLOAD_DEFAULT,
+      message: null,
       images: []
     }
+  }
+
+  componentDidCatch (error, info) {
+    this.setState({ upload: UPLOAD_ERROR })
+    console.error(error, info)
   }
 
   onDrop (files) {
     this.setState({ upload: UPLOAD_PENDING })
 
+    const hasTooBigFiles = files.find(file => file.size >= FILE_MAX_SIZE)
+    if (hasTooBigFiles) {
+      this.setState({
+        upload: UPLOAD_ERROR,
+        message: 'File max size is 400 MB for the dashboard. Consider using a CLI API client instead'
+      })
+      return
+    }
+
     const mapFile = (file) => {
       const fileReader = new window.FileReader()
-
       let idx = -1
 
       fileReader.onload = (e) => {
@@ -52,7 +67,7 @@ class UploadImage extends PureComponent {
             url: rokka.render.getUrl(this.props.organization, item.hash, item.format, 'dynamic/noop')
           })
           this.setState({images: images})
-          updateUploadedImages(images)
+          setTimeout(() => updateUploadedImages(images), 100)
         })
         .catch((err) => {
           console.error(err)
@@ -76,14 +91,16 @@ class UploadImage extends PureComponent {
   }
 
   render () {
+    const { upload, message } = this.state
+
     let $banner = null
 
-    if (this.state.upload === UPLOAD_PENDING) {
+    if (upload === UPLOAD_PENDING) {
       $banner = <div className="rka-alert txt-c mt-md is-pending">Uploading...</div>
-    } else if (this.state.upload === UPLOAD_SUCCESSFUL) {
+    } else if (upload === UPLOAD_SUCCESSFUL) {
       $banner = <div className="rka-alert txt-c mt-md is-success">Upload successful</div>
-    } else if (this.state.upload === UPLOAD_ERROR) {
-      $banner = <div className="rka-alert txt-c mt-md is-error">Upload failed</div>
+    } else if (upload === UPLOAD_ERROR) {
+      $banner = <div className="rka-alert txt-c mt-md is-error">Upload failed{message ? <p>{message}</p> : ''}</div>
     }
 
     return (

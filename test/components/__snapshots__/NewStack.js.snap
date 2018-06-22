@@ -63,7 +63,7 @@ exports[`NewStack does render with a previewImage 1`] = `
     >
       <li>
         <a
-          aria-current="true"
+          aria-current="page"
           className="rka-sidebar-link is-active"
           href="/"
           onClick={[Function]}
@@ -74,7 +74,7 @@ exports[`NewStack does render with a previewImage 1`] = `
       </li>
       <li>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/images"
           onClick={[Function]}
@@ -87,7 +87,7 @@ exports[`NewStack does render with a previewImage 1`] = `
         className="pos-r"
       >
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/stacks"
           onClick={[Function]}
@@ -96,7 +96,7 @@ exports[`NewStack does render with a previewImage 1`] = `
           Stacks
         </a>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link-icon"
           href="/new-stack"
           onClick={[Function]}
@@ -452,7 +452,7 @@ exports[`NewStack does render with minimal props 1`] = `
     >
       <li>
         <a
-          aria-current="true"
+          aria-current="page"
           className="rka-sidebar-link is-active"
           href="/"
           onClick={[Function]}
@@ -463,7 +463,7 @@ exports[`NewStack does render with minimal props 1`] = `
       </li>
       <li>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/images"
           onClick={[Function]}
@@ -476,7 +476,7 @@ exports[`NewStack does render with minimal props 1`] = `
         className="pos-r"
       >
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/stacks"
           onClick={[Function]}
@@ -485,7 +485,7 @@ exports[`NewStack does render with minimal props 1`] = `
           Stacks
         </a>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link-icon"
           href="/new-stack"
           onClick={[Function]}
@@ -778,7 +778,7 @@ exports[`NewStack does render with stackOptions 1`] = `
     >
       <li>
         <a
-          aria-current="true"
+          aria-current="page"
           className="rka-sidebar-link is-active"
           href="/"
           onClick={[Function]}
@@ -789,7 +789,7 @@ exports[`NewStack does render with stackOptions 1`] = `
       </li>
       <li>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/images"
           onClick={[Function]}
@@ -802,7 +802,7 @@ exports[`NewStack does render with stackOptions 1`] = `
         className="pos-r"
       >
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/stacks"
           onClick={[Function]}
@@ -811,7 +811,7 @@ exports[`NewStack does render with stackOptions 1`] = `
           Stacks
         </a>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link-icon"
           href="/new-stack"
           onClick={[Function]}
@@ -1433,7 +1433,7 @@ exports[`NewStack does render with stacks 1`] = `
     >
       <li>
         <a
-          aria-current="true"
+          aria-current="page"
           className="rka-sidebar-link is-active"
           href="/"
           onClick={[Function]}
@@ -1444,7 +1444,7 @@ exports[`NewStack does render with stacks 1`] = `
       </li>
       <li>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/images"
           onClick={[Function]}
@@ -1457,7 +1457,7 @@ exports[`NewStack does render with stacks 1`] = `
         className="pos-r"
       >
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/stacks"
           onClick={[Function]}
@@ -1466,7 +1466,7 @@ exports[`NewStack does render with stacks 1`] = `
           Stacks
         </a>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link-icon"
           href="/new-stack"
           onClick={[Function]}
@@ -1504,7 +1504,7 @@ exports[`NewStack does render with stacks 1`] = `
             className="rka-stacks-list is-loaded"
           >
             <a
-              aria-current={false}
+              aria-current={null}
               className="rka-sidebar-sublink txt-ellipsis"
               href="/stacks/stack-a"
               onClick={[Function]}
@@ -1513,7 +1513,7 @@ exports[`NewStack does render with stacks 1`] = `
               stack-a
             </a>
             <a
-              aria-current={false}
+              aria-current={null}
               className="rka-sidebar-sublink txt-ellipsis"
               href="/stacks/stack-b"
               onClick={[Function]}
@@ -1522,7 +1522,7 @@ exports[`NewStack does render with stacks 1`] = `
               stack-b
             </a>
             <a
-              aria-current={false}
+              aria-current={null}
               className="rka-sidebar-sublink txt-ellipsis"
               href="/stacks/stack-c"
               onClick={[Function]}
@@ -2115,7 +2115,7 @@ exports[`newStack does render with clone stack props 1`] = `
     >
       <li>
         <a
-          aria-current="true"
+          aria-current="page"
           className="rka-sidebar-link is-active"
           href="/"
           onClick={[Function]}
@@ -2126,7 +2126,7 @@ exports[`newStack does render with clone stack props 1`] = `
       </li>
       <li>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/images"
           onClick={[Function]}
@@ -2139,7 +2139,7 @@ exports[`newStack does render with clone stack props 1`] = `
         className="pos-r"
       >
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/stacks"
           onClick={[Function]}
@@ -2148,7 +2148,7 @@ exports[`newStack does render with clone stack props 1`] = `
           Stacks
         </a>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link-icon"
           href="/new-stack"
           onClick={[Function]}

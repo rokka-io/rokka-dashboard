@@ -63,7 +63,7 @@ exports[`BaseLayout does render 1`] = `
     >
       <li>
         <a
-          aria-current="true"
+          aria-current="page"
           className="rka-sidebar-link is-active"
           href="/"
           onClick={[Function]}
@@ -74,7 +74,7 @@ exports[`BaseLayout does render 1`] = `
       </li>
       <li>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/images"
           onClick={[Function]}
@@ -87,7 +87,7 @@ exports[`BaseLayout does render 1`] = `
         className="pos-r"
       >
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/stacks"
           onClick={[Function]}
@@ -96,7 +96,7 @@ exports[`BaseLayout does render 1`] = `
           Stacks
         </a>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link-icon"
           href="/new-stack"
           onClick={[Function]}
@@ -229,7 +229,7 @@ exports[`BaseLayout does render active sidebar 1`] = `
     >
       <li>
         <a
-          aria-current="true"
+          aria-current="page"
           className="rka-sidebar-link is-active"
           href="/"
           onClick={[Function]}
@@ -240,7 +240,7 @@ exports[`BaseLayout does render active sidebar 1`] = `
       </li>
       <li>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/images"
           onClick={[Function]}
@@ -253,7 +253,7 @@ exports[`BaseLayout does render active sidebar 1`] = `
         className="pos-r"
       >
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/stacks"
           onClick={[Function]}
@@ -262,7 +262,7 @@ exports[`BaseLayout does render active sidebar 1`] = `
           Stacks
         </a>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link-icon"
           href="/new-stack"
           onClick={[Function]}
@@ -395,7 +395,7 @@ exports[`BaseLayout does render alert 1`] = `
     >
       <li>
         <a
-          aria-current="true"
+          aria-current="page"
           className="rka-sidebar-link is-active"
           href="/"
           onClick={[Function]}
@@ -406,7 +406,7 @@ exports[`BaseLayout does render alert 1`] = `
       </li>
       <li>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/images"
           onClick={[Function]}
@@ -419,7 +419,7 @@ exports[`BaseLayout does render alert 1`] = `
         className="pos-r"
       >
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link"
           href="/stacks"
           onClick={[Function]}
@@ -428,7 +428,7 @@ exports[`BaseLayout does render alert 1`] = `
           Stacks
         </a>
         <a
-          aria-current={false}
+          aria-current={null}
           className="rka-sidebar-link-icon"
           href="/new-stack"
           onClick={[Function]}

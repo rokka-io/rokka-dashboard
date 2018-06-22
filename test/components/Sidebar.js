@@ -136,7 +136,9 @@ test('Sidebar shows filtered stacks', () => {
 
   expect(sidebar.find('.rka-stacks-list > NavLink').length).toBe(4)
 
-  sidebar.find('input').simulate('change', {target: {value: 'stack-a'}})
+  const searchField = sidebar.find('input.rka-stack-search')
+  searchField.instance().value = 'stack-a'
+  searchField.simulate('change')
 
   sidebar = component.find(Sidebar)
   expect(sidebar.find('.rka-stacks-list > NavLink').length).toBe(1)

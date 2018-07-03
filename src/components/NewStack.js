@@ -25,7 +25,7 @@ function generateRandomId () {
 
 function generateDefaultValuesStackOptions (options, stackOptions) {
   Object.keys(stackOptions).forEach((optionName) => {
-    if (stackOptions[optionName].default !== undefined && options[optionName].value === null) {
+    if (stackOptions[optionName].default !== undefined && options[optionName] && options[optionName].value === null) {
       options[optionName] = {value: stackOptions[optionName].default}
     }
   })

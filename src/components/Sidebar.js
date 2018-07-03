@@ -33,7 +33,7 @@ class Sidebar extends PureComponent {
   }
 
   static getDerivedStateFromProps (nextProps, state) {
-    if (nextProps.stacks.items && !state.items) {
+    if (nextProps.stacks.items && nextProps.stacks.items.length && !state.items.length) {
       return {
         items: nextProps.stacks.items
       }

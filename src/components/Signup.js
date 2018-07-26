@@ -29,10 +29,10 @@ class Signup extends PureComponent {
     e.preventDefault()
     this.setState({ showLoader: true })
     rokka.users.create(this.state.email, this.state.organization).then(response => {
-      login(this.state.organization, response.body.api_key, (done) => {
+      return login(this.state.organization, response.body.api_key, (done) => {
         setAlert('success', 'Successfully signed up. You will receive an email with the credentials', 5000)
         this.setState({ showLoader: false })
-        this.props.router.push('/')
+        this.props.router.history.push('/')
         done()
       })
     }).catch((err) => {
@@ -115,7 +115,9 @@ class Signup extends PureComponent {
 
 Signup.propTypes = {
   router: PropTypes.shape({
-    push: PropTypes.func.isRequired
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired
   }).isRequired
 }
 

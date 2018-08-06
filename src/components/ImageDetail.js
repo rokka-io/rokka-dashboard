@@ -209,7 +209,7 @@ class ImageDetail extends PureComponent {
 
     metadata.forEach(data => {
       let { value } = data
-      if (data.type === 'array') {
+      if (data.type === 'array' && typeof value === 'string') {
         value = value.split(',')
       }
       userMetadata[`${data.type}:${data.name}`] = value

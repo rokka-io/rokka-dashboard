@@ -226,7 +226,7 @@ export class NewStack extends PureComponent {
     }
 
     Object.keys(options).forEach(key => {
-      const val = options[key].value
+      const val = options[key]
       if (!val || val === this.props.stackOptions.properties[key].default) {
         delete options[key]
       }

@@ -369,7 +369,7 @@ export class NewStack extends PureComponent {
     }
 
     const image = new window.Image()
-    image.src = rokka.render.getUrl(this.props.auth.organization, previewImage.hash, previewImage.format, this.state.operations)
+    image.src = rokka().render.getUrl(this.props.auth.organization, previewImage.hash, previewImage.format, this.state.operations)
     image.onload = () => {
       this.setState({
         preview: Object.assign({}, this.state.preview, {

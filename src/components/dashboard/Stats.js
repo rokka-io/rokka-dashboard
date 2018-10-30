@@ -56,7 +56,7 @@ class Stats extends PureComponent {
     const { from, to } = this.state
     const toPlusOne = to.clone()
     toPlusOne.add(1, 'day') // ROKKA-152: Stats API from/to are exclusive
-    rokka.stats.get(this.props.organization, from.format('YYYY-MM-DD'), toPlusOne.format('YYYY-MM-DD'))
+    rokka().stats.get(this.props.organization, from.format('YYYY-MM-DD'), toPlusOne.format('YYYY-MM-DD'))
       .then(({ body }) => {
         this.setState({
           stats: getStats(from, to, body)

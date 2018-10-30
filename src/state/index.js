@@ -54,7 +54,7 @@ export function toggleSidebar () {
  * @return {Promise}
  */
 export function deleteImage (hash) {
-  return rokka.sourceimages.delete(internalState.auth.organization, hash)
+  return rokka().sourceimages.delete(internalState.auth.organization, hash)
     .then(() => {
       clearImages()
     })
@@ -83,7 +83,7 @@ export function clearImages () {
 export function login (organization, apiKey, successCb) {
   authenticate(apiKey)
 
-  return rokka.organizations.get(organization)
+  return rokka().organizations.get(organization)
     .then(() => {
       // remove alert in case there was auth failed before.
       removeAlert()
@@ -139,9 +139,9 @@ export function logout () {
  * @returns {Promise}
  */
 export function listStacks (limit = 999) {
-  const { currentOffset = 0, items = {} } = internalState.stacks
+  const { currentOffset = 0, items = [] } = internalState.stacks
 
-  return rokka.stacks.list(internalState.auth.organization, limit, currentOffset)
+  return rokka().stacks.list(internalState.auth.organization, limit, currentOffset)
     .then(({ body }) => {
       sortAlphabetically(body.items)
       updateState({
@@ -194,7 +194,7 @@ function sortAlphabetically (items) {
  * List operations and populate the global state with the result.
  */
 export function listOperations () {
-  rokka.operations.list()
+  rokka().operations.list()
     .then(({ body }) => {
       updateState({
         operations: body
@@ -215,7 +215,7 @@ export function listOperations () {
  * Fetch default stack options and populate the global state with the result.
  */
 export function getDefaultStackOptions () {
-  rokka.stackoptions.get()
+  rokka().stackoptions.get()
     .then(({ body }) => {
       updateState({
         stackOptions: body
@@ -237,7 +237,7 @@ export function getDefaultStackOptions () {
  * @return {Promise}
  */
 export function createStack (name, operations, options) {
-  return rokka.stacks.create(internalState.auth.organization, name, operations, options)
+  return rokka().stacks.create(internalState.auth.organization, name, operations, options)
 }
 
 /**
@@ -248,7 +248,7 @@ export function createStack (name, operations, options) {
  * @return {Promise}
  */
 export function deleteStack (name) {
-  return rokka.stacks.delete(internalState.auth.organization, name)
+  return rokka().stacks.delete(internalState.auth.organization, name)
     .then(() => {
       refreshStacks()
     })

@@ -104,8 +104,8 @@ class Stack extends PureComponent {
     let previewImages = {}
     if (previewImage) {
       previewImages = {
-        original: rokka.render.getUrl(organization, previewImage.hash, previewImage.format),
-        dynamic: rokka.render.getUrl(organization, previewImage.hash, previewImage.format, stack.name)
+        original: rokka().render.getUrl(organization, previewImage.hash, previewImage.format),
+        dynamic: rokka().render.getUrl(organization, previewImage.hash, previewImage.format, stack.name)
       }
     }
 

@@ -57,14 +57,14 @@ class UploadImage extends PureComponent {
       }
       fileReader.readAsDataURL(file)
 
-      return rokka.sourceimages.create(this.props.organization, file.name, file)
+      return rokka().sourceimages.create(this.props.organization, file.name, file)
         .then(({ body }) => {
           const images = [...this.state.images]
 
           const item = body.items[0]
           images[idx] = Object.assign(item, {
             uploaded: true,
-            url: rokka.render.getUrl(this.props.organization, item.hash, item.format, 'dynamic/noop')
+            url: rokka().render.getUrl(this.props.organization, item.hash, item.format, 'dynamic/noop')
           })
           this.setState({images: images})
           setTimeout(() => updateUploadedImages(images), 100)

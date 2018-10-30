@@ -12,10 +12,10 @@ const PreviewSidebar = ({organization, onChange, previewImage = null, currentPre
   const format = previewImage.format === 'jpg' ? 'jpg' : 'png'
 
   const previewImages = {
-    original: rokka.render.getUrl(organization, previewImage.hash, format),
+    original: rokka().render.getUrl(organization, previewImage.hash, format),
     dynamic: currentPreviewImage
       ? currentPreviewImage.src
-      : rokka.render.getUrl(organization, previewImage.hash, format)
+      : rokka().render.getUrl(organization, previewImage.hash, format)
   }
 
   return (

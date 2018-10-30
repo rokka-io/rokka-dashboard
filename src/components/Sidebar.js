@@ -109,7 +109,7 @@ class Sidebar extends PureComponent {
             </div>
           </li>
         </ul>
-        <a href="https://www.liip.ch/" target="_blank" className="rka-sidebar-poweredby">
+        <a href="https://www.liip.ch/" target="_blank" rel="noopener noreferrer" className="rka-sidebar-poweredby">
           POWERED BY <i className="rka-sidebar-liip-logo" />
         </a>
       </nav>

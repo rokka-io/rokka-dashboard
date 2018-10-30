@@ -94,7 +94,7 @@ class ImageList extends PureComponent {
     const search = searchField && searchValue ? { [searchField]: searchValue } : null
     const sort = sortField && sortOrder ? `${sortField} ${sortOrder}` : null
 
-    rokka.sourceimages.list(this.props.organization, { limit: this.props.limit, offset, search, sort })
+    rokka().sourceimages.list(this.props.organization, { limit: this.props.limit, offset, search, sort })
       .then(({ body }) => {
         const { fields } = this.state
         body.items.forEach(item => {
@@ -150,8 +150,8 @@ class ImageList extends PureComponent {
 
     return this.state.images.items.map((item) => {
       const format = item.format === 'jpg' ? 'jpg' : 'png'
-      const imgUrl = rokka.render.getUrl(this.props.organization, item.hash, format, 'dynamic')
-      const imgSrc = rokka.render.getUrl(this.props.organization, item.hash, format, 'dynamic/resize-height-120')
+      const imgUrl = rokka().render.getUrl(this.props.organization, item.hash, format, 'dynamic')
+      const imgSrc = rokka().render.getUrl(this.props.organization, item.hash, format, 'dynamic/resize-height-120')
 
       return (
         <Image
@@ -173,8 +173,8 @@ class ImageList extends PureComponent {
     if (this.props.images) {
       $uploadedImages = this.props.images.map((image, idx) => {
         const format = image.format === 'jpg' ? 'jpg' : 'png'
-        const imgUrl = rokka.render.getUrl(this.props.organization, image.hash, format, 'dynamic')
-        const imgSrc = rokka.render.getUrl(this.props.organization, image.hash, format, 'dynamic/resize-height-120')
+        const imgUrl = rokka().render.getUrl(this.props.organization, image.hash, format, 'dynamic')
+        const imgSrc = rokka().render.getUrl(this.props.organization, image.hash, format, 'dynamic/resize-height-120')
         return (
           <Image
             key={idx + image.name}

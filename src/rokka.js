@@ -10,4 +10,4 @@ export function resetClient () {
   client = rokka()
 }
 
-export default client
+export default () => client

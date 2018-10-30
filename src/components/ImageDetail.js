@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Fragment, PureComponent } from 'react'
+import React, { Fragment, PureComponent, createRef } from 'react'
 import ReactCrop from 'react-image-crop'
 import cx from 'classnames'
 import { authRequired } from '../utils/auth'
@@ -67,7 +67,7 @@ function getSubjectArea (image) {
 
 function transformImage (organization, image) {
   const format = image.format === 'jpg' ? 'jpg' : 'png'
-  image.url = rokka.render.getUrl(organization, image.hash, format, 'dynamic/noop')
+  image.url = rokka().render.getUrl(organization, image.hash, format, 'dynamic/noop')
 
   const { user_metadata: metadata = {} } = image
 
@@ -110,6 +110,9 @@ class ImageDetail extends PureComponent {
     this.onImageClick = this.onImageClick.bind(this)
     this.requestOnResizeTick = this.requestOnResizeTick.bind(this)
     this.onResize = this.onResize.bind(this)
+
+    this.focusPointRef = createRef()
+    this.imageRef = createRef()
   }
 
   componentDidMount () {
@@ -125,7 +128,7 @@ class ImageDetail extends PureComponent {
   getImage (hash) {
     const { auth: { organization } } = this.props
 
-    rokka.sourceimages.get(organization, hash).then(({ body: image }) => {
+    rokka().sourceimages.get(organization, hash).then(({ body: image }) => {
       image = transformImage(organization, image)
       const updateState = { image }
       let subjectArea = getSubjectArea(image)
@@ -189,10 +192,11 @@ class ImageDetail extends PureComponent {
   }
 
   setImgRefSize () {
+    const img = this.imageRef.current
     this.setState({
       imageSize: {
-        width: this.imageRef.width,
-        height: this.imageRef.height
+        width: img.width,
+        height: img.height
       }
     })
   }
@@ -218,11 +222,11 @@ class ImageDetail extends PureComponent {
     const alertType = 'success'
     const alertMessages = []
 
-    rokka.sourceimages.meta.replace(organization, hash, userMetadata).then(() => {
+    rokka().sourceimages.meta.replace(organization, hash, userMetadata).then(() => {
       alertMessages.push('user metadata updated')
 
       if (!subjectArea.type && subjectArea.coordsChanged && imageHasSubjectArea) {
-        return rokka.sourceimages.removeSubjectArea(organization, hash).then(({ headers }) => {
+        return rokka().sourceimages.removeSubjectArea(organization, hash).then(({ headers }) => {
           const newImageHash = headers.location.replace(`/sourceimages/${organization}/`, '')
 
           this.setState(DEFAULT_STATE)
@@ -231,7 +235,7 @@ class ImageDetail extends PureComponent {
           alertMessages.push('subject area has been removed')
         })
       } else if (subjectArea.type && subjectArea.coordsChanged) {
-        return rokka.sourceimages.setSubjectArea(organization, hash, subjectArea.coords).then(({ headers }) => {
+        return rokka().sourceimages.setSubjectArea(organization, hash, subjectArea.coords).then(({ headers }) => {
           const newImageHash = headers.location.replace(`/sourceimages/${organization}/`, '')
 
           this.setState(DEFAULT_STATE)
@@ -330,10 +334,10 @@ class ImageDetail extends PureComponent {
   }
 
   getPercentCrop (pixelCrop) {
-    if (!this.imageRef) {
+    if (!this.imageRef.current) {
       return EMPTY_FOCUS_AREA
     }
-    const { naturalWidth, naturalHeight } = this.imageRef
+    const { naturalWidth, naturalHeight } = this.imageRef.current
     return pixelToPercent(pixelCrop, naturalWidth, naturalHeight)
   }
 
@@ -362,7 +366,7 @@ class ImageDetail extends PureComponent {
       return
     }
 
-    const { naturalWidth, width } = this.imageRef
+    const { naturalWidth, width } = this.imageRef.current
 
     const renderedPos = calculateClickPosition(e)
     const scale = calculateScale(naturalWidth, width)
@@ -413,9 +417,10 @@ class ImageDetail extends PureComponent {
       newSubjectArea.coords = EMPTY_FOCUS_AREA
       newSubjectArea.coordsChanged = true
     } else if (newSubjectArea.type === FOCUS_POINT) {
+      const img = this.imageRef.current
       newSubjectArea.coords = {
-        x: Math.round(this.imageRef.naturalWidth / 2),
-        y: Math.round(this.imageRef.naturalHeight / 2),
+        x: Math.round(img.naturalWidth / 2),
+        y: Math.round(img.naturalHeight / 2),
         width: 1,
         height: 1
       }
@@ -494,10 +499,10 @@ class ImageDetail extends PureComponent {
     let coords = subjectArea.coords
 
     let renderPos = coords
-    if (this.focusPointRef && type === FOCUS_POINT) {
-      const { naturalWidth, width } = this.imageRef
+    if (this.focusPointRef.current && type === FOCUS_POINT) {
+      const { naturalWidth, width } = this.imageRef.current
       const scale = calculateScale(naturalWidth, width)
-      renderPos = calculateRenderedPosition(scale, this.focusPointRef.clientWidth, subjectArea.coords)
+      renderPos = calculateRenderedPosition(scale, this.focusPointRef.current.clientWidth, subjectArea.coords)
     }
 
     if (subjectArea.type === FOCUS_AREA) {
@@ -528,14 +533,14 @@ class ImageDetail extends PureComponent {
             }
             <div className="ove-h dis-ib pos-r va-m">
               <img
-                ref={ref => (this.imageRef = ref)}
+                ref={this.imageRef}
                 onLoad={() => this.setImgRefSize()}
                 src={image.url}
                 className={imgClassName}
                 onClick={this.onImageClick}
                 onTouchStart={this.onImageClick}
               />
-              <FocusPointSvg setRef={ref => (this.focusPointRef = ref)} isVisible={type === FOCUS_POINT} {...renderPos} />
+              <FocusPointSvg ref={this.focusPointRef} isVisible={type === FOCUS_POINT} {...renderPos} />
             </div>
           </div>
         </section>

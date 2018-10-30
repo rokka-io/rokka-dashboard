@@ -42,7 +42,7 @@ export default function previewImage (WrappedComponent) {
 
       const { organization } = this.props.auth
 
-      rokka.sourceimages.list(organization, 1)
+      rokka().sourceimages.list(organization, 1)
         .then(({ body }) => {
           this.setState({
             preview: body.items[0]

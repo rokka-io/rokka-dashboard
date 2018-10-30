@@ -4,7 +4,7 @@ import rokka from '../../rokka'
 import Alert from '../Alert'
 import Spinner from '../Spinner'
 
-const PreviewSidebar = ({organization, onChange, previewImage = null, currentPreviewImage = null, error = null, imageLoading = false}) => {
+const PreviewSidebar = ({organization, onChange, previewImage = null, currentPreviewImage = null, error = null, imageLoading = false, stack = 'dynamic/noop'}) => {
   if (!previewImage) {
     return null
   }
@@ -15,29 +15,29 @@ const PreviewSidebar = ({organization, onChange, previewImage = null, currentPre
     original: rokka().render.getUrl(organization, previewImage.hash, format),
     dynamic: currentPreviewImage
       ? currentPreviewImage.src
-      : rokka().render.getUrl(organization, previewImage.hash, format)
+      : rokka().render.getUrl(organization, previewImage.hash, format, stack)
   }
 
   return (
     <div className="col-md-5 col-sm-5">
       <h3 className="rka-h2 mv-md">
         Preview
-        <a href="#" onClick={onChange} className="rka-link flo-r txt-sm">
+        <button onClick={onChange} className="rka-link-button rka-link flo-r txt-sm">
           Change picture
-        </a>
+        </button>
       </h3>
       <div className="rka-stack-img-container bg-chess mb-xs bor-light txt-c">
         <p className="pa-md bg-white txt-l">
-          Customized <a href={previewImages.dynamic} className="rka-link flo-r" target="_blank">Open in new window</a>
+          Customized <a href={previewImages.dynamic} className="rka-link flo-r" target="_blank" rel="noopener noreferrer">Open in new window</a>
         </p>
         { error ? <Alert alert={{ type: 'error', message: error }} /> : null }
-        { imageLoading ? <Spinner /> : <img src={previewImages.dynamic} /> }
+        { imageLoading ? <Spinner /> : <img src={previewImages.dynamic} alt="Customized" /> }
       </div>
       <div className="rka-stack-img-container bg-chess bor-light txt-c">
         <p className="pa-md bg-white txt-l">
-          Original <a href={previewImages.original} className="rka-link flo-r" target="_blank">Open in new window</a>
+          Original <a href={previewImages.original} className="rka-link flo-r" target="_blank" rel="noopener noreferrer">Open in new window</a>
         </p>
-        <img src={previewImages.original} />
+        <img src={previewImages.original} alt="Original" />
       </div>
     </div>
   )
@@ -52,6 +52,7 @@ PreviewSidebar.propTypes = {
   currentPreviewImage: PropTypes.shape({
     src: PropTypes.string.isRequired
   }),
+  stack: PropTypes.string,
   error: PropTypes.string,
   imageLoading: PropTypes.bool
 }

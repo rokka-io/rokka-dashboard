@@ -10,10 +10,10 @@ const ROKKA_TYPES = [
   {label: 'Array', value: 'array'}
 ]
 
-const UserMetadata = ({ index, onChange, onClickRemove, onClickAdd, isNew = false, name = '', type = 'str', value = '' }) => (
+const UserMetadataRow = ({ index, onChange, onClickRemove, onClickAdd, isNew = false, name = '', type = 'str', value = '' }) => (
   <div key={index} className="rka-image-metadata-container mb-xs">
     {!isNew
-      ? <a className="rka-close-icon" href="#" title="Remove" onClick={(e) => onClickRemove(e, index)} />
+      ? <button className="rka-close-icon" onClick={(e) => onClickRemove(e, index)} />
       : null
     }
     <div className="row">
@@ -55,7 +55,7 @@ const UserMetadata = ({ index, onChange, onClickRemove, onClickAdd, isNew = fals
     }
   </div>
 )
-UserMetadata.propTypes = {
+UserMetadataRow.propTypes = {
   index: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   onClickRemove: PropTypes.func.isRequired,
@@ -66,4 +66,4 @@ UserMetadata.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)])
 }
 
-export default UserMetadata
+export default UserMetadataRow

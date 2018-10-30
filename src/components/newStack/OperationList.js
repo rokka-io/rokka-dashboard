@@ -59,7 +59,7 @@ const OperationList = ({
             {Object.keys(availableOperations).filter(name => name !== 'noop').sort().map((name) => <option key={name} value={name}>{name}</option>)}
           </select>
         </div>
-        <a href="#" className="rka-button rka-button-brand rka-button-sm" onClick={addOperation}>Add operation</a>
+        <button className="rka-button rka-button-brand rka-button-sm" onClick={addOperation}>Add operation</button>
       </div>
     </div>
   )

@@ -539,6 +539,7 @@ class ImageDetail extends PureComponent {
                 className={imgClassName}
                 onClick={this.onImageClick}
                 onTouchStart={this.onImageClick}
+                alt="Current"
               />
               <FocusPointSvg ref={this.focusPointRef} isVisible={type === FOCUS_POINT} {...renderPos} />
             </div>

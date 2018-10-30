@@ -35,9 +35,9 @@ const Operation = ({
     <div className={className} key={`operations-${index}`}>
       {connectDragSource(
         <div>
-          <a className="rka-close-icon" href="#" onClick={e => removeOperation(e, index)} title="Remove" />
-          <a className="rka-edit-icon" href="#" onClick={e => setActiveOperation(e, index)} />
-          <a className="rka-move-icon" href="#" onClick={e => e.preventDefault()} />
+          <button className="rka-close-icon" onClick={e => removeOperation(e, index)} />
+          <button className="rka-edit-icon" onClick={e => setActiveOperation(e, index)} />
+          <span className="rka-move-icon" />
           <h3 className="rka-h3 txt-cap">{operation.name}</h3>
         </div>
       )}

@@ -42,7 +42,7 @@ class Image extends PureComponent {
         <div className={classes}
           onClick={(e) => this.onClick(e)}>
           <div className="rka-image-tile-hd">
-            <a href={this.props.url} target="_blank" className="rka-image-tile-link rka-link"
+            <a href={this.props.url} target="_blank" rel="noopener noreferrer" className="rka-image-tile-link rka-link"
               onClick={(e) => e.stopPropagation()}>Open in new window</a>
             {this.props.uploaded === true &&
               <span className="rka-image-checkbox-container">

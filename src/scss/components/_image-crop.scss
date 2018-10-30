@@ -55,6 +55,9 @@
   display: inline-block;
   opacity: 0.5;
   padding: $space-md;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 
   &.is-active,
   &:hover {
@@ -74,6 +77,8 @@
   width: 50px;
   height: 38px;
   color: $clr-brand;
+  background: transparent;
+  line-height: 14px;
 
   &.is-active,
   &:hover {
@@ -87,6 +92,7 @@
   display: inline-block;
   height: 100%;
   width: 100%;
+  line-height: 20px;
 }
 
 .rka-focuspoint-icon,
@@ -174,6 +180,7 @@
   }
 }
 .rka-crop-actions-close {
+  border: none;
   text-decoration: none;
   background: $clr-brand;
   text-align: center;
@@ -182,6 +189,7 @@
   padding: 0 $space-md;
   font-size: $font-md;
   color: $clr-white;
+  cursor: pointer;
 }
 
 .rka-image-metadata-container {

@@ -46,8 +46,7 @@ class Modal extends PureComponent {
       <div className={cx('rka-modal-backdrop', classNames.backdrop)} onKeyDown={(e) => this.onKeyDown(e)}>
         <div className={cx('rka-modal-frame', classNames.frame, { 'rka-modal-frame-fullscreen': fullscreen })}>
           <div className={cx('rka-modal-body', classNames.body)}>
-            <a className={cx('rka-close-icon', classNames.close)}
-              href="#" onClick={(e) => this.close(e)} title="Close" />
+            <button className={cx('rka-close-icon', classNames.close)} onClick={(e) => this.close(e)} title="Close" />
             {this.props.children}
           </div>
         </div>

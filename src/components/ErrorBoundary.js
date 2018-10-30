@@ -20,7 +20,7 @@ class ErrorBoundary extends PureComponent {
       return (
         <div className="bg-white pa-md clearfix">
           <h1 className="rka-h1">Something went wrong.</h1>
-          <p>Unable to load the page 😟. Please <a className="rka-link" target="_blank" href="https://github.com/rokka-io/rokka-dashboard/issues">file an issue on GitHub</a>. Thanks! 😍</p>
+          <p>Unable to load the page <span role="img" aria-label="sad">😟</span>. Please <a className="rka-link" target="_blank" href="https://github.com/rokka-io/rokka-dashboard/issues" rel="noopener noreferrer">file an issue on GitHub</a>. Thanks! <span role="img" aria-label="yay">😍</span></p>
         </div>
       )
     }

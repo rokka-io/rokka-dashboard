@@ -4,6 +4,11 @@ body {
   word-wrap: break-word;
 }
 
+button {
+  font-family: $LiipEticaBook;
+  font-size: 14px;
+}
+
 .rka-h1 {
   font-family: $font-brand-sb;
   font-size: $font-xl;
@@ -25,6 +30,11 @@ body {
 .rka-link {
   color: $clr-brand-dark;
   word-wrap: break-word;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 p {

@@ -7,9 +7,9 @@ import Modal from './Modal'
 import previewImage from './images/previewImage'
 
 import factory from './operations/factory'
-import rokka from '../rokka'
 import { cloneStack, deleteStack, setAlert } from '../state'
 import Options from './Options'
+import PreviewSidebar from './newStack/PreviewSidebar';
 
 const getStackByName = (stacks, name) => {
   let result
@@ -23,6 +23,7 @@ const getStackByName = (stacks, name) => {
       result = stack
       return true
     }
+    return false
   })
 
   return result
@@ -101,14 +102,6 @@ class Stack extends PureComponent {
     const { stack } = this.state
     const { organization } = this.props.auth
 
-    let previewImages = {}
-    if (previewImage) {
-      previewImages = {
-        original: rokka().render.getUrl(organization, previewImage.hash, previewImage.format),
-        dynamic: rokka().render.getUrl(organization, previewImage.hash, previewImage.format, stack.name)
-      }
-    }
-
     let options = stack.stack_options
 
     let $options = null
@@ -171,28 +164,7 @@ class Stack extends PureComponent {
 
     let $previewSidebar = null
     if (previewImage) {
-      $previewSidebar = (
-        <div className="col-md-5 col-sm-5">
-          <h3 className="rka-h2 mv-md">
-            Preview
-            <a href="#" className="rka-link flo-r txt-sm" onClick={this.props.onOpenChoosePreviewImage}>
-              Change picture
-            </a>
-          </h3>
-          <div className="rka-stack-img-container bg-chess mb-xs bor-light txt-c">
-            <p className="pa-md bg-white txt-l">
-              Customized <a href={previewImages.dynamic} className="rka-link flo-r" target="_blank">Open in new window</a>
-            </p>
-            <img src={previewImages.dynamic} />
-          </div>
-          <div className="rka-stack-img-container bg-chess mb-xs bor-light txt-c">
-            <p className="pa-md bg-white txt-l">
-              Original <a href={previewImages.original} className="rka-link flo-r" target="_blank">Open in new window</a>
-            </p>
-            <img src={previewImages.original} />
-          </div>
-        </div>
-      )
+      $previewSidebar = <PreviewSidebar organization={organization} onChange={this.props.onOpenChoosePreviewImage} previewImage={previewImage} stack={stack.name} />
     }
 
     return (

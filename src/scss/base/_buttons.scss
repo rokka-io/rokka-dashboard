@@ -1,3 +1,15 @@
+.rka-link-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: $font-brand;
+  font-size: 14px;
+  line-height: inherit;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
 .rka-button {
   display: inline-block;
   cursor: pointer;

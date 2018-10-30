@@ -9,16 +9,16 @@ import focusAreaIcon from '../../img/focusarea-icon.svg'
 const Actions = ({ menuActive, actionsActive, onChange, onToggleActions, focusArea = {}, focusType = null }) => (
   <div className={cx('rka-crop-actions', {'is-active': menuActive})}>
     <div className={cx('rka-crop-action-container', {'is-active': actionsActive})}>
-      <a href="#" id="focusPoint" onClick={onToggleActions} className={cx('rka-crop-action', { 'is-active': focusType === FOCUS_POINT })}>
+      <button id="focusPoint" onClick={onToggleActions} className={cx('rka-crop-action', { 'is-active': focusType === FOCUS_POINT })}>
         <svg className="rka-focuspoint-icon">
           <use xlinkHref={focusPointIcon + '#focuspointicon'} />
         </svg>
-      </a>
-      <a href="#" id="focusArea" onClick={onToggleActions} className={cx('rka-crop-action', { 'is-active': focusType === FOCUS_AREA })}>
+      </button>
+      <button id="focusArea" onClick={onToggleActions} className={cx('rka-crop-action', { 'is-active': focusType === FOCUS_AREA })}>
         <svg className="rka-focusarea-icon">
           <use xlinkHref={focusAreaIcon + '#focusareaicon'} />
         </svg>
-      </a>
+      </button>
     </div>
     <div className={cx('rka-crop-actions-form', {'is-active': actionsActive})}>
       { actionsActive
@@ -28,7 +28,7 @@ const Actions = ({ menuActive, actionsActive, onChange, onToggleActions, focusAr
     </div>
     { actionsActive
       ? <div className="rka-crop-actions-close-container">
-        <a href="#" onClick={onToggleActions} className="rka-crop-actions-close">×</a>
+        <button onClick={onToggleActions} className="rka-crop-actions-close">×</button>
       </div>
       : null
     }

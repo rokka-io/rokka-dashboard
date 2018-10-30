@@ -21,7 +21,7 @@ class NoStackSelected extends PureComponent {
           </p>
           <p className="txt-md">
             For more information you can
-            check the <a className="rka-link txt-md" href="https://rokka.io/documentation/references/stacks.html#create-a-stack" target="_blank">options documentation</a>.
+            check the <a className="rka-link txt-md" href="https://rokka.io/documentation/references/stacks.html#create-a-stack" target="_blank" rel="noopener noreferrer">options documentation</a>.
           </p>
         </div>
         <div className="section rka-box no-min-height">
@@ -46,7 +46,7 @@ class NoStackSelected extends PureComponent {
           </ul>
           <p className="txt-md">
             For more information you can
-            check the <a className="rka-link txt-md" href="https://rokka.io/documentation/references/operations.html" target="_blank">operations documentation</a>.
+            check the <a className="rka-link txt-md" href="https://rokka.io/documentation/references/operations.html" target="_blank" rel="noopener noreferrer">operations documentation</a>.
           </p>
         </div>
       </div>

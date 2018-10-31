@@ -48,7 +48,7 @@ class ImageList extends PureComponent {
     this.loadImages()
   }
 
-  onSearchChange (name, value, reload = false) {
+  onSearchChange (name, { value = null }, reload = false) {
     const stateChange = {
       [name]: value
     }

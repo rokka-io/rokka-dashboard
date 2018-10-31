@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import Select, { Creatable } from 'react-select'
+import { styles } from '../forms/ReactSelect'
 import searchIcon from '../../img/search.svg'
 
 const placeholderByType = {
@@ -10,9 +11,9 @@ const placeholderByType = {
   double: 'format 0.0'
 }
 
-const SearchForm = ({ onChange, onSubmit, fields, searchField = null, searchValue = null, sortField = null, sortOrder = null }) => {
+const SearchForm = ({ onChange, onSubmit, fields, searchField = null, searchValue = '', sortField = null, sortOrder = null }) => {
   const fieldOptions = Object.keys(fields).map(key => ({value: fields[key].value, label: key}))
-
+  const sortOrderOptions = [{label: 'Ascending', value: 'asc'}, {label: 'Descending', value: 'desc'}]
   return (
     <form onSubmit={onSubmit}>
       <div className="row">
@@ -20,12 +21,12 @@ const SearchForm = ({ onChange, onSubmit, fields, searchField = null, searchValu
           <div className="rka-form-group mb-sm">
             <Creatable
               options={fieldOptions}
-              simpleValue
-              clearable
-              searchable
+              isClearable
+              isSearchable
               name="searchField"
-              value={searchField}
-              onChange={(value) => onChange('searchField', value)}
+              value={fieldOptions.filter(({ value }) => searchField === value )}
+              onChange={(value) => onChange('searchField', value || {})}
+              styles={styles}
             />
           </div>
         </div>
@@ -38,7 +39,7 @@ const SearchForm = ({ onChange, onSubmit, fields, searchField = null, searchValu
               name="searchValue"
               value={searchValue}
               className="rka-input-txt rka-search-input"
-              onChange={(e) => onChange('searchValue', e.currentTarget.value)}
+              onChange={(e) => onChange('searchValue', { value: e.currentTarget.value })}
             />
             <svg className="rka-search-icon" onClick={onSubmit}>
               <use xlinkHref={searchIcon + '#search-icon'} />
@@ -49,24 +50,22 @@ const SearchForm = ({ onChange, onSubmit, fields, searchField = null, searchValu
           <div className="rka-form-group mb-sm">
             <Creatable
               options={fieldOptions}
-              simpleValue
-              clearable={false}
-              searchable
+              isSearchable
               name="sortField"
-              value={sortField}
-              onChange={(value) => onChange('sortField', value, true)}
+              value={fieldOptions.filter(({ value }) => sortField === value )}
+              onChange={(value) => onChange('sortField', value || {}, true)}
+              styles={styles}
             />
           </div>
         </div>
         <div className="col-md-2">
           <div className="rka-form-group mb-sm">
             <Select
-              options={[{label: 'Ascending', value: 'asc'}, {label: 'Descending', value: 'desc'}]}
-              simpleValue
-              clearable={false}
+              options={sortOrderOptions}
               name="sortOrder"
-              value={sortOrder}
-              onChange={(value) => onChange('sortOrder', value, true)}
+              value={sortOrderOptions.filter(({ value }) => sortOrder === value )}
+              onChange={(value) => onChange('sortOrder', value || {}, true)}
+              styles={styles}
             />
           </div>
         </div>

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import Select from 'react-select'
+import { styles } from '../forms/ReactSelect'
 import FormGroup from '../forms/FormGroup'
 
 class BaseStack extends PureComponent {
@@ -44,9 +45,10 @@ class BaseStack extends PureComponent {
         <Select
           name="basestack"
           placeholder="Enter base stack, default: no base stack used"
-          value={value}
+          value={options.filter(( { value: v }) => value === v)}
           onChange={this.onChange}
           options={options}
+          styles={styles}
         />
       </FormGroup>
     )

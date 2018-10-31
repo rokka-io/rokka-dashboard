@@ -1,0 +1,589 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Actions does render 1`] = `
+<div
+  className="rka-crop-actions is-active"
+>
+  <div
+    className="rka-crop-action-container is-active"
+  >
+    <button
+      className="rka-crop-action"
+      id="focusPoint"
+      onClick={[Function]}
+    >
+      <svg
+        className="rka-focuspoint-icon"
+      >
+        <use
+          xlinkHref="focuspoint-icon.svg#focuspointicon"
+        />
+      </svg>
+    </button>
+    <button
+      className="rka-crop-action"
+      id="focusArea"
+      onClick={[Function]}
+    >
+      <svg
+        className="rka-focusarea-icon"
+      >
+        <use
+          xlinkHref="focusarea-icon.svg#focusareaicon"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="rka-crop-actions-form is-active"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Offset X
+          </label>
+          <input
+            className="rka-input-txt"
+            name="x"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Offset Y
+          </label>
+          <input
+            className="rka-input-txt"
+            name="y"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Width
+          </label>
+          <input
+            className="rka-input-txt"
+            disabled={false}
+            name="width"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Height
+          </label>
+          <input
+            className="rka-input-txt"
+            disabled={false}
+            name="height"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="rka-crop-actions-close-container"
+  >
+    <button
+      className="rka-crop-actions-close"
+      onClick={[Function]}
+    >
+      ×
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Actions does render with focus area 1`] = `
+<div
+  className="rka-crop-actions is-active"
+>
+  <div
+    className="rka-crop-action-container is-active"
+  >
+    <button
+      className="rka-crop-action"
+      id="focusPoint"
+      onClick={[Function]}
+    >
+      <svg
+        className="rka-focuspoint-icon"
+      >
+        <use
+          xlinkHref="focuspoint-icon.svg#focuspointicon"
+        />
+      </svg>
+    </button>
+    <button
+      className="rka-crop-action is-active"
+      id="focusArea"
+      onClick={[Function]}
+    >
+      <svg
+        className="rka-focusarea-icon"
+      >
+        <use
+          xlinkHref="focusarea-icon.svg#focusareaicon"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="rka-crop-actions-form is-active"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Offset X
+          </label>
+          <input
+            className="rka-input-txt"
+            name="x"
+            onChange={[Function]}
+            type="text"
+            value={1}
+          />
+        </div>
+      </div>
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Offset Y
+          </label>
+          <input
+            className="rka-input-txt"
+            name="y"
+            onChange={[Function]}
+            type="text"
+            value={1}
+          />
+        </div>
+      </div>
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Width
+          </label>
+          <input
+            className="rka-input-txt"
+            disabled={false}
+            name="width"
+            onChange={[Function]}
+            type="text"
+            value={100}
+          />
+        </div>
+      </div>
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Height
+          </label>
+          <input
+            className="rka-input-txt"
+            disabled={false}
+            name="height"
+            onChange={[Function]}
+            type="text"
+            value={100}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="rka-crop-actions-close-container"
+  >
+    <button
+      className="rka-crop-actions-close"
+      onClick={[Function]}
+    >
+      ×
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Actions does render with focus point 1`] = `
+<div
+  className="rka-crop-actions is-active"
+>
+  <div
+    className="rka-crop-action-container is-active"
+  >
+    <button
+      className="rka-crop-action is-active"
+      id="focusPoint"
+      onClick={[Function]}
+    >
+      <svg
+        className="rka-focuspoint-icon"
+      >
+        <use
+          xlinkHref="focuspoint-icon.svg#focuspointicon"
+        />
+      </svg>
+    </button>
+    <button
+      className="rka-crop-action"
+      id="focusArea"
+      onClick={[Function]}
+    >
+      <svg
+        className="rka-focusarea-icon"
+      >
+        <use
+          xlinkHref="focusarea-icon.svg#focusareaicon"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="rka-crop-actions-form is-active"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Offset X
+          </label>
+          <input
+            className="rka-input-txt"
+            name="x"
+            onChange={[Function]}
+            type="text"
+            value={1}
+          />
+        </div>
+      </div>
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Offset Y
+          </label>
+          <input
+            className="rka-input-txt"
+            name="y"
+            onChange={[Function]}
+            type="text"
+            value={1}
+          />
+        </div>
+      </div>
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Width
+          </label>
+          <input
+            className="rka-input-txt"
+            disabled={true}
+            name="width"
+            onChange={[Function]}
+            type="text"
+            value={1}
+          />
+        </div>
+      </div>
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Height
+          </label>
+          <input
+            className="rka-input-txt"
+            disabled={true}
+            name="height"
+            onChange={[Function]}
+            type="text"
+            value={1}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="rka-crop-actions-close-container"
+  >
+    <button
+      className="rka-crop-actions-close"
+      onClick={[Function]}
+    >
+      ×
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Actions does render with menu inactive 1`] = `
+<div
+  className="rka-crop-actions"
+>
+  <div
+    className="rka-crop-action-container is-active"
+  >
+    <button
+      className="rka-crop-action"
+      id="focusPoint"
+      onClick={[Function]}
+    >
+      <svg
+        className="rka-focuspoint-icon"
+      >
+        <use
+          xlinkHref="focuspoint-icon.svg#focuspointicon"
+        />
+      </svg>
+    </button>
+    <button
+      className="rka-crop-action"
+      id="focusArea"
+      onClick={[Function]}
+    >
+      <svg
+        className="rka-focusarea-icon"
+      >
+        <use
+          xlinkHref="focusarea-icon.svg#focusareaicon"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="rka-crop-actions-form is-active"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Offset X
+          </label>
+          <input
+            className="rka-input-txt"
+            name="x"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Offset Y
+          </label>
+          <input
+            className="rka-input-txt"
+            name="y"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Width
+          </label>
+          <input
+            className="rka-input-txt"
+            disabled={false}
+            name="width"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="col-md-3 col-sm-3"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label"
+          >
+            Height
+          </label>
+          <input
+            className="rka-input-txt"
+            disabled={false}
+            name="height"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="rka-crop-actions-close-container"
+  >
+    <button
+      className="rka-crop-actions-close"
+      onClick={[Function]}
+    >
+      ×
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Actions does render with menu/actions inactive 1`] = `
+<div
+  className="rka-crop-actions"
+>
+  <div
+    className="rka-crop-action-container"
+  >
+    <button
+      className="rka-crop-action"
+      id="focusPoint"
+      onClick={[Function]}
+    >
+      <svg
+        className="rka-focuspoint-icon"
+      >
+        <use
+          xlinkHref="focuspoint-icon.svg#focuspointicon"
+        />
+      </svg>
+    </button>
+    <button
+      className="rka-crop-action"
+      id="focusArea"
+      onClick={[Function]}
+    >
+      <svg
+        className="rka-focusarea-icon"
+      >
+        <use
+          xlinkHref="focusarea-icon.svg#focusareaicon"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="rka-crop-actions-form"
+  />
+</div>
+`;

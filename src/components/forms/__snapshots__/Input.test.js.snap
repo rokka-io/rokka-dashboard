@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input does forward props 1`] = `
+<input
+  disabled={false}
+  foo="bar"
+  onChange={[Function]}
+/>
+`;
+
+exports[`Input does render 1`] = `
+<input
+  disabled={false}
+  onChange={[Function]}
+/>
+`;
+
+exports[`Input does render with a value 1`] = `
+<input
+  disabled={false}
+  onChange={[Function]}
+  value="test"
+/>
+`;
+
+exports[`Input is disabled if there is no onChange func 1`] = `
+<input
+  disabled={true}
+/>
+`;
+
+exports[`Input shows placeholder 1`] = `
+<input
+  disabled={false}
+  onChange={[Function]}
+  placeholder="Placeholder"
+/>
+`;
+
+exports[`Input shows placeholder with default value 1`] = `
+<input
+  disabled={false}
+  onChange={[Function]}
+  placeholder="Placeholder (default: DefaultValue)"
+/>
+`;
+
+exports[`Input takes defaultValue if disabled 1`] = `
+<input
+  disabled={true}
+  placeholder=" (default: DefaultValue)"
+  value="DefaultValue"
+/>
+`;
+
+exports[`Input takes name as placeholder if no placeholder given 1`] = `
+<input
+  disabled={false}
+  name="Name"
+  onChange={[Function]}
+  placeholder="Name (default: DefaultValue)"
+/>
+`;
+
+exports[`Input takes only value if not disabled 1`] = `
+<input
+  disabled={true}
+  placeholder=" (default: DefaultValue)"
+  value="DefaultValue"
+/>
+`;
+
+exports[`Input takes type as placeholder if no placeholder & name given 1`] = `
+<input
+  disabled={false}
+  onChange={[Function]}
+  placeholder="Type (default: DefaultValue)"
+  type="Type"
+/>
+`;

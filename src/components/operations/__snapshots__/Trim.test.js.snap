@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Trim does render 1`] = `
+<div
+  className="rka-form-group"
+>
+  <label
+    className="rka-label"
+  >
+    Fuzzy
+  </label>
+  <div
+    className="rka-input-range-container clearfix"
+  >
+    <input
+      className="rka-input-range"
+      disabled={true}
+      max={100}
+      min={0}
+      name="fuzzy"
+      onBlur={[Function]}
+      onChange={[Function]}
+      type="range"
+      value="10"
+    />
+    <p>
+      <span
+        className="rka-input-range-min"
+      >
+        0
+      </span>
+      <span
+        className="rka-input-range-current txt-bold is-disabled"
+      >
+        10
+      </span>
+      <span
+        className="rka-input-range-max"
+      >
+        100
+      </span>
+    </p>
+  </div>
+</div>
+`;

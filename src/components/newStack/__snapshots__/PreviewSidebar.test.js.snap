@@ -1,0 +1,264 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PreviewSidebar does not render when no previewImage set 1`] = `null`;
+
+exports[`PreviewSidebar does render with currentPreviewImage set 1`] = `
+<div
+  className="col-md-5 col-sm-5"
+>
+  <h3
+    className="rka-h2 mv-md"
+  >
+    Preview
+    <button
+      className="rka-link-button rka-link flo-r txt-sm"
+      onClick={[Function]}
+    >
+      Change picture
+    </button>
+  </h3>
+  <div
+    className="rka-stack-img-container bg-chess mb-xs bor-light txt-c"
+  >
+    <p
+      className="pa-md bg-white txt-l"
+    >
+      Customized 
+      <a
+        className="rka-link flo-r"
+        href="https://example.com/current-preview-image.png"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Open in new window
+      </a>
+    </p>
+    <img
+      alt="Customized"
+      src="https://example.com/current-preview-image.png"
+    />
+  </div>
+  <div
+    className="rka-stack-img-container bg-chess bor-light txt-c"
+  >
+    <p
+      className="pa-md bg-white txt-l"
+    >
+      Original 
+      <a
+        className="rka-link flo-r"
+        href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Open in new window
+      </a>
+    </p>
+    <img
+      alt="Original"
+      src="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+    />
+  </div>
+</div>
+`;
+
+exports[`PreviewSidebar does render with error set 1`] = `
+<div
+  className="col-md-5 col-sm-5"
+>
+  <h3
+    className="rka-h2 mv-md"
+  >
+    Preview
+    <button
+      className="rka-link-button rka-link flo-r txt-sm"
+      onClick={[Function]}
+    >
+      Change picture
+    </button>
+  </h3>
+  <div
+    className="rka-stack-img-container bg-chess mb-xs bor-light txt-c"
+  >
+    <p
+      className="pa-md bg-white txt-l"
+    >
+      Customized 
+      <a
+        className="rka-link flo-r"
+        href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Open in new window
+      </a>
+    </p>
+    <div
+      className="rka-alert is-error txt-c"
+    >
+      <span
+        className="rka-alert-msg"
+      >
+        Test error
+      </span>
+    </div>
+    <img
+      alt="Customized"
+      src="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+    />
+  </div>
+  <div
+    className="rka-stack-img-container bg-chess bor-light txt-c"
+  >
+    <p
+      className="pa-md bg-white txt-l"
+    >
+      Original 
+      <a
+        className="rka-link flo-r"
+        href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Open in new window
+      </a>
+    </p>
+    <img
+      alt="Original"
+      src="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+    />
+  </div>
+</div>
+`;
+
+exports[`PreviewSidebar does render with imageLoading set 1`] = `
+<div
+  className="col-md-5 col-sm-5"
+>
+  <h3
+    className="rka-h2 mv-md"
+  >
+    Preview
+    <button
+      className="rka-link-button rka-link flo-r txt-sm"
+      onClick={[Function]}
+    >
+      Change picture
+    </button>
+  </h3>
+  <div
+    className="rka-stack-img-container bg-chess mb-xs bor-light txt-c"
+  >
+    <p
+      className="pa-md bg-white txt-l"
+    >
+      Customized 
+      <a
+        className="rka-link flo-r"
+        href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Open in new window
+      </a>
+    </p>
+    <div
+      className="sk-folding-cube"
+    >
+      <div
+        className="sk-cube1 sk-cube"
+      />
+      <div
+        className="sk-cube2 sk-cube"
+      />
+      <div
+        className="sk-cube4 sk-cube"
+      />
+      <div
+        className="sk-cube3 sk-cube"
+      />
+    </div>
+  </div>
+  <div
+    className="rka-stack-img-container bg-chess bor-light txt-c"
+  >
+    <p
+      className="pa-md bg-white txt-l"
+    >
+      Original 
+      <a
+        className="rka-link flo-r"
+        href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Open in new window
+      </a>
+    </p>
+    <img
+      alt="Original"
+      src="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+    />
+  </div>
+</div>
+`;
+
+exports[`PreviewSidebar does render with previewImage set 1`] = `
+<div
+  className="col-md-5 col-sm-5"
+>
+  <h3
+    className="rka-h2 mv-md"
+  >
+    Preview
+    <button
+      className="rka-link-button rka-link flo-r txt-sm"
+      onClick={[Function]}
+    >
+      Change picture
+    </button>
+  </h3>
+  <div
+    className="rka-stack-img-container bg-chess mb-xs bor-light txt-c"
+  >
+    <p
+      className="pa-md bg-white txt-l"
+    >
+      Customized 
+      <a
+        className="rka-link flo-r"
+        href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Open in new window
+      </a>
+    </p>
+    <img
+      alt="Customized"
+      src="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+    />
+  </div>
+  <div
+    className="rka-stack-img-container bg-chess bor-light txt-c"
+  >
+    <p
+      className="pa-md bg-white txt-l"
+    >
+      Original 
+      <a
+        className="rka-link flo-r"
+        href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Open in new window
+      </a>
+    </p>
+    <img
+      alt="Original"
+      src="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+    />
+  </div>
+</div>
+`;

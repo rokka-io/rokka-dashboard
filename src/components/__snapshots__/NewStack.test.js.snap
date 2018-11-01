@@ -333,7 +333,8 @@ exports[`NewStack does render with a previewImage 1`] = `
                     <p
                       className="pa-md bg-white txt-l"
                     >
-                      Customized 
+                      Customized
+                       
                       <a
                         className="rka-link flo-r"
                         href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
@@ -354,7 +355,8 @@ exports[`NewStack does render with a previewImage 1`] = `
                     <p
                       className="pa-md bg-white txt-l"
                     >
-                      Original 
+                      Original
+                       
                       <a
                         className="rka-link flo-r"
                         href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
@@ -1222,6 +1224,55 @@ exports[`NewStack does render with stackOptions 1`] = `
                         </div>
                         <div
                           className="col-md-6"
+                        >
+                          <div
+                            className="rka-form-group"
+                          >
+                            <label
+                              className="rka-label"
+                            >
+                              Dots per inch (DPR)
+                            </label>
+                            <div
+                              className="rka-input-range-container clearfix"
+                            >
+                              <input
+                                className="rka-input-range"
+                                disabled={false}
+                                max={10}
+                                min={1}
+                                name="dpr"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                type="range"
+                                value={1}
+                              />
+                              <p>
+                                <span
+                                  className="rka-input-range-min"
+                                >
+                                  1
+                                </span>
+                                <input
+                                  className="rka-input-txt rka-input-range-current txt-c"
+                                  disabled={false}
+                                  name="dpr"
+                                  onChange={[Function]}
+                                  size={5}
+                                  type="text"
+                                  value={1}
+                                />
+                                <span
+                                  className="rka-input-range-max"
+                                >
+                                  10
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="col-md-6"
                         />
                         <div
                           className="col-md-12"
@@ -1457,7 +1508,8 @@ exports[`NewStack does render with stackOptions 1`] = `
                     <p
                       className="pa-md bg-white txt-l"
                     >
-                      Customized 
+                      Customized
+                       
                       <a
                         className="rka-link flo-r"
                         href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
@@ -1478,7 +1530,8 @@ exports[`NewStack does render with stackOptions 1`] = `
                     <p
                       className="pa-md bg-white txt-l"
                     >
-                      Original 
+                      Original
+                       
                       <a
                         className="rka-link flo-r"
                         href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
@@ -2051,6 +2104,55 @@ exports[`NewStack does render with stacks 1`] = `
                         </div>
                         <div
                           className="col-md-6"
+                        >
+                          <div
+                            className="rka-form-group"
+                          >
+                            <label
+                              className="rka-label"
+                            >
+                              Dots per inch (DPR)
+                            </label>
+                            <div
+                              className="rka-input-range-container clearfix"
+                            >
+                              <input
+                                className="rka-input-range"
+                                disabled={false}
+                                max={10}
+                                min={1}
+                                name="dpr"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                type="range"
+                                value={1}
+                              />
+                              <p>
+                                <span
+                                  className="rka-input-range-min"
+                                >
+                                  1
+                                </span>
+                                <input
+                                  className="rka-input-txt rka-input-range-current txt-c"
+                                  disabled={false}
+                                  name="dpr"
+                                  onChange={[Function]}
+                                  size={5}
+                                  type="text"
+                                  value={1}
+                                />
+                                <span
+                                  className="rka-input-range-max"
+                                >
+                                  10
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="col-md-6"
                         />
                         <div
                           className="col-md-12"
@@ -2286,7 +2388,8 @@ exports[`NewStack does render with stacks 1`] = `
                     <p
                       className="pa-md bg-white txt-l"
                     >
-                      Customized 
+                      Customized
+                       
                       <a
                         className="rka-link flo-r"
                         href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
@@ -2307,7 +2410,8 @@ exports[`NewStack does render with stacks 1`] = `
                     <p
                       className="pa-md bg-white txt-l"
                     >
-                      Original 
+                      Original
+                       
                       <a
                         className="rka-link flo-r"
                         href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"

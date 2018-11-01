@@ -67,6 +67,20 @@ class Options extends PureComponent {
               </FormGroup>
             </div>
             <div className="col-md-6">
+              <FormGroup
+                label="Dots per inch (DPR)"
+                error={this.props.options['dpr'] ? this.props.options['dpr'].error : null}
+              >
+                <InputRange
+                  onChange={this.props.onChange}
+                  min={defaultOptions['dpr'].minimum}
+                  max={defaultOptions['dpr'].maximum}
+                  name="dpr"
+                  value={this.props.options['dpr'].value}
+                />
+              </FormGroup>
+            </div>
+            <div className="col-md-6">
               <Interlacing
                 value={this.props.options['interlacing.mode'].value}
                 options={defaultOptions['interlacing.mode'].values}

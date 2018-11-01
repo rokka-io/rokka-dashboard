@@ -45,6 +45,7 @@ const OPTIONS = [
   'jpg.quality',
   'webp.quality',
   'interlacing.mode',
+  'dpr',
   'basestack'
 ]
 

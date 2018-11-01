@@ -14,7 +14,7 @@ class InputRange extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.value && !this.state.value) {
+    if (nextProps.value !== this.state.value) {
       this.setState({
         value: nextProps.value || nextProps.defaultValue
       })

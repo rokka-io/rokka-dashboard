@@ -1,5 +1,5 @@
 export const styles = {
-  control: (base) => {
+  control: base => {
     return {
       ...base,
       borderColor: '#DDDDD8',

@@ -15,7 +15,7 @@ test('Sidebar does render', () => {
   const component = renderer.create(
     <MemoryRouter>
       <Sidebar
-        auth={{organization: 'test-organization'}}
+        auth={{ organization: 'test-organization' }}
         active={false}
         router={router}
         stacks={{}}
@@ -35,12 +35,7 @@ test('Sidebar does render when active', () => {
 
   const component = renderer.create(
     <MemoryRouter initialEntries={['/stacks']}>
-      <Sidebar
-        auth={{organization: 'test-organization'}}
-        active
-        router={router}
-        stacks={{}}
-      />
+      <Sidebar auth={{ organization: 'test-organization' }} active router={router} stacks={{}} />
     </MemoryRouter>
   )
   let tree = component.toJSON()
@@ -54,18 +49,13 @@ test('Sidebar shows stacks', () => {
     }
   }
   const stacks = {
-    items: [
-      {name: 'stack-a'},
-      {name: 'stack-b'},
-      {name: 'stack-c'},
-      {name: 'stack-d'}
-    ]
+    items: [{ name: 'stack-a' }, { name: 'stack-b' }, { name: 'stack-c' }, { name: 'stack-d' }]
   }
 
   const component = renderer.create(
     <MemoryRouter>
       <Sidebar
-        auth={{organization: 'test-organization'}}
+        auth={{ organization: 'test-organization' }}
         active
         router={router}
         stacks={stacks}
@@ -83,12 +73,7 @@ test('Sidebar shows load more button', () => {
     }
   }
   const stacks = {
-    items: [
-      {name: 'stack-a'},
-      {name: 'stack-b'},
-      {name: 'stack-c'},
-      {name: 'stack-d'}
-    ],
+    items: [{ name: 'stack-a' }, { name: 'stack-b' }, { name: 'stack-c' }, { name: 'stack-d' }],
     currentOffset: 0,
     total: 20
   }
@@ -96,7 +81,7 @@ test('Sidebar shows load more button', () => {
   const component = renderer.create(
     <MemoryRouter>
       <Sidebar
-        auth={{organization: 'test-organization'}}
+        auth={{ organization: 'test-organization' }}
         active
         router={router}
         stacks={stacks}
@@ -114,18 +99,13 @@ test('Sidebar shows filtered stacks', () => {
     }
   }
   const stacks = {
-    items: [
-      {name: 'stack-a'},
-      {name: 'stack-b'},
-      {name: 'stack-c'},
-      {name: 'stack-d'}
-    ]
+    items: [{ name: 'stack-a' }, { name: 'stack-b' }, { name: 'stack-c' }, { name: 'stack-d' }]
   }
 
   const component = mount(
     <MemoryRouter>
       <Sidebar
-        auth={{organization: 'test-organization'}}
+        auth={{ organization: 'test-organization' }}
         active
         router={router}
         stacks={stacks}

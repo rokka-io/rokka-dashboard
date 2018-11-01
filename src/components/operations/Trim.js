@@ -4,11 +4,11 @@ import InputRange from '../forms/InputRange.js'
 import FormGroup from '../forms/FormGroup'
 
 class Trim extends PureComponent {
-  isRequired (field) {
+  isRequired(field) {
     return this.props.required.indexOf(field) !== -1
   }
 
-  render () {
+  render() {
     const { defaults, values, errors = {} } = this.props
 
     return (

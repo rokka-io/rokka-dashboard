@@ -10,13 +10,13 @@ test('calculateScale', () => {
 })
 
 test('scalePosition', () => {
-  const {x, y} = scalePosition({x: 2, y: 2}, 2)
+  const { x, y } = scalePosition({ x: 2, y: 2 }, 2)
   expect(x).toBe(4)
   expect(y).toBe(4)
 })
 
 test('calculateRenderedPosition', () => {
-  const {x, y} = calculateRenderedPosition(0.2, 100, {x: 50, y: 20})
+  const { x, y } = calculateRenderedPosition(0.2, 100, { x: 50, y: 20 })
 
   expect(x).toBe(200)
   expect(y).toBe(50)
@@ -29,7 +29,7 @@ test('pixelToPercent', () => {
     width: 200,
     height: 400
   }
-  const {x, y, width, height} = pixelToPercent(crop, 400, 800)
+  const { x, y, width, height } = pixelToPercent(crop, 400, 800)
 
   expect(x).toBe(5)
   expect(y).toBe(1.25)

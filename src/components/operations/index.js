@@ -27,27 +27,35 @@ const Operation = ({
     'is-active': isActive || hasErrors,
     'bor-cranberry': hasErrors,
     'bor-light': !hasErrors,
-    'opaque': isDragging,
+    opaque: isDragging,
     'bor-brand-light-dashed': isOver
   })
 
-  return connectDragPreview(connectDropTarget(
-    <div className={className} key={`operations-${index}`}>
-      {connectDragSource(
-        <div>
-          <button className="rka-close-icon" onClick={e => removeOperation(e, index)} />
-          <button className="rka-edit-icon" onClick={e => setActiveOperation(e, index)} />
-          <span className="rka-move-icon" />
-          <h3 className="rka-h3 txt-cap">{operation.name}</h3>
-        </div>
-      )}
-      <div className={cx({'semi-transparent': isOver})}>
-        <div className="rka-operation-content">
-          {factory(availableOperations, operation.name, operation.options, (e) => onChange(index, e), operation.errors)}
+  return connectDragPreview(
+    connectDropTarget(
+      <div className={className} key={`operations-${index}`}>
+        {connectDragSource(
+          <div>
+            <button className="rka-close-icon" onClick={e => removeOperation(e, index)} />
+            <button className="rka-edit-icon" onClick={e => setActiveOperation(e, index)} />
+            <span className="rka-move-icon" />
+            <h3 className="rka-h3 txt-cap">{operation.name}</h3>
+          </div>
+        )}
+        <div className={cx({ 'semi-transparent': isOver })}>
+          <div className="rka-operation-content">
+            {factory(
+              availableOperations,
+              operation.name,
+              operation.options,
+              e => onChange(index, e),
+              operation.errors
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  ))
+    )
+  )
 }
 Operation.propTypes = {
   availableOperations: PropTypes.object.isRequired,
@@ -73,14 +81,14 @@ Operation.propTypes = {
 }
 
 const dragSourceSpec = {
-  beginDrag (props) {
+  beginDrag(props) {
     return {
       id: props.operation.id,
       index: props.index
     }
   },
 
-  endDrag (props, monitor) {
+  endDrag(props, monitor) {
     const { id: droppedId, originalIndex } = monitor.getItem()
     const didDrop = monitor.didDrop()
 
@@ -97,7 +105,7 @@ const dragSourceCollect = (connect, monitor) => ({
 })
 
 const dropTargetSpec = {
-  hover (props, monitor, component) {
+  hover(props, monitor, component) {
     const dragIndex = monitor.getItem().index
     const hoverIndex = props.index
 
@@ -148,4 +156,6 @@ const dropTargetCollect = (connect, monitor) => ({
   isOver: monitor.isOver()
 })
 
-export default DropTarget(ITEM_TYPE, dropTargetSpec, dropTargetCollect)(DragSource(ITEM_TYPE, dragSourceSpec, dragSourceCollect)(Operation))
+export default DropTarget(ITEM_TYPE, dropTargetSpec, dropTargetCollect)(
+  DragSource(ITEM_TYPE, dragSourceSpec, dragSourceCollect)(Operation)
+)

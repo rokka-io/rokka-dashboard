@@ -4,7 +4,15 @@ import rokka from '../../rokka'
 import Alert from '../Alert'
 import Spinner from '../Spinner'
 
-const PreviewSidebar = ({organization, onChange, previewImage = null, currentPreviewImage = null, error = null, imageLoading = false, stack = 'dynamic/noop'}) => {
+const PreviewSidebar = ({
+  organization,
+  onChange,
+  previewImage = null,
+  currentPreviewImage = null,
+  error = null,
+  imageLoading = false,
+  stack = 'dynamic/noop'
+}) => {
   if (!previewImage) {
     return null
   }
@@ -28,14 +36,30 @@ const PreviewSidebar = ({organization, onChange, previewImage = null, currentPre
       </h3>
       <div className="rka-stack-img-container bg-chess mb-xs bor-light txt-c">
         <p className="pa-md bg-white txt-l">
-          Customized <a href={previewImages.dynamic} className="rka-link flo-r" target="_blank" rel="noopener noreferrer">Open in new window</a>
+          Customized{' '}
+          <a
+            href={previewImages.dynamic}
+            className="rka-link flo-r"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open in new window
+          </a>
         </p>
-        { error ? <Alert alert={{ type: 'error', message: error }} /> : null }
-        { imageLoading ? <Spinner /> : <img src={previewImages.dynamic} alt="Customized" /> }
+        {error ? <Alert alert={{ type: 'error', message: error }} /> : null}
+        {imageLoading ? <Spinner /> : <img src={previewImages.dynamic} alt="Customized" />}
       </div>
       <div className="rka-stack-img-container bg-chess bor-light txt-c">
         <p className="pa-md bg-white txt-l">
-          Original <a href={previewImages.original} className="rka-link flo-r" target="_blank" rel="noopener noreferrer">Open in new window</a>
+          Original{' '}
+          <a
+            href={previewImages.original}
+            className="rka-link flo-r"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open in new window
+          </a>
         </p>
         <img src={previewImages.original} alt="Original" />
       </div>

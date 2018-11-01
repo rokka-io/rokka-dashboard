@@ -5,7 +5,11 @@ import operations from '../../__tests__/operations.json'
 
 test('Alpha does render', () => {
   const component = renderer.create(
-    <Alpha values={operations.alpha.properties.mode} defaults={operations.alpha.properties} required={[]} />
+    <Alpha
+      values={operations.alpha.properties.mode}
+      defaults={operations.alpha.properties}
+      required={[]}
+    />
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

@@ -1,3 +1,3 @@
-export function listStacks () {
+export function listStacks() {
   return {}
 }

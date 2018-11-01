@@ -9,7 +9,7 @@ import previewImage from './images/previewImage'
 import factory from './operations/factory'
 import { cloneStack, deleteStack, setAlert } from '../state'
 import Options from './Options'
-import PreviewSidebar from './newStack/PreviewSidebar';
+import PreviewSidebar from './newStack/PreviewSidebar'
 
 const getStackByName = (stacks, name) => {
   let result
@@ -18,7 +18,7 @@ const getStackByName = (stacks, name) => {
     return null
   }
 
-  stacks.some((stack) => {
+  stacks.some(stack => {
     if (stack.name === name) {
       result = stack
       return true
@@ -30,7 +30,7 @@ const getStackByName = (stacks, name) => {
 }
 
 class Stack extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -38,12 +38,12 @@ class Stack extends PureComponent {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     // only load preview if there's a stack
     this.state.stack && this.props.loadPreviewImage()
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.router.match.params.name !== this.props.router.match.params.name) {
       this.setState({
         stack: getStackByName(nextProps.stacks.items, nextProps.router.match.params.name)
@@ -51,7 +51,7 @@ class Stack extends PureComponent {
     }
   }
 
-  componentWillMount () {
+  componentWillMount() {
     if (!this.props.stacks.items) {
       this.props.router.history.replace({
         pathname: '/stacks'
@@ -59,19 +59,19 @@ class Stack extends PureComponent {
     }
   }
 
-  onClickDeleteStack () {
+  onClickDeleteStack() {
     this.setState({
       confirmDeleteStack: true
     })
   }
 
-  onCancelDeleteStack () {
+  onCancelDeleteStack() {
     this.setState({
       confirmDeleteStack: false
     })
   }
 
-  onConfirmDeleteStack () {
+  onConfirmDeleteStack() {
     const { name } = this.state.stack
 
     deleteStack(name)
@@ -79,7 +79,7 @@ class Stack extends PureComponent {
         this.props.router.history.push(`/stacks`)
         setAlert('success', `Stack ${name} has been deleted.`, 5000)
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err)
 
         this.onCancelDeleteStack()
@@ -87,13 +87,13 @@ class Stack extends PureComponent {
       })
   }
 
-  onClickDuplicateStack () {
+  onClickDuplicateStack() {
     const name = this.state.stack.name + '_copy'
     cloneStack(name, this.state.stack.stack_operations, this.state.stack.stack_options)
     this.props.router.history.push(`/new-stack`)
   }
 
-  render () {
+  render() {
     if (!this.state.stack) {
       return null
     }
@@ -107,20 +107,18 @@ class Stack extends PureComponent {
     let $options = null
     if (options) {
       const { stackOptions } = this.props
-      Object.keys(stackOptions.properties).forEach((optionName) => {
+      Object.keys(stackOptions.properties).forEach(optionName => {
         const optionSet = options[optionName] === undefined || options[optionName] === null
         if (stackOptions.properties[optionName].default !== undefined && optionSet) {
           options[optionName] = stackOptions.properties[optionName].default
         }
       })
       options = Object.keys(options).reduce((accumulator, key) => {
-        accumulator[key] = {value: options[key]}
+        accumulator[key] = { value: options[key] }
         return accumulator
       }, {})
 
-      $options = (
-        <Options options={options} defaultOptions={stackOptions.properties || {}} />
-      )
+      $options = <Options options={options} defaultOptions={stackOptions.properties || {}} />
     }
 
     const { stack_operations: stackOperations = null } = stack
@@ -131,8 +129,10 @@ class Stack extends PureComponent {
           <h3 className="rka-h2 mv-md">Operations</h3>
           {stack.stack_operations.map((operation, index) => {
             return (
-              <div className={cx('pa-md', 'bor-light', 'mb-xs', {'bg-gray-lightest': index % 2})}
-                key={`${stack.name}-operation-${operation.name}-${index}`}>
+              <div
+                className={cx('pa-md', 'bor-light', 'mb-xs', { 'bg-gray-lightest': index % 2 })}
+                key={`${stack.name}-operation-${operation.name}-${index}`}
+              >
                 <h3 className="rka-h3 mb-md">{operation.name}</h3>
                 {factory(this.props.operations, operation.name, operation.options)}
               </div>
@@ -149,13 +149,19 @@ class Stack extends PureComponent {
           <h2 className="rka-h1">Do you really want to delete this stack?</h2>
           <p className="mt-lg mb-md txt-md lh-lg">
             Please confirm whether your stack
-            <span className="txt-bold"> {stack.name}</span> should be deleted.
-            This is an operation that cannot be undone.
+            <span className="txt-bold"> {stack.name}</span> should be deleted. This is an operation
+            that cannot be undone.
           </p>
-          <button className="rka-button rka-button-negative mr-md mt-md" onClick={() => this.onConfirmDeleteStack()}>
+          <button
+            className="rka-button rka-button-negative mr-md mt-md"
+            onClick={() => this.onConfirmDeleteStack()}
+          >
             Yes, delete this stack
           </button>
-          <button className="rka-button rka-button-secondary mt-md" onClick={() => this.onCancelDeleteStack()}>
+          <button
+            className="rka-button rka-button-secondary mt-md"
+            onClick={() => this.onCancelDeleteStack()}
+          >
             Cancel
           </button>
         </Modal>
@@ -164,7 +170,14 @@ class Stack extends PureComponent {
 
     let $previewSidebar = null
     if (previewImage) {
-      $previewSidebar = <PreviewSidebar organization={organization} onChange={this.props.onOpenChoosePreviewImage} previewImage={previewImage} stack={stack.name} />
+      $previewSidebar = (
+        <PreviewSidebar
+          organization={organization}
+          onChange={this.props.onOpenChoosePreviewImage}
+          previewImage={previewImage}
+          stack={stack.name}
+        />
+      )
     }
 
     return (
@@ -172,7 +185,10 @@ class Stack extends PureComponent {
         <div className="bg-white pa-md clearfix">
           <h1 className="rka-h1 flo-l mt-xs">{stack.name}</h1>
           <div className="flo-r">
-            <button className="rka-button rka-button-brand" onClick={(e) => this.onClickDuplicateStack(e)}>
+            <button
+              className="rka-button rka-button-brand"
+              onClick={e => this.onClickDuplicateStack(e)}
+            >
               Clone stack
             </button>
           </div>
@@ -185,7 +201,10 @@ class Stack extends PureComponent {
                 {$operations}
               </form>
               <div className="mt-lg">
-                <button className="rka-button rka-button-negative" onClick={(e) => this.onClickDeleteStack(e)}>
+                <button
+                  className="rka-button rka-button-negative"
+                  onClick={e => this.onClickDeleteStack(e)}
+                >
                   Delete stack
                 </button>
               </div>

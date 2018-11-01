@@ -19,9 +19,9 @@ import ImageList from './List'
  * @param WrappedComponent
  * @returns {PreviewImage}
  */
-export default function previewImage (WrappedComponent) {
+export default function previewImage(WrappedComponent) {
   class PreviewImage extends PureComponent {
-    constructor (props) {
+    constructor(props) {
       super(props)
 
       this.state = {
@@ -35,25 +35,26 @@ export default function previewImage (WrappedComponent) {
       this.loadPreviewImage = this.loadPreviewImage.bind(this)
     }
 
-    loadPreviewImage () {
+    loadPreviewImage() {
       if (this.state.preview) {
         return
       }
 
       const { organization } = this.props.auth
 
-      rokka().sourceimages.list(organization, 1)
+      rokka()
+        .sourceimages.list(organization, 1)
         .then(({ body }) => {
           this.setState({
             preview: body.items[0]
           })
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err)
         })
     }
 
-    onOpenModal (e) {
+    onOpenModal(e) {
       e.preventDefault()
 
       this.setState({
@@ -61,20 +62,20 @@ export default function previewImage (WrappedComponent) {
       })
     }
 
-    onCloseModal () {
+    onCloseModal() {
       this.setState({
         modalOpen: false
       })
     }
 
-    onChange (image) {
+    onChange(image) {
       this.setState({
         modalOpen: false,
         preview: image
       })
     }
 
-    render () {
+    render() {
       let $previewModal = null
       if (this.state.modalOpen) {
         $previewModal = (
@@ -96,7 +97,12 @@ export default function previewImage (WrappedComponent) {
       return (
         <div>
           {$previewModal}
-          <WrappedComponent onOpenChoosePreviewImage={this.onOpenModal} loadPreviewImage={this.loadPreviewImage} previewImage={this.state.preview} {...this.props} />
+          <WrappedComponent
+            onOpenChoosePreviewImage={this.onOpenModal}
+            loadPreviewImage={this.loadPreviewImage}
+            previewImage={this.state.preview}
+            {...this.props}
+          />
         </div>
       )
     }

@@ -16,30 +16,20 @@
       "mode": {
         "type": "string",
         "default": "box",
-        "values": [
-          "box",
-          "absolute",
-          "fill"
-        ],
+        "values": ["box", "absolute", "fill"],
         "description": "Mode of resizing operation. Please see operations documentation for details on each one."
       },
       "upscale": {
         "type": "boolean",
         "default": true,
         "description": "Allow the resulting image to be bigger than the original one.",
-        "values": [
-          true,
-          false
-        ]
+        "values": [true, false]
       },
       "upscale_dpr": {
         "type": "boolean",
         "default": true,
         "description": "With the dpr stack option set, allow the resulting image to be \u0022dpr\u0022 times bigger than the original one, even if \u0022upscale\u0022 is false.",
-        "values": [
-          true,
-          false
-        ]
+        "values": [true, false]
       },
       "filter": {
         "type": "string",
@@ -64,10 +54,7 @@
         "description": "The filter used for resizing. Default filter works well for most use cases."
       }
     },
-    "oneOf": [
-      "width",
-      "height"
-    ],
+    "oneOf": ["width", "height"],
     "description": ""
   },
   "rotate": {
@@ -92,9 +79,7 @@
         "description": "Opacity of background. Default is 0, transparent. Goes up to 100 for opaque."
       }
     },
-    "required": [
-      "angle"
-    ],
+    "required": ["angle"],
     "description": ""
   },
   "autorotate": {
@@ -113,10 +98,7 @@
       },
       "rotation_direction": {
         "type": "string",
-        "values": [
-          "clockwise",
-          "counterclockwise"
-        ],
+        "values": ["clockwise", "counterclockwise"],
         "description": "Direction of rotation if we rotate. Clockwise or counterclockwise."
       }
     },
@@ -211,10 +193,7 @@
       "mode": {
         "type": "string",
         "default": "absolute",
-        "values": [
-          "absolute",
-          "ratio"
-        ],
+        "values": ["absolute", "ratio"],
         "description": "If width and height should be taken as absolute values or as a ratio."
       },
       "scale": {
@@ -225,19 +204,14 @@
         "description": "Scales the crop box down to the specified percentage. Use mainly with the ratio mode."
       }
     },
-    "required": [
-      "width",
-      "height"
-    ],
+    "required": ["width", "height"],
     "description": ""
   },
   "composition": {
     "properties": {
       "mode": {
         "type": "string",
-        "values": [
-          "foreground"
-        ],
+        "values": ["foreground"],
         "description": "Mode of composition. Please refer to the documentation for details."
       },
       "width": {
@@ -272,8 +246,7 @@
         "description": "Opacity of filler. Default is 0, transparent. Goes up to 100 for opaque."
       }
     },
-    "required": [
-    ],
+    "required": [],
     "description": ""
   },
   "blur": {
@@ -293,10 +266,7 @@
         "description": "Sets the radius of the blur"
       }
     },
-    "required": [
-      "sigma",
-      "radius"
-    ],
+    "required": ["sigma", "radius"],
     "description": ""
   },
   "grayscale": {
@@ -322,11 +292,7 @@
       "mode": {
         "type": "string",
         "default": "mask",
-        "values": [
-          "mask",
-          "remove",
-          "extract"
-        ],
+        "values": ["mask", "remove", "extract"],
         "description": "Mode of alpha operation. Please see operations documentation for details on each one."
       }
     },

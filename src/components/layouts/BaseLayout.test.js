@@ -7,7 +7,7 @@ jest.mock('../../../src/state')
 
 // transition group uses findDOMNode which doesn't work when snapshot testing
 jest.mock('react-transition-group', () => {
-  return {TransitionGroup: 'TransitionGroup', CSSTransition: 'CSSTransition'}
+  return { TransitionGroup: 'TransitionGroup', CSSTransition: 'CSSTransition' }
 })
 
 test('BaseLayout does render', () => {
@@ -20,7 +20,7 @@ test('BaseLayout does render', () => {
   const component = renderer.create(
     <MemoryRouter>
       <BaseLayout
-        auth={{organization: 'test-organization'}}
+        auth={{ organization: 'test-organization' }}
         showSidebar={false}
         router={router}
         stacks={{}}
@@ -43,7 +43,7 @@ test('BaseLayout does render active sidebar', () => {
   const component = renderer.create(
     <MemoryRouter>
       <BaseLayout
-        auth={{organization: 'test-organization'}}
+        auth={{ organization: 'test-organization' }}
         showSidebar
         router={router}
         stacks={{}}
@@ -66,11 +66,11 @@ test('BaseLayout does render alert', () => {
   const component = renderer.create(
     <MemoryRouter>
       <BaseLayout
-        auth={{organization: 'test-organization'}}
+        auth={{ organization: 'test-organization' }}
         showSidebar={false}
         router={router}
         stacks={{}}
-        alert={{type: 'error', message: 'test'}}
+        alert={{ type: 'error', message: 'test' }}
       >
         <span>Test Baselayout</span>
       </BaseLayout>

@@ -8,9 +8,7 @@ test('Header does render with minimal props', () => {
       throw new Error('Should not be called')
     }
   }
-  const component = renderer.create(
-    <Header {...props} />
-  )
+  const component = renderer.create(<Header {...props} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -27,9 +25,7 @@ test('Header does render with all props set', () => {
     isPreviewCurrent: true,
     showLoader: true
   }
-  const component = renderer.create(
-    <Header {...props} />
-  )
+  const component = renderer.create(<Header {...props} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })

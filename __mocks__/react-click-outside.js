@@ -1,2 +1,2 @@
 // mock for react-click-outside
-export default (component) => component
+export default component => component

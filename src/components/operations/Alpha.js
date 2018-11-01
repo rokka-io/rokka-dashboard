@@ -4,28 +4,30 @@ import Select from '../forms/Select'
 import FormGroup from '../forms/FormGroup'
 
 class Alpha extends PureComponent {
-  isRequired (field) {
+  isRequired(field) {
     return this.props.required.indexOf(field) !== -1
   }
 
-  render () {
+  render() {
     const { defaults, values, errors = {} } = this.props
 
     const $alphaModeOptions = defaults.mode.values.map(option => (
-      <option key={option} value={option}>{option}</option>
+      <option key={option} value={option}>
+        {option}
+      </option>
     ))
 
     return (
       <div className="row">
         <div className="col-md-6">
-          <FormGroup label="Alpha mode" required={this.isRequired('alpha')}
-            error={errors.mode}>
+          <FormGroup label="Alpha mode" required={this.isRequired('alpha')} error={errors.mode}>
             <Select
               name="mode"
               className="rka-select"
               value={values.mode}
               defaultValue={defaults.mode.default}
-              onChange={this.props.onChange}>
+              onChange={this.props.onChange}
+            >
               {$alphaModeOptions}
             </Select>
           </FormGroup>

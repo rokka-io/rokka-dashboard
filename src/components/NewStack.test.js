@@ -12,9 +12,9 @@ import cloneStack from '../__tests__/cloneStack.json'
 //      onComponentDidMount calls an update on the state.
 //      Making this better testable is one of the goals of refactoring.
 
-function wrapInTestContext (DecoratedComponent) {
+function wrapInTestContext(DecoratedComponent) {
   class TestContextContainer extends Component {
-    render () {
+    render() {
       return <DecoratedComponent {...this.props} />
     }
   }
@@ -141,11 +141,7 @@ test('NewStack does render with stacks', () => {
     format: 'image/png'
   }
   const stacks = {
-    items: [
-      {name: 'stack-a'},
-      {name: 'stack-b'},
-      {name: 'stack-c'}
-    ]
+    items: [{ name: 'stack-a' }, { name: 'stack-b' }, { name: 'stack-c' }]
   }
 
   const props = {

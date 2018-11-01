@@ -10,21 +10,21 @@ import NewStack from './NewStack'
 import '../scss/main.scss'
 
 class App extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = state
 
-    this.unsubscribe = subscribe((state) => {
+    this.unsubscribe = subscribe(state => {
       this.setState(state)
     })
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.unsubscribe()
   }
 
-  render () {
+  render() {
     return (
       <HashRouter>
         <div className="App">

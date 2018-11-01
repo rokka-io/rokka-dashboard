@@ -11,7 +11,11 @@ const autoRotateValues = {
 
 test('Autorotate does render', () => {
   const component = renderer.create(
-    <AutoRotate values={autoRotateValues} defaults={operations.autorotate.properties} required={[]} />
+    <AutoRotate
+      values={autoRotateValues}
+      defaults={operations.autorotate.properties}
+      required={[]}
+    />
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

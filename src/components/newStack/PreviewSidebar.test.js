@@ -9,9 +9,7 @@ test('PreviewSidebar does not render when no previewImage set', () => {
       throw new Error('should not be called')
     }
   }
-  const component = renderer.create(
-    <PreviewSidebar {...props} />
-  )
+  const component = renderer.create(<PreviewSidebar {...props} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -27,9 +25,7 @@ test('PreviewSidebar does render with previewImage set', () => {
       format: 'png'
     }
   }
-  const component = renderer.create(
-    <PreviewSidebar {...props} />
-  )
+  const component = renderer.create(<PreviewSidebar {...props} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -48,9 +44,7 @@ test('PreviewSidebar does render with currentPreviewImage set', () => {
       src: 'https://example.com/current-preview-image.png'
     }
   }
-  const component = renderer.create(
-    <PreviewSidebar {...props} />
-  )
+  const component = renderer.create(<PreviewSidebar {...props} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -67,9 +61,7 @@ test('PreviewSidebar does render with error set', () => {
     },
     error: 'Test error'
   }
-  const component = renderer.create(
-    <PreviewSidebar {...props} />
-  )
+  const component = renderer.create(<PreviewSidebar {...props} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -86,9 +78,7 @@ test('PreviewSidebar does render with imageLoading set', () => {
     },
     imageLoading: true
   }
-  const component = renderer.create(
-    <PreviewSidebar {...props} />
-  )
+  const component = renderer.create(<PreviewSidebar {...props} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })

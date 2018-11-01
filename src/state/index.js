@@ -30,7 +30,7 @@ let listener = null
  *
  * @param {*} partialState
  */
-function updateState (partialState) {
+function updateState(partialState) {
   internalState = Object.assign({}, internalState, partialState)
   if (!listener && process.env.NODE_ENV !== 'production') {
     console.warn('No listener added to state updates.')
@@ -42,7 +42,7 @@ function updateState (partialState) {
 /**
  * Show or hide sidebar.
  */
-export function toggleSidebar () {
+export function toggleSidebar() {
   updateState({ showSidebar: !internalState.showSidebar })
 }
 
@@ -53,8 +53,9 @@ export function toggleSidebar () {
  *
  * @return {Promise}
  */
-export function deleteImage (hash) {
-  return rokka().sourceimages.delete(internalState.auth.organization, hash)
+export function deleteImage(hash) {
+  return rokka()
+    .sourceimages.delete(internalState.auth.organization, hash)
     .then(() => {
       clearImages()
     })
@@ -63,11 +64,11 @@ export function deleteImage (hash) {
 /**
  * Update Images state
  */
-export function updateUploadedImages (images) {
+export function updateUploadedImages(images) {
   updateState({ images: images })
 }
 
-export function clearImages () {
+export function clearImages() {
   updateState({ images: [] })
 }
 
@@ -80,10 +81,11 @@ export function clearImages () {
  *
  * @returns {Promise}
  */
-export function login (organization, apiKey, successCb) {
+export function login(organization, apiKey, successCb) {
   authenticate(apiKey)
 
-  return rokka().organizations.get(organization)
+  return rokka()
+    .organizations.get(organization)
     .then(() => {
       // remove alert in case there was auth failed before.
       removeAlert()
@@ -101,7 +103,7 @@ export function login (organization, apiKey, successCb) {
 
       successCb(done)
     })
-    .catch((err) => {
+    .catch(err => {
       console.error(err)
 
       setCookie(SESSION_COOKIE_KEY, {}) // clear session on error
@@ -125,7 +127,7 @@ export function login (organization, apiKey, successCb) {
  * Logout clears the store and removes the API key from rokka API client.
  * Additionally it also removes the cookie.
  */
-export function logout () {
+export function logout() {
   resetClient()
   delCookie(SESSION_COOKIE_KEY)
   updateState(defaultState)
@@ -138,10 +140,11 @@ export function logout () {
  *
  * @returns {Promise}
  */
-export function listStacks (limit = 999) {
+export function listStacks(limit = 999) {
   const { currentOffset = 0, items = [] } = internalState.stacks
 
-  return rokka().stacks.list(internalState.auth.organization, limit, currentOffset)
+  return rokka()
+    .stacks.list(internalState.auth.organization, limit, currentOffset)
     .then(({ body }) => {
       sortAlphabetically(body.items)
       updateState({
@@ -152,7 +155,7 @@ export function listStacks (limit = 999) {
         }
       })
     })
-    .catch((err) => {
+    .catch(err => {
       console.error(err)
       if (err.statusCode === 403) {
         updateState({ auth: null })
@@ -170,7 +173,7 @@ export function listStacks (limit = 999) {
  *
  * @returns {Promise}
  */
-export function refreshStacks () {
+export function refreshStacks() {
   internalState.stacks = {}
   return listStacks()
 }
@@ -182,10 +185,14 @@ export function refreshStacks () {
  *
  * @returns {array}
  */
-function sortAlphabetically (items) {
+function sortAlphabetically(items) {
   return items.sort((a, b) => {
-    if (a.name < b.name) { return -1 }
-    if (a.name > b.name) { return 1 }
+    if (a.name < b.name) {
+      return -1
+    }
+    if (a.name > b.name) {
+      return 1
+    }
     return 0
   })
 }
@@ -193,14 +200,15 @@ function sortAlphabetically (items) {
 /**
  * List operations and populate the global state with the result.
  */
-export function listOperations () {
-  rokka().operations.list()
+export function listOperations() {
+  rokka()
+    .operations.list()
     .then(({ body }) => {
       updateState({
         operations: body
       })
     })
-    .catch((err) => {
+    .catch(err => {
       console.error(err)
       if (err.statusCode === 403) {
         updateState({ auth: null })
@@ -214,8 +222,9 @@ export function listOperations () {
 /**
  * Fetch default stack options and populate the global state with the result.
  */
-export function getDefaultStackOptions () {
-  rokka().stackoptions.get()
+export function getDefaultStackOptions() {
+  rokka()
+    .stackoptions.get()
     .then(({ body }) => {
       updateState({
         stackOptions: body
@@ -236,7 +245,7 @@ export function getDefaultStackOptions () {
  *
  * @return {Promise}
  */
-export function createStack (name, operations, options) {
+export function createStack(name, operations, options) {
   return rokka().stacks.create(internalState.auth.organization, name, operations, options)
 }
 
@@ -247,8 +256,9 @@ export function createStack (name, operations, options) {
  *
  * @return {Promise}
  */
-export function deleteStack (name) {
-  return rokka().stacks.delete(internalState.auth.organization, name)
+export function deleteStack(name) {
+  return rokka()
+    .stacks.delete(internalState.auth.organization, name)
     .then(() => {
       refreshStacks()
     })
@@ -261,7 +271,7 @@ export function deleteStack (name) {
  * @param {string} message
  * @param {number} [timeout=null] Timeout in ms
  */
-export function setAlert (type, message, timeout = null) {
+export function setAlert(type, message, timeout = null) {
   updateState({
     alert: {
       type,
@@ -279,7 +289,7 @@ export function setAlert (type, message, timeout = null) {
 /**
  * Remove global alert
  */
-export function removeAlert () {
+export function removeAlert() {
   updateState({ alert: null })
 }
 
@@ -290,7 +300,7 @@ export function removeAlert () {
  *
  * @returns {function} Unsubscribe function
  */
-export function subscribe (cb) {
+export function subscribe(cb) {
   listener = cb
   return () => {
     listener = null
@@ -304,7 +314,7 @@ export function subscribe (cb) {
  * @param {object} operations
  * @param {object} options
  */
-export function cloneStack (name, operations, options) {
+export function cloneStack(name, operations, options) {
   updateState({
     stackClone: {
       name: name,
@@ -318,7 +328,7 @@ export function cloneStack (name, operations, options) {
  * Reset stack clone state
  *
  */
-export function resetStackClone () {
+export function resetStackClone() {
   updateState({
     stackClone: {}
   })

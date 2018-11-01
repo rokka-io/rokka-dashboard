@@ -3,9 +3,7 @@ import CropForm from '../../../src/components/imagedetail/CropForm'
 import renderer from 'react-test-renderer'
 
 test('CropForm does render', () => {
-  const component = renderer.create(
-    <CropForm onChange={() => {}} />
-  )
+  const component = renderer.create(<CropForm onChange={() => {}} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })

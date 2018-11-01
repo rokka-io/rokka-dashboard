@@ -4,7 +4,11 @@ import cx from 'classnames'
 import focusPointIcon from '../../img/focuspoint-icon.svg'
 
 const FocusPointSvg = forwardRef(({ x, y, isVisible = false }, ref) => (
-  <div className={cx('rka-focuspoint-icon-container', {'vis-h': !isVisible})} style={{top: y, left: x}} ref={ref}>
+  <div
+    className={cx('rka-focuspoint-icon-container', { 'vis-h': !isVisible })}
+    style={{ top: y, left: x }}
+    ref={ref}
+  >
     <svg className="rka-focuspoint-icon">
       <use xlinkHref={focusPointIcon + '#focuspointicon'} />
     </svg>

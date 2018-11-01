@@ -5,7 +5,11 @@ import renderer from 'react-test-renderer'
 
 test('Image does render with minimal props', () => {
   const component = renderer.create(
-    <Image url="http://example.org/image.png" src="http://example.org/image.src.png" name="Example name" />
+    <Image
+      url="http://example.org/image.png"
+      src="http://example.org/image.src.png"
+      name="Example name"
+    />
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -52,7 +56,7 @@ test('Image onError triggers an error', () => {
 
   expect(component.find('img').exists()).toBe(true)
 
-  component.setState({imageError: true})
+  component.setState({ imageError: true })
 
   expect(component.find('img').exists()).toBe(false)
 })

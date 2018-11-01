@@ -4,7 +4,7 @@ import { ChromePicker } from 'react-color'
 import enhanceWithClickOutside from 'react-click-outside'
 
 class InputColor extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -14,33 +14,45 @@ class InputColor extends PureComponent {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange ({hex}) {
+  handleChange({ hex }) {
     this.props.onChange({
       name: this.props.name,
       value: hex.replace('#', '')
     })
   }
 
-  toggleColorPicker () {
+  toggleColorPicker() {
     this.setState({
       showColorPicker: !this.state.showColorPicker
     })
   }
 
-  handleClickOutside () {
+  handleClickOutside() {
     this.setState({
       showColorPicker: false
     })
   }
 
-  render () {
+  render() {
     return (
       <div className="rka-form-group">
-        <input name={this.props.name} type="text" className="rka-input-txt" placeholder={`color (default: ${this.props.defaultValue})`}
-          value={this.props.value || ''} onClick={() => this.toggleColorPicker()} readOnly disabled={!this.props.onChange} />
-        { this.state.showColorPicker ? <ChromePicker disableAlpha color={this.props.value}
-          onChangeComplete={this.handleChange} />
-          : null }
+        <input
+          name={this.props.name}
+          type="text"
+          className="rka-input-txt"
+          placeholder={`color (default: ${this.props.defaultValue})`}
+          value={this.props.value || ''}
+          onClick={() => this.toggleColorPicker()}
+          readOnly
+          disabled={!this.props.onChange}
+        />
+        {this.state.showColorPicker ? (
+          <ChromePicker
+            disableAlpha
+            color={this.props.value}
+            onChangeComplete={this.handleChange}
+          />
+        ) : null}
       </div>
     )
   }

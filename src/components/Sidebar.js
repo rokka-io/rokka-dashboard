@@ -6,7 +6,7 @@ import addIcon from '../img/add-icon.svg'
 import cx from 'classnames'
 import searchIcon from '../img/search.svg'
 
-function isStacksActive (match, location) {
+function isStacksActive(match, location) {
   if (match) {
     return true
   }
@@ -14,7 +14,7 @@ function isStacksActive (match, location) {
 }
 
 class Sidebar extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     const { items = [] } = props.stacks
@@ -22,17 +22,17 @@ class Sidebar extends PureComponent {
     this.state = { items }
   }
 
-  loadNextStacks () {
+  loadNextStacks() {
     listStacks()
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (!this.props.stacks.items && !this.state.items.length) {
       this.loadNextStacks()
     }
   }
 
-  static getDerivedStateFromProps (nextProps, state) {
+  static getDerivedStateFromProps(nextProps, state) {
     if (nextProps.stacks.items && nextProps.stacks.items.length && !state.items.length) {
       return {
         items: nextProps.stacks.items
@@ -41,9 +41,9 @@ class Sidebar extends PureComponent {
     return null
   }
 
-  filterStacks (e) {
+  filterStacks(e) {
     const query = e.target.value
-    const items = this.props.stacks.items.filter((item) => {
+    const items = this.props.stacks.items.filter(item => {
       return item.name.indexOf(query) > -1
     })
 
@@ -52,12 +52,12 @@ class Sidebar extends PureComponent {
     })
   }
 
-  render () {
+  render() {
     const routePath = this.props.router.location.pathname
     const showStacks = routePath.indexOf('/stack') >= 0 || routePath === '/new-stack'
     const { currentOffset = 0, total = 0 } = this.props.stacks
 
-    const $stacks = this.state.items.map((stack) => {
+    const $stacks = this.state.items.map(stack => {
       return (
         <NavLink
           key={stack.name}
@@ -70,21 +70,36 @@ class Sidebar extends PureComponent {
       )
     })
 
-    const $loadMore = currentOffset < total
-      ? <button className="rka-button rka-button-brand rka-button-fullwidth"
-        onClick={() => this.loadNextStacks()}>Load more</button> : null
+    const $loadMore =
+      currentOffset < total ? (
+        <button
+          className="rka-button rka-button-brand rka-button-fullwidth"
+          onClick={() => this.loadNextStacks()}
+        >
+          Load more
+        </button>
+      ) : null
 
     return (
-      <nav className={cx('rka-sidebar', {'is-active': this.props.active})}>
+      <nav className={cx('rka-sidebar', { 'is-active': this.props.active })}>
         <ul className="rka-sidebar-nav">
           <li>
-            <NavLink to="/" exact className="rka-sidebar-link" activeClassName="is-active">Dashboard</NavLink>
+            <NavLink to="/" exact className="rka-sidebar-link" activeClassName="is-active">
+              Dashboard
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/images" className="rka-sidebar-link" activeClassName="is-active">Images</NavLink>
+            <NavLink to="/images" className="rka-sidebar-link" activeClassName="is-active">
+              Images
+            </NavLink>
           </li>
           <li className="pos-r">
-            <NavLink to="/stacks" className="rka-sidebar-link" activeClassName="is-active" isActive={isStacksActive}>
+            <NavLink
+              to="/stacks"
+              className="rka-sidebar-link"
+              activeClassName="is-active"
+              isActive={isStacksActive}
+            >
               Stacks
             </NavLink>
             <NavLink to="/new-stack" className="rka-sidebar-link-icon" activeClassName="is-active">
@@ -92,24 +107,31 @@ class Sidebar extends PureComponent {
                 <use xlinkHref={addIcon + '#add-icon'} />
               </svg>
             </NavLink>
-            <div className={cx('rka-sidebar-subnav', {'is-active': showStacks})}>
+            <div className={cx('rka-sidebar-subnav', { 'is-active': showStacks })}>
               <div className="rka-stacks-search-container">
-                <input className="rka-input-txt rka-stack-search" type="text" placeholder="Search stack..."
-                  onChange={(e) => this.filterStacks(e)} />
+                <input
+                  className="rka-input-txt rka-stack-search"
+                  type="text"
+                  placeholder="Search stack..."
+                  onChange={e => this.filterStacks(e)}
+                />
                 <svg className="rka-stack-search-icon">
                   <use xlinkHref={searchIcon + '#search-icon'} />
                 </svg>
               </div>
-              <div className={cx('rka-stacks-list', {'is-loaded': !$loadMore})}>
+              <div className={cx('rka-stacks-list', { 'is-loaded': !$loadMore })}>
                 {$stacks}
-                <div className="rka-stacks-load">
-                  {$loadMore}
-                </div>
+                <div className="rka-stacks-load">{$loadMore}</div>
               </div>
             </div>
           </li>
         </ul>
-        <a href="https://www.liip.ch/" target="_blank" rel="noopener noreferrer" className="rka-sidebar-poweredby">
+        <a
+          href="https://www.liip.ch/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rka-sidebar-poweredby"
+        >
           POWERED BY <i className="rka-sidebar-liip-logo" />
         </a>
       </nav>

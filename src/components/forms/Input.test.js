@@ -3,49 +3,37 @@ import Input from '../../../src/components/forms/Input'
 import renderer from 'react-test-renderer'
 
 test('Input does render', () => {
-  const component = renderer.create(
-    <Input onChange={() => {}} />
-  )
+  const component = renderer.create(<Input onChange={() => {}} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Input does render with a value', () => {
-  const component = renderer.create(
-    <Input value="test" onChange={() => {}} />
-  )
+  const component = renderer.create(<Input value="test" onChange={() => {}} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Input does forward props', () => {
-  const component = renderer.create(
-    <Input foo="bar" onChange={() => {}} />
-  )
+  const component = renderer.create(<Input foo="bar" onChange={() => {}} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Input takes only value if not disabled', () => {
-  const component = renderer.create(
-    <Input defaultValue="DefaultValue" />
-  )
+  const component = renderer.create(<Input defaultValue="DefaultValue" />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Input takes defaultValue if disabled', () => {
-  const component = renderer.create(
-    <Input defaultValue="DefaultValue" disabled />
-  )
+  const component = renderer.create(<Input defaultValue="DefaultValue" disabled />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Input shows placeholder', () => {
-  const component = renderer.create(
-    <Input placeholder="Placeholder" onChange={() => {}} />
-  )
+  const component = renderer.create(<Input placeholder="Placeholder" onChange={() => {}} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -75,9 +63,7 @@ test('Input takes type as placeholder if no placeholder & name given', () => {
 })
 
 test('Input is disabled if there is no onChange func', () => {
-  const component = renderer.create(
-    <Input />
-  )
+  const component = renderer.create(<Input />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })

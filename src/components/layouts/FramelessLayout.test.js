@@ -14,7 +14,7 @@ test('FramelessLayout does render', () => {
 
 test('FramelessLayout does render with alerts', () => {
   const component = renderer.create(
-    <FramelessLayout alert={{type: 'error', message: 'test'}}>
+    <FramelessLayout alert={{ type: 'error', message: 'test' }}>
       <span>Test</span>
     </FramelessLayout>
   )

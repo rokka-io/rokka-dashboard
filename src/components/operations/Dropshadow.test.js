@@ -14,7 +14,11 @@ const dropshadowValues = {
 
 test('Dropshadow does render', () => {
   const component = renderer.create(
-    <Dropshadow values={dropshadowValues} defaults={operations.dropshadow.properties} required={[]} />
+    <Dropshadow
+      values={dropshadowValues}
+      defaults={operations.dropshadow.properties}
+      required={[]}
+    />
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

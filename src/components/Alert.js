@@ -9,9 +9,13 @@ const Alert = ({ alert = null }) => {
 
   let message = alert.message
   if (Array.isArray(message)) {
-    message = message.map((msg, index) => (<span className="rka-alert-msg" key={index}>{msg}</span>))
+    message = message.map((msg, index) => (
+      <span className="rka-alert-msg" key={index}>
+        {msg}
+      </span>
+    ))
   } else {
-    message = (<span className="rka-alert-msg">{message}</span>)
+    message = <span className="rka-alert-msg">{message}</span>
   }
 
   return <div className={cx('rka-alert', `is-${alert.type}`, 'txt-c')}>{message}</div>

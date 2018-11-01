@@ -4,14 +4,17 @@ import InputRange from '../forms/InputRange'
 import FormGroup from '../forms/FormGroup'
 
 class Compression extends PureComponent {
-  render () {
+  render() {
     const { onChange, min, max, value, error } = this.props
 
     return (
       <FormGroup label="PNG Image compression" error={error}>
-        <InputRange onChange={onChange}
-          min={min} max={max}
-          name="png.compression_level" value={value}
+        <InputRange
+          onChange={onChange}
+          min={min}
+          max={max}
+          name="png.compression_level"
+          value={value}
         />
       </FormGroup>
     )

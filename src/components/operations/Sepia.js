@@ -4,7 +4,7 @@ import InputRange from '../forms/InputRange.js'
 import FormGroup from '../forms/FormGroup'
 
 class Sepia extends PureComponent {
-  render () {
+  render() {
     const { values } = this.props
 
     /* threshold is deprecated - remove check and FormGroup code after 2018-06-01 */
@@ -14,13 +14,7 @@ class Sepia extends PureComponent {
 
     return (
       <FormGroup label="Threshold">
-        <InputRange
-          name="threshold"
-          min={0}
-          max={100}
-          value={values.threshold}
-          defaultValue={80}
-        />
+        <InputRange name="threshold" min={0} max={100} value={values.threshold} defaultValue={80} />
       </FormGroup>
     )
   }

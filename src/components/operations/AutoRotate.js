@@ -5,21 +5,20 @@ import Select from '../forms/Select'
 import FormGroup from '../forms/FormGroup'
 
 class AutoRotate extends PureComponent {
-  isRequired (field) {
+  isRequired(field) {
     return this.props.required.indexOf(field) !== -1
   }
 
-  render () {
+  render() {
     const { defaults, values, errors = {} } = this.props
 
-    const $rotationDirectionOptions = defaults.rotation_direction.values
-      .map((option) => {
-        return (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        )
-      })
+    const $rotationDirectionOptions = defaults.rotation_direction.values.map(option => {
+      return (
+        <option key={option} value={option}>
+          {option}
+        </option>
+      )
+    })
 
     return (
       <div className="row">
@@ -50,14 +49,18 @@ class AutoRotate extends PureComponent {
           </FormGroup>
         </div>
         <div className="col-md-4">
-          <FormGroup label="Rotation direction" required={this.isRequired('rotation_direction')}
-            error={errors.rotation_direction}>
+          <FormGroup
+            label="Rotation direction"
+            required={this.isRequired('rotation_direction')}
+            error={errors.rotation_direction}
+          >
             <Select
               name="rotation_direction"
               className="rka-select"
               value={values.rotation_direction}
               defaultValue={defaults.rotation_direction.default}
-              onChange={this.props.onChange}>
+              onChange={this.props.onChange}
+            >
               {$rotationDirectionOptions}
             </Select>
           </FormGroup>

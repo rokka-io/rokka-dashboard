@@ -4,9 +4,9 @@ import TestBackend from 'react-dnd-test-backend'
 import OperationList from '../../../src/components/newStack/OperationList'
 import renderer from 'react-test-renderer'
 
-function wrapInTestContext (DecoratedComponent) {
+function wrapInTestContext(DecoratedComponent) {
   class TestContextContainer extends Component {
-    render () {
+    render() {
       return <DecoratedComponent {...this.props} />
     }
   }
@@ -32,9 +32,7 @@ test('OperationList does render with minimal props', () => {
     onSelectAddOperation: failingFunc,
     selectedOperation: ''
   }
-  const component = renderer.create(
-    <OperationList {...props} />
-  )
+  const component = renderer.create(<OperationList {...props} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -108,9 +106,7 @@ test('OperationList does render with all props', () => {
     }
   }
   const WrappedOperationList = wrapInTestContext(OperationList)
-  const component = renderer.create(
-    <WrappedOperationList {...props} />
-  )
+  const component = renderer.create(<WrappedOperationList {...props} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })

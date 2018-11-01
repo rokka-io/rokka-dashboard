@@ -6,14 +6,14 @@ import SearchForm from './SearchForm'
 import Spinner from '../Spinner'
 import Alert from '../Alert'
 
-function getRokkaType (key) {
+function getRokkaType(key) {
   switch (key) {
     case 'created':
       return 'date'
     case 'height':
-      // fallthrough
+    // fallthrough
     case 'size':
-      // fallthrough
+    // fallthrough
     case 'width':
       return 'int'
     default:
@@ -24,7 +24,7 @@ function getRokkaType (key) {
 const defaultSearchField = 'name'
 
 class ImageList extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -44,11 +44,11 @@ class ImageList extends PureComponent {
     this.onSearchSubmit = this.onSearchSubmit.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.loadImages()
   }
 
-  onSearchChange (name, { value = null }, reload = false) {
+  onSearchChange(name, { value = null }, reload = false) {
     const stateChange = {
       [name]: value
     }
@@ -60,9 +60,14 @@ class ImageList extends PureComponent {
     }
 
     // allow searching/sorting for/by custom field names
-    if ((name === 'searchField' || name === 'sortField') && !this.state.fields[value] && value !== null && !value.includes('user:')) {
+    if (
+      (name === 'searchField' || name === 'sortField') &&
+      !this.state.fields[value] &&
+      value !== null &&
+      !value.includes('user:')
+    ) {
       stateChange.fields = Object.assign({}, this.state.fields, {
-        [value]: {type: 'unknown', value: `user:${value}`}
+        [value]: { type: 'unknown', value: `user:${value}` }
       })
       stateChange[name] = `user:${value}`
     }
@@ -74,7 +79,7 @@ class ImageList extends PureComponent {
     })
   }
 
-  onSearchSubmit (e) {
+  onSearchSubmit(e) {
     e.preventDefault()
 
     this.setState({
@@ -88,13 +93,14 @@ class ImageList extends PureComponent {
     this.loadImages()
   }
 
-  loadImages (append = false) {
+  loadImages(append = false) {
     const { currentOffset, images, searchField, searchValue, sortField, sortOrder } = this.state
     const offset = append ? currentOffset : 0
     const search = searchField && searchValue ? { [searchField]: searchValue } : null
     const sort = sortField && sortOrder ? `${sortField} ${sortOrder}` : null
 
-    rokka().sourceimages.list(this.props.organization, { limit: this.props.limit, offset, search, sort })
+    rokka()
+      .sourceimages.list(this.props.organization, { limit: this.props.limit, offset, search, sort })
       .then(({ body }) => {
         const { fields } = this.state
         body.items.forEach(item => {
@@ -108,15 +114,15 @@ class ImageList extends PureComponent {
                   return
                 }
                 if (userKey.indexOf(':') >= 0) {
-                  const [ dataType, keyName ] = userKey.split(':')
-                  fields[keyName] = {type: dataType, value: `user:${keyName}`}
+                  const [dataType, keyName] = userKey.split(':')
+                  fields[keyName] = { type: dataType, value: `user:${keyName}` }
                   return
                 }
-                fields[userKey] = {type: 'string', value: `user:${userKey}`}
+                fields[userKey] = { type: 'string', value: `user:${userKey}` }
               })
               return
             }
-            fields[key] = {type: getRokkaType(key), value: key}
+            fields[key] = { type: getRokkaType(key), value: key }
           })
         })
 
@@ -130,12 +136,12 @@ class ImageList extends PureComponent {
           fields: fields
         })
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err)
       })
   }
 
-  renderImageList () {
+  renderImageList() {
     if (this.state.loading) {
       return <Spinner />
     }
@@ -143,15 +149,24 @@ class ImageList extends PureComponent {
     const { images = [] } = this.props
 
     if (this.state.images.total === 0 && !images.length) {
-      return <div className="mt-lg"><Alert alert={{type: 'pending', message: 'No images found.'}} /></div>
+      return (
+        <div className="mt-lg">
+          <Alert alert={{ type: 'pending', message: 'No images found.' }} />
+        </div>
+      )
     }
 
     const { highlight } = this.props
 
-    return this.state.images.items.map((item) => {
+    return this.state.images.items.map(item => {
       const format = item.format === 'jpg' ? 'jpg' : 'png'
       const imgUrl = rokka().render.getUrl(this.props.organization, item.hash, format, 'dynamic')
-      const imgSrc = rokka().render.getUrl(this.props.organization, item.hash, format, 'dynamic/resize-height-120')
+      const imgSrc = rokka().render.getUrl(
+        this.props.organization,
+        item.hash,
+        format,
+        'dynamic/resize-height-120'
+      )
 
       return (
         <Image
@@ -166,7 +181,7 @@ class ImageList extends PureComponent {
     })
   }
 
-  render () {
+  render() {
     const { highlight, className = '', enableSearch = false } = this.props
 
     let $uploadedImages = null
@@ -174,7 +189,12 @@ class ImageList extends PureComponent {
       $uploadedImages = this.props.images.map((image, idx) => {
         const format = image.format === 'jpg' ? 'jpg' : 'png'
         const imgUrl = rokka().render.getUrl(this.props.organization, image.hash, format, 'dynamic')
-        const imgSrc = rokka().render.getUrl(this.props.organization, image.hash, format, 'dynamic/resize-height-120')
+        const imgSrc = rokka().render.getUrl(
+          this.props.organization,
+          image.hash,
+          format,
+          'dynamic/resize-height-120'
+        )
         return (
           <Image
             key={idx + image.name}
@@ -189,22 +209,26 @@ class ImageList extends PureComponent {
     }
 
     const hasNextPage = this.state.currentOffset < this.state.images.total
-    const $loadMore = hasNextPage && this.props.enableLoadMore
-      ? <button className="rka-button rka-button-brand mt-md"
-        onClick={() => this.loadImages(true)}>Load more</button>
-      : null
+    const $loadMore =
+      hasNextPage && this.props.enableLoadMore ? (
+        <button className="rka-button rka-button-brand mt-md" onClick={() => this.loadImages(true)}>
+          Load more
+        </button>
+      ) : null
 
     let $searchForm = null
     if (enableSearch) {
-      $searchForm = <SearchForm
-        onChange={this.onSearchChange}
-        onSubmit={this.onSearchSubmit}
-        fields={this.state.fields}
-        searchField={this.state.searchField}
-        searchValue={this.state.searchValue}
-        sortField={this.state.sortField}
-        sortOrder={this.state.sortOrder}
-      />
+      $searchForm = (
+        <SearchForm
+          onChange={this.onSearchChange}
+          onSubmit={this.onSearchSubmit}
+          fields={this.state.fields}
+          searchField={this.state.searchField}
+          searchValue={this.state.searchValue}
+          sortField={this.state.sortField}
+          sortOrder={this.state.sortOrder}
+        />
+      )
     }
 
     return (
@@ -214,9 +238,7 @@ class ImageList extends PureComponent {
           {$uploadedImages}
           {this.renderImageList()}
         </div>
-        <div className="txt-c">
-          {$loadMore}
-        </div>
+        <div className="txt-c">{$loadMore}</div>
       </div>
     )
   }

@@ -6,7 +6,7 @@ import { MemoryRouter } from 'react-router'
 test('Header does render', () => {
   const component = renderer.create(
     <MemoryRouter>
-      <Header auth={{organization: 'test-organization'}} active={false} />
+      <Header auth={{ organization: 'test-organization' }} active={false} />
     </MemoryRouter>
   )
   let tree = component.toJSON()
@@ -16,7 +16,7 @@ test('Header does render', () => {
 test('Header does render in active mode', () => {
   const component = renderer.create(
     <MemoryRouter>
-      <Header auth={{organization: 'test-organization'}} active />
+      <Header auth={{ organization: 'test-organization' }} active />
     </MemoryRouter>
   )
   let tree = component.toJSON()

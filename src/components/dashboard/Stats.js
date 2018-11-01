@@ -7,7 +7,7 @@ import getStats from './graphdata'
 import Calendar from './Calendar'
 
 class Stats extends PureComponent {
-  constructor () {
+  constructor() {
     super()
 
     this.state = {
@@ -22,41 +22,43 @@ class Stats extends PureComponent {
     this.toggleCalendar = this.toggleCalendar.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.fetchStats()
   }
 
-  statsDateRange () {
+  statsDateRange() {
     return (
       <Calendar
         close={this.onBlurHideCalendar}
         onRangeChange={this.onRangeChange}
-        from={this.state.from} to={this.state.to}
+        from={this.state.from}
+        to={this.state.to}
         onDateClick={this.toggleCalendar}
         showCalendar={this.state.showCalendar}
       />
     )
   }
 
-  toggleCalendar () {
+  toggleCalendar() {
     this.setState({
       showCalendar: !this.state.showCalendar
     })
   }
 
-  onRangeChange (from, to) {
-    this.setState({from, to, showCalendar: false, stats: {}}, () => this.fetchStats())
+  onRangeChange(from, to) {
+    this.setState({ from, to, showCalendar: false, stats: {} }, () => this.fetchStats())
   }
 
-  onBlurHideCalendar (event) {
-    this.setState({showCalendar: false})
+  onBlurHideCalendar(event) {
+    this.setState({ showCalendar: false })
   }
 
-  fetchStats () {
+  fetchStats() {
     const { from, to } = this.state
     const toPlusOne = to.clone()
     toPlusOne.add(1, 'day') // ROKKA-152: Stats API from/to are exclusive
-    rokka().stats.get(this.props.organization, from.format('YYYY-MM-DD'), toPlusOne.format('YYYY-MM-DD'))
+    rokka()
+      .stats.get(this.props.organization, from.format('YYYY-MM-DD'), toPlusOne.format('YYYY-MM-DD'))
       .then(({ body }) => {
         this.setState({
           stats: getStats(from, to, body)
@@ -67,7 +69,7 @@ class Stats extends PureComponent {
       })
   }
 
-  renderStatistics () {
+  renderStatistics() {
     const { stats, totals, symbols } = this.state.stats
 
     return (
@@ -84,7 +86,7 @@ class Stats extends PureComponent {
           <div className="col-md-4 col-sm-4 txt-c">
             <div className="rka-box rka-box-dashboard-short no-min-height">
               <div className="txt-xl pb-sm txt-brand">
-                {totals ? `${totals.space.toLocaleString()} ${symbols.space}` : '-' }
+                {totals ? `${totals.space.toLocaleString()} ${symbols.space}` : '-'}
               </div>
               <div className="txt-md">Storage</div>
             </div>
@@ -100,13 +102,17 @@ class Stats extends PureComponent {
         </div>
         <div className="rka-box rka-box-dashboard-tall">
           <h2 className="rka-h2">Traffic in {symbols ? symbols.traffic : null}</h2>
-          {stats ? <Chart type="area" data={stats.traffic} yPointSymbol={`{value} ${symbols.traffic}`} /> : null}
+          {stats ? (
+            <Chart type="area" data={stats.traffic} yPointSymbol={`{value} ${symbols.traffic}`} />
+          ) : null}
         </div>
         <div className="row">
           <div className="col-md-6 col-sm-6">
             <div className="rka-box rka-box-dashboard-tall">
               <h2 className="rka-h2">Storage in {symbols ? symbols.space : null}</h2>
-              {stats ? <Chart type="column" data={stats.space} yPointSymbol={`{value} ${symbols.space}`} /> : null}
+              {stats ? (
+                <Chart type="column" data={stats.space} yPointSymbol={`{value} ${symbols.space}`} />
+              ) : null}
             </div>
           </div>
           <div className="col-md-6 col-sm-6">
@@ -120,7 +126,7 @@ class Stats extends PureComponent {
     )
   }
 
-  render () {
+  render() {
     return (
       <div>
         <div className="mb-md clearfix">

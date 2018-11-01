@@ -5,39 +5,36 @@ import Select from '../forms/Select'
 import FormGroup from '../forms/FormGroup'
 
 class Resize extends PureComponent {
-  isRequired (field) {
+  isRequired(field) {
     return this.props.required.indexOf(field) !== -1
   }
 
-  render () {
+  render() {
     const { defaults, values, errors = {} } = this.props
 
-    const $upscaleOptions = defaults.upscale.values
-      .map((option) => {
-        return (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        )
-      })
+    const $upscaleOptions = defaults.upscale.values.map(option => {
+      return (
+        <option key={option} value={option}>
+          {option}
+        </option>
+      )
+    })
 
-    const $upscaleDPROptions = defaults.upscale_dpr.values
-      .map((option) => {
-        return (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        )
-      })
+    const $upscaleDPROptions = defaults.upscale_dpr.values.map(option => {
+      return (
+        <option key={option} value={option}>
+          {option}
+        </option>
+      )
+    })
 
-    const $modeOptions = defaults.mode.values
-      .map((option) => {
-        return (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        )
-      })
+    const $modeOptions = defaults.mode.values.map(option => {
+      return (
+        <option key={option} value={option}>
+          {option}
+        </option>
+      )
+    })
 
     /* deprecated - remove after 2018-06-01 */
     let $filterOptions = null
@@ -59,14 +56,13 @@ class Resize extends PureComponent {
         'sinc',
         'triangle'
       ]
-      $filterOptions = FILTER_OPTIONS
-        .map((option) => {
-          return (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          )
-        })
+      $filterOptions = FILTER_OPTIONS.map(option => {
+        return (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        )
+      })
     }
 
     return (
@@ -105,7 +101,8 @@ class Resize extends PureComponent {
                 className="rka-select"
                 value={values.upscale}
                 defaultValue={defaults.upscale.default}
-                onChange={this.props.onChange}>
+                onChange={this.props.onChange}
+              >
                 {$upscaleOptions}
               </Select>
             </FormGroup>
@@ -113,13 +110,18 @@ class Resize extends PureComponent {
         </div>
         <div className="row">
           <div className="col-md-4">
-            <FormGroup label="Upscale DPR" required={this.isRequired('upscale_dpr')} error={errors.upscale_dpr}>
+            <FormGroup
+              label="Upscale DPR"
+              required={this.isRequired('upscale_dpr')}
+              error={errors.upscale_dpr}
+            >
               <Select
                 name="upscale_dpr"
                 className="rka-select"
                 value={values.upscale_dpr}
                 defaultValue={defaults.upscale_dpr.default}
-                onChange={this.props.onChange}>
+                onChange={this.props.onChange}
+              >
                 {$upscaleDPROptions}
               </Select>
             </FormGroup>
@@ -131,24 +133,23 @@ class Resize extends PureComponent {
                 className="rka-select"
                 value={values.mode}
                 defaultValue={defaults.mode.default}
-                onChange={this.props.onChange}>
+                onChange={this.props.onChange}
+              >
                 {$modeOptions}
               </Select>
             </FormGroup>
           </div>
           {/* deprecated - remove after 2018-06-01 */}
-          {!this.props.onChange && values.filter && (
-            <div className="col-md-4">
-              <FormGroup label="Filter">
-                <Select
-                  name="filter"
-                  className="rka-select"
-                  value={values.filter}>
-                  {$filterOptions}
-                </Select>
-              </FormGroup>
-            </div>
-          )}
+          {!this.props.onChange &&
+            values.filter && (
+              <div className="col-md-4">
+                <FormGroup label="Filter">
+                  <Select name="filter" className="rka-select" value={values.filter}>
+                    {$filterOptions}
+                  </Select>
+                </FormGroup>
+              </div>
+            )}
         </div>
       </div>
     )

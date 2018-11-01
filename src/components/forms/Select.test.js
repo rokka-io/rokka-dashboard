@@ -3,9 +3,7 @@ import Select from '../../../src/components/forms/Select'
 import renderer from 'react-test-renderer'
 
 test('Select does render', () => {
-  const component = renderer.create(
-    <Select onChange={() => {}} />
-  )
+  const component = renderer.create(<Select onChange={() => {}} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -22,33 +20,25 @@ test('Select does render with options', () => {
 })
 
 test('Select does forward props', () => {
-  const component = renderer.create(
-    <Select foo="bar" onChange={() => {}} />
-  )
+  const component = renderer.create(<Select foo="bar" onChange={() => {}} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Select takes only value if not disabled', () => {
-  const component = renderer.create(
-    <Select defaultValue="DefaultValue" />
-  )
+  const component = renderer.create(<Select defaultValue="DefaultValue" />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Select takes defaultValue if disabled', () => {
-  const component = renderer.create(
-    <Select defaultValue="DefaultValue" disabled />
-  )
+  const component = renderer.create(<Select defaultValue="DefaultValue" disabled />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Select shows placeholder', () => {
-  const component = renderer.create(
-    <Select placeholder="Placeholder" onChange={() => {}} />
-  )
+  const component = renderer.create(<Select placeholder="Placeholder" onChange={() => {}} />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -78,9 +68,7 @@ test('Select takes type as placeholder if no placeholder & name given', () => {
 })
 
 test('Select is disabled if there is no onChange func', () => {
-  const component = renderer.create(
-    <Select />
-  )
+  const component = renderer.create(<Select />)
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })

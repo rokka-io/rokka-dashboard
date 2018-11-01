@@ -14,7 +14,11 @@ const compositionValues = {
 
 test('Composition does render', () => {
   const component = renderer.create(
-    <Composition values={compositionValues} defaults={operations.composition.properties} required={[]} />
+    <Composition
+      values={compositionValues}
+      defaults={operations.composition.properties}
+      required={[]}
+    />
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

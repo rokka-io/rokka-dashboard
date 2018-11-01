@@ -10,12 +10,12 @@
  * @param {Element} el
  * @return {{top: number, left: number}}
  */
-function getElementOffset (el) {
+function getElementOffset(el) {
   const rect = el.getBoundingClientRect()
   const docEl = document.documentElement
 
-  const rectTop = (rect.top + window.pageYOffset) - docEl.clientTop
-  const rectLeft = (rect.left + window.pageXOffset) - docEl.clientLeft
+  const rectTop = rect.top + window.pageYOffset - docEl.clientTop
+  const rectLeft = rect.left + window.pageXOffset - docEl.clientLeft
 
   return {
     top: rectTop,
@@ -31,11 +31,11 @@ function getElementOffset (el) {
  * @param {MouseEvent} e
  * @return {{x: number, y: number}}
  */
-function getClientPos (e) {
+function getClientPos(e) {
   if (e.touches) {
-    return {x: e.touches[0].pageX, y: e.touches[0].pageY}
+    return { x: e.touches[0].pageX, y: e.touches[0].pageY }
   }
-  return {x: e.pageX, y: e.pageY}
+  return { x: e.pageX, y: e.pageY }
 }
 
 /**
@@ -45,7 +45,7 @@ function getClientPos (e) {
  * @param {number} width
  * @return {number}
  */
-export function calculateScale (naturalWidth, width) {
+export function calculateScale(naturalWidth, width) {
   return naturalWidth / width
 }
 
@@ -55,7 +55,7 @@ export function calculateScale (naturalWidth, width) {
  * @param {MouseEvent} evt
  * @return {{x: number, y: number}}
  */
-export function calculateClickPosition (evt) {
+export function calculateClickPosition(evt) {
   const clientPos = getClientPos(evt)
   const parentElOffset = getElementOffset(evt.currentTarget.parentElement)
 
@@ -72,7 +72,7 @@ export function calculateClickPosition (evt) {
  * @param {number} scale
  * @return {{x: number, y: number}}
  */
-export function scalePosition ({x, y}, scale) {
+export function scalePosition({ x, y }, scale) {
   return {
     x: Math.round(x * scale),
     y: Math.round(y * scale)
@@ -87,7 +87,7 @@ export function scalePosition ({x, y}, scale) {
  * @param {{x: number, y: number}} pos
  * @return {{x: number, y: number}}
  */
-export function calculateRenderedPosition (scale, targetElementWidth, pos) {
+export function calculateRenderedPosition(scale, targetElementWidth, pos) {
   const focusPointSize = (targetElementWidth / 2) * scale
   const x = pos.x - focusPointSize
   const y = pos.y - focusPointSize
@@ -104,7 +104,7 @@ export function calculateRenderedPosition (scale, targetElementWidth, pos) {
  * @param {number} height Real image height (naturalHeight)
  * @returns {{x: number, y: number, width: number, height: number}}
  */
-export function pixelToPercent (crop, width, height) {
+export function pixelToPercent(crop, width, height) {
   return {
     x: (crop.x * 100) / width,
     y: (crop.y * 100) / height,

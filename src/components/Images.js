@@ -8,12 +8,19 @@ import UploadImage from './images/Upload'
 import { Route } from 'react-router-dom'
 import ImageDetail from './ImageDetail'
 
-const ImageListContainer = ({organization, onClickImage, images}) => (
+const ImageListContainer = ({ organization, onClickImage, images }) => (
   <Fragment>
     <h1 className="rka-h1 mb-md">Images</h1>
     <UploadImage organization={organization} />
     <section className="rka-section rka-box pa-md mt-md">
-      <ImageList enableSearch onClickImage={onClickImage} limit={12} enableLoadMore organization={organization} images={images} />
+      <ImageList
+        enableSearch
+        onClickImage={onClickImage}
+        limit={12}
+        enableLoadMore
+        organization={organization}
+        images={images}
+      />
     </section>
   </Fragment>
 )
@@ -24,27 +31,40 @@ ImageListContainer.propTypes = {
 }
 
 class Images extends PureComponent {
-  constructor () {
+  constructor() {
     super()
 
     this.onClickImage = this.onClickImage.bind(this)
   }
 
-  onClickImage (e, image) {
+  onClickImage(e, image) {
     e.preventDefault()
 
     this.props.router.history.push(`/images/${image.hash}`)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     clearImages()
   }
 
-  render () {
+  render() {
     return (
       <BaseLayout {...this.props}>
-        <Route path="/images" exact render={() => <ImageListContainer organization={this.props.auth.organization} onClickImage={this.onClickImage} images={this.props.images} />} />
-        <Route path="/images/:hash" render={props => <ImageDetail {...{...this.props, ...{ router: props }}} />} />
+        <Route
+          path="/images"
+          exact
+          render={() => (
+            <ImageListContainer
+              organization={this.props.auth.organization}
+              onClickImage={this.onClickImage}
+              images={this.props.images}
+            />
+          )}
+        />
+        <Route
+          path="/images/:hash"
+          render={props => <ImageDetail {...{ ...this.props, ...{ router: props } }} />}
+        />
       </BaseLayout>
     )
   }

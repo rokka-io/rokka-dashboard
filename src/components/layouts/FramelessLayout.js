@@ -2,11 +2,12 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import Alert from '../Alert'
 
-const FramelessLayout = ({ children, className = null, alert = null }) =>
+const FramelessLayout = ({ children, className = null, alert = null }) => (
   <div className={className}>
     <Alert alert={alert} />
     {children}
   </div>
+)
 
 FramelessLayout.propTypes = {
   children: PropTypes.node.isRequired,

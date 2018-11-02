@@ -140,8 +140,10 @@ test('NewStack does render with stacks', () => {
     hash: '7cb0101d53f1579c0e0da11f2407146eebeca638',
     format: 'image/png'
   }
+  const items = [{ name: 'stack-a' }, { name: 'stack-b' }, { name: 'stack-c' }]
   const stacks = {
-    items: [{ name: 'stack-a' }, { name: 'stack-b' }, { name: 'stack-c' }]
+    items,
+    filteredItems: items
   }
 
   const props = {

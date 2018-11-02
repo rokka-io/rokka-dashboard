@@ -23,7 +23,7 @@ exports[`PreviewSidebar does render with currentPreviewImage set 1`] = `
     <p
       className="pa-md bg-white txt-l"
     >
-      Customized 
+      Customized
       <a
         className="rka-link flo-r"
         href="https://example.com/current-preview-image.png"
@@ -44,7 +44,7 @@ exports[`PreviewSidebar does render with currentPreviewImage set 1`] = `
     <p
       className="pa-md bg-white txt-l"
     >
-      Original 
+      Original
       <a
         className="rka-link flo-r"
         href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
@@ -83,7 +83,7 @@ exports[`PreviewSidebar does render with error set 1`] = `
     <p
       className="pa-md bg-white txt-l"
     >
-      Customized 
+      Customized
       <a
         className="rka-link flo-r"
         href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
@@ -113,7 +113,7 @@ exports[`PreviewSidebar does render with error set 1`] = `
     <p
       className="pa-md bg-white txt-l"
     >
-      Original 
+      Original
       <a
         className="rka-link flo-r"
         href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
@@ -152,7 +152,7 @@ exports[`PreviewSidebar does render with imageLoading set 1`] = `
     <p
       className="pa-md bg-white txt-l"
     >
-      Customized 
+      Customized
       <a
         className="rka-link flo-r"
         href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
@@ -185,7 +185,7 @@ exports[`PreviewSidebar does render with imageLoading set 1`] = `
     <p
       className="pa-md bg-white txt-l"
     >
-      Original 
+      Original
       <a
         className="rka-link flo-r"
         href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
@@ -224,7 +224,7 @@ exports[`PreviewSidebar does render with previewImage set 1`] = `
     <p
       className="pa-md bg-white txt-l"
     >
-      Customized 
+      Customized
       <a
         className="rka-link flo-r"
         href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
@@ -245,7 +245,7 @@ exports[`PreviewSidebar does render with previewImage set 1`] = `
     <p
       className="pa-md bg-white txt-l"
     >
-      Original 
+      Original
       <a
         className="rka-link flo-r"
         href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"

@@ -36,7 +36,7 @@ const PreviewSidebar = ({
       </h3>
       <div className="rka-stack-img-container bg-chess mb-xs bor-light txt-c">
         <p className="pa-md bg-white txt-l">
-          Customized{' '}
+          Customized
           <a
             href={previewImages.dynamic}
             className="rka-link flo-r"
@@ -51,7 +51,7 @@ const PreviewSidebar = ({
       </div>
       <div className="rka-stack-img-container bg-chess bor-light txt-c">
         <p className="pa-md bg-white txt-l">
-          Original{' '}
+          Original
           <a
             href={previewImages.original}
             className="rka-link flo-r"

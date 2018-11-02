@@ -8,9 +8,23 @@ const UserMetadata = ({ metadata, addMetadata, onChange, onClickRemove, onClickA
       <div className="col-md-7">
         <h2 className="rka-h2 mb-md">User metadata</h2>
         {metadata.map((data, index) => (
-          <UserMetadataRow key={index} index={index} onChange={onChange} onClickRemove={onClickRemove} onClickAdd={onClickAdd} {...data} />
+          <UserMetadataRow
+            key={index}
+            index={index}
+            onChange={onChange}
+            onClickRemove={onClickRemove}
+            onClickAdd={onClickAdd}
+            {...data}
+          />
         ))}
-        <UserMetadataRow isNew index={metadata.length} onChange={onChange} onClickRemove={onClickRemove} onClickAdd={onClickAdd} {...addMetadata} />
+        <UserMetadataRow
+          isNew
+          index={metadata.length}
+          onChange={onChange}
+          onClickRemove={onClickRemove}
+          onClickAdd={onClickAdd}
+          {...addMetadata}
+        />
       </div>
     </div>
   </section>

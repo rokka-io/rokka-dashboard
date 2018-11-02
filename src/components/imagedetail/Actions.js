@@ -6,32 +6,51 @@ import CropForm from './CropForm'
 import focusPointIcon from '../../img/focuspoint-icon.svg'
 import focusAreaIcon from '../../img/focusarea-icon.svg'
 
-const Actions = ({ menuActive, actionsActive, onChange, onToggleActions, focusArea = {}, focusType = null }) => (
-  <div className={cx('rka-crop-actions', {'is-active': menuActive})}>
-    <div className={cx('rka-crop-action-container', {'is-active': actionsActive})}>
-      <a href="#" id="focusPoint" onClick={onToggleActions} className={cx('rka-crop-action', { 'is-active': focusType === FOCUS_POINT })}>
+const Actions = ({
+  menuActive,
+  actionsActive,
+  onChange,
+  onToggleActions,
+  focusArea = {},
+  focusType = null
+}) => (
+  <div className={cx('rka-crop-actions', { 'is-active': menuActive })}>
+    <div className={cx('rka-crop-action-container', { 'is-active': actionsActive })}>
+      <button
+        id="focusPoint"
+        onClick={onToggleActions}
+        className={cx('rka-crop-action', { 'is-active': focusType === FOCUS_POINT })}
+      >
         <svg className="rka-focuspoint-icon">
           <use xlinkHref={focusPointIcon + '#focuspointicon'} />
         </svg>
-      </a>
-      <a href="#" id="focusArea" onClick={onToggleActions} className={cx('rka-crop-action', { 'is-active': focusType === FOCUS_AREA })}>
+      </button>
+      <button
+        id="focusArea"
+        onClick={onToggleActions}
+        className={cx('rka-crop-action', { 'is-active': focusType === FOCUS_AREA })}
+      >
         <svg className="rka-focusarea-icon">
           <use xlinkHref={focusAreaIcon + '#focusareaicon'} />
         </svg>
-      </a>
+      </button>
     </div>
-    <div className={cx('rka-crop-actions-form', {'is-active': actionsActive})}>
-      { actionsActive
-        ? <CropForm onChange={onChange} disableWidthHeight={focusType === FOCUS_POINT} {...focusArea} />
-        : null
-      }
+    <div className={cx('rka-crop-actions-form', { 'is-active': actionsActive })}>
+      {actionsActive ? (
+        <CropForm
+          onChange={onChange}
+          disableWidthHeight={focusType === FOCUS_POINT}
+          {...focusArea}
+        />
+      ) : null}
     </div>
-    { actionsActive
-      ? <div className="rka-crop-actions-close-container">
-        <a href="#" onClick={onToggleActions} className="rka-crop-actions-close">×</a>
+    {actionsActive ? (
+      <div className="rka-crop-actions-close-container">
+        <button onClick={onToggleActions} className="rka-crop-actions-close">
+          ×
+        </button>
       </div>
-      : null
-    }
+    ) : null}
   </div>
 )
 Actions.propTypes = {

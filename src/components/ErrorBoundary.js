@@ -3,24 +3,42 @@ import PropTypes from 'prop-types'
 
 // See https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html for an explanation
 class ErrorBoundary extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { hasError: false }
   }
 
-  componentDidCatch (error, info) {
+  componentDidCatch(error, info) {
     console.error(error, info)
 
     // Display fallback UI
     this.setState({ hasError: true })
   }
 
-  render () {
+  render() {
     if (this.state.hasError) {
       return (
         <div className="bg-white pa-md clearfix">
           <h1 className="rka-h1">Something went wrong.</h1>
-          <p>Unable to load the page 😟. Please <a className="rka-link" target="_blank" href="https://github.com/rokka-io/rokka-dashboard/issues">file an issue on GitHub</a>. Thanks! 😍</p>
+          <p>
+            Unable to load the page{' '}
+            <span role="img" aria-label="sad">
+              😟
+            </span>
+            . Please{' '}
+            <a
+              className="rka-link"
+              target="_blank"
+              href="https://github.com/rokka-io/rokka-dashboard/issues"
+              rel="noopener noreferrer"
+            >
+              file an issue on GitHub
+            </a>
+            . Thanks!{' '}
+            <span role="img" aria-label="yay">
+              😍
+            </span>
+          </p>
         </div>
       )
     }

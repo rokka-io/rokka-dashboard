@@ -2,9 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const Input = ({ value, defaultValue, placeholder, disabled, ...props }) => {
-  const val = disabled || !props.onChange
-    ? (value || defaultValue)
-    : value
+  const val = disabled || !props.onChange ? value || defaultValue : value
 
   const ph = defaultValue
     ? `${placeholder || props.name || props.type || ''} (default: ${defaultValue})`

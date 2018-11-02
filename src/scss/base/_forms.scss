@@ -297,14 +297,21 @@
   margin-right: $space-sm;
 }
 
-.rka-close-icon {
+.rka-close-icon, .rka-edit-icon, .rka-move-icon {
   position: absolute;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  line-height: 1em;
+  cursor: pointer;
+}
+
+.rka-close-icon {
   top: $space-sm;
   padding: 0 $space-sm;
   right: 46px;
   color: #D34361;
   font-size: 32px;
-  text-decoration: none;
 
   &:after {
     content: '×';
@@ -312,12 +319,10 @@
 }
 
 .rka-edit-icon {
-  position: absolute;
   color: $clr-brand-dark;
   top: $space-md;
   font-size: 20px;
   padding: 0 $space-sm;
-  text-decoration: none;
   right: 78px;
 
   &:hover,
@@ -331,13 +336,11 @@
 }
 
 .rka-move-icon {
-  position: absolute;
   color: $clr-brand-dark;
   top: $space-md;
   width: 20px;
   font-size: 20px;
   padding: 0 $space-sm;
-  text-decoration: none;
   right: $space-md;
 
   &:hover,

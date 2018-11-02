@@ -6,14 +6,14 @@ const Select = ({ value, defaultValue, placeholder, disabled, children, ...props
     ? `${placeholder || props.name || props.type || ''} (default: ${defaultValue})`
     : placeholder
 
-  const val = disabled || !props.onChange
-    ? (value || defaultValue)
-    : value
+  const val = disabled || !props.onChange ? value || defaultValue : value
 
-  return <select {...props} value={val} placeholder={ph} disabled={disabled || !props.onChange}>
-    <option key="__default">{ph}</option>
-    {children}
-  </select>
+  return (
+    <select {...props} value={val} placeholder={ph} disabled={disabled || !props.onChange}>
+      <option key="__default">{ph}</option>
+      {children}
+    </select>
+  )
 }
 
 Select.propTypes = {

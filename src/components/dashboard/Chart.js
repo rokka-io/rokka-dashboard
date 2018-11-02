@@ -54,10 +54,12 @@ const Chart = ({ data, type, yPointSymbol = null }) => {
       },
       type: 'category'
     },
-    series: [{
-      showInLegend: false,
-      data
-    }],
+    series: [
+      {
+        showInLegend: false,
+        data
+      }
+    ],
     colors: ['#6EA644'],
     tooltip: {
       animation: false,
@@ -78,9 +80,7 @@ const Chart = ({ data, type, yPointSymbol = null }) => {
     }
   }
 
-  return (
-    <HighCharts config={config} />
-  )
+  return <HighCharts config={config} />
 }
 Chart.propTypes = {
   type: PropTypes.string.isRequired,

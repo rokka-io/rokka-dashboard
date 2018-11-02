@@ -5,25 +5,37 @@ import InputRange from '../forms/InputRange'
 import FormGroup from '../forms/FormGroup'
 
 class Crop extends PureComponent {
-  isRequired (field) {
+  isRequired(field) {
     return this.props.required.indexOf(field) !== -1
   }
 
-  render () {
+  render() {
     const { defaults, values, errors = {} } = this.props
 
     return (
       <div className="row">
         <div className="col-md-6">
           <FormGroup label="Width" required={this.isRequired('width')} error={errors.width}>
-            <InputRange name="width" min={defaults.width.minimum} max={defaults.width.maximum}
-              value={values.width} defaultValue={defaults.width.value} onChange={this.props.onChange} />
+            <InputRange
+              name="width"
+              min={defaults.width.minimum}
+              max={defaults.width.maximum}
+              value={values.width}
+              defaultValue={defaults.width.value}
+              onChange={this.props.onChange}
+            />
           </FormGroup>
         </div>
         <div className="col-md-6">
           <FormGroup label="Height" required={this.isRequired('height')} error={errors.height}>
-            <InputRange name="height" min={defaults.height.minimum} max={defaults.height.maximum}
-              value={values.height} defaultValue={defaults.height.value} onChange={this.props.onChange} />
+            <InputRange
+              name="height"
+              min={defaults.height.minimum}
+              max={defaults.height.maximum}
+              value={values.height}
+              defaultValue={defaults.height.value}
+              onChange={this.props.onChange}
+            />
           </FormGroup>
         </div>
         <div className="col-md-6">

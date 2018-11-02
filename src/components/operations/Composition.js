@@ -7,25 +7,37 @@ import InputRange from '../forms/InputRange'
 import FormGroup from '../forms/FormGroup'
 
 class Composition extends PureComponent {
-  isRequired (field) {
+  isRequired(field) {
     return this.props.required.indexOf(field) !== -1
   }
 
-  render () {
+  render() {
     const { defaults, values, errors = {} } = this.props
 
     return (
       <div className="row">
         <div className="col-md-6">
           <FormGroup label="Width" required={this.isRequired('width')} error={errors.width}>
-            <InputRange name="width" min={defaults.width.minimum} max={defaults.width.maximum}
-              value={values.width} defaultValue={defaults.width.default} onChange={this.props.onChange} />
+            <InputRange
+              name="width"
+              min={defaults.width.minimum}
+              max={defaults.width.maximum}
+              value={values.width}
+              defaultValue={defaults.width.default}
+              onChange={this.props.onChange}
+            />
           </FormGroup>
         </div>
         <div className="col-md-6">
           <FormGroup label="Height" required={this.isRequired('height')} error={errors.height}>
-            <InputRange name="height" min={defaults.height.minimum} max={defaults.height.maximum}
-              value={values.height} defaultValue={defaults.height.default} onChange={this.props.onChange} />
+            <InputRange
+              name="height"
+              min={defaults.height.minimum}
+              max={defaults.height.maximum}
+              value={values.height}
+              defaultValue={defaults.height.default}
+              onChange={this.props.onChange}
+            />
           </FormGroup>
         </div>
         <div className="col-md-6">
@@ -35,8 +47,13 @@ class Composition extends PureComponent {
               className="rka-select"
               value={values.mode}
               defaultValue={defaults.mode.default}
-              onChange={this.props.onChange}>
-              {defaults.mode.values.map(option => <option key={option} value={option}>{option}</option>)}
+              onChange={this.props.onChange}
+            >
+              {defaults.mode.values.map(option => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
             </Select>
           </FormGroup>
         </div>
@@ -54,15 +71,33 @@ class Composition extends PureComponent {
           </FormGroup>
         </div>
         <div className="col-md-6">
-          <FormGroup label="Secondary Color" required={this.isRequired('secondary_color')} error={errors.color}>
-            <InputColor name="secondary_color" value={values.secondary_color} defaultValue={defaults.secondary_color.default}
-              onChange={this.props.onChange} />
+          <FormGroup
+            label="Secondary Color"
+            required={this.isRequired('secondary_color')}
+            error={errors.color}
+          >
+            <InputColor
+              name="secondary_color"
+              value={values.secondary_color}
+              defaultValue={defaults.secondary_color.default}
+              onChange={this.props.onChange}
+            />
           </FormGroup>
         </div>
         <div className="col-md-6">
-          <FormGroup label="Secondary opacity" required={this.isRequired('secondary_opacity')} error={errors.secondary_opacity}>
-            <InputRange name="secondary_opacity" min={defaults.secondary_opacity.minimum} max={defaults.secondary_opacity.maximum}
-              value={values.secondary_opacity} defaultValue={defaults.secondary_opacity.default} onChange={this.props.onChange} />
+          <FormGroup
+            label="Secondary opacity"
+            required={this.isRequired('secondary_opacity')}
+            error={errors.secondary_opacity}
+          >
+            <InputRange
+              name="secondary_opacity"
+              min={defaults.secondary_opacity.minimum}
+              max={defaults.secondary_opacity.maximum}
+              value={values.secondary_opacity}
+              defaultValue={defaults.secondary_opacity.default}
+              onChange={this.props.onChange}
+            />
           </FormGroup>
         </div>
       </div>

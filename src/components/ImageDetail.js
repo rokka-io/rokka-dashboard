@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Fragment, PureComponent } from 'react'
+import React, { Fragment, PureComponent, createRef } from 'react'
 import ReactCrop from 'react-image-crop'
 import cx from 'classnames'
 import { authRequired } from '../utils/auth'
@@ -10,7 +10,13 @@ import Header from './imagedetail/Header'
 import Actions from './imagedetail/Actions'
 import UserMetadata from './imagedetail/UserMetadata'
 import FocusPointSvg from './imagedetail/FocusPointSvg'
-import { calculateScale, calculateClickPosition, scalePosition, calculateRenderedPosition, pixelToPercent } from './imagedetail/cropping'
+import {
+  calculateScale,
+  calculateClickPosition,
+  scalePosition,
+  calculateRenderedPosition,
+  pixelToPercent
+} from './imagedetail/cropping'
 import BaseLayout from './layouts/BaseLayout'
 import Spinner from './Spinner'
 import Modal from './Modal'
@@ -47,7 +53,7 @@ const DEFAULT_STATE = {
   }
 }
 
-function getSubjectArea (image) {
+function getSubjectArea(image) {
   const { dynamic_metadata: dynamicMetadata = null } = image
   if (!dynamicMetadata) {
     return null
@@ -65,14 +71,14 @@ function getSubjectArea (image) {
   return null
 }
 
-function transformImage (organization, image) {
+function transformImage(organization, image) {
   const format = image.format === 'jpg' ? 'jpg' : 'png'
-  image.url = rokka.render.getUrl(organization, image.hash, format, 'dynamic/noop')
+  image.url = rokka().render.getUrl(organization, image.hash, format, 'dynamic/noop')
 
   const { user_metadata: metadata = {} } = image
 
   image.user_metadata = Object.keys(metadata).map(key => {
-    let [ rkaType, name ] = key.split(':')
+    let [rkaType, name] = key.split(':')
     if (!name) {
       name = rkaType
       rkaType = 'str'
@@ -89,7 +95,7 @@ function transformImage (organization, image) {
 }
 
 class ImageDetail extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = DEFAULT_STATE
@@ -110,100 +116,118 @@ class ImageDetail extends PureComponent {
     this.onImageClick = this.onImageClick.bind(this)
     this.requestOnResizeTick = this.requestOnResizeTick.bind(this)
     this.onResize = this.onResize.bind(this)
+
+    this.focusPointRef = createRef()
+    this.imageRef = createRef()
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.getImage(this.props.router.match.params.hash)
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.router.match.params.hash !== this.props.router.match.params.hash) {
       this.getImage(nextProps.router.match.params.hash)
     }
   }
 
-  getImage (hash) {
-    const { auth: { organization } } = this.props
+  getImage(hash) {
+    const {
+      auth: { organization }
+    } = this.props
 
-    rokka.sourceimages.get(organization, hash).then(({ body: image }) => {
-      image = transformImage(organization, image)
-      const updateState = { image }
-      let subjectArea = getSubjectArea(image)
+    rokka()
+      .sourceimages.get(organization, hash)
+      .then(({ body: image }) => {
+        image = transformImage(organization, image)
+        const updateState = { image }
+        let subjectArea = getSubjectArea(image)
 
-      if (subjectArea) {
-        // Temporary fix for ROKKA-148 (x/y set to 0 will result in the API not having this property in the response)
-        // should be fixed in the API. In the meantime fix it for the dashboard at least.
-        subjectArea = {
-          width: subjectArea.width,
-          height: subjectArea.height,
-          x: subjectArea.x || 0,
-          y: subjectArea.y || 0
+        if (subjectArea) {
+          // Temporary fix for ROKKA-148 (x/y set to 0 will result in the API not having this property in the response)
+          // should be fixed in the API. In the meantime fix it for the dashboard at least.
+          subjectArea = {
+            width: subjectArea.width,
+            height: subjectArea.height,
+            x: subjectArea.x || 0,
+            y: subjectArea.y || 0
+          }
+
+          const subjectAreaType =
+            subjectArea.width === 1 && subjectArea.height === 1 ? FOCUS_POINT : FOCUS_AREA
+          updateState.subjectArea = {
+            coords: subjectArea,
+            coordsChanged: false,
+            type: subjectAreaType,
+            menuActive: true
+          }
+
+          if (subjectAreaType === FOCUS_POINT) {
+            this.addResizeListener()
+          }
         }
 
-        const subjectAreaType = subjectArea.width === 1 && subjectArea.height === 1 ? FOCUS_POINT : FOCUS_AREA
-        updateState.subjectArea = {
-          coords: subjectArea,
-          coordsChanged: false,
-          type: subjectAreaType,
-          menuActive: true
+        this.setState(updateState)
+      })
+      .catch(e => {
+        if (e.error) {
+          setAlert('error', e.error.error.message, 5000)
+        } else {
+          setAlert('error', 'An unknown error happened', 5000)
         }
-
-        if (subjectAreaType === FOCUS_POINT) {
-          this.addResizeListener()
-        }
-      }
-
-      this.setState(updateState)
-    }).catch(e => {
-      if (e.error) {
-        setAlert('error', e.error.error.message, 5000)
-      } else {
-        setAlert('error', 'An unknown error happened', 5000)
-      }
-      console.error(e)
-    })
+        console.error(e)
+      })
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.removeResizeListener()
   }
 
-  removeResizeListener () {
+  removeResizeListener() {
     window.removeEventListener('resize', this.requestOnResizeTick)
   }
 
-  addResizeListener () {
+  addResizeListener() {
     window.addEventListener('resize', this.requestOnResizeTick)
   }
 
-  onResize () {
+  onResize() {
     this.ticking = false
     this.setImgRefSize()
   }
 
-  requestOnResizeTick () {
+  requestOnResizeTick() {
     if (!this.ticking) {
       window.requestAnimationFrame(this.onResize)
     }
     this.ticking = true
   }
 
-  setImgRefSize () {
+  setImgRefSize() {
+    const img = this.imageRef.current
     this.setState({
       imageSize: {
-        width: this.imageRef.width,
-        height: this.imageRef.height
+        width: img.width,
+        height: img.height
       }
     })
   }
 
-  onSave (e) {
+  onSave(e) {
     e.preventDefault()
 
-    const { router: { match }, auth: { organization } } = this.props
-    const { params: { hash } } = match
+    const {
+      router: { match },
+      auth: { organization }
+    } = this.props
+    const {
+      params: { hash }
+    } = match
 
-    const { image: { user_metadata: metadata }, subjectArea } = this.state
+    const {
+      image: { user_metadata: metadata },
+      subjectArea
+    } = this.state
     const imageHasSubjectArea = getSubjectArea(this.state.image) !== null
     const userMetadata = {}
 
@@ -218,36 +242,44 @@ class ImageDetail extends PureComponent {
     const alertType = 'success'
     const alertMessages = []
 
-    rokka.sourceimages.meta.replace(organization, hash, userMetadata).then(() => {
-      alertMessages.push('user metadata updated')
+    rokka()
+      .sourceimages.meta.replace(organization, hash, userMetadata)
+      .then(() => {
+        alertMessages.push('user metadata updated')
 
-      if (!subjectArea.type && subjectArea.coordsChanged && imageHasSubjectArea) {
-        return rokka.sourceimages.removeSubjectArea(organization, hash).then(({ headers }) => {
-          const newImageHash = headers.location.replace(`/sourceimages/${organization}/`, '')
+        if (!subjectArea.type && subjectArea.coordsChanged && imageHasSubjectArea) {
+          return rokka()
+            .sourceimages.removeSubjectArea(organization, hash)
+            .then(({ headers }) => {
+              const newImageHash = headers.location.replace(`/sourceimages/${organization}/`, '')
 
-          this.setState(DEFAULT_STATE)
+              this.setState(DEFAULT_STATE)
 
-          this.props.router.history.push(`/images/${newImageHash}`)
-          alertMessages.push('subject area has been removed')
-        })
-      } else if (subjectArea.type && subjectArea.coordsChanged) {
-        return rokka.sourceimages.setSubjectArea(organization, hash, subjectArea.coords).then(({ headers }) => {
-          const newImageHash = headers.location.replace(`/sourceimages/${organization}/`, '')
+              this.props.router.history.push(`/images/${newImageHash}`)
+              alertMessages.push('subject area has been removed')
+            })
+        } else if (subjectArea.type && subjectArea.coordsChanged) {
+          return rokka()
+            .sourceimages.setSubjectArea(organization, hash, subjectArea.coords)
+            .then(({ headers }) => {
+              const newImageHash = headers.location.replace(`/sourceimages/${organization}/`, '')
 
-          this.setState(DEFAULT_STATE)
+              this.setState(DEFAULT_STATE)
 
-          this.props.router.history.push(`/images/${newImageHash}`)
-          alertMessages.push('subject area updated')
-        })
-      }
-    }).then(() => {
-      setAlert(alertType, alertMessages, 2000)
-    }).catch(e => {
-      setAlert('error', e.error.error.message, 5000)
-    })
+              this.props.router.history.push(`/images/${newImageHash}`)
+              alertMessages.push('subject area updated')
+            })
+        }
+      })
+      .then(() => {
+        setAlert(alertType, alertMessages, 2000)
+      })
+      .catch(e => {
+        setAlert('error', e.error.error.message, 5000)
+      })
   }
 
-  onAddMetadata (e) {
+  onAddMetadata(e) {
     e.preventDefault()
 
     const { image, addMetadata } = this.state
@@ -256,17 +288,20 @@ class ImageDetail extends PureComponent {
     this.setState({
       addMetadata: DEFAULT_STATE.addMetadata,
       image: Object.assign({}, image, {
-        user_metadata: [...metadata, {
-          key: `${addMetadata.type}:${addMetadata.name}`,
-          name: addMetadata.name,
-          type: addMetadata.type,
-          value: addMetadata.value
-        }]
+        user_metadata: [
+          ...metadata,
+          {
+            key: `${addMetadata.type}:${addMetadata.name}`,
+            name: addMetadata.name,
+            type: addMetadata.type,
+            value: addMetadata.value
+          }
+        ]
       })
     })
   }
 
-  onChangeMetadata (isNew, index, update) {
+  onChangeMetadata(isNew, index, update) {
     // new metadata will be added only when clicking the button. The handler is attached regardless.
     if (isNew) {
       this.setState({
@@ -289,7 +324,7 @@ class ImageDetail extends PureComponent {
     })
   }
 
-  onRemoveMetadata (e, removeIndex) {
+  onRemoveMetadata(e, removeIndex) {
     e.preventDefault()
 
     const { image } = this.state
@@ -302,7 +337,7 @@ class ImageDetail extends PureComponent {
     })
   }
 
-  onCropComplete (crop, pixelCrop) {
+  onCropComplete(crop, pixelCrop) {
     this.setState({
       subjectArea: Object.assign({}, this.state.subjectArea, {
         coords: {
@@ -316,7 +351,7 @@ class ImageDetail extends PureComponent {
     })
   }
 
-  onImageCropChange (crop, pixelCrop) {
+  onImageCropChange(crop, pixelCrop) {
     this.setState({
       subjectArea: Object.assign({}, this.state.subjectArea, {
         coords: {
@@ -329,15 +364,15 @@ class ImageDetail extends PureComponent {
     })
   }
 
-  getPercentCrop (pixelCrop) {
-    if (!this.imageRef) {
+  getPercentCrop(pixelCrop) {
+    if (!this.imageRef.current) {
       return EMPTY_FOCUS_AREA
     }
-    const { naturalWidth, naturalHeight } = this.imageRef
+    const { naturalWidth, naturalHeight } = this.imageRef.current
     return pixelToPercent(pixelCrop, naturalWidth, naturalHeight)
   }
 
-  onCropChange (e) {
+  onCropChange(e) {
     const { name, value } = e.currentTarget
     const { coords } = this.state.subjectArea
 
@@ -355,14 +390,14 @@ class ImageDetail extends PureComponent {
    *
    * @param {MouseEvent} e
    */
-  onImageClick (e) {
+  onImageClick(e) {
     e.preventDefault()
 
     if (this.state.subjectArea.type !== FOCUS_POINT) {
       return
     }
 
-    const { naturalWidth, width } = this.imageRef
+    const { naturalWidth, width } = this.imageRef.current
 
     const renderedPos = calculateClickPosition(e)
     const scale = calculateScale(naturalWidth, width)
@@ -381,7 +416,7 @@ class ImageDetail extends PureComponent {
     })
   }
 
-  toggleFocusMenu (e) {
+  toggleFocusMenu(e) {
     e.preventDefault()
 
     const { subjectArea } = this.state
@@ -400,7 +435,7 @@ class ImageDetail extends PureComponent {
     })
   }
 
-  toggleFocusForm (e) {
+  toggleFocusForm(e) {
     e.preventDefault()
 
     const { subjectArea } = this.state
@@ -413,9 +448,10 @@ class ImageDetail extends PureComponent {
       newSubjectArea.coords = EMPTY_FOCUS_AREA
       newSubjectArea.coordsChanged = true
     } else if (newSubjectArea.type === FOCUS_POINT) {
+      const img = this.imageRef.current
       newSubjectArea.coords = {
-        x: Math.round(this.imageRef.naturalWidth / 2),
-        y: Math.round(this.imageRef.naturalHeight / 2),
+        x: Math.round(img.naturalWidth / 2),
+        y: Math.round(img.naturalHeight / 2),
         width: 1,
         height: 1
       }
@@ -433,19 +469,19 @@ class ImageDetail extends PureComponent {
     })
   }
 
-  onClickDeleteImage () {
+  onClickDeleteImage() {
     this.setState({
       confirmDeleteImage: true
     })
   }
 
-  onCancelDeleteImage () {
+  onCancelDeleteImage() {
     this.setState({
       confirmDeleteImage: false
     })
   }
 
-  onConfirmDeleteImage () {
+  onConfirmDeleteImage() {
     const { hash } = this.state.image
 
     deleteImage(hash)
@@ -455,7 +491,7 @@ class ImageDetail extends PureComponent {
           setAlert('success', `Image ${hash} has been deleted.`, 5000)
         }, 2000)
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err)
 
         this.onCancelDeleteImage()
@@ -463,7 +499,7 @@ class ImageDetail extends PureComponent {
       })
   }
 
-  render () {
+  render() {
     let $confirmDeleteModal = null
     if (this.state.confirmDeleteImage) {
       $confirmDeleteModal = (
@@ -471,13 +507,19 @@ class ImageDetail extends PureComponent {
           <h2 className="rka-h1">Do you really want to delete this image?</h2>
           <p className="mt-lg mb-md txt-md lh-lg">
             Please confirm whether your image
-            <span className="txt-bold ml-xs">{this.state.image.hash}</span> should be deleted.
-            This is an operation that cannot be undone.
+            <span className="txt-bold ml-xs">{this.state.image.hash}</span> should be deleted. This
+            is an operation that cannot be undone.
           </p>
-          <button className="rka-button rka-button-negative mr-md mt-md" onClick={() => this.onConfirmDeleteImage()}>
+          <button
+            className="rka-button rka-button-negative mr-md mt-md"
+            onClick={() => this.onConfirmDeleteImage()}
+          >
             Yes, delete this image
           </button>
-          <button className="rka-button rka-button-secondary mt-md" onClick={() => this.onCancelDeleteImage()}>
+          <button
+            className="rka-button rka-button-secondary mt-md"
+            onClick={() => this.onCancelDeleteImage()}
+          >
             Cancel
           </button>
         </Modal>
@@ -485,7 +527,11 @@ class ImageDetail extends PureComponent {
     }
     const { image, subjectArea } = this.state
     if (!image) {
-      return <BaseLayout {...this.props}><Spinner /></BaseLayout>
+      return (
+        <BaseLayout {...this.props}>
+          <Spinner />
+        </BaseLayout>
+      )
     }
 
     const { user_metadata: metadata } = image
@@ -494,10 +540,14 @@ class ImageDetail extends PureComponent {
     let coords = subjectArea.coords
 
     let renderPos = coords
-    if (this.focusPointRef && type === FOCUS_POINT) {
-      const { naturalWidth, width } = this.imageRef
+    if (this.focusPointRef.current && type === FOCUS_POINT) {
+      const { naturalWidth, width } = this.imageRef.current
       const scale = calculateScale(naturalWidth, width)
-      renderPos = calculateRenderedPosition(scale, this.focusPointRef.clientWidth, subjectArea.coords)
+      renderPos = calculateRenderedPosition(
+        scale,
+        this.focusPointRef.current.clientWidth,
+        subjectArea.coords
+      )
     }
 
     if (subjectArea.type === FOCUS_AREA) {
@@ -511,7 +561,12 @@ class ImageDetail extends PureComponent {
 
     return (
       <Fragment>
-        <Header image={image} focusMenuActive={menuActive} onClickToggleFocusMenu={this.toggleFocusMenu} onClickSave={this.onSave} />
+        <Header
+          image={image}
+          focusMenuActive={menuActive}
+          onClickToggleFocusMenu={this.toggleFocusMenu}
+          onClickSave={this.onSave}
+        />
         <section className="mb-n bg-chess bor-light">
           <Actions
             menuActive={menuActive}
@@ -522,20 +577,29 @@ class ImageDetail extends PureComponent {
             focusType={type}
           />
           <div className="rka-crop-container pos-r">
-            {type === FOCUS_AREA
-              ? <ReactCrop src={image.url} crop={coords} onChange={this.onImageCropChange} onComplete={this.onCropComplete} />
-              : null
-            }
+            {type === FOCUS_AREA ? (
+              <ReactCrop
+                src={image.url}
+                crop={coords}
+                onChange={this.onImageCropChange}
+                onComplete={this.onCropComplete}
+              />
+            ) : null}
             <div className="ove-h dis-ib pos-r va-m">
               <img
-                ref={ref => (this.imageRef = ref)}
+                ref={this.imageRef}
                 onLoad={() => this.setImgRefSize()}
                 src={image.url}
                 className={imgClassName}
                 onClick={this.onImageClick}
                 onTouchStart={this.onImageClick}
+                alt="Current"
               />
-              <FocusPointSvg setRef={ref => (this.focusPointRef = ref)} isVisible={type === FOCUS_POINT} {...renderPos} />
+              <FocusPointSvg
+                ref={this.focusPointRef}
+                isVisible={type === FOCUS_POINT}
+                {...renderPos}
+              />
             </div>
           </div>
         </section>
@@ -547,7 +611,12 @@ class ImageDetail extends PureComponent {
           onClickRemove={this.onRemoveMetadata}
         />
         <div className="pb-md ph-md bg-white">
-          <button className="rka-button rka-button-negative" onClick={() => this.onClickDeleteImage()}>Delete image</button>
+          <button
+            className="rka-button rka-button-negative"
+            onClick={() => this.onClickDeleteImage()}
+          >
+            Delete image
+          </button>
         </div>
         {$confirmDeleteModal}
       </Fragment>

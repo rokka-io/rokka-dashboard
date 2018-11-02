@@ -6,7 +6,7 @@ import enhanceWithClickOutside from 'react-click-outside'
 import cx from 'classnames'
 
 class Calendar extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.today = moment()
@@ -22,25 +22,26 @@ class Calendar extends PureComponent {
     this.onKeyDown = this.onKeyDown.bind(this)
   }
 
-  onKeyDown (e) {
-    if (e.keyCode === 27) { // escape
+  onKeyDown(e) {
+    if (e.keyCode === 27) {
+      // escape
       this.props.close()
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     window.addEventListener('keydown', this.onKeyDown)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.removeEventListener('keydown', this.onKeyDown)
   }
 
-  onChangeMonth (date) {
-    this.setState({date})
+  onChangeMonth(date) {
+    this.setState({ date })
   }
 
-  onPickDate (date) {
+  onPickDate(date) {
     if (date.isAfter(this.today, 'day')) {
       return
     }
@@ -56,7 +57,7 @@ class Calendar extends PureComponent {
     // start can only be null if all else is null -> start with range selection
     if (start === null) {
       start = date
-    // only set end date if it's not the same as the start date (min 1 day between)
+      // only set end date if it's not the same as the start date (min 1 day between)
     } else if (!start.isSame(date, 'day')) {
       end = date
     }
@@ -66,7 +67,7 @@ class Calendar extends PureComponent {
       start = end
       end = intermediate
     }
-    this.setState({start, end, temporaryEnd}, () => {
+    this.setState({ start, end, temporaryEnd }, () => {
       const { start, end } = this.state
       // if start + end, trigger range change to fetch stats
       if (start && end) {
@@ -75,7 +76,7 @@ class Calendar extends PureComponent {
     })
   }
 
-  onMouseOver (date) {
+  onMouseOver(date) {
     let { start, end } = this.state
 
     if (!start || (start && end)) {
@@ -93,7 +94,7 @@ class Calendar extends PureComponent {
     })
   }
 
-  render () {
+  render() {
     let { start, end, temporaryEnd } = this.state
     const { from, to, onDateClick, showCalendar } = this.props
 
@@ -119,17 +120,15 @@ class Calendar extends PureComponent {
         {showCalendar ? (
           <div tabIndex="0" className="flo-r mt-xs calendar-wrapper dis-b">
             <CalendarComponent
-              onChangeMonth={(date) => this.onChangeMonth(date)}
+              onChangeMonth={date => this.onChangeMonth(date)}
               date={this.state.date}
-              onPickDate={(date) => this.onPickDate(date)}
+              onPickDate={date => this.onPickDate(date)}
               weekOffset={1}
               renderHeader={({ date, onPrevMonth, onNextMonth }) => (
                 <div>
                   <div className="Calendar-header">
                     <button onClick={onPrevMonth}>«</button>
-                    <div className="Calendar-header-currentDate">
-                      {date.format('MMMM YYYY')}
-                    </div>
+                    <div className="Calendar-header-currentDate">{date.format('MMMM YYYY')}</div>
                     <button onClick={onNextMonth}>»</button>
                   </div>
                   <div className="Calendar-grid Calendar-week-day-names mb-sm">
@@ -143,7 +142,7 @@ class Calendar extends PureComponent {
                   </div>
                 </div>
               )}
-              renderDay={({day, classNames, onPickDate}) => {
+              renderDay={({ day, classNames, onPickDate }) => {
                 const first = start && start.isSame(day, 'day')
                 const last = end && end.isSame(day, 'day')
                 const inRange = start && end && day.isBetween(start, end, 'day', '[]')
@@ -151,18 +150,21 @@ class Calendar extends PureComponent {
                 const hoverable = !future && !inRange
                 const className = cx('date-item', 'Calendar-grid-item', classNames, {
                   'today Calendar-grid-item--current': day.isSame(this.today, 'day'),
-                  'weekend': day.isoWeekday() >= 6,
-                  'selected': inRange,
+                  weekend: day.isoWeekday() >= 6,
+                  selected: inRange,
                   future,
                   first,
                   last,
                   hoverable
                 })
                 return (
-                  <div key={day.format()} className={className} onMouseOver={() => !future && this.onMouseOver(day)} onClick={e => onPickDate(day)}>
-                    <div className="text">
-                      {day.format('D')}
-                    </div>
+                  <div
+                    key={day.format()}
+                    className={className}
+                    onMouseOver={() => !future && this.onMouseOver(day)}
+                    onClick={e => onPickDate(day)}
+                  >
+                    <div className="text">{day.format('D')}</div>
                   </div>
                 )
               }}
@@ -173,7 +175,7 @@ class Calendar extends PureComponent {
     )
   }
 
-  handleClickOutside () {
+  handleClickOutside() {
     this.props.close()
   }
 }

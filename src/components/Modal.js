@@ -3,21 +3,22 @@ import React, { PureComponent } from 'react'
 import cx from 'classnames'
 
 class Modal extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
-      open: (props.open !== false)
+      open: props.open !== false
     }
 
-    this.onKeyDown = (e) => {
-      if (e.keyCode === 27) { // escape
+    this.onKeyDown = e => {
+      if (e.keyCode === 27) {
+        // escape
         this.close(e)
       }
     }
   }
 
-  close (e) {
+  close(e) {
     e.preventDefault()
 
     this.setState({ open: false })
@@ -27,15 +28,15 @@ class Modal extends PureComponent {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     window.addEventListener('keydown', this.onKeyDown)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.removeEventListener('keydown', this.onKeyDown)
   }
 
-  render () {
+  render() {
     if (!this.state.open) {
       return null
     }
@@ -43,11 +44,21 @@ class Modal extends PureComponent {
     const { classNames = {}, fullscreen } = this.props
 
     return (
-      <div className={cx('rka-modal-backdrop', classNames.backdrop)} onKeyDown={(e) => this.onKeyDown(e)}>
-        <div className={cx('rka-modal-frame', classNames.frame, { 'rka-modal-frame-fullscreen': fullscreen })}>
+      <div
+        className={cx('rka-modal-backdrop', classNames.backdrop)}
+        onKeyDown={e => this.onKeyDown(e)}
+      >
+        <div
+          className={cx('rka-modal-frame', classNames.frame, {
+            'rka-modal-frame-fullscreen': fullscreen
+          })}
+        >
           <div className={cx('rka-modal-body', classNames.body)}>
-            <a className={cx('rka-close-icon', classNames.close)}
-              href="#" onClick={(e) => this.close(e)} title="Close" />
+            <button
+              className={cx('rka-close-icon', classNames.close)}
+              onClick={e => this.close(e)}
+              title="Close"
+            />
             {this.props.children}
           </div>
         </div>

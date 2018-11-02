@@ -14,7 +14,12 @@ const Header = ({ image, focusMenuActive, onClickToggleFocusMenu, onClickSave })
         <span className="mr-sm">{`${Math.round(image.size / 1024)}KB`},</span>
         <span className="mr-sm">{[image.width || '?', image.height || '?'].join('×')},</span>
         <span className="mr-sm">{image.format.toUpperCase()},</span>
-        <a className="rka-link rka-hash-link" href={image.url} target="_blank">
+        <a
+          className="rka-link rka-hash-link"
+          href={image.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {image.hash}
           <svg className="rka-link-icon">
             <use xlinkHref={linkicon + '#linkicon'} />
@@ -23,15 +28,21 @@ const Header = ({ image, focusMenuActive, onClickToggleFocusMenu, onClickSave })
       </p>
     </div>
     <div className="flo-r">
-      <a
-        className={cx('rka-focus-trigger', 'mr-md', {'is-active': focusMenuActive})}
-        onClick={onClickToggleFocusMenu} href="#">
-        {focusMenuActive
-          ? <span className="rka-focus-icon txt-c txt-lg">×</span>
-          : <svg className="rka-focus-icon"><use xlinkHref={focusIcon + '#focusicon'} /></svg>
-        }
-      </a>
-      <button className="rka-button rka-button-brand mt-sm" onClick={onClickSave}>Save</button>
+      <button
+        className={cx('rka-focus-trigger', 'mr-md', { 'is-active': focusMenuActive })}
+        onClick={onClickToggleFocusMenu}
+      >
+        {focusMenuActive ? (
+          <span className="rka-focus-icon txt-c txt-lg">×</span>
+        ) : (
+          <svg className="rka-focus-icon">
+            <use xlinkHref={focusIcon + '#focusicon'} />
+          </svg>
+        )}
+      </button>
+      <button className="rka-button rka-button-brand mt-sm" onClick={onClickSave}>
+        Save
+      </button>
     </div>
   </div>
 )

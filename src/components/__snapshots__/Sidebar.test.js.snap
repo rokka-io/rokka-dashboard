@@ -1,0 +1,460 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar does render 1`] = `
+<nav
+  className="rka-sidebar"
+>
+  <ul
+    className="rka-sidebar-nav"
+  >
+    <li>
+      <a
+        aria-current="page"
+        className="rka-sidebar-link is-active"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/images"
+        onClick={[Function]}
+      >
+        Images
+      </a>
+    </li>
+    <li
+      className="pos-r"
+    >
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/stacks"
+        onClick={[Function]}
+      >
+        Stacks
+      </a>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link-icon"
+        href="/new-stack"
+        onClick={[Function]}
+      >
+        <svg
+          className="rka-add-icon"
+        >
+          <use
+            xlinkHref="add-icon.svg#add-icon"
+          />
+        </svg>
+      </a>
+      <div
+        className="rka-sidebar-subnav"
+      >
+        <div
+          className="rka-stacks-search-container"
+        >
+          <input
+            className="rka-input-txt rka-stack-search"
+            onChange={[Function]}
+            placeholder="Search stack..."
+            type="text"
+          />
+          <svg
+            className="rka-stack-search-icon"
+          >
+            <use
+              xlinkHref="search.svg#search-icon"
+            />
+          </svg>
+        </div>
+        <div
+          className="rka-stacks-list is-loaded"
+        >
+          <div
+            className="rka-stacks-load"
+          />
+        </div>
+      </div>
+    </li>
+  </ul>
+  <a
+    className="rka-sidebar-poweredby"
+    href="https://www.liip.ch/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    POWERED BY 
+    <i
+      className="rka-sidebar-liip-logo"
+    />
+  </a>
+</nav>
+`;
+
+exports[`Sidebar does render when active 1`] = `
+<nav
+  className="rka-sidebar is-active"
+>
+  <ul
+    className="rka-sidebar-nav"
+  >
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/"
+        onClick={[Function]}
+      >
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/images"
+        onClick={[Function]}
+      >
+        Images
+      </a>
+    </li>
+    <li
+      className="pos-r"
+    >
+      <a
+        aria-current="page"
+        className="rka-sidebar-link is-active"
+        href="/stacks"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Stacks
+      </a>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link-icon"
+        href="/new-stack"
+        onClick={[Function]}
+      >
+        <svg
+          className="rka-add-icon"
+        >
+          <use
+            xlinkHref="add-icon.svg#add-icon"
+          />
+        </svg>
+      </a>
+      <div
+        className="rka-sidebar-subnav"
+      >
+        <div
+          className="rka-stacks-search-container"
+        >
+          <input
+            className="rka-input-txt rka-stack-search"
+            onChange={[Function]}
+            placeholder="Search stack..."
+            type="text"
+          />
+          <svg
+            className="rka-stack-search-icon"
+          >
+            <use
+              xlinkHref="search.svg#search-icon"
+            />
+          </svg>
+        </div>
+        <div
+          className="rka-stacks-list is-loaded"
+        >
+          <div
+            className="rka-stacks-load"
+          />
+        </div>
+      </div>
+    </li>
+  </ul>
+  <a
+    className="rka-sidebar-poweredby"
+    href="https://www.liip.ch/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    POWERED BY 
+    <i
+      className="rka-sidebar-liip-logo"
+    />
+  </a>
+</nav>
+`;
+
+exports[`Sidebar shows load more button 1`] = `
+<nav
+  className="rka-sidebar is-active"
+>
+  <ul
+    className="rka-sidebar-nav"
+  >
+    <li>
+      <a
+        aria-current="page"
+        className="rka-sidebar-link is-active"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/images"
+        onClick={[Function]}
+      >
+        Images
+      </a>
+    </li>
+    <li
+      className="pos-r"
+    >
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/stacks"
+        onClick={[Function]}
+      >
+        Stacks
+      </a>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link-icon"
+        href="/new-stack"
+        onClick={[Function]}
+      >
+        <svg
+          className="rka-add-icon"
+        >
+          <use
+            xlinkHref="add-icon.svg#add-icon"
+          />
+        </svg>
+      </a>
+      <div
+        className="rka-sidebar-subnav"
+      >
+        <div
+          className="rka-stacks-search-container"
+        >
+          <input
+            className="rka-input-txt rka-stack-search"
+            onChange={[Function]}
+            placeholder="Search stack..."
+            type="text"
+          />
+          <svg
+            className="rka-stack-search-icon"
+          >
+            <use
+              xlinkHref="search.svg#search-icon"
+            />
+          </svg>
+        </div>
+        <div
+          className="rka-stacks-list"
+        >
+          <a
+            aria-current={null}
+            className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-a"
+            onClick={[Function]}
+          >
+            stack-a
+          </a>
+          <a
+            aria-current={null}
+            className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-b"
+            onClick={[Function]}
+          >
+            stack-b
+          </a>
+          <a
+            aria-current={null}
+            className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-c"
+            onClick={[Function]}
+          >
+            stack-c
+          </a>
+          <a
+            aria-current={null}
+            className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-d"
+            onClick={[Function]}
+          >
+            stack-d
+          </a>
+          <div
+            className="rka-stacks-load"
+          >
+            <button
+              className="rka-button rka-button-brand rka-button-fullwidth"
+              onClick={[Function]}
+            >
+              Load more
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <a
+    className="rka-sidebar-poweredby"
+    href="https://www.liip.ch/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    POWERED BY 
+    <i
+      className="rka-sidebar-liip-logo"
+    />
+  </a>
+</nav>
+`;
+
+exports[`Sidebar shows stacks 1`] = `
+<nav
+  className="rka-sidebar is-active"
+>
+  <ul
+    className="rka-sidebar-nav"
+  >
+    <li>
+      <a
+        aria-current="page"
+        className="rka-sidebar-link is-active"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/images"
+        onClick={[Function]}
+      >
+        Images
+      </a>
+    </li>
+    <li
+      className="pos-r"
+    >
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/stacks"
+        onClick={[Function]}
+      >
+        Stacks
+      </a>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link-icon"
+        href="/new-stack"
+        onClick={[Function]}
+      >
+        <svg
+          className="rka-add-icon"
+        >
+          <use
+            xlinkHref="add-icon.svg#add-icon"
+          />
+        </svg>
+      </a>
+      <div
+        className="rka-sidebar-subnav"
+      >
+        <div
+          className="rka-stacks-search-container"
+        >
+          <input
+            className="rka-input-txt rka-stack-search"
+            onChange={[Function]}
+            placeholder="Search stack..."
+            type="text"
+          />
+          <svg
+            className="rka-stack-search-icon"
+          >
+            <use
+              xlinkHref="search.svg#search-icon"
+            />
+          </svg>
+        </div>
+        <div
+          className="rka-stacks-list is-loaded"
+        >
+          <a
+            aria-current={null}
+            className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-a"
+            onClick={[Function]}
+          >
+            stack-a
+          </a>
+          <a
+            aria-current={null}
+            className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-b"
+            onClick={[Function]}
+          >
+            stack-b
+          </a>
+          <a
+            aria-current={null}
+            className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-c"
+            onClick={[Function]}
+          >
+            stack-c
+          </a>
+          <a
+            aria-current={null}
+            className="rka-sidebar-sublink txt-ellipsis"
+            href="/stacks/stack-d"
+            onClick={[Function]}
+          >
+            stack-d
+          </a>
+          <div
+            className="rka-stacks-load"
+          />
+        </div>
+      </div>
+    </li>
+  </ul>
+  <a
+    className="rka-sidebar-poweredby"
+    href="https://www.liip.ch/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    POWERED BY 
+    <i
+      className="rka-sidebar-liip-logo"
+    />
+  </a>
+</nav>
+`;

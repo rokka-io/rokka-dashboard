@@ -4,7 +4,7 @@ import cx from 'classnames'
 import Input from './Input'
 
 class InputRange extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -13,15 +13,15 @@ class InputRange extends Component {
     }
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.value && !this.state.value) {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.value !== this.state.value) {
       this.setState({
         value: nextProps.value || nextProps.defaultValue
       })
     }
   }
 
-  onChange (e) {
+  onChange(e) {
     const val = e.currentTarget.value
     let newVal = val ? parseInt(e.currentTarget.value, 10) : ''
     if (newVal < this.props.min || newVal > this.props.max) {
@@ -35,35 +35,57 @@ class InputRange extends Component {
     this.props.onChange(e)
   }
 
-  onBlur () {
+  onBlur() {
     this.setState({
       showMinMax: false
     })
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
-    return nextState.value !== this.state.value ||
-      nextState.showMinMax !== this.state.showMinMax
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextState.value !== this.state.value || nextState.showMinMax !== this.state.showMinMax
   }
 
-  render () {
+  render() {
     return (
       <div className="rka-input-range-container clearfix">
-        <Input name={this.props.name} className="rka-input-range" type="range" disabled={!this.props.onChange} onChange={(e) => this.onChange(e)}
-          onBlur={(e) => this.onBlur(e)} min={this.props.min} max={this.props.max} value={this.state.value}
+        <Input
+          name={this.props.name}
+          className="rka-input-range"
+          type="range"
+          disabled={!this.props.onChange}
+          onChange={e => this.onChange(e)}
+          onBlur={e => this.onBlur(e)}
+          min={this.props.min}
+          max={this.props.max}
+          value={this.state.value}
         />
         <p>
-          <span className={cx('rka-input-range-min', { 'is-active': this.state.showMinMax })}>{this.props.min}</span>
-          {this.props.onChange
-            ? (
-              <Input name={this.props.name} className="rka-input-txt rka-input-range-current txt-c" size={5} type="text"
-                disabled={!this.props.onChange} onChange={(e) => this.onChange(e)} value={this.state.value}
-              />
-            )
-            : (<span className={cx('rka-input-range-current txt-bold', { 'is-disabled': !this.props.onChange })}>{this.state.value}</span>)
-          }
+          <span className={cx('rka-input-range-min', { 'is-active': this.state.showMinMax })}>
+            {this.props.min}
+          </span>
+          {this.props.onChange ? (
+            <Input
+              name={this.props.name}
+              className="rka-input-txt rka-input-range-current txt-c"
+              size={5}
+              type="text"
+              disabled={!this.props.onChange}
+              onChange={e => this.onChange(e)}
+              value={this.state.value}
+            />
+          ) : (
+            <span
+              className={cx('rka-input-range-current txt-bold', {
+                'is-disabled': !this.props.onChange
+              })}
+            >
+              {this.state.value}
+            </span>
+          )}
 
-          <span className={cx('rka-input-range-max', { 'is-active': this.state.showMinMax })}>{this.props.max}</span>
+          <span className={cx('rka-input-range-max', { 'is-active': this.state.showMinMax })}>
+            {this.props.max}
+          </span>
         </p>
       </div>
     )

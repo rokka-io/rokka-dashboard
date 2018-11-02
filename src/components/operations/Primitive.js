@@ -4,21 +4,33 @@ import InputRange from '../forms/InputRange'
 import FormGroup from '../forms/FormGroup'
 
 class Primitive extends PureComponent {
-  render () {
+  render() {
     const { defaults, values, errors = {} } = this.props
 
     return (
       <div className="row">
         <div className="col-md-6">
           <FormGroup label="Count" error={errors.count}>
-            <InputRange name="count" min={defaults.count.minimum} max={defaults.count.maximum}
-              value={values.count} defaultValue={defaults.count.default} onChange={this.props.onChange} />
+            <InputRange
+              name="count"
+              min={defaults.count.minimum}
+              max={defaults.count.maximum}
+              value={values.count}
+              defaultValue={defaults.count.default}
+              onChange={this.props.onChange}
+            />
           </FormGroup>
         </div>
         <div className="col-md-6">
           <FormGroup label="Mode" error={errors.mode}>
-            <InputRange name="mode" min={defaults.mode.minimum} max={defaults.mode.maximum}
-              value={values.mode} defaultValue={defaults.mode.default} onChange={this.props.onChange} />
+            <InputRange
+              name="mode"
+              min={defaults.mode.minimum}
+              max={defaults.mode.maximum}
+              value={values.mode}
+              defaultValue={defaults.mode.default}
+              onChange={this.props.onChange}
+            />
           </FormGroup>
         </div>
       </div>

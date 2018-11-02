@@ -12,21 +12,25 @@ import Header from './newStack/Header'
 import OperationList from './newStack/OperationList'
 import BaseLayout from './layouts/BaseLayout'
 
-function randomNumber (min, max) {
+function randomNumber(min, max) {
   return Math.random() * (max - min) + min
 }
 
-function generateRandomId () {
+function generateRandomId() {
   const max = Math.random() * 10
   const min = Math.random() * 2
 
   return Date.now() + '-' + randomNumber(min, max)
 }
 
-function generateDefaultValuesStackOptions (options, stackOptions) {
-  Object.keys(stackOptions).forEach((optionName) => {
-    if (stackOptions[optionName].default !== undefined && options[optionName] && options[optionName].value === null) {
-      options[optionName] = {value: stackOptions[optionName].default}
+function generateDefaultValuesStackOptions(options, stackOptions) {
+  Object.keys(stackOptions).forEach(optionName => {
+    if (
+      stackOptions[optionName].default !== undefined &&
+      options[optionName] &&
+      options[optionName].value === null
+    ) {
+      options[optionName] = { value: stackOptions[optionName].default }
     }
   })
   return options
@@ -36,10 +40,17 @@ const ajv = new Ajv({
   allErrors: true
 })
 
-const OPTIONS = ['png.compression_level', 'jpg.quality', 'webp.quality', 'interlacing.mode', 'basestack']
+const OPTIONS = [
+  'png.compression_level',
+  'jpg.quality',
+  'webp.quality',
+  'interlacing.mode',
+  'dpr',
+  'basestack'
+]
 
 export class NewStack extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     const { stackClone = {} } = props
@@ -102,20 +113,27 @@ export class NewStack extends PureComponent {
     this.updatePreview = this.updatePreview.bind(this)
   }
 
-  componentWillMount () {
+  componentWillMount() {
     resetStackClone()
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.loadPreviewImage()
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.previewImage && this.props.previewImage && nextProps.previewImage.hash !== this.props.previewImage.hash) {
+  componentWillReceiveProps(nextProps) {
+    if (
+      nextProps.previewImage &&
+      this.props.previewImage &&
+      nextProps.previewImage.hash !== this.props.previewImage.hash
+    ) {
       this.updatePreview(nextProps.previewImage)
     }
     if (nextProps.stackOptions !== null && !this.optionValidator) {
-      const defaultOptions = generateDefaultValuesStackOptions(Object.assign({}, this.state.options), nextProps.stackOptions.properties)
+      const defaultOptions = generateDefaultValuesStackOptions(
+        Object.assign({}, this.state.options),
+        nextProps.stackOptions.properties
+      )
       this.optionValidator = ajv.compile(nextProps.stackOptions)
 
       this.setState({
@@ -124,16 +142,18 @@ export class NewStack extends PureComponent {
     }
     if (nextProps.operations !== null) {
       this.operationValidators = {}
-      Object.keys(nextProps.operations).filter(key => key !== 'noop').forEach(key => {
-        const operation = nextProps.operations[key]
-        if (key === 'grayscale' && Array.isArray(operation.properties)) {
-          operation.properties = {}
-        }
-        if (key === 'resize' && operation.oneOf && typeof operation.oneOf[0] === 'string') {
-          delete operation.oneOf
-        }
-        this.operationValidators[key] = ajv.compile(operation)
-      })
+      Object.keys(nextProps.operations)
+        .filter(key => key !== 'noop')
+        .forEach(key => {
+          const operation = nextProps.operations[key]
+          if (key === 'grayscale' && Array.isArray(operation.properties)) {
+            operation.properties = {}
+          }
+          if (key === 'resize' && operation.oneOf && typeof operation.oneOf[0] === 'string') {
+            delete operation.oneOf
+          }
+          this.operationValidators[key] = ajv.compile(operation)
+        })
       const opKeys = Object.keys(nextProps.operations).sort()
       if (opKeys.length && this.state.selectedOperation === '') {
         this.setState({ selectedOperation: opKeys[0] })
@@ -141,7 +161,7 @@ export class NewStack extends PureComponent {
     }
   }
 
-  addOperation (e) {
+  addOperation(e) {
     e && e.preventDefault()
 
     this.setState({
@@ -164,13 +184,13 @@ export class NewStack extends PureComponent {
     })
   }
 
-  onSelectAddOperation (e) {
+  onSelectAddOperation(e) {
     this.setState({
       selectedOperation: e.currentTarget.value
     })
   }
 
-  onSubmit (e) {
+  onSubmit(e) {
     e.preventDefault()
     this.setState({ showLoader: true })
 
@@ -181,7 +201,7 @@ export class NewStack extends PureComponent {
       if (!valid) {
         updateOperationsState = true
 
-        this.operationValidators[operation.name].errors.forEach((e) => {
+        this.operationValidators[operation.name].errors.forEach(e => {
           if (e.keyword === 'required') {
             operation.errors[e.params.missingProperty] = e.message
           } else {
@@ -241,7 +261,7 @@ export class NewStack extends PureComponent {
         this.setState({ showLoader: false })
         this.props.router.history.push(`/stacks/${result.name}`)
       })
-      .catch((error) => {
+      .catch(error => {
         this.setState({
           showLoader: false,
           error: error.error.error.message
@@ -249,7 +269,7 @@ export class NewStack extends PureComponent {
       })
   }
 
-  onChange (idx, eventOrValue) {
+  onChange(idx, eventOrValue) {
     let { currentTarget = null, name, value } = eventOrValue
 
     if (currentTarget) {
@@ -286,10 +306,13 @@ export class NewStack extends PureComponent {
       ...this.state.operations.slice(idx + 1)
     ]
 
-    this.setState({ operations, preview: Object.assign({}, this.state.preview, { updated: false }) })
+    this.setState({
+      operations,
+      preview: Object.assign({}, this.state.preview, { updated: false })
+    })
   }
 
-  onChangeName (e) {
+  onChangeName(e) {
     this.setState({
       name: e.currentTarget.value
     })
@@ -301,7 +324,7 @@ export class NewStack extends PureComponent {
    * @param {Object|Event} eventOrOption If a change event is passed, name/value are retrieved from event.target.
    *                                     If an object with name and value is passed, those are used directly.
    */
-  onChangeOptions (eventOrOption) {
+  onChangeOptions(eventOrOption) {
     let { target = null, name, value } = eventOrOption
     if (target) {
       const target = eventOrOption.target
@@ -311,20 +334,26 @@ export class NewStack extends PureComponent {
 
     if (this.props.stackOptions && this.props.stackOptions.properties[name].type === 'boolean') {
       value = value === 'true'
-    } else if (this.props.stackOptions && this.props.stackOptions.properties[name].type === 'integer') {
+    } else if (
+      this.props.stackOptions &&
+      this.props.stackOptions.properties[name].type === 'integer'
+    ) {
       value = parseInt(value, 10)
-    } else if (this.props.stackOptions && this.props.stackOptions.properties[name].type === 'number') {
+    } else if (
+      this.props.stackOptions &&
+      this.props.stackOptions.properties[name].type === 'number'
+    ) {
       value = parseFloat(value)
     }
 
     this.setState({
       options: Object.assign({}, this.state.options, {
-        [name]: {value}
+        [name]: { value }
       })
     })
   }
 
-  onMoveOperation (dragIndex, hoverIndex) {
+  onMoveOperation(dragIndex, hoverIndex) {
     let { operations, activeOperation } = this.state
     const dragOperation = operations[dragIndex]
     const hoverOperation = operations[hoverIndex]
@@ -345,17 +374,20 @@ export class NewStack extends PureComponent {
     })
   }
 
-  removeOperation (e, index) {
+  removeOperation(e, index) {
     e.preventDefault()
 
     const operations = [
       ...this.state.operations.slice(0, index),
       ...this.state.operations.slice(index + 1)
     ]
-    this.setState({ operations, preview: Object.assign({}, this.state.preview, { updated: false }) })
+    this.setState({
+      operations,
+      preview: Object.assign({}, this.state.preview, { updated: false })
+    })
   }
 
-  setActiveOperation (e, index) {
+  setActiveOperation(e, index) {
     e.preventDefault()
 
     this.setState({
@@ -363,13 +395,18 @@ export class NewStack extends PureComponent {
     })
   }
 
-  updatePreview (previewImage = null) {
+  updatePreview(previewImage = null) {
     if (!previewImage) {
       return
     }
 
     const image = new window.Image()
-    image.src = rokka.render.getUrl(this.props.auth.organization, previewImage.hash, previewImage.format, this.state.operations)
+    image.src = rokka().render.getUrl(
+      this.props.auth.organization,
+      previewImage.hash,
+      previewImage.format,
+      this.state.operations
+    )
     image.onload = () => {
       this.setState({
         preview: Object.assign({}, this.state.preview, {
@@ -396,8 +433,10 @@ export class NewStack extends PureComponent {
     })
   }
 
-  render () {
-    const error = this.state.error ? <div className="rka-alert is-error mb-lg">{this.state.error}</div> : null
+  render() {
+    const error = this.state.error ? (
+      <div className="rka-alert is-error mb-lg">{this.state.error}</div>
+    ) : null
 
     return (
       <BaseLayout {...this.props}>
@@ -407,7 +446,7 @@ export class NewStack extends PureComponent {
               <form onSubmit={this.onSubmit}>
                 <Header
                   previewImage={this.props.previewImage}
-                  updatePreview={(img) => this.updatePreview(img)}
+                  updatePreview={img => this.updatePreview(img)}
                   createStackBtnDisabled={this.state.showLoader || this.state.name === ''}
                   isPreviewCurrent={this.state.preview.updated}
                   showLoader={this.state.showLoader}

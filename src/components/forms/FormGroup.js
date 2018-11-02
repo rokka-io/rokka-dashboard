@@ -4,7 +4,7 @@ import cx from 'classnames'
 import RequiredIndicator from './RequiredIndicator'
 
 const FormGroup = ({ label, children, className = null, required = false, error = null }) => (
-  <div className={cx('rka-form-group', className, {'has-error': !!error})}>
+  <div className={cx('rka-form-group', className, { 'has-error': !!error })}>
     <label className="rka-label">
       {label}
       <RequiredIndicator required={required} />

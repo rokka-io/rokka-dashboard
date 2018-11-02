@@ -60,7 +60,7 @@ const defaults = {
  * @param {Function} onChange
  * @param {Object}    errors
  */
-export default function (availableOperations, name, values, onChange = null, errors = {}) {
+export default function(availableOperations, name, values, onChange = null, errors = {}) {
   if (operations[name]) {
     const props = {
       defaults: deepAssign(availableOperations[name].properties, defaults[name]),
@@ -78,9 +78,16 @@ export default function (availableOperations, name, values, onChange = null, err
   return (
     <div className="row">
       <div className="rka-alert is-info">
-        Stack operation <span className="txt-bold">{name}</span> not implemented yet in rokka-dashboard.
-        {' '}
-        <a className="rka-link txt-white" target="_blank" href={`https://github.com/rokka-io/rokka-dashboard/issues?q=${issueSearch}`}>File an issue on GitHub</a>
+        Stack operation <span className="txt-bold">{name}</span> not implemented yet in
+        rokka-dashboard.{' '}
+        <a
+          className="rka-link txt-white"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`https://github.com/rokka-io/rokka-dashboard/issues?q=${issueSearch}`}
+        >
+          File an issue on GitHub
+        </a>
       </div>
     </div>
   )

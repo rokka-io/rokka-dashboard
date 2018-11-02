@@ -4,11 +4,11 @@ import InputRange from '../forms/InputRange.js'
 import FormGroup from '../forms/FormGroup'
 
 class Blur extends PureComponent {
-  isRequired (field) {
+  isRequired(field) {
     return this.props.required.indexOf(field) !== -1
   }
 
-  render () {
+  render() {
     const { defaults, values, errors = {} } = this.props
 
     return (
@@ -26,19 +26,20 @@ class Blur extends PureComponent {
           </FormGroup>
         </div>
         {/* deprecated - remove after 2018-06-01 */}
-        {!this.props.onChange && values.radius && (
-          <div className="col-md-6">
-            <FormGroup label="Blur Radius">
-              <InputRange
-                name="radius"
-                min={0}
-                max={1500}
-                value={values.radius}
-                defaultValue={0}
-              />
-            </FormGroup>
-          </div>
-        )}
+        {!this.props.onChange &&
+          values.radius && (
+            <div className="col-md-6">
+              <FormGroup label="Blur Radius">
+                <InputRange
+                  name="radius"
+                  min={0}
+                  max={1500}
+                  value={values.radius}
+                  defaultValue={0}
+                />
+              </FormGroup>
+            </div>
+          )}
       </div>
     )
   }

@@ -141,17 +141,20 @@ export function logout() {
  * @returns {Promise}
  */
 export function listStacks(limit = 999) {
-  const { currentOffset = 0, items = [] } = internalState.stacks
+  const { currentOffset = 0, items = [], filter = '' } = internalState.stacks
 
   return rokka()
     .stacks.list(internalState.auth.organization, limit, currentOffset)
     .then(({ body }) => {
       sortAlphabetically(body.items)
+      const newItems = [...items, ...body.items]
       updateState({
         stacks: {
           currentOffset: currentOffset + limit,
           total: body.total,
-          items: [...items, ...body.items]
+          items: newItems,
+          filter,
+          filteredItems: newItems.filter(item => filterItem(item, filter))
         }
       })
     })
@@ -166,6 +169,17 @@ export function listStacks(limit = 999) {
     })
 }
 
+function filterItem(item, filter) {
+  return item.name.indexOf(filter) > -1
+}
+
+export function filterStacks(filter) {
+  const items = internalState.stacks.items.filter(item => filterItem(item, filter))
+  updateState({
+    stacks: { ...internalState.stacks, filter, filteredItems: items }
+  })
+}
+
 /**
  * Resets the internal state with stacks and fetches them again.
  *
@@ -174,7 +188,7 @@ export function listStacks(limit = 999) {
  * @returns {Promise}
  */
 export function refreshStacks() {
-  internalState.stacks = {}
+  internalState.stacks = { ...internalState.stacks, items: [], total: 0, currentOffset: 0 }
   return listStacks()
 }
 

@@ -334,7 +334,6 @@ exports[`NewStack does render with a previewImage 1`] = `
                       className="pa-md bg-white txt-l"
                     >
                       Customized
-                       
                       <a
                         className="rka-link flo-r"
                         href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
@@ -356,7 +355,6 @@ exports[`NewStack does render with a previewImage 1`] = `
                       className="pa-md bg-white txt-l"
                     >
                       Original
-                       
                       <a
                         className="rka-link flo-r"
                         href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
@@ -1509,7 +1507,6 @@ exports[`NewStack does render with stackOptions 1`] = `
                       className="pa-md bg-white txt-l"
                     >
                       Customized
-                       
                       <a
                         className="rka-link flo-r"
                         href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
@@ -1531,7 +1528,6 @@ exports[`NewStack does render with stackOptions 1`] = `
                       className="pa-md bg-white txt-l"
                     >
                       Original
-                       
                       <a
                         className="rka-link flo-r"
                         href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
@@ -2389,7 +2385,6 @@ exports[`NewStack does render with stacks 1`] = `
                       className="pa-md bg-white txt-l"
                     >
                       Customized
-                       
                       <a
                         className="rka-link flo-r"
                         href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
@@ -2411,7 +2406,6 @@ exports[`NewStack does render with stacks 1`] = `
                       className="pa-md bg-white txt-l"
                     >
                       Original
-                       
                       <a
                         className="rka-link flo-r"
                         href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"

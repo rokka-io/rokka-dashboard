@@ -5,6 +5,8 @@ env:
 node_js:
   - '10'
 sudo: false
+# canvas-prebuilt has an issue with node-pre-gyp. This avoids it for now.
+install: npm install
 script:
   - npm test
   - npm run build
@@ -13,3 +15,4 @@ deploy:
   script: scripts/trigger-rokka-build.sh
   on:
     branch: master
+cache: npm

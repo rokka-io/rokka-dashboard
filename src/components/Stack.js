@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 import cx from 'classnames'
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 import { authRequired } from '../utils/auth'
-
 import Modal from './Modal'
 import previewImage from './images/previewImage'
-
 import factory from './operations/factory'
 import { cloneStack, deleteStack, setAlert } from '../state'
 import Options from './Options'
@@ -118,14 +117,18 @@ class Stack extends PureComponent {
         return accumulator
       }, {})
 
-      $options = <Options options={options} defaultOptions={stackOptions.properties || {}} />
+      $options = (
+        <TabPanel>
+          <Options options={options} defaultOptions={stackOptions.properties || {}} />
+        </TabPanel>
+      )
     }
 
     const { stack_operations: stackOperations = null } = stack
     let $operations = null
     if (stackOperations) {
       $operations = (
-        <div>
+        <TabPanel>
           <h3 className="rka-h2 mv-md">Operations</h3>
           {stack.stack_operations.map((operation, index) => {
             return (
@@ -138,7 +141,7 @@ class Stack extends PureComponent {
               </div>
             )
           })}
-        </div>
+        </TabPanel>
       )
     }
 
@@ -197,8 +200,14 @@ class Stack extends PureComponent {
           <div className="row">
             <div className="col-md-7 col-sm-7">
               <form>
-                {$options}
-                {$operations}
+                <Tabs>
+                  <TabList>
+                    {$operations !== null && <Tab>Operations</Tab>}
+                    {$options !== null && <Tab>Options</Tab>}
+                  </TabList>
+                  {$options}
+                  {$operations}
+                </Tabs>
               </form>
               <div className="mt-lg">
                 <button

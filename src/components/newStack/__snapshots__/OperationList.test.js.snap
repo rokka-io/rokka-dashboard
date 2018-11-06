@@ -1,39 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OperationList does render with all props 1`] = `
-<div
-  className="col-md-7 col-sm-7"
->
-  <h3
-    className="rka-h2 mv-md"
-  >
-    Stack details
-  </h3>
-  <div
-    className="rka-form-group"
-  >
-    <label
-      className="rka-label"
-    >
-      Name
-      <span>
-         *
-      </span>
-    </label>
-    <input
-      className="rka-input-txt"
-      id="name"
-      name="name"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-  </div>
+Array [
   <h3
     className="rka-h2 mv-md"
   >
     Operations
-  </h3>
+  </h3>,
   <div
     className="pa-md mb-xs pos-r bor-light"
   >
@@ -190,7 +163,7 @@ exports[`OperationList does render with all props 1`] = `
         </div>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     className="pa-md mb-xs pos-r bg-gray-lightest is-active bor-light"
   >
@@ -339,7 +312,7 @@ exports[`OperationList does render with all props 1`] = `
         </div>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     className="pa-md bor-light mt-md"
   >
@@ -374,44 +347,17 @@ exports[`OperationList does render with all props 1`] = `
     >
       Add operation
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`OperationList does render with minimal props 1`] = `
-<div
-  className="col-md-7 col-sm-7"
->
-  <h3
-    className="rka-h2 mv-md"
-  >
-    Stack details
-  </h3>
-  <div
-    className="rka-form-group"
-  >
-    <label
-      className="rka-label"
-    >
-      Name
-      <span>
-         *
-      </span>
-    </label>
-    <input
-      className="rka-input-txt"
-      id="name"
-      name="name"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-  </div>
+Array [
   <h3
     className="rka-h2 mv-md"
   >
     Operations
-  </h3>
+  </h3>,
   <div
     className="pa-md bor-light mt-md"
   >
@@ -435,6 +381,6 @@ exports[`OperationList does render with minimal props 1`] = `
     >
       Add operation
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;

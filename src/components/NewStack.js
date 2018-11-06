@@ -9,8 +9,8 @@ import rokka from '../rokka'
 import Ajv from 'ajv'
 import PreviewSidebar from './newStack/PreviewSidebar'
 import Header from './newStack/Header'
-import OperationList from './newStack/OperationList'
 import BaseLayout from './layouts/BaseLayout'
+import StackEditPane from './newStack/StackEditPane'
 
 function randomNumber(min, max) {
   return Math.random() * (max - min) + min
@@ -454,12 +454,11 @@ export class NewStack extends PureComponent {
                 <section className="rka-box rka-box-stacks pt-n">
                   {error}
                   <div className="row">
-                    <OperationList
+                    <StackEditPane
                       name={this.state.name}
                       options={this.state.options}
                       stacks={this.props.stacks}
                       onChangeName={this.onChangeName}
-                      onChangeOptions={this.onChangeOptions}
                       onChangeOperation={this.onChange}
                       addOperation={this.addOperation}
                       removeOperation={this.removeOperation}
@@ -471,6 +470,7 @@ export class NewStack extends PureComponent {
                       availableOperations={this.props.operations}
                       stackOptions={this.props.stackOptions}
                       selectedOperation={this.state.selectedOperation}
+                      onChangeOptions={this.onChangeOptions}
                     />
                     <PreviewSidebar
                       organization={this.props.auth.organization}

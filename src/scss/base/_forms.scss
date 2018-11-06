@@ -286,15 +286,18 @@
   }
 }
 
-.rka-checkbox {
+.rka-radio {
   margin-right: $space-md;
 
   &.is-disabled {
     color: $clr-gray-darkest;
   }
 }
-.rka-checkbox-input {
+.rka-radio-input {
   margin-right: $space-sm;
+}
+
+.rka-input-checkbox {
 }
 
 .rka-close-icon, .rka-edit-icon, .rka-move-icon {

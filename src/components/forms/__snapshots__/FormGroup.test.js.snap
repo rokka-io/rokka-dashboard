@@ -6,6 +6,7 @@ exports[`FormGroup does render 1`] = `
 >
   <label
     className="rka-label"
+    htmlFor={null}
   >
     Test
   </label>
@@ -21,6 +22,7 @@ exports[`FormGroup does render with className 1`] = `
 >
   <label
     className="rka-label"
+    htmlFor={null}
   >
     Test
   </label>
@@ -36,6 +38,7 @@ exports[`FormGroup does render with error 1`] = `
 >
   <label
     className="rka-label"
+    htmlFor={null}
   >
     Test
   </label>
@@ -56,6 +59,7 @@ exports[`FormGroup does render with required indicator 1`] = `
 >
   <label
     className="rka-label"
+    htmlFor={null}
   >
     Test
     <span>

@@ -15,7 +15,6 @@ exports[`Header does render with all props set 1`] = `
     <button
       className="rka-button rka-button-secondary mr-md"
       disabled={true}
-      href="#"
       onClick={[Function]}
       type="button"
     >

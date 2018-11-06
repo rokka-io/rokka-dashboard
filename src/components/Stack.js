@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { PureComponent } from 'react'
+import React, { Fragment, PureComponent } from 'react'
 import cx from 'classnames'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 import { authRequired } from '../utils/auth'
@@ -9,53 +9,46 @@ import factory from './operations/factory'
 import { cloneStack, deleteStack, setAlert } from '../state'
 import Options from './Options'
 import PreviewSidebar from './newStack/PreviewSidebar'
-
-const getStackByName = (stacks, name) => {
-  let result
-
-  if (!stacks) {
-    return null
-  }
-
-  stacks.some(stack => {
-    if (stack.name === name) {
-      result = stack
-      return true
-    }
-    return false
-  })
-
-  return result
-}
+import Spinner from './Spinner'
+import Alert from './Alert'
 
 class Stack extends PureComponent {
   constructor(props) {
     super(props)
 
     this.state = {
-      stack: getStackByName(props.stacks.items, props.router.match.params.name)
+      confirmDeleteStack: false
     }
   }
 
-  componentDidMount() {
-    // only load preview if there's a stack
-    this.state.stack && this.props.loadPreviewImage()
+  /**
+   * Get current stack based on available stacks and URL.
+   *
+   * @returns {null|{}|bool}
+   */
+  getCurrentStack() {
+    const { stacks, router } = this.props
+    const { items } = stacks
+    const {
+      match: {
+        params: { name }
+      }
+    } = router
+
+    if (!items) {
+      return null
+    }
+
+    for (const stack of items) {
+      if (stack.name === name) {
+        return stack
+      }
+    }
+    return false
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.router.match.params.name !== this.props.router.match.params.name) {
-      this.setState({
-        stack: getStackByName(nextProps.stacks.items, nextProps.router.match.params.name)
-      })
-    }
-  }
-
-  componentWillMount() {
-    if (!this.props.stacks.items) {
-      this.props.router.history.replace({
-        pathname: '/stacks'
-      })
-    }
+  componentDidUpdate() {
+    this.props.loadPreviewImage()
   }
 
   onClickDeleteStack() {
@@ -71,7 +64,7 @@ class Stack extends PureComponent {
   }
 
   onConfirmDeleteStack() {
-    const { name } = this.state.stack
+    const { name } = this.getCurrentStack()
 
     deleteStack(name)
       .then(() => {
@@ -87,39 +80,66 @@ class Stack extends PureComponent {
   }
 
   onClickDuplicateStack() {
-    const name = this.state.stack.name + '_copy'
-    cloneStack(name, this.state.stack.stack_operations, this.state.stack.stack_options)
+    const stack = this.getCurrentStack()
+    const name = stack.name + '_copy'
+    cloneStack(name, stack.stack_operations, stack.stack_options)
     this.props.router.history.push(`/new-stack`)
   }
 
   render() {
-    if (!this.state.stack) {
-      return null
+    const { previewImage = null, stacks, operations, router, auth } = this.props
+    const {
+      match: {
+        params: { name }
+      }
+    } = router
+    const { organization } = auth
+
+    if (!stacks.items || !operations) {
+      return (
+        <div className="bg-white pa-md">
+          <Spinner />
+        </div>
+      )
     }
 
-    const { previewImage = null } = this.props
-    const { stack } = this.state
-    const { organization } = this.props.auth
+    const stack = this.getCurrentStack()
+    if (stack === null) {
+      return null
+    } else if (stack === false) {
+      return (
+        <div className="bg-white pa-md">
+          <Alert alert={{ type: 'error', message: `Stack ${name} not found.` }} />
+        </div>
+      )
+    }
 
-    let options = stack.stack_options
+    const { stackOptions } = this.props
+    const addedOptions = stack.stack_options
+    const availableOptions = stackOptions ? stackOptions.properties : {}
 
     let $options = null
-    if (options) {
-      const { stackOptions } = this.props
-      Object.keys(stackOptions.properties).forEach(optionName => {
-        const optionSet = options[optionName] === undefined || options[optionName] === null
-        if (stackOptions.properties[optionName].default !== undefined && optionSet) {
-          options[optionName] = stackOptions.properties[optionName].default
-        }
-      })
-      options = Object.keys(options).reduce((accumulator, key) => {
-        accumulator[key] = { value: options[key] }
+    if (addedOptions) {
+      const addedOptionsKeys = Object.keys(addedOptions)
+      const options = addedOptionsKeys.reduce((accumulator, key) => {
+        accumulator[key] = { value: addedOptions[key] }
         return accumulator
       }, {})
+      const defaultOptions = Object.keys(availableOptions)
+        .filter(key => !addedOptionsKeys.includes(key))
+        .reduce((accumulator, key) => {
+          accumulator[key] = { value: availableOptions[key].default }
+          return accumulator
+        }, {})
 
       $options = (
         <TabPanel>
-          <Options options={options} defaultOptions={stackOptions.properties || {}} />
+          <Options options={options} defaultOptions={availableOptions} />
+          <Options
+            title={'Default options'}
+            options={defaultOptions}
+            defaultOptions={availableOptions}
+          />
         </TabPanel>
       )
     }
@@ -137,7 +157,7 @@ class Stack extends PureComponent {
                 key={`${stack.name}-operation-${operation.name}-${index}`}
               >
                 <h3 className="rka-h3 mb-md">{operation.name}</h3>
-                {factory(this.props.operations, operation.name, operation.options)}
+                {factory(operations, operation.name, operation.options)}
               </div>
             )
           })}
@@ -184,7 +204,7 @@ class Stack extends PureComponent {
     }
 
     return (
-      <div>
+      <Fragment>
         <div className="bg-white pa-md clearfix">
           <h1 className="rka-h1 flo-l mt-xs">{stack.name}</h1>
           <div className="flo-r">
@@ -222,7 +242,7 @@ class Stack extends PureComponent {
           </div>
         </div>
         {$confirmDeleteModal}
-      </div>
+      </Fragment>
     )
   }
 }

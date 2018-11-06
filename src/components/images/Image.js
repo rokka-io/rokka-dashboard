@@ -50,7 +50,7 @@ class Image extends PureComponent {
             </a>
             {this.props.uploaded === true && (
               <span className="rka-image-checkbox-container">
-                <i className="roka-image-checkbox rka-checkbox-icon is-checked" />
+                <i className="rka-image-checkbox rka-checkbox-icon is-checked" />
               </span>
             )}
             {!this.state.imageError ? (

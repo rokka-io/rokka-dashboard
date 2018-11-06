@@ -1,135 +1,94 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import Compression from './options/Compression'
-import Interlacing from './options/Interlacing'
-import BaseStack from './options/BaseStack'
-import InputRange from './forms/InputRange'
+import Select from 'react-select'
+import { styles } from './forms/ReactSelect'
 import FormGroup from './forms/FormGroup'
+import StackOption from './options/StackOption'
 
-class Options extends PureComponent {
+class Options extends Component {
+  static defaultProps = {
+    title: 'Options'
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      value: ''
+    }
+  }
+
+  onChange = (option, action) => {
+    this.props.onChange(option)
+    if (action === 'select-option') {
+      this.setState({ value: '' })
+    }
+  }
+
   render() {
-    const { defaultOptions } = this.props
-
+    const { defaultOptions, options, onChange, stacks, title } = this.props
     if (!Object.keys(defaultOptions).length) {
       return null
     }
 
+    const addedOptions = Object.keys(options)
+    let $options = 'No options added, default options apply.'
+    if (addedOptions.length) {
+      $options = addedOptions.reverse().map(name => (
+        <div className="row" key={name}>
+          <div className="col-md-12">
+            <StackOption
+              stacks={stacks}
+              defaultOptions={defaultOptions}
+              name={name}
+              options={options}
+              onChange={onChange}
+            />
+          </div>
+        </div>
+      ))
+    }
+
+    let $addOption = null
+    if (onChange) {
+      const availableOptions = Object.keys(defaultOptions)
+        .filter(name => !addedOptions.includes(name))
+        .map(name => ({
+          value: defaultOptions[name].default,
+          name,
+          label: name
+        }))
+      $addOption = (
+        <FormGroup label="Add stack option">
+          <Select
+            placeholder="Select stack option to add..."
+            onChange={this.onChange}
+            options={availableOptions}
+            styles={styles}
+            value={this.state.value}
+          />
+        </FormGroup>
+      )
+    }
+
     return (
       <Fragment>
-        <h3 className="rka-h2 mv-md">Options</h3>
+        <h3 className="rka-h2 mv-md">{title}</h3>
         <div className="bg-gray-lightest pa-md bor-light">
-          <div className="row">
-            <div className="col-md-6">
-              <Compression
-                value={this.props.options['png.compression_level'].value}
-                min={defaultOptions['png.compression_level'].minimum}
-                max={defaultOptions['png.compression_level'].maximum}
-                onChange={this.props.onChange}
-                error={
-                  this.props.options['png.compression_level']
-                    ? this.props.options['png.compression_level'].error
-                    : null
-                }
-              />
-            </div>
-            <div className="col-md-6">
-              <FormGroup
-                label="JPG Image quality"
-                error={
-                  this.props.options['jpg.quality'] ? this.props.options['jpg.quality'].error : null
-                }
-              >
-                <InputRange
-                  onChange={this.props.onChange}
-                  min={defaultOptions['jpg.quality'].minimum}
-                  max={defaultOptions['jpg.quality'].maximum}
-                  name="jpg.quality"
-                  value={this.props.options['jpg.quality'].value}
-                />
-              </FormGroup>
-            </div>
-            <div className="col-md-6">
-              <FormGroup
-                label="WebP Image quality"
-                error={
-                  this.props.options['webp.quality']
-                    ? this.props.options['webp.quality'].error
-                    : null
-                }
-              >
-                <InputRange
-                  onChange={this.props.onChange}
-                  min={defaultOptions['webp.quality'].minimum}
-                  max={defaultOptions['webp.quality'].maximum}
-                  name="webp.quality"
-                  value={this.props.options['webp.quality'].value}
-                />
-              </FormGroup>
-            </div>
-            <div className="col-md-6">
-              <FormGroup
-                label="Dots per inch (DPR)"
-                error={this.props.options['dpr'] ? this.props.options['dpr'].error : null}
-              >
-                <InputRange
-                  onChange={this.props.onChange}
-                  min={defaultOptions['dpr'].minimum}
-                  max={defaultOptions['dpr'].maximum}
-                  name="dpr"
-                  value={this.props.options['dpr'].value}
-                />
-              </FormGroup>
-            </div>
-            <div className="col-md-6">
-              <Interlacing
-                value={this.props.options['interlacing.mode'].value}
-                options={defaultOptions['interlacing.mode'].values}
-                onChange={this.props.onChange}
-                error={
-                  this.props.options['interlacing.mode']
-                    ? this.props.options['interlacing.mode'].error
-                    : null
-                }
-              />
-            </div>
-            <div className="col-md-12">
-              <BaseStack
-                value={
-                  this.props.options['basestack'] ? this.props.options['basestack'].value : null
-                }
-                onChange={this.props.onChange}
-                stacks={this.props.stacks}
-                error={
-                  this.props.options['basestack'] ? this.props.options['basestack'].error : null
-                }
-              />
-            </div>
-          </div>
+          {$addOption}
+          {$options}
         </div>
       </Fragment>
     )
   }
 }
+
 Options.propTypes = {
   defaultOptions: PropTypes.object.isRequired,
-  options: PropTypes.shape({
-    'png.compression_level': PropTypes.shape({
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      error: PropTypes.string
-    }),
-    'jpg.quality': PropTypes.shape({
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      error: PropTypes.string
-    }),
-    'webp.quality': PropTypes.shape({
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      error: PropTypes.string
-    }),
-    'interlacing.mode': PropTypes.shape({ value: PropTypes.string, error: PropTypes.string }),
-    basestack: PropTypes.shape({ value: PropTypes.string, error: PropTypes.string })
-  }).isRequired,
+  options: PropTypes.object.isRequired,
   stacks: PropTypes.object,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  title: PropTypes.string
 }
 
 export default Options

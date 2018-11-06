@@ -12,6 +12,7 @@ exports[`Primitive does render 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Count
       </label>
@@ -57,6 +58,7 @@ exports[`Primitive does render 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Mode
       </label>
@@ -108,6 +110,7 @@ exports[`Primitive does render with threshold values 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Count
       </label>
@@ -153,6 +156,7 @@ exports[`Primitive does render with threshold values 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Mode
       </label>

@@ -16,7 +16,6 @@ const Header = ({
       {previewImage && (
         <button
           type="button"
-          href="#"
           onClick={e => {
             e.preventDefault()
             updatePreview(previewImage)

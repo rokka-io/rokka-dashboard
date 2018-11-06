@@ -1,5 +1,5 @@
+import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import React, { PureComponent } from 'react'
 import Compression from './options/Compression'
 import Interlacing from './options/Interlacing'
 import BaseStack from './options/BaseStack'
@@ -15,7 +15,7 @@ class Options extends PureComponent {
     }
 
     return (
-      <div>
+      <Fragment>
         <h3 className="rka-h2 mv-md">Options</h3>
         <div className="bg-gray-lightest pa-md bor-light">
           <div className="row">
@@ -106,7 +106,7 @@ class Options extends PureComponent {
             </div>
           </div>
         </div>
-      </div>
+      </Fragment>
     )
   }
 }

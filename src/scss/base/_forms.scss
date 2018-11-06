@@ -353,20 +353,6 @@
   }
 }
 
-.Select-menu-outer {
-  width: calc(100% -1px) !important;
-  max-width: 100%;
-  border: 1px solid $clr-gray-darker !important;
-  border-radius: 0 !important;
-}
-
-.Select-option {
-  &.is-selected,
-  &.is-focused {
-    background: $clr-gray-lightest !important;
-  }
-}
-
 .rka-search-input {
   padding-right: 30px;
 }

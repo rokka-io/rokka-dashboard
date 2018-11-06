@@ -1,0 +1,34 @@
+.react-tabs__tab-list {
+  @include clearfix();
+}
+.react-tabs__tab-panel--selected {
+  padding: $space-md;
+  border: 1px solid $clr-gray-light;
+}
+.react-tabs__tab {
+  float: left;
+  cursor: pointer;
+  font-size: $font-sm;
+  padding: $space-sm $space-md;
+  color: $clr-gray-darkest;
+  background-color: $clr-gray-lighter;
+  border: 1px solid $clr-gray-light;
+  border-radius: 0;
+  position: relative;
+  z-index: 1;
+  margin-bottom: -1px;
+  @include media($mobile) {
+    padding: $space-sm;
+    margin-right: $space-xs;
+    font-size: $font-xs;
+  }
+  &:hover {
+    color: $clr-black;
+    background-color: $clr-white;
+  }
+}
+.react-tabs__tab--selected {
+  background-color: $clr-white;
+  color: $clr-black;
+  border-bottom-color: transparent;
+}

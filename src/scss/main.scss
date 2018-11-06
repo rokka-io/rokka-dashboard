@@ -28,16 +28,17 @@
 @import 'base/lists';
 
 // components
-@import 'components/header';
 @import 'components/footer';
-@import 'components/sidebar';
+@import 'components/header';
 @import 'components/image-crop';
 @import 'components/images';
-@import 'components/stacks';
 @import 'components/login';
-@import 'components/upload-image';
 @import 'components/modal';
+@import 'components/sidebar';
 @import 'components/spinner';
+@import 'components/stacks';
+@import 'components/tabs';
+@import 'components/upload-image';
 
 // vendor
 @import 'vendor/calendar';

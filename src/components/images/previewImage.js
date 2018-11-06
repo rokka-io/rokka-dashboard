@@ -4,6 +4,15 @@ import rokka from '../../rokka'
 import Modal from '../Modal'
 import ImageList from './List'
 
+const validFormats = ['jpg', 'png']
+const defaultFormat = 'png'
+function adjustImageFormat({ format, ...properties }) {
+  return {
+    ...properties,
+    format: validFormats.includes(format) ? format : defaultFormat
+  }
+}
+
 /**
  * previewImage is a HOC used for being able to select
  * a preview image from all the images available in the organization.
@@ -33,6 +42,11 @@ export default function previewImage(WrappedComponent) {
       this.onCloseModal = this.onCloseModal.bind(this)
       this.onChange = this.onChange.bind(this)
       this.loadPreviewImage = this.loadPreviewImage.bind(this)
+      this.mounted = true
+    }
+
+    componentWillUnmount() {
+      this.mounted = false
     }
 
     loadPreviewImage() {
@@ -45,8 +59,11 @@ export default function previewImage(WrappedComponent) {
       rokka()
         .sourceimages.list(organization, 1)
         .then(({ body }) => {
+          if (!this.mounted) {
+            return
+          }
           this.setState({
-            preview: body.items[0]
+            preview: adjustImageFormat(body.items[0])
           })
         })
         .catch(err => {
@@ -71,7 +88,7 @@ export default function previewImage(WrappedComponent) {
     onChange(image) {
       this.setState({
         modalOpen: false,
-        preview: image
+        preview: adjustImageFormat(image)
       })
     }
 

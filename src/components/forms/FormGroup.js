@@ -3,9 +3,16 @@ import React from 'react'
 import cx from 'classnames'
 import RequiredIndicator from './RequiredIndicator'
 
-const FormGroup = ({ label, children, className = null, required = false, error = null }) => (
+const FormGroup = ({
+  label,
+  children,
+  className = null,
+  required = false,
+  htmlFor = null,
+  error = null
+}) => (
   <div className={cx('rka-form-group', className, { 'has-error': !!error })}>
-    <label className="rka-label">
+    <label htmlFor={htmlFor} className="rka-label">
       {label}
       <RequiredIndicator required={required} />
     </label>

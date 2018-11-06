@@ -45,6 +45,7 @@ Array [
             >
               <label
                 className="rka-label"
+                htmlFor={null}
               >
                 Angle
               </label>
@@ -94,6 +95,7 @@ Array [
             >
               <label
                 className="rka-label"
+                htmlFor={null}
               >
                 Background color
               </label>
@@ -121,6 +123,7 @@ Array [
             >
               <label
                 className="rka-label"
+                htmlFor={null}
               >
                 Background opacity
               </label>
@@ -202,6 +205,7 @@ Array [
             >
               <label
                 className="rka-label"
+                htmlFor={null}
               >
                 Width
               </label>
@@ -249,6 +253,7 @@ Array [
             >
               <label
                 className="rka-label"
+                htmlFor={null}
               >
                 Height
               </label>
@@ -296,6 +301,7 @@ Array [
             >
               <label
                 className="rka-label"
+                htmlFor={null}
               >
                 Anchor
               </label>

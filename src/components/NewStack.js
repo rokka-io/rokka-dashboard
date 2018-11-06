@@ -23,31 +23,9 @@ function generateRandomId() {
   return Date.now() + '-' + randomNumber(min, max)
 }
 
-function generateDefaultValuesStackOptions(options, stackOptions) {
-  Object.keys(stackOptions).forEach(optionName => {
-    if (
-      stackOptions[optionName].default !== undefined &&
-      options[optionName] &&
-      options[optionName].value === null
-    ) {
-      options[optionName] = { value: stackOptions[optionName].default }
-    }
-  })
-  return options
-}
-
 const ajv = new Ajv({
   allErrors: true
 })
-
-const OPTIONS = [
-  'png.compression_level',
-  'jpg.quality',
-  'webp.quality',
-  'interlacing.mode',
-  'dpr',
-  'basestack'
-]
 
 export class NewStack extends PureComponent {
   constructor(props) {
@@ -55,19 +33,12 @@ export class NewStack extends PureComponent {
 
     const { stackClone = {} } = props
 
-    let options = OPTIONS.reduce((acc, name) => {
-      let value = null
-      if (stackClone.options && stackClone.options[name]) {
-        value = stackClone.options[name]
-      }
-      acc[name] = { value }
-
-      return acc
-    }, {})
-
-    if (props.stackOptions) {
-      options = generateDefaultValuesStackOptions(options, props.stackOptions.properties)
-      this.optionValidator = ajv.compile(props.stackOptions)
+    let options = {}
+    if (stackClone.options) {
+      options = Object.keys(stackClone.options).reduce((accumulator, key) => {
+        accumulator[key] = { value: stackClone.options[key] }
+        return accumulator
+      }, {})
     }
 
     if (stackClone.operations) {
@@ -121,44 +92,27 @@ export class NewStack extends PureComponent {
     this.props.loadPreviewImage()
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (
-      nextProps.previewImage &&
-      this.props.previewImage &&
-      nextProps.previewImage.hash !== this.props.previewImage.hash
-    ) {
-      this.updatePreview(nextProps.previewImage)
+  componentDidUpdate(prevProps) {
+    if (!prevProps.previewImage || prevProps.previewImage.hash !== this.props.previewImage.hash) {
+      this.updatePreview(this.props.previewImage)
     }
-    if (nextProps.stackOptions !== null && !this.optionValidator) {
-      const defaultOptions = generateDefaultValuesStackOptions(
-        Object.assign({}, this.state.options),
-        nextProps.stackOptions.properties
-      )
-      this.optionValidator = ajv.compile(nextProps.stackOptions)
+  }
 
-      this.setState({
-        options: defaultOptions
+  generateOperationValidators(operations) {
+    const operationValidators = {}
+    Object.keys(operations)
+      .filter(key => key !== 'noop')
+      .forEach(key => {
+        const operation = operations[key]
+        if (key === 'grayscale' && Array.isArray(operation.properties)) {
+          operation.properties = {}
+        }
+        if (key === 'resize' && operation.oneOf && typeof operation.oneOf[0] === 'string') {
+          delete operation.oneOf
+        }
+        operationValidators[key] = ajv.compile(operation)
       })
-    }
-    if (nextProps.operations !== null) {
-      this.operationValidators = {}
-      Object.keys(nextProps.operations)
-        .filter(key => key !== 'noop')
-        .forEach(key => {
-          const operation = nextProps.operations[key]
-          if (key === 'grayscale' && Array.isArray(operation.properties)) {
-            operation.properties = {}
-          }
-          if (key === 'resize' && operation.oneOf && typeof operation.oneOf[0] === 'string') {
-            delete operation.oneOf
-          }
-          this.operationValidators[key] = ajv.compile(operation)
-        })
-      const opKeys = Object.keys(nextProps.operations).sort()
-      if (opKeys.length && this.state.selectedOperation === '') {
-        this.setState({ selectedOperation: opKeys[0] })
-      }
-    }
+    return operationValidators
   }
 
   addOperation(e) {
@@ -195,18 +149,23 @@ export class NewStack extends PureComponent {
     this.setState({ showLoader: true })
 
     let updateOperationsState = false
+    const errors = []
 
+    const operationValidators = this.generateOperationValidators(this.props.operations)
     const operations = this.state.operations.map(operation => {
-      const valid = this.operationValidators[operation.name](operation.options)
+      const valid = operationValidators[operation.name](operation.options)
       if (!valid) {
         updateOperationsState = true
 
-        this.operationValidators[operation.name].errors.forEach(e => {
+        operationValidators[operation.name].errors.forEach(e => {
+          let property = null
           if (e.keyword === 'required') {
-            operation.errors[e.params.missingProperty] = e.message
+            property = e.params.missingProperty
           } else {
-            operation.errors[e.dataPath.replace('.', '')] = e.message
+            property = e.dataPath.replace('.', '')
           }
+          operation.errors[property] = e.message
+          errors.push(`${property}: ${e.message}`)
         })
       }
 
@@ -222,24 +181,31 @@ export class NewStack extends PureComponent {
     })
 
     let updatedOptions = Object.assign({}, this.state.options)
-    const valid = this.optionValidator(options)
+    const validator = ajv.compile(this.props.stackOptions)
+    const valid = validator(options)
     if (!valid) {
       updateOperationsState = true
 
-      this.optionValidator.errors.forEach(e => {
+      validator.errors.forEach(e => {
+        let property = null
         if (e.keyword === 'required') {
-          updatedOptions[e.params.missingProperty].error = e.message
+          property = e.params.missingProperty
         } else if (e.dataPath.substring(0, 1) === '.') {
-          updatedOptions[e.dataPath.replace('.', '')].error = e.message
+          property = e.dataPath.replace('.', '')
         } else if (e.dataPath.substring(0, 1) === '[') {
-          updatedOptions[e.dataPath.replace(/[['][^_]/g, '')].error = e.message
+          property = e.dataPath.replace(/[['][^_]/g, '')
         }
+        errors.push(`${property}: ${e.message}`)
+        updatedOptions[property].error = e.message
       })
     }
 
     this.setState({
       operations: operations,
-      options: updatedOptions
+      options: updatedOptions,
+      // hide loader if updateOperationsState is true and we exit this function right after setState.
+      showLoader: !updateOperationsState,
+      error: errors.length ? errors.join('. ') : null
     })
     if (updateOperationsState) {
       return
@@ -258,7 +224,10 @@ export class NewStack extends PureComponent {
       })
       .then(([result]) => {
         setAlert('success', `Stack ${result.name} created successfully.`, 2000)
-        this.setState({ showLoader: false })
+        this.setState({
+          showLoader: false,
+          hasError: false
+        })
         this.props.router.history.push(`/stacks/${result.name}`)
       })
       .catch(error => {
@@ -332,18 +301,26 @@ export class NewStack extends PureComponent {
       name = target.name
     }
 
-    if (this.props.stackOptions && this.props.stackOptions.properties[name].type === 'boolean') {
-      value = value === 'true'
-    } else if (
-      this.props.stackOptions &&
-      this.props.stackOptions.properties[name].type === 'integer'
-    ) {
-      value = parseInt(value, 10)
-    } else if (
-      this.props.stackOptions &&
-      this.props.stackOptions.properties[name].type === 'number'
-    ) {
-      value = parseFloat(value)
+    const { stackOptions } = this.props
+    const typ = stackOptions.properties[name].type
+
+    switch (typ) {
+      case 'boolean':
+        value = value === true || value === 'true'
+        break
+      case 'integer':
+        value = parseInt(value, 10)
+        break
+      case 'number':
+        value = parseFloat(value)
+        break
+      case 'array':
+        if (value) {
+          value = value.split(',')
+        }
+        break
+      default:
+      // keeps the original value
     }
 
     this.setState({

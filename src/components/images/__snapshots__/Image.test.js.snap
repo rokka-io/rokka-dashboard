@@ -24,7 +24,7 @@ exports[`Image does render with all props 1`] = `
         className="rka-image-checkbox-container"
       >
         <i
-          className="roka-image-checkbox rka-checkbox-icon is-checked"
+          className="rka-image-checkbox rka-checkbox-icon is-checked"
         />
       </span>
       <img

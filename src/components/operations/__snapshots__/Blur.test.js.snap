@@ -12,6 +12,7 @@ exports[`Blur does render 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Blur Sigma
       </label>

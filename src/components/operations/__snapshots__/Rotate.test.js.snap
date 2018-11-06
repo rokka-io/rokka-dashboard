@@ -12,6 +12,7 @@ exports[`Rotate does render 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Angle
       </label>
@@ -57,6 +58,7 @@ exports[`Rotate does render 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Background color
       </label>
@@ -84,6 +86,7 @@ exports[`Rotate does render 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Background opacity
       </label>

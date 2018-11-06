@@ -12,6 +12,7 @@ exports[`Composition does render 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Width
       </label>
@@ -57,6 +58,7 @@ exports[`Composition does render 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Height
       </label>
@@ -102,6 +104,7 @@ exports[`Composition does render 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Mode
       </label>
@@ -133,6 +136,7 @@ exports[`Composition does render 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Resize mode
       </label>
@@ -172,6 +176,7 @@ exports[`Composition does render 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Anchor
       </label>
@@ -193,6 +198,7 @@ exports[`Composition does render 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Secondary Color
       </label>
@@ -220,6 +226,7 @@ exports[`Composition does render 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Secondary opacity
       </label>
@@ -265,6 +272,7 @@ exports[`Composition does render 1`] = `
     >
       <label
         className="rka-label"
+        htmlFor={null}
       >
         Secondary image (hash)
       </label>

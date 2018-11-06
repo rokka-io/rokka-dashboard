@@ -13,6 +13,7 @@ exports[`Resize does render 1`] = `
       >
         <label
           className="rka-label"
+          htmlFor={null}
         >
           Width
         </label>
@@ -34,6 +35,7 @@ exports[`Resize does render 1`] = `
       >
         <label
           className="rka-label"
+          htmlFor={null}
         >
           Height
         </label>
@@ -55,6 +57,7 @@ exports[`Resize does render 1`] = `
       >
         <label
           className="rka-label"
+          htmlFor={null}
         >
           Upscale
         </label>
@@ -93,6 +96,7 @@ exports[`Resize does render 1`] = `
       >
         <label
           className="rka-label"
+          htmlFor={null}
         >
           Upscale DPR
         </label>
@@ -127,6 +131,7 @@ exports[`Resize does render 1`] = `
       >
         <label
           className="rka-label"
+          htmlFor={null}
         >
           Mode
         </label>

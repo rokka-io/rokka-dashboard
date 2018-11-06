@@ -4,7 +4,8 @@ export const styles = {
       ...base,
       borderColor: '#DDDDD8',
       borderRadius: 0,
-      boxShadow: null
+      boxShadow: null,
+      lineHeight: '1.2em'
     }
   },
   option: (base, state) => {

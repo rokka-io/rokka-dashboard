@@ -25,21 +25,6 @@ class Blur extends PureComponent {
             />
           </FormGroup>
         </div>
-        {/* deprecated - remove after 2018-06-01 */}
-        {!this.props.onChange &&
-          values.radius && (
-            <div className="col-md-6">
-              <FormGroup label="Blur Radius">
-                <InputRange
-                  name="radius"
-                  min={0}
-                  max={1500}
-                  value={values.radius}
-                  defaultValue={0}
-                />
-              </FormGroup>
-            </div>
-          )}
       </div>
     )
   }
@@ -54,7 +39,6 @@ Blur.propTypes = {
     })
   }),
   values: PropTypes.shape({
-    radius: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     sigma: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   }),
   required: PropTypes.array.isRequired,

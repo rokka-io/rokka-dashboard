@@ -22,7 +22,7 @@ exports[`Primitive does render 1`] = `
           className="rka-input-range"
           disabled={true}
           max={200}
-          min={0}
+          min={1}
           name="count"
           onBlur={[Function]}
           onChange={[Function]}
@@ -33,7 +33,7 @@ exports[`Primitive does render 1`] = `
           <span
             className="rka-input-range-min"
           >
-            0
+            1
           </span>
           <span
             className="rka-input-range-current txt-bold is-disabled"
@@ -118,7 +118,7 @@ exports[`Primitive does render with threshold values 1`] = `
           className="rka-input-range"
           disabled={true}
           max={200}
-          min={0}
+          min={1}
           name="count"
           onBlur={[Function]}
           onChange={[Function]}
@@ -129,7 +129,7 @@ exports[`Primitive does render with threshold values 1`] = `
           <span
             className="rka-input-range-min"
           >
-            0
+            1
           </span>
           <span
             className="rka-input-range-current txt-bold is-disabled"

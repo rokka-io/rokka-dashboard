@@ -12,7 +12,8 @@ class Resize extends PureComponent {
   render() {
     const { defaults, values, errors = {} } = this.props
 
-    const $upscaleOptions = defaults.upscale.values.map(option => {
+    const boolValues = ['true', 'false']
+    const $upscaleOptions = boolValues.map(option => {
       return (
         <option key={option} value={option}>
           {option}
@@ -20,7 +21,7 @@ class Resize extends PureComponent {
       )
     })
 
-    const $upscaleDPROptions = defaults.upscale_dpr.values.map(option => {
+    const $upscaleDPROptions = boolValues.map(option => {
       return (
         <option key={option} value={option}>
           {option}
@@ -36,35 +37,6 @@ class Resize extends PureComponent {
       )
     })
 
-    /* deprecated - remove after 2018-06-01 */
-    let $filterOptions = null
-    if (!this.props.onChange && values.filter) {
-      const FILTER_OPTIONS = [
-        'blackman',
-        'bessel',
-        'box',
-        'catrom',
-        'cubic',
-        'gaussian',
-        'hamming',
-        'hanning',
-        'hermite',
-        'lanczos',
-        'mitchell',
-        'quadratic',
-        'point',
-        'sinc',
-        'triangle'
-      ]
-      $filterOptions = FILTER_OPTIONS.map(option => {
-        return (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        )
-      })
-    }
-
     return (
       <div>
         <div className="row">
@@ -75,8 +47,8 @@ class Resize extends PureComponent {
                 type="text"
                 className="rka-input-txt"
                 placeholder="width"
-                value={values.width}
-                defaultValue={defaults.width.default}
+                value={values.width || ''}
+                defaultValue={defaults.width.default || ''}
                 onChange={this.props.onChange}
               />
             </FormGroup>
@@ -88,8 +60,8 @@ class Resize extends PureComponent {
                 type="text"
                 className="rka-input-txt"
                 placeholder="height"
-                value={values.height}
-                defaultValue={defaults.height.default}
+                value={values.height || ''}
+                defaultValue={defaults.height.default || ''}
                 onChange={this.props.onChange}
               />
             </FormGroup>
@@ -139,17 +111,6 @@ class Resize extends PureComponent {
               </Select>
             </FormGroup>
           </div>
-          {/* deprecated - remove after 2018-06-01 */}
-          {!this.props.onChange &&
-            values.filter && (
-              <div className="col-md-4">
-                <FormGroup label="Filter">
-                  <Select name="filter" className="rka-select" value={values.filter}>
-                    {$filterOptions}
-                  </Select>
-                </FormGroup>
-              </div>
-            )}
         </div>
       </div>
     )
@@ -182,9 +143,7 @@ Resize.propTypes = {
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     upscale: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     upscale_dpr: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    mode: PropTypes.string,
-    // deprecated - remove after 2018-06-01
-    filter: PropTypes.string
+    mode: PropTypes.string
   }),
   required: PropTypes.array.isRequired,
   errors: PropTypes.object

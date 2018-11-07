@@ -205,8 +205,8 @@ class Stack extends PureComponent {
                     {$operations !== null && <Tab>Operations</Tab>}
                     {$options !== null && <Tab>Options</Tab>}
                   </TabList>
-                  {$options}
                   {$operations}
+                  {$options}
                 </Tabs>
               </form>
               <div className="mt-lg">

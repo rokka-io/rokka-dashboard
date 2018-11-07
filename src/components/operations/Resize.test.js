@@ -17,20 +17,3 @@ test('Resize does render', () => {
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
-
-// deprecated, remove after 2018-06-01
-test('Resize does render with filter value', () => {
-  const resizeValues = {
-    width: 1000,
-    height: 1000,
-    upscale: true,
-    upscale_dpr: true,
-    mode: 'box',
-    filter: 'box'
-  }
-  const component = renderer.create(
-    <Resize values={resizeValues} defaults={operations.resize.properties} required={[]} />
-  )
-  let tree = component.toJSON()
-  expect(tree).toMatchSnapshot()
-})

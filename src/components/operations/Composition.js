@@ -22,8 +22,8 @@ class Composition extends PureComponent {
               name="width"
               min={defaults.width.minimum}
               max={defaults.width.maximum}
-              value={values.width}
-              defaultValue={defaults.width.default}
+              value={values.width || ''}
+              defaultValue={defaults.width.default || ''}
               onChange={this.props.onChange}
             />
           </FormGroup>
@@ -34,8 +34,8 @@ class Composition extends PureComponent {
               name="height"
               min={defaults.height.minimum}
               max={defaults.height.maximum}
-              value={values.height}
-              defaultValue={defaults.height.default}
+              value={values.height || ''}
+              defaultValue={defaults.height.default || ''}
               onChange={this.props.onChange}
             />
           </FormGroup>
@@ -50,6 +50,27 @@ class Composition extends PureComponent {
               onChange={this.props.onChange}
             >
               {defaults.mode.values.map(option => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </Select>
+          </FormGroup>
+        </div>
+        <div className="col-md-6">
+          <FormGroup
+            label="Resize mode"
+            required={this.isRequired('resize_mode')}
+            error={errors.mode}
+          >
+            <Select
+              name="resize_mode"
+              className="rka-select"
+              value={values.resize_mode}
+              defaultValue={defaults.resize_mode.default}
+              onChange={this.props.onChange}
+            >
+              {defaults.resize_mode.values.map(option => (
                 <option key={option} value={option}>
                   {option}
                 </option>
@@ -100,6 +121,23 @@ class Composition extends PureComponent {
             />
           </FormGroup>
         </div>
+        <div className="col-md-6">
+          <FormGroup
+            label="Secondary image (hash)"
+            required={this.isRequired('secondary_image')}
+            error={errors.secondary_image}
+          >
+            <Input
+              name="secondary_image"
+              type="text"
+              className="rka-input-txt"
+              placeholder="Secondary image (hash)"
+              defaultValue={defaults.secondary_image.default || ''}
+              value={values.secondary_image || ''}
+              onChange={this.props.onChange}
+            />
+          </FormGroup>
+        </div>
       </div>
     )
   }
@@ -122,12 +160,18 @@ Composition.propTypes = {
     anchor: PropTypes.shape({
       default: PropTypes.string
     }),
+    resize_mode: PropTypes.shape({
+      default: PropTypes.string
+    }),
     secondary_color: PropTypes.shape({
       default: PropTypes.string
     }),
     secondary_opacity: PropTypes.shape({
       minimum: PropTypes.number,
       maximum: PropTypes.number
+    }),
+    secondary_image: PropTypes.shape({
+      default: PropTypes.string
     })
   }),
   values: PropTypes.shape({
@@ -135,8 +179,10 @@ Composition.propTypes = {
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     anchor: PropTypes.string,
+    resize_mode: PropTypes.string,
     secondary_color: PropTypes.string,
-    secondary_opacity: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    secondary_opacity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    secondary_image: PropTypes.string
   }),
   required: PropTypes.array.isRequired,
   errors: PropTypes.object

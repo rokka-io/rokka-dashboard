@@ -12,16 +12,3 @@ test('Sepia does render', () => {
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
-
-// deprecated, remove after 2018-06-01
-test('Sepia does render with threshold value', () => {
-  const sepiaValues = {
-    threshold: '10'
-  }
-
-  const component = renderer.create(
-    <Sepia values={sepiaValues} defaults={operations.sepia.properties} required={[]} />
-  )
-  let tree = component.toJSON()
-  expect(tree).toMatchSnapshot()
-})

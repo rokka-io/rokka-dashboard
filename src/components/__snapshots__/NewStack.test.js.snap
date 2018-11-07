@@ -318,6 +318,11 @@ exports[`NewStack does render with a previewImage 1`] = `
                               grayscale
                             </option>
                             <option
+                              value="modulate"
+                            >
+                              modulate
+                            </option>
+                            <option
                               value="primitive"
                             >
                               primitive
@@ -741,6 +746,11 @@ exports[`NewStack does render with minimal props 1`] = `
                               grayscale
                             </option>
                             <option
+                              value="modulate"
+                            >
+                              modulate
+                            </option>
+                            <option
                               value="primitive"
                             >
                               primitive
@@ -1114,6 +1124,11 @@ exports[`NewStack does render with stackOptions 1`] = `
                               value="grayscale"
                             >
                               grayscale
+                            </option>
+                            <option
+                              value="modulate"
+                            >
+                              modulate
                             </option>
                             <option
                               value="primitive"
@@ -1570,6 +1585,11 @@ exports[`NewStack does render with stacks 1`] = `
                               value="grayscale"
                             >
                               grayscale
+                            </option>
+                            <option
+                              value="modulate"
+                            >
+                              modulate
                             </option>
                             <option
                               value="primitive"
@@ -2532,7 +2552,7 @@ exports[`newStack does render with clone stack props 1`] = `
                                     <input
                                       className="rka-input-range"
                                       disabled={false}
-                                      max={100}
+                                      max={10000}
                                       min={0}
                                       name="sigma"
                                       onBlur={[Function]}
@@ -2558,7 +2578,7 @@ exports[`newStack does render with clone stack props 1`] = `
                                       <span
                                         className="rka-input-range-max"
                                       >
-                                        100
+                                        10000
                                       </span>
                                     </p>
                                   </div>
@@ -2971,6 +2991,11 @@ exports[`newStack does render with clone stack props 1`] = `
                               value="grayscale"
                             >
                               grayscale
+                            </option>
+                            <option
+                              value="modulate"
+                            >
+                              modulate
                             </option>
                             <option
                               value="primitive"

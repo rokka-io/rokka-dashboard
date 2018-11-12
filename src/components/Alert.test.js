@@ -1,5 +1,5 @@
 import React from 'react'
-import Alert from '../../src/components/Alert'
+import Alert from './Alert'
 import renderer from 'react-test-renderer'
 
 test('Alert does not render if no alert props given', () => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import FormGroup from '../../../src/components/forms/FormGroup'
+import FormGroup from './FormGroup'
 import renderer from 'react-test-renderer'
 
 test('FormGroup does render', () => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import CropForm from '../../../src/components/imagedetail/CropForm'
+import CropForm from './CropForm'
 import renderer from 'react-test-renderer'
 
 test('CropForm does render', () => {

@@ -5,12 +5,13 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 import { authRequired } from '../utils/auth'
 import Modal from './Modal'
 import previewImage from './images/previewImage'
-import factory from './operations/factory'
+import StackOperation from './operations/StackOperation'
 import { cloneStack, deleteStack, setAlert } from '../state'
 import Options from './Options'
-import PreviewSidebar from './newStack/PreviewSidebar'
+import PreviewSidebar from './stack/PreviewSidebar'
 import Spinner from './Spinner'
 import Alert from './Alert'
+import Header from './stack/Header'
 
 class Stack extends PureComponent {
   constructor(props) {
@@ -156,8 +157,12 @@ class Stack extends PureComponent {
                 className={cx('pa-md', 'bor-light', 'mb-xs', { 'bg-gray-lightest': index % 2 })}
                 key={`${stack.name}-operation-${operation.name}-${index}`}
               >
-                <h3 className="rka-h3 mb-md">{operation.name}</h3>
-                {factory(operations, operation.name, operation.options)}
+                <h3 className="rka-h3 mb-md txt-cap">{operation.name}</h3>
+                <StackOperation
+                  availableOperations={operations}
+                  name={operation.name}
+                  values={operation.options}
+                />
               </div>
             )
           })}
@@ -205,17 +210,14 @@ class Stack extends PureComponent {
 
     return (
       <Fragment>
-        <div className="bg-white pa-md clearfix">
-          <h1 className="rka-h1 flo-l mt-xs">{stack.name}</h1>
-          <div className="flo-r">
-            <button
-              className="rka-button rka-button-brand"
-              onClick={e => this.onClickDuplicateStack(e)}
-            >
-              Clone stack
-            </button>
-          </div>
-        </div>
+        <Header title={stack.name} cloneStack={e => this.onClickDuplicateStack(e)}>
+          <button
+            className="rka-button rka-button-brand"
+            onClick={e => this.onClickDuplicateStack(e)}
+          >
+            Clone stack
+          </button>
+        </Header>
         <div className="rka-box rka-box-stacks pt-n">
           <div className="row">
             <div className="col-md-7 col-sm-7">

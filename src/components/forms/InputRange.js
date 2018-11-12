@@ -4,6 +4,10 @@ import cx from 'classnames'
 import Input from './Input'
 
 class InputRange extends Component {
+  static defaultProps = {
+    step: 1
+  }
+
   constructor(props) {
     super(props)
 
@@ -58,6 +62,7 @@ class InputRange extends Component {
           min={this.props.min}
           max={this.props.max}
           value={this.state.value}
+          step={this.props.step}
         />
         <p>
           <span className={cx('rka-input-range-min', { 'is-active': this.state.showMinMax })}>
@@ -98,6 +103,7 @@ InputRange.propTypes = {
   max: PropTypes.number.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  step: PropTypes.number,
   onChange: PropTypes.func
 }
 

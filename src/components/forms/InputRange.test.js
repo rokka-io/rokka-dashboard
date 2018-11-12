@@ -1,5 +1,5 @@
 import React from 'react'
-import InputRange from '../../../src/components/forms/InputRange'
+import InputRange from './InputRange'
 import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
 

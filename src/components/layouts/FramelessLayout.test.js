@@ -1,5 +1,5 @@
 import React from 'react'
-import FramelessLayout from '../../../src/components/layouts/FramelessLayout'
+import FramelessLayout from './FramelessLayout'
 import renderer from 'react-test-renderer'
 
 test('FramelessLayout does render', () => {

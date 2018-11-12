@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import Operation from '../operations'
+import Operation from '../operations/Operation'
 
 const OperationList = ({
   onChangeOperation,

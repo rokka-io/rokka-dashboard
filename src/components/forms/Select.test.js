@@ -1,5 +1,5 @@
 import React from 'react'
-import Select from '../../../src/components/forms/Select'
+import Select from './Select'
 import renderer from 'react-test-renderer'
 
 test('Select does render', () => {

@@ -12,7 +12,7 @@ const FormGroup = ({
   error = null
 }) => (
   <div className={cx('rka-form-group', className, { 'has-error': !!error })}>
-    <label htmlFor={htmlFor} className="rka-label">
+    <label htmlFor={htmlFor} className="rka-label txt-cap">
       {label}
       <RequiredIndicator required={required} />
     </label>

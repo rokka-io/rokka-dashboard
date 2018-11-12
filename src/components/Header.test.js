@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../src/components/Header'
+import Header from './Header'
 import renderer from 'react-test-renderer'
 import { MemoryRouter } from 'react-router'
 

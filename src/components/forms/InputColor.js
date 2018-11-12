@@ -40,7 +40,7 @@ class InputColor extends PureComponent {
           name={this.props.name}
           type="text"
           className="rka-input-txt"
-          placeholder={`color (default: ${this.props.defaultValue})`}
+          placeholder={`Hex color (default: ${this.props.defaultValue})`}
           value={this.props.value || ''}
           onClick={() => this.toggleColorPicker()}
           readOnly

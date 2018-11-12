@@ -1,5 +1,5 @@
 import React from 'react'
-import InputColor from '../../../src/components/forms/InputColor'
+import InputColor from './InputColor'
 import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
 

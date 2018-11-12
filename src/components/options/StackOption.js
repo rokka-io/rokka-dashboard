@@ -1,12 +1,13 @@
+import React from 'react'
 import BaseStack from './BaseStack'
 import SelectStackOption from './SelectStackOption'
 import BooleanStackOption from './BooleanStackOption'
 import RangeStackOption from './RangeStackOption'
 import StringStackOption from './StringStackOption'
-import React from 'react'
 import PropTypes from 'prop-types'
 import ArrayStringStackOption from './ArrayStringStackOption'
 import ColorStackOption from './ColorStackOption'
+import { readableInputLabel } from '../../utils/string'
 
 /**
  * Creates stack options based the definition from the /stackoptions API call.
@@ -25,6 +26,7 @@ const StackOption = ({ name, options, defaultOptions, stacks, onChange }) => {
   const error = setOption.error || null
 
   const optionProps = {
+    label: readableInputLabel(name),
     name,
     value,
     definitions,

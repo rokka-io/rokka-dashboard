@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import FormGroup from '../forms/FormGroup'
 import Input from '../forms/Input'
 
-const ArrayStringStackOption = ({ name, value, definitions, onChange, error }) => {
+const ArrayStringStackOption = ({ label, name, value, definitions, required, onChange, error }) => {
   // default value may be null
   if (value === null) {
     value = ''
@@ -12,12 +12,13 @@ const ArrayStringStackOption = ({ name, value, definitions, onChange, error }) =
   }
   const placeholder = onChange ? 'Comma-separated value' : null
   return (
-    <FormGroup label={name} htmlFor={name} error={error}>
+    <FormGroup label={label} htmlFor={name} error={error} required={required}>
       <Input
         name={name}
         id={name}
         className="rka-input-txt"
         value={value}
+        defaultValue={definitions.default}
         onChange={onChange}
         placeholder={placeholder}
       />
@@ -25,9 +26,11 @@ const ArrayStringStackOption = ({ name, value, definitions, onChange, error }) =
   )
 }
 ArrayStringStackOption.propTypes = {
+  label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   definitions: PropTypes.object.isRequired,
   value: PropTypes.arrayOf(PropTypes.string),
+  required: PropTypes.bool,
   onChange: PropTypes.func,
   error: PropTypes.string
 }

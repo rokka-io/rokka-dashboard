@@ -3,7 +3,7 @@ import {
   scalePosition,
   calculateRenderedPosition,
   pixelToPercent
-} from '../../../src/components/imagedetail/cropping'
+} from './cropping'
 
 test('calculateScale', () => {
   expect(calculateScale(100, 1000)).toBe(0.1)

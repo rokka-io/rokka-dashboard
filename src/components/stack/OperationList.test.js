@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { DragDropContext } from 'react-dnd'
 import TestBackend from 'react-dnd-test-backend'
-import OperationList from '../../../src/components/newStack/OperationList'
+import OperationList from './OperationList'
 import renderer from 'react-test-renderer'
 
 function wrapInTestContext(DecoratedComponent) {

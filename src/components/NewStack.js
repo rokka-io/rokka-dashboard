@@ -11,7 +11,7 @@ import Ajv from 'ajv'
 import PreviewSidebar from './stack/PreviewSidebar'
 import Header from './stack/Header'
 import BaseLayout from './layouts/BaseLayout'
-import StackEditPane from './stack/StackEditPane'
+import StackDetailPane from './stack/StackDetailPane'
 import Spinner from './Spinner'
 
 function randomNumber(min, max) {
@@ -72,8 +72,8 @@ export class NewStack extends PureComponent {
     this.onChangeName = this.onChangeName.bind(this)
     this.onChangeOptions = this.onChangeOptions.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
-    this.addOperation = this.addOperation.bind(this)
-    this.removeOperation = this.removeOperation.bind(this)
+    this.onAddOperation = this.onAddOperation.bind(this)
+    this.onRemoveOperation = this.onRemoveOperation.bind(this)
     this.setActiveOperation = this.setActiveOperation.bind(this)
     this.onMoveOperation = this.onMoveOperation.bind(this)
     this.onSelectAddOperation = this.onSelectAddOperation.bind(this)
@@ -117,7 +117,7 @@ export class NewStack extends PureComponent {
     return operationValidators
   }
 
-  addOperation(e) {
+  onAddOperation(e) {
     e && e.preventDefault()
 
     this.setState({
@@ -353,7 +353,7 @@ export class NewStack extends PureComponent {
     })
   }
 
-  removeOperation(e, index) {
+  onRemoveOperation(e, index) {
     e.preventDefault()
 
     const addedOperations = [
@@ -473,24 +473,26 @@ export class NewStack extends PureComponent {
                 <section className="rka-box rka-box-stacks pt-n">
                   {$error}
                   <div className="row">
-                    <StackEditPane
-                      name={name}
-                      options={options}
-                      stacks={stacks}
-                      onChangeName={this.onChangeName}
-                      onChangeOperation={this.onChange}
-                      addOperation={this.addOperation}
-                      removeOperation={this.removeOperation}
-                      setActiveOperation={this.setActiveOperation}
-                      onMoveOperation={this.onMoveOperation}
-                      onSelectAddOperation={this.onSelectAddOperation}
-                      activeOperation={activeOperation}
-                      addedOperations={addedOperations}
-                      availableOperations={operations}
-                      stackOptions={stackOptions}
-                      selectedOperation={selectedOperation}
-                      onChangeOptions={this.onChangeOptions}
-                    />
+                    <div className="col-md-7 col-sm-7">
+                      <StackDetailPane
+                        name={name}
+                        options={options}
+                        stacks={stacks}
+                        onChangeName={this.onChangeName}
+                        onChangeOperation={this.onChange}
+                        onAddOperation={this.onAddOperation}
+                        onRemoveOperation={this.onRemoveOperation}
+                        setActiveOperation={this.setActiveOperation}
+                        onMoveOperation={this.onMoveOperation}
+                        onSelectAddOperation={this.onSelectAddOperation}
+                        activeOperation={activeOperation}
+                        addedOperations={addedOperations}
+                        availableOperations={operations}
+                        defaultOptions={stackOptions ? stackOptions.properties : {}}
+                        selectedOperation={selectedOperation}
+                        onChangeOptions={this.onChangeOptions}
+                      />
+                    </div>
                     <PreviewSidebar
                       organization={auth.organization}
                       previewImage={previewImage}

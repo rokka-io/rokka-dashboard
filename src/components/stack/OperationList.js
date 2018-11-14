@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Operation from '../operations/Operation'
 
 const OperationList = ({
   onChangeOperation,
-  addOperation,
-  removeOperation,
+  onAddOperation,
+  onRemoveOperation,
   setActiveOperation,
   onMoveOperation,
   onSelectAddOperation,
@@ -13,53 +13,61 @@ const OperationList = ({
   activeOperation = 0,
   addedOperations = [],
   availableOperations = {}
-}) => (
-  <Fragment>
-    <h3 className="rka-h2 mv-md">Operations</h3>
-    {addedOperations.map((operation, index) => {
-      return (
-        <Operation
-          availableOperations={availableOperations}
-          key={`operation-${operation.id}-${operation.name}`}
-          operation={operation}
-          index={index}
-          isActive={index === activeOperation}
-          onChange={onChangeOperation}
-          removeOperation={removeOperation}
-          setActiveOperation={setActiveOperation}
-          onMoveOperation={onMoveOperation}
-        />
-      )
-    })}
+}) => {
+  return (
+    <>
+      <h3 className="rka-h2 mv-md">Operations</h3>
+      {addedOperations.map((operation, index) => {
+        return (
+          <Operation
+            availableOperations={availableOperations}
+            key={`operation-${operation.id}-${operation.name}`}
+            operation={operation}
+            index={index}
+            isActive={index === activeOperation}
+            onChange={onChangeOperation}
+            removeOperation={onRemoveOperation}
+            setActiveOperation={setActiveOperation}
+            onMoveOperation={onMoveOperation}
+          />
+        )
+      })}
 
-    <div className="pa-md bor-light mt-md">
-      <h3 className="rka-h3 mb-md">New operation</h3>
-      <div className="rka-form-group">
-        <select className="rka-select" onChange={onSelectAddOperation} value={selectedOperation}>
-          {Object.keys(availableOperations)
-            .filter(name => name !== 'noop')
-            .sort()
-            .map(name => (
-              <option key={name} value={name}>
-                {name}
-              </option>
-            ))}
-        </select>
-      </div>
-      <button className="rka-button rka-button-brand rka-button-sm" onClick={addOperation}>
-        Add operation
-      </button>
-    </div>
-  </Fragment>
-)
+      {onAddOperation && (
+        <div className="pa-md bor-light mt-md">
+          <h3 className="rka-h3 mb-md">New operation</h3>
+          <div className="rka-form-group">
+            <select
+              className="rka-select"
+              onChange={onSelectAddOperation}
+              value={selectedOperation}
+            >
+              {Object.keys(availableOperations)
+                .filter(name => name !== 'noop')
+                .sort()
+                .map(name => (
+                  <option key={name} value={name}>
+                    {name}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <button className="rka-button rka-button-brand rka-button-sm" onClick={onAddOperation}>
+            Add operation
+          </button>
+        </div>
+      )}
+    </>
+  )
+}
 OperationList.propTypes = {
-  onChangeOperation: PropTypes.func.isRequired,
-  addOperation: PropTypes.func.isRequired,
-  removeOperation: PropTypes.func.isRequired,
-  setActiveOperation: PropTypes.func.isRequired,
-  onMoveOperation: PropTypes.func.isRequired,
-  onSelectAddOperation: PropTypes.func.isRequired,
-  selectedOperation: PropTypes.string.isRequired,
+  onChangeOperation: PropTypes.func,
+  onAddOperation: PropTypes.func,
+  onRemoveOperation: PropTypes.func,
+  setActiveOperation: PropTypes.func,
+  onMoveOperation: PropTypes.func,
+  onSelectAddOperation: PropTypes.func,
+  selectedOperation: PropTypes.string,
   activeOperation: PropTypes.number,
   addedOperations: PropTypes.array,
   availableOperations: PropTypes.object

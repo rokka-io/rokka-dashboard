@@ -1,17 +1,14 @@
 import PropTypes from 'prop-types'
 import React, { Fragment, PureComponent } from 'react'
-import cx from 'classnames'
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 import { authRequired } from '../utils/auth'
 import Modal from './Modal'
 import previewImage from './images/previewImage'
-import StackOperation from './operations/StackOperation'
 import { cloneStack, deleteStack, setAlert } from '../state'
-import Options from './Options'
 import PreviewSidebar from './stack/PreviewSidebar'
 import Spinner from './Spinner'
 import Alert from './Alert'
 import Header from './stack/Header'
+import StackDetailPane from './stack/StackDetailPane'
 
 class Stack extends PureComponent {
   constructor(props) {
@@ -116,59 +113,16 @@ class Stack extends PureComponent {
     }
 
     const { stackOptions } = this.props
-    const addedOptions = stack.stack_options
-    const availableOptions = stackOptions ? stackOptions.properties : {}
+    const defaultOptions = stackOptions ? stackOptions.properties : {}
+    const { stack_operations: addedOperations = [], stack_options: addedOptions = {} } = stack
 
-    let $options = null
-    if (addedOptions) {
-      const addedOptionsKeys = Object.keys(addedOptions)
-      const options = addedOptionsKeys.reduce((accumulator, key) => {
-        accumulator[key] = { value: addedOptions[key] }
-        return accumulator
-      }, {})
-      const defaultOptions = Object.keys(availableOptions)
-        .filter(key => !addedOptionsKeys.includes(key))
-        .reduce((accumulator, key) => {
-          accumulator[key] = { value: availableOptions[key].default }
-          return accumulator
-        }, {})
+    console.log(addedOperations, addedOptions)
 
-      $options = (
-        <TabPanel>
-          <Options options={options} defaultOptions={availableOptions} />
-          <Options
-            title={'Default options'}
-            options={defaultOptions}
-            defaultOptions={availableOptions}
-          />
-        </TabPanel>
-      )
-    }
-
-    const { stack_operations: stackOperations = null } = stack
-    let $operations = null
-    if (stackOperations) {
-      $operations = (
-        <TabPanel>
-          <h3 className="rka-h2 mv-md">Operations</h3>
-          {stack.stack_operations.map((operation, index) => {
-            return (
-              <div
-                className={cx('pa-md', 'bor-light', 'mb-xs', { 'bg-gray-lightest': index % 2 })}
-                key={`${stack.name}-operation-${operation.name}-${index}`}
-              >
-                <h3 className="rka-h3 mb-md txt-cap">{operation.name}</h3>
-                <StackOperation
-                  availableOperations={operations}
-                  name={operation.name}
-                  values={operation.options}
-                />
-              </div>
-            )
-          })}
-        </TabPanel>
-      )
-    }
+    const addedOptionsKeys = Object.keys(addedOptions)
+    const options = addedOptionsKeys.reduce((accumulator, key) => {
+      accumulator[key] = { value: addedOptions[key] }
+      return accumulator
+    }, {})
 
     let $confirmDeleteModal = null
     if (this.state.confirmDeleteStack) {
@@ -196,18 +150,6 @@ class Stack extends PureComponent {
       )
     }
 
-    let $previewSidebar = null
-    if (previewImage) {
-      $previewSidebar = (
-        <PreviewSidebar
-          organization={organization}
-          onChange={this.props.onOpenChoosePreviewImage}
-          previewImage={previewImage}
-          stack={stack.name}
-        />
-      )
-    }
-
     return (
       <Fragment>
         <Header title={stack.name} cloneStack={e => this.onClickDuplicateStack(e)}>
@@ -221,16 +163,11 @@ class Stack extends PureComponent {
         <div className="rka-box rka-box-stacks pt-n">
           <div className="row">
             <div className="col-md-7 col-sm-7">
-              <form>
-                <Tabs>
-                  <TabList>
-                    {$operations !== null && <Tab>Operations</Tab>}
-                    {$options !== null && <Tab>Options</Tab>}
-                  </TabList>
-                  {$operations}
-                  {$options}
-                </Tabs>
-              </form>
+              <StackDetailPane
+                addedOperations={addedOperations}
+                options={options}
+                defaultOptions={defaultOptions}
+              />
               <div className="mt-lg">
                 <button
                   className="rka-button rka-button-negative"
@@ -240,7 +177,12 @@ class Stack extends PureComponent {
                 </button>
               </div>
             </div>
-            {$previewSidebar}
+            <PreviewSidebar
+              organization={organization}
+              onChange={this.props.onOpenChoosePreviewImage}
+              previewImage={previewImage}
+              stack={stack.name}
+            />
           </div>
         </div>
         {$confirmDeleteModal}

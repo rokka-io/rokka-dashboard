@@ -5,7 +5,8 @@ import InputRange from '../forms/InputRange'
 
 const RangeStackOption = ({ label, name, value, definitions, required, onChange, error }) => {
   // default value may be null
-  if (value === null) {
+  console.log('YOLO', value, definitions.default)
+  if (value === null || value === undefined) {
     value = ''
   }
   const step = definitions.type === 'number' ? 0.1 : 1

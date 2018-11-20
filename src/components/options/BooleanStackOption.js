@@ -5,9 +5,10 @@ import Input from '../forms/Input'
 
 const BooleanStackOption = ({ label, name, value, definitions, required, onChange, error }) => {
   // default value may be null
-  if (value === null) {
+  if (value === null || value === undefined) {
     value = false
   }
+  console.log('###', value)
 
   return (
     <FormGroup label={label} htmlFor={name} error={error} required={required}>

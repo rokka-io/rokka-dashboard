@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 import Operation from '../operations/Operation'
+import StackOperation from '../operations/StackOperation'
 
 const OperationList = ({
   onChangeOperation,
@@ -14,15 +16,19 @@ const OperationList = ({
   addedOperations = [],
   availableOperations = {}
 }) => {
+  const OperationComponent = onChangeOperation ? Operation : StackOperation
+
   return (
     <>
       <h3 className="rka-h2 mv-md">Operations</h3>
       {addedOperations.map((operation, index) => {
-        return (
-          <Operation
+        const comp = (
+          <OperationComponent
             availableOperations={availableOperations}
             key={`operation-${operation.id}-${operation.name}`}
+            name={operation.name}
             operation={operation}
+            values={operation.options}
             index={index}
             isActive={index === activeOperation}
             onChange={onChangeOperation}
@@ -30,6 +36,18 @@ const OperationList = ({
             setActiveOperation={setActiveOperation}
             onMoveOperation={onMoveOperation}
           />
+        )
+        if (onChangeOperation) {
+          return comp
+        }
+        return (
+          <div
+            className={cx('pa-md bor-light mb-xs', { 'bg-gray-lightest': index % 2 })}
+            key={`operation-${operation.name}-${index}`}
+          >
+            <h3 className="rka-h3 mb-md">{operation.name}</h3>
+            {comp}
+          </div>
         )
       })}
 

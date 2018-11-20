@@ -112,11 +112,9 @@ class Stack extends PureComponent {
       )
     }
 
-    const { stackOptions } = this.props
+    const { stackOptions, operations: availableOperations } = this.props
     const defaultOptions = stackOptions ? stackOptions.properties : {}
     const { stack_operations: addedOperations = [], stack_options: addedOptions = {} } = stack
-
-    console.log(addedOperations, addedOptions)
 
     const addedOptionsKeys = Object.keys(addedOptions)
     const options = addedOptionsKeys.reduce((accumulator, key) => {
@@ -164,6 +162,7 @@ class Stack extends PureComponent {
           <div className="row">
             <div className="col-md-7 col-sm-7">
               <StackDetailPane
+                availableOperations={availableOperations}
                 addedOperations={addedOperations}
                 options={options}
                 defaultOptions={defaultOptions}

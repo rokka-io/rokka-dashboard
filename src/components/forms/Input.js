@@ -3,7 +3,7 @@ import React from 'react'
 
 const Input = ({ value, defaultValue, placeholder, disabled, ...props }) => {
   let val = disabled || !props.onChange ? value || defaultValue : value
-  if (val === null) {
+  if (val === null || val === undefined) {
     val = ''
   }
 

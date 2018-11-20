@@ -5,12 +5,14 @@ import Input from '../forms/Input'
 
 const StringStackOption = ({ label, name, value, definitions, required, onChange, error }) => {
   // default value may be null
-  if (value === null) {
+  if (value === null || value === undefined) {
     value = ''
   }
+  console.log('YOLO STRING', value, definitions.default)
   return (
     <FormGroup label={label} htmlFor={name} error={error} required={required}>
       <Input
+        type="text"
         name={name}
         id={name}
         defaultValue={definitions.default}

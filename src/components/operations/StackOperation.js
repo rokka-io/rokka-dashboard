@@ -72,7 +72,10 @@ export default function StackOperation({
       case 'number':
       // fallthrough
       case 'integer':
-        return <RangeStackOption {...operationProps} />
+        if (onChange) {
+          return <RangeStackOption {...operationProps} />
+        }
+        return <StringStackOption {...operationProps} />
       case 'boolean':
         return <BooleanStackOption {...operationProps} />
       default:

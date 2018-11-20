@@ -5,7 +5,6 @@ import InputRange from '../forms/InputRange'
 
 const RangeStackOption = ({ label, name, value, definitions, required, onChange, error }) => {
   // default value may be null
-  console.log('YOLO', value, definitions.default)
   if (value === null || value === undefined) {
     value = ''
   }

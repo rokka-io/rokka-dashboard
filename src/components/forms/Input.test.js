@@ -1,5 +1,5 @@
 import React from 'react'
-import Input from '../../../src/components/forms/Input'
+import Input from './Input'
 import renderer from 'react-test-renderer'
 
 test('Input does render', () => {

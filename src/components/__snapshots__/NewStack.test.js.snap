@@ -205,7 +205,7 @@ exports[`NewStack does render with a previewImage 1`] = `
                     className="rka-form-group"
                   >
                     <label
-                      className="rka-label"
+                      className="rka-label txt-cap"
                       htmlFor={null}
                     >
                       Name
@@ -634,7 +634,7 @@ exports[`NewStack does render with minimal props 1`] = `
                     className="rka-form-group"
                   >
                     <label
-                      className="rka-label"
+                      className="rka-label txt-cap"
                       htmlFor={null}
                     >
                       Name
@@ -1014,7 +1014,7 @@ exports[`NewStack does render with stackOptions 1`] = `
                     className="rka-form-group"
                   >
                     <label
-                      className="rka-label"
+                      className="rka-label txt-cap"
                       htmlFor={null}
                     >
                       Name
@@ -1475,7 +1475,7 @@ exports[`NewStack does render with stacks 1`] = `
                     className="rka-form-group"
                   >
                     <label
-                      className="rka-label"
+                      className="rka-label txt-cap"
                       htmlFor={null}
                     >
                       Name
@@ -1904,7 +1904,7 @@ exports[`newStack does render with clone stack props 1`] = `
                     className="rka-form-group"
                   >
                     <label
-                      className="rka-label"
+                      className="rka-label txt-cap"
                       htmlFor={null}
                     >
                       Name
@@ -1993,49 +1993,42 @@ exports[`newStack does render with clone stack props 1`] = `
                             className="rka-operation-content"
                           >
                             <div
-                              className="row"
+                              className="rka-form-group"
                             >
-                              <div
-                                className="col-md-6"
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor="mode"
                               >
-                                <div
-                                  className="rka-form-group"
+                                mode
+                              </label>
+                              <select
+                                className="rka-select"
+                                disabled={false}
+                                id="mode"
+                                name="mode"
+                                onChange={[Function]}
+                                placeholder="mode (default: mask)"
+                                value="mask"
+                              >
+                                <option>
+                                  mode (default: mask)
+                                </option>
+                                <option
+                                  value="mask"
                                 >
-                                  <label
-                                    className="rka-label"
-                                    htmlFor={null}
-                                  >
-                                    Alpha mode
-                                  </label>
-                                  <select
-                                    className="rka-select"
-                                    disabled={false}
-                                    name="mode"
-                                    onChange={[Function]}
-                                    placeholder="mode (default: mask)"
-                                    value="mask"
-                                  >
-                                    <option>
-                                      mode (default: mask)
-                                    </option>
-                                    <option
-                                      value="mask"
-                                    >
-                                      mask
-                                    </option>
-                                    <option
-                                      value="remove"
-                                    >
-                                      remove
-                                    </option>
-                                    <option
-                                      value="extract"
-                                    >
-                                      extract
-                                    </option>
-                                  </select>
-                                </div>
-                              </div>
+                                  mask
+                                </option>
+                                <option
+                                  value="remove"
+                                >
+                                  remove
+                                </option>
+                                <option
+                                  value="extract"
+                                >
+                                  extract
+                                </option>
+                              </select>
                             </div>
                           </div>
                         </div>
@@ -2068,60 +2061,53 @@ exports[`newStack does render with clone stack props 1`] = `
                             className="rka-operation-content"
                           >
                             <div
-                              className="row"
+                              className="rka-form-group"
                             >
-                              <div
-                                className="col-md-6"
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
                               >
-                                <div
-                                  className="rka-form-group"
-                                >
-                                  <label
-                                    className="rka-label"
-                                    htmlFor={null}
+                                sigma
+                                <span>
+                                   *
+                                </span>
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={100}
+                                  min={0}
+                                  name="sigma"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={0.1}
+                                  type="range"
+                                  value={39}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
                                   >
-                                    Blur Sigma
-                                    <span>
-                                       *
-                                    </span>
-                                  </label>
-                                  <div
-                                    className="rka-input-range-container clearfix"
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="sigma"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={39}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
                                   >
-                                    <input
-                                      className="rka-input-range"
-                                      disabled={false}
-                                      max={100}
-                                      min={0}
-                                      name="sigma"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      type="range"
-                                      value={39}
-                                    />
-                                    <p>
-                                      <span
-                                        className="rka-input-range-min"
-                                      >
-                                        0
-                                      </span>
-                                      <input
-                                        className="rka-input-txt rka-input-range-current txt-c"
-                                        disabled={false}
-                                        name="sigma"
-                                        onChange={[Function]}
-                                        size={5}
-                                        type="text"
-                                        value={39}
-                                      />
-                                      <span
-                                        className="rka-input-range-max"
-                                      >
-                                        100
-                                      </span>
-                                    </p>
-                                  </div>
-                                </div>
+                                    100
+                                  </span>
+                                </p>
                               </div>
                             </div>
                           </div>
@@ -2155,136 +2141,243 @@ exports[`newStack does render with clone stack props 1`] = `
                             className="rka-operation-content"
                           >
                             <div
-                              className="row"
+                              className="rka-form-group"
                             >
-                              <div
-                                className="col-md-6"
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
                               >
-                                <div
-                                  className="rka-form-group"
-                                >
-                                  <label
-                                    className="rka-label"
-                                    htmlFor={null}
-                                  >
-                                    Width
-                                    <span>
-                                       *
-                                    </span>
-                                  </label>
-                                  <div
-                                    className="rka-input-range-container clearfix"
-                                  >
-                                    <input
-                                      className="rka-input-range"
-                                      disabled={false}
-                                      max={10000}
-                                      min={1}
-                                      name="width"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      type="range"
-                                      value={5100}
-                                    />
-                                    <p>
-                                      <span
-                                        className="rka-input-range-min"
-                                      >
-                                        1
-                                      </span>
-                                      <input
-                                        className="rka-input-txt rka-input-range-current txt-c"
-                                        disabled={false}
-                                        name="width"
-                                        onChange={[Function]}
-                                        size={5}
-                                        type="text"
-                                        value={5100}
-                                      />
-                                      <span
-                                        className="rka-input-range-max"
-                                      >
-                                        10000
-                                      </span>
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
+                                width
+                                <span>
+                                   *
+                                </span>
+                              </label>
                               <div
-                                className="col-md-6"
+                                className="rka-input-range-container clearfix"
                               >
-                                <div
-                                  className="rka-form-group"
-                                >
-                                  <label
-                                    className="rka-label"
-                                    htmlFor={null}
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={1}
+                                  name="width"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={1}
+                                  type="range"
+                                  value={5100}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
                                   >
-                                    Height
-                                    <span>
-                                       *
-                                    </span>
-                                  </label>
-                                  <div
-                                    className="rka-input-range-container clearfix"
-                                  >
-                                    <input
-                                      className="rka-input-range"
-                                      disabled={false}
-                                      max={10000}
-                                      min={1}
-                                      name="height"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      type="range"
-                                      value={5276}
-                                    />
-                                    <p>
-                                      <span
-                                        className="rka-input-range-min"
-                                      >
-                                        1
-                                      </span>
-                                      <input
-                                        className="rka-input-txt rka-input-range-current txt-c"
-                                        disabled={false}
-                                        name="height"
-                                        onChange={[Function]}
-                                        size={5}
-                                        type="text"
-                                        value={5276}
-                                      />
-                                      <span
-                                        className="rka-input-range-max"
-                                      >
-                                        10000
-                                      </span>
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                className="col-md-6"
-                              >
-                                <div
-                                  className="rka-form-group"
-                                >
-                                  <label
-                                    className="rka-label"
-                                    htmlFor={null}
-                                  >
-                                    Anchor
-                                  </label>
+                                    1
+                                  </span>
                                   <input
-                                    className="rka-input-txt"
+                                    className="rka-input-txt rka-input-range-current txt-c"
                                     disabled={false}
-                                    name="anchor"
+                                    name="width"
                                     onChange={[Function]}
-                                    placeholder="Anchor (default: auto)"
+                                    size={5}
                                     type="text"
+                                    value={5100}
                                   />
-                                </div>
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    10000
+                                  </span>
+                                </p>
                               </div>
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
+                              >
+                                height
+                                <span>
+                                   *
+                                </span>
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={1}
+                                  name="height"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={1}
+                                  type="range"
+                                  value={5276}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    1
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="height"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={5276}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    10000
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
+                              >
+                                scale
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={100}
+                                  min={0}
+                                  name="scale"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={0.1}
+                                  type="range"
+                                  value={100}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="scale"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={100}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    100
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor="anchor"
+                              >
+                                anchor
+                              </label>
+                              <input
+                                className="rka-input-txt"
+                                disabled={false}
+                                id="anchor"
+                                name="anchor"
+                                onChange={[Function]}
+                                placeholder="Anchor from where to crop from. Please see the operations documentation for details. (default: auto)"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor="fallback"
+                              >
+                                fallback
+                              </label>
+                              <input
+                                className="rka-input-txt"
+                                disabled={false}
+                                id="fallback"
+                                name="fallback"
+                                onChange={[Function]}
+                                placeholder="Anchor fallback to use, when no subject area could be found. (default: center_center)"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor="mode"
+                              >
+                                mode
+                              </label>
+                              <select
+                                className="rka-select"
+                                disabled={false}
+                                id="mode"
+                                name="mode"
+                                onChange={[Function]}
+                                placeholder="mode (default: absolute)"
+                              >
+                                <option>
+                                  mode (default: absolute)
+                                </option>
+                                <option
+                                  value="absolute"
+                                >
+                                  absolute
+                                </option>
+                                <option
+                                  value="ratio"
+                                >
+                                  ratio
+                                </option>
+                              </select>
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor="area"
+                              >
+                                area
+                              </label>
+                              <input
+                                className="rka-input-txt"
+                                disabled={false}
+                                id="area"
+                                name="area"
+                                onChange={[Function]}
+                                placeholder="If a special area per image should taken for subject or crop area."
+                                type="text"
+                                value=""
+                              />
                             </div>
                           </div>
                         </div>
@@ -2317,285 +2410,262 @@ exports[`newStack does render with clone stack props 1`] = `
                             className="rka-operation-content"
                           >
                             <div
-                              className="row"
+                              className="rka-form-group"
                             >
-                              <div
-                                className="col-md-4"
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
                               >
-                                <div
-                                  className="rka-form-group"
-                                >
-                                  <label
-                                    className="rka-label"
-                                    htmlFor={null}
+                                horizontal
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={100}
+                                  min={-100}
+                                  name="horizontal"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={1}
+                                  type="range"
+                                  value={-26}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
                                   >
-                                    Horizontal
-                                  </label>
-                                  <div
-                                    className="rka-input-range-container clearfix"
+                                    -100
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="horizontal"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={-26}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
                                   >
-                                    <input
-                                      className="rka-input-range"
-                                      disabled={false}
-                                      max={100}
-                                      min={-100}
-                                      name="horizontal"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      type="range"
-                                      value={-26}
-                                    />
-                                    <p>
-                                      <span
-                                        className="rka-input-range-min"
-                                      >
-                                        -100
-                                      </span>
-                                      <input
-                                        className="rka-input-txt rka-input-range-current txt-c"
-                                        disabled={false}
-                                        name="horizontal"
-                                        onChange={[Function]}
-                                        size={5}
-                                        type="text"
-                                        value={-26}
-                                      />
-                                      <span
-                                        className="rka-input-range-max"
-                                      >
-                                        100
-                                      </span>
-                                    </p>
-                                  </div>
-                                </div>
+                                    100
+                                  </span>
+                                </p>
                               </div>
-                              <div
-                                className="col-md-4"
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
                               >
-                                <div
-                                  className="rka-form-group"
-                                >
-                                  <label
-                                    className="rka-label"
-                                    htmlFor={null}
+                                vertical
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={100}
+                                  min={-100}
+                                  name="vertical"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={1}
+                                  type="range"
+                                  value={40}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
                                   >
-                                    Vertical
-                                  </label>
-                                  <div
-                                    className="rka-input-range-container clearfix"
+                                    -100
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="vertical"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={40}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
                                   >
-                                    <input
-                                      className="rka-input-range"
-                                      disabled={false}
-                                      max={100}
-                                      min={-100}
-                                      name="vertical"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      type="range"
-                                      value={40}
-                                    />
-                                    <p>
-                                      <span
-                                        className="rka-input-range-min"
-                                      >
-                                        -100
-                                      </span>
-                                      <input
-                                        className="rka-input-txt rka-input-range-current txt-c"
-                                        disabled={false}
-                                        name="vertical"
-                                        onChange={[Function]}
-                                        size={5}
-                                        type="text"
-                                        value={40}
-                                      />
-                                      <span
-                                        className="rka-input-range-max"
-                                      >
-                                        100
-                                      </span>
-                                    </p>
-                                  </div>
-                                </div>
+                                    100
+                                  </span>
+                                </p>
                               </div>
-                              <div
-                                className="col-md-4"
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
                               >
-                                <div
-                                  className="rka-form-group"
-                                >
-                                  <label
-                                    className="rka-label"
-                                    htmlFor={null}
+                                opacity
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={100}
+                                  min={0}
+                                  name="opacity"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={1}
+                                  type="range"
+                                  value={73}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
                                   >
-                                    Opacity
-                                  </label>
-                                  <div
-                                    className="rka-input-range-container clearfix"
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="opacity"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={73}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
                                   >
-                                    <input
-                                      className="rka-input-range"
-                                      disabled={false}
-                                      max={100}
-                                      min={0}
-                                      name="opacity"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      type="range"
-                                      value={73}
-                                    />
-                                    <p>
-                                      <span
-                                        className="rka-input-range-min"
-                                      >
-                                        0
-                                      </span>
-                                      <input
-                                        className="rka-input-txt rka-input-range-current txt-c"
-                                        disabled={false}
-                                        name="opacity"
-                                        onChange={[Function]}
-                                        size={5}
-                                        type="text"
-                                        value={73}
-                                      />
-                                      <span
-                                        className="rka-input-range-max"
-                                      >
-                                        100
-                                      </span>
-                                    </p>
-                                  </div>
-                                </div>
+                                    100
+                                  </span>
+                                </p>
                               </div>
-                              <div
-                                className="col-md-4"
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
                               >
-                                <div
-                                  className="rka-form-group"
-                                >
-                                  <label
-                                    className="rka-label"
-                                    htmlFor={null}
+                                sigma
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={0}
+                                  name="sigma"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={0.1}
+                                  type="range"
+                                  value={0.5}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
                                   >
-                                    Color
-                                  </label>
-                                  <div
-                                    className="rka-form-group"
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="sigma"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={0.5}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
                                   >
-                                    <input
-                                      className="rka-input-txt"
-                                      disabled={false}
-                                      name="color"
-                                      onClick={[Function]}
-                                      placeholder="color (default: 000000)"
-                                      readOnly={true}
-                                      type="text"
-                                      value=""
-                                    />
-                                  </div>
-                                </div>
+                                    10000
+                                  </span>
+                                </p>
                               </div>
-                              <div
-                                className="col-md-4"
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
                               >
-                                <div
-                                  className="rka-form-group"
-                                >
-                                  <label
-                                    className="rka-label"
-                                    htmlFor={null}
+                                blur radius
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={0}
+                                  name="blur_radius"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={0.1}
+                                  type="range"
+                                  value={0}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
                                   >
-                                    Blur radius
-                                  </label>
-                                  <div
-                                    className="rka-input-range-container clearfix"
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="blur_radius"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={0}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
                                   >
-                                    <input
-                                      className="rka-input-range"
-                                      disabled={false}
-                                      max={10000}
-                                      min={0}
-                                      name="blur_radius"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      type="range"
-                                      value={0}
-                                    />
-                                    <p>
-                                      <span
-                                        className="rka-input-range-min"
-                                      >
-                                        0
-                                      </span>
-                                      <input
-                                        className="rka-input-txt rka-input-range-current txt-c"
-                                        disabled={false}
-                                        name="blur_radius"
-                                        onChange={[Function]}
-                                        size={5}
-                                        type="text"
-                                        value={0}
-                                      />
-                                      <span
-                                        className="rka-input-range-max"
-                                      >
-                                        10000
-                                      </span>
-                                    </p>
-                                  </div>
-                                </div>
+                                    10000
+                                  </span>
+                                </p>
                               </div>
-                              <div
-                                className="col-md-4"
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor="color"
                               >
-                                <div
-                                  className="rka-form-group"
-                                >
-                                  <label
-                                    className="rka-label"
-                                    htmlFor={null}
-                                  >
-                                    Sigma
-                                  </label>
-                                  <div
-                                    className="rka-input-range-container clearfix"
-                                  >
-                                    <input
-                                      className="rka-input-range"
-                                      disabled={false}
-                                      max={10000}
-                                      min={0}
-                                      name="sigma"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      type="range"
-                                      value={0.5}
-                                    />
-                                    <p>
-                                      <span
-                                        className="rka-input-range-min"
-                                      >
-                                        0
-                                      </span>
-                                      <input
-                                        className="rka-input-txt rka-input-range-current txt-c"
-                                        disabled={false}
-                                        name="sigma"
-                                        onChange={[Function]}
-                                        size={5}
-                                        type="text"
-                                        value={0.5}
-                                      />
-                                      <span
-                                        className="rka-input-range-max"
-                                      >
-                                        10000
-                                      </span>
-                                    </p>
-                                  </div>
-                                </div>
+                                color
+                              </label>
+                              <div
+                                className="rka-form-group"
+                              >
+                                <input
+                                  className="rka-input-txt"
+                                  disabled={false}
+                                  name="color"
+                                  onClick={[Function]}
+                                  placeholder="Hex color (default: 000000)"
+                                  readOnly={true}
+                                  type="text"
+                                  value=""
+                                />
                               </div>
                             </div>
                           </div>
@@ -2628,171 +2698,178 @@ exports[`newStack does render with clone stack props 1`] = `
                           <div
                             className="rka-operation-content"
                           >
-                            <div>
-                              <div
-                                className="row"
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
                               >
-                                <div
-                                  className="col-md-4"
-                                >
-                                  <div
-                                    className="rka-form-group"
-                                  >
-                                    <label
-                                      className="rka-label"
-                                      htmlFor={null}
-                                    >
-                                      Width
-                                    </label>
-                                    <input
-                                      className="rka-input-txt"
-                                      disabled={false}
-                                      name="width"
-                                      onChange={[Function]}
-                                      placeholder="width"
-                                      type="text"
-                                      value={1920}
-                                    />
-                                  </div>
-                                </div>
-                                <div
-                                  className="col-md-4"
-                                >
-                                  <div
-                                    className="rka-form-group"
-                                  >
-                                    <label
-                                      className="rka-label"
-                                      htmlFor={null}
-                                    >
-                                      Height
-                                    </label>
-                                    <input
-                                      className="rka-input-txt"
-                                      disabled={false}
-                                      name="height"
-                                      onChange={[Function]}
-                                      placeholder="height"
-                                      type="text"
-                                      value={1080}
-                                    />
-                                  </div>
-                                </div>
-                                <div
-                                  className="col-md-4"
-                                >
-                                  <div
-                                    className="rka-form-group"
-                                  >
-                                    <label
-                                      className="rka-label"
-                                      htmlFor={null}
-                                    >
-                                      Upscale
-                                    </label>
-                                    <select
-                                      className="rka-select"
-                                      disabled={false}
-                                      name="upscale"
-                                      onChange={[Function]}
-                                      placeholder="upscale (default: true)"
-                                    >
-                                      <option>
-                                        upscale (default: true)
-                                      </option>
-                                      <option
-                                        value="true"
-                                      >
-                                        true
-                                      </option>
-                                      <option
-                                        value="false"
-                                      >
-                                        false
-                                      </option>
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
+                                width
+                              </label>
                               <div
-                                className="row"
+                                className="rka-input-range-container clearfix"
                               >
-                                <div
-                                  className="col-md-4"
-                                >
-                                  <div
-                                    className="rka-form-group"
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={1}
+                                  name="width"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={1}
+                                  type="range"
+                                  value={1920}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
                                   >
-                                    <label
-                                      className="rka-label"
-                                      htmlFor={null}
-                                    >
-                                      Upscale DPR
-                                    </label>
-                                    <select
-                                      className="rka-select"
-                                      disabled={false}
-                                      name="upscale_dpr"
-                                      onChange={[Function]}
-                                      placeholder="upscale_dpr (default: true)"
-                                    >
-                                      <option>
-                                        upscale_dpr (default: true)
-                                      </option>
-                                      <option
-                                        value="true"
-                                      >
-                                        true
-                                      </option>
-                                      <option
-                                        value="false"
-                                      >
-                                        false
-                                      </option>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div
-                                  className="col-md-4"
-                                >
-                                  <div
-                                    className="rka-form-group"
+                                    1
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="width"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={1920}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
                                   >
-                                    <label
-                                      className="rka-label"
-                                      htmlFor={null}
-                                    >
-                                      Mode
-                                    </label>
-                                    <select
-                                      className="rka-select"
-                                      disabled={false}
-                                      name="mode"
-                                      onChange={[Function]}
-                                      placeholder="mode (default: box)"
-                                    >
-                                      <option>
-                                        mode (default: box)
-                                      </option>
-                                      <option
-                                        value="box"
-                                      >
-                                        box
-                                      </option>
-                                      <option
-                                        value="absolute"
-                                      >
-                                        absolute
-                                      </option>
-                                      <option
-                                        value="fill"
-                                      >
-                                        fill
-                                      </option>
-                                    </select>
-                                  </div>
-                                </div>
+                                    10000
+                                  </span>
+                                </p>
                               </div>
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
+                              >
+                                height
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={1}
+                                  name="height"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={1}
+                                  type="range"
+                                  value={1080}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    1
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="height"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={1080}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    10000
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor="upscale"
+                              >
+                                upscale
+                              </label>
+                              <input
+                                checked={false}
+                                className="rka-input-checkbox"
+                                disabled={false}
+                                id="upscale"
+                                name="upscale"
+                                onChange={[Function]}
+                                placeholder="upscale (default: true)"
+                                type="checkbox"
+                                value=""
+                              />
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor="upscale_dpr"
+                              >
+                                upscale dpr
+                              </label>
+                              <input
+                                checked={false}
+                                className="rka-input-checkbox"
+                                disabled={false}
+                                id="upscale_dpr"
+                                name="upscale_dpr"
+                                onChange={[Function]}
+                                placeholder="upscale_dpr (default: true)"
+                                type="checkbox"
+                                value=""
+                              />
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor="mode"
+                              >
+                                mode
+                              </label>
+                              <select
+                                className="rka-select"
+                                disabled={false}
+                                id="mode"
+                                name="mode"
+                                onChange={[Function]}
+                                placeholder="mode (default: box)"
+                              >
+                                <option>
+                                  mode (default: box)
+                                </option>
+                                <option
+                                  value="box"
+                                >
+                                  box
+                                </option>
+                                <option
+                                  value="absolute"
+                                >
+                                  absolute
+                                </option>
+                                <option
+                                  value="fill"
+                                >
+                                  fill
+                                </option>
+                              </select>
                             </div>
                           </div>
                         </div>
@@ -2825,138 +2902,124 @@ exports[`newStack does render with clone stack props 1`] = `
                             className="rka-operation-content"
                           >
                             <div
-                              className="row"
+                              className="rka-form-group"
                             >
-                              <div
-                                className="col-md-12"
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
                               >
-                                <div
-                                  className="rka-form-group"
-                                >
-                                  <label
-                                    className="rka-label"
-                                    htmlFor={null}
+                                angle
+                                <span>
+                                   *
+                                </span>
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={360}
+                                  min={0}
+                                  name="angle"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={0.1}
+                                  type="range"
+                                  value={69}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
                                   >
-                                    Angle
-                                    <span>
-                                       *
-                                    </span>
-                                  </label>
-                                  <div
-                                    className="rka-input-range-container clearfix"
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="angle"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={69}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
                                   >
-                                    <input
-                                      className="rka-input-range"
-                                      disabled={false}
-                                      max={360}
-                                      min={0}
-                                      name="angle"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      type="range"
-                                      value={69}
-                                    />
-                                    <p>
-                                      <span
-                                        className="rka-input-range-min"
-                                      >
-                                        0
-                                      </span>
-                                      <input
-                                        className="rka-input-txt rka-input-range-current txt-c"
-                                        disabled={false}
-                                        name="angle"
-                                        onChange={[Function]}
-                                        size={5}
-                                        type="text"
-                                        value={69}
-                                      />
-                                      <span
-                                        className="rka-input-range-max"
-                                      >
-                                        360
-                                      </span>
-                                    </p>
-                                  </div>
-                                </div>
+                                    360
+                                  </span>
+                                </p>
                               </div>
-                              <div
-                                className="col-md-6"
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
                               >
-                                <div
-                                  className="rka-form-group"
-                                >
-                                  <label
-                                    className="rka-label"
-                                    htmlFor={null}
+                                background opacity
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={100}
+                                  min={0}
+                                  name="background_opacity"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={0.1}
+                                  type="range"
+                                  value={20}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
                                   >
-                                    Background color
-                                  </label>
-                                  <div
-                                    className="rka-form-group"
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="background_opacity"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={20}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
                                   >
-                                    <input
-                                      className="rka-input-txt"
-                                      disabled={false}
-                                      name="background_color"
-                                      onClick={[Function]}
-                                      placeholder="color (default: FFFFFF)"
-                                      readOnly={true}
-                                      type="text"
-                                      value=""
-                                    />
-                                  </div>
-                                </div>
+                                    100
+                                  </span>
+                                </p>
                               </div>
-                              <div
-                                className="col-md-6"
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor="background_color"
                               >
-                                <div
-                                  className="rka-form-group"
-                                >
-                                  <label
-                                    className="rka-label"
-                                    htmlFor={null}
-                                  >
-                                    Background opacity
-                                  </label>
-                                  <div
-                                    className="rka-input-range-container clearfix"
-                                  >
-                                    <input
-                                      className="rka-input-range"
-                                      disabled={false}
-                                      max={100}
-                                      min={0}
-                                      name="background_opacity"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      type="range"
-                                      value={20}
-                                    />
-                                    <p>
-                                      <span
-                                        className="rka-input-range-min"
-                                      >
-                                        0
-                                      </span>
-                                      <input
-                                        className="rka-input-txt rka-input-range-current txt-c"
-                                        disabled={false}
-                                        name="background_opacity"
-                                        onChange={[Function]}
-                                        size={5}
-                                        type="text"
-                                        value={20}
-                                      />
-                                      <span
-                                        className="rka-input-range-max"
-                                      >
-                                        100
-                                      </span>
-                                    </p>
-                                  </div>
-                                </div>
+                                background color
+                              </label>
+                              <div
+                                className="rka-form-group"
+                              >
+                                <input
+                                  className="rka-input-txt"
+                                  disabled={false}
+                                  name="background_color"
+                                  onClick={[Function]}
+                                  placeholder="Hex color (default: FFFFFF)"
+                                  readOnly={true}
+                                  type="text"
+                                  value=""
+                                />
                               </div>
                             </div>
                           </div>

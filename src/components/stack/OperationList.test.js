@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { DragDropContext } from 'react-dnd'
 import TestBackend from 'react-dnd-test-backend'
-import OperationList from '../../../src/components/newStack/OperationList'
+import OperationList from './OperationList'
 import renderer from 'react-test-renderer'
 
 function wrapInTestContext(DecoratedComponent) {
@@ -47,8 +47,8 @@ test('OperationList does render with all props', () => {
     onChangeName: failingFunc,
     onChangeOptions: failingFunc,
     onChangeOperation: failingFunc,
-    addOperation: failingFunc,
-    removeOperation: failingFunc,
+    onAddOperation: failingFunc,
+    onRemoveOperation: failingFunc,
     setActiveOperation: failingFunc,
     onMoveOperation: failingFunc,
     onSelectAddOperation: failingFunc,

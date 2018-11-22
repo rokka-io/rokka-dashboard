@@ -5,7 +5,7 @@ import Select from 'react-select'
 import { styles } from '../forms/ReactSelect'
 import FormGroup from '../forms/FormGroup'
 
-const BaseStack = ({ name, value, definitions, stacks = {}, onChange, error }) => {
+const BaseStack = ({ label, name, value, stacks = {}, onChange, error }) => {
   if (!onChange) {
     if (!value) {
       return null
@@ -30,9 +30,9 @@ const BaseStack = ({ name, value, definitions, stacks = {}, onChange, error }) =
     }
   })
   return (
-    <FormGroup label="Base Stack" className="mb-md" error={error}>
+    <FormGroup label={label} className="mb-md" error={error}>
       <Select
-        name="basestack"
+        name={name}
         placeholder="Enter base stack"
         value={options.filter(({ value: v }) => value === v)}
         onChange={({ value }) => onChange({ name: 'basestack', value })}
@@ -43,8 +43,8 @@ const BaseStack = ({ name, value, definitions, stacks = {}, onChange, error }) =
   )
 }
 BaseStack.propTypes = {
+  label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  definitions: PropTypes.object.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,
   error: PropTypes.string,

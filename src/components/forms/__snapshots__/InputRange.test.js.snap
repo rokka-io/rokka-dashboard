@@ -12,7 +12,9 @@ exports[`InputRange does render 1`] = `
     name="Test"
     onBlur={[Function]}
     onChange={[Function]}
+    step={1}
     type="range"
+    value=""
   />
   <p>
     <span
@@ -44,6 +46,7 @@ exports[`InputRange does render with a number defaultValue 1`] = `
     name="Test"
     onBlur={[Function]}
     onChange={[Function]}
+    step={1}
     type="range"
     value={12}
   />
@@ -79,6 +82,7 @@ exports[`InputRange does render with a number value 1`] = `
     name="Test"
     onBlur={[Function]}
     onChange={[Function]}
+    step={1}
     type="range"
     value={12}
   />
@@ -114,6 +118,7 @@ exports[`InputRange does render with a string defaultValue 1`] = `
     name="Test"
     onBlur={[Function]}
     onChange={[Function]}
+    step={1}
     type="range"
     value="12"
   />
@@ -149,6 +154,7 @@ exports[`InputRange does render with a string value 1`] = `
     name="Test"
     onBlur={[Function]}
     onChange={[Function]}
+    step={1}
     type="range"
     value="12"
   />
@@ -184,7 +190,9 @@ exports[`InputRange does render with onChange 1`] = `
     name="Test"
     onBlur={[Function]}
     onChange={[Function]}
+    step={1}
     type="range"
+    value=""
   />
   <p>
     <span
@@ -199,6 +207,7 @@ exports[`InputRange does render with onChange 1`] = `
       onChange={[Function]}
       size={5}
       type="text"
+      value=""
     />
     <span
       className="rka-input-range-max"

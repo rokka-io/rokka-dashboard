@@ -1,7 +1,6 @@
 import React from 'react'
-import Sidebar from '../../src/components/Sidebar'
+import Sidebar from './Sidebar'
 import renderer from 'react-test-renderer'
-import { mount } from 'enzyme'
 import { MemoryRouter } from 'react-router'
 
 jest.mock('../../src/state')

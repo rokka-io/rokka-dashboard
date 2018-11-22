@@ -1,5 +1,5 @@
 import React from 'react'
-import RequiredIndicator from '../../../src/components/forms/RequiredIndicator'
+import RequiredIndicator from './RequiredIndicator'
 import renderer from 'react-test-renderer'
 
 test('RequiredIndicator does render', () => {

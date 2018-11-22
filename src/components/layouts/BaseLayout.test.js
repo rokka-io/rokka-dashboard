@@ -1,5 +1,5 @@
 import React from 'react'
-import BaseLayout from '../../../src/components/layouts/BaseLayout'
+import BaseLayout from './BaseLayout'
 import renderer from 'react-test-renderer'
 import { MemoryRouter } from 'react-router'
 

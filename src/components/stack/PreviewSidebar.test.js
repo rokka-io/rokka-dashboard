@@ -1,5 +1,5 @@
 import React from 'react'
-import PreviewSidebar from '../../../src/components/newStack/PreviewSidebar'
+import PreviewSidebar from './PreviewSidebar'
 import renderer from 'react-test-renderer'
 
 test('PreviewSidebar does not render when no previewImage set', () => {

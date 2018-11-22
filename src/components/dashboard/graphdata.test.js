@@ -2,7 +2,7 @@
  * graphdata tests
  */
 
-import getStats from '../../../src/components/dashboard/graphdata'
+import getStats from './graphdata'
 import january from './__tests__/fixtures/january'
 
 // monkey patch Date.prototype.toLocaleDateString() to always use the same locale regardless which env it's run in.

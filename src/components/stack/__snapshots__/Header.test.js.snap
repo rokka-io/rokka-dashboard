@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header does render with minimal props 1`] = `
+<div
+  className="bg-white pa-md clearfix"
+>
+  <h1
+    className="rka-h1 flo-l mt-xs"
+  >
+    Test
+  </h1>
+  <div
+    className="flo-r"
+  >
+    Test
+  </div>
+</div>
+`;

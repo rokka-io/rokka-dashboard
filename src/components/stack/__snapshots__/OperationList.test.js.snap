@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OperationList does render with all props 1`] = `
+Array [
+  <h3
+    className="rka-h2 mv-md"
+  >
+    Operations
+  </h3>,
+  <div
+    className="pa-md mb-xs pos-r bor-light"
+  >
+    <div>
+      <button
+        className="rka-close-icon"
+        onClick={[Function]}
+      />
+      <button
+        className="rka-edit-icon"
+        onClick={[Function]}
+      />
+      <span
+        className="rka-move-icon"
+      />
+      <h3
+        className="rka-h3 txt-cap"
+      >
+        rotate
+      </h3>
+    </div>
+    <div
+      className=""
+    >
+      <div
+        className="rka-operation-content"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label txt-cap"
+            htmlFor="background_color"
+          >
+            background color
+          </label>
+          <div
+            className="rka-form-group"
+          >
+            <input
+              className="rka-input-txt"
+              disabled={false}
+              name="background_color"
+              onClick={[Function]}
+              placeholder="Hex color (default: #000000)"
+              readOnly={true}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label txt-cap"
+            htmlFor="angle"
+          >
+            angle
+          </label>
+          <input
+            className="rka-input-txt"
+            disabled={false}
+            id="angle"
+            name="angle"
+            onChange={[Function]}
+            placeholder="angle (default: 90)"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label txt-cap"
+            htmlFor="background_opacity"
+          >
+            background opacity
+          </label>
+          <input
+            className="rka-input-txt"
+            disabled={false}
+            id="background_opacity"
+            name="background_opacity"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="pa-md mb-xs pos-r bg-gray-lightest is-active bor-light"
+  >
+    <div>
+      <button
+        className="rka-close-icon"
+        onClick={[Function]}
+      />
+      <button
+        className="rka-edit-icon"
+        onClick={[Function]}
+      />
+      <span
+        className="rka-move-icon"
+      />
+      <h3
+        className="rka-h3 txt-cap"
+      >
+        crop
+      </h3>
+    </div>
+    <div
+      className=""
+    >
+      <div
+        className="rka-operation-content"
+      >
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label txt-cap"
+            htmlFor="width"
+          >
+            width
+          </label>
+          <input
+            className="rka-input-txt"
+            disabled={false}
+            id="width"
+            name="width"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label txt-cap"
+            htmlFor="height"
+          >
+            height
+          </label>
+          <input
+            className="rka-input-txt"
+            disabled={false}
+            id="height"
+            name="height"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="rka-form-group"
+        >
+          <label
+            className="rka-label txt-cap"
+            htmlFor="anchor"
+          >
+            anchor
+          </label>
+          <input
+            className="rka-input-txt"
+            disabled={false}
+            id="anchor"
+            name="anchor"
+            onChange={[Function]}
+            placeholder="anchor (default: left)"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="pa-md bor-light mt-md"
+  >
+    <h3
+      className="rka-h3 mb-md"
+    >
+      New operation
+    </h3>
+    <div
+      className="rka-form-group"
+    >
+      <select
+        className="rka-select"
+        onChange={[Function]}
+        value=""
+      >
+        <option
+          value="crop"
+        >
+          crop
+        </option>
+        <option
+          value="rotate"
+        >
+          rotate
+        </option>
+      </select>
+    </div>
+    <button
+      className="rka-button rka-button-brand rka-button-sm"
+      onClick={[Function]}
+    >
+      Add operation
+    </button>
+  </div>,
+]
+`;
+
+exports[`OperationList does render with minimal props 1`] = `
+<h3
+  className="rka-h2 mv-md"
+>
+  Operations
+</h3>
+`;

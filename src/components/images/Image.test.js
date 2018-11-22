@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Image from '../../../src/components/images/Image'
+import Image from './Image'
 import renderer from 'react-test-renderer'
 
 test('Image does render with minimal props', () => {

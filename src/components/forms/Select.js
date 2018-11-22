@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { readableInputLabel } from '../../utils/string'
 
 const Select = ({ value, defaultValue, placeholder, disabled, children, ...props }) => {
   const ph = defaultValue
-    ? `${placeholder || props.name || props.type || ''} (default: ${defaultValue})`
+    ? `${readableInputLabel(
+        placeholder || props.name || props.type || ''
+      )} (default: ${defaultValue})`
     : placeholder
 
   const val = disabled || !props.onChange ? value || defaultValue : value

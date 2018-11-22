@@ -5,6 +5,7 @@ exports[`Input does forward props 1`] = `
   disabled={false}
   foo="bar"
   onChange={[Function]}
+  value=""
 />
 `;
 
@@ -12,6 +13,7 @@ exports[`Input does render 1`] = `
 <input
   disabled={false}
   onChange={[Function]}
+  value=""
 />
 `;
 
@@ -26,6 +28,7 @@ exports[`Input does render with a value 1`] = `
 exports[`Input is disabled if there is no onChange func 1`] = `
 <input
   disabled={true}
+  value=""
 />
 `;
 
@@ -34,6 +37,7 @@ exports[`Input shows placeholder 1`] = `
   disabled={false}
   onChange={[Function]}
   placeholder="Placeholder"
+  value=""
 />
 `;
 
@@ -42,6 +46,7 @@ exports[`Input shows placeholder with default value 1`] = `
   disabled={false}
   onChange={[Function]}
   placeholder="Placeholder (default: DefaultValue)"
+  value=""
 />
 `;
 
@@ -59,6 +64,7 @@ exports[`Input takes name as placeholder if no placeholder given 1`] = `
   name="Name"
   onChange={[Function]}
   placeholder="Name (default: DefaultValue)"
+  value=""
 />
 `;
 
@@ -76,5 +82,6 @@ exports[`Input takes type as placeholder if no placeholder & name given 1`] = `
   onChange={[Function]}
   placeholder="Type (default: DefaultValue)"
   type="Type"
+  value=""
 />
 `;

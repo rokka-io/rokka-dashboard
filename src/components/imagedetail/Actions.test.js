@@ -1,6 +1,6 @@
 import React from 'react'
-import Actions from '../../../src/components/imagedetail/Actions'
-import { FOCUS_POINT, FOCUS_AREA } from '../../../src/components/imagedetail/constants'
+import Actions from './Actions'
+import { FOCUS_POINT, FOCUS_AREA } from './constants'
 import renderer from 'react-test-renderer'
 
 test('Actions does render', () => {

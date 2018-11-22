@@ -2145,44 +2145,100 @@ exports[`newStack does render with clone stack props 1`] = `
                             >
                               <label
                                 className="rka-label txt-cap"
-                                htmlFor="width"
+                                htmlFor={null}
                               >
                                 width
                                 <span>
                                    *
                                 </span>
                               </label>
-                              <input
-                                className="rka-input-txt"
-                                disabled={false}
-                                id="width"
-                                name="width"
-                                onChange={[Function]}
-                                placeholder="Width to which the image will be cropped."
-                                value={5100}
-                              />
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={1}
+                                  name="width"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={1}
+                                  type="range"
+                                  value={5100}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    1
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="width"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={5100}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    10000
+                                  </span>
+                                </p>
+                              </div>
                             </div>
                             <div
                               className="rka-form-group"
                             >
                               <label
                                 className="rka-label txt-cap"
-                                htmlFor="height"
+                                htmlFor={null}
                               >
                                 height
                                 <span>
                                    *
                                 </span>
                               </label>
-                              <input
-                                className="rka-input-txt"
-                                disabled={false}
-                                id="height"
-                                name="height"
-                                onChange={[Function]}
-                                placeholder="Height to which the image will be cropped."
-                                value={5276}
-                              />
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={1}
+                                  name="height"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={1}
+                                  type="range"
+                                  value={5276}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    1
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="height"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={5276}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    10000
+                                  </span>
+                                </p>
+                              </div>
                             </div>
                             <div
                               className="rka-form-group"
@@ -2247,6 +2303,8 @@ exports[`newStack does render with clone stack props 1`] = `
                                 name="anchor"
                                 onChange={[Function]}
                                 placeholder="Anchor from where to crop from. Please see the operations documentation for details. (default: auto)"
+                                type="text"
+                                value=""
                               />
                             </div>
                             <div
@@ -2265,6 +2323,8 @@ exports[`newStack does render with clone stack props 1`] = `
                                 name="fallback"
                                 onChange={[Function]}
                                 placeholder="Anchor fallback to use, when no subject area could be found. (default: center_center)"
+                                type="text"
+                                value=""
                               />
                             </div>
                             <div
@@ -2315,6 +2375,8 @@ exports[`newStack does render with clone stack props 1`] = `
                                 name="area"
                                 onChange={[Function]}
                                 placeholder="If a special area per image should taken for subject or crop area."
+                                type="text"
+                                value=""
                               />
                             </div>
                           </div>
@@ -2347,6 +2409,100 @@ exports[`newStack does render with clone stack props 1`] = `
                           <div
                             className="rka-operation-content"
                           >
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
+                              >
+                                horizontal
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={100}
+                                  min={-100}
+                                  name="horizontal"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={1}
+                                  type="range"
+                                  value={-26}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    -100
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="horizontal"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={-26}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    100
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                            <div
+                              className="rka-form-group"
+                            >
+                              <label
+                                className="rka-label txt-cap"
+                                htmlFor={null}
+                              >
+                                vertical
+                              </label>
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={100}
+                                  min={-100}
+                                  name="vertical"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={1}
+                                  type="range"
+                                  value={40}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    -100
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="vertical"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={40}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    100
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
                             <div
                               className="rka-form-group"
                             >
@@ -2399,75 +2555,94 @@ exports[`newStack does render with clone stack props 1`] = `
                             >
                               <label
                                 className="rka-label txt-cap"
-                                htmlFor="horizontal"
-                              >
-                                horizontal
-                              </label>
-                              <input
-                                className="rka-input-txt"
-                                disabled={false}
-                                id="horizontal"
-                                name="horizontal"
-                                onChange={[Function]}
-                                placeholder="Horizontal offset of shadow."
-                                value={-26}
-                              />
-                            </div>
-                            <div
-                              className="rka-form-group"
-                            >
-                              <label
-                                className="rka-label txt-cap"
-                                htmlFor="vertical"
-                              >
-                                vertical
-                              </label>
-                              <input
-                                className="rka-input-txt"
-                                disabled={false}
-                                id="vertical"
-                                name="vertical"
-                                onChange={[Function]}
-                                placeholder="Vertical offset of shadow."
-                                value={40}
-                              />
-                            </div>
-                            <div
-                              className="rka-form-group"
-                            >
-                              <label
-                                className="rka-label txt-cap"
-                                htmlFor="sigma"
+                                htmlFor={null}
                               >
                                 sigma
                               </label>
-                              <input
-                                className="rka-input-txt"
-                                disabled={false}
-                                id="sigma"
-                                name="sigma"
-                                onChange={[Function]}
-                                placeholder="Sigma controls the fuzziness of the shadow within the radius. Small values like 0.5 work best for good results. (default: 0.5)"
-                              />
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={0}
+                                  name="sigma"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={0.1}
+                                  type="range"
+                                  value={0.5}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="sigma"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={0.5}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    10000
+                                  </span>
+                                </p>
+                              </div>
                             </div>
                             <div
                               className="rka-form-group"
                             >
                               <label
                                 className="rka-label txt-cap"
-                                htmlFor="blur_radius"
+                                htmlFor={null}
                               >
                                 blur radius
                               </label>
-                              <input
-                                className="rka-input-txt"
-                                disabled={false}
-                                id="blur_radius"
-                                name="blur_radius"
-                                onChange={[Function]}
-                                placeholder="Radius of edge blurring, controls how far it can spread. In pixels."
-                                value={0}
-                              />
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={0}
+                                  name="blur_radius"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={0.1}
+                                  type="range"
+                                  value={0}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="blur_radius"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={0}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    10000
+                                  </span>
+                                </p>
+                              </div>
                             </div>
                             <div
                               className="rka-form-group"
@@ -2528,38 +2703,94 @@ exports[`newStack does render with clone stack props 1`] = `
                             >
                               <label
                                 className="rka-label txt-cap"
-                                htmlFor="width"
+                                htmlFor={null}
                               >
                                 width
                               </label>
-                              <input
-                                className="rka-input-txt"
-                                disabled={false}
-                                id="width"
-                                name="width"
-                                onChange={[Function]}
-                                placeholder="Width of resize."
-                                value={1920}
-                              />
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={1}
+                                  name="width"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={1}
+                                  type="range"
+                                  value={1920}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    1
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="width"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={1920}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    10000
+                                  </span>
+                                </p>
+                              </div>
                             </div>
                             <div
                               className="rka-form-group"
                             >
                               <label
                                 className="rka-label txt-cap"
-                                htmlFor="height"
+                                htmlFor={null}
                               >
                                 height
                               </label>
-                              <input
-                                className="rka-input-txt"
-                                disabled={false}
-                                id="height"
-                                name="height"
-                                onChange={[Function]}
-                                placeholder="Height of resize."
-                                value={1080}
-                              />
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={10000}
+                                  min={1}
+                                  name="height"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={1}
+                                  type="range"
+                                  value={1080}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    1
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="height"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={1080}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    10000
+                                  </span>
+                                </p>
+                              </div>
                             </div>
                             <div
                               className="rka-form-group"
@@ -2571,6 +2802,7 @@ exports[`newStack does render with clone stack props 1`] = `
                                 upscale
                               </label>
                               <input
+                                checked={false}
                                 className="rka-input-checkbox"
                                 disabled={false}
                                 id="upscale"
@@ -2578,6 +2810,7 @@ exports[`newStack does render with clone stack props 1`] = `
                                 onChange={[Function]}
                                 placeholder="upscale (default: true)"
                                 type="checkbox"
+                                value=""
                               />
                             </div>
                             <div
@@ -2590,6 +2823,7 @@ exports[`newStack does render with clone stack props 1`] = `
                                 upscale dpr
                               </label>
                               <input
+                                checked={false}
                                 className="rka-input-checkbox"
                                 disabled={false}
                                 id="upscale_dpr"
@@ -2597,6 +2831,7 @@ exports[`newStack does render with clone stack props 1`] = `
                                 onChange={[Function]}
                                 placeholder="upscale_dpr (default: true)"
                                 type="checkbox"
+                                value=""
                               />
                             </div>
                             <div
@@ -2671,22 +2906,50 @@ exports[`newStack does render with clone stack props 1`] = `
                             >
                               <label
                                 className="rka-label txt-cap"
-                                htmlFor="angle"
+                                htmlFor={null}
                               >
                                 angle
                                 <span>
                                    *
                                 </span>
                               </label>
-                              <input
-                                className="rka-input-txt"
-                                disabled={false}
-                                id="angle"
-                                name="angle"
-                                onChange={[Function]}
-                                placeholder="Clockwise rotation angle of the image. Can be fractional, example: \\"120.3\\""
-                                value={69}
-                              />
+                              <div
+                                className="rka-input-range-container clearfix"
+                              >
+                                <input
+                                  className="rka-input-range"
+                                  disabled={false}
+                                  max={360}
+                                  min={0}
+                                  name="angle"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  step={0.1}
+                                  type="range"
+                                  value={69}
+                                />
+                                <p>
+                                  <span
+                                    className="rka-input-range-min"
+                                  >
+                                    0
+                                  </span>
+                                  <input
+                                    className="rka-input-txt rka-input-range-current txt-c"
+                                    disabled={false}
+                                    name="angle"
+                                    onChange={[Function]}
+                                    size={5}
+                                    type="text"
+                                    value={69}
+                                  />
+                                  <span
+                                    className="rka-input-range-max"
+                                  >
+                                    360
+                                  </span>
+                                </p>
+                              </div>
                             </div>
                             <div
                               className="rka-form-group"

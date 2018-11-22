@@ -37,7 +37,6 @@ export default function StackOperation({
   errors = {},
   ...props
 }) {
-  console.log(values, props)
   if (!availableOperations[name]) {
     return null
   }

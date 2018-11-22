@@ -74,6 +74,8 @@ Array [
             name="angle"
             onChange={[Function]}
             placeholder="angle (default: 90)"
+            type="text"
+            value=""
           />
         </div>
         <div
@@ -91,6 +93,8 @@ Array [
             id="background_opacity"
             name="background_opacity"
             onChange={[Function]}
+            type="text"
+            value=""
           />
         </div>
       </div>
@@ -138,6 +142,8 @@ Array [
             id="width"
             name="width"
             onChange={[Function]}
+            type="text"
+            value=""
           />
         </div>
         <div
@@ -155,6 +161,8 @@ Array [
             id="height"
             name="height"
             onChange={[Function]}
+            type="text"
+            value=""
           />
         </div>
         <div
@@ -173,6 +181,8 @@ Array [
             name="anchor"
             onChange={[Function]}
             placeholder="anchor (default: left)"
+            type="text"
+            value=""
           />
         </div>
       </div>
@@ -217,35 +227,9 @@ Array [
 `;
 
 exports[`OperationList does render with minimal props 1`] = `
-Array [
-  <h3
-    className="rka-h2 mv-md"
-  >
-    Operations
-  </h3>,
-  <div
-    className="pa-md bor-light mt-md"
-  >
-    <h3
-      className="rka-h3 mb-md"
-    >
-      New operation
-    </h3>
-    <div
-      className="rka-form-group"
-    >
-      <select
-        className="rka-select"
-        onChange={[Function]}
-        value=""
-      />
-    </div>
-    <button
-      className="rka-button rka-button-brand rka-button-sm"
-      onClick={[Function]}
-    >
-      Add operation
-    </button>
-  </div>,
-]
+<h3
+  className="rka-h2 mv-md"
+>
+  Operations
+</h3>
 `;

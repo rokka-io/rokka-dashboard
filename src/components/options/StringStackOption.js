@@ -8,7 +8,7 @@ const StringStackOption = ({ label, name, value, definitions, required, onChange
   if (value === null || value === undefined) {
     value = ''
   }
-  console.log('YOLO STRING', value, definitions.default)
+
   return (
     <FormGroup label={label} htmlFor={name} error={error} required={required}>
       <Input

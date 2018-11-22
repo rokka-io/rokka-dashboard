@@ -26,7 +26,6 @@ const StackDetailPane = ({
   const operationsTab = addedOperations.length > 0 || !!onAddOperation
   const addedOptionsKeys = Object.keys(options)
   const optionsTab = !operationsTab || addedOptionsKeys.length > 0 || !!onChangeOptions
-  console.log(availableOperations)
 
   return (
     <>

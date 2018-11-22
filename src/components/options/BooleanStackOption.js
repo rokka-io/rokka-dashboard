@@ -8,7 +8,6 @@ const BooleanStackOption = ({ label, name, value, definitions, required, onChang
   if (value === null || value === undefined) {
     value = false
   }
-  console.log('###', value)
 
   return (
     <FormGroup label={label} htmlFor={name} error={error} required={required}>

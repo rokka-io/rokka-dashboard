@@ -1,0 +1,50 @@
+{
+  "name": "rokka-dashboard-ui-base",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-scripts": "2.1.1",
+    "styled-components": "^4.1.1",
+    "tslib": "^1.9.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009",
+    "build-storybook": "build-storybook",
+    "prettier": "prettier --config ../../.prettierrc 'src/**/*.{ts,tsx}'"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@storybook/addon-actions": "^4.0.8",
+    "@storybook/addon-info": "^4.0.8",
+    "@storybook/addon-links": "^4.0.8",
+    "@storybook/addons": "^4.0.8",
+    "@storybook/react": "^4.0.8",
+    "@types/jest": "^23.3.9",
+    "@types/node": "^10.12.10",
+    "@types/react": "^16.6.3",
+    "@types/react-dom": "^16.0.10",
+    "@types/storybook__react": "^4.0.0",
+    "@types/styled-components": "^4.1.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.4",
+    "prettier": "1.15.2",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "typescript": "^3.1.6",
+    "typescript-styled-plugin": "^0.13.0"
+  }
+}

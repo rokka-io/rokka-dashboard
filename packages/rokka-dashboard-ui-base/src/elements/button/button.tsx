@@ -5,7 +5,7 @@ import { fonts } from '../../identity/typography/index';
 import { spaces } from '../../identity/spaces/spaces';
 
 interface ButtonProps {
-  /** Displayed text */
+  /** Children */
   children: ReactNode;
   /** Button type */
   type?: string;

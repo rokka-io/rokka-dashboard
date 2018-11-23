@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { fonts } from '../../identity/typography/index';
 
 interface Heading2StylingProps {
+  /** Color of heading text */
   color?: string;
 }
 

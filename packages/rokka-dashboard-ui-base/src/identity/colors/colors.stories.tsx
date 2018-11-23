@@ -19,7 +19,7 @@ function generateColorList(key: string): JSX.Element {
   );
 }
 
-storiesOf('01 - Identities / Colors', module)
+storiesOf('Identities / Colors', module)
   .addParameters({ info: { disable: true } })
   .add('Brand', () => generateColorList('brand'))
   .add('Gray', () => generateColorList('gray'))

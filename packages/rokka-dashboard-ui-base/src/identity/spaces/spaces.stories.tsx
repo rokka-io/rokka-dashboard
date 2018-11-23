@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import styled from 'styled-components';
 import { spaces } from './spaces';
 
-storiesOf('01 - Identities / Spaces', module).add(
+storiesOf('Identities / Spaces', module).add(
   'Spaces',
   () => (
     <ul>

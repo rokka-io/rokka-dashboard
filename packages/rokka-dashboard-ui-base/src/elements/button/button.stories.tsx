@@ -5,6 +5,6 @@ import React from 'react';
 
 import { Button } from './button';
 
-storiesOf('02 - Elements', module).add('Button', () => (
+storiesOf('Elements / Forms', module).add('Button', () => (
   <Button onClick={action('Button Click')}>{text('text', 'foobar')}</Button>
 ));

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components FormGroup renders a form group correctly. 1`] = `
+<styled.div>
+  <styled.label
+    htmlFor="an-id"
+  >
+    Label for input
+  </styled.label>
+  <styled.input
+    id="an-id"
+    placeholder="A placeholder"
+  />
+</styled.div>
+`;

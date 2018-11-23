@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { fonts } from './index';
 import styled from 'styled-components';
 
-storiesOf('01 - Identities / Typography', module)
+storiesOf('Identities / Typography', module)
   .addParameters({ info: { disable: true } })
   .add('Fonts', () => {
     return (

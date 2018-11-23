@@ -1,12 +1,12 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { Label } from './label';
+import { Input } from './input';
 
 describe('Elements', () => {
-  describe('Label', () => {
+  describe('Input', () => {
     it('renders a input correctly.', () => {
-      const component = shallow(<Label>test</Label>);
+      const component = shallow(<Input value="Test" />);
 
       expect(component).toMatchSnapshot();
     });

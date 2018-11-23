@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Elements Label renders a input correctly. 1`] = `
+exports[`Elements Input renders a input correctly. 1`] = `
 <StyledComponent
   forwardedClass={
     Object {
@@ -15,31 +15,47 @@ exports[`Elements Label renders a input correctly. 1`] = `
           "\\"Liip Etica Book\\", sans-serif",
           ";
   font-size: ",
-          ".875rem",
+          "1rem",
           ";
-  color: ",
-          "#898A81",
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid ",
+          "#DDDDD8",
           ";
-  font-weight: ",
-          "700",
-          ";
-  margin-bottom: ",
+  padding: 0 ",
           "8px",
           ";
+  outline: none;
+
+  :focus {
+    transition: border 0.4s ease;
+    border-color: ",
+          "#A5A59F",
+          ";
+  }
+
+  :disabled {
+    color: ",
+          "#898A81",
+          ";
+    background: ",
+          "#EBEBE6",
+          ";
+  }
 ",
         ],
       },
-      "displayName": "styled.label",
+      "displayName": "styled.input",
       "render": [Function],
       "styledComponentId": "sc-bdVaJa",
-      "target": "label",
+      "target": "input",
       "toString": [Function],
       "warnTooManyClasses": [Function],
       "withComponent": [Function],
     }
   }
   forwardedRef={null}
->
-  test
-</StyledComponent>
+  value="Test"
+/>
 `;

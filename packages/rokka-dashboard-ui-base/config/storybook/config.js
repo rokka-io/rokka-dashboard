@@ -1,5 +1,6 @@
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
+import { withOptions } from '@storybook/addon-options';
 import { addDecorator, configure } from '@storybook/react';
 import 'normalize.css';
 import '../../src/identity/typography/fonts.css';
@@ -11,11 +12,19 @@ addDecorator(
   })
 );
 addDecorator(withKnobs);
+addDecorator(
+  withOptions({
+    sortStoriesByKind: true
+  })
+);
 
 const req = require.context('../../src', true, /\.stories\.ts(x)?$/);
 
 function loadStories() {
-  req.keys().forEach(filename => req(filename));
+  req
+    .keys()
+    .sort()
+    .forEach(filename => req(filename));
 }
 
 configure(loadStories, module);

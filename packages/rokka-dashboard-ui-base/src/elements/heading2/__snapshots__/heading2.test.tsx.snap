@@ -1,38 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Elements Label renders a input correctly. 1`] = `
+exports[`Elements Heading2 renders a heading 2 correctly. 1`] = `
 <StyledComponent
+  color="#000"
   forwardedClass={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "sc-bdVaJa",
-        "isStatic": true,
+        "isStatic": false,
         "rules": Array [
           "
   font-family: ",
           "\\"Liip Etica Book\\", sans-serif",
           ";
   font-size: ",
-          ".875rem",
+          "1.25rem",
           ";
   color: ",
-          "#898A81",
-          ";
-  font-weight: ",
-          "700",
-          ";
-  margin-bottom: ",
-          "8px",
+          [Function],
           ";
 ",
         ],
       },
-      "displayName": "styled.label",
+      "displayName": "styled.h2",
       "render": [Function],
       "styledComponentId": "sc-bdVaJa",
-      "target": "label",
+      "target": "h2",
       "toString": [Function],
       "warnTooManyClasses": [Function],
       "withComponent": [Function],
@@ -40,6 +35,6 @@ exports[`Elements Label renders a input correctly. 1`] = `
   }
   forwardedRef={null}
 >
-  test
+  Heading
 </StyledComponent>
 `;

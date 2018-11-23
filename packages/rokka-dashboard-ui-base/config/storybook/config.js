@@ -1,6 +1,8 @@
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { addDecorator, configure } from '@storybook/react';
+import 'normalize.css';
+import '../../src/identity/typography/fonts.css';
 
 addDecorator(
   withInfo({
@@ -9,8 +11,6 @@ addDecorator(
   })
 );
 addDecorator(withKnobs);
-
-require('normalize.css');
 
 const req = require.context('../../src', true, /\.stories\.ts(x)?$/);
 

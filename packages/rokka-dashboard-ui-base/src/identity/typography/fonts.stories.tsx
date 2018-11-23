@@ -1,9 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { fonts } from './fonts';
+import { fonts } from './index';
 import styled from 'styled-components';
-
-require('./fonts.css');
 
 storiesOf('01 - Identities / Typography', module)
   .addParameters({ info: { disable: true } })
@@ -26,6 +24,18 @@ storiesOf('01 - Identities / Typography', module)
           <Entry key={name}>
             <FontName>{name}</FontName>
             <FontSizePreview size={fonts['sizes'][name]}>{fonts['sizes'][name]}</FontSizePreview>
+          </Entry>
+        ))}
+      </ul>
+    );
+  })
+  .add('Weights', () => {
+    return (
+      <ul>
+        {Object.keys(fonts['weights']).map(name => (
+          <Entry key={name}>
+            <FontName>{name}</FontName>
+            <FontWeightPreview weight={fonts['weights'][name]}>{fonts['weights'][name]}</FontWeightPreview>
           </Entry>
         ))}
       </ul>
@@ -53,4 +63,8 @@ const FontFamilyPreview = styled.span<{ font: string }>`
 
 const FontSizePreview = styled.span<{ size: string }>`
   font-size: ${({ size }) => size};
+`;
+
+const FontWeightPreview = styled.span<{ weight: string }>`
+  font-weight: ${({ weight }) => weight};
 `;

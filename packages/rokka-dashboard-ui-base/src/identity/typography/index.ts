@@ -10,5 +10,11 @@ export const fonts = {
     medium: '1.125rem',
     large: '1.25rem',
     xlarge: '1.5rem'
+  },
+  weights: {
+    light: 100,
+    regular: 300,
+    bold: 700,
+    heavy: 900
   }
 };

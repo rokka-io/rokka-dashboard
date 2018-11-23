@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Elements Label renders a button correctly. 1`] = `
+<StyledComponent
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": true,
+        "rules": Array [
+          "
+  font-family: ",
+          "\\"Liip Etica Book\\", sans-serif",
+          ";
+  font-size: ",
+          ".875rem",
+          ";
+  color: ",
+          "#898A81",
+          ";
+  font-weight: ",
+          "700",
+          ";
+  margin-bottom: ",
+          "8px",
+          ";
+",
+        ],
+      },
+      "displayName": "styled.label",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "label",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+>
+  test
+</StyledComponent>
+`;

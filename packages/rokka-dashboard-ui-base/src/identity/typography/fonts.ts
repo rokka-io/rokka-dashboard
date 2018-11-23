@@ -1,7 +1,7 @@
 export const fonts = {
   families: {
     brand: '"Liip Etica Book", sans-serif',
-    semiBold: '"Liip Etica Book SemiBold", sans-serif'
+    semiBold: '"Liip Etica SemiBold", sans-serif'
   },
   sizes: {
     // TODO: check if matches

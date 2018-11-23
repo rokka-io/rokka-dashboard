@@ -5,7 +5,8 @@ import styled from 'styled-components';
 
 require('./fonts.css');
 
-storiesOf('Identities / Typography', module)
+storiesOf('01 - Identities / Typography', module)
+  .addParameters({ info: { disable: true } })
   .add('Fonts', () => {
     return (
       <ul>
@@ -31,7 +32,8 @@ storiesOf('Identities / Typography', module)
     );
   });
 
-const Entry = styled.div`
+const Entry = styled.li`
+  list-style: none;
   padding: 2rem 0;
   border-bottom: 1px solid #efefef;
 `;

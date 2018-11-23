@@ -3,19 +3,24 @@ import { storiesOf } from '@storybook/react';
 import styled from 'styled-components';
 import { colors } from './colors';
 
-function generateColorList(key: string): JSX.Element[] {
-  return Object.keys(colors[key]).map(name => (
-    <Swatch key={name}>
-      <Color bg={colors[key][name]} />
-      <Values>
-        <ColorName>{name}</ColorName>
-        <ColorValue>{colors[key][name]}</ColorValue>
-      </Values>
-    </Swatch>
-  ));
+function generateColorList(key: string): JSX.Element {
+  return (
+    <ul>
+      {Object.keys(colors[key]).map(name => (
+        <Swatch key={name}>
+          <Color bg={colors[key][name]} />
+          <Values>
+            <ColorName>{name}</ColorName>
+            <ColorValue>{colors[key][name]}</ColorValue>
+          </Values>
+        </Swatch>
+      ))}
+    </ul>
+  );
 }
 
-storiesOf('Identities / Colors', module)
+storiesOf('01 - Identities / Colors', module)
+  .addParameters({ info: { disable: true } })
   .add('Brand', () => generateColorList('brand'))
   .add('Gray', () => generateColorList('gray'))
   .add('Cranberry', () => generateColorList('cranberry'))

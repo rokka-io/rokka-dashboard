@@ -6,7 +6,7 @@ import { FormGroup } from './formGroup';
 import { Input } from '../../elements/input/input';
 
 storiesOf('Components', module).add('FormGroup', () => (
-  <FormGroup id="an-id" label="Label for input">
-    <Input id="an-id" placeholder={text('placeholder', 'A placeholder')} />
+  <FormGroup label="Label for input">
+    <Input placeholder={text('placeholder', 'A placeholder')} />
   </FormGroup>
 ));

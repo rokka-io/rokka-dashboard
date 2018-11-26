@@ -8,14 +8,14 @@ interface FormGroupProps {
   children: ReactNode;
   /** Label */
   label: string;
-  /** ID where label belongs to */
-  id: string;
 }
 
-export const FormGroup: FunctionComponent<FormGroupProps> = ({ children, id, label }) => (
+export const FormGroup: FunctionComponent<FormGroupProps> = ({ children, label }) => (
   <StyledFormGroup>
-    <Label htmlFor={id}>{label}</Label>
-    {children}
+    <Label>
+      {label}
+      {children}
+    </Label>
   </StyledFormGroup>
 );
 

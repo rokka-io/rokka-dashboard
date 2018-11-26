@@ -2,6 +2,9 @@
   --liip-etica-book: 'Liip Etica Book';
   --liip-etica-semibold: 'Liip Etica SemiBold';
 }
+body {
+  font-family: var(--liip-etica-book);
+}
 @font-face {
   font-family: var(--liip-etica-book);
   font-weight: 100;

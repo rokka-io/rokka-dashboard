@@ -2,14 +2,11 @@
 
 exports[`Components FormGroup renders a form group correctly. 1`] = `
 <styled.div>
-  <styled.label
-    htmlFor="an-id"
-  >
+  <styled.label>
     Label for input
+    <styled.input
+      placeholder="A placeholder"
+    />
   </styled.label>
-  <styled.input
-    id="an-id"
-    placeholder="A placeholder"
-  />
 </styled.div>
 `;

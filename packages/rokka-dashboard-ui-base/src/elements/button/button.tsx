@@ -10,7 +10,7 @@ interface ButtonProps {
   /** Button type */
   type?: string;
   /** Callback */
-  onClick(): void;
+  onClick?(): void;
 }
 
 export const Button: FunctionComponent<ButtonProps> = ({ children, type, onClick }) => (

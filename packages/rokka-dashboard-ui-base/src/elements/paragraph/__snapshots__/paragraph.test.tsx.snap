@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Elements Paragraphs renders a login brand paragraph correctly. 1`] = `
+<StyledComponent
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": true,
+        "rules": Array [
+          "
+  font-size: ",
+          "1rem",
+          ";
+  color: ",
+          "#fff",
+          ";
+  position: absolute;
+  bottom: 32px;
+  right: 44px;
+",
+        ],
+      },
+      "displayName": "styled.p",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "p",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+>
+  test
+</StyledComponent>
+`;

@@ -8,8 +8,8 @@ describe('Components', () => {
   describe('FormGroup', () => {
     it('renders a form group correctly.', () => {
       const component = shallow(
-        <FormGroup id="an-id" label="Label for input">
-          <Input id="an-id" placeholder="A placeholder" />
+        <FormGroup label="Label for input">
+          <Input placeholder="A placeholder" />
         </FormGroup>
       );
 

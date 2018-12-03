@@ -140,18 +140,16 @@ export function logout() {
  *
  * @returns {Promise}
  */
-export function listStacks(limit = 999) {
-  const { currentOffset = 0, items = [], filter = '' } = internalState.stacks
+export function listStacks() {
+  const { items = [], filter = '' } = internalState.stacks
 
   return rokka()
-    .stacks.list(internalState.auth.organization, limit, currentOffset)
+    .stacks.list(internalState.auth.organization)
     .then(({ body }) => {
       sortAlphabetically(body.items)
       const newItems = [...items, ...body.items]
       updateState({
         stacks: {
-          currentOffset: currentOffset + limit,
-          total: body.total,
           items: newItems,
           filter,
           filteredItems: newItems.filter(item => filterItem(item, filter))

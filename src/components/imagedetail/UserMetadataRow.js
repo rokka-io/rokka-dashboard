@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const ROKKA_TYPES = [
+export const ROKKA_TYPES = [
   { label: 'String', value: 'str' },
   { label: 'Int', value: 'int' },
   { label: 'Double', value: 'double' },

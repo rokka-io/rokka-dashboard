@@ -17,7 +17,7 @@ function getRokkaType(key) {
     case 'width':
       return 'int'
     default:
-      return 'string'
+      return 'str'
   }
 }
 
@@ -37,6 +37,7 @@ class ImageList extends PureComponent {
       searchValue: '',
       sortField: 'created',
       sortOrder: 'desc',
+      searchDataType: 'str',
       fields: {}
     }
 
@@ -59,6 +60,9 @@ class ImageList extends PureComponent {
       reload = true
     }
 
+    // rather ugly way to achieve lookup in current fields.
+    let { fields } = this.state
+
     // allow searching/sorting for/by custom field names
     if (
       (name === 'searchField' || name === 'sortField') &&
@@ -67,9 +71,14 @@ class ImageList extends PureComponent {
       !value.includes('user:')
     ) {
       stateChange.fields = Object.assign({}, this.state.fields, {
-        [value]: { type: 'unknown', value: `user:${value}` }
+        [value]: { value: value, label: value, userMetadata: true }
       })
-      stateChange[name] = `user:${value}`
+      fields = stateChange.fields
+      stateChange[name] = value
+    }
+
+    if (name === 'searchField' && fields[value] && fields[value].type) {
+      stateChange.searchDataType = fields[value].type
     }
 
     this.setState(stateChange, () => {
@@ -94,10 +103,28 @@ class ImageList extends PureComponent {
   }
 
   loadImages(append = false) {
-    const { currentOffset, images, searchField, searchValue, sortField, sortOrder } = this.state
+    const {
+      fields,
+      currentOffset,
+      images,
+      searchField,
+      searchValue,
+      searchDataType,
+      sortField,
+      sortOrder
+    } = this.state
     const offset = append ? currentOffset : 0
-    const search = searchField && searchValue ? { [searchField]: searchValue } : null
     const sort = sortField && sortOrder ? `${sortField} ${sortOrder}` : null
+
+    const search = {}
+    if (searchField && searchValue) {
+      let fieldName = searchField
+      if (fields[searchField].userMetadata) {
+        const dt = fields[searchField].type !== searchDataType ? `:${searchDataType}` : ''
+        fieldName = `user${dt}:${searchField}`
+      }
+      search[fieldName] = searchValue
+    }
 
     rokka()
       .sourceimages.list(this.props.organization, { limit: this.props.limit, offset, search, sort })
@@ -115,14 +142,24 @@ class ImageList extends PureComponent {
                 }
                 if (userKey.indexOf(':') >= 0) {
                   const [dataType, keyName] = userKey.split(':')
-                  fields[keyName] = { type: dataType, value: `user:${keyName}` }
+                  fields[userKey] = {
+                    type: dataType,
+                    value: userKey,
+                    label: keyName,
+                    userMetadata: true
+                  }
                   return
                 }
-                fields[userKey] = { type: 'string', value: `user:${userKey}` }
+                fields[userKey] = {
+                  type: 'str',
+                  value: userKey,
+                  label: userKey,
+                  userMetadata: true
+                }
               })
               return
             }
-            fields[key] = { type: getRokkaType(key), value: key }
+            fields[key] = { type: getRokkaType(key), value: key, label: key }
           })
         })
 
@@ -133,7 +170,7 @@ class ImageList extends PureComponent {
           }),
           currentOffset: currentOffset + this.props.limit,
           loading: false,
-          fields: fields
+          fields
         })
       })
       .catch(err => {
@@ -225,6 +262,7 @@ class ImageList extends PureComponent {
           fields={this.state.fields}
           searchField={this.state.searchField}
           searchValue={this.state.searchValue}
+          searchDataType={this.state.searchDataType}
           sortField={this.state.sortField}
           sortOrder={this.state.sortOrder}
         />

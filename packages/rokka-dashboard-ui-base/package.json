@@ -1,22 +1,23 @@
 {
   "name": "rokka-dashboard-ui-base",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rokka-io/rokka-dashboard.git"
+  },
   "dependencies": {
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1",
     "styled-components": "^4.1.1",
     "tslib": "^1.9.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "start-storybook -p 9001 -c ./config/storybook",
     "test": "jest -c ./config/jest/jest.json --watch",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009 -c ./config/storybook",
-    "build-storybook": "build-storybook",
     "prettier": "prettier --config ../../.prettierrc 'src/**/*.{ts,tsx}'",
+    "lint": "npm run lint:ts && npm run lint:sc",
+    "lint:ts": "tslint -c tslint.json 'src/**/*.{ts,tsx}' -t stylish",
     "lint:sc": "stylelint 'src/**/*.{ts,tsx}'"
   },
   "eslintConfig": {
@@ -29,7 +30,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/core": "^7.1.6",
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@rebass/grid": "^6.0.0-4",
     "@storybook/addon-actions": "^4.0.8",
     "@storybook/addon-info": "^4.0.8",
     "@storybook/addon-knobs": "^4.0.8",
@@ -43,6 +46,7 @@
     "@types/node": "^10.12.10",
     "@types/react": "^16.6.3",
     "@types/react-dom": "^16.0.10",
+    "@types/rebass__grid": "^6.0.1",
     "@types/storybook__addon-actions": "^3.4.1",
     "@types/storybook__addon-info": "^3.4.2",
     "@types/storybook__addon-knobs": "^3.4.1",
@@ -63,6 +67,9 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.5.1",
     "ts-jest": "^23.10.5",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-react": "^3.6.0",
     "typescript": "^3.1.6",
     "typescript-styled-plugin": "^0.13.0"
   }

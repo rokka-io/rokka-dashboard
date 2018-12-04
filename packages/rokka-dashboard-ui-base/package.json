@@ -20,9 +20,6 @@
     "lint:ts": "tslint -c tslint.json 'src/**/*.{ts,tsx}' -t stylish",
     "lint:sc": "stylelint 'src/**/*.{ts,tsx}'"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -62,6 +59,7 @@
     "normalize.css": "^8.0.1",
     "prettier": "1.15.2",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "react-scripts": "^2.1.1",
     "stylelint": "^9.8.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",

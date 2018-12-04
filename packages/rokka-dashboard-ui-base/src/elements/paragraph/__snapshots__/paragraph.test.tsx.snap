@@ -2,7 +2,7 @@
 
 exports[`Elements Paragraphs renders a login brand paragraph correctly. 1`] = `
 <StyledComponent
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -12,7 +12,7 @@ exports[`Elements Paragraphs renders a login brand paragraph correctly. 1`] = `
         "rules": Array [
           "
   font-size: ",
-          "1rem",
+          "0.875rem",
           ";
   color: ",
           "#fff",
@@ -24,6 +24,7 @@ exports[`Elements Paragraphs renders a login brand paragraph correctly. 1`] = `
         ],
       },
       "displayName": "styled.p",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "sc-bdVaJa",
       "target": "p",

@@ -1,17 +1,17 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { fonts } from './index';
+import React from 'react';
 import styled from 'styled-components';
+import { fonts } from './index';
 
 storiesOf('Identities / Typography', module)
   .addParameters({ info: { disable: true } })
   .add('Fonts', () => {
     return (
       <ul>
-        {Object.keys(fonts['families']).map(name => (
+        {Object.keys(fonts.families).map(name => (
           <Entry key={name}>
             <FontName>{name}</FontName>
-            <FontFamilyPreview font={fonts['families'][name]}>{fonts['families'][name]}</FontFamilyPreview>
+            <FontFamilyPreview font={fonts.families[name]}>{fonts.families[name]}</FontFamilyPreview>
           </Entry>
         ))}
       </ul>
@@ -20,10 +20,10 @@ storiesOf('Identities / Typography', module)
   .add('Sizes', () => {
     return (
       <ul>
-        {Object.keys(fonts['sizes']).map(name => (
+        {Object.keys(fonts.sizes).map(name => (
           <Entry key={name}>
             <FontName>{name}</FontName>
-            <FontSizePreview size={fonts['sizes'][name]}>{fonts['sizes'][name]}</FontSizePreview>
+            <FontSizePreview size={fonts.sizes[name]}>{fonts.sizes[name]}</FontSizePreview>
           </Entry>
         ))}
       </ul>
@@ -32,10 +32,10 @@ storiesOf('Identities / Typography', module)
   .add('Weights', () => {
     return (
       <ul>
-        {Object.keys(fonts['weights']).map(name => (
+        {Object.keys(fonts.weights).map(name => (
           <Entry key={name}>
             <FontName>{name}</FontName>
-            <FontWeightPreview weight={fonts['weights'][name]}>{fonts['weights'][name]}</FontWeightPreview>
+            <FontWeightPreview weight={fonts.weights[name]}>{fonts.weights[name]}</FontWeightPreview>
           </Entry>
         ))}
       </ul>

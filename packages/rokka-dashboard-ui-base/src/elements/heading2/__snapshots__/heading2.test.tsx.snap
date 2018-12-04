@@ -3,7 +3,7 @@
 exports[`Elements Heading2 renders a heading 2 correctly. 1`] = `
 <StyledComponent
   color="#000"
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -25,6 +25,7 @@ exports[`Elements Heading2 renders a heading 2 correctly. 1`] = `
         ],
       },
       "displayName": "styled.h2",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "sc-bdVaJa",
       "target": "h2",

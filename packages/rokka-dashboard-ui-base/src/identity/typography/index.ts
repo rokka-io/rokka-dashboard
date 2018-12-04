@@ -5,9 +5,9 @@ export const fonts = {
   },
   sizes: {
     // TODO: check if matches
-    xsmall: '.875rem',
-    small: '1rem',
-    medium: '1.125rem',
+    xsmall: '.75rem',
+    small: '0.875rem',
+    medium: '1rem',
     large: '1.25rem',
     xlarge: '1.5rem'
   },

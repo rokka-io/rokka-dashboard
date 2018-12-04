@@ -4,6 +4,7 @@
 }
 body {
   font-family: var(--liip-etica-book);
+  font-size: 100%;
 }
 @font-face {
   font-family: var(--liip-etica-book);

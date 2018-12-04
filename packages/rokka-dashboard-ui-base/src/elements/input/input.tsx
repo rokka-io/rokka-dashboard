@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '../../identity/colors/colors';
-import { fonts } from '../../identity/typography/index';
 import { spaces } from '../../identity/spaces/spaces';
+import { fonts } from '../../identity/typography/index';
 
 export const Input = styled.input`
   font-family: ${fonts.families.brand};

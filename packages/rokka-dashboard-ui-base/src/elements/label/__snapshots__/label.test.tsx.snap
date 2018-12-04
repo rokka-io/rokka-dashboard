@@ -2,7 +2,7 @@
 
 exports[`Elements Label renders a input correctly. 1`] = `
 <StyledComponent
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -15,7 +15,7 @@ exports[`Elements Label renders a input correctly. 1`] = `
           "\\"Liip Etica Book\\", sans-serif",
           ";
   font-size: ",
-          ".875rem",
+          ".75rem",
           ";
   color: ",
           "#898A81",
@@ -23,13 +23,11 @@ exports[`Elements Label renders a input correctly. 1`] = `
   font-weight: ",
           "700",
           ";
-  margin-bottom: ",
-          "8px",
-          ";
 ",
         ],
       },
       "displayName": "styled.label",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "sc-bdVaJa",
       "target": "label",

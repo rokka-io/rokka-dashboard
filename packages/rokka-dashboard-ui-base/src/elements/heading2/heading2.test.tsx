@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { Heading2 } from './heading2';
 import { colors } from '../../identity/colors/colors';
+import { Heading2 } from './heading2';
 
 describe('Elements', () => {
   describe('Heading2', () => {

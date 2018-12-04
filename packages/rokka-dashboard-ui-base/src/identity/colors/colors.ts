@@ -1,27 +1,27 @@
 export const colors = {
   brand: {
-    primary: '#6EA644',
     dark: '#4d852c',
+    light: '#8DB547',
     lightest: '#A4C339',
-    light: '#8DB547'
-  },
-  gray: {
-    primary: '#CECFCA',
-    lightest: '#F7F7F5',
-    lighter: '#EBEBE6',
-    light: '#DDDDD8',
-    dark: '#C0C1BC',
-    darker: '#A5A59F',
-    darkest: '#898A81'
+    primary: '#6EA644'
   },
   cranberry: {
     primary: '#D34361'
+  },
+  gray: {
+    dark: '#C0C1BC',
+    darker: '#A5A59F',
+    darkest: '#898A81',
+    light: '#DDDDD8',
+    lighter: '#EBEBE6',
+    lightest: '#F7F7F5',
+    primary: '#CECFCA'
   },
   orange: {
     dark: '#ec9506'
   },
   tints: {
-    white: '#fff',
-    black: '#000'
+    black: '#000',
+    white: '#fff'
   }
 };

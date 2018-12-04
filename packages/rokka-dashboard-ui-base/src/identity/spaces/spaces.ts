@@ -1,7 +1,7 @@
 export const spaces = {
-  xsmall: '4px',
-  small: '8px',
-  medium: '16px',
-  large: '32px',
-  xlarge: '64px'
+  xsmall: '0.25rem',
+  small: '0.5rem',
+  medium: '1rem',
+  large: '2rem',
+  xlarge: '4rem'
 };

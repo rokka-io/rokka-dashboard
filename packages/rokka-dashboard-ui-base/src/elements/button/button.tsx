@@ -1,8 +1,8 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import styled from 'styled-components';
 import { colors } from '../../identity/colors/colors';
-import { fonts } from '../../identity/typography/index';
 import { spaces } from '../../identity/spaces/spaces';
+import { fonts } from '../../identity/typography/index';
 
 interface ButtonProps {
   /** Children */

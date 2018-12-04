@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { FormGroup } from './formGroup';
 import { Input } from '../../elements/input/input';
+import { FormGroup } from './formGroup';
 
 describe('Components', () => {
   describe('FormGroup', () => {

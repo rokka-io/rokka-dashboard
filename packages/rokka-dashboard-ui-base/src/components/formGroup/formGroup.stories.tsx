@@ -2,8 +2,8 @@ import { text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { FormGroup } from './formGroup';
 import { Input } from '../../elements/input/input';
+import { FormGroup } from './formGroup';
 
 storiesOf('Components', module).add('FormGroup', () => (
   <FormGroup label="Label for input">

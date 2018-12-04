@@ -3,7 +3,9 @@
 exports[`Components FormGroup renders a form group correctly. 1`] = `
 <styled.div>
   <styled.label>
-    Label for input
+    <styled.span>
+      Label for input
+    </styled.span>
     <styled.input
       placeholder="A placeholder"
     />

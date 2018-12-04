@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import styled from 'styled-components';
+import { Label, LabelText } from '../../elements/label/label';
 import { spaces } from '../../identity/spaces/spaces';
-import { Label } from '../../elements/label/label';
 
 interface FormGroupProps {
   /** Children */
@@ -13,7 +13,7 @@ interface FormGroupProps {
 export const FormGroup: FunctionComponent<FormGroupProps> = ({ children, label }) => (
   <StyledFormGroup>
     <Label>
-      {label}
+      <LabelText>{label}</LabelText>
       {children}
     </Label>
   </StyledFormGroup>

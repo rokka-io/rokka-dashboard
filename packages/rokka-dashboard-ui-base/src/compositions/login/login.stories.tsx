@@ -1,0 +1,13 @@
+import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
+import React from 'react';
+
+import { colors } from '../../identity/colors/colors';
+import { Login } from './login';
+
+storiesOf('Compositions', module)
+  // TODO: decide if we want to move that to a separate decorator so it can be used somewhere else, too.
+  .addDecorator(story => (
+    <div style={{ position: 'relative', width: '800px', height: '300px', background: colors.gray.lightest }}>{story()}</div>
+  ))
+  .add('Login', () => <Login onLogin={action('login subbmited')} />);

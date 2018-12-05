@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Elements ActivityIndicators renders a small spinner correctly. 1`] = `
+<styled.div
+  small={true}
+>
+  <styled.div />
+  <Styled(styled.div) />
+  <Styled(styled.div) />
+  <Styled(styled.div) />
+</styled.div>
+`;
+
+exports[`Elements ActivityIndicators renders a spinner correctly. 1`] = `
+<styled.div>
+  <styled.div />
+  <Styled(styled.div) />
+  <Styled(styled.div) />
+  <Styled(styled.div) />
+</styled.div>
+`;
+
+exports[`Elements ActivityIndicators renders a white spinner correctly. 1`] = `
+<styled.div>
+  <styled.div
+    backgroundColor="#fff"
+  />
+  <Styled(styled.div)
+    backgroundColor="#fff"
+  />
+  <Styled(styled.div)
+    backgroundColor="#fff"
+  />
+  <Styled(styled.div)
+    backgroundColor="#fff"
+  />
+</styled.div>
+`;

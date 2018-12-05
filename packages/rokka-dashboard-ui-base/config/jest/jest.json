@@ -10,6 +10,10 @@
   "testEnvironment": "jsdom",
   "testURL": "http://localhost",
   "testPathIgnorePatterns": [],
+  "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
+  "transform": {
+    "^(?!.*\\.(ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+  },
   "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
   "preset": "ts-jest",
   "snapshotSerializers": ["enzyme-to-json/serializer"]

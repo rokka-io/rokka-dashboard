@@ -7,9 +7,7 @@ exports[`Compositions Login calls the onLogin callback with the entered data. 1`
       <Styled(Box)
         width={0.4166666666666667}
       >
-        <img
-          src=""
-        />
+        <Component />
         <styled.h2
           color="#fff"
         >
@@ -76,9 +74,7 @@ exports[`Compositions Login renders the login form correctly. 1`] = `
       <Styled(Box)
         width={0.4166666666666667}
       >
-        <img
-          src=""
-        />
+        <Component />
         <styled.h2
           color="#fff"
         >

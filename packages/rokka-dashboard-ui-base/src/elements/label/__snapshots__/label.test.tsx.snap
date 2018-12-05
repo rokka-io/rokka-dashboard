@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Elements Label renders a input correctly. 1`] = `
+exports[`Elements Label renders a label correctly. 1`] = `
 <StyledComponent
   forwardedComponent={
     Object {

@@ -8,6 +8,7 @@ import { Input } from '../../elements/input/input';
 import { ParagraphLoginBrand } from '../../elements/paragraph/paragraph';
 import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
+import { HeaderLogo } from '../../elements/headerLogo/headerLogo';
 
 interface LoginProps {
   /** Callback fired if form is submitted */
@@ -50,7 +51,7 @@ export class Login extends PureComponent<LoginProps, LoginState> {
         <StyledLoginContainer>
           <Flex>
             <StyledLeftColumn width={5 / 12}>
-              <img src="" />
+              <HeaderLogo />
               <Heading2 color={colors.tints.white}>Web images done right.</Heading2>
               <ParagraphLoginBrand>Powered by Liip.</ParagraphLoginBrand>
             </StyledLeftColumn>

@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Compositions Signup calls the onSignup callback with the entered data. 1`] = `
+<Component
+  isLogin={false}
+  marketingText={
+    <React.Fragment>
+      <ForwardRef
+        color="#fff"
+      >
+        Try out rokka for 90 days
+      </ForwardRef>
+      <ForwardRef>
+        rokka is free to use for 90 days.
+        <br />
+        No monthly costs, no credit card required.
+      </ForwardRef>
+    </React.Fragment>
+  }
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <Component
+      label="Organization"
+    >
+      <styled.input
+        name="organization"
+        onChange={[Function]}
+        type="text"
+        value="an-organization"
+      />
+    </Component>
+    <Component
+      label="E-mail"
+    >
+      <styled.input
+        name="email"
+        onChange={[Function]}
+        type="email"
+        value="an-email"
+      />
+    </Component>
+    <Component
+      type="submit"
+    >
+      Start free trial
+    </Component>
+    <styled.p>
+      By creating an account, you agree to rokka's
+      <Styled(styled.a)
+        href="https://rokka.io/assets/pdf/Rokka_Terms_of_use_EN.pdf"
+      >
+        Terms & Conditions
+      </Styled(styled.a)>
+    </styled.p>
+  </form>
+</Component>
+`;
+
+exports[`Compositions Signup renders the signup form correctly. 1`] = `
+<Component
+  isLogin={false}
+  marketingText={
+    <React.Fragment>
+      <ForwardRef
+        color="#fff"
+      >
+        Try out rokka for 90 days
+      </ForwardRef>
+      <ForwardRef>
+        rokka is free to use for 90 days.
+        <br />
+        No monthly costs, no credit card required.
+      </ForwardRef>
+    </React.Fragment>
+  }
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <Component
+      label="Organization"
+    >
+      <styled.input
+        name="organization"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </Component>
+    <Component
+      label="E-mail"
+    >
+      <styled.input
+        name="email"
+        onChange={[Function]}
+        type="email"
+        value=""
+      />
+    </Component>
+    <Component
+      type="submit"
+    >
+      Start free trial
+    </Component>
+    <styled.p>
+      By creating an account, you agree to rokka's
+      <Styled(styled.a)
+        href="https://rokka.io/assets/pdf/Rokka_Terms_of_use_EN.pdf"
+      >
+        Terms & Conditions
+      </Styled(styled.a)>
+    </styled.p>
+  </form>
+</Component>
+`;

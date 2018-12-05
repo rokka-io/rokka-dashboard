@@ -9,3 +9,7 @@ export const ParagraphLoginBrand = styled.p`
   bottom: 32px;
   right: 44px;
 `;
+
+export const ParagraphWhite = styled.p`
+  color: ${colors.tints.white}
+`;

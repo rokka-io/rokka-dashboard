@@ -4,8 +4,6 @@ import React from 'react';
 import { HeaderLogo } from './headerLogo';
 import { colors } from '../../identity/colors/colors';
 
-storiesOf('Elements / Images', module).add('HeaderLogo', () => (
-  <div style={{ background: colors.brand.dark }}>
-    <HeaderLogo />
-  </div>
-));
+storiesOf('Elements / Images', module)
+  .addDecorator(story => <div style={{ background: colors.brand.dark }}>{story()}</div>)
+  .add('HeaderLogo', () => <HeaderLogo />);

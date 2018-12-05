@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components FormGroup renders a sign form group correctly. 1`] = `
+<styled.div>
+  <styled.div
+    login={true}
+  >
+    <Flex>
+      <Box
+        width={0.4166666666666667}
+      >
+        <styled.div
+          login={true}
+        >
+          <div>
+            <styled.img />
+            randomText
+            <styled.p>
+              Powered by Liip.
+            </styled.p>
+          </div>
+        </styled.div>
+      </Box>
+      <Box
+        p={
+          Array [
+            "2rem",
+            "1rem",
+          ]
+        }
+        pl={
+          Array [
+            "0.5rem",
+            "1rem",
+          ]
+        }
+        width={0.5833333333333334}
+      >
+        <div>
+          Right column content
+        </div>
+      </Box>
+    </Flex>
+  </styled.div>
+</styled.div>
+`;

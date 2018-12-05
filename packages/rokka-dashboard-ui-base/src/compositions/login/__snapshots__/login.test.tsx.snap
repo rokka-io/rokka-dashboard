@@ -1,121 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Compositions Login calls the onLogin callback with the entered data. 1`] = `
-<styled.div>
-  <styled.div>
-    <Styled(Flex)>
-      <Styled(Box)
-        width={0.4166666666666667}
+<Component
+  isLogin={true}
+  marketingText={
+    <React.Fragment>
+      <ForwardRef
+        color="#fff"
       >
-        <Component />
-        <styled.h2
-          color="#fff"
-        >
-          Web images done right.
-        </styled.h2>
-        <styled.p>
-          Powered by Liip.
-        </styled.p>
-      </Styled(Box)>
-      <Box
-        p={
-          Array [
-            "2rem",
-          ]
-        }
-        width={0.5833333333333334}
-      >
-        <form
-          onSubmit={[Function]}
-        >
-          <Component
-            label="Organization"
-          >
-            <styled.input
-              name="organization"
-              onChange={[Function]}
-              type="text"
-              value="an-organization"
-            />
-          </Component>
-          <Component
-            label="API Key"
-          >
-            <styled.input
-              name="apiKey"
-              onChange={[Function]}
-              type="password"
-              value="a password"
-            />
-          </Component>
-          <Component
-            type="submit"
-          >
-            Login
-          </Component>
-        </form>
-      </Box>
-    </Styled(Flex)>
-  </styled.div>
-</styled.div>
+        Web images done right.
+      </ForwardRef>
+    </React.Fragment>
+  }
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <Component
+      label="Organization"
+    >
+      <styled.input
+        name="organization"
+        onChange={[Function]}
+        type="text"
+        value="an-organization"
+      />
+    </Component>
+    <Component
+      label="API Key"
+    >
+      <styled.input
+        name="apiKey"
+        onChange={[Function]}
+        type="password"
+        value="a password"
+      />
+    </Component>
+    <Component
+      type="submit"
+    >
+      Login
+    </Component>
+  </form>
+</Component>
 `;
 
 exports[`Compositions Login renders the login form correctly. 1`] = `
-<styled.div>
-  <styled.div>
-    <Styled(Flex)>
-      <Styled(Box)
-        width={0.4166666666666667}
+<Component
+  isLogin={true}
+  marketingText={
+    <React.Fragment>
+      <ForwardRef
+        color="#fff"
       >
-        <Component />
-        <styled.h2
-          color="#fff"
-        >
-          Web images done right.
-        </styled.h2>
-        <styled.p>
-          Powered by Liip.
-        </styled.p>
-      </Styled(Box)>
-      <Box
-        p={
-          Array [
-            "2rem",
-          ]
-        }
-        width={0.5833333333333334}
-      >
-        <form
-          onSubmit={[Function]}
-        >
-          <Component
-            label="Organization"
-          >
-            <styled.input
-              name="organization"
-              onChange={[Function]}
-              type="text"
-              value=""
-            />
-          </Component>
-          <Component
-            label="API Key"
-          >
-            <styled.input
-              name="apiKey"
-              onChange={[Function]}
-              type="password"
-              value=""
-            />
-          </Component>
-          <Component
-            type="submit"
-          >
-            Login
-          </Component>
-        </form>
-      </Box>
-    </Styled(Flex)>
-  </styled.div>
-</styled.div>
+        Web images done right.
+      </ForwardRef>
+    </React.Fragment>
+  }
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <Component
+      label="Organization"
+    >
+      <styled.input
+        name="organization"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </Component>
+    <Component
+      label="API Key"
+    >
+      <styled.input
+        name="apiKey"
+        onChange={[Function]}
+        type="password"
+        value=""
+      />
+    </Component>
+    <Component
+      type="submit"
+    >
+      Login
+    </Component>
+  </form>
+</Component>
 `;

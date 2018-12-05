@@ -4,6 +4,7 @@ import { withOptions } from '@storybook/addon-options';
 import { addDecorator, configure } from '@storybook/react';
 import 'normalize.css';
 import '../../src/identity/typography/fonts.css';
+import '../../src/identity/spaces/spaces.css';
 
 addDecorator(
   withInfo({

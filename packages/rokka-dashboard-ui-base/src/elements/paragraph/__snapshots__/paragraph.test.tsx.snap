@@ -38,3 +38,36 @@ exports[`Elements Paragraphs renders a login brand paragraph correctly. 1`] = `
   test
 </StyledComponent>
 `;
+
+exports[`Elements Paragraphs renders a white paragraph correctly. 1`] = `
+<StyledComponent
+  forwardedComponent={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bwzfXH",
+        "isStatic": true,
+        "rules": Array [
+          "
+  color: ",
+          "#fff",
+          "
+",
+        ],
+      },
+      "displayName": "styled.p",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-bwzfXH",
+      "target": "p",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+>
+  test
+</StyledComponent>
+`;

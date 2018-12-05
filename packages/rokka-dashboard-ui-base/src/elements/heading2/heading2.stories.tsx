@@ -6,5 +6,5 @@ import { colors } from '../../identity/colors/colors';
 import { Heading2 } from './heading2';
 
 storiesOf('Elements / Headings', module).add('Heading 2', () => (
-  <Heading2 color={color('Color', colors.tints.black)}>{text('text', 'A label')}</Heading2>
+  <Heading2 color={color('Color', colors.tints.black)}>{text('text', 'A Heading')}</Heading2>
 ));

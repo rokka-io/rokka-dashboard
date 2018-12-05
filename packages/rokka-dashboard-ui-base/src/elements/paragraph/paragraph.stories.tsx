@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../../identity/colors/colors';
 
-import { ParagraphLoginBrand } from './paragraph';
+import { ParagraphLoginBrand, ParagraphWhite } from './paragraph';
 
 const ExampleContainer = styled.div`
   position: relative;
@@ -13,8 +13,14 @@ const ExampleContainer = styled.div`
   height: 200px;
 `;
 
-storiesOf('Elements / Paragraphs', module).add('Login Brand', () => (
-  <ExampleContainer>
-    <ParagraphLoginBrand>{text('text', 'Powered by Liip.')}</ParagraphLoginBrand>
-  </ExampleContainer>
-));
+storiesOf('Elements / Paragraphs', module)
+  .add('Login Brand', () => (
+    <ExampleContainer>
+      <ParagraphLoginBrand>{text('text', 'Powered by Liip.')}</ParagraphLoginBrand>
+    </ExampleContainer>
+  ))
+  .add('White', () => (
+    <ExampleContainer>
+      <ParagraphWhite>{text('text', 'Some paragraph with a good text.')}</ParagraphWhite>
+    </ExampleContainer>
+  ));

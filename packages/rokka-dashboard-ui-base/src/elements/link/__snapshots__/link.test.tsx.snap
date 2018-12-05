@@ -1,37 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Elements HeaderLogo renders the header logo correctly. 1`] = `
+exports[`Elements Link renders a link correctly. 1`] = `
 <StyledComponent
   forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": Array [
-        Object {
-          "src": "rokka-logo.png",
-        },
-      ],
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "sc-bdVaJa",
         "isStatic": true,
         "rules": Array [
           "
-  display: inline-block;
-  width: 140px;
-  height: 32px;
-  vertical-align: middle;
+  font-family: ",
+          "\\"Liip Etica Book\\", sans-serif",
+          ";
+  color: ",
+          "#6EA644",
+          ";
+  word-wrap: break-word;
+  text-decoration: underline;
+
+  :hover {
+    text-decoration: none;  
+  }
 ",
         ],
       },
-      "displayName": "styled.img",
+      "displayName": "styled.a",
       "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "sc-bdVaJa",
-      "target": "img",
+      "target": "a",
       "toString": [Function],
       "warnTooManyClasses": [Function],
       "withComponent": [Function],
     }
   }
   forwardedRef={null}
-/>
+>
+  test
+</StyledComponent>
 `;

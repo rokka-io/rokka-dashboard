@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { SignForm } from '../signForm/signForm';
-import { colors } from '../../identity/colors/colors';
 import { Heading2 } from '../../elements/heading2/heading2';
+import { colors } from '../../identity/colors/colors';
+import { SignForm } from '../signForm/signForm';
 
 const marketingText = <Heading2 color={colors.tints.white}>Add marketing text here</Heading2>;
 

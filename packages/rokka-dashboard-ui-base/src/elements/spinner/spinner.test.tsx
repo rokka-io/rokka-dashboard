@@ -11,7 +11,7 @@ describe('Elements', () => {
       expect(component).toMatchSnapshot();
     });
     it('renders a small spinner correctly.', () => {
-      const component = shallow(<Spinner small />);
+      const component = shallow(<Spinner small={true} />);
 
       expect(component).toMatchSnapshot();
     });

@@ -1,9 +1,9 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { Login } from './login';
 import { Button } from '../../elements/button/button';
 import { Input } from '../../elements/input/input';
+import { Login } from './login';
 
 describe('Compositions', () => {
   describe('Login', () => {

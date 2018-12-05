@@ -1,9 +1,9 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { Signup } from './signup';
 import { Button } from '../../elements/button/button';
 import { Input } from '../../elements/input/input';
+import { Signup } from './signup';
 
 describe('Compositions', () => {
   describe('Signup', () => {

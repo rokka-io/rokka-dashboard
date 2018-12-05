@@ -1,10 +1,10 @@
-import React, { Fragment, ChangeEvent, FormEvent, PureComponent } from 'react';
-import { colors } from '../../identity/colors/colors';
-import { Input } from '../../elements/input/input';
-import { Button } from '../../elements/button/button';
-import { Heading2 } from '../../elements/heading2/heading2';
+import React, { ChangeEvent, FormEvent, Fragment, PureComponent } from 'react';
 import { FormGroup } from '../../components/formGroup/formGroup';
 import { SignForm } from '../../components/signForm/signForm';
+import { Button } from '../../elements/button/button';
+import { Heading2 } from '../../elements/heading2/heading2';
+import { Input } from '../../elements/input/input';
+import { colors } from '../../identity/colors/colors';
 
 interface LoginProps {
   /** Callback fired if form is submitted */

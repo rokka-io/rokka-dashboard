@@ -1,15 +1,15 @@
 import React, { ChangeEvent, FormEvent, Fragment, PureComponent } from 'react';
 import styled from 'styled-components';
+import { FormGroup } from '../../components/formGroup/formGroup';
+import { SignForm } from '../../components/signForm/signForm';
+import { Button } from '../../elements/button/button';
+import { Heading2 } from '../../elements/heading2/heading2';
+import { Input } from '../../elements/input/input';
+import { Link } from '../../elements/link/link';
+import { ParagraphWhite } from '../../elements/paragraph/paragraph';
 import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
 import { fonts } from '../../identity/typography/index';
-import { Link } from '../../elements/link/link';
-import { Input } from '../../elements/input/input';
-import { Heading2 } from '../../elements/heading2/heading2';
-import { Button } from '../../elements/button/button';
-import { ParagraphWhite } from '../../elements/paragraph/paragraph';
-import { FormGroup } from '../../components/formGroup/formGroup';
-import { SignForm } from '../../components/signForm/signForm';
 
 interface SignupProps {
   /** Callback fired if form is submitted */

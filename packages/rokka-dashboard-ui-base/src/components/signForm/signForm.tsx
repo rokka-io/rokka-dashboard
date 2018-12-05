@@ -1,10 +1,10 @@
 import { Box, Flex } from '@rebass/grid';
 import React, { FunctionComponent, ReactNode } from 'react';
 import styled from 'styled-components';
-import { colors } from '../../identity/colors/colors';
-import { spaces } from '../../identity/spaces/spaces';
 import { HeaderLogo } from '../../elements/headerLogo/headerLogo';
 import { ParagraphLoginBrand } from '../../elements/paragraph/paragraph';
+import { colors } from '../../identity/colors/colors';
+import { spaces } from '../../identity/spaces/spaces';
 
 interface SignFormProps {
   children: ReactNode;

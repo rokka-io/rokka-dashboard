@@ -3,7 +3,7 @@
 exports[`Compositions Login calls the onLogin callback with the entered data. 1`] = `
 <styled.div>
   <styled.div>
-    <Flex>
+    <Styled(Flex)>
       <Styled(Box)
         width={0.4166666666666667}
       >
@@ -21,13 +21,6 @@ exports[`Compositions Login calls the onLogin callback with the entered data. 1`
         p={
           Array [
             "2rem",
-            "1rem",
-          ]
-        }
-        pl={
-          Array [
-            "0.5rem",
-            "1rem",
           ]
         }
         width={0.5833333333333334}
@@ -62,7 +55,7 @@ exports[`Compositions Login calls the onLogin callback with the entered data. 1`
           </Component>
         </form>
       </Box>
-    </Flex>
+    </Styled(Flex)>
   </styled.div>
 </styled.div>
 `;
@@ -70,7 +63,7 @@ exports[`Compositions Login calls the onLogin callback with the entered data. 1`
 exports[`Compositions Login renders the login form correctly. 1`] = `
 <styled.div>
   <styled.div>
-    <Flex>
+    <Styled(Flex)>
       <Styled(Box)
         width={0.4166666666666667}
       >
@@ -88,13 +81,6 @@ exports[`Compositions Login renders the login form correctly. 1`] = `
         p={
           Array [
             "2rem",
-            "1rem",
-          ]
-        }
-        pl={
-          Array [
-            "0.5rem",
-            "1rem",
           ]
         }
         width={0.5833333333333334}
@@ -129,7 +115,7 @@ exports[`Compositions Login renders the login form correctly. 1`] = `
           </Component>
         </form>
       </Box>
-    </Flex>
+    </Styled(Flex)>
   </styled.div>
 </styled.div>
 `;

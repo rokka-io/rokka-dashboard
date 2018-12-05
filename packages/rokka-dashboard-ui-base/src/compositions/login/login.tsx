@@ -49,13 +49,13 @@ export class Login extends PureComponent<LoginProps, LoginState> {
     return (
       <StyledLoginPage>
         <StyledLoginContainer>
-          <Flex>
+          <StyledFlex>
             <StyledLeftColumn width={5 / 12}>
               <HeaderLogo />
               <Heading2 color={colors.tints.white}>Web images done right.</Heading2>
               <ParagraphLoginBrand>Powered by Liip.</ParagraphLoginBrand>
             </StyledLeftColumn>
-            <Box width={7 / 12} p={[spaces.large, spaces.medium]} pl={[spaces.small, spaces.medium]}>
+            <Box width={7 / 12} p={[spaces.large]}>
               <form onSubmit={this.handleSubmit}>
                 <FormGroup label="Organization">
                   <Input type="text" name="organization" value={organization} onChange={this.handleChange} />
@@ -66,12 +66,16 @@ export class Login extends PureComponent<LoginProps, LoginState> {
                 <Button type="submit">Login</Button>
               </form>
             </Box>
-          </Flex>
+          </StyledFlex>
         </StyledLoginContainer>
       </StyledLoginPage>
     );
   }
 }
+
+const StyledFlex = styled(Flex)`
+  height: 100%;
+`;
 
 // TODO: maybe move to own element
 const StyledLoginContainer = styled.div`

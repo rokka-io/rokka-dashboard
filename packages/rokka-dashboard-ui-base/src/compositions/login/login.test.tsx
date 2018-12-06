@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { Button } from '../../elements/button/button';
+import { LoadingIndicatingButton } from '../../components/loadingIndicatingButton/loadingIndicatingButton';
 import { Input } from '../../elements/input/input';
 import { Login } from './login';
 
@@ -42,7 +42,7 @@ describe('Compositions', () => {
 
       expect(component).toMatchSnapshot();
 
-      component.find(Button).simulate('click');
+      component.find(LoadingIndicatingButton).simulate('click');
     });
   });
 });

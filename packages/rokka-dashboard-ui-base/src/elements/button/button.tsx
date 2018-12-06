@@ -4,33 +4,44 @@ import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
 import { fonts } from '../../identity/typography/index';
 
-interface ButtonProps {
+export interface ButtonProps {
   /** Children */
   children: ReactNode;
   /** Button type */
   type?: string;
+  /** Whether button is disabled */
+  disabled?: boolean;
   /** Callback */
   onClick?(): void;
 }
 
-export const Button: FunctionComponent<ButtonProps> = ({ children, type, onClick }) => (
-  <StyledButton type={type} onClick={onClick}>
+export const Button: FunctionComponent<ButtonProps> = ({ children, type = 'button', onClick, disabled = false }) => (
+  <StyledButton type={type} onClick={disabled ? undefined : onClick} disabled={disabled}>
     {children}
   </StyledButton>
 );
 
-Button.defaultProps = {
-  type: 'button'
-};
+interface StyledButtonProps {
+  disabled?: boolean;
+}
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<StyledButtonProps>`
   background-color: ${colors.brand.primary};
   color: ${colors.tints.white};
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
   font-family: ${fonts.families.semiBold};
   font-size: ${fonts.sizes.medium};
   padding: 0 ${spaces.large};
   border: 0;
   height: 38px;
   line-height: 38px;
+  ${({ disabled }) => {
+    if (disabled) {
+      return `
+        opacity: 0.5;
+        pointer-events: none;
+      `;
+    }
+    return null;
+  }}
 `;

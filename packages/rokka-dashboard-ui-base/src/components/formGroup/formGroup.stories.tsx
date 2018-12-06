@@ -5,7 +5,7 @@ import React from 'react';
 import { Input } from '../../elements/input/input';
 import { FormGroup } from './formGroup';
 
-storiesOf('Components', module).add('FormGroup', () => (
+storiesOf('Components / Forms', module).add('FormGroup', () => (
   <FormGroup label="Label for input">
     <Input placeholder={text('placeholder', 'A placeholder')} />
   </FormGroup>

@@ -1,12 +1,14 @@
 import React, { ChangeEvent, FormEvent, Fragment, PureComponent } from 'react';
 import { FormGroup } from '../../components/formGroup/formGroup';
+import { LoadingIndicatingButton } from '../../components/loadingIndicatingButton/loadingIndicatingButton';
 import { SignForm } from '../../components/signForm/signForm';
-import { Button } from '../../elements/button/button';
 import { Heading2 } from '../../elements/heading2/heading2';
 import { Input } from '../../elements/input/input';
 import { colors } from '../../identity/colors/colors';
 
 interface LoginProps {
+  /** Display loading indicator */
+  loading?: boolean;
   /** Callback fired if form is submitted */
   onLogin(organization: string, apiKey: string): void;
 }
@@ -42,6 +44,7 @@ export class Login extends PureComponent<LoginProps, LoginState> {
 
   public render() {
     const { organization, apiKey } = this.state;
+    const { loading } = this.props;
     const marketingText = (
       <Fragment>
         <Heading2 color={colors.tints.white}>Web images done right.</Heading2>
@@ -57,7 +60,9 @@ export class Login extends PureComponent<LoginProps, LoginState> {
           <FormGroup label="API Key">
             <Input type="password" name="apiKey" value={apiKey} onChange={this.handleChange} />
           </FormGroup>
-          <Button type="submit">Login</Button>
+          <LoadingIndicatingButton loading={loading} type="submit">
+            Login
+          </LoadingIndicatingButton>
         </form>
       </SignForm>
     );

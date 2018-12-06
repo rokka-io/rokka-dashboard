@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components LoadingIndicatingButton renders a button with a loading indicator correctly. 1`] = `
+<Component
+  disabled={true}
+>
+  <Component
+    backgroundColor="#fff"
+    small={true}
+  />
+</Component>
+`;
+
+exports[`Components LoadingIndicatingButton renders a normal button if loading is false, correctly. 1`] = `
+<Component
+  onClick={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
+>
+  test
+</Component>
+`;

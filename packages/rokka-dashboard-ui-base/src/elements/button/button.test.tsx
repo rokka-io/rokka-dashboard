@@ -14,5 +14,18 @@ describe('Elements', () => {
       expect(component).toMatchSnapshot();
       expect(spy).toHaveBeenCalledTimes(1);
     });
+    it('renders a disabled button correctly and does not call onClick.', () => {
+      const spy = jest.fn();
+      const component = shallow(
+        <Button disabled={true} onClick={spy}>
+          test
+        </Button>
+      );
+
+      component.simulate('click');
+
+      expect(component).toMatchSnapshot();
+      expect(spy).toHaveBeenCalledTimes(0);
+    });
   });
 });

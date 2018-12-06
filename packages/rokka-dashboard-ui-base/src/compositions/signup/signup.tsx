@@ -1,8 +1,8 @@
 import React, { ChangeEvent, FormEvent, Fragment, PureComponent } from 'react';
 import styled from 'styled-components';
 import { FormGroup } from '../../components/formGroup/formGroup';
+import { LoadingIndicatingButton } from '../../components/loadingIndicatingButton/loadingIndicatingButton';
 import { SignForm } from '../../components/signForm/signForm';
-import { Button } from '../../elements/button/button';
 import { Heading2 } from '../../elements/heading2/heading2';
 import { Input } from '../../elements/input/input';
 import { Link } from '../../elements/link/link';
@@ -12,6 +12,8 @@ import { spaces } from '../../identity/spaces/spaces';
 import { fonts } from '../../identity/typography/index';
 
 interface SignupProps {
+  /** Display loading indicator */
+  loading?: boolean;
   /** Callback fired if form is submitted */
   onSignup(organization: string, email: string): void;
 }
@@ -47,6 +49,7 @@ export class Signup extends PureComponent<SignupProps, SignupState> {
 
   public render() {
     const { organization, email } = this.state;
+    const { loading } = this.props;
     const marketingText = (
       <Fragment>
         <Heading2 color={colors.tints.white}>Try out rokka for 90 days</Heading2>
@@ -67,7 +70,9 @@ export class Signup extends PureComponent<SignupProps, SignupState> {
           <FormGroup label="E-mail">
             <Input type="email" name="email" value={email} onChange={this.handleChange} />
           </FormGroup>
-          <Button type="submit">Start free trial</Button>
+          <LoadingIndicatingButton loading={loading} type="submit">
+            Start free trial
+          </LoadingIndicatingButton>
           <StyledTermsParagraph>
             By creating an account, you agree to rokka's
             <StyledTermsLink href="https://rokka.io/assets/pdf/Rokka_Terms_of_use_EN.pdf">

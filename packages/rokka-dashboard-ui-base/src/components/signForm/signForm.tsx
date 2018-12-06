@@ -40,7 +40,7 @@ export const SignForm: FunctionComponent<SignFormProps> = ({ children, marketing
 
 // TODO: maybe move to own element
 const StyledSignFormContainer = styled.div<StyledSignFormContainerProps>`
-  width: ${props => (props.login ? '700px': '750px')};
+  width: ${props => (props.login ? '700px' : '750px')};
   height: ${props => (props.login ? '270px' : '440px')};
   background: ${colors.tints.white};
   position: absolute;

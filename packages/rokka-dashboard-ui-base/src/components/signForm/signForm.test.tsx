@@ -7,7 +7,7 @@ describe('Components', () => {
   describe('FormGroup', () => {
     it('renders a sign form group correctly.', () => {
       const component = shallow(
-        <SignForm isLogin={true} marketingText='randomText'>
+        <SignForm isLogin={true} marketingText="randomText">
           <div>Right column content</div>
         </SignForm>
       );

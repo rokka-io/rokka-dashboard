@@ -11,5 +11,5 @@ export const ParagraphLoginBrand = styled.p`
 `;
 
 export const ParagraphWhite = styled.p`
-  color: ${colors.tints.white}
+  color: ${colors.tints.white};
 `;

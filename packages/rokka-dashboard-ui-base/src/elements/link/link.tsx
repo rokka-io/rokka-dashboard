@@ -9,6 +9,6 @@ export const Link = styled.a`
   text-decoration: underline;
 
   :hover {
-    text-decoration: none;  
+    text-decoration: none;
   }
 `;

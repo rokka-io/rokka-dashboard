@@ -13,7 +13,7 @@ exports[`Components FormGroup renders a sign form group correctly. 1`] = `
           login={true}
         >
           <div>
-            <styled.img />
+            <Component />
             randomText
             <styled.p>
               Powered by Liip.

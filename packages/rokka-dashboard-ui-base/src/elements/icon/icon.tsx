@@ -1,3 +1,9 @@
+/**
+ * Icons which we use.
+ *
+ * N.B. If you add a new icon, don't forget to add it to `allIcons` export on the very bottom,
+ * in order to have automatic test and story.
+ */
 import React, { FunctionComponent, ReactNode } from 'react';
 import styled from 'styled-components';
 
@@ -64,3 +70,20 @@ export const AvatarIcon: FunctionComponent<IconProps> = props => (
     />
   </Icon>
 );
+
+export const AddIcon: FunctionComponent<IconProps> = props => (
+  <Icon title="Add icon" {...props}>
+    <path
+      fill="currentColor"
+      d="M11.5,0C5.159,0,0,5.159,0,11.5S5.159,23,11.5,23S23,17.841,23,11.5S17.841,0,11.5,0z M11.5,22C5.71,22,1,17.29,1,11.5
+    S5.71,1,11.5,1S22,5.71,22,11.5S17.29,22,11.5,22z"
+    />
+    <path
+      fill="currentColor"
+      d="M17.5,11H12V5.5C12,5.224,11.776,5,11.5,5S11,5.224,11,5.5V11H5.5C5.224,11,5,11.224,5,11.5S5.224,12,5.5,12H11v5.5
+    c0,0.276,0.224,0.5,0.5,0.5s0.5-0.224,0.5-0.5V12h5.5c0.276,0,0.5-0.224,0.5-0.5S17.776,11,17.5,11z"
+    />
+  </Icon>
+);
+
+export const allIcons = { AddIcon, AvatarIcon, LogoutIcon };

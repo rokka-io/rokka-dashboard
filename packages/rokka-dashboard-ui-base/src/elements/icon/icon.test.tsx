@@ -1,19 +1,16 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-
-import { AvatarIcon, LogoutIcon } from './icon';
+import { allIcons } from './icon';
 
 describe('Elements', () => {
   describe('Icon', () => {
-    it('renders the avatar icon correctly.', () => {
-      const component = shallow(<AvatarIcon />);
+    for (const iconName of Object.keys(allIcons)) {
+      it(`renders the ${iconName} correctly.`, () => {
+        const Icon = allIcons[iconName];
+        const component = shallow(<Icon />);
 
-      expect(component).toMatchSnapshot();
-    });
-    it('renders the logout icon correctly.', () => {
-      const component = shallow(<LogoutIcon />);
-
-      expect(component).toMatchSnapshot();
-    });
+        expect(component).toMatchSnapshot();
+      });
+    }
   });
 });

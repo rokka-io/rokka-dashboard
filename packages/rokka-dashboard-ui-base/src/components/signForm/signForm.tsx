@@ -7,8 +7,11 @@ import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
 
 interface SignFormProps {
+  /** Right column containing e.g. a form */
   children: ReactNode;
+  /** Left side text below header logo */
   marketingText: ReactNode;
+  /** Login / Signup layout toggle */
   isLogin: boolean;
 }
 

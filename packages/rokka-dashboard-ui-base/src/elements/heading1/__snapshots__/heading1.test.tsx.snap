@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Elements Heading1 renders a heading 1 correctly. 1`] = `
+<StyledComponent
+  color="#000"
+  forwardedComponent={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "rules": Array [
+          "
+  font-family: ",
+          "\\"Liip Etica Book\\", sans-serif",
+          ";
+  font-size: ",
+          "1.5rem",
+          ";
+  color: ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.h1",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "h1",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+>
+  Heading
+</StyledComponent>
+`;

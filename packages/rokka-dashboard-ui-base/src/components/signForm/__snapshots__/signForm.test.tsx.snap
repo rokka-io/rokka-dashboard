@@ -3,14 +3,14 @@
 exports[`Components FormGroup renders a sign form group correctly. 1`] = `
 <styled.div>
   <styled.div
-    login={true}
+    isLogin={true}
   >
     <Flex>
       <Box
         width={0.4166666666666667}
       >
         <styled.div
-          login={true}
+          isLogin={true}
         >
           <div>
             <Component />

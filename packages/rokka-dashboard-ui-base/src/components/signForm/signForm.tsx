@@ -14,15 +14,15 @@ interface SignFormProps {
 
 interface StyledSignFormContainerProps {
   /** Login / Signup layout toggle */
-  login: boolean;
+  isLogin: boolean;
 }
 
 export const SignForm: FunctionComponent<SignFormProps> = ({ children, marketingText, isLogin }) => (
   <StyledSignFormPage>
-    <StyledSignFormContainer login={isLogin}>
+    <StyledSignFormContainer isLogin={isLogin}>
       <Flex>
         <Box width={5 / 12}>
-          <StyledLeftColumn login={isLogin}>
+          <StyledLeftColumn isLogin={isLogin}>
             <div>
               <HeaderLogo />
               {marketingText}
@@ -40,8 +40,8 @@ export const SignForm: FunctionComponent<SignFormProps> = ({ children, marketing
 
 // TODO: maybe move to own element
 const StyledSignFormContainer = styled.div<StyledSignFormContainerProps>`
-  width: ${props => (props.login ? '700px' : '750px')};
-  height: ${props => (props.login ? '270px' : '440px')};
+  width: ${props => (props.isLogin ? '700px' : '750px')};
+  height: ${props => (props.isLogin ? '270px' : '440px')};
   background: ${colors.tints.white};
   position: absolute;
   top: 50%;
@@ -70,7 +70,7 @@ const StyledSignFormPage = styled.div`
 
 // TODO: maybe move to own element
 const StyledLeftColumn = styled.div<StyledSignFormContainerProps>`
-  height: ${props => (props.login ? '270px' : '440px')};
+  height: ${props => (props.isLogin ? '270px' : '440px')};
   position: relative;
   background: linear-gradient(14deg, ${colors.brand.lightest} 0%, ${colors.brand.primary} 58%);
   padding: ${spaces.large} ${spaces.medium};

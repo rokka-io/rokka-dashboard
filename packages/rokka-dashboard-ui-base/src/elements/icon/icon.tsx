@@ -8,17 +8,29 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import styled from 'styled-components';
 
 interface IconProps {
+  /** Icon size */
   size?: string;
+  /** Icon color */
   color?: string;
 }
 
 interface AllIconProps extends IconProps {
+  /** Readable title */
   title: string;
+  /** Actual SVG icon */
   children: ReactNode;
+  /** SVG viewBox */
+  viewBox?: string;
 }
 
-const Icon: FunctionComponent<AllIconProps> = ({ size = '1em', color = 'currentColor', title, children }) => (
-  <StyledSVG color={color} width={size} height={size} viewBox="0 0 32 32">
+const Icon: FunctionComponent<AllIconProps> = ({
+  size = '1em',
+  color = 'currentColor',
+  viewBox = '0 0 24 24',
+  title,
+  children
+}) => (
+  <StyledSVG color={color} width={size} height={size} viewBox={viewBox}>
     <title>{title}</title>
     {children}
   </StyledSVG>
@@ -55,7 +67,7 @@ export const LogoutIcon: FunctionComponent<IconProps> = props => (
 );
 
 export const AvatarIcon: FunctionComponent<IconProps> = props => (
-  <Icon title="Avatar icon" {...props}>
+  <Icon title="Avatar icon" {...props} viewBox="0 -2 24 24">
     <path
       fill="currentColor"
       d="M19.677,17.318L15,15.647v-2.207c1.503-1.162,2.5-3.165,2.5-5.441c0-3.584-2.467-6.5-5.5-6.5S6.5,4.416,6.5,8

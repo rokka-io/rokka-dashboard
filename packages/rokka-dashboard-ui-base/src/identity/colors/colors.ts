@@ -3,7 +3,8 @@ export const colors = {
     dark: '#4d852c',
     light: '#8DB547',
     lightest: '#A4C339',
-    primary: '#6EA644'
+    primary: '#6EA644',
+    avatar: '#588536'
   },
   cranberry: {
     primary: '#D34361'

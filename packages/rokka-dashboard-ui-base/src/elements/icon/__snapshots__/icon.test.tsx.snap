@@ -20,6 +20,7 @@ exports[`Elements Icon renders the AddIcon correctly. 1`] = `
 exports[`Elements Icon renders the AvatarIcon correctly. 1`] = `
 <Icon
   title="Avatar icon"
+  viewBox="0 -2 24 24"
 >
   <path
     d="M19.677,17.318L15,15.647v-2.207c1.503-1.162,2.5-3.165,2.5-5.441c0-3.584-2.467-6.5-5.5-6.5S6.5,4.416,6.5,8

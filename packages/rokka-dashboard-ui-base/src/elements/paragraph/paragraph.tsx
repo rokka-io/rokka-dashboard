@@ -13,3 +13,7 @@ export const ParagraphLoginBrand = styled.p`
 export const ParagraphWhite = styled.p`
   color: ${colors.tints.white};
 `;
+
+export const SpanWhite = styled.span`
+  color: ${colors.tints.white};
+`;

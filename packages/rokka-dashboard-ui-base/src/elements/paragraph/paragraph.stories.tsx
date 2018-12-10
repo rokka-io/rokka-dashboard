@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../../identity/colors/colors';
 
-import { ParagraphLoginBrand, ParagraphWhite } from './paragraph';
+import { ParagraphLoginBrand, ParagraphWhite, SpanWhite } from './paragraph';
 
 const ExampleContainer = styled.div`
   position: relative;
@@ -22,5 +22,10 @@ storiesOf('Elements / Paragraphs', module)
   .add('White', () => (
     <ExampleContainer>
       <ParagraphWhite>{text('text', 'Some paragraph with a good text.')}</ParagraphWhite>
+    </ExampleContainer>
+  ))
+  .add('Span White', () => (
+    <ExampleContainer>
+      <SpanWhite>{text('text', 'Some span with a good text.')}</SpanWhite>
     </ExampleContainer>
   ));

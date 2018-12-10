@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components User renders a user correctly. 1`] = `
+<Fragment>
+  <styled.div>
+    <Component
+      color="#588536"
+      size="32px"
+    />
+  </styled.div>
+  <Styled(styled.span)>
+    rokka-test
+  </Styled(styled.span)>
+</Fragment>
+`;

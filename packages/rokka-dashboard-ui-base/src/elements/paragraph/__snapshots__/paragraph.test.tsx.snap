@@ -52,7 +52,7 @@ exports[`Elements Paragraphs renders a white paragraph correctly. 1`] = `
           "
   color: ",
           "#fff",
-          "
+          ";
 ",
         ],
       },

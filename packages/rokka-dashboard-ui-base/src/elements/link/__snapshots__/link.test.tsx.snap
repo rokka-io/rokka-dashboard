@@ -21,7 +21,7 @@ exports[`Elements Link renders a link correctly. 1`] = `
   text-decoration: underline;
 
   :hover {
-    text-decoration: none;  
+    text-decoration: none;
   }
 ",
         ],

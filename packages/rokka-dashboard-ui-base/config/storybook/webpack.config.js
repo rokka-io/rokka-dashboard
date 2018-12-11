@@ -25,7 +25,7 @@ module.exports = (baseConfig, env, config) => {
   config.plugins.push(
     new ForkTsCheckerWebpackPlugin({
       checkSyntacticErrors: true,
-      tslint: path.resolve(__dirname, '../../tslint.json'),
+      tslint: path.resolve(__dirname, '../../../../tslint.json'),
       tsconfig: path.resolve(__dirname, '../../tsconfig.json')
     })
   );

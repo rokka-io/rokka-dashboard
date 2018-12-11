@@ -98,4 +98,4 @@ export const AddIcon: FunctionComponent<IconProps> = props => (
   </Icon>
 );
 
-export const allIcons = { AddIcon, AvatarIcon, LogoutIcon };
+export const allIcons: { [index: string]: FunctionComponent<IconProps> } = { AddIcon, AvatarIcon, LogoutIcon };

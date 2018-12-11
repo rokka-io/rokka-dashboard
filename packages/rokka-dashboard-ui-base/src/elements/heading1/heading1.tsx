@@ -7,7 +7,7 @@ interface Heading1StylingProps {
 }
 
 export const Heading1 = styled.h1<Heading1StylingProps>`
-  font-family: ${fonts.families.brand};
-  font-size: ${fonts.sizes.xlarge};
+  font-family: ${fonts.Families.brand};
+  font-size: ${fonts.Sizes.xlarge};
   color: ${({ color }) => color};
 `;

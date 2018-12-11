@@ -3,7 +3,7 @@ import { colors } from '../../identity/colors/colors';
 import { fonts } from '../../identity/typography/index';
 
 export const ParagraphLoginBrand = styled.p`
-  font-size: ${fonts.sizes.small};
+  font-size: ${fonts.Sizes.small};
   color: ${colors.tints.white};
   position: absolute;
   bottom: 32px;

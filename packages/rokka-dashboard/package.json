@@ -1,0 +1,28 @@
+{
+  "name": "rokka-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "main": "lib/index.js",
+  "devDependencies": {
+    "@types/react-router-dom": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "rokka-dashboard-ui-base": "*"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "prettier": "prettier --config ../../.prettierrc 'src/**/*.{ts,tsx}'",
+    "lint": "npm run lint:ts && npm run lint:sc",
+    "lint:ts": "tslint -c ../../tslint.json 'src/**/*.{ts,tsx}' -t stylish",
+    "lint:sc": "stylelint 'src/**/*.{ts,tsx}'"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

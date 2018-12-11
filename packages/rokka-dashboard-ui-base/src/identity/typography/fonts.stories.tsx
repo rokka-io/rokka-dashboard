@@ -8,10 +8,10 @@ storiesOf('Identities / Typography', module)
   .add('Fonts', () => {
     return (
       <ul>
-        {Object.keys(fonts.families).map(name => (
+        {Object.keys(fonts.Families).map(name => (
           <Entry key={name}>
             <FontName>{name}</FontName>
-            <FontFamilyPreview font={fonts.families[name]}>{fonts.families[name]}</FontFamilyPreview>
+            <FontFamilyPreview font={fonts.Families[name]}>{fonts.Families[name]}</FontFamilyPreview>
           </Entry>
         ))}
       </ul>
@@ -20,10 +20,10 @@ storiesOf('Identities / Typography', module)
   .add('Sizes', () => {
     return (
       <ul>
-        {Object.keys(fonts.sizes).map(name => (
+        {Object.keys(fonts.Sizes).map(name => (
           <Entry key={name}>
             <FontName>{name}</FontName>
-            <FontSizePreview size={fonts.sizes[name]}>{fonts.sizes[name]}</FontSizePreview>
+            <FontSizePreview size={fonts.Sizes[name]}>{fonts.Sizes[name]}</FontSizePreview>
           </Entry>
         ))}
       </ul>
@@ -32,10 +32,10 @@ storiesOf('Identities / Typography', module)
   .add('Weights', () => {
     return (
       <ul>
-        {Object.keys(fonts.weights).map(name => (
+        {Object.keys(fonts.Weights).map(name => (
           <Entry key={name}>
             <FontName>{name}</FontName>
-            <FontWeightPreview weight={fonts.weights[name]}>{fonts.weights[name]}</FontWeightPreview>
+            <FontWeightPreview weight={fonts.Weights[name]}>{fonts.Weights[name]}</FontWeightPreview>
           </Entry>
         ))}
       </ul>
@@ -65,6 +65,6 @@ const FontSizePreview = styled.span<{ size: string }>`
   font-size: ${({ size }) => size};
 `;
 
-const FontWeightPreview = styled.span<{ weight: string }>`
+const FontWeightPreview = styled.span<{ weight: number }>`
   font-weight: ${({ weight }) => weight};
 `;

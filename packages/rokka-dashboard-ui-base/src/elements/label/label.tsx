@@ -4,10 +4,10 @@ import { spaces } from '../../identity/spaces/spaces';
 import { fonts } from '../../identity/typography/index';
 
 export const Label = styled.label`
-  font-family: ${fonts.families.brand};
-  font-size: ${fonts.sizes.xsmall};
+  font-family: ${fonts.Families.brand};
+  font-size: ${fonts.Sizes.xsmall};
   color: ${colors.gray.darkest};
-  font-weight: ${fonts.weights.bold};
+  font-weight: ${fonts.Weights.bold};
 `;
 
 export const LabelText = styled.span`

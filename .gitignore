@@ -1,1 +1,4 @@
-/node_modules
+node_modules/
+.cache/
+.cache-loader/
+packages/*/lib/

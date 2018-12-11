@@ -7,7 +7,7 @@ interface Heading2StylingProps {
 }
 
 export const Heading2 = styled.h2<Heading2StylingProps>`
-  font-family: ${fonts.families.brand};
-  font-size: ${fonts.sizes.large};
+  font-family: ${fonts.Families.brand};
+  font-size: ${fonts.Sizes.large};
   color: ${({ color }) => color};
 `;

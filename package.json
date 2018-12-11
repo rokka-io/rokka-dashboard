@@ -1,7 +1,85 @@
 {
   "name": "root",
   "private": true,
+  "license": "MIT",
+  "scripts": {
+    "bootstrap": "lerna bootstrap --hoist",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
   "devDependencies": {
-    "lerna": "^3.4.3"
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@types/enzyme": "^3.1.15",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/jest": "^23.3.10",
+    "@types/node": "^10.12.12",
+    "@types/react": "^16.7.13",
+    "@types/react-dom": "^16.0.11",
+    "@types/styled-components": "^4.1.1",
+    "babel-loader": "^8.0.4",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "enzyme-to-json": "^3.3.4",
+    "jest": "^23.6.0",
+    "lerna": "^3.4.3",
+    "prettier": "^1.15.3",
+    "stylelint": "^9.8.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.5.1",
+    "ts-jest": "^23.10.5",
+    "ts-loader": "^5.3.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.2.2",
+    "typescript-styled-plugin": "^0.13.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "jest": {
+    "rootDir": "./",
+    "collectCoverageFrom": [
+      "<rootDir>/packages/*/src/**/*.{ts,tsx}",
+      "!<rootDir>/packages/*/src/**/*.test.{ts,tsx}",
+      "!<rootDir>/packages/*/src/**/*.stories.tsx"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/jest/setup.ts"
+    ],
+    "testMatch": [
+      "<rootDir>/packages/*/src/**/*.test.{ts,tsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+    ],
+    "transform": {
+      "^(?!.*\\.(css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "preset": "ts-jest",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }

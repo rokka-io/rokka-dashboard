@@ -4,8 +4,8 @@ import { spaces } from '../../identity/spaces/spaces';
 import { fonts } from '../../identity/typography/index';
 
 export const Input = styled.input`
-  font-family: ${fonts.families.brand};
-  font-size: ${fonts.sizes.small};
+  font-family: ${fonts.Families.brand};
+  font-size: ${fonts.Sizes.small};
   width: 100%;
   height: 38px;
   line-height: 38px;

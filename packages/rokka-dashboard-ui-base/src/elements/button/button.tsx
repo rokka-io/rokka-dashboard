@@ -29,8 +29,8 @@ const StyledButton = styled.button<StyledButtonProps>`
   background-color: ${colors.brand.primary};
   color: ${colors.tints.white};
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
-  font-family: ${fonts.families.semiBold};
-  font-size: ${fonts.sizes.medium};
+  font-family: ${fonts.Families.semiBold};
+  font-size: ${fonts.Sizes.medium};
   padding: 0 ${spaces.large};
   border: 0;
   height: 38px;

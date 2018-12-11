@@ -1,4 +1,4 @@
-export const colors = {
+export const colors: { [index: string]: { [index: string]: string } } = {
   brand: {
     dark: '#4d852c',
     light: '#8DB547',

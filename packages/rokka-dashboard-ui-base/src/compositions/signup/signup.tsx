@@ -85,11 +85,11 @@ export class Signup extends PureComponent<SignupProps, SignupState> {
   }
 }
 const StyledTermsParagraph = styled.p`
-  font-size: ${fonts.sizes.small};
+  font-size: ${fonts.Sizes.small};
   color: ${colors.gray.darkest};
 `;
 
 const StyledTermsLink = styled(Link)`
-  font-size: ${fonts.sizes.small};
+  font-size: ${fonts.Sizes.small};
   margin-left: ${spaces.xsmall};
 `;

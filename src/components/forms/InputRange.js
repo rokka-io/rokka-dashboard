@@ -3,6 +3,14 @@ import React, { Component } from 'react'
 import cx from 'classnames'
 import Input from './Input'
 
+function getValue(props) {
+  let { value, defaultValue } = props
+  if (value === '' || value === null || value === undefined) {
+    return defaultValue
+  }
+  return value
+}
+
 class InputRange extends Component {
   static defaultProps = {
     step: 1
@@ -12,7 +20,7 @@ class InputRange extends Component {
     super(props)
 
     this.state = {
-      value: this.props.value || this.props.defaultValue,
+      value: getValue(this.props),
       showMinMax: false
     }
   }
@@ -20,7 +28,7 @@ class InputRange extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.state.value) {
       this.setState({
-        value: nextProps.value || nextProps.defaultValue
+        value: getValue(nextProps)
       })
     }
   }

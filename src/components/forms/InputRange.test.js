@@ -41,6 +41,14 @@ test('InputRange does render with a string defaultValue', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('InputRange allows to set value to zero', () => {
+  const component = renderer.create(
+    <InputRange name="Test" min={0} max={100} defaultValue={100} value={0} />
+  )
+  let tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
 test('InputRange onChange', done => {
   const onChange = e => {
     expect(e.currentTarget.value).toBe('15')

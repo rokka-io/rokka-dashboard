@@ -21,6 +21,9 @@ exports[`Elements Heading2 renders a heading 2 correctly. 1`] = `
   color: ",
           [Function],
           ";
+  margin: 0 0 ",
+          "1rem",
+          ";
 ",
         ],
       },

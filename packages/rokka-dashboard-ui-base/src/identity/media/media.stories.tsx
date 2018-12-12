@@ -8,30 +8,24 @@ storiesOf('Identities / Media', module).add(
   () => (
     <StyledMedia>
       <h2>Breakpoints</h2>
-      {Object.keys(breakpoints).map((breakpoint) => {
+      {Object.keys(breakpoints).map(breakpoint => {
         return (
           <div key={breakpoint}>
             <h2>{breakpoint}</h2>
-            <p>
-              Min Width: {breakpoints[breakpoint].min / 16}em
-            </p>
+            <p>Min Width: {breakpoints[breakpoint].Min / 16}em</p>
           </div>
         );
       })}
       <h1>Media Queries</h1>
-      <p>
-        For using media query identity use the following breakpoint methods (background: #f00; as example of css rule):
-      </p>
+      <p>For using media query identity use the following breakpoint methods (background: #f00; as example of css rule):</p>
       <ul>
         {Object.keys(mediaBreakpoints).map((mediaBreakpoint, i) => {
           return (
-            <li key={'mediabreakpoint-'+i}>
+            <li key={'mediabreakpoint-' + i}>
               <strong>$media.{mediaBreakpoint} `background: #f00;`</strong>
-              <p>
-                output css : {mediaBreakpoints[mediaBreakpoint]}
-              </p>
+              <p>output css : {mediaBreakpoints[mediaBreakpoint]}</p>
             </li>
-          )
+          );
         })}
       </ul>
     </StyledMedia>

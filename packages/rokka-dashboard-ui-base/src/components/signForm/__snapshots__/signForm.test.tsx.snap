@@ -5,9 +5,25 @@ exports[`Components FormGroup renders a sign form group correctly. 1`] = `
   <styled.div
     isLogin={true}
   >
-    <Flex>
+    <Flex
+      flexDirection={
+        Array [
+          "column",
+          "column",
+          "column",
+          "row",
+        ]
+      }
+    >
       <Box
-        width={0.4166666666666667}
+        width={
+          Array [
+            1,
+            1,
+            1,
+            0.4166666666666667,
+          ]
+        }
       >
         <styled.div
           isLogin={true}
@@ -34,7 +50,14 @@ exports[`Components FormGroup renders a sign form group correctly. 1`] = `
             "1rem",
           ]
         }
-        width={0.5833333333333334}
+        width={
+          Array [
+            1,
+            1,
+            1,
+            0.5833333333333334,
+          ]
+        }
       >
         <div>
           Right column content

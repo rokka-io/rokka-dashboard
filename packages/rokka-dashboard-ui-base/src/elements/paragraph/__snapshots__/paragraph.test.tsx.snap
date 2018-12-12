@@ -18,8 +18,30 @@ exports[`Elements Paragraphs renders a login brand paragraph correctly. 1`] = `
           "#fff",
           ";
   position: absolute;
-  bottom: 32px;
-  right: 44px;
+  bottom: ",
+          "1rem",
+          ";
+  left: ",
+          "1rem",
+          ";
+  margin: 0;
+  ",
+          "
+      @media only screen and (",
+          "(min-width: 64em)",
+          ") {
+        ",
+          "
+    left: auto;
+    bottom: ",
+          "2rem",
+          ";
+    right: 44px;
+  ",
+          "
+      }
+    ",
+          "
 ",
         ],
       },
@@ -53,6 +75,7 @@ exports[`Elements Paragraphs renders a white paragraph correctly. 1`] = `
   color: ",
           "#fff",
           ";
+  margin: 0;
 ",
         ],
       },

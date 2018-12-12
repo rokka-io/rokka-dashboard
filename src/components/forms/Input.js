@@ -1,8 +1,15 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
+function getValue(value, defaultValue) {
+  if (value === '' || value === null || value === undefined) {
+    return defaultValue
+  }
+  return value
+}
+
 const Input = ({ value, defaultValue, placeholder, disabled, ...props }) => {
-  let val = disabled || !props.onChange ? value || defaultValue : value
+  let val = disabled || !props.onChange ? getValue(value, defaultValue) : value
   if (val === null || val === undefined) {
     val = ''
   }

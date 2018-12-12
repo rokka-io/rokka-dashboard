@@ -67,3 +67,9 @@ test('Input is disabled if there is no onChange func', () => {
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+test('Input renders 0 if value is 0', () => {
+  const component = renderer.create(<Input value={0} defaultValue={100} />)
+  let tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
+})

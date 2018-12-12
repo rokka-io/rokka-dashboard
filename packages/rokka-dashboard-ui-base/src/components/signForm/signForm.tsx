@@ -5,6 +5,7 @@ import { HeaderLogo } from '../../elements/headerLogo/headerLogo';
 import { ParagraphLoginBrand } from '../../elements/paragraph/paragraph';
 import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
+import { media } from '../../identity/media/media';
 
 interface SignFormProps {
   /** Right column containing e.g. a form */
@@ -23,8 +24,8 @@ interface StyledSignFormContainerProps {
 export const SignForm: FunctionComponent<SignFormProps> = ({ children, marketingText, isLogin }) => (
   <StyledSignFormPage>
     <StyledSignFormContainer isLogin={isLogin}>
-      <Flex>
-        <Box width={5 / 12}>
+      <Flex flexDirection={['column', 'row']}>
+        <Box width={[12/12, 5/12]}>
           <StyledLeftColumn isLogin={isLogin}>
             <div>
               <HeaderLogo />
@@ -33,7 +34,7 @@ export const SignForm: FunctionComponent<SignFormProps> = ({ children, marketing
             </div>
           </StyledLeftColumn>
         </Box>
-        <Box width={7 / 12} p={[spaces.large, spaces.medium]} pl={[spaces.small, spaces.medium]}>
+        <Box width={[12/12, 7/12]} p={[spaces.large, spaces.medium]} pl={[spaces.small, spaces.medium]}>
           {children}
         </Box>
       </Flex>
@@ -43,39 +44,52 @@ export const SignForm: FunctionComponent<SignFormProps> = ({ children, marketing
 
 // TODO: maybe move to own element
 const StyledSignFormContainer = styled.div<StyledSignFormContainerProps>`
-  width: ${props => (props.isLogin ? '700px' : '750px')};
-  height: ${props => (props.isLogin ? '270px' : '440px')};
+  width: 100%;
   background: ${colors.tints.white};
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: static;
+  ${media.tabletAndUp`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: ${props => (props.isLogin ? '700px' : '750px')}
+  `}
 `;
 
 // TODO: maybe move to own element
 const StyledSignFormPage = styled.div`
-  transition: opacity 0.5s ease;
-  background: linear-gradient(${colors.gray.lightest}, ${colors.gray.light}) no-repeat fixed;
-  overflow-x: hidden;
+  min-height: 100vh;
+  background: ${colors.tints.white};
 
-  :after {
-    content: '';
-    background: ${colors.brand.primary};
-    opacity: 0;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    left: 0;
-    z-index: -1;
-  }
+  ${media.tabletAndUp`
+    transition: opacity 0.5s ease;
+    background: linear-gradient(${colors.gray.lightest}, ${colors.gray.light}) no-repeat fixed;
+    overflow-x: hidden;
+  
+    :after {
+      content: '';
+      background: ${colors.brand.primary};
+      opacity: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      left: 0;
+      z-index: -1;
+    }
+  `}
 `;
 
 // TODO: maybe move to own element
 const StyledLeftColumn = styled.div<StyledSignFormContainerProps>`
-  height: ${props => (props.isLogin ? '270px' : '440px')};
+  height: ${props => (props.isLogin ? '200px' : '240px')};
   position: relative;
   background: linear-gradient(14deg, ${colors.brand.lightest} 0%, ${colors.brand.primary} 58%);
-  padding: ${spaces.large} ${spaces.medium};
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  padding: ${spaces.large} ${spaces.medium} 0;
+
+  ${media.tabletAndUp`
+    padding: ${spaces.large} ${spaces.medium};
+    height: ${props => (props.isLogin ? '270px' : '440px')};
+  `}
 `;

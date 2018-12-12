@@ -24,8 +24,8 @@ interface StyledSignFormContainerProps {
 export const SignForm: FunctionComponent<SignFormProps> = ({ children, marketingText, isLogin }) => (
   <StyledSignFormPage>
     <StyledSignFormContainer isLogin={isLogin}>
-      <Flex flexDirection={['column', 'row']}>
-        <Box width={[12/12, 5/12]}>
+      <Flex flexDirection={['column', 'column', 'column', 'row']}>
+        <Box width={[12/12, 12/12, 12/12, 5/12]}>
           <StyledLeftColumn isLogin={isLogin}>
             <div>
               <HeaderLogo />
@@ -34,7 +34,7 @@ export const SignForm: FunctionComponent<SignFormProps> = ({ children, marketing
             </div>
           </StyledLeftColumn>
         </Box>
-        <Box width={[12/12, 7/12]} p={[spaces.large, spaces.medium]} pl={[spaces.small, spaces.medium]}>
+        <Box width={[12/12, 12/12, 12/12, 7/12]} p={[spaces.large, spaces.medium]} pl={[spaces.small, spaces.medium]}>
           {children}
         </Box>
       </Flex>
@@ -52,6 +52,9 @@ const StyledSignFormContainer = styled.div<StyledSignFormContainerProps>`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: ${props => (props.isLogin ? '600px' : '600px')}
+  `}
+  ${media.desktop`
     width: ${props => (props.isLogin ? '700px' : '750px')}
   `}
 `;
@@ -88,8 +91,8 @@ const StyledLeftColumn = styled.div<StyledSignFormContainerProps>`
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   padding: ${spaces.large} ${spaces.medium} 0;
 
-  ${media.tabletAndUp`
-    padding: ${spaces.large} ${spaces.medium};
+  ${media.desktop`
+    padding: ${spaces.large};
     height: ${props => (props.isLogin ? '270px' : '440px')};
   `}
 `;

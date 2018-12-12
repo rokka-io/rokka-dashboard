@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { colors } from '../../identity/colors/colors';
+import { spaces } from '../../identity/spaces/spaces';
 
 interface HeaderLogoProps {
   width?: string;
@@ -36,6 +37,7 @@ const LogoDiv = styled.div`
   transform-origin: left center;
   font-size: 1.41176rem;
   color: ${colors.tints.white};
+  margin-bottom: ${spaces.large}
 `;
 
 const LogoSVG = styled.svg`

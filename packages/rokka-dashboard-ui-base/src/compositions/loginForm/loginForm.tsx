@@ -20,7 +20,7 @@ interface LoginState {
   apiKey?: string;
 }
 
-export class Login extends PureComponent<LoginProps, LoginState> {
+export class LoginForm extends PureComponent<LoginProps, LoginState> {
   public state = { organization: '', apiKey: '' };
 
   public handleChange = (event: ChangeEvent<HTMLInputElement>) => {

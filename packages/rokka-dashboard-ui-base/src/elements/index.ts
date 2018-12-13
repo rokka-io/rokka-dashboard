@@ -1,4 +1,5 @@
 export * from './button/button';
+export * from './globalStyle/globalStyle';
 export * from './headerLogo/headerLogo';
 export * from './heading1/heading1';
 export * from './heading2/heading2';

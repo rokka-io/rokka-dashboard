@@ -25,7 +25,7 @@ interface SignupState {
   email?: string;
 }
 
-export class Signup extends PureComponent<SignupProps, SignupState> {
+export class SignupForm extends PureComponent<SignupProps, SignupState> {
   public state = { organization: '', email: '' };
 
   public handleChange = (event: ChangeEvent<HTMLInputElement>) => {

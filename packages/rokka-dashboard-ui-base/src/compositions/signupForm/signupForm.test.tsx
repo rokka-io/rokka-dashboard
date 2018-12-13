@@ -3,7 +3,7 @@ import React from 'react';
 
 import { LoadingIndicatingButton } from '../../components/loadingIndicatingButton/loadingIndicatingButton';
 import { Input } from '../../elements/input/input';
-import { Signup } from './signup';
+import { SignupForm } from './signupForm';
 
 describe('Compositions', () => {
   describe('Signup', () => {
@@ -11,7 +11,7 @@ describe('Compositions', () => {
       const onSignup = jest.fn();
       const props = { onSignup };
 
-      const component = shallow(<Signup {...props} />);
+      const component = shallow(<SignupForm {...props} />);
 
       expect(component).toMatchSnapshot();
     });
@@ -22,7 +22,7 @@ describe('Compositions', () => {
       };
       const props = { onSignup };
 
-      const component = shallow(<Signup {...props} />);
+      const component = shallow(<SignupForm {...props} />);
 
       const inputs = component.find(Input);
       inputs.find('[type="text"]').simulate('change', {

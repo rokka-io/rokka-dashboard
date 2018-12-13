@@ -3,7 +3,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { colors } from '../../identity/colors/colors';
-import { Login } from './login';
+import { SignupForm } from './signupForm';
 
 storiesOf('Compositions', module)
   // TODO: decide if we want to move that to a separate decorator so it can be used somewhere else, too.
@@ -12,4 +12,4 @@ storiesOf('Compositions', module)
       {story()}
     </div>
   ))
-  .add('Login', () => <Login loading={boolean('loading', false)} onLogin={action('login subbmited')} />);
+  .add('SignupForm', () => <SignupForm loading={boolean('loading', false)} onSignup={action('signup subbmited')} />);

@@ -12,5 +12,5 @@ export interface WithAuthRequiredProps {
 export const WithAuthRequired = <P extends object>(
   Component: ComponentType<P>
 ): FunctionComponent<P & WithAuthRequiredProps> => props => {
-  return props.auth ? <Component {...props} /> : <Login {...props} />;
+  return props.auth ? <Component {...props} /> : <Login />;
 };

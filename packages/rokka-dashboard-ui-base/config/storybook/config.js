@@ -1,10 +1,10 @@
+import React from 'react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withOptions } from '@storybook/addon-options';
 import { addDecorator, configure } from '@storybook/react';
+import { GlobalStyle } from '../../src/elements/globalStyle/globalStyle';
 import 'normalize.css';
-import '../../src/identity/typography/fonts.css';
-import '../../src/identity/spaces/spaces.css';
 
 addDecorator(
   withInfo({
@@ -18,6 +18,12 @@ addDecorator(
     sortStoriesByKind: true
   })
 );
+addDecorator(story => (
+  <>
+    <GlobalStyle />
+    {story()}
+  </>
+));
 
 const req = require.context('../../src', true, /\.stories\.ts(x)?$/);
 

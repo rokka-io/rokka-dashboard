@@ -1,3 +1,5 @@
+import { css } from 'styled-components';
+
 export const spaces: { [index: string]: string } = {
   xsmall: '0.25rem',
   small: '0.5rem',
@@ -5,3 +7,9 @@ export const spaces: { [index: string]: string } = {
   large: '2rem',
   xlarge: '4rem'
 };
+
+export const SpacesGlobalStyle = css`
+  * {
+    box-sizing: border-box;
+  }
+`;

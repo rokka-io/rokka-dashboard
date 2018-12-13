@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "start-storybook -p 9001 -c ./config/storybook",
-    "build": "npm run clean && tsc -p ./tsconfig.build.json",
+    "build": "npm run clean && tsc -p ./tsconfig.build.json && npm run build:copy-files",
+    "build:copy-files": "cp -R ./src/identity/typography/fonts ./lib/identity/typography",
     "clean": "rm -Rf ./lib",
     "prettier": "prettier --config ../../.prettierrc 'src/**/*.{ts,tsx}'",
     "lint": "npm run lint:ts && npm run lint:sc",

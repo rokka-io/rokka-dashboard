@@ -16,5 +16,6 @@
     "importHelpers": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
-  }
+  },
+  "files": ["./fonts.d.ts"]
 }

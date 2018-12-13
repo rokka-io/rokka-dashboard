@@ -5,6 +5,5 @@
     {
       "name": "typescript-styled-plugin"
     }
-  ],
-  "files": ["./declarations.d.ts"]
+  ]
 }

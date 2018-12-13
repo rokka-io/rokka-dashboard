@@ -1,5 +1,7 @@
 import { css } from 'styled-components';
 
+// FIXME: maybe rename that to something else than spaces
+// because it can also e.g. mean a specific height.
 export const spaces: { [index: string]: string } = {
   xsmall: '0.25rem',
   small: '0.5rem',

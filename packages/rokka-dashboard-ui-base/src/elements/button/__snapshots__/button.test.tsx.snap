@@ -22,6 +22,13 @@ exports[`Elements Button renders a button correctly. 1`] = `
 </styled.button>
 `;
 
+exports[`Elements Button renders a button without child correctly 1`] = `
+<styled.button
+  disabled={false}
+  type="button"
+/>
+`;
+
 exports[`Elements Button renders a disabled button correctly and does not call onClick. 1`] = `
 <styled.button
   disabled={true}

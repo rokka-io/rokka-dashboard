@@ -27,5 +27,9 @@ describe('Elements', () => {
       expect(component).toMatchSnapshot();
       expect(spy).toHaveBeenCalledTimes(0);
     });
+    it('renders a button without child correctly', () => {
+      const component = shallow(<Button />);
+      expect(component).toMatchSnapshot();
+    });
   });
 });

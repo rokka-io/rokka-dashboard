@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Elements Header renders a MobileMenuButton correctly. 1`] = `
+<Styled(styled.button)
+  active={false}
+  onClick={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  type="button"
+/>
+`;
+
+exports[`Elements Header renders an active MobileMenuButton correctly. 1`] = `
+<Styled(styled.button)
+  active={true}
+  onClick={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  type="button"
+/>
+`;

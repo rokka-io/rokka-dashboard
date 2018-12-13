@@ -6,7 +6,7 @@ import { fonts } from '../../identity/typography/index';
 
 export interface ButtonProps {
   /** Children */
-  children: ReactNode;
+  children?: ReactNode;
   /** Button type */
   type?: string;
   /** Whether button is disabled */

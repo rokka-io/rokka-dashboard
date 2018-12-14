@@ -1,9 +1,6 @@
 import React, { ChangeEvent, FormEvent, Fragment, PureComponent } from 'react';
-import { FormGroup } from '../../components/formGroup/formGroup';
-import { LoadingIndicatingButton } from '../../components/loadingIndicatingButton/loadingIndicatingButton';
-import { SignForm } from '../../components/signForm/signForm';
-import { Heading2 } from '../../elements/heading2/heading2';
-import { Input } from '../../elements/input/input';
+import { FormGroup, LoadingIndicatingButton, SignForm } from '../../components';
+import { Heading2, Input } from '../../elements';
 import { colors } from '../../identity/colors/colors';
 
 interface LoginProps {

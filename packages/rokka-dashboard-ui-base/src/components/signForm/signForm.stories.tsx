@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { Heading2 } from '../../elements/heading2/heading2';
+import { Heading2 } from '../../elements';
 import { colors } from '../../identity/colors/colors';
 import { SignForm } from './signForm';
 

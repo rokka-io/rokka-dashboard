@@ -3,7 +3,7 @@ import React from 'react';
 import { colors } from '../../identity/colors/colors';
 import { User } from './user';
 
-storiesOf('Components / Navigation', module)
+storiesOf('Components / Header', module)
   .addDecorator(story => (
     <div style={{ width: '100vw', height: '50px', padding: '10px', background: colors.brand.primary }}>{story()}</div>
   ))

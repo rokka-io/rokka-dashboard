@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Button, ButtonProps } from '../../elements/button/button';
-import { Spinner } from '../../elements/spinner/spinner';
+import { Button, ButtonProps, Spinner } from '../../elements';
 import { colors } from '../../identity/colors/colors';
 
 interface LoadingIndicatingButtonProps extends ButtonProps {

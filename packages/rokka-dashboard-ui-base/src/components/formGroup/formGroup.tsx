@@ -1,6 +1,6 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import styled from 'styled-components';
-import { Label, LabelText } from '../../elements/label/label';
+import { Label, LabelText } from '../../elements';
 import { spaces } from '../../identity/spaces/spaces';
 
 interface FormGroupProps {

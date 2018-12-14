@@ -1,8 +1,7 @@
 import { Box, Flex } from '@rebass/grid';
 import React, { FunctionComponent, ReactNode } from 'react';
 import styled from 'styled-components';
-import { HeaderLogo } from '../../elements/headerLogo/headerLogo';
-import { ParagraphLoginBrand } from '../../elements/paragraph/paragraph';
+import { HeaderLogo, ParagraphLoginBrand } from '../../elements';
 import { colors } from '../../identity/colors/colors';
 import { media } from '../../identity/media/media';
 import { spaces } from '../../identity/spaces/spaces';

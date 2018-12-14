@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import { AvatarIcon } from '../../elements/icon/icon';
-import { SpanWhite } from '../../elements/paragraph/paragraph';
+import { AvatarIcon, SpanWhite } from '../../elements';
 import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
 

@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { LoadingIndicatingButton } from '../../components/loadingIndicatingButton/loadingIndicatingButton';
-import { Input } from '../../elements/input/input';
+import { LoadingIndicatingButton } from '../../components';
+import { Input } from '../../elements';
 import { LoginForm } from './loginForm';
 
 describe('Compositions', () => {

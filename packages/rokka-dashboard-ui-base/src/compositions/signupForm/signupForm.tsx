@@ -1,12 +1,7 @@
 import React, { ChangeEvent, FormEvent, Fragment, PureComponent } from 'react';
 import styled from 'styled-components';
-import { FormGroup } from '../../components/formGroup/formGroup';
-import { LoadingIndicatingButton } from '../../components/loadingIndicatingButton/loadingIndicatingButton';
-import { SignForm } from '../../components/signForm/signForm';
-import { Heading2 } from '../../elements/heading2/heading2';
-import { Input } from '../../elements/input/input';
-import { Link } from '../../elements/link/link';
-import { ParagraphWhite } from '../../elements/paragraph/paragraph';
+import { FormGroup, LoadingIndicatingButton, SignForm } from '../../components';
+import { Heading2, Input, Link, ParagraphWhite } from '../../elements';
 import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
 import { fonts } from '../../identity/typography/index';

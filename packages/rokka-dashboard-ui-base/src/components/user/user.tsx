@@ -10,13 +10,18 @@ interface UserProps {
 }
 
 export const User: FunctionComponent<UserProps> = ({ username }) => (
-  <>
+  <StyledUserDiv>
     <AvatarDiv>
       <AvatarIcon size="32px" color={colors.brand.avatar} />
     </AvatarDiv>
     <StyledUsername>{username}</StyledUsername>
-  </>
+  </StyledUserDiv>
 );
+
+const StyledUserDiv = styled.div`
+  line-height: inherit;
+  float: left;
+`;
 
 const StyledUsername = styled(SpanWhite)`
   margin-left: ${spaces.small};

@@ -8,11 +8,13 @@ storiesOf('Identities / Media', module).add(
   () => (
     <StyledMedia>
       <h2>Breakpoints</h2>
-      {Object.keys(breakpoints).map(breakpoint => {
+      {Object.keys(breakpoints).map(bp => {
+        const breakpoint = breakpoints[bp];
         return (
-          <div key={breakpoint}>
-            <h2>{breakpoint}</h2>
-            <p>Min Width: {breakpoints[breakpoint].Min / 16}em</p>
+          <div key={bp}>
+            <h2>{bp}</h2>
+            {breakpoint.Min && <p>Min Width: {breakpoint.Min / 16}em</p>}
+            {breakpoint.Max && <p>Max Width: {breakpoint.Max / 16}em</p>}
           </div>
         );
       })}

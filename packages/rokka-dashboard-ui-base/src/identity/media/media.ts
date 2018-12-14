@@ -1,7 +1,7 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components';
 
 interface MinMax {
-  Min: number;
+  Min?: number;
   Max?: number;
 }
 
@@ -20,6 +20,9 @@ export const breakpoints: Breakpoints = {
   tablet: {
     Min: 640,
     Max: 831
+  },
+  mobile: {
+    Max: 468
   }
 };
 
@@ -28,13 +31,15 @@ interface MediaBreakpoints {
 }
 
 export const mediaBreakpoints: MediaBreakpoints = {
-  tablet: `(min-width: ${breakpoints.tablet.Min / 16}em) and (max-width: ${(breakpoints.tablet.Max as number) / 16}em)`,
-  tabletAndUp: `(min-width: ${breakpoints.tablet.Min / 16}em)`,
-  tabletWideAndDown: `(max-width: ${(breakpoints.tabletWide.Max as number) / 16}em)`,
-  tabletWide: `(min-width: ${breakpoints.tabletWide.Min / 16}em) and (max-width: ${(breakpoints.tabletWide.Max as number) /
+  mobile: `(max-width: ${(breakpoints.mobile.Max as number) / 16}em)`,
+  tablet: `(min-width: ${(breakpoints.tablet.Min as number) / 16}em) and (max-width: ${(breakpoints.tablet.Max as number) /
     16}em)`,
-  tabletWideAndUp: `(min-width: ${breakpoints.tabletWide.Min / 16}em)`,
-  desktop: `(min-width: ${breakpoints.desktop.Min / 16}em)`
+  tabletAndUp: `(min-width: ${(breakpoints.tablet.Min as number) / 16}em)`,
+  tabletWideAndDown: `(max-width: ${(breakpoints.tabletWide.Max as number) / 16}em)`,
+  tabletWide: `(min-width: ${(breakpoints.tabletWide.Min as number) / 16}em) and (max-width: ${(breakpoints.tabletWide
+    .Max as number) / 16}em)`,
+  tabletWideAndUp: `(min-width: ${(breakpoints.tabletWide.Min as number) / 16}em)`,
+  desktop: `(min-width: ${(breakpoints.desktop.Min as number) / 16}em)`
 };
 
 export const media = Object.keys(mediaBreakpoints).reduce(

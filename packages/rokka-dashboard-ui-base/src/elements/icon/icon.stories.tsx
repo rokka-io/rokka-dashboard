@@ -11,5 +11,7 @@ const s = storiesOf('Elements / Icons', module).addDecorator(story => (
 
 for (const iconName of Object.keys(allIcons)) {
   const Icon = allIcons[iconName];
-  s.add(iconName as string, () => <Icon size={text('size', '32px')} color={color('color', colors.tints.white)} />);
+  s.add(iconName as string, () => (
+    <Icon width={text('width', '32px')} height={text('height', '32px')} color={color('color', colors.tints.white)} />
+  ));
 }

@@ -5,7 +5,8 @@ exports[`Components User renders a user correctly. 1`] = `
   <styled.div>
     <Component
       color="#588536"
-      size="32px"
+      height="32px"
+      width="32px"
     />
   </styled.div>
   <Styled(styled.span)>

@@ -16,7 +16,7 @@ export const HeaderNavigation: FunctionComponent<HeaderNavigationProps> = ({ use
   <StyledHeaderNav>
     <User username={username} />
     <Button onClick={onLogout}>
-      <StyledLogoutIcon size="23px" />
+      <StyledLogoutIcon width="23px" height="23px" />
     </Button>
   </StyledHeaderNav>
 );

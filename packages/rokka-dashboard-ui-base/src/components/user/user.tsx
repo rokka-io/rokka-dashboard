@@ -12,7 +12,7 @@ interface UserProps {
 export const User: FunctionComponent<UserProps> = ({ username }) => (
   <StyledUserDiv>
     <AvatarDiv>
-      <AvatarIcon size="32px" color={colors.brand.avatar} />
+      <AvatarIcon width="32px" height="32px" color={colors.brand.avatar} />
     </AvatarDiv>
     <StyledUsername>{username}</StyledUsername>
   </StyledUserDiv>

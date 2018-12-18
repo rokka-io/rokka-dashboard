@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components HeaderNavigation renders the headernavigation correctly 1`] = `
+<styled.nav>
+  <Component
+    username="test"
+  />
+  <Component
+    onClick={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  >
+    <Styled(Component)
+      height="23px"
+      width="23px"
+    />
+  </Component>
+</styled.nav>
+`;

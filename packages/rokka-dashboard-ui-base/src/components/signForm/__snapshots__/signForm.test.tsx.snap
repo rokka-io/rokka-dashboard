@@ -28,13 +28,13 @@ exports[`Components FormGroup renders a sign form group correctly. 1`] = `
         <styled.div
           isLogin={true}
         >
-          <div>
-            <Component />
-            randomText
-            <styled.p>
-              Powered by Liip.
-            </styled.p>
-          </div>
+          <Component
+            marginBottom="2rem"
+          />
+          randomText
+          <styled.p>
+            Powered by Liip.
+          </styled.p>
         </styled.div>
       </Box>
       <Box

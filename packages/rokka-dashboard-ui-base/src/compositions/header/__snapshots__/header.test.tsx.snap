@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Compositions Header renders the header correctly. 1`] = `
+<styled.header>
+  <Component
+    active={true}
+    onClick={[Function]}
+  />
+  <Component />
+  <Component
+    onLogout={[MockFunction]}
+    username="rokka-test"
+  />
+</styled.header>
+`;

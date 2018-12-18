@@ -26,11 +26,9 @@ export const SignForm: FunctionComponent<SignFormProps> = ({ children, marketing
       <Flex flexDirection={['column', 'column', 'column', 'row']}>
         <Box width={[12 / 12, 12 / 12, 12 / 12, 5 / 12]}>
           <StyledLeftColumn isLogin={isLogin}>
-            <div>
-              <HeaderLogo />
-              {marketingText}
-              <ParagraphLoginBrand>Powered by Liip.</ParagraphLoginBrand>
-            </div>
+            <HeaderLogo marginBottom={spaces.large} />
+            {marketingText}
+            <ParagraphLoginBrand>Powered by Liip.</ParagraphLoginBrand>
           </StyledLeftColumn>
         </Box>
         <Box

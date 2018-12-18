@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { colors } from '../../identity/colors/colors';
-import { spaces } from '../../identity/spaces/spaces';
 
 interface HeaderLogoProps {
   width?: string;
+  marginBottom?: string;
 }
 
-export const HeaderLogo: FunctionComponent<HeaderLogoProps> = ({ width = '7em' }) => (
-  <LogoDiv>
+export const HeaderLogo: FunctionComponent<HeaderLogoProps> = ({ width = '7em', marginBottom }) => (
+  <LogoDiv marginBottom={marginBottom}>
     <LogoSVG width={width} viewBox="0 0 206 48" xmlns="http://www.w3.org/2000/svg">
       <StyledG id="Page-1-Copy-11" fill="none" fillRule="evenodd">
         <StyledG id="Desktop-HD" transform="translate(-52 -53)">
@@ -30,14 +30,18 @@ export const HeaderLogo: FunctionComponent<HeaderLogoProps> = ({ width = '7em' }
   </LogoDiv>
 );
 
-const LogoDiv = styled.div`
+interface LogoDivProps {
+  marginBottom?: string;
+}
+
+const LogoDiv = styled.div<LogoDivProps>`
   transform: scale(1);
   display: inline-block;
   vertical-align: middle;
   transform-origin: left center;
   font-size: 1.41176rem;
   color: ${colors.tints.white};
-  margin-bottom: ${spaces.large}
+  ${({ marginBottom }) => marginBottom !== undefined && `margin-bottom: ${marginBottom}`}
 `;
 
 const LogoSVG = styled.svg`

@@ -13,6 +13,8 @@ export const colors: { [index: string]: { [index: string]: string } } = {
     dark: '#C0C1BC',
     darker: '#A5A59F',
     darkest: '#898A81',
+    // TODO: naming
+    sidebar: '#212121',
     light: '#DDDDD8',
     lighter: '#EBEBE6',
     lightest: '#F7F7F5',

@@ -23,17 +23,20 @@ interface AllIconProps extends IconProps {
   children: ReactNode;
   /** SVG viewBox */
   viewBox?: string;
+  /** className from parent */
+  className?: string;
 }
 
 const Icon: FunctionComponent<AllIconProps> = ({
-  width = '1em',
-  height = '1em',
+  width,
+  height,
   color = 'currentColor',
   viewBox = '0 0 24 24',
   title,
-  children
+  children,
+  className
 }) => (
-  <StyledSVG color={color} width={width} height={height} viewBox={viewBox}>
+  <StyledSVG className={className} color={color} width={width} height={height} viewBox={viewBox}>
     <title>{title}</title>
     {children}
   </StyledSVG>
@@ -101,10 +104,12 @@ export const AddIcon: FunctionComponent<IconProps> = props => (
   </Icon>
 );
 
-export const LiipIcon: FunctionComponent<IconProps> = props => (
-  <Icon title="Liip logo" {...props} viewBox="0 0 94 34">
-    <path d="M43.509 30.51L58.974.007l6.868 3.482-15.465 30.503zm-17.833-.03L41.141-.023l6.868 3.482-15.465 30.503zM78.4 21.8h4.7c6.9 0 10.6-4.9 10.6-10s-3.7-10-10.6-10H70.8V33h7.6V21.8zm0-13.3h4.3c2.1 0 3.3 1.5 3.3 3.2 0 1.6-1.2 3.2-3.3 3.2h-4.3V8.5zM20.9 26.1H7.7V1.6H0v31.3h20.9z" />
-  </Icon>
-);
+export const LiipIcon: FunctionComponent<IconProps> = props => {
+  return (
+    <Icon title="Liip logo" {...props} viewBox="0 0 94 34">
+      <path d="M43.509 30.51L58.974.007l6.868 3.482-15.465 30.503zm-17.833-.03L41.141-.023l6.868 3.482-15.465 30.503zM78.4 21.8h4.7c6.9 0 10.6-4.9 10.6-10s-3.7-10-10.6-10H70.8V33h7.6V21.8zm0-13.3h4.3c2.1 0 3.3 1.5 3.3 3.2 0 1.6-1.2 3.2-3.3 3.2h-4.3V8.5zM20.9 26.1H7.7V1.6H0v31.3h20.9z" />
+    </Icon>
+  );
+};
 
 export const allIcons: { [index: string]: FunctionComponent<IconProps> } = { AddIcon, AvatarIcon, LogoutIcon, LiipIcon };

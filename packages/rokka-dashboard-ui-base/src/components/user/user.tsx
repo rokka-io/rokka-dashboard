@@ -30,8 +30,10 @@ const StyledUsername = styled(SpanWhite)`
 const AvatarDiv = styled.div`
   border-radius: 50%;
   background: ${colors.tints.white};
-  vertical-align: middle;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   display: inline-block;
+  height: ${spaces.large};
+  line-height: ${spaces.large};
+  vertical-align: middle;
 `;

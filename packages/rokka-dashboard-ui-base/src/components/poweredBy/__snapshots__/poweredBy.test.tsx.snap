@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components Powered By renders a Powered By component. 1`] = `
+<styled.a
+  href="https://www.liip.ch"
+  rel="noopener"
+  target="_blank"
+>
+  POWERED BY 
+  <Styled(Component)
+    height="16px"
+  />
+</styled.a>
+`;

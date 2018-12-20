@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Elements Sidebar renders a SidebarLink correctly. 1`] = `
+<styled.a
+  href="#"
+>
+  Test
+</styled.a>
+`;
+
+exports[`Elements Sidebar renders a sub SidebarLink correctly. 1`] = `
+<styled.a
+  href="#"
+  sub={true}
+>
+  Test
+</styled.a>
+`;
+
+exports[`Elements Sidebar renders an active SidebarLink correctly. 1`] = `
+<styled.a
+  active={true}
+  href="#"
+>
+  Test
+</styled.a>
+`;
+
+exports[`Elements Sidebar renders an active sub SidebarLink correctly. 1`] = `
+<styled.a
+  active={true}
+  href="#"
+  sub={true}
+>
+  Test
+</styled.a>
+`;

@@ -104,12 +104,27 @@ export const AddIcon: FunctionComponent<IconProps> = props => (
   </Icon>
 );
 
-export const LiipIcon: FunctionComponent<IconProps> = props => {
-  return (
-    <Icon title="Liip logo" {...props} viewBox="0 0 94 34">
-      <path d="M43.509 30.51L58.974.007l6.868 3.482-15.465 30.503zm-17.833-.03L41.141-.023l6.868 3.482-15.465 30.503zM78.4 21.8h4.7c6.9 0 10.6-4.9 10.6-10s-3.7-10-10.6-10H70.8V33h7.6V21.8zm0-13.3h4.3c2.1 0 3.3 1.5 3.3 3.2 0 1.6-1.2 3.2-3.3 3.2h-4.3V8.5zM20.9 26.1H7.7V1.6H0v31.3h20.9z" />
-    </Icon>
-  );
-};
+export const LiipIcon: FunctionComponent<IconProps> = props => (
+  <Icon title="Liip logo" {...props} viewBox="0 0 94 34">
+    <path d="M43.509 30.51L58.974.007l6.868 3.482-15.465 30.503zm-17.833-.03L41.141-.023l6.868 3.482-15.465 30.503zM78.4 21.8h4.7c6.9 0 10.6-4.9 10.6-10s-3.7-10-10.6-10H70.8V33h7.6V21.8zm0-13.3h4.3c2.1 0 3.3 1.5 3.3 3.2 0 1.6-1.2 3.2-3.3 3.2h-4.3V8.5zM20.9 26.1H7.7V1.6H0v31.3h20.9z" />
+  </Icon>
+);
 
-export const allIcons: { [index: string]: FunctionComponent<IconProps> } = { AddIcon, AvatarIcon, LogoutIcon, LiipIcon };
+export const SearchIcon: FunctionComponent<IconProps> = props => (
+  <Icon title="Search Icon" {...props} viewBox="0 0 24 24">
+    <path
+      fill="currentColor"
+      d="M23.854,23.146l-9.009-9.009C16.181,12.635,17,10.664,17,8.5C17,3.813,13.187,0,8.5,0S0,3.813,0,8.5S3.813,17,8.5,17
+			c2.164,0,4.135-0.819,5.637-2.156l9.009,9.009c0.195,0.195,0.512,0.195,0.707,0C24.049,23.658,24.049,23.342,23.854,23.146z
+			 M1,8.5C1,4.364,4.364,1,8.5,1S16,4.364,16,8.5S12.636,16,8.5,16S1,12.636,1,8.5z"
+    />
+  </Icon>
+);
+
+export const allIcons: { [index: string]: FunctionComponent<IconProps> } = {
+  AddIcon,
+  AvatarIcon,
+  LogoutIcon,
+  LiipIcon,
+  SearchIcon
+};

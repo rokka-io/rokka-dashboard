@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Elements Icon renders the AddIcon correctly. 1`] = `
-<Icon
+<Component
   title="Add icon"
 >
   <path
@@ -14,11 +14,11 @@ exports[`Elements Icon renders the AddIcon correctly. 1`] = `
     c0,0.276,0.224,0.5,0.5,0.5s0.5-0.224,0.5-0.5V12h5.5c0.276,0,0.5-0.224,0.5-0.5S17.776,11,17.5,11z"
     fill="currentColor"
   />
-</Icon>
+</Component>
 `;
 
 exports[`Elements Icon renders the AvatarIcon correctly. 1`] = `
-<Icon
+<Component
   title="Avatar icon"
   viewBox="0 -2 24 24"
 >
@@ -34,22 +34,22 @@ exports[`Elements Icon renders the AvatarIcon correctly. 1`] = `
 			s1.379-0.164,2-0.451V16c0,0.211,0.133,0.4,0.332,0.471l5.008,1.789c0.993,0.355,1.66,1.301,1.66,2.354V22z"
     fill="currentColor"
   />
-</Icon>
+</Component>
 `;
 
 exports[`Elements Icon renders the LiipIcon correctly. 1`] = `
-<Icon
+<Component
   title="Liip logo"
   viewBox="0 0 94 34"
 >
   <path
     d="M43.509 30.51L58.974.007l6.868 3.482-15.465 30.503zm-17.833-.03L41.141-.023l6.868 3.482-15.465 30.503zM78.4 21.8h4.7c6.9 0 10.6-4.9 10.6-10s-3.7-10-10.6-10H70.8V33h7.6V21.8zm0-13.3h4.3c2.1 0 3.3 1.5 3.3 3.2 0 1.6-1.2 3.2-3.3 3.2h-4.3V8.5zM20.9 26.1H7.7V1.6H0v31.3h20.9z"
   />
-</Icon>
+</Component>
 `;
 
 exports[`Elements Icon renders the LogoutIcon correctly. 1`] = `
-<Icon
+<Component
   title="Logout icon"
 >
   <g
@@ -99,5 +99,5 @@ exports[`Elements Icon renders the LogoutIcon correctly. 1`] = `
       </g>
     </g>
   </g>
-</Icon>
+</Component>
 `;

@@ -27,7 +27,7 @@ interface AllIconProps extends IconProps {
   className?: string;
 }
 
-const Icon: FunctionComponent<AllIconProps> = ({
+export const Icon: FunctionComponent<AllIconProps> = ({
   width,
   height,
   color = 'currentColor',

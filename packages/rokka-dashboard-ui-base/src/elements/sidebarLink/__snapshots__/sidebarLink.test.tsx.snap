@@ -8,6 +8,14 @@ exports[`Elements Sidebar renders a SidebarLink correctly. 1`] = `
 </styled.a>
 `;
 
+exports[`Elements Sidebar renders a SidebarLinkIcon correctly. 1`] = `
+<styled.a
+  href="#"
+>
+  <Component />
+</styled.a>
+`;
+
 exports[`Elements Sidebar renders a sub SidebarLink correctly. 1`] = `
 <styled.a
   href="#"
@@ -23,6 +31,15 @@ exports[`Elements Sidebar renders an active SidebarLink correctly. 1`] = `
   href="#"
 >
   Test
+</styled.a>
+`;
+
+exports[`Elements Sidebar renders an active SidebarLinkIcon correctly. 1`] = `
+<styled.a
+  active={true}
+  href="#"
+>
+  <Component />
 </styled.a>
 `;
 

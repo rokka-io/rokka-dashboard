@@ -8,7 +8,8 @@ export const spaces: { [index: string]: string } = {
   medium: '1rem',
   smallPlusMedium: '1.5rem',
   large: '2rem',
-  xlarge: '4rem'
+  xlarge: '4rem',
+  xlargePlusMedium: '5rem'
 };
 
 export const SpacesGlobalStyle = css`

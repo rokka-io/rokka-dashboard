@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Elements Layout renders a Main correctly. 1`] = `
+<StyledComponent
+  forwardedComponent={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "rules": Array [
+          "
+  transition: 0.4s ease margin;
+  margin: 0 ",
+          "1rem",
+          ";
+  padding-top: ",
+          "5rem",
+          ";
+
+  ",
+          [Function],
+          "
+
+  ",
+          "
+      @media only screen and (",
+          "(min-width: 64em)",
+          ") {
+        ",
+          "margin-left: 14.6875rem",
+          "
+      }
+    ",
+          "
+  ",
+          "
+      @media only screen and (",
+          "(max-width: 29.25em)",
+          ") {
+        ",
+          "margin-left: ",
+          "1rem",
+          "
+      }
+    ",
+          "
+",
+        ],
+      },
+      "displayName": "styled.main",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "main",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;

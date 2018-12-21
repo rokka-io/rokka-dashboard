@@ -10,16 +10,16 @@ storiesOf('Elements / Sidebar', module)
     <div style={{ position: 'relative', background: colors.gray.sidebar, height: '55px' }}>{story()}</div>
   ))
   .add('SidebarLink', () => (
-    <SidebarLink href="#" active={boolean('active', false)} sub={boolean('sub', false)}>
+    <SidebarLink href="#" active={boolean('active', false)} small={boolean('small', false)}>
       {text('text', 'Home')}
     </SidebarLink>
   ))
   .add('SidebarLinkIcon', () => (
     <>
-      <SidebarLink href="#" active={boolean('active', false)} sub={boolean('sub', false)}>
+      <SidebarLink href="#" active={boolean('active', false)} small={boolean('small', false)}>
         {text('text', 'New stack')}
       </SidebarLink>
-      <SidebarLinkIcon href="#" active={boolean('active', false)} sub={boolean('sub', false)}>
+      <SidebarLinkIcon href="#" active={boolean('active', false)} small={boolean('small', false)}>
         <AddIcon height="24px" width="24px" />
       </SidebarLinkIcon>
     </>

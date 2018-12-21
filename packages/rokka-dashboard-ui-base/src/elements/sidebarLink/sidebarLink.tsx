@@ -10,19 +10,19 @@ interface SidebarLinkProps {
   /** Is link currently active */
   active?: boolean;
   /** Is sub navigation item */
-  sub?: boolean;
+  small?: boolean;
   /** Content of link */
   children: ReactNode;
 }
 
-export const SidebarLink: FunctionComponent<SidebarLinkProps> = ({ children, active, sub, href }) => (
-  <StyledLink href={href} active={active} sub={sub}>
+export const SidebarLink: FunctionComponent<SidebarLinkProps> = ({ children, active, small, href }) => (
+  <StyledLink href={href} active={active} small={small}>
     {children}
   </StyledLink>
 );
 
-export const SidebarLinkIcon: FunctionComponent<SidebarLinkProps> = ({ children, active, sub, href }) => (
-  <StyledLinkIcon href={href} active={active} sub={sub}>
+export const SidebarLinkIcon: FunctionComponent<SidebarLinkProps> = ({ children, active, small, href }) => (
+  <StyledLinkIcon href={href} active={active} small={small}>
     {children}
   </StyledLinkIcon>
 );
@@ -31,7 +31,7 @@ interface StyledLinkProps {
   /** Is link currently active */
   active?: boolean;
   /** Is sub navigation item */
-  sub?: boolean;
+  small?: boolean;
 }
 
 const ActiveStyle = css`
@@ -41,8 +41,8 @@ const ActiveStyle = css`
 `;
 
 const StyledLink = styled.a<StyledLinkProps>`
-  font-size: ${({ sub }) => (sub ? fonts.Sizes.small : fonts.Sizes.large)};
-  padding: ${({ sub }) => (sub ? `${spaces.small} ${spaces.medium}` : spaces.medium)};
+  font-size: ${({ small }) => (small ? fonts.Sizes.small : fonts.Sizes.large)};
+  padding: ${({ small }) => (small ? `${spaces.small} ${spaces.medium}` : spaces.medium)};
   border-left: 8px solid transparent;
   display: block;
   color: ${colors.tints.white};
@@ -64,8 +64,8 @@ const ActiveStyleIcon = css`
 const StyledLinkIcon = styled.a<StyledLinkProps>`
   transition: 0.3s ease color;
   position: absolute;
-  right: ${({ sub }) => (sub ? spaces.small : spaces.medium)};
-  top: ${({ sub }) => (sub ? spaces.small : spaces.medium)};
+  right: ${({ small }) => (small ? spaces.small : spaces.medium)};
+  top: ${({ small }) => (small ? spaces.small : spaces.medium)};
   color: ${colors.tints.white};
 
   ${({ active }) => active && ActiveStyleIcon}

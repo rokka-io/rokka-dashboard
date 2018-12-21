@@ -1,25 +1,34 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Input, SearchIcon } from '../../elements';
 import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
 
-export const SearchInput = () => (
+interface SearchInputProps {
+  /** Input value */
+  value?: string;
+  /** Input placeholder */
+  placeholder?: string;
+  /** onChange callback for input */
+  onChange(): void;
+}
+
+export const SearchInput: FunctionComponent<SearchInputProps> = props => (
   <StyledContainer>
-    <StyledInput />
+    <StyledInput {...props} />
     <StyledSearchIcon width="1em" height="1em" color={colors.gray.dark} />
   </StyledContainer>
 );
 
 const StyledContainer = styled.div`
   position: relative;
-  padding: ${spaces.small} ${spaces.medium} ${spaces.small} ${spaces.medium + spaces.small};
+  padding: ${spaces.small} ${spaces.medium} ${spaces.small} ${spaces.smallPlusMedium};
 `;
 
 const StyledSearchIcon = styled(SearchIcon)`
   position: absolute;
-  top: ${spaces.small};
-  right: ${spaces.xsmall};
+  top: 0.875rem;
+  right: 1.25rem;
 `;
 
 const StyledInput = styled(Input)`

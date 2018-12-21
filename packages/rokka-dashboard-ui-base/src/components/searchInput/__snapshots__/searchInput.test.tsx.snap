@@ -2,7 +2,9 @@
 
 exports[`Components SearchInput renders a SearchInput component. 1`] = `
 <styled.div>
-  <Styled(styled.input) />
+  <Styled(styled.input)
+    onChange={[MockFunction]}
+  />
   <Styled(Component)
     color="#C0C1BC"
     height="1em"

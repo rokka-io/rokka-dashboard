@@ -1,3 +1,5 @@
+import { action } from '@storybook/addon-actions';
+import { text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { colors } from '../../identity/colors/colors';
@@ -9,4 +11,4 @@ storiesOf('Components / Sidebar', module)
       {story()}
     </div>
   ))
-  .add('SearchInput', () => <SearchInput />);
+  .add('SearchInput', () => <SearchInput onChange={action('onChange')} placeholder={text('placeholder', 'Search...')} />);

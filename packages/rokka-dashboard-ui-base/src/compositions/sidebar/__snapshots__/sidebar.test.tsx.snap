@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Compositions Sidebar renders a sidebar correctly. 1`] = `
+<styled.nav
+  active={false}
+>
+  <styled.ul>
+    <li>
+      <Component>
+        Test
+      </Component>
+    </li>
+  </styled.ul>
+  <Component />
+</styled.nav>
+`;
+
+exports[`Compositions Sidebar renders an active sidebar correctly 1`] = `
+<styled.nav
+  active={true}
+>
+  <styled.ul>
+    <li>
+      <Component>
+        Test
+      </Component>
+    </li>
+  </styled.ul>
+  <Component />
+</styled.nav>
+`;

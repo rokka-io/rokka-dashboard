@@ -21,7 +21,7 @@ describe('Elements', () => {
     });
     it('renders a sub SidebarLink correctly.', () => {
       const component = shallow(
-        <SidebarLink href="#" sub={true}>
+        <SidebarLink href="#" small={true}>
           Test
         </SidebarLink>
       );
@@ -30,7 +30,7 @@ describe('Elements', () => {
     });
     it('renders an active sub SidebarLink correctly.', () => {
       const component = shallow(
-        <SidebarLink href="#" sub={true} active={true}>
+        <SidebarLink href="#" small={true} active={true}>
           Test
         </SidebarLink>
       );

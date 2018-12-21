@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { SearchInput } from '../../components';
 import { AddIcon, LiPosRelative, ShowOnActive, SidebarLink, SidebarLinkIcon } from '../../elements';
-import { SidebarStacksList } from '../../elements/sidebarStacksList/sidebarStacksList';
+import { SidebarStacksList } from '../../elements';
 import { Sidebar } from './sidebar';
 
 storiesOf('Compositions', module)

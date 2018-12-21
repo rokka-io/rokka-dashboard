@@ -16,9 +16,9 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
             "$$typeof": Symbol(react.forward_ref),
             "attrs": Array [],
             "componentStyle": ComponentStyle {
-              "componentId": "sc-jKJlTe",
+              "componentId": "sc-kkGfuU",
               "isStatic": true,
-              "lastClassName": "dACyHq",
+              "lastClassName": "kfmBKs",
               "rules": Array [
                 "
   background-color: ",
@@ -39,7 +39,7 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
             "displayName": "styled.div",
             "foldedComponentIds": Array [],
             "render": [Function],
-            "styledComponentId": "sc-jKJlTe",
+            "styledComponentId": "sc-kkGfuU",
             "target": "div",
             "toString": [Function],
             "warnTooManyClasses": [Function],
@@ -49,7 +49,7 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
         forwardedRef={null}
       >
         <div
-          className="sc-jKJlTe dACyHq"
+          className="sc-kkGfuU kfmBKs"
         >
           <styled.h1>
             <StyledComponent
@@ -58,9 +58,9 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
                   "$$typeof": Symbol(react.forward_ref),
                   "attrs": Array [],
                   "componentStyle": ComponentStyle {
-                    "componentId": "sc-ifAKCX",
+                    "componentId": "sc-bZQynM",
                     "isStatic": false,
-                    "lastClassName": "bewOHD",
+                    "lastClassName": "fCytKC",
                     "rules": Array [
                       "
   font-family: ",
@@ -78,7 +78,7 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
                   "displayName": "styled.h1",
                   "foldedComponentIds": Array [],
                   "render": [Function],
-                  "styledComponentId": "sc-ifAKCX",
+                  "styledComponentId": "sc-bZQynM",
                   "target": "h1",
                   "toString": [Function],
                   "warnTooManyClasses": [Function],
@@ -88,7 +88,7 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
               forwardedRef={null}
             >
               <h1
-                className="sc-ifAKCX bewOHD"
+                className="sc-bZQynM fCytKC"
               >
                 Something went wrong
               </h1>
@@ -114,9 +114,9 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
                     "$$typeof": Symbol(react.forward_ref),
                     "attrs": Array [],
                     "componentStyle": ComponentStyle {
-                      "componentId": "sc-iwsKbI",
+                      "componentId": "sc-gqjmRU",
                       "isStatic": true,
-                      "lastClassName": "Dhomx",
+                      "lastClassName": "dEOasl",
                       "rules": Array [
                         "
   font-family: ",
@@ -137,7 +137,7 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
                     "displayName": "styled.a",
                     "foldedComponentIds": Array [],
                     "render": [Function],
-                    "styledComponentId": "sc-iwsKbI",
+                    "styledComponentId": "sc-gqjmRU",
                     "target": "a",
                     "toString": [Function],
                     "warnTooManyClasses": [Function],
@@ -149,7 +149,7 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
                 rel="noopener"
               >
                 <a
-                  className="sc-iwsKbI Dhomx"
+                  className="sc-gqjmRU dEOasl"
                   href="https://github.com/rokka-io/rokka-dashboard"
                   rel="noopener"
                 >

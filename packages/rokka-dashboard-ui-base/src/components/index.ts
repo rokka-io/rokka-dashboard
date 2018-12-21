@@ -1,3 +1,5 @@
+export * from './alert/alert';
+export * from './errorPage/errorPage';
 export * from './formGroup/formGroup';
 export * from './headerNavigation/headerNavigation';
 export * from './loadingIndicatingButton/loadingIndicatingButton';

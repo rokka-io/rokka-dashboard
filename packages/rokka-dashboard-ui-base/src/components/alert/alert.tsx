@@ -11,12 +11,12 @@ export enum AlertType {
   Info
 }
 
-interface Alert {
+export interface AlertData {
   message: string | string[];
   type: AlertType;
 }
 interface AlertProps {
-  alert?: Alert;
+  alert?: AlertData;
 }
 
 export const Alert: FunctionComponent<AlertProps> = ({ alert = null }) => {

@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Compositions ErrorBoundary renders the child if no error happened 1`] = `
+<ErrorBoundary>
+  test
+</ErrorBoundary>
+`;
+
+exports[`Compositions ErrorBoundary renders the error page if an error happened 1`] = `
+<ErrorBoundary>
+  <Component>
+    <styled.div>
+      <StyledComponent
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-jKJlTe",
+              "isStatic": true,
+              "lastClassName": "dACyHq",
+              "rules": Array [
+                "
+  background-color: ",
+                "#fff",
+                ";
+  padding: ",
+                "1rem",
+                ";
+
+  :after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+",
+              ],
+            },
+            "displayName": "styled.div",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-jKJlTe",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={null}
+      >
+        <div
+          className="sc-jKJlTe dACyHq"
+        >
+          <styled.h1>
+            <StyledComponent
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-ifAKCX",
+                    "isStatic": false,
+                    "lastClassName": "bewOHD",
+                    "rules": Array [
+                      "
+  font-family: ",
+                      "\\"Liip Etica Book\\", sans-serif",
+                      ";
+  font-size: ",
+                      "1.5rem",
+                      ";
+  color: ",
+                      [Function],
+                      ";
+",
+                    ],
+                  },
+                  "displayName": "styled.h1",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-ifAKCX",
+                  "target": "h1",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+            >
+              <h1
+                className="sc-ifAKCX bewOHD"
+              >
+                Something went wrong
+              </h1>
+            </StyledComponent>
+          </styled.h1>
+          <p>
+            Unable to load the page
+            <span
+              aria-label="sad"
+              role="img"
+            >
+              😟
+            </span>
+            . Please
+             
+            <styled.a
+              href="https://github.com/rokka-io/rokka-dashboard"
+              rel="noopener"
+            >
+              <StyledComponent
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-iwsKbI",
+                      "isStatic": true,
+                      "lastClassName": "Dhomx",
+                      "rules": Array [
+                        "
+  font-family: ",
+                        "\\"Liip Etica Book\\", sans-serif",
+                        ";
+  color: ",
+                        "#6EA644",
+                        ";
+  word-wrap: break-word;
+  text-decoration: underline;
+
+  :hover {
+    text-decoration: none;
+  }
+",
+                      ],
+                    },
+                    "displayName": "styled.a",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-iwsKbI",
+                    "target": "a",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+                href="https://github.com/rokka-io/rokka-dashboard"
+                rel="noopener"
+              >
+                <a
+                  className="sc-iwsKbI Dhomx"
+                  href="https://github.com/rokka-io/rokka-dashboard"
+                  rel="noopener"
+                >
+                  file an issue on GitHub.
+                </a>
+              </StyledComponent>
+            </styled.a>
+            Thanks!
+             
+            <span
+              aria-label="yay"
+              role="img"
+            >
+              😍
+            </span>
+          </p>
+        </div>
+      </StyledComponent>
+    </styled.div>
+  </Component>
+</ErrorBoundary>
+`;

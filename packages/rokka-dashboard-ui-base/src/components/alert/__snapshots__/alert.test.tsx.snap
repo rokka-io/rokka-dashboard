@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Elements Alert renders an alert correctly. 1`] = `
+<styled.div
+  type={3}
+>
+  <styled.span
+    key="0"
+  >
+    An alert
+  </styled.span>
+</styled.div>
+`;
+
+exports[`Elements Alert renders an array of alerts correctly. 1`] = `
+<styled.div
+  type={3}
+>
+  <styled.span
+    key="0"
+  >
+    An alert
+  </styled.span>
+  <styled.span
+    key="1"
+  >
+    Yoolo
+  </styled.span>
+  <styled.span
+    key="2"
+  >
+    Foobar
+  </styled.span>
+</styled.div>
+`;
+
+exports[`Elements Alert renders null without an alert. 1`] = `""`;

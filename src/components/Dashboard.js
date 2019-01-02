@@ -33,6 +33,8 @@ class Dashboard extends PureComponent {
               onClickImage={this.onClickImage}
               limit={12}
               organization={this.props.auth.organization}
+              uploadedImages={this.props.uploadedImages}
+              deletedImages={this.props.deletedImages}
             />
           </div>
         </section>
@@ -48,7 +50,9 @@ Dashboard.propTypes = {
     history: PropTypes.shape({
       push: PropTypes.func.isRequired
     }).isRequired
-  }).isRequired
+  }).isRequired,
+  uploadedImages: PropTypes.array,
+  deletedImages: PropTypes.array
 }
 
 export default authRequired(Dashboard)

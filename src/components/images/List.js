@@ -113,6 +113,7 @@ class ImageList extends PureComponent {
       sortField,
       sortOrder
     } = this.state
+    const { deletedImages = [] } = this.props
     const offset = append ? currentOffset : 0
     const sort = sortField && sortOrder ? `${sortField} ${sortOrder}` : null
 
@@ -130,7 +131,8 @@ class ImageList extends PureComponent {
       .sourceimages.list(this.props.organization, { limit: this.props.limit, offset, search, sort })
       .then(({ body }) => {
         const { fields } = this.state
-        body.items.forEach(item => {
+        const items = body.items.filter(({ hash }) => !deletedImages.includes(hash))
+        items.forEach(item => {
           Object.keys(item).forEach(key => {
             if (fields[key] || key === 'dynamic_metadata' || key === 'organization') {
               return
@@ -166,7 +168,7 @@ class ImageList extends PureComponent {
         this.setState({
           images: Object.assign({}, images, {
             total: body.total,
-            items: append ? [...images.items, ...body.items] : body.items
+            items: append ? [...images.items, ...items] : items
           }),
           currentOffset: currentOffset + this.props.limit,
           loading: false,
@@ -222,8 +224,8 @@ class ImageList extends PureComponent {
     const { highlight, className = '', enableSearch = false } = this.props
 
     let $uploadedImages = null
-    if (this.props.images) {
-      $uploadedImages = this.props.images.map((image, idx) => {
+    if (this.props.uploadedImages) {
+      $uploadedImages = this.props.uploadedImages.map((image, idx) => {
         const format = image.format === 'jpg' ? 'jpg' : 'png'
         const imgUrl = rokka().render.getUrl(this.props.organization, image.hash, format, 'dynamic')
         const imgSrc = rokka().render.getUrl(
@@ -285,7 +287,8 @@ class ImageList extends PureComponent {
 ImageList.propTypes = {
   limit: PropTypes.number.isRequired,
   organization: PropTypes.string.isRequired,
-  images: PropTypes.array,
+  uploadedImages: PropTypes.array,
+  deletedImages: PropTypes.array,
   enableSearch: PropTypes.bool,
   enableLoadMore: PropTypes.bool,
   highlight: PropTypes.string,

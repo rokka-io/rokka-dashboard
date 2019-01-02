@@ -14,7 +14,8 @@ const defaultState = {
   showSidebar: false,
   stackClone: {},
   auth: null,
-  images: [],
+  uploadedImages: [],
+  deletedImages: [],
   stacks: {},
   operations: {},
   stackOptions: null,
@@ -47,7 +48,7 @@ export function toggleSidebar() {
 }
 
 /**
- * Delete a Image
+ * Delete an image.
  *
  * @param {string} hash
  *
@@ -57,19 +58,25 @@ export function deleteImage(hash) {
   return rokka()
     .sourceimages.delete(internalState.auth.organization, hash)
     .then(() => {
-      clearImages()
+      updateState({
+        deletedImages: [...internalState.deletedImages, hash]
+      })
+      clearUploadedImages()
     })
 }
 
-/**
- * Update Images state
- */
-export function updateUploadedImages(images) {
-  updateState({ images: images })
+export function clearDeletedImages() {
+  updateState({ deletedImages: [] })
 }
 
-export function clearImages() {
-  updateState({ images: [] })
+export function updateUploadedImages(uploadedImages) {
+  updateState({ uploadedImages })
+  // In case user reuploads a just deleted image.
+  clearDeletedImages()
+}
+
+export function clearUploadedImages() {
+  updateState({ uploadedImages: [] })
 }
 
 /**

@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent, Fragment } from 'react'
 import { authRequired } from '../utils/auth'
-import { clearImages } from '../state'
+import { clearUploadedImages } from '../state'
 import BaseLayout from './layouts/BaseLayout'
 import ImageList from './images/List'
 import UploadImage from './images/Upload'
 import { Route } from 'react-router-dom'
 import ImageDetail from './ImageDetail'
 
-const ImageListContainer = ({ organization, onClickImage, images }) => (
+const ImageListContainer = ({ organization, onClickImage, uploadedImages, deletedImages }) => (
   <Fragment>
     <h1 className="rka-h1 mb-md">Images</h1>
     <UploadImage organization={organization} />
@@ -19,7 +19,8 @@ const ImageListContainer = ({ organization, onClickImage, images }) => (
         limit={12}
         enableLoadMore
         organization={organization}
-        images={images}
+        uploadedImages={uploadedImages}
+        deletedImages={deletedImages}
       />
     </section>
   </Fragment>
@@ -27,7 +28,8 @@ const ImageListContainer = ({ organization, onClickImage, images }) => (
 ImageListContainer.propTypes = {
   organization: PropTypes.string.isRequired,
   onClickImage: PropTypes.func.isRequired,
-  images: PropTypes.array
+  uploadedImages: PropTypes.array,
+  deletedImages: PropTypes.array
 }
 
 class Images extends PureComponent {
@@ -44,7 +46,7 @@ class Images extends PureComponent {
   }
 
   componentWillUnmount() {
-    clearImages()
+    clearUploadedImages()
   }
 
   render() {
@@ -57,7 +59,8 @@ class Images extends PureComponent {
             <ImageListContainer
               organization={this.props.auth.organization}
               onClickImage={this.onClickImage}
-              images={this.props.images}
+              uploadedImages={this.props.uploadedImages}
+              deletedImages={this.props.deletedImages}
             />
           )}
         />
@@ -77,7 +80,8 @@ Images.propTypes = {
     }).isRequired
   }).isRequired,
   auth: PropTypes.object,
-  images: PropTypes.array
+  uploadedImages: PropTypes.array,
+  deletedImages: PropTypes.array
 }
 
 export default authRequired(Images)

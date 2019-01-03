@@ -18,7 +18,7 @@ export function withState<T>(WrappedComponent: ComponentType<T>, reducer: Reduce
       };
       subscribe(updateState);
       return () => unsubscribe(updateState);
-    });
+    }, []);
 
     return <WrappedComponent {...compState} {...props} />;
   };

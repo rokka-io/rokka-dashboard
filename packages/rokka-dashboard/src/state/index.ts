@@ -1,15 +1,8 @@
-import { checkAuthentication } from '../api';
-import { get as getCookie, set as setCookie } from '../utils/cookie';
+import { checkAuthentication, fetchOperations, OperationsResponse, StackOptionsResponse, fetchStackOptions } from '../api';
+import { set as setCookie } from '../utils/cookie';
 import { Maybe } from '../utils/types';
 
-const SESSION_COOKIE_KEY = 'rka_session';
-
-const session = getCookie(SESSION_COOKIE_KEY);
-
-if (session && session.auth) {
-  const { auth } = session;
-  login(auth.organization, auth.apiKey);
-}
+export const SESSION_COOKIE_KEY = 'rka_session';
 
 export interface AppUser {
   organization: string;
@@ -18,6 +11,8 @@ export interface AppUser {
 
 export interface AppState {
   user: Maybe<AppUser>;
+  operations?: OperationsResponse;
+  stackOptions?: StackOptionsResponse;
 }
 
 const defaultState: AppState = {
@@ -38,8 +33,8 @@ export function unsubscribe(callback: Subscriber) {
   subscribers = subscribers.filter(cb => cb !== callback);
 }
 
-function updateState(partialState: Partial<AppState>) {
-  internalState = Object.assign({}, internalState, partialState);
+function updateState(...partialStates: Array<Partial<AppState>>) {
+  internalState = Object.assign({}, internalState, ...partialStates);
   notifySubscribers();
 }
 
@@ -57,12 +52,10 @@ export async function login(organization: string, apiKey: string) {
   const authenticated = await checkAuthentication(organization, apiKey);
 
   if (authenticated === true) {
-    updateState({
-      user: {
-        organization,
-        apiKey
-      }
-    });
+    const user = { organization, apiKey };
+    updateState({ user });
+    updateState(await listOperations(), await getStackOptions());
+    setCookie(SESSION_COOKIE_KEY, { user });
     return;
   }
 
@@ -70,6 +63,29 @@ export async function login(organization: string, apiKey: string) {
   console.error(authenticated);
 
   setCookie(SESSION_COOKIE_KEY, {}); // clear session on error
+}
+
+export async function listOperations(): Promise<Partial<AppState>> {
+  try {
+    const operations = await fetchOperations();
+    return { operations };
+  } catch (err) {
+    if (err.statusCode === 403) {
+      return {
+        user: null
+      };
+    }
+    return {};
+  }
+}
+
+export async function getStackOptions(): Promise<Partial<AppState>> {
+  try {
+    const stackOptions = await fetchStackOptions();
+    return { stackOptions };
+  } catch (err) {
+    return {};
+  }
 }
 
 // export state as readonly

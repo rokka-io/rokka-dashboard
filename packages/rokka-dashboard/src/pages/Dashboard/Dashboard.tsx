@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { GlobalStyle } from 'rokka-dashboard-ui-base';
 import { withAuthRequired } from '../../hoc/withAuthRequired';
 import { withState } from '../../hoc/withState';
 import { AppUser } from '../../state';
@@ -10,7 +11,12 @@ interface DashboardProps {
 }
 
 const Dashboard: FunctionComponent<DashboardProps> = () => {
-  return <div>Dashboard</div>;
+  return (
+    <>
+      <GlobalStyle />
+      <div>Dashboard</div>
+    </>
+  );
 };
 
 export default withState(withAuthRequired(Dashboard), s => pick(s, 'user'));

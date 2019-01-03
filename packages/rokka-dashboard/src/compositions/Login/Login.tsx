@@ -1,9 +1,10 @@
 import React from 'react';
 import { GlobalStyle, LoginForm } from 'rokka-dashboard-ui-base';
+import { login } from '../../state';
 
 export const Login = () => (
   <>
     <GlobalStyle />
-    <LoginForm onLogin={(organization, apiKey) => console.log(organization, apiKey)} />
+    <LoginForm onLogin={login} />
   </>
 );

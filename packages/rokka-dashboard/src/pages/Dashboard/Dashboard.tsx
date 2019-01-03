@@ -1,10 +1,16 @@
 import React, { FunctionComponent } from 'react';
-import { WithAuthRequired } from '../../hoc/withAuthRequired';
+import { withAuthRequired } from '../../hoc/withAuthRequired';
+import { withState } from '../../hoc/withState';
+import { AppUser } from '../../state';
+import { pick } from '../../utils/pick';
+import { Maybe } from '../../utils/types';
 
-interface DashboardProps {}
+interface DashboardProps {
+  user: Maybe<AppUser>;
+}
 
 const Dashboard: FunctionComponent<DashboardProps> = () => {
   return <div>Dashboard</div>;
 };
 
-export default WithAuthRequired(Dashboard);
+export default withState(withAuthRequired(Dashboard), s => pick(s, 'user'));

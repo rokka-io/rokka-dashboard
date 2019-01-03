@@ -1,5 +1,4 @@
 const path = require('path');
-const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = (baseConfig, env, config) => {
@@ -19,7 +18,8 @@ module.exports = (baseConfig, env, config) => {
         options: {
           happyPackMode: true
         }
-      }
+      },
+      'react-docgen-typescript-loader'
     ]
   });
   config.plugins.push(
@@ -29,7 +29,6 @@ module.exports = (baseConfig, env, config) => {
       tsconfig: path.resolve(__dirname, '../../tsconfig.json')
     })
   );
-  config.plugins.push(new TSDocgenPlugin());
   config.resolve.extensions.push('.ts', '.tsx');
   return config;
 };

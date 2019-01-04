@@ -10,7 +10,7 @@ describe('Compositions', () => {
       const component = shallow(
         <Sidebar>
           <li>
-            <SidebarLink>Test</SidebarLink>
+            <SidebarLink to="#">Test</SidebarLink>
           </li>
         </Sidebar>
       );
@@ -21,7 +21,7 @@ describe('Compositions', () => {
       const component = shallow(
         <Sidebar active={true}>
           <li>
-            <SidebarLink>Test</SidebarLink>
+            <SidebarLink to="#">Test</SidebarLink>
           </li>
         </Sidebar>
       );

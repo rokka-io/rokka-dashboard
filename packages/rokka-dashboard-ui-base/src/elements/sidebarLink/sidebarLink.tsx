@@ -1,12 +1,13 @@
 import React, { FunctionComponent, ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
 import { fonts } from '../../identity/typography';
 
 interface SidebarLinkProps {
-  /** Where the link leads to */
-  href?: string;
+  /** Target location */
+  to: string;
   /** Is link currently active */
   active?: boolean;
   /** Is sub navigation item */
@@ -15,14 +16,14 @@ interface SidebarLinkProps {
   children: ReactNode;
 }
 
-export const SidebarLink: FunctionComponent<SidebarLinkProps> = ({ children, active, small, href }) => (
-  <StyledLink href={href} active={active} small={small}>
+export const SidebarLink: FunctionComponent<SidebarLinkProps> = ({ children, active, small, ...props }) => (
+  <StyledLink active={active} small={small} {...props}>
     {children}
   </StyledLink>
 );
 
-export const SidebarLinkIcon: FunctionComponent<SidebarLinkProps> = ({ children, active, small, href }) => (
-  <StyledLinkIcon href={href} active={active} small={small}>
+export const SidebarLinkIcon: FunctionComponent<SidebarLinkProps> = ({ children, active, small, ...props }) => (
+  <StyledLinkIcon active={active} small={small} {...props}>
     {children}
   </StyledLinkIcon>
 );
@@ -40,7 +41,7 @@ const ActiveStyle = css`
   border-color: ${colors.brand.light};
 `;
 
-const StyledLink = styled.a<StyledLinkProps>`
+const StyledLink = styled(({ active, small, ...props }) => <Link {...props} />)<StyledLinkProps>`
   font-size: ${({ small }) => (small ? fonts.Sizes.small : fonts.Sizes.large)};
   padding: ${({ small }) => (small ? `${spaces.small} ${spaces.medium}` : spaces.medium)};
   border-left: 8px solid transparent;
@@ -61,7 +62,7 @@ const ActiveStyleIcon = css`
   color: ${colors.brand.primary};
 `;
 
-const StyledLinkIcon = styled.a<StyledLinkProps>`
+const StyledLinkIcon = styled(({ active, small, ...props }) => <Link {...props} />)<StyledLinkProps>`
   transition: 0.3s ease color;
   position: absolute;
   right: ${({ small }) => (small ? spaces.small : spaces.medium)};

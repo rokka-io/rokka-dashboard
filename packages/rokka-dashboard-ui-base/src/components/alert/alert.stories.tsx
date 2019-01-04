@@ -10,7 +10,8 @@ storiesOf('Components / Alert', module).add('Alert', () => (
   <Alert
     alert={{
       message: text('alert message', 'Some alert'),
-      type: AlertType[select('type', keys, keys[0])]
+      // TODO: this is rather ugly, but unsure how to fix type issues here otherwise.
+      type: (AlertType[select<any>('type', keys, keys[0])] as unknown) as AlertType
     }}
   />
 ));

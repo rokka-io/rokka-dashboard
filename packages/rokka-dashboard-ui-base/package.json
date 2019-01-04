@@ -8,6 +8,8 @@
     "url": "git+https://github.com/rokka-io/rokka-dashboard.git"
   },
   "dependencies": {
+    "@types/react-router-dom": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "styled-components": "^4.1.1",
     "tslib": "^1.9.3"
   },

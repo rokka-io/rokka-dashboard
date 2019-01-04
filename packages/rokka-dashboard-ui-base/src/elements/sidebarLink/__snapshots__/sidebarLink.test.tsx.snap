@@ -1,54 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Elements Sidebar renders a SidebarLink correctly. 1`] = `
-<styled.a
-  href="#"
+<Styled(Component)
+  to="#"
 >
   Test
-</styled.a>
+</Styled(Component)>
 `;
 
 exports[`Elements Sidebar renders a SidebarLinkIcon correctly. 1`] = `
-<styled.a
-  href="#"
+<Styled(Component)
+  to="#"
 >
   <Component />
-</styled.a>
+</Styled(Component)>
 `;
 
 exports[`Elements Sidebar renders a sub SidebarLink correctly. 1`] = `
-<styled.a
-  href="#"
+<Styled(Component)
   small={true}
+  to="#"
 >
   Test
-</styled.a>
+</Styled(Component)>
 `;
 
 exports[`Elements Sidebar renders an active SidebarLink correctly. 1`] = `
-<styled.a
+<Styled(Component)
   active={true}
-  href="#"
+  to="#"
 >
   Test
-</styled.a>
+</Styled(Component)>
 `;
 
 exports[`Elements Sidebar renders an active SidebarLinkIcon correctly. 1`] = `
-<styled.a
+<Styled(Component)
   active={true}
-  href="#"
+  to="#"
 >
   <Component />
-</styled.a>
+</Styled(Component)>
 `;
 
 exports[`Elements Sidebar renders an active sub SidebarLink correctly. 1`] = `
-<styled.a
+<Styled(Component)
   active={true}
-  href="#"
   small={true}
+  to="#"
 >
   Test
-</styled.a>
+</Styled(Component)>
 `;

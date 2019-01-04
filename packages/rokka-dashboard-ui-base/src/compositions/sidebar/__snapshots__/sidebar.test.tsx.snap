@@ -6,7 +6,9 @@ exports[`Compositions Sidebar renders a sidebar correctly. 1`] = `
 >
   <styled.ul>
     <li>
-      <Component>
+      <Component
+        to="#"
+      >
         Test
       </Component>
     </li>
@@ -21,7 +23,9 @@ exports[`Compositions Sidebar renders an active sidebar correctly 1`] = `
 >
   <styled.ul>
     <li>
-      <Component>
+      <Component
+        to="#"
+      >
         Test
       </Component>
     </li>

@@ -1,6 +1,5 @@
-import { checkAuthentication, fetchOperations, OperationsResponse, StackOptionsResponse, fetchStackOptions } from '../api';
+import { checkAuthentication, fetchOperations, fetchStackOptions, OperationsResponse, StackOptionsResponse } from '../api';
 import { set as setCookie } from '../utils/cookie';
-import { Maybe } from '../utils/types';
 
 export const SESSION_COOKIE_KEY = 'rka_session';
 
@@ -10,13 +9,14 @@ export interface AppUser {
 }
 
 export interface AppState {
-  user: Maybe<AppUser>;
+  showSidebar: boolean;
+  user?: AppUser;
   operations?: OperationsResponse;
   stackOptions?: StackOptionsResponse;
 }
 
 const defaultState: AppState = {
-  user: null
+  showSidebar: false
 };
 
 let internalState = defaultState;
@@ -72,7 +72,7 @@ export async function listOperations(): Promise<Partial<AppState>> {
   } catch (err) {
     if (err.statusCode === 403) {
       return {
-        user: null
+        user: undefined
       };
     }
     return {};

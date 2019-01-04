@@ -1,9 +1,13 @@
 import React from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
-import Dashboard from './pages/Dashboard/Dashboard';
+import { routes } from './pages/routes';
 
 export const App = () => (
   <Router>
-    <Route path="/" exact={true} component={Dashboard} />
+    <>
+      {routes.map(({ name, path, exact, PageComponent }) => {
+        return <Route key={name} path={path} exact={exact} component={PageComponent} />;
+      })}
+    </>
   </Router>
 );

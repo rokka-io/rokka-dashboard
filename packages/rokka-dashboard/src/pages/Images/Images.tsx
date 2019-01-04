@@ -6,19 +6,19 @@ import { BaseLayout } from '../../layouts/BaseLayout/BaseLayout';
 import { AppUser } from '../../state';
 import { pick } from '../../utils/pick';
 
-interface DashboardProps {
+interface ImagesProps {
   user: AppUser;
   showSidebar: boolean;
 }
 
-const Dashboard: FunctionComponent<DashboardProps> = ({ user, showSidebar, ...props }) => {
-  console.log('rerender dashboard', props);
+const Images: FunctionComponent<ImagesProps> = ({ user, showSidebar, ...props }) => {
+  console.log('rerender images', props);
   return (
     <BaseLayout user={user} showSidebar={showSidebar}>
       <GlobalStyle />
-      <div>Dashboard</div>
+      <div>Images</div>
     </BaseLayout>
   );
 };
 
-export default withState(withAuthRequired(Dashboard), s => pick(s, 'user', 'showSidebar'));
+export default withState(withAuthRequired(Images), s => pick(s, 'user', 'showSidebar'));

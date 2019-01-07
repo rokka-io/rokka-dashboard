@@ -27,6 +27,7 @@ export const fonts: Fonts = {
     xsmall: '.75rem',
     small: '0.875rem',
     medium: '1rem',
+    sidebar: '1.125rem',
     large: '1.25rem',
     xlarge: '1.5rem'
   },
@@ -39,9 +40,12 @@ export const fonts: Fonts = {
 };
 
 export const FontGlobalStyle = css`
+  html {
+    font-size: 100%;
+  }
   body {
     font-family: ${LiipEticaBook};
-    font-size: 100%;
+    font-size: ${fonts.Sizes.small};
   }
   @font-face {
     font-family: ${LiipEticaBook};

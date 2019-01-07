@@ -11,18 +11,27 @@ export interface ButtonProps {
   type?: string;
   /** Whether button is disabled */
   disabled?: boolean;
+  /** Padding of button */
+  padding?: string;
   /** Callback */
   onClick?(): void;
 }
 
-export const Button: FunctionComponent<ButtonProps> = ({ children, type = 'button', onClick, disabled = false }) => (
-  <StyledButton type={type} onClick={disabled ? undefined : onClick} disabled={disabled}>
+export const Button: FunctionComponent<ButtonProps> = ({
+  children,
+  type = 'button',
+  onClick,
+  disabled = false,
+  padding
+}) => (
+  <StyledButton type={type} onClick={disabled ? undefined : onClick} disabled={disabled} padding={padding}>
     {children}
   </StyledButton>
 );
 
 interface StyledButtonProps {
   disabled?: boolean;
+  padding?: string;
 }
 
 const StyledButton = styled.button<StyledButtonProps>`
@@ -31,7 +40,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
   font-family: ${fonts.Families.semiBold};
   font-size: ${fonts.Sizes.medium};
-  padding: 0 ${spaces.large};
+  padding: ${({ padding = `0 ${spaces.large}` }) => padding};
   border: 0;
   height: 38px;
   line-height: 38px;

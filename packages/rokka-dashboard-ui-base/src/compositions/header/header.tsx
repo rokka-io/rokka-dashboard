@@ -29,7 +29,7 @@ export class Header extends Component<HeaderProps, HeaderState> {
     return (
       <StyledHeader>
         <MobileMenuButton onClick={this.onMobileMenuButtonClick} active={menuActive} />
-        <HeaderLogo />
+        <HeaderLogo width="6em" />
         <HeaderNavigation username={username} onLogout={onLogout} />
       </StyledHeader>
     );

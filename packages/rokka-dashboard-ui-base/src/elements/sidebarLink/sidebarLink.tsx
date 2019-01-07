@@ -42,7 +42,7 @@ const ActiveStyle = css`
 `;
 
 const StyledLink = styled(({ active, small, ...props }) => <Link {...props} />)<StyledLinkProps>`
-  font-size: ${({ small }) => (small ? fonts.Sizes.small : fonts.Sizes.large)};
+  font-size: ${({ small }) => (small ? fonts.Sizes.small : fonts.Sizes.sidebar)};
   padding: ${({ small }) => (small ? `${spaces.small} ${spaces.medium}` : spaces.medium)};
   border-left: 8px solid transparent;
   display: block;

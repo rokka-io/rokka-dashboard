@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import { NavigationLink, NavigationLinkProps } from '../components/NavigationLink';
+import { NavigationLink, NavigationLinkProps } from '../components/NavigationLink/NavigationLink';
 import Dashboard from './Dashboard/Dashboard';
 import Images from './Images/Images';
 

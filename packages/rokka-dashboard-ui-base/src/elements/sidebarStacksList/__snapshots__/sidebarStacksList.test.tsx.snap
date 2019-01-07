@@ -13,15 +13,17 @@ exports[`Elements Sidebar renders a SidebarStacksList correctly. 1`] = `
           "
   overflow-x: hidden;
   overflow-y: auto;
+  list-style-type: none;
+  padding-left: 0;
   height: calc(100vh - 310px);
 ",
         ],
       },
-      "displayName": "styled.div",
+      "displayName": "styled.ul",
       "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "sc-bdVaJa",
-      "target": "div",
+      "target": "ul",
       "toString": [Function],
       "warnTooManyClasses": [Function],
       "withComponent": [Function],

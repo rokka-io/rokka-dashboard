@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "target": "es2015",
+    "target": "ES5",
+    "lib": ["es2015", "dom"],
     "sourceMap": true,
     "jsx": "react",
     "moduleResolution": "node",
@@ -15,7 +16,8 @@
     "removeComments": true,
     "importHelpers": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "traceResolution": true
   },
-  "files": ["./fonts.d.ts"]
+  "files": ["./fonts.d.ts", "./packages/rokka-dashboard/src/rokka.d.ts"]
 }

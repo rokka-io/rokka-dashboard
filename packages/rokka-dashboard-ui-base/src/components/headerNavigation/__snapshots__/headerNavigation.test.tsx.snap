@@ -19,6 +19,7 @@ exports[`Components HeaderNavigation renders the headernavigation correctly 1`] 
         ],
       }
     }
+    padding="0"
   >
     <Styled(Component)
       height="23px"

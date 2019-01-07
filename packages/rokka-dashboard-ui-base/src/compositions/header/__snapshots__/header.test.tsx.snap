@@ -6,7 +6,9 @@ exports[`Compositions Header renders the header correctly. 1`] = `
     active={true}
     onClick={[Function]}
   />
-  <Component />
+  <Component
+    width="6em"
+  />
   <Component
     onLogout={[MockFunction]}
     username="rokka-test"

@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import { GlobalStyle, LoginForm } from 'rokka-dashboard-ui-base';
 import { login, SESSION_COOKIE_KEY } from '../../state';
 import { get as getCookie } from '../../utils/cookie';
 
-export const Login = () => {
+export const Login: FunctionComponent = () => {
   useEffect(() => {
     const session = getCookie(SESSION_COOKIE_KEY);
 

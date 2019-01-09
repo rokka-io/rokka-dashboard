@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Compositions Navigation renders the Navigation correctly. 1`] = `
+<Fragment>
+  <li
+    key="Dashboard"
+  >
+    <Component
+      PageComponent={[Function]}
+      exact={true}
+      name="Dashboard"
+      path="/"
+    />
+  </li>
+  <li
+    key="Images"
+  >
+    <Component
+      PageComponent={[Function]}
+      name="Images"
+      path="/images"
+    />
+  </li>
+</Fragment>
+`;

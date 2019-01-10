@@ -3,8 +3,10 @@ import rokka, { authenticate } from './client';
 type AuthResponse = boolean | Error;
 
 function errorLog(err: Error) {
-  // tslint:disable-next-line no-console
-  console.error(err);
+  if (process.env.NODE_ENV !== 'test') {
+    // tslint:disable-next-line no-console
+    console.error(err);
+  }
 }
 
 // FIXME: error handling
@@ -14,7 +16,7 @@ export async function checkAuthentication(organization: string, apiKey: string):
   authenticate(apiKey);
 
   try {
-    rokka().organizations.get(organization);
+    await rokka().organizations.get(organization);
 
     return true;
   } catch (err) {
@@ -60,7 +62,7 @@ export interface OperationsResponse {
 
 export async function fetchOperations(): Promise<OperationsResponse> {
   try {
-    const { body } = rokka().operations.list();
+    const { body } = await rokka().operations.list();
     return body as OperationsResponse;
   } catch (err) {
     errorLog(err);
@@ -73,7 +75,7 @@ export type StackOptionsResponse = Properties;
 
 export async function fetchStackOptions(): Promise<StackOptionsResponse> {
   try {
-    const { body } = rokka().stackoptions.get();
+    const { body } = await rokka().stackoptions.get();
     return body as StackOptionsResponse;
   } catch (err) {
     errorLog(err);

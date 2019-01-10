@@ -56,16 +56,15 @@ export async function login(organization: string, apiKey: string) {
     updateState({ user });
     updateState(await listOperations(), await getStackOptions());
     setCookie(SESSION_COOKIE_KEY, { user });
-    return;
+    return Promise.resolve();
   }
 
-  // tslint:disable-next-line no-console
-  console.error(authenticated);
-
   setCookie(SESSION_COOKIE_KEY, {}); // clear session on error
+
+  return Promise.reject();
 }
 
-export async function listOperations(): Promise<Partial<AppState>> {
+async function listOperations(): Promise<Partial<AppState>> {
   try {
     const operations = await fetchOperations();
     return { operations };
@@ -79,7 +78,7 @@ export async function listOperations(): Promise<Partial<AppState>> {
   }
 }
 
-export async function getStackOptions(): Promise<Partial<AppState>> {
+async function getStackOptions(): Promise<Partial<AppState>> {
   try {
     const stackOptions = await fetchStackOptions();
     return { stackOptions };

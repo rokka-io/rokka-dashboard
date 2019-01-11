@@ -22,7 +22,7 @@ export async function checkAuthentication(organization: string, apiKey: string):
   } catch (err) {
     errorLog(err);
 
-    throw err;
+    return false;
   }
 }
 

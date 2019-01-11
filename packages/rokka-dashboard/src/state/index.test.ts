@@ -1,7 +1,12 @@
-import { currentState, login, subscribe } from './index';
+import { currentState, login, subscribe, testResetState, toggleSidebar } from './index';
+
 jest.mock('rokka');
 
 describe('State', () => {
+  beforeEach(() => {
+    testResetState();
+  });
+
   it('should give me the current state', () => {
     expect(currentState()).toEqual({
       showSidebar: false
@@ -35,6 +40,24 @@ describe('State', () => {
       expect(login('test', 'invalid')).rejects.toThrow();
 
       expect(subscriber).toBeCalledTimes(0);
+    });
+  });
+
+  describe('toggleSidebar', () => {
+    it('should switch the sidebar from true to false and vice-versa', () => {
+      const subscriber = jest.fn();
+      subscribe(subscriber);
+
+      toggleSidebar();
+      toggleSidebar();
+
+      expect(subscriber).toBeCalledTimes(2);
+      expect(subscriber).toHaveBeenNthCalledWith(1, {
+        showSidebar: true
+      });
+      expect(subscriber).toHaveBeenNthCalledWith(2, {
+        showSidebar: false
+      });
     });
   });
 });

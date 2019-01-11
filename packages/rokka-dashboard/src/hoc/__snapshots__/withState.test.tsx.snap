@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Higher-Order-Components withState should forward the current global state as props to the component 1`] = `
+<Component>
+  <Content
+    showSidebar={false}
+  >
+    <div>
+      some component
+    </div>
+  </Content>
+</Component>
+`;

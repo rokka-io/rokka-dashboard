@@ -25,19 +25,31 @@ type Subscriber = (state: AppState) => void;
 
 let subscribers: Subscriber[] = [];
 
+/**
+ * Subscribe callback to state updates.
+ */
 export function subscribe(callback: Subscriber) {
   subscribers.push(callback);
 }
 
+/**
+ * Unsubscribe existing callback from state updates.
+ */
 export function unsubscribe(callback: Subscriber) {
   subscribers = subscribers.filter(cb => cb !== callback);
 }
 
+/**
+ * Merge internalState with updated partialStates.
+ */
 function updateState(...partialStates: Array<Partial<AppState>>) {
   internalState = Object.assign({}, internalState, ...partialStates);
   notifySubscribers();
 }
 
+/**
+ * Notify subscribers with current state.
+ */
 function notifySubscribers() {
   if (subscribers.length) {
     for (const subscriber of subscribers) {
@@ -48,6 +60,9 @@ function notifySubscribers() {
   }
 }
 
+/**
+ * Checks if organization/apiKey combination is correct and logs the user in.
+ */
 export async function login(organization: string, apiKey: string) {
   const authenticated = await checkAuthentication(organization, apiKey);
 
@@ -61,23 +76,24 @@ export async function login(organization: string, apiKey: string) {
 
   setCookie(SESSION_COOKIE_KEY, {}); // clear session on error
 
-  return Promise.reject();
+  return Promise.reject(new Error('Invalid authentication'));
 }
 
+/**
+ * Fetches stack operations.
+ */
 async function listOperations(): Promise<Partial<AppState>> {
   try {
     const operations = await fetchOperations();
     return { operations };
   } catch (err) {
-    if (err.statusCode === 403) {
-      return {
-        user: undefined
-      };
-    }
     return {};
   }
 }
 
+/**
+ * Fetches stack options.
+ */
 async function getStackOptions(): Promise<Partial<AppState>> {
   try {
     const stackOptions = await fetchStackOptions();
@@ -87,5 +103,23 @@ async function getStackOptions(): Promise<Partial<AppState>> {
   }
 }
 
-// export state as readonly
+/**
+ * Show or hide sidebar.
+ */
+export function toggleSidebar() {
+  updateState({ showSidebar: !internalState.showSidebar });
+}
+
+/**
+ * Export current state (readonly).
+ */
 export const currentState = () => Object.assign({}, internalState);
+
+/**
+ * Do not use. Only used for tests.
+ */
+export const testResetState = () => {
+  internalState = defaultState;
+};
+
+export const testSubscriberCount = () => subscribers.length;

@@ -4,16 +4,17 @@ import { SidebarLink } from 'rokka-dashboard-ui-base';
 
 export interface NavigationLinkProps {
   path: string;
-  exact?: boolean;
   name: string;
+  matchPath?: (path: string) => boolean;
+  exact?: boolean;
 }
 
-export const NavigationLink: FunctionComponent<NavigationLinkProps> = ({ path, exact, name }) => (
+export const NavigationLink: FunctionComponent<NavigationLinkProps> = ({ path, exact, name, matchPath }) => (
   <Route
     path={path}
     exact={exact}
-    children={({ match }) => (
-      <SidebarLink to={path} active={!!match}>
+    children={({ match, location }) => (
+      <SidebarLink to={path} active={!!match || (matchPath && matchPath(location.pathname))}>
         {name}
       </SidebarLink>
     )}

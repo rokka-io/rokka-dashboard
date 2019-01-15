@@ -1,12 +1,11 @@
-import React from 'react';
-import { routes } from '../../pages/routes';
+import React, { FunctionComponent } from 'react';
+import { LiPosRelative } from 'rokka-dashboard-ui-base';
+import { navigation } from '../../pages/routes';
 
-export const Navigation = () => (
+export const Navigation: FunctionComponent = () => (
   <>
-    {routes.map(({ name, NavigationComponent, ...props }) => (
-      <li key={name}>
-        <NavigationComponent name={name} {...props} />
-      </li>
-    ))}
+    {navigation.map(({ name, relative, navigationComponent }) =>
+      relative ? <LiPosRelative key={name}>{navigationComponent}</LiPosRelative> : <li key={name}>{navigationComponent}</li>
+    )}
   </>
 );

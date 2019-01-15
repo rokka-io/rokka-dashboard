@@ -6,7 +6,6 @@ exports[`Compositions Navigation renders the Navigation correctly. 1`] = `
     key="Dashboard"
   >
     <Component
-      PageComponent={[Function]}
       exact={true}
       name="Dashboard"
       path="/"
@@ -16,10 +15,27 @@ exports[`Compositions Navigation renders the Navigation correctly. 1`] = `
     key="Images"
   >
     <Component
-      PageComponent={[Function]}
       name="Images"
       path="/images"
     />
   </li>
+  <styled.li
+    key="Stacks"
+  >
+    <Component
+      newStackRoute={
+        Object {
+          "name": "New Stack",
+          "path": "/new-stack",
+        }
+      }
+      stacksRoute={
+        Object {
+          "name": "Stacks",
+          "path": "/stacks",
+        }
+      }
+    />
+  </styled.li>
 </Fragment>
 `;

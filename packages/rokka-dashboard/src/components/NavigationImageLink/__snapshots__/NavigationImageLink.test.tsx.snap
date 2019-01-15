@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components NavigationImageLink renders a NavigationImageLink correctly with all props. 1`] = `
+<Route
+  exact={true}
+  path="/test"
+>
+  <Component />
+</Route>
+`;
+
+exports[`Components NavigationImageLink renders a NavigationImageLink correctly. 1`] = `
+<Route
+  path="/test"
+>
+  <Component />
+</Route>
+`;

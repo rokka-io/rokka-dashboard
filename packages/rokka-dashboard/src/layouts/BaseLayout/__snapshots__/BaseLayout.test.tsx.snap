@@ -676,7 +676,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                                       height="32px"
                                       width="32px"
                                     >
-                                      <Component
+                                      <SVGIcon
                                         color="#588536"
                                         height="32px"
                                         title="Avatar icon"
@@ -748,7 +748,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                                             </svg>
                                           </StyledComponent>
                                         </styled.svg>
-                                      </Component>
+                                      </SVGIcon>
                                     </Component>
                                   </div>
                                 </StyledComponent>
@@ -914,7 +914,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                                     height="23px"
                                     width="23px"
                                   >
-                                    <Component
+                                    <SVGIcon
                                       className="sc-brqgnP iHTRvH"
                                       height="23px"
                                       title="Logout icon"
@@ -1022,7 +1022,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                                           </svg>
                                         </StyledComponent>
                                       </styled.svg>
-                                    </Component>
+                                    </SVGIcon>
                                   </Component>
                                 </StyledComponent>
                               </Styled(Component)>
@@ -1165,7 +1165,6 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                         key="Dashboard"
                       >
                         <Component
-                          PageComponent={[Function]}
                           exact={true}
                           name="Dashboard"
                           path="/"
@@ -1269,7 +1268,6 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                         key="Images"
                       >
                         <Component
-                          PageComponent={[Function]}
                           name="Images"
                           path="/images"
                         >
@@ -1277,15 +1275,12 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                             path="/images"
                           >
                             <Component
-                              active={false}
                               to="/images"
                             >
                               <Styled(Component)
-                                active={false}
                                 to="/images"
                               >
                                 <StyledComponent
-                                  active={false}
                                   forwardedComponent={
                                     Object {
                                       "$$typeof": Symbol(react.forward_ref),
@@ -1343,7 +1338,6 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                                   to="/images"
                                 >
                                   <Component
-                                    active={false}
                                     className="sc-kGXeez dIZljZ"
                                     to="/images"
                                   >
@@ -1367,6 +1361,635 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                           </Route>
                         </Component>
                       </li>
+                      <styled.li
+                        key="Stacks"
+                      >
+                        <StyledComponent
+                          forwardedComponent={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "attrs": Array [],
+                              "componentStyle": ComponentStyle {
+                                "componentId": "sc-VigVT",
+                                "isStatic": true,
+                                "lastClassName": "gRqLsd",
+                                "rules": Array [
+                                  "
+  position: relative;
+",
+                                ],
+                              },
+                              "displayName": "styled.li",
+                              "foldedComponentIds": Array [],
+                              "render": [Function],
+                              "styledComponentId": "sc-VigVT",
+                              "target": "li",
+                              "toString": [Function],
+                              "warnTooManyClasses": [Function],
+                              "withComponent": [Function],
+                            }
+                          }
+                          forwardedRef={null}
+                        >
+                          <li
+                            className="sc-VigVT gRqLsd"
+                          >
+                            <Component
+                              newStackRoute={
+                                Object {
+                                  "name": "New Stack",
+                                  "path": "/new-stack",
+                                }
+                              }
+                              stacksRoute={
+                                Object {
+                                  "name": "Stacks",
+                                  "path": "/stacks",
+                                }
+                              }
+                            >
+                              <Component
+                                matchPath={[Function]}
+                                name="Stacks"
+                                path="/stacks"
+                              >
+                                <Route
+                                  path="/stacks"
+                                >
+                                  <Component
+                                    active={false}
+                                    to="/stacks"
+                                  >
+                                    <Styled(Component)
+                                      active={false}
+                                      to="/stacks"
+                                    >
+                                      <StyledComponent
+                                        active={false}
+                                        forwardedComponent={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "attrs": Array [],
+                                            "componentStyle": ComponentStyle {
+                                              "componentId": "sc-kGXeez",
+                                              "isStatic": false,
+                                              "lastClassName": "dIZljZ",
+                                              "rules": Array [
+                                                "
+  font-size: ",
+                                                [Function],
+                                                ";
+  padding: ",
+                                                [Function],
+                                                ";
+  border-left: 8px solid transparent;
+  display: block;
+  color: ",
+                                                "#fff",
+                                                ";
+  text-decoration: none;
+  transition: background 0.2s ease, border 0.2s ease;
+
+  ",
+                                                [Function],
+                                                "
+
+  :hover {
+    ",
+                                                "
+  transition: background 0.2s ease, border 0.2s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: ",
+                                                "#8DB547",
+                                                ";
+",
+                                                "
+  }
+",
+                                              ],
+                                            },
+                                            "displayName": "Styled(Component)",
+                                            "foldedComponentIds": Array [],
+                                            "render": [Function],
+                                            "styledComponentId": "sc-kGXeez",
+                                            "target": [Function],
+                                            "toString": [Function],
+                                            "warnTooManyClasses": [Function],
+                                            "withComponent": [Function],
+                                            Symbol(Symbol.hasInstance): [Function],
+                                          }
+                                        }
+                                        forwardedRef={null}
+                                        to="/stacks"
+                                      >
+                                        <Component
+                                          active={false}
+                                          className="sc-kGXeez dIZljZ"
+                                          to="/stacks"
+                                        >
+                                          <Link
+                                            className="sc-kGXeez dIZljZ"
+                                            replace={false}
+                                            to="/stacks"
+                                          >
+                                            <a
+                                              className="sc-kGXeez dIZljZ"
+                                              href="/stacks"
+                                              onClick={[Function]}
+                                            >
+                                              Stacks
+                                            </a>
+                                          </Link>
+                                        </Component>
+                                      </StyledComponent>
+                                    </Styled(Component)>
+                                  </Component>
+                                </Route>
+                              </Component>
+                              <Component
+                                icon={
+                                  <Unknown
+                                    height="24"
+                                    width="24"
+                                  />
+                                }
+                                path="/new-stack"
+                              >
+                                <Route
+                                  path="/new-stack"
+                                >
+                                  <Component
+                                    active={false}
+                                    to="/new-stack"
+                                  >
+                                    <Styled(Component)
+                                      active={false}
+                                      to="/new-stack"
+                                    >
+                                      <StyledComponent
+                                        active={false}
+                                        forwardedComponent={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "attrs": Array [],
+                                            "componentStyle": ComponentStyle {
+                                              "componentId": "sc-kpOJdX",
+                                              "isStatic": false,
+                                              "lastClassName": "kPjCjn",
+                                              "rules": Array [
+                                                "
+  transition: 0.3s ease color;
+  position: absolute;
+  right: ",
+                                                [Function],
+                                                ";
+  top: ",
+                                                [Function],
+                                                ";
+  color: ",
+                                                "#fff",
+                                                ";
+
+  ",
+                                                [Function],
+                                                "
+
+  :hover {
+    ",
+                                                "
+  transition: 0.3s ease color;
+  color: ",
+                                                "#6EA644",
+                                                ";
+",
+                                                "
+  }
+",
+                                              ],
+                                            },
+                                            "displayName": "Styled(Component)",
+                                            "foldedComponentIds": Array [],
+                                            "render": [Function],
+                                            "styledComponentId": "sc-kpOJdX",
+                                            "target": [Function],
+                                            "toString": [Function],
+                                            "warnTooManyClasses": [Function],
+                                            "withComponent": [Function],
+                                            Symbol(Symbol.hasInstance): [Function],
+                                          }
+                                        }
+                                        forwardedRef={null}
+                                        to="/new-stack"
+                                      >
+                                        <Component
+                                          active={false}
+                                          className="sc-kpOJdX kPjCjn"
+                                          to="/new-stack"
+                                        >
+                                          <Link
+                                            className="sc-kpOJdX kPjCjn"
+                                            replace={false}
+                                            to="/new-stack"
+                                          >
+                                            <a
+                                              className="sc-kpOJdX kPjCjn"
+                                              href="/new-stack"
+                                              onClick={[Function]}
+                                            >
+                                              <Component
+                                                height="24"
+                                                width="24"
+                                              >
+                                                <SVGIcon
+                                                  height="24"
+                                                  title="Add icon"
+                                                  width="24"
+                                                >
+                                                  <styled.svg
+                                                    color="currentColor"
+                                                    height="24"
+                                                    viewBox="0 0 24 24"
+                                                    width="24"
+                                                  >
+                                                    <StyledComponent
+                                                      color="currentColor"
+                                                      forwardedComponent={
+                                                        Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "attrs": Array [],
+                                                          "componentStyle": ComponentStyle {
+                                                            "componentId": "sc-htoDjs",
+                                                            "isStatic": false,
+                                                            "lastClassName": "garZOW",
+                                                            "rules": Array [
+                                                              "
+  vertical-align: middle;
+  fill: ",
+                                                              [Function],
+                                                              ";
+",
+                                                            ],
+                                                          },
+                                                          "displayName": "styled.svg",
+                                                          "foldedComponentIds": Array [],
+                                                          "render": [Function],
+                                                          "styledComponentId": "sc-htoDjs",
+                                                          "target": "svg",
+                                                          "toString": [Function],
+                                                          "warnTooManyClasses": [Function],
+                                                          "withComponent": [Function],
+                                                        }
+                                                      }
+                                                      forwardedRef={null}
+                                                      height="24"
+                                                      viewBox="0 0 24 24"
+                                                      width="24"
+                                                    >
+                                                      <svg
+                                                        className="sc-htoDjs garZOW"
+                                                        color="currentColor"
+                                                        height="24"
+                                                        viewBox="0 0 24 24"
+                                                        width="24"
+                                                      >
+                                                        <title>
+                                                          Add icon
+                                                        </title>
+                                                        <path
+                                                          d="M11.5,0C5.159,0,0,5.159,0,11.5S5.159,23,11.5,23S23,17.841,23,11.5S17.841,0,11.5,0z M11.5,22C5.71,22,1,17.29,1,11.5
+    S5.71,1,11.5,1S22,5.71,22,11.5S17.29,22,11.5,22z"
+                                                          fill="currentColor"
+                                                        />
+                                                        <path
+                                                          d="M17.5,11H12V5.5C12,5.224,11.776,5,11.5,5S11,5.224,11,5.5V11H5.5C5.224,11,5,11.224,5,11.5S5.224,12,5.5,12H11v5.5
+    c0,0.276,0.224,0.5,0.5,0.5s0.5-0.224,0.5-0.5V12h5.5c0.276,0,0.5-0.224,0.5-0.5S17.776,11,17.5,11z"
+                                                          fill="currentColor"
+                                                        />
+                                                      </svg>
+                                                    </StyledComponent>
+                                                  </styled.svg>
+                                                </SVGIcon>
+                                              </Component>
+                                            </a>
+                                          </Link>
+                                        </Component>
+                                      </StyledComponent>
+                                    </Styled(Component)>
+                                  </Component>
+                                </Route>
+                              </Component>
+                              <Route>
+                                <styled.div
+                                  active={false}
+                                >
+                                  <StyledComponent
+                                    active={false}
+                                    forwardedComponent={
+                                      Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "attrs": Array [],
+                                        "componentStyle": ComponentStyle {
+                                          "componentId": "sc-kgoBCf",
+                                          "isStatic": false,
+                                          "lastClassName": "bSEcOG",
+                                          "rules": Array [
+                                            "
+  display: ",
+                                            [Function],
+                                            ";
+",
+                                          ],
+                                        },
+                                        "displayName": "styled.div",
+                                        "foldedComponentIds": Array [],
+                                        "render": [Function],
+                                        "styledComponentId": "sc-kgoBCf",
+                                        "target": "div",
+                                        "toString": [Function],
+                                        "warnTooManyClasses": [Function],
+                                        "withComponent": [Function],
+                                      }
+                                    }
+                                    forwardedRef={null}
+                                  >
+                                    <div
+                                      className="sc-kgoBCf bSEcOG"
+                                    >
+                                      <Component
+                                        onChange={[Function]}
+                                        placeholder="Search..."
+                                      >
+                                        <styled.div>
+                                          <StyledComponent
+                                            forwardedComponent={
+                                              Object {
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "attrs": Array [],
+                                                "componentStyle": ComponentStyle {
+                                                  "componentId": "sc-jDwBTQ",
+                                                  "isStatic": true,
+                                                  "lastClassName": "gBFXdF",
+                                                  "rules": Array [
+                                                    "
+  position: relative;
+  padding: ",
+                                                    "0.5rem",
+                                                    " ",
+                                                    "1rem",
+                                                    " ",
+                                                    "0.5rem",
+                                                    " ",
+                                                    "1.5rem",
+                                                    ";
+",
+                                                  ],
+                                                },
+                                                "displayName": "styled.div",
+                                                "foldedComponentIds": Array [],
+                                                "render": [Function],
+                                                "styledComponentId": "sc-jDwBTQ",
+                                                "target": "div",
+                                                "toString": [Function],
+                                                "warnTooManyClasses": [Function],
+                                                "withComponent": [Function],
+                                              }
+                                            }
+                                            forwardedRef={null}
+                                          >
+                                            <div
+                                              className="sc-jDwBTQ gBFXdF"
+                                            >
+                                              <Styled(styled.input)
+                                                onChange={[Function]}
+                                                placeholder="Search..."
+                                              >
+                                                <StyledComponent
+                                                  forwardedComponent={
+                                                    Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "attrs": Array [],
+                                                      "componentStyle": ComponentStyle {
+                                                        "componentId": "sc-iRbamj",
+                                                        "isStatic": true,
+                                                        "lastClassName": "bFRwOV",
+                                                        "rules": Array [
+                                                          "
+  font-family: ",
+                                                          "\\"Liip Etica Book\\", sans-serif",
+                                                          ";
+  font-size: ",
+                                                          "0.875rem",
+                                                          ";
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid ",
+                                                          "#DDDDD8",
+                                                          ";
+  padding: 0 ",
+                                                          "0.5rem",
+                                                          ";
+  outline: none;
+
+  :focus {
+    transition: border 0.4s ease;
+    border-color: ",
+                                                          "#A5A59F",
+                                                          ";
+  }
+
+  :disabled {
+    color: ",
+                                                          "#898A81",
+                                                          ";
+    background: ",
+                                                          "#EBEBE6",
+                                                          ";
+  }
+",
+                                                          "
+  transition: border 0.3s ease;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: none;
+  color: ",
+                                                          "#fff",
+                                                          ";
+  height: 1.75rem;
+  line-height: 1.75rem;
+  padding: 0 ",
+                                                          "2rem",
+                                                          " 0 0;
+
+  :focus {
+    transition: border 0.3s ease;
+    border-color: ",
+                                                          "#fff",
+                                                          ";
+
+    & + ",
+                                                          ".sc-gPEVay",
+                                                          " {
+      color: ",
+                                                          "#fff",
+                                                          ";
+    }
+  }
+",
+                                                        ],
+                                                      },
+                                                      "displayName": "Styled(styled.input)",
+                                                      "foldedComponentIds": Array [
+                                                        "sc-dnqmqq",
+                                                      ],
+                                                      "render": [Function],
+                                                      "styledComponentId": "sc-iRbamj",
+                                                      "target": "input",
+                                                      "toString": [Function],
+                                                      "warnTooManyClasses": [Function],
+                                                      "withComponent": [Function],
+                                                    }
+                                                  }
+                                                  forwardedRef={null}
+                                                  onChange={[Function]}
+                                                  placeholder="Search..."
+                                                >
+                                                  <input
+                                                    className="sc-dnqmqq sc-iRbamj bFRwOV"
+                                                    onChange={[Function]}
+                                                    placeholder="Search..."
+                                                  />
+                                                </StyledComponent>
+                                              </Styled(styled.input)>
+                                              <Styled(Component)
+                                                color="#C0C1BC"
+                                                height="1em"
+                                                width="1em"
+                                              >
+                                                <StyledComponent
+                                                  color="#C0C1BC"
+                                                  forwardedComponent={
+                                                    Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "attrs": Array [],
+                                                      "componentStyle": ComponentStyle {
+                                                        "componentId": "sc-gPEVay",
+                                                        "isStatic": true,
+                                                        "lastClassName": "dvQsFc",
+                                                        "rules": Array [
+                                                          "
+  position: absolute;
+  top: 0.875rem;
+  right: 1.25rem;
+",
+                                                        ],
+                                                      },
+                                                      "displayName": "Styled(Component)",
+                                                      "foldedComponentIds": Array [],
+                                                      "render": [Function],
+                                                      "styledComponentId": "sc-gPEVay",
+                                                      "target": [Function],
+                                                      "toString": [Function],
+                                                      "warnTooManyClasses": [Function],
+                                                      "withComponent": [Function],
+                                                      Symbol(Symbol.hasInstance): [Function],
+                                                    }
+                                                  }
+                                                  forwardedRef={null}
+                                                  height="1em"
+                                                  width="1em"
+                                                >
+                                                  <Component
+                                                    className="sc-gPEVay dvQsFc"
+                                                    color="#C0C1BC"
+                                                    height="1em"
+                                                    width="1em"
+                                                  >
+                                                    <SVGIcon
+                                                      className="sc-gPEVay dvQsFc"
+                                                      color="#C0C1BC"
+                                                      height="1em"
+                                                      title="Search Icon"
+                                                      viewBox="0 0 24 24"
+                                                      width="1em"
+                                                    >
+                                                      <styled.svg
+                                                        className="sc-gPEVay dvQsFc"
+                                                        color="#C0C1BC"
+                                                        height="1em"
+                                                        viewBox="0 0 24 24"
+                                                        width="1em"
+                                                      >
+                                                        <StyledComponent
+                                                          className="sc-gPEVay dvQsFc"
+                                                          color="#C0C1BC"
+                                                          forwardedComponent={
+                                                            Object {
+                                                              "$$typeof": Symbol(react.forward_ref),
+                                                              "attrs": Array [],
+                                                              "componentStyle": ComponentStyle {
+                                                                "componentId": "sc-htoDjs",
+                                                                "isStatic": false,
+                                                                "lastClassName": "garZOW",
+                                                                "rules": Array [
+                                                                  "
+  vertical-align: middle;
+  fill: ",
+                                                                  [Function],
+                                                                  ";
+",
+                                                                ],
+                                                              },
+                                                              "displayName": "styled.svg",
+                                                              "foldedComponentIds": Array [],
+                                                              "render": [Function],
+                                                              "styledComponentId": "sc-htoDjs",
+                                                              "target": "svg",
+                                                              "toString": [Function],
+                                                              "warnTooManyClasses": [Function],
+                                                              "withComponent": [Function],
+                                                            }
+                                                          }
+                                                          forwardedRef={null}
+                                                          height="1em"
+                                                          viewBox="0 0 24 24"
+                                                          width="1em"
+                                                        >
+                                                          <svg
+                                                            className="sc-gPEVay dvQsFc sc-htoDjs ieMAuc"
+                                                            color="#C0C1BC"
+                                                            height="1em"
+                                                            viewBox="0 0 24 24"
+                                                            width="1em"
+                                                          >
+                                                            <title>
+                                                              Search Icon
+                                                            </title>
+                                                            <path
+                                                              d="M23.854,23.146l-9.009-9.009C16.181,12.635,17,10.664,17,8.5C17,3.813,13.187,0,8.5,0S0,3.813,0,8.5S3.813,17,8.5,17
+			c2.164,0,4.135-0.819,5.637-2.156l9.009,9.009c0.195,0.195,0.512,0.195,0.707,0C24.049,23.658,24.049,23.342,23.854,23.146z
+			 M1,8.5C1,4.364,4.364,1,8.5,1S16,4.364,16,8.5S12.636,16,8.5,16S1,12.636,1,8.5z"
+                                                              fill="currentColor"
+                                                            />
+                                                          </svg>
+                                                        </StyledComponent>
+                                                      </styled.svg>
+                                                    </SVGIcon>
+                                                  </Component>
+                                                </StyledComponent>
+                                              </Styled(Component)>
+                                            </div>
+                                          </StyledComponent>
+                                        </styled.div>
+                                      </Component>
+                                    </div>
+                                  </StyledComponent>
+                                </styled.div>
+                              </Route>
+                            </Component>
+                          </li>
+                        </StyledComponent>
+                      </styled.li>
                     </Component>
                   </ul>
                 </StyledComponent>
@@ -1472,7 +2095,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                             className="sc-jAaTju cKdOju"
                             height="16px"
                           >
-                            <Component
+                            <SVGIcon
                               className="sc-jAaTju cKdOju"
                               height="16px"
                               title="Liip logo"
@@ -1533,7 +2156,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                                   </svg>
                                 </StyledComponent>
                               </styled.svg>
-                            </Component>
+                            </SVGIcon>
                           </Component>
                         </StyledComponent>
                       </Styled(Component)>

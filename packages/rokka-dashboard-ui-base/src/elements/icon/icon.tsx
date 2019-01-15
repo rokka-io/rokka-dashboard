@@ -27,7 +27,9 @@ interface AllIconProps extends IconProps {
   className?: string;
 }
 
-export const Icon: FunctionComponent<AllIconProps> = ({
+export type Icon = FunctionComponent<IconProps>;
+
+const SVGIcon: FunctionComponent<AllIconProps> = ({
   width,
   height,
   color = 'currentColor',
@@ -46,8 +48,8 @@ const StyledSVG = styled.svg`
   vertical-align: middle;
   fill: ${({ color }) => color};
 `;
-export const LogoutIcon: FunctionComponent<IconProps> = props => (
-  <Icon title="Logout icon" {...props}>
+export const LogoutIcon: Icon = props => (
+  <SVGIcon title="Logout icon" {...props}>
     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g id="logout-icon" transform="translate(-1.000000, -1.000000)">
         <g id="Outline_Icons_1_" transform="translate(1.000000, 1.000000)" fillRule="nonzero" fill="currentColor">
@@ -69,11 +71,11 @@ export const LogoutIcon: FunctionComponent<IconProps> = props => (
         </g>
       </g>
     </g>
-  </Icon>
+  </SVGIcon>
 );
 
-export const AvatarIcon: FunctionComponent<IconProps> = props => (
-  <Icon title="Avatar icon" {...props} viewBox="0 -2 24 24">
+export const AvatarIcon: Icon = props => (
+  <SVGIcon title="Avatar icon" {...props} viewBox="0 -2 24 24">
     <path
       fill="currentColor"
       d="M19.677,17.318L15,15.647v-2.207c1.503-1.162,2.5-3.165,2.5-5.441c0-3.584-2.467-6.5-5.5-6.5S6.5,4.416,6.5,8
@@ -86,11 +88,11 @@ export const AvatarIcon: FunctionComponent<IconProps> = props => (
 			v-1.386c0-1.053,0.667-1.999,1.659-2.354l5.009-1.789C9.867,16.4,10,16.211,10,16v-1.951c0.621,0.288,1.294,0.451,2,0.451
 			s1.379-0.164,2-0.451V16c0,0.211,0.133,0.4,0.332,0.471l5.008,1.789c0.993,0.355,1.66,1.301,1.66,2.354V22z"
     />
-  </Icon>
+  </SVGIcon>
 );
 
-export const AddIcon: FunctionComponent<IconProps> = props => (
-  <Icon title="Add icon" {...props}>
+export const AddIcon: Icon = props => (
+  <SVGIcon title="Add icon" {...props}>
     <path
       fill="currentColor"
       d="M11.5,0C5.159,0,0,5.159,0,11.5S5.159,23,11.5,23S23,17.841,23,11.5S17.841,0,11.5,0z M11.5,22C5.71,22,1,17.29,1,11.5
@@ -101,27 +103,27 @@ export const AddIcon: FunctionComponent<IconProps> = props => (
       d="M17.5,11H12V5.5C12,5.224,11.776,5,11.5,5S11,5.224,11,5.5V11H5.5C5.224,11,5,11.224,5,11.5S5.224,12,5.5,12H11v5.5
     c0,0.276,0.224,0.5,0.5,0.5s0.5-0.224,0.5-0.5V12h5.5c0.276,0,0.5-0.224,0.5-0.5S17.776,11,17.5,11z"
     />
-  </Icon>
+  </SVGIcon>
 );
 
-export const LiipIcon: FunctionComponent<IconProps> = props => (
-  <Icon title="Liip logo" {...props} viewBox="0 0 94 34">
+export const LiipIcon: Icon = props => (
+  <SVGIcon title="Liip logo" {...props} viewBox="0 0 94 34">
     <path d="M43.509 30.51L58.974.007l6.868 3.482-15.465 30.503zm-17.833-.03L41.141-.023l6.868 3.482-15.465 30.503zM78.4 21.8h4.7c6.9 0 10.6-4.9 10.6-10s-3.7-10-10.6-10H70.8V33h7.6V21.8zm0-13.3h4.3c2.1 0 3.3 1.5 3.3 3.2 0 1.6-1.2 3.2-3.3 3.2h-4.3V8.5zM20.9 26.1H7.7V1.6H0v31.3h20.9z" />
-  </Icon>
+  </SVGIcon>
 );
 
-export const SearchIcon: FunctionComponent<IconProps> = props => (
-  <Icon title="Search Icon" {...props} viewBox="0 0 24 24">
+export const SearchIcon: Icon = props => (
+  <SVGIcon title="Search Icon" {...props} viewBox="0 0 24 24">
     <path
       fill="currentColor"
       d="M23.854,23.146l-9.009-9.009C16.181,12.635,17,10.664,17,8.5C17,3.813,13.187,0,8.5,0S0,3.813,0,8.5S3.813,17,8.5,17
 			c2.164,0,4.135-0.819,5.637-2.156l9.009,9.009c0.195,0.195,0.512,0.195,0.707,0C24.049,23.658,24.049,23.342,23.854,23.146z
 			 M1,8.5C1,4.364,4.364,1,8.5,1S16,4.364,16,8.5S12.636,16,8.5,16S1,12.636,1,8.5z"
     />
-  </Icon>
+  </SVGIcon>
 );
 
-export const allIcons: { [index: string]: FunctionComponent<IconProps> } = {
+export const allIcons: { [index: string]: Icon } = {
   AddIcon,
   AvatarIcon,
   LogoutIcon,

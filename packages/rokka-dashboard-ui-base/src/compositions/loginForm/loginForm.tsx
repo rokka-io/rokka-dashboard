@@ -1,6 +1,7 @@
-import React, { ChangeEvent, FormEvent, Fragment, PureComponent } from 'react';
+import React, { FormEvent, Fragment, PureComponent } from 'react';
 import { FormGroup, LoadingIndicatingButton, SignForm } from '../../components';
 import { Heading2, Input } from '../../elements';
+import { handleChange } from '../../forms/handleChange';
 import { colors } from '../../identity/colors/colors';
 
 interface LoginProps {
@@ -20,16 +21,7 @@ interface LoginState {
 export class LoginForm extends PureComponent<LoginProps, LoginState> {
   public state = { organization: '', apiKey: '' };
 
-  public handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    // TODO: move to separate function
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
-  };
+  public handleChange = handleChange(obj => this.setState(obj));
 
   public handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

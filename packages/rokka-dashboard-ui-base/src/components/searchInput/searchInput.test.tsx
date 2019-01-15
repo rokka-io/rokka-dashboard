@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import React from 'react';
 import { SearchInput } from './searchInput';
 
@@ -6,9 +6,18 @@ describe('Components', () => {
   describe('SearchInput', () => {
     it('renders a SearchInput component.', () => {
       const onChange = jest.fn();
-      const tree = shallow(<SearchInput onChange={onChange} />);
+      const tree = mount(<SearchInput onChange={onChange} />);
 
       expect(tree).toMatchSnapshot();
+
+      tree.find('input').simulate('change', {
+        target: {
+          name: 'testname',
+          value: 'testvalue'
+        }
+      });
+
+      expect(onChange).toHaveBeenCalledWith({ testname: 'testvalue' });
     });
   });
 });

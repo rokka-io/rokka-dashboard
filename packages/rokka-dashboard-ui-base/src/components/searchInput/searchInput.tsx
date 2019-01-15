@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Input, SearchIcon } from '../../elements';
+import { ChangeParam, handleChange } from '../../forms/handleChange';
 import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
 
@@ -10,12 +11,12 @@ interface SearchInputProps {
   /** Input placeholder */
   placeholder?: string;
   /** onChange callback for input */
-  onChange(): void;
+  onChange(data: ChangeParam): void;
 }
 
-export const SearchInput: FunctionComponent<SearchInputProps> = props => (
+export const SearchInput: FunctionComponent<SearchInputProps> = ({ onChange, ...props }) => (
   <StyledContainer>
-    <StyledInput {...props} />
+    <StyledInput {...props} onChange={handleChange(obj => onChange(obj))} />
     <StyledSearchIcon width="1em" height="1em" color={colors.gray.dark} />
   </StyledContainer>
 );

@@ -1,14 +1,267 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components SearchInput renders a SearchInput component. 1`] = `
-<styled.div>
-  <Styled(styled.input)
-    onChange={[MockFunction]}
-  />
-  <Styled(Component)
-    color="#C0C1BC"
-    height="1em"
-    width="1em"
-  />
-</styled.div>
+<Component
+  onChange={[MockFunction]}
+>
+  <styled.div>
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-kEYyzF",
+            "isStatic": true,
+            "lastClassName": "bfiIDR",
+            "rules": Array [
+              "
+  position: relative;
+  padding: ",
+              "0.5rem",
+              " ",
+              "1rem",
+              " ",
+              "0.5rem",
+              " ",
+              "1.5rem",
+              ";
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-kEYyzF",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+    >
+      <div
+        className="sc-kEYyzF bfiIDR"
+      >
+        <Styled(styled.input)
+          onChange={[Function]}
+        >
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-iAyFgw",
+                  "isStatic": true,
+                  "lastClassName": "frZRzH",
+                  "rules": Array [
+                    "
+  font-family: ",
+                    "\\"Liip Etica Book\\", sans-serif",
+                    ";
+  font-size: ",
+                    "0.875rem",
+                    ";
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid ",
+                    "#DDDDD8",
+                    ";
+  padding: 0 ",
+                    "0.5rem",
+                    ";
+  outline: none;
+
+  :focus {
+    transition: border 0.4s ease;
+    border-color: ",
+                    "#A5A59F",
+                    ";
+  }
+
+  :disabled {
+    color: ",
+                    "#898A81",
+                    ";
+    background: ",
+                    "#EBEBE6",
+                    ";
+  }
+",
+                    "
+  transition: border 0.3s ease;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: none;
+  color: ",
+                    "#fff",
+                    ";
+  height: 1.75rem;
+  line-height: 1.75rem;
+  padding: 0 ",
+                    "2rem",
+                    " 0 0;
+
+  :focus {
+    transition: border 0.3s ease;
+    border-color: ",
+                    "#fff",
+                    ";
+
+    & + ",
+                    ".sc-kkGfuU",
+                    " {
+      color: ",
+                    "#fff",
+                    ";
+    }
+  }
+",
+                  ],
+                },
+                "displayName": "Styled(styled.input)",
+                "foldedComponentIds": Array [
+                  "sc-htoDjs",
+                ],
+                "render": [Function],
+                "styledComponentId": "sc-iAyFgw",
+                "target": "input",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+            onChange={[Function]}
+          >
+            <input
+              className="sc-htoDjs sc-iAyFgw frZRzH"
+              onChange={[Function]}
+            />
+          </StyledComponent>
+        </Styled(styled.input)>
+        <Styled(Component)
+          color="#C0C1BC"
+          height="1em"
+          width="1em"
+        >
+          <StyledComponent
+            color="#C0C1BC"
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-kkGfuU",
+                  "isStatic": true,
+                  "lastClassName": "eJlDOL",
+                  "rules": Array [
+                    "
+  position: absolute;
+  top: 0.875rem;
+  right: 1.25rem;
+",
+                  ],
+                },
+                "displayName": "Styled(Component)",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-kkGfuU",
+                "target": [Function],
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              }
+            }
+            forwardedRef={null}
+            height="1em"
+            width="1em"
+          >
+            <Component
+              className="sc-kkGfuU eJlDOL"
+              color="#C0C1BC"
+              height="1em"
+              width="1em"
+            >
+              <SVGIcon
+                className="sc-kkGfuU eJlDOL"
+                color="#C0C1BC"
+                height="1em"
+                title="Search Icon"
+                viewBox="0 0 24 24"
+                width="1em"
+              >
+                <styled.svg
+                  className="sc-kkGfuU eJlDOL"
+                  color="#C0C1BC"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                >
+                  <StyledComponent
+                    className="sc-kkGfuU eJlDOL"
+                    color="#C0C1BC"
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "sc-gzVnrw",
+                          "isStatic": false,
+                          "lastClassName": "brquue",
+                          "rules": Array [
+                            "
+  vertical-align: middle;
+  fill: ",
+                            [Function],
+                            ";
+",
+                          ],
+                        },
+                        "displayName": "styled.svg",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "sc-gzVnrw",
+                        "target": "svg",
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                  >
+                    <svg
+                      className="sc-kkGfuU eJlDOL sc-gzVnrw brquue"
+                      color="#C0C1BC"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <title>
+                        Search Icon
+                      </title>
+                      <path
+                        d="M23.854,23.146l-9.009-9.009C16.181,12.635,17,10.664,17,8.5C17,3.813,13.187,0,8.5,0S0,3.813,0,8.5S3.813,17,8.5,17
+			c2.164,0,4.135-0.819,5.637-2.156l9.009,9.009c0.195,0.195,0.512,0.195,0.707,0C24.049,23.658,24.049,23.342,23.854,23.146z
+			 M1,8.5C1,4.364,4.364,1,8.5,1S16,4.364,16,8.5S12.636,16,8.5,16S1,12.636,1,8.5z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </StyledComponent>
+                </styled.svg>
+              </SVGIcon>
+            </Component>
+          </StyledComponent>
+        </Styled(Component)>
+      </div>
+    </StyledComponent>
+  </styled.div>
+</Component>
 `;

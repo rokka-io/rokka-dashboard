@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
 
 export interface ChangeData {
-  [name: string]: any;
+  [name: string]: string | boolean;
 }
 
 export const handleChange = (onChange: (update: ChangeData) => void) => (event: ChangeEvent<HTMLInputElement>) => {

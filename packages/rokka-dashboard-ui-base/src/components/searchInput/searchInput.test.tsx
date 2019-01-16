@@ -6,7 +6,7 @@ describe('Components', () => {
   describe('SearchInput', () => {
     it('renders a SearchInput component.', () => {
       const onChange = jest.fn();
-      const tree = mount(<SearchInput onChange={onChange} />);
+      const tree = mount(<SearchInput value="" onChange={onChange} />);
 
       expect(tree).toMatchSnapshot();
 
@@ -17,7 +17,7 @@ describe('Components', () => {
         }
       });
 
-      expect(onChange).toHaveBeenCalledWith({ testname: 'testvalue' });
+      expect(onChange).toHaveBeenCalledWith('searchInput', 'testvalue');
     });
   });
 });

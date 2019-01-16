@@ -6,8 +6,11 @@ exports[`Components FormGroup renders a form group correctly. 1`] = `
     <styled.span>
       Label for input
     </styled.span>
-    <styled.input
+    <TextInput
+      name="formGroupTest"
+      onChange={[MockFunction]}
       placeholder="A placeholder"
+      value="test"
     />
   </styled.label>
 </styled.div>

@@ -25,27 +25,27 @@ exports[`Higher-Order-Components withAuthRequired should render the login compon
           className="sc-bRBYWo knDswJ"
         >
           <div
-            className="sc-bxivhb eaLXgn"
+            className="sc-htpNat kiHCYd"
           >
             <svg
-              className="sc-ifAKCX hwahpo"
+              className="sc-bxivhb fYGTuB"
               viewBox="0 0 206 48"
               width="7em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <g
-                className="sc-EHOje dJnjLE"
+                className="sc-ifAKCX lhGQfq"
                 fill="none"
                 fillRule="evenodd"
                 id="Page-1-Copy-11"
               >
                 <g
-                  className="sc-EHOje dJnjLE"
+                  className="sc-ifAKCX lhGQfq"
                   id="Desktop-HD"
                   transform="translate(-52 -53)"
                 >
                   <g
-                    className="sc-EHOje dJnjLE"
+                    className="sc-ifAKCX lhGQfq"
                     id="Group"
                     transform="translate(52 53)"
                   >
@@ -54,7 +54,7 @@ exports[`Higher-Order-Components withAuthRequired should render the login compon
                       id="rokka-text"
                     />
                     <g
-                      className="sc-EHOje dJnjLE"
+                      className="sc-ifAKCX lhGQfq"
                       id="rokka-box"
                     >
                       <path
@@ -83,13 +83,13 @@ exports[`Higher-Order-Components withAuthRequired should render the login compon
             </svg>
           </div>
           <h2
-            className="sc-gzVnrw ebnGMK"
+            className="sc-bZQynM jcyhzx"
             color="#fff"
           >
             Web images done right.
           </h2>
           <p
-            className="sc-cSHVUG kHyxZm"
+            className="sc-jzJRlG ksotJm"
           >
             Powered by Liip.
           </p>
@@ -113,15 +113,15 @@ exports[`Higher-Order-Components withAuthRequired should render the login compon
             className="sc-iAyFgw ezbAcA"
           >
             <label
-              className="sc-iwsKbI eghdTN"
+              className="sc-dnqmqq ijLsIg"
             >
               <span
-                className="sc-gZMcBi cTUJty"
+                className="sc-iwsKbI dPvCCh"
               >
                 Organization
               </span>
               <input
-                className="sc-dnqmqq evuyfK"
+                className="sc-htoDjs fyNZsg"
                 name="organization"
                 onChange={[Function]}
                 type="text"
@@ -133,15 +133,15 @@ exports[`Higher-Order-Components withAuthRequired should render the login compon
             className="sc-iAyFgw ezbAcA"
           >
             <label
-              className="sc-iwsKbI eghdTN"
+              className="sc-dnqmqq ijLsIg"
             >
               <span
-                className="sc-gZMcBi cTUJty"
+                className="sc-iwsKbI dPvCCh"
               >
                 API Key
               </span>
               <input
-                className="sc-dnqmqq evuyfK"
+                className="sc-htoDjs fyNZsg"
                 name="apiKey"
                 onChange={[Function]}
                 type="password"
@@ -150,7 +150,7 @@ exports[`Higher-Order-Components withAuthRequired should render the login compon
             </label>
           </div>
           <button
-            className="sc-htpNat idSxyv"
+            className="sc-bwzfXH iWDFMJ"
             disabled={false}
             type="submit"
           >

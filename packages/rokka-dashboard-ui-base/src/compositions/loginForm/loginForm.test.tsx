@@ -1,6 +1,6 @@
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import React from 'react';
-import { Input } from '../../elements';
+import { TextInput } from '../../elements';
 import { LoginForm } from './loginForm';
 
 describe('Compositions', () => {
@@ -17,17 +17,17 @@ describe('Compositions', () => {
       const onLogin = jest.fn();
       const props = { onLogin };
 
-      const component = shallow(<LoginForm {...props} />);
+      const component = mount(<LoginForm {...props} />);
 
-      const inputs = component.find(Input);
-      inputs.find('[type="text"]').simulate('change', {
+      const inputs = component.find(TextInput);
+      inputs.find('input[type="text"]').simulate('change', {
         target: {
           name: 'organization',
           type: 'text',
           value: 'an-organization'
         }
       });
-      inputs.find('[type="password"]').simulate('change', {
+      inputs.find('input[type="password"]').simulate('change', {
         target: {
           name: 'apiKey',
           type: 'password',

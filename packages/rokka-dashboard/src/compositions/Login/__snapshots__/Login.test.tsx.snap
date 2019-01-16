@@ -6,7 +6,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
   <LoginForm
     onLogin={[Function]}
   >
-    <Component
+    <SignForm
       isLogin={true}
       marketingText={
         <React.Fragment>
@@ -374,7 +374,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                   <div
                                     className="sc-bRBYWo knDswJ"
                                   >
-                                    <Component
+                                    <HeaderLogo
                                       marginBottom="2rem"
                                     >
                                       <styled.div
@@ -386,9 +386,9 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                               "$$typeof": Symbol(react.forward_ref),
                                               "attrs": Array [],
                                               "componentStyle": ComponentStyle {
-                                                "componentId": "sc-bxivhb",
+                                                "componentId": "sc-htpNat",
                                                 "isStatic": false,
-                                                "lastClassName": "eaLXgn",
+                                                "lastClassName": "kiHCYd",
                                                 "rules": Array [
                                                   "
   transform: scale(1);
@@ -408,7 +408,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                               "displayName": "styled.div",
                                               "foldedComponentIds": Array [],
                                               "render": [Function],
-                                              "styledComponentId": "sc-bxivhb",
+                                              "styledComponentId": "sc-htpNat",
                                               "target": "div",
                                               "toString": [Function],
                                               "warnTooManyClasses": [Function],
@@ -419,7 +419,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                           marginBottom="2rem"
                                         >
                                           <div
-                                            className="sc-bxivhb eaLXgn"
+                                            className="sc-htpNat kiHCYd"
                                           >
                                             <styled.svg
                                               viewBox="0 0 206 48"
@@ -432,9 +432,9 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                     "$$typeof": Symbol(react.forward_ref),
                                                     "attrs": Array [],
                                                     "componentStyle": ComponentStyle {
-                                                      "componentId": "sc-ifAKCX",
+                                                      "componentId": "sc-bxivhb",
                                                       "isStatic": false,
-                                                      "lastClassName": "hwahpo",
+                                                      "lastClassName": "fYGTuB",
                                                       "rules": Array [
                                                         "
   color: inherit;
@@ -451,7 +451,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                     "displayName": "styled.svg",
                                                     "foldedComponentIds": Array [],
                                                     "render": [Function],
-                                                    "styledComponentId": "sc-ifAKCX",
+                                                    "styledComponentId": "sc-bxivhb",
                                                     "target": "svg",
                                                     "toString": [Function],
                                                     "warnTooManyClasses": [Function],
@@ -464,7 +464,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                 xmlns="http://www.w3.org/2000/svg"
                                               >
                                                 <svg
-                                                  className="sc-ifAKCX hwahpo"
+                                                  className="sc-bxivhb fYGTuB"
                                                   viewBox="0 0 206 48"
                                                   width="7em"
                                                   xmlns="http://www.w3.org/2000/svg"
@@ -482,9 +482,9 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                           "$$typeof": Symbol(react.forward_ref),
                                                           "attrs": Array [],
                                                           "componentStyle": ComponentStyle {
-                                                            "componentId": "sc-EHOje",
+                                                            "componentId": "sc-ifAKCX",
                                                             "isStatic": true,
-                                                            "lastClassName": "dJnjLE",
+                                                            "lastClassName": "lhGQfq",
                                                             "rules": Array [
                                                               "
   fill: currentColor;
@@ -494,7 +494,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                           "displayName": "styled.g",
                                                           "foldedComponentIds": Array [],
                                                           "render": [Function],
-                                                          "styledComponentId": "sc-EHOje",
+                                                          "styledComponentId": "sc-ifAKCX",
                                                           "target": "g",
                                                           "toString": [Function],
                                                           "warnTooManyClasses": [Function],
@@ -505,7 +505,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                       id="Page-1-Copy-11"
                                                     >
                                                       <g
-                                                        className="sc-EHOje dJnjLE"
+                                                        className="sc-ifAKCX lhGQfq"
                                                         fill="none"
                                                         fillRule="evenodd"
                                                         id="Page-1-Copy-11"
@@ -520,9 +520,9 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                                 "$$typeof": Symbol(react.forward_ref),
                                                                 "attrs": Array [],
                                                                 "componentStyle": ComponentStyle {
-                                                                  "componentId": "sc-EHOje",
+                                                                  "componentId": "sc-ifAKCX",
                                                                   "isStatic": true,
-                                                                  "lastClassName": "dJnjLE",
+                                                                  "lastClassName": "lhGQfq",
                                                                   "rules": Array [
                                                                     "
   fill: currentColor;
@@ -532,7 +532,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                                 "displayName": "styled.g",
                                                                 "foldedComponentIds": Array [],
                                                                 "render": [Function],
-                                                                "styledComponentId": "sc-EHOje",
+                                                                "styledComponentId": "sc-ifAKCX",
                                                                 "target": "g",
                                                                 "toString": [Function],
                                                                 "warnTooManyClasses": [Function],
@@ -544,7 +544,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                             transform="translate(-52 -53)"
                                                           >
                                                             <g
-                                                              className="sc-EHOje dJnjLE"
+                                                              className="sc-ifAKCX lhGQfq"
                                                               id="Desktop-HD"
                                                               transform="translate(-52 -53)"
                                                             >
@@ -558,9 +558,9 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                                       "$$typeof": Symbol(react.forward_ref),
                                                                       "attrs": Array [],
                                                                       "componentStyle": ComponentStyle {
-                                                                        "componentId": "sc-EHOje",
+                                                                        "componentId": "sc-ifAKCX",
                                                                         "isStatic": true,
-                                                                        "lastClassName": "dJnjLE",
+                                                                        "lastClassName": "lhGQfq",
                                                                         "rules": Array [
                                                                           "
   fill: currentColor;
@@ -570,7 +570,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                                       "displayName": "styled.g",
                                                                       "foldedComponentIds": Array [],
                                                                       "render": [Function],
-                                                                      "styledComponentId": "sc-EHOje",
+                                                                      "styledComponentId": "sc-ifAKCX",
                                                                       "target": "g",
                                                                       "toString": [Function],
                                                                       "warnTooManyClasses": [Function],
@@ -582,7 +582,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                                   transform="translate(52 53)"
                                                                 >
                                                                   <g
-                                                                    className="sc-EHOje dJnjLE"
+                                                                    className="sc-ifAKCX lhGQfq"
                                                                     id="Group"
                                                                     transform="translate(52 53)"
                                                                   >
@@ -599,9 +599,9 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                                             "$$typeof": Symbol(react.forward_ref),
                                                                             "attrs": Array [],
                                                                             "componentStyle": ComponentStyle {
-                                                                              "componentId": "sc-EHOje",
+                                                                              "componentId": "sc-ifAKCX",
                                                                               "isStatic": true,
-                                                                              "lastClassName": "dJnjLE",
+                                                                              "lastClassName": "lhGQfq",
                                                                               "rules": Array [
                                                                                 "
   fill: currentColor;
@@ -611,7 +611,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                                             "displayName": "styled.g",
                                                                             "foldedComponentIds": Array [],
                                                                             "render": [Function],
-                                                                            "styledComponentId": "sc-EHOje",
+                                                                            "styledComponentId": "sc-ifAKCX",
                                                                             "target": "g",
                                                                             "toString": [Function],
                                                                             "warnTooManyClasses": [Function],
@@ -622,7 +622,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                                         id="rokka-box"
                                                                       >
                                                                         <g
-                                                                          className="sc-EHOje dJnjLE"
+                                                                          className="sc-ifAKCX lhGQfq"
                                                                           id="rokka-box"
                                                                         >
                                                                           <path
@@ -662,7 +662,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                           </div>
                                         </StyledComponent>
                                       </styled.div>
-                                    </Component>
+                                    </HeaderLogo>
                                     <styled.h2
                                       color="#fff"
                                     >
@@ -673,9 +673,9 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                             "$$typeof": Symbol(react.forward_ref),
                                             "attrs": Array [],
                                             "componentStyle": ComponentStyle {
-                                              "componentId": "sc-gzVnrw",
+                                              "componentId": "sc-bZQynM",
                                               "isStatic": false,
-                                              "lastClassName": "ebnGMK",
+                                              "lastClassName": "jcyhzx",
                                               "rules": Array [
                                                 "
   font-family: ",
@@ -696,7 +696,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                             "displayName": "styled.h2",
                                             "foldedComponentIds": Array [],
                                             "render": [Function],
-                                            "styledComponentId": "sc-gzVnrw",
+                                            "styledComponentId": "sc-bZQynM",
                                             "target": "h2",
                                             "toString": [Function],
                                             "warnTooManyClasses": [Function],
@@ -706,7 +706,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                         forwardedRef={null}
                                       >
                                         <h2
-                                          className="sc-gzVnrw ebnGMK"
+                                          className="sc-bZQynM jcyhzx"
                                           color="#fff"
                                         >
                                           Web images done right.
@@ -720,9 +720,9 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                             "$$typeof": Symbol(react.forward_ref),
                                             "attrs": Array [],
                                             "componentStyle": ComponentStyle {
-                                              "componentId": "sc-cSHVUG",
+                                              "componentId": "sc-jzJRlG",
                                               "isStatic": true,
-                                              "lastClassName": "kHyxZm",
+                                              "lastClassName": "ksotJm",
                                               "rules": Array [
                                                 "
   font-size: ",
@@ -762,7 +762,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                             "displayName": "styled.p",
                                             "foldedComponentIds": Array [],
                                             "render": [Function],
-                                            "styledComponentId": "sc-cSHVUG",
+                                            "styledComponentId": "sc-jzJRlG",
                                             "target": "p",
                                             "toString": [Function],
                                             "warnTooManyClasses": [Function],
@@ -772,7 +772,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                         forwardedRef={null}
                                       >
                                         <p
-                                          className="sc-cSHVUG kHyxZm"
+                                          className="sc-jzJRlG ksotJm"
                                         >
                                           Powered by Liip.
                                         </p>
@@ -893,7 +893,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                               <form
                                 onSubmit={[Function]}
                               >
-                                <Component
+                                <FormGroup
                                   label="Organization"
                                 >
                                   <styled.div>
@@ -936,9 +936,9 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                 "$$typeof": Symbol(react.forward_ref),
                                                 "attrs": Array [],
                                                 "componentStyle": ComponentStyle {
-                                                  "componentId": "sc-iwsKbI",
+                                                  "componentId": "sc-dnqmqq",
                                                   "isStatic": true,
-                                                  "lastClassName": "eghdTN",
+                                                  "lastClassName": "ijLsIg",
                                                   "rules": Array [
                                                     "
   font-family: ",
@@ -959,7 +959,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                 "displayName": "styled.label",
                                                 "foldedComponentIds": Array [],
                                                 "render": [Function],
-                                                "styledComponentId": "sc-iwsKbI",
+                                                "styledComponentId": "sc-dnqmqq",
                                                 "target": "label",
                                                 "toString": [Function],
                                                 "warnTooManyClasses": [Function],
@@ -969,7 +969,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                             forwardedRef={null}
                                           >
                                             <label
-                                              className="sc-iwsKbI eghdTN"
+                                              className="sc-dnqmqq ijLsIg"
                                             >
                                               <styled.span>
                                                 <StyledComponent
@@ -978,9 +978,9 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                       "$$typeof": Symbol(react.forward_ref),
                                                       "attrs": Array [],
                                                       "componentStyle": ComponentStyle {
-                                                        "componentId": "sc-gZMcBi",
+                                                        "componentId": "sc-iwsKbI",
                                                         "isStatic": true,
-                                                        "lastClassName": "cTUJty",
+                                                        "lastClassName": "dPvCCh",
                                                         "rules": Array [
                                                           "
   display: inline-block;
@@ -993,7 +993,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                       "displayName": "styled.span",
                                                       "foldedComponentIds": Array [],
                                                       "render": [Function],
-                                                      "styledComponentId": "sc-gZMcBi",
+                                                      "styledComponentId": "sc-iwsKbI",
                                                       "target": "span",
                                                       "toString": [Function],
                                                       "warnTooManyClasses": [Function],
@@ -1003,97 +1003,111 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                   forwardedRef={null}
                                                 >
                                                   <span
-                                                    className="sc-gZMcBi cTUJty"
+                                                    className="sc-iwsKbI dPvCCh"
                                                   >
                                                     Organization
                                                   </span>
                                                 </StyledComponent>
                                               </styled.span>
-                                              <styled.input
+                                              <TextInput
                                                 name="organization"
                                                 onChange={[Function]}
-                                                type="text"
                                                 value=""
                                               >
-                                                <StyledComponent
-                                                  forwardedComponent={
-                                                    Object {
-                                                      "$$typeof": Symbol(react.forward_ref),
-                                                      "attrs": Array [],
-                                                      "componentStyle": ComponentStyle {
-                                                        "componentId": "sc-dnqmqq",
-                                                        "isStatic": true,
-                                                        "lastClassName": "evuyfK",
-                                                        "rules": Array [
-                                                          "
+                                                <Input
+                                                  deserialize={[Function]}
+                                                  name="organization"
+                                                  onChange={[Function]}
+                                                  serialize={[Function]}
+                                                  value=""
+                                                >
+                                                  <styled.input
+                                                    name="organization"
+                                                    onChange={[Function]}
+                                                    type="text"
+                                                    value=""
+                                                  >
+                                                    <StyledComponent
+                                                      forwardedComponent={
+                                                        Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "attrs": Array [],
+                                                          "componentStyle": ComponentStyle {
+                                                            "componentId": "sc-htoDjs",
+                                                            "isStatic": true,
+                                                            "lastClassName": "fyNZsg",
+                                                            "rules": Array [
+                                                              "
   font-family: ",
-                                                          "\\"Liip Etica Book\\", sans-serif",
-                                                          ";
+                                                              "\\"Liip Etica Book\\", sans-serif",
+                                                              ";
   font-size: ",
-                                                          "0.875rem",
-                                                          ";
+                                                              "0.875rem",
+                                                              ";
   width: 100%;
   height: 38px;
   line-height: 38px;
   border: 1px solid ",
-                                                          "#DDDDD8",
-                                                          ";
+                                                              "#DDDDD8",
+                                                              ";
   padding: 0 ",
-                                                          "0.5rem",
-                                                          ";
+                                                              "0.5rem",
+                                                              ";
   outline: none;
 
   :focus {
     transition: border 0.4s ease;
     border-color: ",
-                                                          "#A5A59F",
-                                                          ";
+                                                              "#A5A59F",
+                                                              ";
   }
 
   :disabled {
     color: ",
-                                                          "#898A81",
-                                                          ";
+                                                              "#898A81",
+                                                              ";
     background: ",
-                                                          "#EBEBE6",
-                                                          ";
+                                                              "#EBEBE6",
+                                                              ";
   }
 ",
-                                                        ],
-                                                      },
-                                                      "displayName": "styled.input",
-                                                      "foldedComponentIds": Array [],
-                                                      "render": [Function],
-                                                      "styledComponentId": "sc-dnqmqq",
-                                                      "target": "input",
-                                                      "toString": [Function],
-                                                      "warnTooManyClasses": [Function],
-                                                      "withComponent": [Function],
-                                                    }
-                                                  }
-                                                  forwardedRef={null}
-                                                  name="organization"
-                                                  onChange={[Function]}
-                                                  type="text"
-                                                  value=""
-                                                >
-                                                  <input
-                                                    className="sc-dnqmqq evuyfK"
-                                                    name="organization"
-                                                    onChange={[Function]}
-                                                    type="text"
-                                                    value=""
-                                                  />
-                                                </StyledComponent>
-                                              </styled.input>
+                                                            ],
+                                                          },
+                                                          "displayName": "styled.input",
+                                                          "foldedComponentIds": Array [],
+                                                          "render": [Function],
+                                                          "styledComponentId": "sc-htoDjs",
+                                                          "target": "input",
+                                                          "toString": [Function],
+                                                          "warnTooManyClasses": [Function],
+                                                          "withComponent": [Function],
+                                                        }
+                                                      }
+                                                      forwardedRef={null}
+                                                      name="organization"
+                                                      onChange={[Function]}
+                                                      type="text"
+                                                      value=""
+                                                    >
+                                                      <input
+                                                        className="sc-htoDjs fyNZsg"
+                                                        name="organization"
+                                                        onChange={[Function]}
+                                                        type="text"
+                                                        value=""
+                                                      />
+                                                    </StyledComponent>
+                                                  </styled.input>
+                                                </Input>
+                                              </TextInput>
                                             </label>
                                           </StyledComponent>
                                         </styled.label>
                                       </div>
                                     </StyledComponent>
                                   </styled.div>
-                                </Component>
-                                <Component
+                                </FormGroup>
+                                <FormGroup
                                   label="API Key"
                                 >
                                   <styled.div>
@@ -1136,9 +1150,9 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                 "$$typeof": Symbol(react.forward_ref),
                                                 "attrs": Array [],
                                                 "componentStyle": ComponentStyle {
-                                                  "componentId": "sc-iwsKbI",
+                                                  "componentId": "sc-dnqmqq",
                                                   "isStatic": true,
-                                                  "lastClassName": "eghdTN",
+                                                  "lastClassName": "ijLsIg",
                                                   "rules": Array [
                                                     "
   font-family: ",
@@ -1159,7 +1173,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                 "displayName": "styled.label",
                                                 "foldedComponentIds": Array [],
                                                 "render": [Function],
-                                                "styledComponentId": "sc-iwsKbI",
+                                                "styledComponentId": "sc-dnqmqq",
                                                 "target": "label",
                                                 "toString": [Function],
                                                 "warnTooManyClasses": [Function],
@@ -1169,7 +1183,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                             forwardedRef={null}
                                           >
                                             <label
-                                              className="sc-iwsKbI eghdTN"
+                                              className="sc-dnqmqq ijLsIg"
                                             >
                                               <styled.span>
                                                 <StyledComponent
@@ -1178,9 +1192,9 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                       "$$typeof": Symbol(react.forward_ref),
                                                       "attrs": Array [],
                                                       "componentStyle": ComponentStyle {
-                                                        "componentId": "sc-gZMcBi",
+                                                        "componentId": "sc-iwsKbI",
                                                         "isStatic": true,
-                                                        "lastClassName": "cTUJty",
+                                                        "lastClassName": "dPvCCh",
                                                         "rules": Array [
                                                           "
   display: inline-block;
@@ -1193,7 +1207,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                       "displayName": "styled.span",
                                                       "foldedComponentIds": Array [],
                                                       "render": [Function],
-                                                      "styledComponentId": "sc-gZMcBi",
+                                                      "styledComponentId": "sc-iwsKbI",
                                                       "target": "span",
                                                       "toString": [Function],
                                                       "warnTooManyClasses": [Function],
@@ -1203,100 +1217,115 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                                   forwardedRef={null}
                                                 >
                                                   <span
-                                                    className="sc-gZMcBi cTUJty"
+                                                    className="sc-iwsKbI dPvCCh"
                                                   >
                                                     API Key
                                                   </span>
                                                 </StyledComponent>
                                               </styled.span>
-                                              <styled.input
+                                              <TextInput
                                                 name="apiKey"
                                                 onChange={[Function]}
                                                 type="password"
                                                 value=""
                                               >
-                                                <StyledComponent
-                                                  forwardedComponent={
-                                                    Object {
-                                                      "$$typeof": Symbol(react.forward_ref),
-                                                      "attrs": Array [],
-                                                      "componentStyle": ComponentStyle {
-                                                        "componentId": "sc-dnqmqq",
-                                                        "isStatic": true,
-                                                        "lastClassName": "evuyfK",
-                                                        "rules": Array [
-                                                          "
+                                                <Input
+                                                  deserialize={[Function]}
+                                                  name="apiKey"
+                                                  onChange={[Function]}
+                                                  serialize={[Function]}
+                                                  value=""
+                                                >
+                                                  <styled.input
+                                                    name="apiKey"
+                                                    onChange={[Function]}
+                                                    type="password"
+                                                    value=""
+                                                  >
+                                                    <StyledComponent
+                                                      forwardedComponent={
+                                                        Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "attrs": Array [],
+                                                          "componentStyle": ComponentStyle {
+                                                            "componentId": "sc-htoDjs",
+                                                            "isStatic": true,
+                                                            "lastClassName": "fyNZsg",
+                                                            "rules": Array [
+                                                              "
   font-family: ",
-                                                          "\\"Liip Etica Book\\", sans-serif",
-                                                          ";
+                                                              "\\"Liip Etica Book\\", sans-serif",
+                                                              ";
   font-size: ",
-                                                          "0.875rem",
-                                                          ";
+                                                              "0.875rem",
+                                                              ";
   width: 100%;
   height: 38px;
   line-height: 38px;
   border: 1px solid ",
-                                                          "#DDDDD8",
-                                                          ";
+                                                              "#DDDDD8",
+                                                              ";
   padding: 0 ",
-                                                          "0.5rem",
-                                                          ";
+                                                              "0.5rem",
+                                                              ";
   outline: none;
 
   :focus {
     transition: border 0.4s ease;
     border-color: ",
-                                                          "#A5A59F",
-                                                          ";
+                                                              "#A5A59F",
+                                                              ";
   }
 
   :disabled {
     color: ",
-                                                          "#898A81",
-                                                          ";
+                                                              "#898A81",
+                                                              ";
     background: ",
-                                                          "#EBEBE6",
-                                                          ";
+                                                              "#EBEBE6",
+                                                              ";
   }
 ",
-                                                        ],
-                                                      },
-                                                      "displayName": "styled.input",
-                                                      "foldedComponentIds": Array [],
-                                                      "render": [Function],
-                                                      "styledComponentId": "sc-dnqmqq",
-                                                      "target": "input",
-                                                      "toString": [Function],
-                                                      "warnTooManyClasses": [Function],
-                                                      "withComponent": [Function],
-                                                    }
-                                                  }
-                                                  forwardedRef={null}
-                                                  name="apiKey"
-                                                  onChange={[Function]}
-                                                  type="password"
-                                                  value=""
-                                                >
-                                                  <input
-                                                    className="sc-dnqmqq evuyfK"
-                                                    name="apiKey"
-                                                    onChange={[Function]}
-                                                    type="password"
-                                                    value=""
-                                                  />
-                                                </StyledComponent>
-                                              </styled.input>
+                                                            ],
+                                                          },
+                                                          "displayName": "styled.input",
+                                                          "foldedComponentIds": Array [],
+                                                          "render": [Function],
+                                                          "styledComponentId": "sc-htoDjs",
+                                                          "target": "input",
+                                                          "toString": [Function],
+                                                          "warnTooManyClasses": [Function],
+                                                          "withComponent": [Function],
+                                                        }
+                                                      }
+                                                      forwardedRef={null}
+                                                      name="apiKey"
+                                                      onChange={[Function]}
+                                                      type="password"
+                                                      value=""
+                                                    >
+                                                      <input
+                                                        className="sc-htoDjs fyNZsg"
+                                                        name="apiKey"
+                                                        onChange={[Function]}
+                                                        type="password"
+                                                        value=""
+                                                      />
+                                                    </StyledComponent>
+                                                  </styled.input>
+                                                </Input>
+                                              </TextInput>
                                             </label>
                                           </StyledComponent>
                                         </styled.label>
                                       </div>
                                     </StyledComponent>
                                   </styled.div>
-                                </Component>
-                                <Component
+                                </FormGroup>
+                                <LoadingIndicatingButton
                                   type="submit"
                                 >
-                                  <Component
+                                  <Button
                                     type="submit"
                                   >
                                     <styled.button
@@ -1310,9 +1339,9 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                             "$$typeof": Symbol(react.forward_ref),
                                             "attrs": Array [],
                                             "componentStyle": ComponentStyle {
-                                              "componentId": "sc-htpNat",
+                                              "componentId": "sc-bwzfXH",
                                               "isStatic": false,
-                                              "lastClassName": "idSxyv",
+                                              "lastClassName": "iWDFMJ",
                                               "rules": Array [
                                                 "
   background-color: ",
@@ -1345,7 +1374,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                             "displayName": "styled.button",
                                             "foldedComponentIds": Array [],
                                             "render": [Function],
-                                            "styledComponentId": "sc-htpNat",
+                                            "styledComponentId": "sc-bwzfXH",
                                             "target": "button",
                                             "toString": [Function],
                                             "warnTooManyClasses": [Function],
@@ -1356,7 +1385,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                         type="submit"
                                       >
                                         <button
-                                          className="sc-htpNat idSxyv"
+                                          className="sc-bwzfXH iWDFMJ"
                                           disabled={false}
                                           type="submit"
                                         >
@@ -1364,8 +1393,8 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
                                         </button>
                                       </StyledComponent>
                                     </styled.button>
-                                  </Component>
-                                </Component>
+                                  </Button>
+                                </LoadingIndicatingButton>
                               </form>
                             </div>
                           </StyledComponent>
@@ -1379,7 +1408,7 @@ exports[`Compositions Login renders the Login composition correctly. 1`] = `
           </div>
         </StyledComponent>
       </styled.div>
-    </Component>
+    </SignForm>
   </LoginForm>
 </Component>
 `;

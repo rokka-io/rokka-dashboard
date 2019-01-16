@@ -29,7 +29,7 @@ interface AllIconProps extends IconProps {
 
 export type Icon = FunctionComponent<IconProps>;
 
-const SVGIcon: FunctionComponent<AllIconProps> = ({
+function SVGIcon({
   width,
   height,
   color = 'currentColor',
@@ -37,48 +37,54 @@ const SVGIcon: FunctionComponent<AllIconProps> = ({
   title,
   children,
   className
-}) => (
-  <StyledSVG className={className} color={color} width={width} height={height} viewBox={viewBox}>
-    <title>{title}</title>
-    {children}
-  </StyledSVG>
-);
+}: AllIconProps) {
+  return (
+    <StyledSVG className={className} color={color} width={width} height={height} viewBox={viewBox}>
+      <title>{title}</title>
+      {children}
+    </StyledSVG>
+  );
+}
 
 const StyledSVG = styled.svg`
   vertical-align: middle;
   fill: ${({ color }) => color};
 `;
-export const LogoutIcon: Icon = props => (
-  <SVGIcon title="Logout icon" {...props}>
-    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-      <g id="logout-icon" transform="translate(-1.000000, -1.000000)">
-        <g id="Outline_Icons_1_" transform="translate(1.000000, 1.000000)" fillRule="nonzero" fill="currentColor">
-          <g id="Outline_Icons">
-            <g id="Group">
-              <path
-                d="M11.146,15.146 C10.951,15.341 10.951,15.658 11.146,15.853 C11.341,16.048 11.658,16.048 11.853,15.853 L15.853,11.853 C16.047,11.658 16.048,11.341 15.853,11.145 L11.853,7.145 C11.658,6.95 11.341,6.95 11.146,7.145 C10.951,7.34 10.951,7.657 11.146,7.852 L14.293,11 L0.5,11 C0.224,11 -8.8817842e-16,11.224 -8.8817842e-16,11.5 C-8.8817842e-16,11.776 0.224,12 0.5,12 L14.293,12 L11.146,15.146 Z"
-                id="Shape"
-              />
-              <path
-                d="M11.5,0 C7.001,0 2.89,2.647 1.027,6.744 C0.913,6.995 1.024,7.292 1.275,7.406 C1.529,7.522 1.823,7.408 1.937,7.158 C3.639,3.417 7.392,1 11.5,1 C17.29,1 22,5.71 22,11.5 C22,17.29 17.29,22 11.5,22 C7.369,22 3.606,19.563 1.914,15.793 C1.801,15.541 1.505,15.428 1.253,15.542 C1.001,15.655 0.888,15.951 1.002,16.203 C2.854,20.332 6.976,23 11.5,23 C17.841,23 23,17.841 23,11.5 C23,5.159 17.841,0 11.5,0 Z"
-                id="Shape"
-              />
+
+export function LogoutIcon(props: IconProps) {
+  return (
+    <SVGIcon title="Logout icon" {...props}>
+      <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+        <g id="logout-icon" transform="translate(-1.000000, -1.000000)">
+          <g id="Outline_Icons_1_" transform="translate(1.000000, 1.000000)" fillRule="nonzero" fill="currentColor">
+            <g id="Outline_Icons">
+              <g id="Group">
+                <path
+                  d="M11.146,15.146 C10.951,15.341 10.951,15.658 11.146,15.853 C11.341,16.048 11.658,16.048 11.853,15.853 L15.853,11.853 C16.047,11.658 16.048,11.341 15.853,11.145 L11.853,7.145 C11.658,6.95 11.341,6.95 11.146,7.145 C10.951,7.34 10.951,7.657 11.146,7.852 L14.293,11 L0.5,11 C0.224,11 -8.8817842e-16,11.224 -8.8817842e-16,11.5 C-8.8817842e-16,11.776 0.224,12 0.5,12 L14.293,12 L11.146,15.146 Z"
+                  id="Shape"
+                />
+                <path
+                  d="M11.5,0 C7.001,0 2.89,2.647 1.027,6.744 C0.913,6.995 1.024,7.292 1.275,7.406 C1.529,7.522 1.823,7.408 1.937,7.158 C3.639,3.417 7.392,1 11.5,1 C17.29,1 22,5.71 22,11.5 C22,17.29 17.29,22 11.5,22 C7.369,22 3.606,19.563 1.914,15.793 C1.801,15.541 1.505,15.428 1.253,15.542 C1.001,15.655 0.888,15.951 1.002,16.203 C2.854,20.332 6.976,23 11.5,23 C17.841,23 23,17.841 23,11.5 C23,5.159 17.841,0 11.5,0 Z"
+                  id="Shape"
+                />
+              </g>
             </g>
           </g>
-        </g>
-        <g id="Invisible_SHape">
-          <rect id="Rectangle-path" x="0" y="0" width="24" height="24" />
+          <g id="Invisible_SHape">
+            <rect id="Rectangle-path" x="0" y="0" width="24" height="24" />
+          </g>
         </g>
       </g>
-    </g>
-  </SVGIcon>
-);
+    </SVGIcon>
+  );
+}
 
-export const AvatarIcon: Icon = props => (
-  <SVGIcon title="Avatar icon" {...props} viewBox="0 -2 24 24">
-    <path
-      fill="currentColor"
-      d="M19.677,17.318L15,15.647v-2.207c1.503-1.162,2.5-3.165,2.5-5.441c0-3.584-2.467-6.5-5.5-6.5S6.5,4.416,6.5,8
+export function AvatarIcon(props: IconProps) {
+  return (
+    <SVGIcon title="Avatar icon" {...props} viewBox="0 -2 24 24">
+      <path
+        fill="currentColor"
+        d="M19.677,17.318L15,15.647v-2.207c1.503-1.162,2.5-3.165,2.5-5.441c0-3.584-2.467-6.5-5.5-6.5S6.5,4.416,6.5,8
 			c0,2.276,0.997,4.279,2.5,5.441v2.207l-4.678,1.671C2.933,17.815,2,19.139,2,20.614V22.5C2,22.776,2.224,23,2.5,23h19
 			c0.276,0,0.5-0.224,0.5-0.5v-1.886C22,19.139,21.066,17.815,19.677,17.318z M12,2.5c2.204,0,4.039,1.947,4.423,4.507
 			c-0.007,0.001-0.011,0.001-0.018,0.002c-1.453,0.28-2.352-0.192-3.206-1.687c-0.09-0.159-0.229-0.245-0.444-0.252
@@ -87,41 +93,48 @@ export const AvatarIcon: Icon = props => (
 			c0.797,1.109,1.737,1.635,2.931,1.635c0.264,0,0.545-0.034,0.834-0.085c0,3.033-2.019,5.5-4.5,5.5S7.5,11.033,7.5,8z M21,22H3
 			v-1.386c0-1.053,0.667-1.999,1.659-2.354l5.009-1.789C9.867,16.4,10,16.211,10,16v-1.951c0.621,0.288,1.294,0.451,2,0.451
 			s1.379-0.164,2-0.451V16c0,0.211,0.133,0.4,0.332,0.471l5.008,1.789c0.993,0.355,1.66,1.301,1.66,2.354V22z"
-    />
-  </SVGIcon>
-);
+      />
+    </SVGIcon>
+  );
+}
 
-export const AddIcon: Icon = props => (
-  <SVGIcon title="Add icon" {...props}>
-    <path
-      fill="currentColor"
-      d="M11.5,0C5.159,0,0,5.159,0,11.5S5.159,23,11.5,23S23,17.841,23,11.5S17.841,0,11.5,0z M11.5,22C5.71,22,1,17.29,1,11.5
+export function AddIcon(props: IconProps) {
+  return (
+    <SVGIcon title="Add icon" {...props}>
+      <path
+        fill="currentColor"
+        d="M11.5,0C5.159,0,0,5.159,0,11.5S5.159,23,11.5,23S23,17.841,23,11.5S17.841,0,11.5,0z M11.5,22C5.71,22,1,17.29,1,11.5
     S5.71,1,11.5,1S22,5.71,22,11.5S17.29,22,11.5,22z"
-    />
-    <path
-      fill="currentColor"
-      d="M17.5,11H12V5.5C12,5.224,11.776,5,11.5,5S11,5.224,11,5.5V11H5.5C5.224,11,5,11.224,5,11.5S5.224,12,5.5,12H11v5.5
+      />
+      <path
+        fill="currentColor"
+        d="M17.5,11H12V5.5C12,5.224,11.776,5,11.5,5S11,5.224,11,5.5V11H5.5C5.224,11,5,11.224,5,11.5S5.224,12,5.5,12H11v5.5
     c0,0.276,0.224,0.5,0.5,0.5s0.5-0.224,0.5-0.5V12h5.5c0.276,0,0.5-0.224,0.5-0.5S17.776,11,17.5,11z"
-    />
-  </SVGIcon>
-);
+      />
+    </SVGIcon>
+  );
+}
 
-export const LiipIcon: Icon = props => (
-  <SVGIcon title="Liip logo" {...props} viewBox="0 0 94 34">
-    <path d="M43.509 30.51L58.974.007l6.868 3.482-15.465 30.503zm-17.833-.03L41.141-.023l6.868 3.482-15.465 30.503zM78.4 21.8h4.7c6.9 0 10.6-4.9 10.6-10s-3.7-10-10.6-10H70.8V33h7.6V21.8zm0-13.3h4.3c2.1 0 3.3 1.5 3.3 3.2 0 1.6-1.2 3.2-3.3 3.2h-4.3V8.5zM20.9 26.1H7.7V1.6H0v31.3h20.9z" />
-  </SVGIcon>
-);
+export function LiipIcon(props: IconProps) {
+  return (
+    <SVGIcon title="Liip logo" {...props} viewBox="0 0 94 34">
+      <path d="M43.509 30.51L58.974.007l6.868 3.482-15.465 30.503zm-17.833-.03L41.141-.023l6.868 3.482-15.465 30.503zM78.4 21.8h4.7c6.9 0 10.6-4.9 10.6-10s-3.7-10-10.6-10H70.8V33h7.6V21.8zm0-13.3h4.3c2.1 0 3.3 1.5 3.3 3.2 0 1.6-1.2 3.2-3.3 3.2h-4.3V8.5zM20.9 26.1H7.7V1.6H0v31.3h20.9z" />
+    </SVGIcon>
+  );
+}
 
-export const SearchIcon: Icon = props => (
-  <SVGIcon title="Search Icon" {...props} viewBox="0 0 24 24">
-    <path
-      fill="currentColor"
-      d="M23.854,23.146l-9.009-9.009C16.181,12.635,17,10.664,17,8.5C17,3.813,13.187,0,8.5,0S0,3.813,0,8.5S3.813,17,8.5,17
+export function SearchIcon(props: IconProps) {
+  return (
+    <SVGIcon title="Search Icon" {...props} viewBox="0 0 24 24">
+      <path
+        fill="currentColor"
+        d="M23.854,23.146l-9.009-9.009C16.181,12.635,17,10.664,17,8.5C17,3.813,13.187,0,8.5,0S0,3.813,0,8.5S3.813,17,8.5,17
 			c2.164,0,4.135-0.819,5.637-2.156l9.009,9.009c0.195,0.195,0.512,0.195,0.707,0C24.049,23.658,24.049,23.342,23.854,23.146z
 			 M1,8.5C1,4.364,4.364,1,8.5,1S16,4.364,16,8.5S12.636,16,8.5,16S1,12.636,1,8.5z"
-    />
-  </SVGIcon>
-);
+      />
+    </SVGIcon>
+  );
+}
 
 export const allIcons: { [index: string]: Icon } = {
   AddIcon,

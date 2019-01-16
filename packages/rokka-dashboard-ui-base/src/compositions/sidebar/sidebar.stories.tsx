@@ -25,7 +25,7 @@ storiesOf('Compositions', module)
           <AddIcon height="24px" width="24px" />
         </SidebarLinkIcon>
         <ShowOnActive active={boolean('stacks list active', true)}>
-          <SearchInput onChange={action('onChange')} placeholder={text('placeholder', 'Search...')} />
+          <SearchInput value="" onChange={action('onChange')} placeholder={text('placeholder', 'Search...')} />
           <SidebarStacksList>
             <li>
               <SidebarLink to="#" small={true}>

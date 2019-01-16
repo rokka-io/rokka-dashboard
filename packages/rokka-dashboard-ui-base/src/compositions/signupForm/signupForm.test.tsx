@@ -1,8 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-
 import { LoadingIndicatingButton } from '../../components';
-import { Input } from '../../elements';
+import { TextInput } from '../../elements';
 import { SignupForm } from './signupForm';
 
 describe('Compositions', () => {
@@ -24,7 +23,7 @@ describe('Compositions', () => {
 
       const component = shallow(<SignupForm {...props} />);
 
-      const inputs = component.find(Input);
+      const inputs = component.find(TextInput);
       inputs.find('[type="text"]').simulate('change', {
         target: {
           name: 'organization',

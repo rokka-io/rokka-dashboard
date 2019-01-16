@@ -28,7 +28,7 @@ exports[`Components FormGroup renders a sign form group correctly. 1`] = `
         <styled.div
           isLogin={true}
         >
-          <Component
+          <HeaderLogo
             marginBottom="2rem"
           />
           randomText

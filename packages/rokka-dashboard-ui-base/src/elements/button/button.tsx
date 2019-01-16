@@ -1,8 +1,8 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
-import { fonts } from '../../identity/typography/index';
+import { fonts } from '../../identity/typography';
 
 export interface ButtonProps {
   /** Children */
@@ -17,17 +17,13 @@ export interface ButtonProps {
   onClick?(): void;
 }
 
-export const Button: FunctionComponent<ButtonProps> = ({
-  children,
-  type = 'button',
-  onClick,
-  disabled = false,
-  padding
-}) => (
-  <StyledButton type={type} onClick={disabled ? undefined : onClick} disabled={disabled} padding={padding}>
-    {children}
-  </StyledButton>
-);
+export function Button({ children, type = 'button', onClick, disabled = false, padding }: ButtonProps) {
+  return (
+    <StyledButton type={type} onClick={disabled ? undefined : onClick} disabled={disabled} padding={padding}>
+      {children}
+    </StyledButton>
+  );
+}
 
 interface StyledButtonProps {
   disabled?: boolean;

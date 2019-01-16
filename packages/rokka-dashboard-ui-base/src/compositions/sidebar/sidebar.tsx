@@ -1,6 +1,6 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { PoweredBy } from '../../components/poweredBy/poweredBy';
+import { PoweredBy } from '../../components';
 import { colors } from '../../identity/colors/colors';
 import { media } from '../../identity/media/media';
 import { spaces } from '../../identity/spaces/spaces';
@@ -11,12 +11,14 @@ interface SidebarProps {
   children: ReactNode;
 }
 
-export const Sidebar: FunctionComponent<SidebarProps> = ({ active = false, children }) => (
-  <StyledNav active={active}>
-    <StyledUl>{children}</StyledUl>
-    <PoweredBy />
-  </StyledNav>
-);
+export function Sidebar({ active = false, children }: SidebarProps) {
+  return (
+    <StyledNav active={active}>
+      <StyledUl>{children}</StyledUl>
+      <PoweredBy />
+    </StyledNav>
+  );
+}
 
 interface StyledNavProps {
   active?: boolean;

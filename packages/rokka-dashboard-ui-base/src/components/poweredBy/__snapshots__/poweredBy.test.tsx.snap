@@ -7,7 +7,7 @@ exports[`Components Powered By renders a Powered By component. 1`] = `
   target="_blank"
 >
   POWERED BY 
-  <Styled(Component)
+  <Styled(LiipIcon)
     height="16px"
   />
 </styled.a>

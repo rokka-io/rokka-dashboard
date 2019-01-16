@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Button, LogoutIcon } from '../../elements';
 import { media } from '../../identity/media/media';
@@ -12,14 +12,16 @@ interface HeaderNavigationProps {
   onLogout(): void;
 }
 
-export const HeaderNavigation: FunctionComponent<HeaderNavigationProps> = ({ username, onLogout }) => (
-  <StyledHeaderNav>
-    <User username={username} />
-    <Button padding="0" onClick={onLogout}>
-      <StyledLogoutIcon width="23px" height="23px" />
-    </Button>
-  </StyledHeaderNav>
-);
+export function HeaderNavigation({ username, onLogout }: HeaderNavigationProps) {
+  return (
+    <StyledHeaderNav>
+      <User username={username} />
+      <Button padding="0" onClick={onLogout}>
+        <StyledLogoutIcon width="23px" height="23px" />
+      </Button>
+    </StyledHeaderNav>
+  );
+}
 
 const StyledHeaderNav = styled.nav`
   height: ${spaces.xlarge};
@@ -34,5 +36,5 @@ const StyledHeaderNav = styled.nav`
 const StyledLogoutIcon = styled(LogoutIcon)`
   margin-left: ${spaces.medium};
   float: right;
-  margin-top: 1.25rem; // 20px
+  margin-top: 1.25rem;
 `;

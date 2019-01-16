@@ -1,5 +1,5 @@
 import { Box, Flex } from '@rebass/grid';
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { HeaderLogo, ParagraphLoginBrand } from '../../elements';
 import { colors } from '../../identity/colors/colors';
@@ -20,28 +20,30 @@ interface StyledSignFormContainerProps {
   isLogin: boolean;
 }
 
-export const SignForm: FunctionComponent<SignFormProps> = ({ children, marketingText, isLogin }) => (
-  <StyledSignFormPage>
-    <StyledSignFormContainer isLogin={isLogin}>
-      <Flex flexDirection={['column', 'column', 'column', 'row']}>
-        <Box width={[12 / 12, 12 / 12, 12 / 12, 5 / 12]}>
-          <StyledLeftColumn isLogin={isLogin}>
-            <HeaderLogo marginBottom={spaces.large} />
-            {marketingText}
-            <ParagraphLoginBrand>Powered by Liip.</ParagraphLoginBrand>
-          </StyledLeftColumn>
-        </Box>
-        <Box
-          width={[12 / 12, 12 / 12, 12 / 12, 7 / 12]}
-          p={[spaces.large, spaces.medium]}
-          pl={[spaces.small, spaces.medium]}
-        >
-          {children}
-        </Box>
-      </Flex>
-    </StyledSignFormContainer>
-  </StyledSignFormPage>
-);
+export function SignForm({ children, marketingText, isLogin }: SignFormProps) {
+  return (
+    <StyledSignFormPage>
+      <StyledSignFormContainer isLogin={isLogin}>
+        <Flex flexDirection={['column', 'column', 'column', 'row']}>
+          <Box width={[12 / 12, 12 / 12, 12 / 12, 5 / 12]}>
+            <StyledLeftColumn isLogin={isLogin}>
+              <HeaderLogo marginBottom={spaces.large} />
+              {marketingText}
+              <ParagraphLoginBrand>Powered by Liip.</ParagraphLoginBrand>
+            </StyledLeftColumn>
+          </Box>
+          <Box
+            width={[12 / 12, 12 / 12, 12 / 12, 7 / 12]}
+            p={[spaces.large, spaces.medium]}
+            pl={[spaces.small, spaces.medium]}
+          >
+            {children}
+          </Box>
+        </Flex>
+      </StyledSignFormContainer>
+    </StyledSignFormPage>
+  );
+}
 
 // TODO: maybe move to own element
 const StyledSignFormContainer = styled.div<StyledSignFormContainerProps>`

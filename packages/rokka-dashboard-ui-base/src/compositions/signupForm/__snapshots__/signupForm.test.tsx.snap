@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Compositions Signup calls the onSignup callback with the entered data. 1`] = `
-<Component
+<SignForm
   isLogin={false}
   marketingText={
     <React.Fragment>
@@ -21,31 +21,31 @@ exports[`Compositions Signup calls the onSignup callback with the entered data. 
   <form
     onSubmit={[Function]}
   >
-    <Component
+    <FormGroup
       label="Organization"
     >
-      <styled.input
+      <TextInput
         name="organization"
         onChange={[Function]}
         type="text"
-        value="an-organization"
+        value=""
       />
-    </Component>
-    <Component
+    </FormGroup>
+    <FormGroup
       label="E-mail"
     >
-      <styled.input
+      <TextInput
         name="email"
         onChange={[Function]}
         type="email"
-        value="an-email"
+        value=""
       />
-    </Component>
-    <Component
+    </FormGroup>
+    <LoadingIndicatingButton
       type="submit"
     >
       Start free trial
-    </Component>
+    </LoadingIndicatingButton>
     <styled.p>
       By creating an account, you agree to rokka's
       <Styled(styled.a)
@@ -55,11 +55,11 @@ exports[`Compositions Signup calls the onSignup callback with the entered data. 
       </Styled(styled.a)>
     </styled.p>
   </form>
-</Component>
+</SignForm>
 `;
 
 exports[`Compositions Signup renders the signup form correctly. 1`] = `
-<Component
+<SignForm
   isLogin={false}
   marketingText={
     <React.Fragment>
@@ -79,31 +79,31 @@ exports[`Compositions Signup renders the signup form correctly. 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <Component
+    <FormGroup
       label="Organization"
     >
-      <styled.input
+      <TextInput
         name="organization"
         onChange={[Function]}
         type="text"
         value=""
       />
-    </Component>
-    <Component
+    </FormGroup>
+    <FormGroup
       label="E-mail"
     >
-      <styled.input
+      <TextInput
         name="email"
         onChange={[Function]}
         type="email"
         value=""
       />
-    </Component>
-    <Component
+    </FormGroup>
+    <LoadingIndicatingButton
       type="submit"
     >
       Start free trial
-    </Component>
+    </LoadingIndicatingButton>
     <styled.p>
       By creating an account, you agree to rokka's
       <Styled(styled.a)
@@ -113,5 +113,5 @@ exports[`Compositions Signup renders the signup form correctly. 1`] = `
       </Styled(styled.a)>
     </styled.p>
   </form>
-</Component>
+</SignForm>
 `;

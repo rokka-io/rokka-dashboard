@@ -6,14 +6,14 @@ exports[`Compositions Sidebar renders a sidebar correctly. 1`] = `
 >
   <styled.ul>
     <li>
-      <Component
+      <SidebarLink
         to="#"
       >
         Test
-      </Component>
+      </SidebarLink>
     </li>
   </styled.ul>
-  <Component />
+  <PoweredBy />
 </styled.nav>
 `;
 
@@ -23,13 +23,13 @@ exports[`Compositions Sidebar renders an active sidebar correctly 1`] = `
 >
   <styled.ul>
     <li>
-      <Component
+      <SidebarLink
         to="#"
       >
         Test
-      </Component>
+      </SidebarLink>
     </li>
   </styled.ul>
-  <Component />
+  <PoweredBy />
 </styled.nav>
 `;

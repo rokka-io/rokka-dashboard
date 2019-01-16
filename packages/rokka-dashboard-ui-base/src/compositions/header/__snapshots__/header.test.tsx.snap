@@ -2,14 +2,14 @@
 
 exports[`Compositions Header renders the header correctly. 1`] = `
 <styled.header>
-  <Component
+  <MobileMenuButton
     active={true}
     onClick={[Function]}
   />
-  <Component
+  <HeaderLogo
     width="6em"
   />
-  <Component
+  <HeaderNavigation
     onLogout={[MockFunction]}
     username="rokka-test"
   />

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fonts } from '../../identity/typography/index';
+import { fonts } from '../../identity/typography';
 
 interface Heading1StylingProps {
   /** Color of heading text */

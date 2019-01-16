@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { colors } from '../../identity/colors/colors';
 
@@ -7,14 +7,16 @@ interface SpinnerProps {
   backgroundColor?: string;
 }
 
-export const Spinner: FunctionComponent<SpinnerProps> = ({ small, backgroundColor }) => (
-  <FoldingCube small={small}>
-    <Cube backgroundColor={backgroundColor} />
-    <Cube2 backgroundColor={backgroundColor} />
-    <Cube4 backgroundColor={backgroundColor} />
-    <Cube3 backgroundColor={backgroundColor} />
-  </FoldingCube>
-);
+export function Spinner({ small, backgroundColor }: SpinnerProps) {
+  return (
+    <FoldingCube small={small}>
+      <Cube backgroundColor={backgroundColor} />
+      <Cube2 backgroundColor={backgroundColor} />
+      <Cube4 backgroundColor={backgroundColor} />
+      <Cube3 backgroundColor={backgroundColor} />
+    </FoldingCube>
+  );
+}
 
 interface FoldingCubeProps {
   small?: boolean;

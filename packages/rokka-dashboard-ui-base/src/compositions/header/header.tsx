@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { HeaderNavigation } from '../../components/headerNavigation/headerNavigation';
-import { HeaderLogo } from '../../elements';
-import { MobileMenuButton } from '../../elements/mobileMenuButton/mobileMenuButton';
+import { HeaderNavigation } from '../../components';
+import { HeaderLogo, MobileMenuButton } from '../../elements';
 import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
 

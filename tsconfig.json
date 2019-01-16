@@ -16,8 +16,7 @@
     "removeComments": true,
     "importHelpers": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "traceResolution": true
+    "esModuleInterop": true
   },
   "files": ["./fonts.d.ts", "./packages/rokka-dashboard/src/rokka.d.ts"]
 }

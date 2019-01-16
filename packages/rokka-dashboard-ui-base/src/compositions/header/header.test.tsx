@@ -1,7 +1,6 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-
-import { MobileMenuButton } from '../../elements/mobileMenuButton/mobileMenuButton';
+import { MobileMenuButton } from '../../elements';
 import { Header } from './header';
 
 describe('Compositions', () => {

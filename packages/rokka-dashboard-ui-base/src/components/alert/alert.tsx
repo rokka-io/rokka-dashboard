@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { AlertMessage } from '../../elements/alertMessage/alertMessage';
+import { AlertMessage } from '../../elements';
 import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
 
@@ -19,7 +19,7 @@ interface AlertProps {
   alert?: AlertData;
 }
 
-export const Alert: FunctionComponent<AlertProps> = ({ alert = null }) => {
+export function Alert({ alert }: AlertProps) {
   if (!alert) {
     return null;
   }
@@ -33,7 +33,7 @@ export const Alert: FunctionComponent<AlertProps> = ({ alert = null }) => {
       ))}
     </StyledAlert>
   );
-};
+}
 
 interface StyledAlertProps {
   type: AlertType;

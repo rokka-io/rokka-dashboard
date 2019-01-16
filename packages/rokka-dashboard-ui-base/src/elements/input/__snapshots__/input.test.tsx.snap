@@ -1,62 +1,277 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Elements Input renders a input correctly. 1`] = `
-<StyledComponent
-  forwardedComponent={
-    Object {
-      "$$typeof": Symbol(react.forward_ref),
-      "attrs": Array [],
-      "componentStyle": ComponentStyle {
-        "componentId": "sc-bdVaJa",
-        "isStatic": true,
-        "rules": Array [
-          "
+exports[`Elements Input renders a BooleanInput correctly. 1`] = `
+<BooleanInput
+  name="testname"
+  onChange={[MockFunction]}
+  value={true}
+>
+  <Input
+    deserialize={[Function]}
+    name="testname"
+    onChange={[MockFunction]}
+    serialize={[Function]}
+    value={true}
+  >
+    <styled.input
+      checked={true}
+      onChange={[Function]}
+      type="checkbox"
+    >
+      <StyledComponent
+        checked={true}
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-bdVaJa",
+              "isStatic": true,
+              "lastClassName": "hPvubn",
+              "rules": Array [
+                "
   font-family: ",
-          "\\"Liip Etica Book\\", sans-serif",
-          ";
+                "\\"Liip Etica Book\\", sans-serif",
+                ";
   font-size: ",
-          "0.875rem",
-          ";
+                "0.875rem",
+                ";
   width: 100%;
   height: 38px;
   line-height: 38px;
   border: 1px solid ",
-          "#DDDDD8",
-          ";
+                "#DDDDD8",
+                ";
   padding: 0 ",
-          "0.5rem",
-          ";
+                "0.5rem",
+                ";
   outline: none;
 
   :focus {
     transition: border 0.4s ease;
     border-color: ",
-          "#A5A59F",
-          ";
+                "#A5A59F",
+                ";
   }
 
   :disabled {
     color: ",
-          "#898A81",
-          ";
+                "#898A81",
+                ";
     background: ",
-          "#EBEBE6",
-          ";
+                "#EBEBE6",
+                ";
   }
 ",
-        ],
-      },
-      "displayName": "styled.input",
-      "foldedComponentIds": Array [],
-      "render": [Function],
-      "styledComponentId": "sc-bdVaJa",
-      "target": "input",
-      "toString": [Function],
-      "warnTooManyClasses": [Function],
-      "withComponent": [Function],
-    }
+              ],
+            },
+            "displayName": "styled.input",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-bdVaJa",
+            "target": "input",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={null}
+        onChange={[Function]}
+        type="checkbox"
+      >
+        <input
+          checked={true}
+          className="sc-bdVaJa hPvubn"
+          onChange={[Function]}
+          type="checkbox"
+        />
+      </StyledComponent>
+    </styled.input>
+  </Input>
+</BooleanInput>
+`;
+
+exports[`Elements Input renders a NumberInput correctly. 1`] = `
+<NumberInput
+  name="testname"
+  onChange={[MockFunction]}
+  value={10}
+>
+  <Input
+    deserialize={[Function]}
+    name="testname"
+    onChange={[MockFunction]}
+    serialize={[Function]}
+    value={10}
+  >
+    <styled.input
+      onChange={[Function]}
+      type="number"
+      value={10}
+    >
+      <StyledComponent
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-bdVaJa",
+              "isStatic": true,
+              "lastClassName": "hPvubn",
+              "rules": Array [
+                "
+  font-family: ",
+                "\\"Liip Etica Book\\", sans-serif",
+                ";
+  font-size: ",
+                "0.875rem",
+                ";
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid ",
+                "#DDDDD8",
+                ";
+  padding: 0 ",
+                "0.5rem",
+                ";
+  outline: none;
+
+  :focus {
+    transition: border 0.4s ease;
+    border-color: ",
+                "#A5A59F",
+                ";
   }
-  forwardedRef={null}
+
+  :disabled {
+    color: ",
+                "#898A81",
+                ";
+    background: ",
+                "#EBEBE6",
+                ";
+  }
+",
+              ],
+            },
+            "displayName": "styled.input",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-bdVaJa",
+            "target": "input",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={null}
+        onChange={[Function]}
+        type="number"
+        value={10}
+      >
+        <input
+          className="sc-bdVaJa hPvubn"
+          onChange={[Function]}
+          type="number"
+          value={10}
+        />
+      </StyledComponent>
+    </styled.input>
+  </Input>
+</NumberInput>
+`;
+
+exports[`Elements Input renders a TextInput correctly. 1`] = `
+<TextInput
+  name="testname"
+  onChange={[MockFunction]}
   value="Test"
-/>
+>
+  <Input
+    deserialize={[Function]}
+    name="testname"
+    onChange={[MockFunction]}
+    serialize={[Function]}
+    value="Test"
+  >
+    <styled.input
+      name="testname"
+      onChange={[Function]}
+      type="text"
+      value="Test"
+    >
+      <StyledComponent
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-bdVaJa",
+              "isStatic": true,
+              "lastClassName": "hPvubn",
+              "rules": Array [
+                "
+  font-family: ",
+                "\\"Liip Etica Book\\", sans-serif",
+                ";
+  font-size: ",
+                "0.875rem",
+                ";
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid ",
+                "#DDDDD8",
+                ";
+  padding: 0 ",
+                "0.5rem",
+                ";
+  outline: none;
+
+  :focus {
+    transition: border 0.4s ease;
+    border-color: ",
+                "#A5A59F",
+                ";
+  }
+
+  :disabled {
+    color: ",
+                "#898A81",
+                ";
+    background: ",
+                "#EBEBE6",
+                ";
+  }
+",
+              ],
+            },
+            "displayName": "styled.input",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-bdVaJa",
+            "target": "input",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={null}
+        name="testname"
+        onChange={[Function]}
+        type="text"
+        value="Test"
+      >
+        <input
+          className="sc-bdVaJa hPvubn"
+          name="testname"
+          onChange={[Function]}
+          type="text"
+          value="Test"
+        />
+      </StyledComponent>
+    </styled.input>
+  </Input>
+</TextInput>
 `;

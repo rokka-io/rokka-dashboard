@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { colors } from '../../identity/colors/colors';
-import { fonts } from '../../identity/typography/index';
+import { fonts } from '../../identity/typography';
 
 export const Link = styled.a`
   font-family: ${fonts.Families.brand};

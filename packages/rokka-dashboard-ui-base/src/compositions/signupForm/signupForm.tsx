@@ -1,10 +1,10 @@
-import React, { ChangeEvent, FormEvent, Fragment, PureComponent } from 'react';
+import React, { FormEvent, Fragment, PureComponent } from 'react';
 import styled from 'styled-components';
 import { FormGroup, LoadingIndicatingButton, SignForm } from '../../components';
-import { Heading2, Input, Link, ParagraphWhite } from '../../elements';
+import { Heading2, Link, ParagraphWhite, TextInput } from '../../elements';
 import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
-import { fonts } from '../../identity/typography/index';
+import { fonts } from '../../identity/typography';
 
 interface SignupProps {
   /** Display loading indicator */
@@ -23,16 +23,7 @@ interface SignupState {
 export class SignupForm extends PureComponent<SignupProps, SignupState> {
   public state = { organization: '', email: '' };
 
-  public handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    // TODO: move to separate function
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
-  };
+  public handleChange = (name: string, value: string) => this.setState({ [name]: value });
 
   public handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -60,10 +51,10 @@ export class SignupForm extends PureComponent<SignupProps, SignupState> {
       <SignForm isLogin={false} marketingText={marketingText}>
         <form onSubmit={this.handleSubmit}>
           <FormGroup label="Organization">
-            <Input type="text" name="organization" value={organization} onChange={this.handleChange} />
+            <TextInput type="text" name="organization" value={organization} onChange={this.handleChange} />
           </FormGroup>
           <FormGroup label="E-mail">
-            <Input type="email" name="email" value={email} onChange={this.handleChange} />
+            <TextInput type="email" name="email" value={email} onChange={this.handleChange} />
           </FormGroup>
           <LoadingIndicatingButton loading={loading} type="submit">
             Start free trial

@@ -1,25 +1,26 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Input, SearchIcon } from '../../elements';
-import { ChangeData, handleChange } from '../../forms/handleChange';
+import { SearchIcon, TextInput } from '../../elements';
 import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
 
 interface SearchInputProps {
   /** Input value */
-  value?: string;
+  value: string;
   /** Input placeholder */
   placeholder?: string;
   /** onChange callback for input */
-  onChange(data: ChangeData): void;
+  onChange(value: string): void;
 }
 
-export const SearchInput: FunctionComponent<SearchInputProps> = ({ onChange, ...props }) => (
-  <StyledContainer>
-    <StyledInput {...props} onChange={handleChange(obj => onChange(obj))} />
-    <StyledSearchIcon width="1em" height="1em" color={colors.gray.dark} />
-  </StyledContainer>
-);
+export function SearchInput({ onChange, ...props }: SearchInputProps) {
+  return (
+    <StyledContainer>
+      <StyledInput name="searchInput" {...props} onChange={onChange} />
+      <StyledSearchIcon width="1em" height="1em" color={colors.gray.dark} />
+    </StyledContainer>
+  );
+}
 
 const StyledContainer = styled.div`
   position: relative;
@@ -32,7 +33,7 @@ const StyledSearchIcon = styled(SearchIcon)`
   right: 1.25rem;
 `;
 
-const StyledInput = styled(Input)`
+const StyledInput = styled(TextInput)`
   transition: border 0.3s ease;
   border: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);

@@ -5,11 +5,13 @@ import { colors } from '../../identity/colors/colors';
 import { spaces } from '../../identity/spaces/spaces';
 import { fonts } from '../../identity/typography';
 
-export const PoweredBy = () => (
-  <StyledLink href="https://www.liip.ch" target="_blank" rel="noopener">
-    POWERED BY <StyledLiipIcon height="16px" />
-  </StyledLink>
-);
+export function PoweredBy() {
+  return (
+    <StyledLink href="https://www.liip.ch" target="_blank" rel="noopener">
+      POWERED BY <StyledLiipIcon height="16px" />
+    </StyledLink>
+  );
+}
 
 const StyledLink = styled.a`
   transition: 0.4s ease opacity;

@@ -27,6 +27,7 @@ export const StacksNavigation: FunctionComponent<StacksNavigationProps> = ({ sta
               onChange={(...args) => {
                 console.log(args);
               }}
+              value=""
               placeholder="Search..."
             />
           </ShowOnActive>

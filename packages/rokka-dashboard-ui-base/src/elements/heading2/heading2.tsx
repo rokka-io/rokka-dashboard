@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { spaces } from '../../identity/spaces/spaces';
-import { fonts } from '../../identity/typography/index';
+import { fonts } from '../../identity/typography';
 
 interface Heading2StylingProps {
   /** Color of heading text */

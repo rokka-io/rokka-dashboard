@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components SearchInput renders a SearchInput component. 1`] = `
-<Component
+<SearchInput
   onChange={[MockFunction]}
+  value=""
 >
   <styled.div>
     <StyledComponent
@@ -44,8 +45,10 @@ exports[`Components SearchInput renders a SearchInput component. 1`] = `
       <div
         className="sc-kEYyzF bfiIDR"
       >
-        <Styled(styled.input)
-          onChange={[Function]}
+        <Styled(TextInput)
+          name="searchInput"
+          onChange={[MockFunction]}
+          value=""
         >
           <StyledComponent
             forwardedComponent={
@@ -55,42 +58,8 @@ exports[`Components SearchInput renders a SearchInput component. 1`] = `
                 "componentStyle": ComponentStyle {
                   "componentId": "sc-iAyFgw",
                   "isStatic": true,
-                  "lastClassName": "frZRzH",
+                  "lastClassName": "lpolgM",
                   "rules": Array [
-                    "
-  font-family: ",
-                    "\\"Liip Etica Book\\", sans-serif",
-                    ";
-  font-size: ",
-                    "0.875rem",
-                    ";
-  width: 100%;
-  height: 38px;
-  line-height: 38px;
-  border: 1px solid ",
-                    "#DDDDD8",
-                    ";
-  padding: 0 ",
-                    "0.5rem",
-                    ";
-  outline: none;
-
-  :focus {
-    transition: border 0.4s ease;
-    border-color: ",
-                    "#A5A59F",
-                    ";
-  }
-
-  :disabled {
-    color: ",
-                    "#898A81",
-                    ";
-    background: ",
-                    "#EBEBE6",
-                    ";
-  }
-",
                     "
   transition: border 0.3s ease;
   border: 0;
@@ -122,28 +91,119 @@ exports[`Components SearchInput renders a SearchInput component. 1`] = `
 ",
                   ],
                 },
-                "displayName": "Styled(styled.input)",
-                "foldedComponentIds": Array [
-                  "sc-htoDjs",
-                ],
+                "displayName": "Styled(TextInput)",
+                "foldedComponentIds": Array [],
                 "render": [Function],
                 "styledComponentId": "sc-iAyFgw",
-                "target": "input",
+                "target": [Function],
                 "toString": [Function],
                 "warnTooManyClasses": [Function],
                 "withComponent": [Function],
+                Symbol(Symbol.hasInstance): [Function],
               }
             }
             forwardedRef={null}
-            onChange={[Function]}
+            name="searchInput"
+            onChange={[MockFunction]}
+            value=""
           >
-            <input
-              className="sc-htoDjs sc-iAyFgw frZRzH"
-              onChange={[Function]}
-            />
+            <TextInput
+              className="sc-iAyFgw lpolgM"
+              name="searchInput"
+              onChange={[MockFunction]}
+              value=""
+            >
+              <Input
+                deserialize={[Function]}
+                name="searchInput"
+                onChange={[MockFunction]}
+                serialize={[Function]}
+                value=""
+              >
+                <styled.input
+                  className="sc-iAyFgw lpolgM"
+                  name="searchInput"
+                  onChange={[Function]}
+                  type="text"
+                  value=""
+                >
+                  <StyledComponent
+                    className="sc-iAyFgw lpolgM"
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "sc-htoDjs",
+                          "isStatic": true,
+                          "lastClassName": "fyNZsg",
+                          "rules": Array [
+                            "
+  font-family: ",
+                            "\\"Liip Etica Book\\", sans-serif",
+                            ";
+  font-size: ",
+                            "0.875rem",
+                            ";
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid ",
+                            "#DDDDD8",
+                            ";
+  padding: 0 ",
+                            "0.5rem",
+                            ";
+  outline: none;
+
+  :focus {
+    transition: border 0.4s ease;
+    border-color: ",
+                            "#A5A59F",
+                            ";
+  }
+
+  :disabled {
+    color: ",
+                            "#898A81",
+                            ";
+    background: ",
+                            "#EBEBE6",
+                            ";
+  }
+",
+                          ],
+                        },
+                        "displayName": "styled.input",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "sc-htoDjs",
+                        "target": "input",
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                    name="searchInput"
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  >
+                    <input
+                      className="sc-iAyFgw lpolgM sc-htoDjs fyNZsg"
+                      name="searchInput"
+                      onChange={[Function]}
+                      type="text"
+                      value=""
+                    />
+                  </StyledComponent>
+                </styled.input>
+              </Input>
+            </TextInput>
           </StyledComponent>
-        </Styled(styled.input)>
-        <Styled(Component)
+        </Styled(TextInput)>
+        <Styled(SearchIcon)
           color="#C0C1BC"
           height="1em"
           width="1em"
@@ -166,7 +226,7 @@ exports[`Components SearchInput renders a SearchInput component. 1`] = `
 ",
                   ],
                 },
-                "displayName": "Styled(Component)",
+                "displayName": "Styled(SearchIcon)",
                 "foldedComponentIds": Array [],
                 "render": [Function],
                 "styledComponentId": "sc-kkGfuU",
@@ -181,7 +241,7 @@ exports[`Components SearchInput renders a SearchInput component. 1`] = `
             height="1em"
             width="1em"
           >
-            <Component
+            <SearchIcon
               className="sc-kkGfuU eJlDOL"
               color="#C0C1BC"
               height="1em"
@@ -257,11 +317,11 @@ exports[`Components SearchInput renders a SearchInput component. 1`] = `
                   </StyledComponent>
                 </styled.svg>
               </SVGIcon>
-            </Component>
+            </SearchIcon>
           </StyledComponent>
-        </Styled(Component)>
+        </Styled(SearchIcon)>
       </div>
     </StyledComponent>
   </styled.div>
-</Component>
+</SearchInput>
 `;

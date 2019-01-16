@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { Input } from '../../elements';
+import { TextInput } from '../../elements';
 import { FormGroup } from './formGroup';
 
 describe('Components', () => {
@@ -9,7 +9,7 @@ describe('Components', () => {
     it('renders a form group correctly.', () => {
       const component = shallow(
         <FormGroup label="Label for input">
-          <Input placeholder="A placeholder" />
+          <TextInput name="formGroupTest" value="test" onChange={jest.fn()} placeholder="A placeholder" />
         </FormGroup>
       );
 

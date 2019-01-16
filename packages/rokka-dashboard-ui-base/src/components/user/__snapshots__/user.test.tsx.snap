@@ -3,7 +3,7 @@
 exports[`Components User renders a user correctly. 1`] = `
 <styled.div>
   <styled.div>
-    <Component
+    <AvatarIcon
       color="#588536"
       height="32px"
       width="32px"

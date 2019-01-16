@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { AvatarIcon, SpanWhite } from '../../elements';
 import { colors } from '../../identity/colors/colors';
@@ -9,14 +9,16 @@ interface UserProps {
   username: string;
 }
 
-export const User: FunctionComponent<UserProps> = ({ username }) => (
-  <StyledUserDiv>
-    <AvatarDiv>
-      <AvatarIcon width="32px" height="32px" color={colors.brand.avatar} />
-    </AvatarDiv>
-    <StyledUsername>{username}</StyledUsername>
-  </StyledUserDiv>
-);
+export function User({ username }: UserProps) {
+  return (
+    <StyledUserDiv>
+      <AvatarDiv>
+        <AvatarIcon width="32px" height="32px" color={colors.brand.avatar} />
+      </AvatarDiv>
+      <StyledUsername>{username}</StyledUsername>
+    </StyledUserDiv>
+  );
+}
 
 const StyledUserDiv = styled.div`
   line-height: inherit;

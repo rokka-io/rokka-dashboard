@@ -2,10 +2,10 @@
 
 exports[`Components HeaderNavigation renders the headernavigation correctly 1`] = `
 <styled.nav>
-  <Component
+  <User
     username="test"
   />
-  <Component
+  <Button
     onClick={
       [MockFunction] {
         "calls": Array [
@@ -21,10 +21,10 @@ exports[`Components HeaderNavigation renders the headernavigation correctly 1`] 
     }
     padding="0"
   >
-    <Styled(Component)
+    <Styled(LogoutIcon)
       height="23px"
       width="23px"
     />
-  </Component>
+  </Button>
 </styled.nav>
 `;

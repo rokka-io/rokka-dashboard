@@ -11,4 +11,6 @@ storiesOf('Components / Sidebar', module)
       {story()}
     </div>
   ))
-  .add('SearchInput', () => <SearchInput onChange={action('onChange')} placeholder={text('placeholder', 'Search...')} />);
+  .add('SearchInput', () => (
+    <SearchInput value={text('value', '')} onChange={action('onChange')} placeholder={text('placeholder', 'Search...')} />
+  ));

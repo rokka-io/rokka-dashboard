@@ -8,7 +8,7 @@ exports[`Compositions ErrorBoundary renders the child if no error happened 1`] =
 
 exports[`Compositions ErrorBoundary renders the error page if an error happened 1`] = `
 <ErrorBoundary>
-  <Component>
+  <ErrorPage>
     <styled.div>
       <StyledComponent
         forwardedComponent={
@@ -58,9 +58,9 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
                   "$$typeof": Symbol(react.forward_ref),
                   "attrs": Array [],
                   "componentStyle": ComponentStyle {
-                    "componentId": "sc-bZQynM",
+                    "componentId": "sc-EHOje",
                     "isStatic": false,
-                    "lastClassName": "fCytKC",
+                    "lastClassName": "bIUgDK",
                     "rules": Array [
                       "
   font-family: ",
@@ -78,7 +78,7 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
                   "displayName": "styled.h1",
                   "foldedComponentIds": Array [],
                   "render": [Function],
-                  "styledComponentId": "sc-bZQynM",
+                  "styledComponentId": "sc-EHOje",
                   "target": "h1",
                   "toString": [Function],
                   "warnTooManyClasses": [Function],
@@ -88,7 +88,7 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
               forwardedRef={null}
             >
               <h1
-                className="sc-bZQynM fCytKC"
+                className="sc-EHOje bIUgDK"
               >
                 Something went wrong
               </h1>
@@ -114,9 +114,9 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
                     "$$typeof": Symbol(react.forward_ref),
                     "attrs": Array [],
                     "componentStyle": ComponentStyle {
-                      "componentId": "sc-gqjmRU",
+                      "componentId": "sc-gZMcBi",
                       "isStatic": true,
-                      "lastClassName": "dEOasl",
+                      "lastClassName": "hmrSIK",
                       "rules": Array [
                         "
   font-family: ",
@@ -137,7 +137,7 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
                     "displayName": "styled.a",
                     "foldedComponentIds": Array [],
                     "render": [Function],
-                    "styledComponentId": "sc-gqjmRU",
+                    "styledComponentId": "sc-gZMcBi",
                     "target": "a",
                     "toString": [Function],
                     "warnTooManyClasses": [Function],
@@ -149,7 +149,7 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
                 rel="noopener"
               >
                 <a
-                  className="sc-gqjmRU dEOasl"
+                  className="sc-gZMcBi hmrSIK"
                   href="https://github.com/rokka-io/rokka-dashboard"
                   rel="noopener"
                 >
@@ -169,6 +169,6 @@ exports[`Compositions ErrorBoundary renders the error page if an error happened 
         </div>
       </StyledComponent>
     </styled.div>
-  </Component>
+  </ErrorPage>
 </ErrorBoundary>
 `;

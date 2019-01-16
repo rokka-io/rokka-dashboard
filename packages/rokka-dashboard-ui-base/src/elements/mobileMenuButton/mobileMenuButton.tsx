@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../../identity/colors/colors';
 import { media } from '../../identity/media/media';
 import { spaces } from '../../identity/spaces/spaces';
-import { fonts } from '../../identity/typography/index';
+import { fonts } from '../../identity/typography';
 
 interface MobileMenuButtonProps {
   /** Whether button is active */
@@ -12,9 +12,9 @@ interface MobileMenuButtonProps {
   onClick?(): void;
 }
 
-export const MobileMenuButton: FunctionComponent<MobileMenuButtonProps> = ({ onClick, active = false }) => (
-  <StyledMobileMenuButton active={active} type="button" onClick={onClick} />
-);
+export function MobileMenuButton({ onClick, active = false }: MobileMenuButtonProps) {
+  return <StyledMobileMenuButton active={active} type="button" onClick={onClick} />;
+}
 
 interface StyledMobileMenuButtonProps {
   active?: boolean;

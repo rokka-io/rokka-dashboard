@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors } from '../../identity/colors/colors';
 import { media } from '../../identity/media/media';
 import { spaces } from '../../identity/spaces/spaces';
-import { fonts } from '../../identity/typography/index';
+import { fonts } from '../../identity/typography';
 
 export const ParagraphLoginBrand = styled.p`
   font-size: ${fonts.Sizes.small};

@@ -9,8 +9,13 @@
   },
   "dependencies": {
     "@types/react-router-dom": "^4.3.1",
+    "@types/react-transition-group": "^2.0.15",
+    "react": "16.8.0-alpha.1",
+    "react-dom": "16.8.0-alpha.1",
     "react-router-dom": "^4.3.1",
+    "react-transition-group": "^2.5.3",
     "styled-components": "^4.1.1",
+    "styled-transition-group": "^1.0.0",
     "tslib": "^1.9.3"
   },
   "scripts": {
@@ -44,6 +49,8 @@
     "normalize.css": "^8.0.1",
     "react-docgen-typescript-loader": "^3.0.0",
     "react-test-renderer": "^16.7.0",
-    "thread-loader": "^1.2.0"
+    "thread-loader": "^1.2.0",
+    "typescript": "^3.2.2",
+    "typescript-styled-plugin": "^0.13.0"
   }
 }

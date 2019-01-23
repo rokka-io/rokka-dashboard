@@ -18,5 +18,5 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
-  "files": ["./fonts.d.ts", "./packages/rokka-dashboard/src/rokka.d.ts"]
+  "files": ["./fonts.d.ts", "./packages/rokka-dashboard/src/rokka.d.ts", "./packages/rokka-dashboard-ui-base/src/styled-transition-group.d.ts"]
 }

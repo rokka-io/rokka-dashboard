@@ -1,9 +1,35 @@
 import { action } from '@storybook/addon-actions';
-import { boolean } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import React from 'react';
+import React,  { useState } from 'react';
 import { colors } from '../../identity/colors/colors';
-import { SignupForm } from './signupForm';
+import { SignupForm, SuccessCb } from './signupForm';
+
+const SignupContainer = () => {
+  const [loggedin, setSignedin] = useState(false);
+  const onSignup: (organization: string, email: string, successCb: SuccessCb) => Promise<void> = (
+    _organization: string,
+    _email: string,
+    successCb: SuccessCb
+  ) => {
+    const done = () => {
+      setSignedin(true);
+    };
+    return new Promise(resolve => {
+      setTimeout(() => {
+        successCb(done);
+        resolve();
+      }, 500);
+    });
+  };
+
+  if (loggedin) {
+    setTimeout(() => {
+      setSignedin(false);
+    }, 2000);
+    return <span>Signed up</span>;
+  }
+  return <SignupForm onSignup={onSignup} />;
+};
 
 storiesOf('Compositions', module)
   // TODO: decide if we want to move that to a separate decorator so it can be used somewhere else, too.
@@ -12,4 +38,4 @@ storiesOf('Compositions', module)
       {story()}
     </div>
   ))
-  .add('SignupForm', () => <SignupForm loading={boolean('loading', false)} onSignup={action('signup subbmited')} />);
+  .add('SignupForm', () => <SignupContainer />);

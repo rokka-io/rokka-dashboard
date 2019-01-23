@@ -9,7 +9,8 @@ export const Login: FunctionComponent = () => {
 
     if (session && session.user) {
       const { user } = session;
-      login(user.organization, user.apiKey);
+      console.log(user);
+      // login(user.organization, user.apiKey);
     }
   }, []);
 

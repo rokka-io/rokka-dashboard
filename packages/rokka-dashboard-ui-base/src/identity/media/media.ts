@@ -22,7 +22,7 @@ export const breakpoints: Breakpoints = {
     Max: 831
   },
   mobile: {
-    Max: 468
+    Max: 639
   }
 };
 

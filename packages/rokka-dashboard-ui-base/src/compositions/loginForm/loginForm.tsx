@@ -3,11 +3,11 @@ import { FormGroup, LoadingIndicatingButton, SignForm } from '../../components';
 import { Heading2, TextInput } from '../../elements';
 import { colors } from '../../identity/colors/colors';
 
+export type SuccessCb = (done: () => void) => void;
+
 interface LoginProps {
-  /** Display loading indicator */
-  loading?: boolean;
   /** Callback fired if form is submitted */
-  onLogin(organization: string, apiKey: string): void;
+  onLogin(organization: string, apiKey: string, successCb: SuccessCb): Promise<void>;
 }
 
 interface LoginState {
@@ -15,24 +15,36 @@ interface LoginState {
   organization?: string;
   /** Entered API key */
   apiKey?: string;
+  /** Loading indicator */
+  loading?: boolean;
+  /** Start transition */
+  showTransition?: boolean;
 }
 
 export class LoginForm extends PureComponent<LoginProps, LoginState> {
-  public state = { organization: '', apiKey: '' };
+  public state = { organization: '', apiKey: '', loading: false, showTransition: false };
 
   public handleChange = (name: string, value: string) => this.setState({ [name]: value });
 
-  public handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  public handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    this.setState({ loading: true });
 
     const { organization, apiKey } = this.state;
 
-    this.props.onLogin(organization, apiKey);
+    const successCb = (done: () => void) => {
+      this.setState({
+        showTransition: true,
+        loading: false
+      });
+      setTimeout(done, 1000);
+    };
+    await this.props.onLogin(organization, apiKey, successCb);
   };
 
   public render() {
-    const { organization, apiKey } = this.state;
-    const { loading } = this.props;
+    const { organization, apiKey, loading, showTransition } = this.state;
     const marketingText = (
       <Fragment>
         <Heading2 color={colors.tints.white}>Web images done right.</Heading2>
@@ -40,7 +52,7 @@ export class LoginForm extends PureComponent<LoginProps, LoginState> {
     );
 
     return (
-      <SignForm isLogin={true} marketingText={marketingText}>
+      <SignForm isLogin={true} marketingText={marketingText} showTransition={showTransition}>
         <form onSubmit={this.handleSubmit}>
           <FormGroup label="Organization">
             <TextInput name="organization" value={organization} onChange={this.handleChange} />

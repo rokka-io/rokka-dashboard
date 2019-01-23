@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import { FormGroup, LoadingIndicatingButton, SignForm } from '../../components';
 import { Heading2, Link, ParagraphWhite, TextInput } from '../../elements';
 import { colors } from '../../identity/colors/colors';
-import { spaces } from '../../identity/spaces/spaces';
 import { fonts } from '../../identity/typography';
+import { spaces } from '../../identity/spaces/spaces';
+
+export type SuccessCb = (done: () => void) => void;
 
 interface SignupProps {
-  /** Display loading indicator */
-  loading?: boolean;
   /** Callback fired if form is submitted */
-  onSignup(organization: string, email: string): void;
+  onSignup(organization: string, email: string, successCb: SuccessCb): Promise<void>;
 }
 
 interface SignupState {
@@ -18,24 +18,37 @@ interface SignupState {
   organization?: string;
   /** Entered Email */
   email?: string;
+  /** Loading indicator */
+  loading?: boolean;
+  /** Start transition */
+  showTransition?: boolean;
 }
 
 export class SignupForm extends PureComponent<SignupProps, SignupState> {
-  public state = { organization: '', email: '' };
+  public state = { organization: '', email: '', loading: false, showTransition: false };
 
   public handleChange = (name: string, value: string) => this.setState({ [name]: value });
 
-  public handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  public handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    this.setState({ loading: true });
 
     const { organization, email } = this.state;
 
-    this.props.onSignup(organization, email);
+    const successCb = (done: () => void) => {
+      this.setState({
+        showTransition: true,
+        loading: false
+      });
+      setTimeout(done, 1000);
+    };
+
+    await this.props.onSignup(organization, email, successCb);
   };
 
   public render() {
-    const { organization, email } = this.state;
-    const { loading } = this.props;
+    const { organization, email, loading, showTransition } = this.state;
     const marketingText = (
       <Fragment>
         <Heading2 color={colors.tints.white}>Try out rokka for 90 days</Heading2>
@@ -48,7 +61,7 @@ export class SignupForm extends PureComponent<SignupProps, SignupState> {
     );
 
     return (
-      <SignForm isLogin={false} marketingText={marketingText}>
+      <SignForm isLogin={false} marketingText={marketingText} showTransition={showTransition}>
         <form onSubmit={this.handleSubmit}>
           <FormGroup label="Organization">
             <TextInput type="text" name="organization" value={organization} onChange={this.handleChange} />
@@ -70,6 +83,7 @@ export class SignupForm extends PureComponent<SignupProps, SignupState> {
     );
   }
 }
+
 const StyledTermsParagraph = styled.p`
   font-size: ${fonts.Sizes.small};
   color: ${colors.gray.darkest};

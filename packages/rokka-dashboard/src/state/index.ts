@@ -1,5 +1,6 @@
 import { checkAuthentication, fetchOperations, fetchStackOptions, OperationsResponse, StackOptionsResponse } from '../api';
 import { set as setCookie } from '../utils/cookie';
+import { SuccessCb } from 'rokka-dashboard-ui-base';
 
 export const SESSION_COOKIE_KEY = 'rka_session';
 
@@ -63,14 +64,17 @@ function notifySubscribers() {
 /**
  * Checks if organization/apiKey combination is correct and logs the user in.
  */
-export async function login(organization: string, apiKey: string) {
+export async function login(organization: string, apiKey: string, successCb: SuccessCb) {
   const authenticated = await checkAuthentication(organization, apiKey);
 
   if (authenticated === true) {
     const user = { organization, apiKey };
-    updateState({ user });
-    updateState(await listOperations(), await getStackOptions());
-    setCookie(SESSION_COOKIE_KEY, { user });
+    const done = async () => {
+      updateState({ user });
+      updateState(await listOperations(), await getStackOptions());
+      setCookie(SESSION_COOKIE_KEY, { user });
+    };
+    successCb(done);
     return Promise.resolve();
   }
 

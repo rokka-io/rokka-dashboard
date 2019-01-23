@@ -6,11 +6,11 @@ import { colors } from '../../identity/colors/colors';
 import { fonts } from '../../identity/typography';
 import { spaces } from '../../identity/spaces/spaces';
 
-export type SuccessCb = (done: () => void) => void;
+export type SignupSuccessCb = (done: () => void) => void;
 
 interface SignupProps {
   /** Callback fired if form is submitted */
-  onSignup(organization: string, email: string, successCb: SuccessCb): Promise<void>;
+  onSignup(organization: string, email: string, SignupSuccessCb: SignupSuccessCb): Promise<void>;
 }
 
 interface SignupState {
@@ -36,7 +36,7 @@ export class SignupForm extends PureComponent<SignupProps, SignupState> {
 
     const { organization, email } = this.state;
 
-    const successCb = (done: () => void) => {
+    const SignupSuccessCb = (done: () => void) => {
       this.setState({
         showTransition: true,
         loading: false
@@ -44,7 +44,7 @@ export class SignupForm extends PureComponent<SignupProps, SignupState> {
       setTimeout(done, 1000);
     };
 
-    await this.props.onSignup(organization, email, successCb);
+    await this.props.onSignup(organization, email, SignupSuccessCb);
   };
 
   public render() {

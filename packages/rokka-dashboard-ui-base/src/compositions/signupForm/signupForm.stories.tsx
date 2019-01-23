@@ -1,22 +1,21 @@
-import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React,  { useState } from 'react';
 import { colors } from '../../identity/colors/colors';
-import { SignupForm, SuccessCb } from './signupForm';
+import { SignupForm, SignupSuccessCb } from './signupForm';
 
 const SignupContainer = () => {
   const [loggedin, setSignedin] = useState(false);
-  const onSignup: (organization: string, email: string, successCb: SuccessCb) => Promise<void> = (
+  const onSignup: (organization: string, email: string, successCb: SignupSuccessCb) => Promise<void> = (
     _organization: string,
     _email: string,
-    successCb: SuccessCb
+    SignupSuccessCb: SignupSuccessCb
   ) => {
     const done = () => {
       setSignedin(true);
     };
     return new Promise(resolve => {
       setTimeout(() => {
-        successCb(done);
+        SignupSuccessCb(done);
         resolve();
       }, 500);
     });

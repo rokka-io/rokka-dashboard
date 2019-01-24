@@ -10,7 +10,7 @@ export type SignupSuccessCb = (done: () => void) => void;
 
 interface SignupProps {
   /** Callback fired if form is submitted */
-  onSignup(organization: string, email: string, SignupSuccessCb: SignupSuccessCb): Promise<void>;
+  onSignup(organization: string, email: string, successCb: SignupSuccessCb): Promise<void>;
 }
 
 interface SignupState {
@@ -36,7 +36,7 @@ export class SignupForm extends PureComponent<SignupProps, SignupState> {
 
     const { organization, email } = this.state;
 
-    const SignupSuccessCb = (done: () => void) => {
+    const successCb = (done: () => void) => {
       this.setState({
         showTransition: true,
         loading: false
@@ -44,7 +44,7 @@ export class SignupForm extends PureComponent<SignupProps, SignupState> {
       setTimeout(done, 1000);
     };
 
-    await this.props.onSignup(organization, email, SignupSuccessCb);
+    await this.props.onSignup(organization, email, successCb);
   };
 
   public render() {

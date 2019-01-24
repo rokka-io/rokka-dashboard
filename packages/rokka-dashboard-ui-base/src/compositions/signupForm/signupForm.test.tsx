@@ -15,10 +15,7 @@ describe('Compositions', () => {
       expect(component).toMatchSnapshot();
     });
     it('calls the onSignup callback with the entered data.', () => {
-      const onSignup = (organization: string, email: string) => {
-        expect(organization).toBe('an-organization');
-        expect(email).toBe('an-email');
-      };
+      const onSignup = jest.fn();
       const props = { onSignup };
 
       const component = shallow(<SignupForm {...props} />);
@@ -42,6 +39,7 @@ describe('Compositions', () => {
       expect(component).toMatchSnapshot();
 
       component.find(LoadingIndicatingButton).simulate('click');
+      expect(onSignup).toHaveBeenCalledWith('an-organization', 'an-email');
     });
   });
 });

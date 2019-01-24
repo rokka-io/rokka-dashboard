@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/react';
-import React,  { useState } from 'react';
+import React, { useState } from 'react';
 import { colors } from '../../identity/colors/colors';
 import { SignupForm, SignupSuccessCb } from './signupForm';
 
@@ -8,14 +8,14 @@ const SignupContainer = () => {
   const onSignup: (organization: string, email: string, successCb: SignupSuccessCb) => Promise<void> = (
     _organization: string,
     _email: string,
-    SignupSuccessCb: SignupSuccessCb
+    successCb: SignupSuccessCb
   ) => {
     const done = () => {
       setSignedin(true);
     };
     return new Promise(resolve => {
       setTimeout(() => {
-        SignupSuccessCb(done);
+        successCb(done);
         resolve();
       }, 500);
     });

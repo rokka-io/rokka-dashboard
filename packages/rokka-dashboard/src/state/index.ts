@@ -64,7 +64,7 @@ function notifySubscribers() {
 /**
  * Checks if organization/apiKey combination is correct and logs the user in.
  */
-export async function login(organization: string, apiKey: string, successCb: SuccessCb) {
+export async function login(organization: string, apiKey: string, successCb?: SuccessCb) {
   const authenticated = await checkAuthentication(organization, apiKey);
 
   if (authenticated === true) {
@@ -74,7 +74,11 @@ export async function login(organization: string, apiKey: string, successCb: Suc
       updateState(await listOperations(), await getStackOptions());
       setCookie(SESSION_COOKIE_KEY, { user });
     };
-    successCb(done);
+    if (successCb) {
+      successCb(done);
+    } else {
+      done();
+    }
     return Promise.resolve();
   }
 

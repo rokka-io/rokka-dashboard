@@ -15,7 +15,7 @@ interface SignFormProps {
   /** Login / Signup layout toggle */
   isLogin: boolean;
   /** Show page transition */
-  showTransition: boolean;
+  showTransition?: boolean;
 }
 
 interface StyledSignFormContainerProps {
@@ -23,7 +23,7 @@ interface StyledSignFormContainerProps {
   isLogin: boolean;
 }
 
-export function SignForm({ children, marketingText, isLogin, showTransition }: SignFormProps) {
+export function SignForm({ children, marketingText, isLogin, showTransition = false }: SignFormProps) {
   return (
     <LoginTransition
       timeout={{
@@ -31,7 +31,7 @@ export function SignForm({ children, marketingText, isLogin, showTransition }: S
       }}
       in={!showTransition}
     >
-      <FormTransition appear={true} in={true} timeout={{exit: 1000}}>
+      <FormTransition appear={true} in={true} timeout={{ exit: 1000 }}>
         <StyledSignFormContainer isLogin={isLogin}>
           <Flex flexDirection={['column', 'column', 'column', 'row']}>
             <Box width={[12 / 12, 12 / 12, 12 / 12, 5 / 12]}>

@@ -1,8 +1,6 @@
 import { parse, serialize } from 'cookie';
 
-const cookies = document.cookie;
-
-export const get = (key: string) => (JSON.parse(parse(cookies)[key] || '{}') || '{}').value;
+export const get = (key: string) => (JSON.parse(parse(document.cookie)[key] || '{}') || '{}').value;
 
 export const set = (key: string, value: any, options = {}) => {
   document.cookie = serialize(key, JSON.stringify({ value }), options);

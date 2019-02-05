@@ -14,6 +14,8 @@ interface SidebarLinkProps {
   small?: boolean;
   /** Content of link */
   children: ReactNode;
+  /** What happens on click */
+  onClick?(): void;
 }
 
 export function SidebarLink({ children, active, small, ...props }: SidebarLinkProps) {

@@ -1,6 +1,7 @@
 import { checkAuthentication, fetchOperations, fetchStackOptions, OperationsResponse, StackOptionsResponse } from '../api';
-import { set as setCookie } from '../utils/cookie';
+import { set as setCookie, del as delCookie } from '../utils/cookie';
 import { SuccessCb } from 'rokka-dashboard-ui-base';
+import { resetClient } from '../api/client';
 
 export const SESSION_COOKIE_KEY = 'rka_session';
 
@@ -11,13 +12,16 @@ export interface AppUser {
 
 export interface AppState {
   showSidebar: boolean;
-  user?: AppUser;
-  operations?: OperationsResponse;
-  stackOptions?: StackOptionsResponse;
+  user: AppUser | null;
+  operations: OperationsResponse | null;
+  stackOptions: StackOptionsResponse | null;
 }
 
 const defaultState: AppState = {
-  showSidebar: false
+  showSidebar: false,
+  user: null,
+  operations: null,
+  stackOptions: null
 };
 
 let internalState = defaultState;
@@ -87,6 +91,12 @@ export async function login(organization: string, apiKey: string, successCb?: Su
   return Promise.reject(new Error('Invalid authentication'));
 }
 
+export function logout() {
+  resetClient();
+  delCookie(SESSION_COOKIE_KEY);
+  updateState(defaultState);
+}
+
 /**
  * Fetches stack operations.
  */
@@ -116,6 +126,13 @@ async function getStackOptions(): Promise<Partial<AppState>> {
  */
 export function toggleSidebar() {
   updateState({ showSidebar: !internalState.showSidebar });
+}
+
+/**
+ * Hide sidebar.
+ */
+export function hideSidebar() {
+  updateState({ showSidebar: false });
 }
 
 /**

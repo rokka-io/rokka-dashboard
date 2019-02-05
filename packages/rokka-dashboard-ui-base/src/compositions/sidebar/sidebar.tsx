@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { PoweredBy } from '../../components';
 import { colors } from '../../identity/colors/colors';
 import { media } from '../../identity/media/media';
@@ -24,6 +24,23 @@ interface StyledNavProps {
   active?: boolean;
 }
 
+const activeCss = css`
+  transform: translateX(0);
+  transition: transform 0.4s ease;
+
+  ${media.mobile`width: 100%;`}
+`;
+
+const inactiveCss = css`
+  ${media.desktop`
+    transform: translateX(0);
+  `}
+
+  ${media.mobile`
+    transform: translateX(-100%);
+  `}
+`;
+
 const StyledNav = styled.nav<StyledNavProps>`
   position: fixed;
   left: 0;
@@ -33,27 +50,10 @@ const StyledNav = styled.nav<StyledNavProps>`
   background: ${colors.gray.sidebar};
   color: ${colors.gray.light};
   transform: translateX(-13.75rem);
-  transition: transform .4s ease;
+  transition: transform 0.4s ease;
   z-index: ${zIndex.sidebar};
 
-  ${media.desktop`
-    transform: translateX(0);
-  `}
-
-  ${media.mobile`
-    transform: translateX(-100%);
-  `}
-
-  ${({ active }) =>
-    active &&
-    `
-    transform: translateX(0);
-    transition: transform .4s ease;
-
-    ${media.mobile`
-      width: 100%;
-    `}
-  `}
+  ${({ active }) => (active ? activeCss : inactiveCss)}
 `;
 
 const StyledUl = styled.ul`

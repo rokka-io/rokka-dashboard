@@ -1,24 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { GlobalStyle } from 'rokka-dashboard-ui-base';
-import { withAuthRequired } from '../../hoc/withAuthRequired';
-import { withState } from '../../hoc/withState';
-import { BaseLayout } from '../../layouts/BaseLayout/BaseLayout';
-import { AppUser } from '../../state';
-import { pick } from '../../utils/pick';
 
-interface DashboardProps {
-  user: AppUser;
-  showSidebar: boolean;
-}
+interface DashboardProps {}
 
-const Dashboard: FunctionComponent<DashboardProps> = ({ user, showSidebar, ...props }) => {
+export const Dashboard: FunctionComponent<DashboardProps> = props => {
   console.log('rerender dashboard', props);
-  return (
-    <BaseLayout user={user} showSidebar={showSidebar}>
-      <GlobalStyle />
-      <div>Dashboard</div>
-    </BaseLayout>
-  );
+  return <div>Dashboard</div>;
 };
-
-export default withState(withAuthRequired(Dashboard), s => pick(s, 'user', 'showSidebar'));

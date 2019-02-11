@@ -1,10 +1,10 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import { NavigationLink } from '../components/NavigationLink/NavigationLink';
 import { StacksNavigation } from '../compositions/StacksNavigation.tsx/StacksNavigation';
-import Dashboard from './Dashboard/Dashboard';
-import Images from './Images/Images';
-import NewStack from './NewStack/NewStack';
-import Stacks from './Stacks/Stacks';
+import { Dashboard } from './Dashboard/Dashboard';
+import { Images } from './Images/Images';
+import { NewStack } from './NewStack/NewStack';
+import { Stacks } from './Stacks/Stacks';
 
 interface Route {
   name: string;

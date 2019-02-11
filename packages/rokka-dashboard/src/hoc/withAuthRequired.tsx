@@ -1,13 +1,15 @@
-import React, { ComponentType, FunctionComponent } from 'react';
+import React, { ComponentType } from 'react';
 import { Login } from '../compositions/Login/Login';
 import { AppUser } from '../state';
 
-export interface WithAuthRequiredProps {
-  user?: AppUser;
+interface WithAuthRequiredProps {
+  user: AppUser | null;
+}
+export interface WithUserProps {
+  user: AppUser;
 }
 
-export const withAuthRequired = <P extends object>(
-  Component: ComponentType<P & WithAuthRequiredProps>
-): FunctionComponent<P & WithAuthRequiredProps> => props => {
-  return props.user ? <Component {...props} /> : <Login />;
-};
+export function withAuthRequired<P extends WithUserProps>(Component: ComponentType<P>) {
+  return ({ user = null, ...props }: WithAuthRequiredProps) =>
+    user ? <Component user={user} {...props as any} /> : <Login />;
+}

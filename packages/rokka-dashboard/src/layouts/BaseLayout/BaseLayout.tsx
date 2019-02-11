@@ -11,7 +11,6 @@ interface BaseLayoutProps {
 }
 
 export const BaseLayout: FunctionComponent<BaseLayoutProps> = ({ user, children, alert, showSidebar }) => {
-  console.log(showSidebar);
   return (
     <>
       <Header username={user.organization} onToggleMenu={toggleSidebar} onLogout={logout} />

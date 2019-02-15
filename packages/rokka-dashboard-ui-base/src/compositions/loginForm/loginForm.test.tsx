@@ -43,7 +43,7 @@ describe('Compositions', () => {
       });
 
       expect(preventDefault).toHaveBeenCalled();
-      expect(onLogin).toHaveBeenCalledWith('an-organization', 'a password');
+      expect(onLogin).toHaveBeenCalledWith('an-organization', 'a password', expect.any(Function));
     });
   });
 });

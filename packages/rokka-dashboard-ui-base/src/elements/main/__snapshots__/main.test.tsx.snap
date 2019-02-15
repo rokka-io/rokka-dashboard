@@ -37,7 +37,7 @@ exports[`Elements Layout renders a Main correctly. 1`] = `
   ",
           "
       @media only screen and (",
-          "(max-width: 29.25em)",
+          "(max-width: 39.9375em)",
           ") {
         ",
           "margin-left: ",

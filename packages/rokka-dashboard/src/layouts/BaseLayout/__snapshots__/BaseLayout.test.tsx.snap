@@ -106,9 +106,9 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                 "$$typeof": Symbol(react.forward_ref),
                 "attrs": Array [],
                 "componentStyle": ComponentStyle {
-                  "componentId": "sc-hzDkRC",
+                  "componentId": "sc-jhAzac",
                   "isStatic": true,
-                  "lastClassName": "hAYcvO",
+                  "lastClassName": "eCxzVW",
                   "rules": Array [
                     "
   position: fixed;
@@ -130,7 +130,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                 "displayName": "styled.header",
                 "foldedComponentIds": Array [],
                 "render": [Function],
-                "styledComponentId": "sc-hzDkRC",
+                "styledComponentId": "sc-jhAzac",
                 "target": "header",
                 "toString": [Function],
                 "warnTooManyClasses": [Function],
@@ -140,7 +140,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
             forwardedRef={null}
           >
             <header
-              className="sc-hzDkRC hAYcvO"
+              className="sc-jhAzac eCxzVW"
             >
               <MobileMenuButton
                 active={false}
@@ -550,7 +550,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                         "componentStyle": ComponentStyle {
                           "componentId": "sc-jWBwVP",
                           "isStatic": true,
-                          "lastClassName": "dTJlRW",
+                          "lastClassName": "hakopP",
                           "rules": Array [
                             "
   height: ",
@@ -564,7 +564,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
   ",
                             "
       @media only screen and (",
-                            "(max-width: 29.25em)",
+                            "(max-width: 39.9375em)",
                             ") {
         ",
                             "
@@ -590,7 +590,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                     forwardedRef={null}
                   >
                     <nav
-                      className="sc-jWBwVP dTJlRW"
+                      className="sc-jWBwVP hakopP"
                     >
                       <User
                         username="test"
@@ -1051,9 +1051,9 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                 "$$typeof": Symbol(react.forward_ref),
                 "attrs": Array [],
                 "componentStyle": ComponentStyle {
-                  "componentId": "sc-jhAzac",
+                  "componentId": "sc-fBuWsC",
                   "isStatic": false,
-                  "lastClassName": "TDjae",
+                  "lastClassName": "evwavo",
                   "rules": Array [
                     "
   position: fixed;
@@ -1070,38 +1070,10 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                     "#DDDDD8",
                     ";
   transform: translateX(-13.75rem);
-  transition: transform .4s ease;
+  transition: transform 0.4s ease;
   z-index: ",
                     "999",
                     ";
-
-  ",
-                    "
-      @media only screen and (",
-                    "(min-width: 64em)",
-                    ") {
-        ",
-                    "
-    transform: translateX(0);
-  ",
-                    "
-      }
-    ",
-                    "
-
-  ",
-                    "
-      @media only screen and (",
-                    "(max-width: 29.25em)",
-                    ") {
-        ",
-                    "
-    transform: translateX(-100%);
-  ",
-                    "
-      }
-    ",
-                    "
 
   ",
                     [Function],
@@ -1112,7 +1084,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                 "displayName": "styled.nav",
                 "foldedComponentIds": Array [],
                 "render": [Function],
-                "styledComponentId": "sc-jhAzac",
+                "styledComponentId": "sc-fBuWsC",
                 "target": "nav",
                 "toString": [Function],
                 "warnTooManyClasses": [Function],
@@ -1122,7 +1094,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
             forwardedRef={null}
           >
             <nav
-              className="sc-jhAzac TDjae"
+              className="sc-fBuWsC evwavo"
             >
               <styled.ul>
                 <StyledComponent
@@ -1131,9 +1103,9 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                       "$$typeof": Symbol(react.forward_ref),
                       "attrs": Array [],
                       "componentStyle": ComponentStyle {
-                        "componentId": "sc-fBuWsC",
+                        "componentId": "sc-fMiknA",
                         "isStatic": true,
-                        "lastClassName": "eZdrFt",
+                        "lastClassName": "kavzfN",
                         "rules": Array [
                           "
   margin: 0;
@@ -1148,7 +1120,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                       "displayName": "styled.ul",
                       "foldedComponentIds": Array [],
                       "render": [Function],
-                      "styledComponentId": "sc-fBuWsC",
+                      "styledComponentId": "sc-fMiknA",
                       "target": "ul",
                       "toString": [Function],
                       "warnTooManyClasses": [Function],
@@ -1158,7 +1130,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                   forwardedRef={null}
                 >
                   <ul
-                    className="sc-fBuWsC eZdrFt"
+                    className="sc-fMiknA kavzfN"
                   >
                     <Component>
                       <li
@@ -1175,10 +1147,12 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                           >
                             <SidebarLink
                               active={true}
+                              onClick={[Function]}
                               to="/"
                             >
                               <Styled(Component)
                                 active={true}
+                                onClick={[Function]}
                                 to="/"
                               >
                                 <StyledComponent
@@ -1237,15 +1211,18 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                                     }
                                   }
                                   forwardedRef={null}
+                                  onClick={[Function]}
                                   to="/"
                                 >
                                   <Component
                                     active={true}
                                     className="sc-kgoBCf llDOzS"
+                                    onClick={[Function]}
                                     to="/"
                                   >
                                     <Link
                                       className="sc-kgoBCf llDOzS"
+                                      onClick={[Function]}
                                       replace={false}
                                       to="/"
                                     >
@@ -1275,9 +1252,11 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                             path="/images"
                           >
                             <SidebarLink
+                              onClick={[Function]}
                               to="/images"
                             >
                               <Styled(Component)
+                                onClick={[Function]}
                                 to="/images"
                               >
                                 <StyledComponent
@@ -1335,14 +1314,17 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                                     }
                                   }
                                   forwardedRef={null}
+                                  onClick={[Function]}
                                   to="/images"
                                 >
                                   <Component
                                     className="sc-kgoBCf iUVnYE"
+                                    onClick={[Function]}
                                     to="/images"
                                   >
                                     <Link
                                       className="sc-kgoBCf iUVnYE"
+                                      onClick={[Function]}
                                       replace={false}
                                       to="/images"
                                     >
@@ -1418,10 +1400,12 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                                 >
                                   <SidebarLink
                                     active={false}
+                                    onClick={[Function]}
                                     to="/stacks"
                                   >
                                     <Styled(Component)
                                       active={false}
+                                      onClick={[Function]}
                                       to="/stacks"
                                     >
                                       <StyledComponent
@@ -1480,15 +1464,18 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
                                           }
                                         }
                                         forwardedRef={null}
+                                        onClick={[Function]}
                                         to="/stacks"
                                       >
                                         <Component
                                           active={false}
                                           className="sc-kgoBCf iUVnYE"
+                                          onClick={[Function]}
                                           to="/stacks"
                                         >
                                           <Link
                                             className="sc-kgoBCf iUVnYE"
+                                            onClick={[Function]}
                                             replace={false}
                                             to="/stacks"
                                           >
@@ -2240,7 +2227,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
               "componentStyle": ComponentStyle {
                 "componentId": "sc-VigVT",
                 "isStatic": false,
-                "lastClassName": "hllgKD",
+                "lastClassName": "hdopOC",
                 "rules": Array [
                   "
   transition: 0.4s ease margin;
@@ -2269,7 +2256,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
   ",
                   "
       @media only screen and (",
-                  "(max-width: 29.25em)",
+                  "(max-width: 39.9375em)",
                   ") {
         ",
                   "margin-left: ",
@@ -2294,7 +2281,7 @@ exports[`Compositions BaseLayout should show an error when the child is erroring
           forwardedRef={null}
         >
           <main
-            className="sc-VigVT hllgKD"
+            className="sc-VigVT hdopOC"
           >
             <Alert />
             <ErrorBoundary>

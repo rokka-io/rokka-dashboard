@@ -6,7 +6,7 @@ describe('Higher-Order-Components', () => {
   describe('withAuthRequired', () => {
     it('should render the login component if user is not set', () => {
       const Comp = withAuthRequired(() => <div>Should not be rendered</div>);
-      const component = renderer.create(<Comp />).toJSON();
+      const component = renderer.create(<Comp user={null} />).toJSON();
 
       expect(component).toMatchSnapshot();
     });

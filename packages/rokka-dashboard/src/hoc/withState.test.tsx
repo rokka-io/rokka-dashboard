@@ -7,7 +7,7 @@ describe('Higher-Order-Components', () => {
   describe('withState', () => {
     it('should forward the current global state as props to the component', () => {
       const Content = () => <div>some component</div>;
-      const Comp = withState(Content);
+      const Comp = withState(Content, state => state);
       const component = mount(<Comp />);
 
       expect(component).toMatchSnapshot();
@@ -18,7 +18,7 @@ describe('Higher-Order-Components', () => {
     });
     it('should subscribe to state updates', () => {
       const Content = () => <div>some component</div>;
-      const Comp = withState(Content);
+      const Comp = withState(Content, state => state);
 
       const component = mount(<Comp />);
 

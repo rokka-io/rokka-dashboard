@@ -1,69 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components FormGroup renders a sign form group correctly. 1`] = `
-<styled.div>
-  <styled.div
-    isLogin={true}
-  >
-    <Flex
-      flexDirection={
-        Array [
-          "column",
-          "column",
-          "column",
-          "row",
-        ]
+<Animated(styled.div)
+  in={true}
+  timeout={
+    Object {
+      "exit": 1000,
+    }
+  }
+>
+  <Animated(styled.div)
+    appear={true}
+    in={true}
+    timeout={
+      Object {
+        "exit": 1000,
       }
+    }
+  >
+    <styled.div
+      isLogin={true}
     >
-      <Box
-        width={
+      <Flex
+        flexDirection={
           Array [
-            1,
-            1,
-            1,
-            0.4166666666666667,
+            "column",
+            "column",
+            "column",
+            "row",
           ]
         }
       >
-        <styled.div
-          isLogin={true}
+        <Box
+          width={
+            Array [
+              1,
+              1,
+              1,
+              0.4166666666666667,
+            ]
+          }
         >
-          <HeaderLogo
-            marginBottom="2rem"
-          />
-          randomText
-          <styled.p>
-            Powered by Liip.
-          </styled.p>
-        </styled.div>
-      </Box>
-      <Box
-        p={
-          Array [
-            "2rem",
-            "1rem",
-          ]
-        }
-        pl={
-          Array [
-            "0.5rem",
-            "1rem",
-          ]
-        }
-        width={
-          Array [
-            1,
-            1,
-            1,
-            0.5833333333333334,
-          ]
-        }
-      >
-        <div>
-          Right column content
-        </div>
-      </Box>
-    </Flex>
-  </styled.div>
-</styled.div>
+          <styled.div
+            isLogin={true}
+          >
+            <HeaderLogo
+              marginBottom="2rem"
+            />
+            randomText
+            <styled.p>
+              Powered by Liip.
+            </styled.p>
+          </styled.div>
+        </Box>
+        <Box
+          p={
+            Array [
+              "2rem",
+              "1rem",
+            ]
+          }
+          pl={
+            Array [
+              "0.5rem",
+              "1rem",
+            ]
+          }
+          width={
+            Array [
+              1,
+              1,
+              1,
+              0.5833333333333334,
+            ]
+          }
+        >
+          <div>
+            Right column content
+          </div>
+        </Box>
+      </Flex>
+    </styled.div>
+  </Animated(styled.div)>
+</Animated(styled.div)>
 `;

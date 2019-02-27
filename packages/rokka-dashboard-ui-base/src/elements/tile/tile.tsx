@@ -8,11 +8,13 @@ export interface TileProps {
   children?: ReactNode;
   /** height */
   minHeight?: string;
+  /** Text alignment */
+  textAlign?: string;
 }
 
-export function Tile({ children, minHeight = '' }: TileProps) {
+export function Tile({ children, minHeight, textAlign }: TileProps) {
   return (
-    <StyledTile minHeight={minHeight}>
+    <StyledTile minHeight={minHeight} textAlign={textAlign}>
       {children}
     </StyledTile>
   );
@@ -20,11 +22,13 @@ export function Tile({ children, minHeight = '' }: TileProps) {
 
 interface StyledTileProps {
   minHeight?: string;
+  textAlign?: string;
 }
 
 const StyledTile = styled.div<StyledTileProps>`
   background: ${colors.tints.white};
   padding: ${spaces.medium};
+  text-align: ${({ textAlign }) => textAlign};
   ${({ minHeight }) => {
     if (minHeight === 'short') {
       return `

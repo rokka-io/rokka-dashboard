@@ -16,3 +16,4 @@ export * from './showOnActive/showOnActive';
 export * from './sidebarLink/sidebarLink';
 export * from './sidebarStacksList/sidebarStacksList';
 export * from './spinner/spinner';
+export * from './tile/tile';

@@ -5,7 +5,7 @@ export interface DashboardChartProps {
   /** Chart Title */
   title?: string;
   /** Chart component */
-  chart: ReactNode;
+  chart?: ReactNode;
 }
 
 export function DashboardChart({ title, chart }: DashboardChartProps) {

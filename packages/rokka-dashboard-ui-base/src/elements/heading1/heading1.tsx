@@ -5,6 +5,7 @@ import { spaces } from '../../identity/spaces/spaces';
 interface Heading1StylingProps {
   /** Color of heading text */
   color?: string;
+  /** No Margin of heading text */
   noMargin?:boolean;
 }
 

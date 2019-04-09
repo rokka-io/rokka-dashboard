@@ -8,7 +8,8 @@ export const Link = styled.a`
   word-wrap: break-word;
   text-decoration: underline;
 
-  :hover {
+  &:hover {
     text-decoration: none;
+    color: ${colors.brand.primary};
   }
 `;

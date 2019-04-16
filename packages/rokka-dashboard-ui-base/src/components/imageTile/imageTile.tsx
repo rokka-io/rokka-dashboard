@@ -24,7 +24,7 @@ export interface ImageTileProps {
   imageName?: string;
 }
 
-export function ImageTile({ url, blankUrl, imageUrl, clickable, uploaded, highlighted = false, imageSpecs, imageName }: ImageTileProps) {
+export function ImageTile({ url, blankUrl, imageUrl, clickable, uploaded, highlighted, imageSpecs, imageName }: ImageTileProps) {
   return (
     <StyledImageTile url={url} clickable={clickable} uploaded={uploaded} highlighted={highlighted}>
       <StyledImageTileHd>

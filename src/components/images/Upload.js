@@ -40,6 +40,16 @@ class UploadImage extends PureComponent {
       })
       return
     }
+    const invalidFileType = files.find(file => {
+      return file.type === ''
+    })
+    if (invalidFileType) {
+      this.setState({
+        upload: UPLOAD_ERROR,
+        message:
+          'Invalid file type uploaded. Maybe a folder? Folder upload is not possible yet. Try selecting all files within a folder instead.'
+      })
+    }
 
     const mapFile = file => {
       const fileReader = new window.FileReader()
@@ -79,9 +89,6 @@ class UploadImage extends PureComponent {
           this.setState({ images: images })
           setTimeout(() => updateUploadedImages(images), 100)
         })
-        .catch(err => {
-          console.error(err)
-        })
     }
 
     Promise.map(files, mapFile, { concurrency: 5 })
@@ -89,7 +96,11 @@ class UploadImage extends PureComponent {
         this.setState({ upload: UPLOAD_SUCCESSFUL })
       })
       .catch(err => {
-        this.setState({ upload: UPLOAD_ERROR })
+        this.setState({
+          upload: UPLOAD_ERROR,
+          message:
+            'Upload failed due to the API returning an error. For example plain text files are not supported.'
+        })
         console.error(err)
       })
   }

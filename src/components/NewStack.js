@@ -244,7 +244,7 @@ export class NewStack extends PureComponent {
     let { currentTarget = null, name, value } = eventOrValue
 
     if (currentTarget) {
-      value = currentTarget.value
+      value = currentTarget.type === 'checkbox' ? currentTarget.checked : currentTarget.value
       name = currentTarget.name
     }
 
@@ -253,7 +253,7 @@ export class NewStack extends PureComponent {
     const operationDefinition = this.props.operations[operation.name]
 
     if (operationDefinition && operationDefinition.properties[name].type === 'boolean') {
-      value = value === 'true'
+      value = value === true || value === 'true'
     } else if (operationDefinition && operationDefinition.properties[name].type === 'integer') {
       value = parseInt(value, 10)
       if (isNaN(value)) {

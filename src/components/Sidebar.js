@@ -70,6 +70,12 @@ class Sidebar extends PureComponent {
               Images
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/bills" exact className="rka-sidebar-link" activeClassName="is-active">
+              Bills
+            </NavLink>
+          </li>
+
           <li className="pos-r">
             <NavLink
               to="/stacks"

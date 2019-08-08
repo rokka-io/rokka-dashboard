@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react'
 import rokka from '../rokka'
 import _ from 'lodash'
 import PropTypes from 'prop-types'
-import BillChooser from './BillChooser'
+import CostChooser from './CostChooser'
 
 const DEFAULT_STATE = {
   org: 'loading',
@@ -11,23 +11,23 @@ const DEFAULT_STATE = {
   data: {}
 }
 
-class BillDetail extends PureComponent {
+class CostDetail extends PureComponent {
   constructor(props) {
     super(props)
     this.state = DEFAULT_STATE
   }
 
   componentDidMount() {
-    this.getBill(this.props.router.match.params.date)
+    this.getCosts(this.props.router.match.params.date)
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.router.match.params.date !== this.props.router.match.params.date) {
-      this.getBill(nextProps.router.match.params.date)
+      this.getCosts(nextProps.router.match.params.date)
     }
   }
 
-  getBill(date) {
+  getCosts(date) {
     this.setState(DEFAULT_STATE)
     rokka()
       .billing.get(this.props.auth.organization, date, date)
@@ -104,16 +104,16 @@ class BillDetail extends PureComponent {
   render() {
     return (
       <div>
-        <BillChooser router={this.props.router} />
+        <CostChooser router={this.props.router} />
         <h1 className={'rka-h1 mb-md'}>
           {this.state.org === 'loading' || this.state.org === 'error'
-            ? 'Loading bill'
-            : 'Provisional bill for organization ' +
+            ? 'Loading cost overview'
+            : 'Provisional cost overview for master organization ' +
               this.state.org +
               ' and month ' +
               this.state.month}
         </h1>
-        {this.state.org === 'error' ? 'Error loading bill' : null}
+        {this.state.org === 'error' ? 'Error loading costs' : null}
         {this.state.data.combined ? this.getTable(this.state.data.combined) : null}
         {this.getForecast()}
       </div>
@@ -133,7 +133,7 @@ class BillDetail extends PureComponent {
   }
 }
 
-BillDetail.propTypes = {
+CostDetail.propTypes = {
   auth: PropTypes.shape({
     organization: PropTypes.string.isRequired
   }).isRequired,
@@ -149,4 +149,4 @@ BillDetail.propTypes = {
   }).isRequired
 }
 
-export default authRequired(BillDetail)
+export default authRequired(CostDetail)

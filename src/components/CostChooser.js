@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 import moment from 'moment'
 
-class BillChooser extends PureComponent {
+class CostChooser extends PureComponent {
   changeMonth = (event, b) => {
-    this.props.router.history.push(`/bills/${event.target.value}-1`)
+    this.props.router.history.push(`/costs/${event.target.value}-1`)
   }
 
   getMonths = () => {
@@ -25,4 +25,4 @@ class BillChooser extends PureComponent {
   }
 }
 
-export default BillChooser
+export default CostChooser

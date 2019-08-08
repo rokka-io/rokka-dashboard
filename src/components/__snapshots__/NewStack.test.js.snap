@@ -78,6 +78,16 @@ exports[`NewStack does render with a previewImage 1`] = `
           Images
         </a>
       </li>
+      <li>
+        <a
+          aria-current={null}
+          className="rka-sidebar-link"
+          href="/costs"
+          onClick={[Function]}
+        >
+          Costs
+        </a>
+      </li>
       <li
         className="pos-r"
       >
@@ -515,6 +525,16 @@ exports[`NewStack does render with minimal props 1`] = `
           Images
         </a>
       </li>
+      <li>
+        <a
+          aria-current={null}
+          className="rka-sidebar-link"
+          href="/costs"
+          onClick={[Function]}
+        >
+          Costs
+        </a>
+      </li>
       <li
         className="pos-r"
       >
@@ -885,6 +905,16 @@ exports[`NewStack does render with stackOptions 1`] = `
           onClick={[Function]}
         >
           Images
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          className="rka-sidebar-link"
+          href="/costs"
+          onClick={[Function]}
+        >
+          Costs
         </a>
       </li>
       <li
@@ -1322,6 +1352,16 @@ exports[`NewStack does render with stacks 1`] = `
           onClick={[Function]}
         >
           Images
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          className="rka-sidebar-link"
+          href="/costs"
+          onClick={[Function]}
+        >
+          Costs
         </a>
       </li>
       <li
@@ -1783,6 +1823,16 @@ exports[`newStack does render with clone stack props 1`] = `
           onClick={[Function]}
         >
           Images
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          className="rka-sidebar-link"
+          href="/costs"
+          onClick={[Function]}
+        >
+          Costs
         </a>
       </li>
       <li

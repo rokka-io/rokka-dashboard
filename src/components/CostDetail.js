@@ -4,12 +4,14 @@ import rokka from '../rokka'
 import _ from 'lodash'
 import PropTypes from 'prop-types'
 import CostChooser from './CostChooser'
+import format from 'format-number'
 
 const DEFAULT_STATE = {
   org: 'loading',
   month: 'loading',
   data: {}
 }
+const numberFormat = format({ padRight: 2 })
 
 class CostDetail extends PureComponent {
   constructor(props) {
@@ -52,12 +54,12 @@ class CostDetail extends PureComponent {
       (result, values, key) => {
         if (key === 'total') {
           result.push(
-            <tr key={key} className={'rka-h3 mb-md'}>
-              <td>Total</td>
+            <tr key={key} className={'mb-md'} style={{ height: '3em', fontStyle: 'italic' }}>
+              <td style={{ paddingTop: '1em' }}>Subtotal</td>
               <td>
                 {values.units_consumed.toLocaleString()} {values.unit}
               </td>
-              <td>{values.price_in_chf.toLocaleString()} CHF</td>
+              <td>{numberFormat(values.price_in_chf)} CHF</td>
             </tr>
           )
           return result
@@ -72,14 +74,17 @@ class CostDetail extends PureComponent {
               {values.price_per_unit ? values.price_per_unit + ' CHF * ' : ''}
               {values.units_consumed.toLocaleString()} {values.unit}
             </td>
-            <td>{values.price_in_chf.toLocaleString()} CHF</td>
+            <td>{numberFormat(values.price_in_chf)} CHF</td>
           </tr>
         )
         return result
       },
       [
         <tr key={'title'}>
-          <td className={'rka-h3 mb-md'}>{title}</td>
+          <td colSpan="2" className={'rka-h3 mb-md'}>
+            {title}
+          </td>
+          <td />
         </tr>
       ]
     )
@@ -92,9 +97,9 @@ class CostDetail extends PureComponent {
           {this.getPositions('Storage', data.storage)}
           {this.getPositions('Traffic', data.traffic)}
           {this.getPositions('Rendering Transactions', data.rendering_transactions)}
-          <tr className={'rka-h1 mb-md'}>
+          <tr className={'rka-h3 mb-md'}>
             <td colSpan={2}>Total</td>
-            <td>{data.total.price_in_chf.toLocaleString()} CHF</td>
+            <td>{numberFormat(data.total.price_in_chf)} CHF</td>
           </tr>
         </tbody>
       </table>
@@ -105,16 +110,18 @@ class CostDetail extends PureComponent {
     return (
       <div className={'rka-table-costs'}>
         <CostChooser router={this.props.router} />
-        <h1 className={'rka-h1 mb-md'}>
-          {this.state.org === 'loading' || this.state.org === 'error'
-            ? 'Loading cost overview ...'
-            : 'Provisional cost overview for master organization ' +
-              this.state.org +
-              ' and month ' +
-              this.state.month}
-        </h1>
-        {this.state.org === 'error' ? 'Error loading costs' : null}
-        {this.state.data.combined ? this.getTable(this.state.data.combined) : null}
+        <div className="section rka-box no-min-height">
+          <h2 className={'rka-h2 mb-md'}>
+            {this.state.org === 'loading' || this.state.org === 'error'
+              ? 'Loading cost overview ...'
+              : 'Provisional cost overview for master organization ' +
+                this.state.org +
+                ' and month ' +
+                this.state.month}
+          </h2>
+          {this.state.org === 'error' ? 'Error loading costs' : null}
+          {this.state.data.combined ? this.getTable(this.state.data.combined) : null}
+        </div>
         {this.getForecast()}
       </div>
     )
@@ -125,10 +132,10 @@ class CostDetail extends PureComponent {
       return null
     }
     return [
-      <h1 key={'title2'} className={'rka-h1 mb-md '}>
-        Forecast for this month
-      </h1>,
-      this.getTable(this.state.data.combined_forecast)
+      <div key={'title2'} className="section rka-box no-min-height">
+        <h2 className={'rka-h2 mb-md '}>Forecast for this month</h2>
+        {this.getTable(this.state.data.combined_forecast)}
+      </div>
     ]
   }
 }

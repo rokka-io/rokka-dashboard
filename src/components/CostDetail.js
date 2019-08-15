@@ -108,13 +108,14 @@ class CostDetail extends PureComponent {
   }
 
   render() {
+    const orgs = _.keys(this.state.data.organizations)
     return (
       <div className={'rka-table-costs'}>
         <CostChooser router={this.props.router} />
         <div className="section rka-box no-min-height">
           <h2 className={'rka-h2 mb-md'}>
             {this.state.org === 'loading' || this.state.org === 'error'
-              ? 'Loading cost overview ...'
+              ? 'Loading cost overview ... (may take a while)'
               : 'Provisional cost overview for master organization ' +
                 this.state.org +
                 ' and month ' +
@@ -124,6 +125,13 @@ class CostDetail extends PureComponent {
           {this.state.data.combined ? this.getTable(this.state.data.combined) : null}
         </div>
         {this.getForecast()}
+        {orgs.length > 1 ? (
+          <div className="section rka-box no-min-height" style={{ lineHeight: '1.2em' }}>
+            The data includes the following organisations: <br />
+            {_.keys(this.state.data.organizations).join(', ')}
+          </div>
+        ) : null}
+
         <div className="section rka-box no-min-height" style={{ lineHeight: '1.2em' }}>
           These numbers are of provisional and informative nature only. The final bill may be
           different. If you have questions, do not hesitate to{' '}

@@ -123,6 +123,15 @@ class CostDetail extends PureComponent {
           {this.state.data.combined ? this.getTable(this.state.data.combined) : null}
         </div>
         {this.getForecast()}
+        <div className="section rka-box no-min-height" style={{ lineHeight: '1.2em' }}>
+          These numbers are of provisional and informative nature only. The final bill may be
+          different. If you have questions, do not hesitate to{' '}
+          <a style={{ color: 'black' }} target="_blank" href={'https://rokka.io/en/contact/'}>
+            {' '}
+            contact us
+          </a>
+          .
+        </div>
       </div>
     )
   }

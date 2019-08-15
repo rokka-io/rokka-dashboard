@@ -141,7 +141,6 @@ class CostDetail extends PureComponent {
             target="_blank"
             href={'https://rokka.io/en/contact/'}
           >
-            {' '}
             contact us
           </a>
           .

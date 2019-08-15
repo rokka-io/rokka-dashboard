@@ -82,6 +82,16 @@ exports[`Sidebar does render 1`] = `
         </div>
       </div>
     </li>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/costs"
+        onClick={[Function]}
+      >
+        Costs
+      </a>
+    </li>
   </ul>
   <a
     className="rka-sidebar-poweredby"
@@ -178,6 +188,16 @@ exports[`Sidebar does render when active 1`] = `
           />
         </div>
       </div>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/costs"
+        onClick={[Function]}
+      >
+        Costs
+      </a>
     </li>
   </ul>
   <a
@@ -315,6 +335,16 @@ exports[`Sidebar shows load more button 1`] = `
         </div>
       </div>
     </li>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/costs"
+        onClick={[Function]}
+      >
+        Costs
+      </a>
+    </li>
   </ul>
   <a
     className="rka-sidebar-poweredby"
@@ -443,6 +473,16 @@ exports[`Sidebar shows stacks 1`] = `
           />
         </div>
       </div>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/costs"
+        onClick={[Function]}
+      >
+        Costs
+      </a>
     </li>
   </ul>
   <a

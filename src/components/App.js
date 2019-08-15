@@ -4,6 +4,7 @@ import { HashRouter } from 'react-router-dom'
 import state, { subscribe } from '../state'
 import Dashboard from './Dashboard'
 import Images from './Images'
+import Costs from './Costs'
 import Signup from './Signup'
 import Stacks from './Stacks'
 import NewStack from './NewStack'
@@ -30,6 +31,7 @@ class App extends PureComponent {
         <div className="App">
           <Route path="/" exact render={props => <Dashboard router={props} {...this.state} />} />
           <Route path="/images" render={props => <Images router={props} {...this.state} />} />
+          <Route path="/costs" render={props => <Costs router={props} {...this.state} />} />
           <Route path="/signup" render={props => <Signup router={props} {...this.state} />} />
           <Route path="/stacks" render={props => <Stacks router={props} {...this.state} />} />
           <Route path="/new-stack" render={props => <NewStack router={props} {...this.state} />} />

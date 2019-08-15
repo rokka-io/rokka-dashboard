@@ -132,6 +132,16 @@ exports[`BaseLayout does render 1`] = `
           </div>
         </div>
       </li>
+      <li>
+        <a
+          aria-current={null}
+          className="rka-sidebar-link"
+          href="/costs"
+          onClick={[Function]}
+        >
+          Costs
+        </a>
+      </li>
     </ul>
     <a
       className="rka-sidebar-poweredby"
@@ -292,6 +302,16 @@ exports[`BaseLayout does render active sidebar 1`] = `
           </div>
         </div>
       </li>
+      <li>
+        <a
+          aria-current={null}
+          className="rka-sidebar-link"
+          href="/costs"
+          onClick={[Function]}
+        >
+          Costs
+        </a>
+      </li>
     </ul>
     <a
       className="rka-sidebar-poweredby"
@@ -451,6 +471,16 @@ exports[`BaseLayout does render alert 1`] = `
             />
           </div>
         </div>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          className="rka-sidebar-link"
+          href="/costs"
+          onClick={[Function]}
+        >
+          Costs
+        </a>
       </li>
     </ul>
     <a

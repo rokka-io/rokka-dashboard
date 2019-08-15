@@ -13,6 +13,13 @@ function isStacksActive(match, location) {
   return location.pathname === '/new-stack'
 }
 
+function isCostsActive(match, location) {
+  if (match) {
+    return true
+  }
+  return location.pathname.startsWith('/costs')
+}
+
 class Sidebar extends PureComponent {
   loadNextStacks() {
     listStacks()
@@ -70,6 +77,7 @@ class Sidebar extends PureComponent {
               Images
             </NavLink>
           </li>
+
           <li className="pos-r">
             <NavLink
               to="/stacks"
@@ -101,6 +109,17 @@ class Sidebar extends PureComponent {
                 <div className="rka-stacks-load">{$loadMore}</div>
               </div>
             </div>
+          </li>
+          <li>
+            <NavLink
+              to="/costs"
+              exact
+              className="rka-sidebar-link"
+              isActive={isCostsActive}
+              activeClassName="is-active"
+            >
+              Costs
+            </NavLink>
           </li>
         </ul>
         <a

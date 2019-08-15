@@ -96,6 +96,7 @@ class CostDetail extends PureComponent {
         <tbody>
           {this.getPositions('Storage', data.storage)}
           {this.getPositions('Traffic', data.traffic)}
+          {this.getPositions('Traffic External', data.traffic_external)}
           {this.getPositions('Rendering Transactions', data.rendering_transactions)}
           <tr className={'rka-h3 mb-md'}>
             <td colSpan={2}>Total</td>
@@ -126,7 +127,12 @@ class CostDetail extends PureComponent {
         <div className="section rka-box no-min-height" style={{ lineHeight: '1.2em' }}>
           These numbers are of provisional and informative nature only. The final bill may be
           different. If you have questions, do not hesitate to{' '}
-          <a style={{ color: 'black' }} target="_blank" href={'https://rokka.io/en/contact/'}>
+          <a
+            style={{ color: 'black' }}
+            rel="noopener noreferrer"
+            target="_blank"
+            href={'https://rokka.io/en/contact/'}
+          >
             {' '}
             contact us
           </a>

@@ -70,11 +70,6 @@ class Sidebar extends PureComponent {
               Images
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/costs" exact className="rka-sidebar-link" activeClassName="is-active">
-              Costs
-            </NavLink>
-          </li>
 
           <li className="pos-r">
             <NavLink
@@ -107,6 +102,11 @@ class Sidebar extends PureComponent {
                 <div className="rka-stacks-load">{$loadMore}</div>
               </div>
             </div>
+          </li>
+          <li>
+            <NavLink to="/costs" exact className="rka-sidebar-link" activeClassName="is-active">
+              Costs
+            </NavLink>
           </li>
         </ul>
         <a

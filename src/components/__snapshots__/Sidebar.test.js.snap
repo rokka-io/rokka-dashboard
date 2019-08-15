@@ -28,16 +28,6 @@ exports[`Sidebar does render 1`] = `
         Images
       </a>
     </li>
-    <li>
-      <a
-        aria-current={null}
-        className="rka-sidebar-link"
-        href="/costs"
-        onClick={[Function]}
-      >
-        Costs
-      </a>
-    </li>
     <li
       className="pos-r"
     >
@@ -91,6 +81,16 @@ exports[`Sidebar does render 1`] = `
           />
         </div>
       </div>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/costs"
+        onClick={[Function]}
+      >
+        Costs
+      </a>
     </li>
   </ul>
   <a
@@ -134,16 +134,6 @@ exports[`Sidebar does render when active 1`] = `
         Images
       </a>
     </li>
-    <li>
-      <a
-        aria-current={null}
-        className="rka-sidebar-link"
-        href="/costs"
-        onClick={[Function]}
-      >
-        Costs
-      </a>
-    </li>
     <li
       className="pos-r"
     >
@@ -199,6 +189,16 @@ exports[`Sidebar does render when active 1`] = `
         </div>
       </div>
     </li>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/costs"
+        onClick={[Function]}
+      >
+        Costs
+      </a>
+    </li>
   </ul>
   <a
     className="rka-sidebar-poweredby"
@@ -240,16 +240,6 @@ exports[`Sidebar shows load more button 1`] = `
         onClick={[Function]}
       >
         Images
-      </a>
-    </li>
-    <li>
-      <a
-        aria-current={null}
-        className="rka-sidebar-link"
-        href="/costs"
-        onClick={[Function]}
-      >
-        Costs
       </a>
     </li>
     <li
@@ -345,6 +335,16 @@ exports[`Sidebar shows load more button 1`] = `
         </div>
       </div>
     </li>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/costs"
+        onClick={[Function]}
+      >
+        Costs
+      </a>
+    </li>
   </ul>
   <a
     className="rka-sidebar-poweredby"
@@ -386,16 +386,6 @@ exports[`Sidebar shows stacks 1`] = `
         onClick={[Function]}
       >
         Images
-      </a>
-    </li>
-    <li>
-      <a
-        aria-current={null}
-        className="rka-sidebar-link"
-        href="/costs"
-        onClick={[Function]}
-      >
-        Costs
       </a>
     </li>
     <li
@@ -483,6 +473,16 @@ exports[`Sidebar shows stacks 1`] = `
           />
         </div>
       </div>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/costs"
+        onClick={[Function]}
+      >
+        Costs
+      </a>
     </li>
   </ul>
   <a

@@ -19,7 +19,7 @@ class CostChooser extends PureComponent {
   render() {
     return (
       <form>
-        <select onChange={this.changeMonth}>{this.getMonths()}</select>
+        Month: <select onChange={this.changeMonth}>{this.getMonths()}</select>
       </form>
     )
   }

@@ -53,7 +53,7 @@ class CostDetail extends PureComponent {
         if (key === 'total') {
           result.push(
             <tr key={key} className={'rka-h3 mb-md'}>
-              <td>Total {title}</td>
+              <td>Total</td>
               <td>
                 {values.units_consumed.toLocaleString()} {values.unit}
               </td>
@@ -69,7 +69,7 @@ class CostDetail extends PureComponent {
               {values.range.to === 999999999 ? '∞' : values.range.to.toLocaleString()} {values.unit}
             </td>
             <td>
-              {values.price_per_unit ? values.price_per_unit + ' CHF *' : ''}
+              {values.price_per_unit ? values.price_per_unit + ' CHF * ' : ''}
               {values.units_consumed.toLocaleString()} {values.unit}
             </td>
             <td>{values.price_in_chf.toLocaleString()} CHF</td>
@@ -79,7 +79,7 @@ class CostDetail extends PureComponent {
       },
       [
         <tr key={'title'}>
-          <td className={'rka-h2 mb-md'}>{title}</td>
+          <td className={'rka-h3 mb-md'}>{title}</td>
         </tr>
       ]
     )
@@ -92,9 +92,9 @@ class CostDetail extends PureComponent {
           {this.getPositions('Storage', data.storage)}
           {this.getPositions('Traffic', data.traffic)}
           {this.getPositions('Rendering Transactions', data.rendering_transactions)}
-          <tr className={'rka-h2 mb-md'}>
+          <tr className={'rka-h1 mb-md'}>
             <td colSpan={2}>Total</td>
-            <td>{data.total.price_in_chf} CHF</td>
+            <td>{data.total.price_in_chf.toLocaleString()} CHF</td>
           </tr>
         </tbody>
       </table>
@@ -103,11 +103,11 @@ class CostDetail extends PureComponent {
 
   render() {
     return (
-      <div>
+      <div className={'rka-table-costs'}>
         <CostChooser router={this.props.router} />
         <h1 className={'rka-h1 mb-md'}>
           {this.state.org === 'loading' || this.state.org === 'error'
-            ? 'Loading cost overview'
+            ? 'Loading cost overview ...'
             : 'Provisional cost overview for master organization ' +
               this.state.org +
               ' and month ' +
@@ -125,7 +125,7 @@ class CostDetail extends PureComponent {
       return null
     }
     return [
-      <h1 key={'title2'} className={'rka-h1 mb-md'}>
+      <h1 key={'title2'} className={'rka-h1 mb-md '}>
         Forecast for this month
       </h1>,
       this.getTable(this.state.data.combined_forecast)

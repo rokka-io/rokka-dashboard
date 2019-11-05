@@ -83,9 +83,13 @@ class Signup extends PureComponent {
             <div className="col-md-5">
               <div className="rka-signup-brand">
                 <i className="rka-header-logo mb-lg" />
-                <h2 className="txt-white rka-h2">Try out rokka for 90 days.</h2>
-                <p className="mt-sm txt-white">rokka is free to use for 90 days.</p>
-                <p className="txt-white">No monthly costs, no credit card required.</p>
+                <h2 className="txt-white rka-h2">
+                  Start for free. Try out rokka without any risk.
+                </h2>
+                <p className="mt-sm txt-white">
+                  You can use rokka with up to 2 GB of space and 5 GB of traffic per month for free.
+                </p>
+                <p className="txt-white">No credit card required.</p>
                 <p className="rka-login-brand-powered">Powered by Liip.</p>
               </div>
             </div>
@@ -134,7 +138,7 @@ class Signup extends PureComponent {
                         <Spinner />
                       </div>
                     ) : (
-                      'Start free trial'
+                      'Start your free account'
                     )}
                   </button>
                   <p className="txt-gray-darkest mt-md lh-lg">

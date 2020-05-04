@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git+https://github.com/rokka-io/rokka-dashboard.git"
   },
+  "engines": {
+    "node": "10"
+  },
   "dependencies": {
     "ajv": "^6.10.2",
     "canvas-prebuilt": "^1.6.11",

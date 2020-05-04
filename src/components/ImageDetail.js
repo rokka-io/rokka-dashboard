@@ -261,12 +261,16 @@ class ImageDetail extends PureComponent {
         } else if (subjectArea.type && subjectArea.coordsChanged) {
           return rokka()
             .sourceimages.setSubjectArea(organization, hash, subjectArea.coords)
-            .then(({ headers }) => {
-              const newImageHash = headers.location.replace(`/sourceimages/${organization}/`, '')
+            .then(resp => {
+              if (resp.response && resp.response.headers && resp.response.headers.get('location')) {
+                const newImageHash = resp.response.headers
+                  .get('location')
+                  .replace(`/sourceimages/${organization}/`, '')
 
-              this.setState(DEFAULT_STATE)
-
-              this.props.router.history.push(`/images/${newImageHash}`)
+                this.setState(DEFAULT_STATE)
+                console.log(newImageHash)
+                this.props.router.history.push(`/images/${newImageHash}`)
+              }
               alertMessages.push('subject area updated')
             })
         }
@@ -275,6 +279,7 @@ class ImageDetail extends PureComponent {
         setAlert(alertType, alertMessages, 2000)
       })
       .catch(e => {
+        console.log(e)
         setAlert('error', e.error.error.message, 5000)
       })
   }

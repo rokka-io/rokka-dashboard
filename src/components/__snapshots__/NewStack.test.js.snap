@@ -2852,7 +2852,7 @@ exports[`newStack does render with clone stack props 1`] = `
                                 upscale
                               </label>
                               <input
-                                checked={false}
+                                checked={true}
                                 className="rka-input-checkbox"
                                 disabled={false}
                                 id="upscale"
@@ -2873,7 +2873,7 @@ exports[`newStack does render with clone stack props 1`] = `
                                 upscale dpr
                               </label>
                               <input
-                                checked={false}
+                                checked={true}
                                 className="rka-input-checkbox"
                                 disabled={false}
                                 id="upscale_dpr"

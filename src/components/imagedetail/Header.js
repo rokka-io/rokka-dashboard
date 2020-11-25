@@ -14,17 +14,32 @@ const Header = ({ image, focusMenuActive, onClickToggleFocusMenu, onClickSave })
         <span className="mr-sm">{`${Math.round(image.size / 1024)}KB`},</span>
         <span className="mr-sm">{[image.width || '?', image.height || '?'].join('×')},</span>
         <span className="mr-sm">{image.format.toUpperCase()},</span>
-        <a
-          className="rka-link rka-hash-link"
-          href={image.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {image.hash}
-          <svg className="rka-link-icon">
-            <use xlinkHref={linkicon + '#linkicon'} />
-          </svg>
-        </a>
+        <span className="">
+          <a
+            className="rka-link rka-hash-link"
+            href={image.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {image.hash}
+            <svg className="rka-link-icon">
+              <use xlinkHref={linkicon + '#linkicon'} />
+            </svg>
+          </a>
+        </span>
+        <span style={{ marginLeft: 30 }}>
+          <a
+            className="rka-link rka-hash-link"
+            href={image.url.replace(image.hash, image.short_hash)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {image.short_hash}
+            <svg className="rka-link-icon">
+              <use xlinkHref={linkicon + '#linkicon'} />
+            </svg>
+          </a>
+        </span>
       </p>
     </div>
     <div className="flo-r">

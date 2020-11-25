@@ -12,4 +12,4 @@ curl -s -X POST \
   -H "Travis-API-Version: 3" \
   -H "Authorization: token $TRAVIS_TOKEN" \
   -d "$body" \
-  https://api.travis-ci.org/repo/rokka-io%2Frokka-site/requests
+  https://api.travis-ci.com/repo/rokka-io%2Frokka-site/requests

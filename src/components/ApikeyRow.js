@@ -37,7 +37,10 @@ class ApikeyRow extends PureComponent {
         <td>{this.props.apiKey.accessed}</td>
         <td>
           {this.props.apiKey.id === this.props.currentKeyId ? (
-            'Current Api Key, not deletable'
+            <>
+              <div className={'mb-sm'}>Currently used Api Key, not deletable </div>
+              <div>(use another Api Key to login, if you want to delete this one)</div>
+            </>
           ) : this.state.delete ? (
             <>
               <button
@@ -55,7 +58,7 @@ class ApikeyRow extends PureComponent {
             </>
           ) : (
             <button className="rka-button rka-button-brand" onClick={e => this.showDelete(e)}>
-              Delete
+              Delete Api Key
             </button>
           )}
         </td>

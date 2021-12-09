@@ -37,7 +37,7 @@ class ApikeyRow extends PureComponent {
         <td>{this.props.apiKey.accessed}</td>
         <td>
           {this.props.apiKey.id === this.props.currentKeyId ? (
-            'Currently used'
+            'Current Api Key, not deletable'
           ) : this.state.delete ? (
             <>
               <button

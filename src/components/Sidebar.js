@@ -111,6 +111,11 @@ class Sidebar extends PureComponent {
             </div>
           </li>
           <li>
+            <NavLink to="/apikeys" exact className="rka-sidebar-link" activeClassName="is-active">
+              Api-Keys
+            </NavLink>
+          </li>
+          <li>
             <NavLink
               to="/costs"
               exact

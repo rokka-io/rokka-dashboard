@@ -1,0 +1,33 @@
+
+div.rka-table-apikeys {
+  h1 {
+    margin-top: 1em;
+  }
+
+  table {
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    margin-top: 0.5em;
+    th {
+      font-weight: bold;
+      text-align: start;
+      height: 2em;
+    }
+    td {
+      padding: 0.5em 0.5em 0 0;
+      text-align: start;
+      vertical-align: middle;
+    }
+    td:last-child {
+      text-align: end;
+    }
+    td {
+      min-width: 5em;
+    }
+  }
+}
+
+
+
+

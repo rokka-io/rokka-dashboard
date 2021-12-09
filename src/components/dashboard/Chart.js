@@ -37,7 +37,7 @@ const Chart = ({ data, type, yPointSymbol = null }) => {
       tickLength: 0,
       labels: {
         style: {
-          font: '12px "Liip Etica Book", sans-serif'
+          font: '12px "Liip Achivo Book", sans-serif'
         }
       }
     },
@@ -49,7 +49,7 @@ const Chart = ({ data, type, yPointSymbol = null }) => {
       tickLength: 0,
       labels: {
         style: {
-          font: '12px "Liip Etica Book", sans-serif'
+          font: '12px "Liip Achivo Book", sans-serif'
         }
       },
       type: 'category'
@@ -71,7 +71,7 @@ const Chart = ({ data, type, yPointSymbol = null }) => {
       borderRadius: 4,
       style: {
         color: '#fff',
-        font: '14px "Liip Etica Semibold", sans-serif'
+        font: '14px "Liip Achivo Semibold", sans-serif'
       },
       valueSuffix: yPointSymbol
     },

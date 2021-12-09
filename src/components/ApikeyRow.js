@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
-import { authRequired } from '../utils/auth'
-import BaseLayout from './layouts/BaseLayout'
 import rokka from '../rokka'
-import _ from 'lodash'
 
 const DEFAULT_STATE = {
   currentKeyId: '',

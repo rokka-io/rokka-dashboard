@@ -94,6 +94,10 @@ class Apikeys extends PureComponent {
       <BaseLayout {...this.props}>
         <div key={'title2'} className="section rka-box no-min-height">
           <h2 className={'rka-h2 mb-md'}>Your Api Keys</h2>
+          <div className={'mb-md'}>
+            You can't see the actual Api Key here. They are not recoverable. You need to create a
+            new one, if you need one.
+          </div>
         </div>
         <div key={'table'} className="section rka-box no-min-height rka-table-apikeys">
           {this.getTable(this.state.data)}

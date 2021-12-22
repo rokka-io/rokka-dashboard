@@ -8,6 +8,12 @@ const SelectStackOption = ({ label, name, value, definitions, required, onChange
   if (value === null) {
     value = ''
   }
+  const onChangeLocal = e => {
+    if (e.target.value.includes(`(default: ${definitions.default})`)) {
+      e.target.value = definitions.default
+    }
+    return onChange(e)
+  }
   return (
     <FormGroup label={label} htmlFor={name} error={error} required={required}>
       <Select
@@ -16,7 +22,7 @@ const SelectStackOption = ({ label, name, value, definitions, required, onChange
         value={value}
         defaultValue={definitions.default}
         className="rka-select"
-        onChange={onChange}
+        onChange={onChangeLocal}
       >
         {definitions.values.map(option => (
           <option key={option} value={option}>

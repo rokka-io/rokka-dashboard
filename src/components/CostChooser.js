@@ -12,7 +12,7 @@ class CostChooser extends PureComponent {
     let month = moment()
 
     let options = []
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 15; i++) {
       const value = month.startOf('month').format('YYYY-MM')
       options.push({ value: value, label: value })
       month = month.subtract(1, 'months')

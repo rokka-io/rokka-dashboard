@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react'
 import rokka from '../rokka'
 import Spinner from './Spinner'
 import FramelessLayout from './layouts/FramelessLayout'
-import { login, setAlert } from '../state'
+import { setAlert } from '../state'
 import cx from 'classnames'
 
 function hasUpperCase(str) {
@@ -31,16 +31,8 @@ class Signup extends PureComponent {
     rokka()
       .users.create(this.state.email, this.state.organization)
       .then(response => {
-        return login(this.state.organization, response.body.api_key, done => {
-          setAlert(
-            'success',
-            'Successfully signed up. You will receive an email with the credentials',
-            5000
-          )
-          this.setState({ showLoader: false })
-          this.props.router.history.push('/')
-          done()
-        })
+        this.setState({ showLoader: false })
+        this.props.router.history.push('/signedup')
       })
       .catch(err => {
         this.setState({ showLoader: false })

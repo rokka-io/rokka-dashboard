@@ -102,7 +102,7 @@ export function login(organization, apiKey, successCb) {
         setCookie(
           SESSION_COOKIE_KEY,
           { auth: { organization, apiKey } },
-          { maxAge: 3600 * 18, secure: window.location.protocol === 'https' }
+          { maxAge: 3600 * 18, secure: window.location.protocol === 'https:' }
         )
         listOperations()
         getDefaultStackOptions()

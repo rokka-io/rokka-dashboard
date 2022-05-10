@@ -99,7 +99,7 @@ export function login(organization, apiKey, successCb) {
 
       const done = () => {
         updateState({ auth: { organization, apiKey } })
-        setCookie(SESSION_COOKIE_KEY, { auth: { organization, apiKey } })
+        setCookie(SESSION_COOKIE_KEY, { auth: { organization, apiKey } }, { maxAge: 3600 * 18 })
         listOperations()
         getDefaultStackOptions()
       }

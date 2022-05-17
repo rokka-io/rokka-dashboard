@@ -1,13 +1,12 @@
-import rokka, { authenticate, resetClient } from '../rokka'
-import { get as getCookie, set as setCookie, del as delCookie } from '../utils/cookie'
+import rokka, {
+  authenticate,
+  resetClient,
+  ROKKA_DASHBOARD_ORG,
+  ROKKA_DASHBOARD_TOKEN
+} from '../rokka'
 
-const SESSION_COOKIE_KEY = 'rka_session'
-
-const session = getCookie(SESSION_COOKIE_KEY)
-
-if (session && session.auth) {
-  const { auth } = session
-  login(auth.organization, auth.apiKey)
+if (localStorage.getItem(ROKKA_DASHBOARD_ORG) && localStorage.getItem(ROKKA_DASHBOARD_TOKEN)) {
+  login(localStorage.getItem(ROKKA_DASHBOARD_ORG), '')
 }
 
 const defaultState = {
@@ -90,20 +89,25 @@ export function clearUploadedImages() {
  */
 export function login(organization, apiKey, successCb) {
   authenticate(apiKey)
-
-  return rokka()
-    .organizations.get(organization)
+  const rka = rokka()
+  //delete cookie, when token is not valid anymore
+  if (rka.user.getTokenIsValidFor() < 0) {
+    localStorage.removeItem(ROKKA_DASHBOARD_TOKEN)
+  }
+  return rka.organizations
+    .get(organization)
     .then(() => {
       // remove alert in case there was auth failed before.
       removeAlert()
 
       const done = () => {
-        updateState({ auth: { organization, apiKey } })
-        setCookie(
-          SESSION_COOKIE_KEY,
-          { auth: { organization, apiKey } },
-          { maxAge: 3600 * 18, secure: window.location.protocol === 'https:' }
-        )
+        updateState({
+          auth: {
+            organization,
+            apiToken: rka.user.getTokenIsValidFor() > 0 ? rka.user.getToken() : null
+          }
+        })
+        localStorage.setItem(ROKKA_DASHBOARD_ORG, organization)
         listOperations()
         getDefaultStackOptions()
       }
@@ -117,7 +121,8 @@ export function login(organization, apiKey, successCb) {
     .catch(err => {
       console.error(err)
 
-      setCookie(SESSION_COOKIE_KEY, {}) // clear session on error
+      // clear session
+      localStorage.removeItem(ROKKA_DASHBOARD_TOKEN)
 
       if (err.statusCode === 403 || err.statusCode === 404) {
         updateState({ auth: null })
@@ -140,7 +145,8 @@ export function login(organization, apiKey, successCb) {
  */
 export function logout() {
   resetClient()
-  delCookie(SESSION_COOKIE_KEY)
+  localStorage.removeItem(ROKKA_DASHBOARD_ORG)
+  localStorage.removeItem(ROKKA_DASHBOARD_TOKEN)
   updateState(defaultState)
 }
 

@@ -14,6 +14,7 @@ export function authenticate(apiKey) {
       expires_in: max_age,
       renewable: true
     },
+    apiTokenRefreshTime: max_age - 3600 * 24, // refresh it after a day
     apiTokenGetCallback: () => {
       return localStorage.getItem(ROKKA_DASHBOARD_TOKEN)
     },

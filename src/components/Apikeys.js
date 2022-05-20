@@ -104,10 +104,11 @@ class Apikeys extends PureComponent {
         </div>
         {this.state.newApiKey && (
           <div className="section rka-box no-min-height">
-            <div className={'mb-md'}>
-              Your new Api Key is:{' '}
-              <span style={{ fontWeight: 'bold' }}>{this.state.newApiKey}</span>
+            <div className={'mb-md'}>Your new Api Key is: </div>
+            <div className={'mb-md'} style={{ whiteSpace: 'pre', fontFamily: 'monospace' }}>
+              {this.state.newApiKey}
             </div>
+
             <div>Please keep it somewhere safe, you can't restore it.</div>
           </div>
         )}

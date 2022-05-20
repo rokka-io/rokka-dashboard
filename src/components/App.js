@@ -11,6 +11,7 @@ import NewStack from './NewStack'
 import '../scss/main.scss'
 import Apikeys from './Apikeys'
 import Signedup from './Signedup'
+import Memberships from './Memberships'
 
 class App extends PureComponent {
   constructor(props) {
@@ -35,6 +36,10 @@ class App extends PureComponent {
           <Route path="/images" render={props => <Images router={props} {...this.state} />} />
           <Route path="/costs" render={props => <Costs router={props} {...this.state} />} />
           <Route path="/apikeys" render={props => <Apikeys router={props} {...this.state} />} />
+          <Route
+            path="/memberships"
+            render={props => <Memberships router={props} {...this.state} />}
+          />
           <Route path="/signup" render={props => <Signup router={props} {...this.state} />} />
           <Route path="/signedup" render={props => <Signedup router={props} {...this.state} />} />
           <Route path="/stacks" render={props => <Stacks router={props} {...this.state} />} />

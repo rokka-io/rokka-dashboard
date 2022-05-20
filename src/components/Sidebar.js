@@ -117,6 +117,16 @@ class Sidebar extends PureComponent {
           </li>
           <li>
             <NavLink
+              to="/memberships"
+              exact
+              className="rka-sidebar-link"
+              activeClassName="is-active"
+            >
+              Memberships
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/costs"
               exact
               className="rka-sidebar-link"

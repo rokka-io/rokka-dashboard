@@ -4,6 +4,7 @@ import { authRequired } from '../utils/auth'
 import BaseLayout from './layouts/BaseLayout'
 import rokka from '../rokka'
 import MembershipRow from './MembershipRow'
+import { setAlert } from '../state'
 
 const DEFAULT_STATE = {
   loading: true,
@@ -27,6 +28,9 @@ class Memberships extends PureComponent {
     this.getMemberships()
   }
 
+  updateState = state => {
+    this.setState(state)
+  }
   getTable = data => {
     return (
       <table key={'table'}>
@@ -43,6 +47,7 @@ class Memberships extends PureComponent {
           {data.map(key => {
             return (
               <MembershipRow
+                updateState={this.updateState}
                 organization={this.props.auth.organization}
                 membership={key}
                 key={key.user_id}
@@ -78,30 +83,53 @@ class Memberships extends PureComponent {
   showCreateNewKey = () => {
     if (this.state.showCreate) {
       if (this.state.userIdValue) {
-        alert('Not implemented yet to add a new user')
-        return
-      }
-      rokka()
-        .memberships.createWithNewUser(
-          this.props.auth.organization,
-          this.state.rolesValue,
-          this.state.commentValue
-        )
-        .then(({ body }) => {
-          this.setState({
-            showCreate: false,
-            commentValue: '',
-            rolesValue: [],
-            newApiKey: body.api_key,
-            newUserId: body.user_id
-          })
+        rokka()
+          .memberships.create(
+            this.props.auth.organization,
+            this.state.userIdValue,
+            this.state.rolesValue,
+            this.state.commentValue
+          )
+          .then(({ body }) => {
+            this.setState({
+              showCreate: false,
+              commentValue: '',
+              userIdValue: '',
+              rolesValue: [],
+              newApiKey: body.api_key,
+              newUserId: body.user_id
+            })
 
-          this.getMemberships()
-        })
-        .catch(err => {
-          this.setState({ showCreate: false })
-          alert("Membership creation didn't work:" + err.body.error.message)
-        })
+            this.getMemberships()
+          })
+          .catch(err => {
+            this.setState({ showCreate: false })
+            setAlert('error', "Membership creation didn't work:" + err.body.error.message, 5000)
+          })
+      } else {
+        rokka()
+          .memberships.createWithNewUser(
+            this.props.auth.organization,
+            this.state.rolesValue,
+            this.state.commentValue
+          )
+          .then(({ body }) => {
+            this.setState({
+              showCreate: false,
+              commentValue: '',
+              rolesValue: [],
+              userIdValue: '',
+              newApiKey: body.api_key,
+              newUserId: body.user_id
+            })
+
+            this.getMemberships()
+          })
+          .catch(err => {
+            this.setState({ showCreate: false })
+            setAlert('error', "Membership creation didn't work:" + err.body.error.message, 5000)
+          })
+      }
     } else {
       this.setState({ showCreate: true })
     }
@@ -188,7 +216,7 @@ class Memberships extends PureComponent {
           {this.state.showCreate && (
             <button
               className="rka-button rka-button-secondary mr-md"
-              onClick={e => this.showCreateNewKey(e)}
+              onClick={e => this.setState({ showCreate: false })}
             >
               Cancel
             </button>

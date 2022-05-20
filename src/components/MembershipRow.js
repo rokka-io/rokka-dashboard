@@ -58,9 +58,25 @@ class MembershipRow extends PureComponent {
               </button>
             </>
           ) : (
-            <button className="rka-button rka-button-brand" onClick={e => this.showDelete(e)}>
-              Remove Membership
-            </button>
+            <>
+              <button
+                className="rka-button rka-button-brand"
+                style={{ marginRight: '1em' }}
+                onClick={e =>
+                  this.props.updateState({
+                    userIdValue: this.props.membership.user_id,
+                    commentValue: this.props.membership.comment,
+                    rolesValue: this.props.membership.roles,
+                    showCreate: true
+                  })
+                }
+              >
+                Edit
+              </button>
+              <button className="rka-button rka-button-brand" onClick={e => this.showDelete(e)}>
+                Remove Membership
+              </button>
+            </>
           )}
         </td>
       </tr>
@@ -72,7 +88,8 @@ MembershipRow.propTypes = {
   membership: PropTypes.object.isRequired,
   updateKeys: PropTypes.func.isRequired,
   organization: PropTypes.string.isRequired,
-  currentUserId: PropTypes.string.isRequired
+  currentUserId: PropTypes.string.isRequired,
+  updateState: PropTypes.func.isRequired
 }
 
 export default MembershipRow

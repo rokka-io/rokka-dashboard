@@ -5,6 +5,10 @@ const max_age = 3600 * 72
 export const ROKKA_DASHBOARD_TOKEN = 'rokka-dashboard-token'
 export const ROKKA_DASHBOARD_ORG = 'rokka-dashboard-org'
 
+export const apiTokenGetCallback = () => {
+  return localStorage.getItem(ROKKA_DASHBOARD_TOKEN)
+}
+
 export function authenticate(apiKey) {
   client = rokka({
     apiKey,
@@ -15,9 +19,7 @@ export function authenticate(apiKey) {
       renewable: true
     },
     apiTokenRefreshTime: max_age - 3600 * 24, // refresh it after a day
-    apiTokenGetCallback: () => {
-      return localStorage.getItem(ROKKA_DASHBOARD_TOKEN)
-    },
+    apiTokenGetCallback: apiTokenGetCallback,
     apiTokenSetCallback: token => {
       localStorage.setItem(ROKKA_DASHBOARD_TOKEN, token)
     }

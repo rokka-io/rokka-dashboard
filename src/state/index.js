@@ -6,7 +6,7 @@ import rokka, {
   ROKKA_DASHBOARD_TOKEN
 } from '../rokka'
 
-if (localStorage.getItem(ROKKA_DASHBOARD_ORG) && apiTokenGetCallback) {
+if (localStorage.getItem(ROKKA_DASHBOARD_ORG) && apiTokenGetCallback()) {
   login(localStorage.getItem(ROKKA_DASHBOARD_ORG), '')
 }
 

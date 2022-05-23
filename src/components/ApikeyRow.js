@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 import rokka from '../rokka'
+import { formatDate } from '../utils/string'
 
 const DEFAULT_STATE = {
   currentKeyId: '',
@@ -33,8 +34,8 @@ class ApikeyRow extends PureComponent {
           {this.props.apiKey.id}
         </td>
         <td>{this.props.apiKey.comment}</td>
-        <td>{this.props.apiKey.created}</td>
-        <td>{this.props.apiKey.accessed}</td>
+        <td>{formatDate(this.props.apiKey.created, 'Before December 2021')}</td>
+        <td>{formatDate(this.props.apiKey.accessed, 'Before December 2021')}</td>
         <td>
           {this.props.apiKey.id === this.props.currentKeyId ? (
             <>

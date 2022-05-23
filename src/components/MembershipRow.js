@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 import rokka from '../rokka'
+import { formatDate } from '../utils/string'
 
 const DEFAULT_STATE = {
   delete: false
@@ -34,8 +35,8 @@ class MembershipRow extends PureComponent {
         <td>{this.props.membership.email}</td>
         <td>{this.props.membership.roles.join(',')}</td>
         <td>{this.props.membership.comment}</td>
-        <td>{this.props.membership.created}</td>
-        <td>{this.props.membership.last_access}</td>
+        <td>{formatDate(this.props.membership.created, 'Before May 2022')}</td>
+        <td>{formatDate(this.props.membership.last_access, '')}</td>
         <td>
           {this.props.membership.user_id === this.props.currentUserId ? (
             <>
@@ -61,7 +62,6 @@ class MembershipRow extends PureComponent {
             <>
               <button
                 className="rka-button rka-button-brand"
-                style={{ marginRight: '1em' }}
                 onClick={e =>
                   this.props.updateState({
                     userIdValue: this.props.membership.user_id,
@@ -70,11 +70,16 @@ class MembershipRow extends PureComponent {
                     showCreate: true
                   })
                 }
+                style={{ marginBottom: '0.5em' }}
               >
                 Edit
               </button>
-              <button className="rka-button rka-button-brand" onClick={e => this.showDelete(e)}>
-                Remove Membership
+              <button
+                className="rka-button rka-button-brand"
+                onClick={e => this.showDelete(e)}
+                style={{ marginLeft: '1em' }}
+              >
+                Remove
               </button>
             </>
           )}

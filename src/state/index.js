@@ -125,7 +125,7 @@ export function login(organization, apiKey, successCb) {
       // clear session
       localStorage.removeItem(ROKKA_DASHBOARD_TOKEN)
 
-      if (err.statusCode === 403 || err.statusCode === 404) {
+      if (err.statusCode === 403 || err.statusCode === 404 || err.statusCode === 401) {
         updateState({ auth: null })
         setAlert('error', 'Authentication failed')
       } else if (err.statusCode === 400) {

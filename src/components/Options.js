@@ -52,6 +52,7 @@ class Options extends Component {
     let $addOption = null
     if (onChange) {
       const availableOptions = Object.keys(defaultOptions)
+        .sort()
         .filter(name => !addedOptions.includes(name))
         .map(name => ({
           value: defaultOptions[name].default,

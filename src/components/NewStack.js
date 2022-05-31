@@ -146,10 +146,7 @@ export class NewStack extends PureComponent {
     })
   }
 
-  onSubmit(e) {
-    e.preventDefault()
-    this.setState({ showLoader: true })
-
+  getStackConfig(showLoader = true) {
     let updateOperationsState = false
     const errors = []
 
@@ -206,7 +203,7 @@ export class NewStack extends PureComponent {
       addedOperations: operations,
       options: updatedOptions,
       // hide loader if updateOperationsState is true and we exit this function right after setState.
-      showLoader: !updateOperationsState,
+      showLoader: !updateOperationsState && showLoader,
       error: errors.length ? errors.join('. ') : null
     })
     if (updateOperationsState) {
@@ -220,7 +217,16 @@ export class NewStack extends PureComponent {
       }
     })
 
-    createStack(this.state.name, this.state.addedOperations, options)
+    return { options, operations }
+  }
+
+  onSubmit(e, preview = false) {
+    e.preventDefault()
+    this.setState({ showLoader: true })
+
+    const config = this.getStackConfig()
+
+    createStack(preview ? '_preview' : this.state.name, config.operations, config.options, preview)
       .then(({ body }) => {
         return Promise.all([body, refreshStacks()])
       })
@@ -374,17 +380,21 @@ export class NewStack extends PureComponent {
     })
   }
 
-  updatePreview(previewImage = null) {
+  async updatePreview(previewImage = null) {
     if (!previewImage) {
       return
     }
 
     const image = new window.Image()
+    const stackConfig = this.getStackConfig(false)
+
+    await createStack('_preview', stackConfig.operations, stackConfig.options, true)
     image.src = rokka().render.getUrl(
       this.props.auth.organization,
       previewImage.hash,
       previewImage.format,
-      this.state.addedOperations
+      '_preview',
+      { filename: 'preview_v' + new Date().getTime() }
     )
     image.onload = () => {
       this.setState({

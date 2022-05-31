@@ -23,7 +23,9 @@ const PreviewSidebar = ({
     original: rokka().render.getUrl(organization, previewImage.hash, format),
     dynamic: currentPreviewImage
       ? currentPreviewImage.src
-      : rokka().render.getUrl(organization, previewImage.hash, format, stack)
+      : rokka().render.getUrl(organization, previewImage.hash, format, stack, {
+          filename: 'preview_v' + Math.floor(new Date().getTime() / 30 / 1000)
+        })
   }
 
   return (

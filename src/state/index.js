@@ -275,8 +275,13 @@ export function getDefaultStackOptions() {
  *
  * @return {Promise}
  */
-export function createStack(name, operations, options) {
-  return rokka().stacks.create(internalState.auth.organization, name, operations, options)
+export function createStack(name, operations, options, overwrite = false) {
+  return rokka().stacks.create(
+    internalState.auth.organization,
+    name,
+    { operations, options },
+    { overwrite }
+  )
 }
 
 /**

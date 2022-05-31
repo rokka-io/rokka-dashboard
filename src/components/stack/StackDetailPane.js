@@ -21,12 +21,18 @@ const StackDetailPane = ({
   onRemoveOperation,
   setActiveOperation,
   onMoveOperation,
-  onSelectAddOperation
+  onSelectAddOperation,
+  router
 }) => {
   const operationsTab = addedOperations.length > 0 || !!onAddOperation
   const addedOptionsKeys = Object.keys(options)
   const optionsTab = !operationsTab || addedOptionsKeys.length > 0 || !!onChangeOptions
-
+  const {
+    match: {
+      params: { tabindex }
+    }
+  } = router
+  const tabindexNumber = parseInt(tabindex || '0')
   return (
     <>
       {onChangeName && (
@@ -44,8 +50,22 @@ const StackDetailPane = ({
           </FormGroup>
         </>
       )}
-
-      <Tabs>
+      <Tabs
+        defaultIndex={tabindexNumber}
+        onSelect={index => {
+          let root
+          if (router.match.path.startsWith('/new-stack')) {
+            root = '/new-stack'
+          } else {
+            root = `/stacks/${name}`
+          }
+          if (index === 0) {
+            router.history.push(root)
+          } else {
+            router.history.push(`${root}/${index}`)
+          }
+        }}
+      >
         <TabList>
           {operationsTab && <Tab>Operations</Tab>}
           {optionsTab && <Tab>Options</Tab>}
@@ -108,6 +128,11 @@ StackDetailPane.propTypes = {
   name: PropTypes.string,
   activeOperation: PropTypes.number,
   addedOperations: PropTypes.array,
-  availableOperations: PropTypes.object
+  availableOperations: PropTypes.object,
+  router: PropTypes.shape({
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    })
+  }).isRequired
 }
 export default StackDetailPane

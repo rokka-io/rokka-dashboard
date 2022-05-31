@@ -166,6 +166,8 @@ class Stack extends PureComponent {
                 addedOperations={addedOperations}
                 options={options}
                 defaultOptions={defaultOptions}
+                router={this.props.router}
+                name={stack.name}
               />
               <div className="mt-lg">
                 <button

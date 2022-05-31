@@ -501,6 +501,7 @@ export class NewStack extends PureComponent {
                         defaultOptions={stackOptions ? stackOptions.properties : {}}
                         selectedOperation={selectedOperation}
                         onChangeOptions={this.onChangeOptions}
+                        router={this.props.router}
                       />
                     </div>
                     <PreviewSidebar

@@ -18,7 +18,7 @@ class Stacks extends PureComponent {
                 render={props => <NoStackSelected {...{ ...this.props, ...{ router: props } }} />}
               />
               <Route
-                path="/stacks/:name"
+                path="/stacks/:name/:tabindex?"
                 render={props => <Stack {...{ ...this.props, ...{ router: props } }} />}
               />
             </div>

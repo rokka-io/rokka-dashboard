@@ -43,7 +43,10 @@ class App extends PureComponent {
           <Route path="/signup" render={props => <Signup router={props} {...this.state} />} />
           <Route path="/signedup" render={props => <Signedup router={props} {...this.state} />} />
           <Route path="/stacks" render={props => <Stacks router={props} {...this.state} />} />
-          <Route path="/new-stack" render={props => <NewStack router={props} {...this.state} />} />
+          <Route
+            path="/new-stack/:tabindex?"
+            render={props => <NewStack router={props} {...this.state} />}
+          />
         </div>
       </HashRouter>
     )

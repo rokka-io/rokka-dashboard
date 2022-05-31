@@ -38,7 +38,7 @@ class Sidebar extends PureComponent {
 
   render() {
     const routePath = this.props.router.location.pathname
-    const showStacks = routePath.indexOf('/stack') >= 0 || routePath === '/new-stack'
+    const showStacks = routePath.indexOf('/stack') >= 0 || routePath.startsWith('/new-stack')
 
     const showAccessControl = routePath === '/apikeys' || routePath === '/memberships'
     const { currentOffset = 0, total = 0, filteredItems = [] } = this.props.stacks

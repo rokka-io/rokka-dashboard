@@ -43,18 +43,20 @@ class Sidebar extends PureComponent {
     const showAccessControl = routePath === '/apikeys' || routePath === '/memberships'
     const { currentOffset = 0, total = 0, filteredItems = [] } = this.props.stacks
 
-    const $stacks = filteredItems.map(stack => {
-      return (
-        <NavLink
-          key={stack.name}
-          to={`/stacks/${stack.name}`}
-          activeClassName="is-active"
-          className="rka-sidebar-sublink txt-ellipsis"
-        >
-          {stack.name}
-        </NavLink>
-      )
-    })
+    const $stacks = filteredItems
+      .filter(stack => !stack.name.startsWith('_preview'))
+      .map(stack => {
+        return (
+          <NavLink
+            key={stack.name}
+            to={`/stacks/${stack.name}`}
+            activeClassName="is-active"
+            className="rka-sidebar-sublink txt-ellipsis"
+          >
+            {stack.name}
+          </NavLink>
+        )
+      })
 
     const $loadMore =
       currentOffset < total ? (

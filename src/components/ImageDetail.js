@@ -125,7 +125,7 @@ class ImageDetail extends PureComponent {
     this.getImage(this.props.router.match.params.hash)
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.router.match.params.hash !== this.props.router.match.params.hash) {
       this.getImage(nextProps.router.match.params.hash)
     }

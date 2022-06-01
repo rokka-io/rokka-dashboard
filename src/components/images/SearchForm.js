@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import Select, { Creatable } from 'react-select'
+import Select from 'react-select'
+import Creatable from 'react-select/creatable'
 import { styles } from '../forms/ReactSelect'
 import searchIcon from '../../img/search.svg'
 import { ROKKA_TYPES } from '../imagedetail/UserMetadataRow'

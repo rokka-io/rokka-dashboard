@@ -25,7 +25,7 @@ class InputRange extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.state.value) {
       this.setState({
         value: getValue(nextProps)

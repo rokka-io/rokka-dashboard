@@ -23,7 +23,7 @@ class CostDetail extends PureComponent {
     this.getCosts(this.props.router.match.params.date)
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.router.match.params.date !== this.props.router.match.params.date) {
       this.getCosts(nextProps.router.match.params.date)
     }

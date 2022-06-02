@@ -441,7 +441,7 @@ export class NewStack extends PureComponent {
       await createStackByConfig(
         '_preview_rokka_dashboard',
         {
-          ...stackConfig,
+          ...this.state.stack,
           description:
             'Created by the rokka Dashboard on ' + new Date() + '. Can be safely deleted.'
         },

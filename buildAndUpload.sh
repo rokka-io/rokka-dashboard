@@ -2,7 +2,7 @@
 
 set -e
 
-export PUBLIC_URL='/dashboard'
+export PUBLIC_URL='/dashboard-beta'
 
 npm run build
 

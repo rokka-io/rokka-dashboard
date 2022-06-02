@@ -29,7 +29,6 @@ export const JsonView = ({ value }) => {
     delete op.errors
     return op
   })
-  console.log('JSONView', cleanedValue)
   const [copied, setCopied] = useState(false)
   return (
     <>

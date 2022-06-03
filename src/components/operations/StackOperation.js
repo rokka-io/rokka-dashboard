@@ -66,8 +66,12 @@ export default function StackOperation({
     if (name.includes('color')) {
       return <ColorStackOption {...operationProps} />
     }
-
-    switch (definition.type) {
+    let type = definition.type
+    // take the first one, if it's an array
+    if (Array.isArray(definition.type)) {
+      type = definition.type[0]
+    }
+    switch (type) {
       case 'number':
       // fallthrough
       case 'integer':

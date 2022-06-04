@@ -1,7 +1,4 @@
 import React, { useState } from 'react'
-import 'jsoneditor-react/es/editor.min.css'
-import 'brace/mode/json'
-import 'brace/theme/textmate'
 import { normalizeStack } from '../../state'
 import JSONPretty from 'react-json-prettify'
 import { CopyToClipboard } from 'react-copy-to-clipboard'

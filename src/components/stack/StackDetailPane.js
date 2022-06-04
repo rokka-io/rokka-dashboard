@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import PropTypes from 'prop-types'
 import FormGroup from '../forms/FormGroup'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 import OperationList from './OperationList'
 import Options from '../Options'
-import JsonEditor from './JsonEditor'
 import JsonView from './JsonView'
 import { addIdAndErrorsToStackOperations } from '../../state'
+import Spinner from '../Spinner'
+const JsonEditor = lazy(() => import('./JsonEditor'))
 
 const StackDetailPane = ({
   name,
@@ -46,7 +47,7 @@ const StackDetailPane = ({
   if (optionsTab) {
     tabs.push('Options')
   }
-  tabs.push('JSON')
+  tabs.push('JSON Config')
   const foundIndex = tabindex ? tabs.findIndex(tab => tab === tabindex) : 0
   const tabindexNumber = foundIndex < 0 ? 0 : foundIndex
   return (
@@ -122,23 +123,25 @@ const StackDetailPane = ({
           </TabPanel>
         )}
         <TabPanel>
-          {tabindex === 'JSON' &&
+          {tabindex === 'JSON Config' &&
             (onChangeOperation ? (
-              <JsonEditor
-                key={name}
-                value={
-                  stack || {
-                    description: '',
-                    operations: [],
-                    options: {},
-                    expressions: [],
-                    variables: {}
+              <Suspense fallback={<Spinner />}>
+                <JsonEditor
+                  key={name}
+                  value={
+                    stack || {
+                      description: '',
+                      operations: [],
+                      options: {},
+                      expressions: [],
+                      variables: {}
+                    }
                   }
-                }
-                setValue={value => {
-                  setStack(value)
-                }}
-              ></JsonEditor>
+                  setValue={value => {
+                    setStack(value)
+                  }}
+                ></JsonEditor>
+              </Suspense>
             ) : (
               <JsonView
                 key={name}

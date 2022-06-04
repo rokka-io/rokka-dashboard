@@ -81,7 +81,7 @@ class Stack extends PureComponent {
     const stack = this.getCurrentStack()
     const name = stack.name + '_copy'
     cloneStack(name, stack)
-    this.props.router.history.push(`/new-stack${json ? '/JSON' : ''}`)
+    this.props.router.history.push(`/new-stack${json ? '/JSON Config' : ''}`)
   }
 
   render() {
@@ -150,11 +150,11 @@ class Stack extends PureComponent {
       <Fragment>
         <Header
           title={stack.name}
-          cloneStack={e => this.onClickDuplicateStack(e, tabindex === 'JSON')}
+          cloneStack={e => this.onClickDuplicateStack(e, tabindex === 'JSON Config')}
         >
           <button
             className="rka-button rka-button-brand"
-            onClick={e => this.onClickDuplicateStack(e, tabindex === 'JSON')}
+            onClick={e => this.onClickDuplicateStack(e, tabindex === 'JSON Config')}
           >
             Clone stack
           </button>

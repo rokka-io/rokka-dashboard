@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import rokka from '../../rokka'
 import Alert from '../Alert'
-import Spinner from '../Spinner'
 
 const PreviewSidebar = ({
   organization,

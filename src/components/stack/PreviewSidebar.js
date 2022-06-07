@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import rokka from '../../rokka'
 import Alert from '../Alert'
@@ -17,6 +17,7 @@ const PreviewSidebar = ({
     return null
   }
 
+  const [preview, setPreview] = useState(null)
   const format = previewImage.format === 'jpg' ? 'jpg' : 'png'
 
   const previewImages = {
@@ -24,10 +25,9 @@ const PreviewSidebar = ({
     dynamic: currentPreviewImage
       ? currentPreviewImage.src
       : rokka().render.getUrl(organization, previewImage.hash, format, stack, {
-          filename: 'preview_v' + Math.floor(new Date().getTime() / 30 / 1000)
+          filename: 'preview_v' + Math.floor(new Date().getTime() / 10 / 1000)
         })
   }
-
   return (
     <div className="col-md-5 col-sm-5">
       <h3 className="rka-h2 mv-md">
@@ -49,8 +49,17 @@ const PreviewSidebar = ({
           </a>
         </p>
         {error ? <Alert alert={{ type: 'error', message: error }} /> : null}
-        {imageLoading ? <Spinner /> : <img src={previewImages.dynamic} alt="Customized" />}
+        {<img src={preview || previewImage.dynamic} alt="Customized" />}
       </div>
+      <img
+        src={previewImages.dynamic}
+        alt="Customized"
+        style={{ display: 'none' }}
+        onLoad={e => {
+          console.log('loaded', e.target.src)
+          setPreview(e.target.src)
+        }}
+      />
       <div className="rka-stack-img-container bg-chess bor-light txt-c">
         <p className="pa-md bg-white txt-l">
           Original

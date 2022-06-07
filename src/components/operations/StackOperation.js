@@ -48,7 +48,12 @@ export default function StackOperation({
 
   const $rows = sortedProps.map(name => {
     const definition = properties[name]
-
+    if (!values) {
+      values = []
+    }
+    if (values[name] === undefined) {
+      values[name] = definition.default
+    }
     const operationProps = {
       key: name,
       label: readableInputLabel(name),

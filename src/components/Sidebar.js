@@ -42,14 +42,14 @@ class Sidebar extends PureComponent {
 
     const showAccessControl = routePath === '/apikeys' || routePath === '/memberships'
     const { currentOffset = 0, total = 0, filteredItems = [] } = this.props.stacks
-
+    const tabindex = this.props.router.match.params.tabindex
     const $stacks = filteredItems
       .filter(stack => !stack.name.startsWith('_preview'))
       .map(stack => {
         return (
           <NavLink
             key={stack.name}
-            to={`/stacks/${stack.name}`}
+            to={`/stacks/${stack.name}${tabindex ? '/' + tabindex : ''}`}
             activeClassName="is-active"
             className="rka-sidebar-sublink txt-ellipsis"
           >

@@ -48,3 +48,9 @@
 
 // helpers
 @import 'base/helpers';
+
+pre {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  font-size: 14px;
+  line-height: 18px;
+}

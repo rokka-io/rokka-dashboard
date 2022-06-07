@@ -4,7 +4,14 @@ import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 import cx from 'classnames'
 import { authRequired } from '../utils/auth'
-import { resetStackClone, createStack, refreshStacks, setAlert } from '../state'
+import {
+  resetStackClone,
+  createStack,
+  refreshStacks,
+  setAlert,
+  createStackByConfig,
+  generateRandomId
+} from '../state'
 import previewImage from './images/previewImage'
 import rokka from '../rokka'
 import Ajv from 'ajv'
@@ -13,27 +20,30 @@ import Header from './stack/Header'
 import BaseLayout from './layouts/BaseLayout'
 import StackDetailPane from './stack/StackDetailPane'
 import Spinner from './Spinner'
-
-function randomNumber(min, max) {
-  return Math.random() * (max - min) + min
-}
-
-function generateRandomId() {
-  const max = Math.random() * 10
-  const min = Math.random() * 2
-
-  return Date.now() + '-' + randomNumber(min, max)
-}
+import { debounce } from 'lodash'
 
 const ajv = new Ajv({
   allErrors: true
 })
+
+function getStackOperations(stack) {
+  if (!stack.operations || !Array.isArray(stack.operations)) {
+    return []
+  }
+  return stack.operations
+}
 
 export class NewStack extends PureComponent {
   constructor(props) {
     super(props)
 
     const { stackClone = {} } = props
+    if (!stackClone.operations) {
+      stackClone.operations = []
+    }
+    if (!stackClone.options) {
+      stackClone.options = {}
+    }
 
     let options = {}
     if (stackClone.options) {
@@ -53,7 +63,7 @@ export class NewStack extends PureComponent {
     this.state = {
       name: stackClone.name || '',
       options: options,
-      addedOperations: stackClone.operations || [],
+      stack: stackClone,
       operationErrors: {},
       error: null,
       activeOperation: 0,
@@ -78,15 +88,28 @@ export class NewStack extends PureComponent {
     this.onMoveOperation = this.onMoveOperation.bind(this)
     this.onSelectAddOperation = this.onSelectAddOperation.bind(this)
     this.updatePreview = this.updatePreview.bind(this)
+    this.setStack = this.setStack.bind(this)
+    this.onKeypress = this.onKeypress.bind(this)
   }
 
   componentDidMount() {
     resetStackClone()
     this.props.loadPreviewImage()
+    window.addEventListener('keypress', this.onKeypress)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keypress', this.onKeypress)
   }
 
   componentDidUpdate(prevProps) {
     if (!prevProps.previewImage || prevProps.previewImage.hash !== this.props.previewImage.hash) {
+      this.updatePreview(this.props.previewImage)
+    }
+  }
+
+  onKeypress(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'w') {
       this.updatePreview(this.props.previewImage)
     }
   }
@@ -120,24 +143,41 @@ export class NewStack extends PureComponent {
   onAddOperation(e) {
     e && e.preventDefault()
 
+    const stack = { ...this.state.stack }
+    stack.operations = getStackOperations(stack)
+    stack.operations.push({
+      // react drag and drop requires a unique id which stays the same across reorders
+      // otherwise when moving an operation from index 0 to 1, the element might need to be recreated
+      // and react-dnd looses track of it.
+      id: generateRandomId(),
+      name: this.state.selectedOperation,
+      options: {},
+      errors: {}
+    })
+    this.debouncePreview()
+
     this.setState({
-      addedOperations: [
-        ...this.state.addedOperations,
-        {
-          // react drag and drop requires a unique id which stays the same across reorders
-          // otherwise when moving an operation from index 0 to 1, the element might need to be recreated
-          // and react-dnd looses track of it.
-          id: generateRandomId(),
-          name: this.state.selectedOperation,
-          options: {},
-          errors: {}
-        }
-      ],
-      activeOperation: this.state.addedOperations.length,
+      stack,
+      activeOperation: stack.operations.length - 1,
       preview: Object.assign({}, this.state.preview, {
         updated: false
       })
     })
+  }
+
+  _updatePreviewAfterDebounce() {
+    this.updatePreview(this.props.previewImage)
+  }
+  debouncePreview = debounce(this._updatePreviewAfterDebounce, 300)
+
+  setStack(stack) {
+    this.setState({
+      stack: { ...stack },
+      activeOperation: stack.operations.length - 1,
+      preview: { ...this.state.preview, updated: false }
+    })
+
+    this.debouncePreview()
   }
 
   onSelectAddOperation(e) {
@@ -151,38 +191,45 @@ export class NewStack extends PureComponent {
     const errors = []
 
     const operationValidators = this.generateOperationValidators(this.props.operations)
-    const operations = this.state.addedOperations.map(operation => {
-      const valid = operationValidators[operation.name](operation.options)
-      if (!valid) {
-        updateOperationsState = true
+    const operations = getStackOperations(this.state.stack)
+      .filter(operation => operationValidators[operation.name])
+      .map(operation => {
+        const valid = operationValidators[operation.name](operation.options)
+        if (!valid) {
+          console.log('!valid2', operation.name, operationValidators[operation.name].errors)
+          updateOperationsState = true
 
-        operationValidators[operation.name].errors.forEach(e => {
-          let property = null
-          if (e.keyword === 'required') {
-            property = e.params.missingProperty
-          } else {
-            property = e.dataPath.replace('.', '')
-          }
-          operation.errors[property] = e.message
-          errors.push(`${property}: ${e.message}`)
-        })
-      }
+          operationValidators[operation.name].errors.forEach(e => {
+            let property = null
+            if (e.keyword === 'required') {
+              property = e.params.missingProperty
+            } else {
+              property = e.dataPath.replace('.', '')
+            }
+            if (!operation.errors) {
+              operation.errors = {}
+            }
+            operation.errors[property] = e.message
+            errors.push(`${property}: ${e.message}`)
+          })
+        }
 
-      return operation
-    })
+        return operation
+      })
 
     let options = {}
-    Object.keys(this.state.options).forEach(key => {
-      const option = this.state.options[key]
+    Object.keys(this.state.stack.options).forEach(key => {
+      const option = this.state.stack.options[key]
       if (key !== 'basestack' || (key === 'basestack' && option.value !== null)) {
         options[key] = option.value
       }
     })
 
-    let updatedOptions = Object.assign({}, this.state.options)
+    let updatedOptions = Object.assign({}, this.state.stack.options)
     const validator = ajv.compile(this.props.stackOptions || {})
     const valid = validator(options)
     if (!valid) {
+      console.log('!valid', validator.errors)
       updateOperationsState = true
 
       validator.errors.forEach(e => {
@@ -199,9 +246,11 @@ export class NewStack extends PureComponent {
       })
     }
 
+    const stack = { ...this.state.stack }
+    stack.operations = operations
+    stack.options = updatedOptions
     this.setState({
-      addedOperations: operations,
-      options: updatedOptions,
+      stack,
       // hide loader if updateOperationsState is true and we exit this function right after setState.
       showLoader: !updateOperationsState && showLoader,
       error: errors.length ? errors.join('. ') : null
@@ -217,7 +266,7 @@ export class NewStack extends PureComponent {
       }
     })
 
-    return { options, operations }
+    return stack
   }
 
   onSubmit(e, preview = false) {
@@ -226,7 +275,12 @@ export class NewStack extends PureComponent {
 
     const config = this.getStackConfig()
 
-    createStack(preview ? '_preview' : this.state.name, config.operations, config.options, preview)
+    createStack(
+      preview ? '_preview_rokka_dashboard' : this.state.name,
+      config.operations,
+      config.options,
+      preview
+    )
       .then(({ body }) => {
         return Promise.all([body, refreshStacks()])
       })
@@ -253,8 +307,8 @@ export class NewStack extends PureComponent {
       value = currentTarget.type === 'checkbox' ? currentTarget.checked : currentTarget.value
       name = currentTarget.name
     }
-
-    let operation = this.state.addedOperations[idx]
+    const stackOperations = getStackOperations(this.state.stack)
+    let operation = stackOperations[idx]
 
     const operationDefinition = this.props.operations[operation.name]
 
@@ -272,19 +326,12 @@ export class NewStack extends PureComponent {
       }
     }
 
-    operation = Object.assign({}, operation, {
-      options: Object.assign({}, operation.options, {
-        [name]: value
-      })
-    })
-    const operations = [
-      ...this.state.addedOperations.slice(0, idx),
-      operation,
-      ...this.state.addedOperations.slice(idx + 1)
-    ]
+    const newOptions = { ...operation.options, [name]: value }
+    stackOperations[idx] = { ...stackOperations[idx], options: newOptions }
+    this.debouncePreview()
 
     this.setState({
-      addedOperations: operations,
+      stack: { ...this.state.stack, operations: stackOperations },
       preview: Object.assign({}, this.state.preview, { updated: false })
     })
   }
@@ -331,17 +378,20 @@ export class NewStack extends PureComponent {
       // keeps the original value
     }
 
+    this.debouncePreview()
     this.setState({
-      options: Object.assign({}, this.state.options, {
-        [name]: { value }
-      })
+      stack: {
+        ...this.state.stack,
+        options: { ...(this.state.stack.options || {}), [name]: value }
+      }
     })
   }
 
   onMoveOperation(dragIndex, hoverIndex) {
-    let { addedOperations, activeOperation } = this.state
-    const dragOperation = addedOperations[dragIndex]
-    const hoverOperation = addedOperations[hoverIndex]
+    let { stack, activeOperation } = this.state
+    const operations = getStackOperations(stack)
+    const dragOperation = operations[dragIndex]
+    const hoverOperation = operations[hoverIndex]
 
     if (activeOperation === dragIndex) {
       activeOperation = hoverIndex
@@ -349,11 +399,11 @@ export class NewStack extends PureComponent {
       activeOperation = dragIndex
     }
 
-    addedOperations[dragIndex] = hoverOperation
-    addedOperations[hoverIndex] = dragOperation
-
+    operations[dragIndex] = hoverOperation
+    operations[hoverIndex] = dragOperation
+    this.debouncePreview()
     this.setState({
-      addedOperations: [...addedOperations],
+      stack: { ...stack },
       activeOperation: activeOperation,
       preview: Object.assign({}, this.state.preview, { updated: false })
     })
@@ -361,13 +411,13 @@ export class NewStack extends PureComponent {
 
   onRemoveOperation(e, index) {
     e.preventDefault()
+    let { stack } = this.state
 
-    const addedOperations = [
-      ...this.state.addedOperations.slice(0, index),
-      ...this.state.addedOperations.slice(index + 1)
-    ]
+    const operations = getStackOperations(stack)
+    const newOperations = [...operations.slice(0, index), ...operations.slice(index + 1)]
+    this.debouncePreview()
     this.setState({
-      addedOperations,
+      stack: { ...stack, operations: newOperations },
       preview: Object.assign({}, this.state.preview, { updated: false })
     })
   }
@@ -387,13 +437,32 @@ export class NewStack extends PureComponent {
 
     const image = new window.Image()
     const stackConfig = this.getStackConfig(false)
-
-    await createStack('_preview', stackConfig.operations, stackConfig.options, true)
+    try {
+      await createStackByConfig(
+        '_preview_rokka_dashboard',
+        {
+          ...stackConfig,
+          description:
+            'Created by the rokka Dashboard on ' + new Date() + '. Can be safely deleted.'
+        },
+        true
+      )
+    } catch (e) {
+      this.setState({
+        preview: Object.assign({}, this.state.preview, {
+          error: e.error.error.message,
+          imageLoading: false
+        }),
+        error: e.error.error.message
+      })
+      console.log(e.error.error.message)
+      return
+    }
     image.src = rokka().render.getUrl(
       this.props.auth.organization,
       previewImage.hash,
       previewImage.format,
-      '_preview',
+      '_preview_rokka_dashboard',
       { filename: 'preview_v' + new Date().getTime() }
     )
     image.onload = () => {
@@ -406,7 +475,7 @@ export class NewStack extends PureComponent {
     image.onerror = () => {
       this.setState({
         preview: Object.assign({}, this.state.preview, {
-          error: 'Invalid combination of image parameters.',
+          error: 'Something went wrong loading the preview',
           imageLoading: false
         })
       })
@@ -423,16 +492,7 @@ export class NewStack extends PureComponent {
   }
 
   render() {
-    const {
-      error,
-      selectedOperation,
-      preview,
-      showLoader,
-      name,
-      options,
-      activeOperation,
-      addedOperations
-    } = this.state
+    const { error, selectedOperation, preview, showLoader, name, activeOperation } = this.state
     const {
       previewImage,
       stacks,
@@ -443,7 +503,6 @@ export class NewStack extends PureComponent {
     } = this.props
 
     const $error = error ? <div className="rka-alert is-error mb-lg">{error}</div> : null
-
     if (!selectedOperation) {
       return null
     }
@@ -486,17 +545,19 @@ export class NewStack extends PureComponent {
                     <div className="col-md-7 col-sm-7">
                       <StackDetailPane
                         name={name}
-                        options={options}
+                        options={this.state.stack.options}
                         stacks={stacks}
+                        stack={this.state.stack}
                         onChangeName={this.onChangeName}
                         onChangeOperation={this.onChange}
                         onAddOperation={this.onAddOperation}
+                        setStack={this.setStack}
                         onRemoveOperation={this.onRemoveOperation}
                         setActiveOperation={this.setActiveOperation}
                         onMoveOperation={this.onMoveOperation}
                         onSelectAddOperation={this.onSelectAddOperation}
                         activeOperation={activeOperation}
-                        addedOperations={addedOperations}
+                        addedOperations={this.state.stack ? this.state.stack.operations : []}
                         availableOperations={operations}
                         defaultOptions={stackOptions ? stackOptions.properties : {}}
                         selectedOperation={selectedOperation}

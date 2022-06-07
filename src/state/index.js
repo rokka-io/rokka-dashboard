@@ -12,7 +12,7 @@ if (localStorage.getItem(ROKKA_DASHBOARD_ORG) && apiTokenGetCallback()) {
 
 const defaultState = {
   showSidebar: false,
-  stackClone: {},
+  stackClone: { operations: [], options: {} },
   auth: null,
   uploadedImages: [],
   deletedImages: [],
@@ -276,12 +276,11 @@ export function getDefaultStackOptions() {
  * @return {Promise}
  */
 export function createStack(name, operations, options, overwrite = false) {
-  return rokka().stacks.create(
-    internalState.auth.organization,
-    name,
-    { operations, options },
-    { overwrite }
-  )
+  return createStackByConfig(name, { operations, options }, overwrite)
+}
+
+export function createStackByConfig(name, config, overwrite = false) {
+  return rokka().stacks.create(internalState.auth.organization, name, config, { overwrite })
 }
 
 /**
@@ -346,19 +345,41 @@ export function subscribe(cb) {
  * Clone stack
  *
  * @param {string} name
- * @param {object} operations
- * @param {object} options
+ * @param {object} stack
  */
-export function cloneStack(name, operations, options) {
+export function cloneStack(name, stack) {
   updateState({
     stackClone: {
-      name: name,
-      operations: operations,
-      options: options
+      ...normalizeStack(stack),
+      name: name
     }
   })
 }
 
+/**
+ *
+ * @param {object} stack
+ */
+export function normalizeStack(stack) {
+  if (stack.stack_operations) {
+    stack.operations = stack.stack_operations
+    delete stack.stack_operations
+  }
+  if (stack.stack_options) {
+    stack.options = stack.stack_options
+    delete stack.stack_options
+  }
+  if (stack.stack_expressions) {
+    stack.expressions = stack.stack_expressions
+    delete stack.stack_expressions
+  }
+
+  if (stack.stack_variables) {
+    stack.variables = stack.stack_variables
+    delete stack.stack_variables
+  }
+  return { ...stack }
+}
 /**
  * Reset stack clone state
  *
@@ -367,6 +388,41 @@ export function resetStackClone() {
   updateState({
     stackClone: {}
   })
+}
+export function removeIdAndErrorsToStackOperations(stack) {
+  stack.operations = stack.operations.map(op => {
+    delete op.id
+    delete op.errors
+    return op
+  })
+  return stack
+}
+
+function randomNumber(min, max) {
+  return Math.random() * (max - min) + min
+}
+
+export function generateRandomId() {
+  const max = Math.random() * 10
+  const min = Math.random() * 2
+
+  return Date.now() + '-' + randomNumber(min, max)
+}
+
+export function addIdAndErrorsToStackOperations(stack) {
+  stack.operations = stack.operations.map(op => {
+    const newOp = { ...op }
+    if (!newOp.errors) {
+      newOp.errors = {}
+    }
+
+    if (!newOp.id) {
+      newOp.id = generateRandomId()
+    }
+    return newOp
+  })
+
+  return stack
 }
 
 // export state as readonly

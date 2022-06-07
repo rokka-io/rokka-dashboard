@@ -5,6 +5,7 @@ import { listStacks, filterStacks } from '../state'
 import addIcon from '../img/add-icon.svg'
 import cx from 'classnames'
 import searchIcon from '../img/search.svg'
+import { removeStackFromStorage } from './NewStack'
 
 function isStacksActive(match, location) {
   if (match) {
@@ -91,7 +92,12 @@ class Sidebar extends PureComponent {
             >
               Stacks
             </NavLink>
-            <NavLink to="/new-stack" className="rka-sidebar-link-icon" activeClassName="is-active">
+            <NavLink
+              to="/new-stack"
+              className="rka-sidebar-link-icon"
+              activeClassName="is-active"
+              onClick={removeStackFromStorage}
+            >
               <svg className="rka-add-icon">
                 <use xlinkHref={addIcon + '#add-icon'} />
               </svg>

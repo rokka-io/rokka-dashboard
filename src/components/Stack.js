@@ -9,6 +9,7 @@ import Spinner from './Spinner'
 import Alert from './Alert'
 import Header from './stack/Header'
 import StackDetailPane from './stack/StackDetailPane'
+import { setStackToStorage } from './NewStack'
 
 class Stack extends PureComponent {
   constructor(props) {
@@ -80,6 +81,7 @@ class Stack extends PureComponent {
   onClickDuplicateStack(e, json = false) {
     const stack = this.getCurrentStack()
     const name = stack.name + '_copy'
+    setStackToStorage(stack)
     cloneStack(name, stack)
     this.props.router.history.push(`/new-stack${json ? '/JSON Config' : ''}`)
   }
@@ -113,13 +115,6 @@ class Stack extends PureComponent {
 
     const { stackOptions, operations: availableOperations } = this.props
     const defaultOptions = stackOptions ? stackOptions.properties : {}
-    const { operations: addedOperations = [], options: addedOptions = {} } = stack
-
-    const addedOptionsKeys = Object.keys(addedOptions)
-    const options = addedOptionsKeys.reduce((accumulator, key) => {
-      accumulator[key] = { value: addedOptions[key] }
-      return accumulator
-    }, {})
 
     let $confirmDeleteModal = null
     if (this.state.confirmDeleteStack) {

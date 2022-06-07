@@ -33,11 +33,28 @@ function getStackOperations(stack) {
   return stack.operations
 }
 
+export const ROKKA_DASHBOARD_LAST_STACK = 'rokka-dashboard-laststack'
+
+export function setStackToStorage(stack) {
+  window.sessionStorage.setItem(ROKKA_DASHBOARD_LAST_STACK, JSON.stringify(stack))
+}
+
+export function removeStackFromStorage() {
+  window.sessionStorage.removeItem(ROKKA_DASHBOARD_LAST_STACK)
+}
+
+function getStackFromStorage() {
+  return JSON.parse(window.sessionStorage.getItem(ROKKA_DASHBOARD_LAST_STACK) || '{}')
+}
+
 export class NewStack extends PureComponent {
   constructor(props) {
     super(props)
 
-    const { stackClone = {} } = props
+    let { stackClone = {} } = props
+    if (Object.keys(stackClone).length === 0) {
+      stackClone = getStackFromStorage()
+    }
     if (!stackClone.operations) {
       stackClone.operations = []
     }
@@ -171,6 +188,14 @@ export class NewStack extends PureComponent {
   debouncePreview = debounce(this._updatePreviewAfterDebounce, 300)
 
   setStack(stack) {
+    if (!stack.operations) {
+      stack.operations = []
+    }
+
+    if (!stack.options) {
+      stack.options = {}
+    }
+    setStackToStorage(stack)
     this.setState({
       stack: { ...stack },
       activeOperation: stack.operations.length - 1,
@@ -436,7 +461,6 @@ export class NewStack extends PureComponent {
     }
 
     const image = new window.Image()
-    const stackConfig = this.getStackConfig(false)
     try {
       await createStackByConfig(
         '_preview_rokka_dashboard',

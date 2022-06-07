@@ -12,7 +12,7 @@ if (localStorage.getItem(ROKKA_DASHBOARD_ORG) && apiTokenGetCallback()) {
 
 const defaultState = {
   showSidebar: false,
-  stackClone: { operations: [], options: {} },
+  stackClone: {},
   auth: null,
   uploadedImages: [],
   deletedImages: [],

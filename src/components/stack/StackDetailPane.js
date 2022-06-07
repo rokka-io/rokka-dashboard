@@ -32,7 +32,7 @@ const StackDetailPane = ({
   setStack
 }) => {
   const operationsTab = stack.operations.length > 0 || !!onAddOperation
-  const addedOptionsKeys = Object.keys(options)
+  const addedOptionsKeys = Object.keys(options || {})
   const optionsTab = !operationsTab || addedOptionsKeys.length > 0 || !!onChangeOptions
   const {
     match: {

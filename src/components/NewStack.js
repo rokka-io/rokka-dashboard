@@ -94,7 +94,7 @@ export class NewStack extends PureComponent {
   static getDerivedStateFromProps(props, state) {
     if (props.operations && !state.selectedOperation) {
       return {
-        selectedOperation: Object.keys(props.operations).sort()[0]
+        selectedOperation: Object.keys(props.operations).find(op => op === 'resize')
       }
     }
     return null
@@ -180,7 +180,7 @@ export class NewStack extends PureComponent {
     })
 
     let updatedOptions = Object.assign({}, this.state.options)
-    const validator = ajv.compile(this.props.stackOptions)
+    const validator = ajv.compile(this.props.stackOptions || {})
     const valid = validator(options)
     if (!valid) {
       updateOperationsState = true

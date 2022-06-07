@@ -18,7 +18,6 @@ const PreviewSidebar = ({
 
   const [preview, setPreview] = useState(null)
   const format = previewImage.format === 'jpg' ? 'jpg' : 'png'
-
   const previewImages = {
     original: rokka().render.getUrl(organization, previewImage.hash, format),
     dynamic: currentPreviewImage
@@ -47,15 +46,21 @@ const PreviewSidebar = ({
             Open in new window
           </a>
         </p>
-        {error ? <Alert alert={{ type: 'error', message: error }} /> : null}
-        {<img src={preview || previewImage.dynamic} alt="Customized" />}
+        {error ? (
+          imageLoading ? (
+            <Alert alert={{ type: 'info', message: 'Image loading.' }} />
+          ) : (
+            <Alert alert={{ type: 'info', message: 'Stack config is not valid.' }} />
+          )
+        ) : (
+          <img src={preview || previewImage.dynamic} alt="Customized" />
+        )}
       </div>
       <img
         src={previewImages.dynamic}
         alt="Customized"
         style={{ display: 'none' }}
         onLoad={e => {
-          console.log('loaded', e.target.src)
           setPreview(e.target.src)
         }}
       />

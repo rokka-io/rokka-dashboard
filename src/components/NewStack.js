@@ -461,6 +461,8 @@ export class NewStack extends PureComponent {
     }
 
     const image = new window.Image()
+    this.setState({ preview: { imageLoading: true } })
+
     try {
       await createStackByConfig(
         '_preview_rokka_dashboard',
@@ -479,7 +481,6 @@ export class NewStack extends PureComponent {
         }),
         error: e.error.error.message
       })
-      console.log(e.error.error.message)
       return
     }
     image.src = rokka().render.getUrl(
@@ -489,10 +490,11 @@ export class NewStack extends PureComponent {
       '_preview_rokka_dashboard',
       { filename: 'preview_v' + new Date().getTime() }
     )
-    image.onload = () => {
+    image.onload = e => {
       this.setState({
         preview: Object.assign({}, this.state.preview, {
-          imageLoading: false
+          imageLoading: false,
+          error: null
         })
       })
     }
@@ -504,14 +506,14 @@ export class NewStack extends PureComponent {
         })
       })
     }
-
     this.setState({
       preview: Object.assign({}, this.state.preview, {
         image,
         imageLoading: true,
         updated: true,
         error: null
-      })
+      }),
+      error: null
     })
   }
 
@@ -594,7 +596,7 @@ export class NewStack extends PureComponent {
                       previewImage={previewImage}
                       currentPreviewImage={preview.image}
                       onChange={onOpenChoosePreviewImage}
-                      error={preview.error}
+                      error={error}
                       imageLoading={preview.imageLoading}
                     />
                   </div>

@@ -6,11 +6,14 @@ import ImageList from './List'
 
 const validFormats = ['jpg', 'png']
 const defaultFormat = 'png'
+const ROKKA_DASHBOARD_PREVIEW_IMAGE = 'rokka-dashboard-preview-image'
 function adjustImageFormat({ format, ...properties }) {
-  return {
+  const preview = {
     ...properties,
     format: validFormats.includes(format) ? format : defaultFormat
   }
+  window.sessionStorage.setItem(ROKKA_DASHBOARD_PREVIEW_IMAGE, JSON.stringify(preview))
+  return preview
 }
 
 /**
@@ -56,6 +59,14 @@ export default function previewImage(WrappedComponent) {
 
       const { organization } = this.props.auth
 
+      const preview = window.sessionStorage.getItem(ROKKA_DASHBOARD_PREVIEW_IMAGE)
+      if (preview) {
+        const previewImage = adjustImageFormat(JSON.parse(preview))
+        if (previewImage.organization === organization) {
+          this.setState({ preview: adjustImageFormat(JSON.parse(preview)) })
+          return
+        }
+      }
       rokka()
         .sourceimages.list(organization, 1)
         .then(({ body }) => {

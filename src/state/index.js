@@ -395,6 +395,9 @@ export function removeIdAndErrorsToStackOperations(stack) {
     delete op.errors
     return op
   })
+  delete stack.name
+  delete stack.organization
+  delete stack.created
   return stack
 }
 

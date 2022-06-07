@@ -26,7 +26,6 @@ const StackOption = ({ name, options, defaultOptions, stacks, onChange }) => {
 
   if (setOption) {
     if (!setOption.value) {
-      console.log('setOption', setOption)
       setOption = { value: setOption, error: null }
     }
     value = setOption.value

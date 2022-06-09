@@ -540,16 +540,6 @@ export class NewStack extends PureComponent {
             <div className="col-md-12">
               <form onSubmit={this.onSubmit}>
                 <Header title="New stack">
-                  {previewImage && (
-                    <button
-                      type="button"
-                      onClick={e => this.updatePreview(previewImage)}
-                      disabled={preview.updated}
-                      className="rka-button rka-button-secondary mr-md"
-                    >
-                      Update preview
-                    </button>
-                  )}
                   <button
                     className={cx('rka-button rka-button-brand', {
                       'disabled flo-r': showLoader || name === ''

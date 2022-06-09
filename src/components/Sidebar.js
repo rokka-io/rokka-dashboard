@@ -5,6 +5,7 @@ import { listStacks, filterStacks } from '../state'
 import addIcon from '../img/add-icon.svg'
 import cx from 'classnames'
 import searchIcon from '../img/search.svg'
+import { removeStackFromStorage } from './NewStack'
 
 function isStacksActive(match, location) {
   if (match) {
@@ -42,14 +43,14 @@ class Sidebar extends PureComponent {
 
     const showAccessControl = routePath === '/apikeys' || routePath === '/memberships'
     const { currentOffset = 0, total = 0, filteredItems = [] } = this.props.stacks
-
+    const tabindex = this.props.router.match.params.tabindex
     const $stacks = filteredItems
       .filter(stack => !stack.name.startsWith('_preview'))
       .map(stack => {
         return (
           <NavLink
             key={stack.name}
-            to={`/stacks/${stack.name}`}
+            to={`/stacks/${stack.name}${tabindex ? '/' + tabindex : ''}`}
             activeClassName="is-active"
             className="rka-sidebar-sublink txt-ellipsis"
           >
@@ -91,7 +92,12 @@ class Sidebar extends PureComponent {
             >
               Stacks
             </NavLink>
-            <NavLink to="/new-stack" className="rka-sidebar-link-icon" activeClassName="is-active">
+            <NavLink
+              to="/new-stack"
+              className="rka-sidebar-link-icon"
+              activeClassName="is-active"
+              onClick={removeStackFromStorage}
+            >
               <svg className="rka-add-icon">
                 <use xlinkHref={addIcon + '#add-icon'} />
               </svg>

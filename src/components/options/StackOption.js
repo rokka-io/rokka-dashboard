@@ -21,8 +21,17 @@ import { readableInputLabel } from '../../utils/string'
  */
 const StackOption = ({ name, options, defaultOptions, stacks, onChange }) => {
   const definitions = defaultOptions[name]
-  const setOption = options[name]
-  const value = setOption ? setOption.value : definitions.default
+  let setOption = options[name]
+  let value = definitions.default
+
+  if (setOption) {
+    if (!setOption.value) {
+      setOption = { value: setOption, error: null }
+    }
+    value = setOption.value
+  } else {
+    setOption = { error: null }
+  }
   const error = setOption.error || null
 
   const optionProps = {

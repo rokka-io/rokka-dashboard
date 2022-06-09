@@ -3,12 +3,13 @@ import React, { Fragment, PureComponent } from 'react'
 import { authRequired } from '../utils/auth'
 import Modal from './Modal'
 import previewImage from './images/previewImage'
-import { cloneStack, deleteStack, setAlert } from '../state'
+import { cloneStack, deleteStack, normalizeStack, setAlert } from '../state'
 import PreviewSidebar from './stack/PreviewSidebar'
 import Spinner from './Spinner'
 import Alert from './Alert'
 import Header from './stack/Header'
 import StackDetailPane from './stack/StackDetailPane'
+import { setStackToStorage } from './NewStack'
 
 class Stack extends PureComponent {
   constructor(props) {
@@ -39,13 +40,17 @@ class Stack extends PureComponent {
 
     for (const stack of items) {
       if (stack.name === name) {
-        return stack
+        return normalizeStack(stack)
       }
     }
     return false
   }
 
   componentDidUpdate() {
+    this.props.loadPreviewImage()
+  }
+
+  componentDidMount() {
     this.props.loadPreviewImage()
   }
 
@@ -77,22 +82,22 @@ class Stack extends PureComponent {
       })
   }
 
-  onClickDuplicateStack() {
+  onClickDuplicateStack(e, json = false) {
     const stack = this.getCurrentStack()
     const name = stack.name + '_copy'
-    cloneStack(name, stack.stack_operations, stack.stack_options)
-    this.props.router.history.push(`/new-stack`)
+    setStackToStorage(stack)
+    cloneStack(name, stack)
+    this.props.router.history.push(`/new-stack${json ? '/JSON Config' : ''}`)
   }
 
   render() {
     const { previewImage = null, stacks, operations, router, auth } = this.props
     const {
       match: {
-        params: { name }
+        params: { name, tabindex }
       }
     } = router
     const { organization } = auth
-
     if (!stacks.items || !operations) {
       return (
         <div className="bg-white pa-md">
@@ -114,13 +119,6 @@ class Stack extends PureComponent {
 
     const { stackOptions, operations: availableOperations } = this.props
     const defaultOptions = stackOptions ? stackOptions.properties : {}
-    const { stack_operations: addedOperations = [], stack_options: addedOptions = {} } = stack
-
-    const addedOptionsKeys = Object.keys(addedOptions)
-    const options = addedOptionsKeys.reduce((accumulator, key) => {
-      accumulator[key] = { value: addedOptions[key] }
-      return accumulator
-    }, {})
 
     let $confirmDeleteModal = null
     if (this.state.confirmDeleteStack) {
@@ -147,13 +145,15 @@ class Stack extends PureComponent {
         </Modal>
       )
     }
-
     return (
       <Fragment>
-        <Header title={stack.name} cloneStack={e => this.onClickDuplicateStack(e)}>
+        <Header
+          title={stack.name}
+          cloneStack={e => this.onClickDuplicateStack(e, tabindex === 'JSON Config')}
+        >
           <button
             className="rka-button rka-button-brand"
-            onClick={e => this.onClickDuplicateStack(e)}
+            onClick={e => this.onClickDuplicateStack(e, tabindex === 'JSON Config')}
           >
             Clone stack
           </button>
@@ -163,11 +163,15 @@ class Stack extends PureComponent {
             <div className="col-md-7 col-sm-7">
               <StackDetailPane
                 availableOperations={availableOperations}
-                addedOperations={addedOperations}
-                options={options}
+                addedOperations={stack.operations}
+                options={stack.options}
+                setStack={() => {
+                  console.log('setStack here currently does nothing.')
+                }}
                 defaultOptions={defaultOptions}
                 router={this.props.router}
-                name={stack.name}
+                name={name}
+                stack={stack}
               />
               <div className="mt-lg">
                 <button
@@ -182,7 +186,7 @@ class Stack extends PureComponent {
               organization={organization}
               onChange={this.props.onOpenChoosePreviewImage}
               previewImage={previewImage}
-              stack={stack.name}
+              stack={name}
             />
           </div>
         </div>

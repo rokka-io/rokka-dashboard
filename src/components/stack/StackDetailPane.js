@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import PropTypes from 'prop-types'
 import FormGroup from '../forms/FormGroup'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 import OperationList from './OperationList'
 import Options from '../Options'
+import JsonView from './JsonView'
+import { addIdAndErrorsToStackOperations } from '../../state'
+import Spinner from '../Spinner'
+const JsonEditor = lazy(() => import('./JsonEditor'))
 
 const StackDetailPane = ({
   name,
@@ -22,17 +26,30 @@ const StackDetailPane = ({
   setActiveOperation,
   onMoveOperation,
   onSelectAddOperation,
-  router
+  router,
+  stack,
+
+  setStack
 }) => {
-  const operationsTab = addedOperations.length > 0 || !!onAddOperation
-  const addedOptionsKeys = Object.keys(options)
+  const operationsTab = stack.operations.length > 0 || !!onAddOperation
+  const addedOptionsKeys = Object.keys(options || {})
   const optionsTab = !operationsTab || addedOptionsKeys.length > 0 || !!onChangeOptions
   const {
     match: {
       params: { tabindex }
     }
   } = router
-  const tabindexNumber = parseInt(tabindex || '0')
+
+  const tabs = []
+  if (operationsTab) {
+    tabs.push('Operations')
+  }
+  if (optionsTab) {
+    tabs.push('Options')
+  }
+  tabs.push('JSON Config')
+  const foundIndex = tabindex ? tabs.findIndex(tab => tab === tabindex) : 0
+  const tabindexNumber = foundIndex < 0 ? 0 : foundIndex
   return (
     <>
       {onChangeName && (
@@ -51,7 +68,7 @@ const StackDetailPane = ({
         </>
       )}
       <Tabs
-        defaultIndex={tabindexNumber}
+        selectedIndex={tabindexNumber}
         onSelect={index => {
           let root
           if (router.match.path.startsWith('/new-stack')) {
@@ -59,16 +76,13 @@ const StackDetailPane = ({
           } else {
             root = `/stacks/${name}`
           }
-          if (index === 0) {
-            router.history.push(root)
-          } else {
-            router.history.push(`${root}/${index}`)
-          }
+          router.history.push(`${root}/${tabs[index]}`)
         }}
       >
         <TabList>
-          {operationsTab && <Tab>Operations</Tab>}
-          {optionsTab && <Tab>Options</Tab>}
+          {tabs.map(tab => (
+            <Tab key={tab}>{tab}</Tab>
+          ))}
         </TabList>
         {operationsTab && (
           <TabPanel>
@@ -81,7 +95,7 @@ const StackDetailPane = ({
               onSelectAddOperation={onSelectAddOperation}
               selectedOperation={selectedOperation}
               activeOperation={activeOperation}
-              addedOperations={addedOperations}
+              addedOperations={addIdAndErrorsToStackOperations(stack).operations}
               availableOperations={availableOperations}
             />
           </TabPanel>
@@ -100,7 +114,7 @@ const StackDetailPane = ({
                 options={Object.keys(defaultOptions)
                   .filter(key => !addedOptionsKeys.includes(key))
                   .reduce((accumulator, key) => {
-                    accumulator[key] = { value: defaultOptions[key].default }
+                    accumulator[key] = defaultOptions[key].default
                     return accumulator
                   }, {})}
                 defaultOptions={defaultOptions}
@@ -108,6 +122,41 @@ const StackDetailPane = ({
             )}
           </TabPanel>
         )}
+        <TabPanel>
+          {tabindex === 'JSON Config' &&
+            (onChangeOperation ? (
+              <Suspense fallback={<Spinner />}>
+                <JsonEditor
+                  key={name}
+                  value={
+                    stack || {
+                      description: '',
+                      operations: [],
+                      options: {},
+                      expressions: [],
+                      variables: {}
+                    }
+                  }
+                  setValue={value => {
+                    setStack(value)
+                  }}
+                ></JsonEditor>
+              </Suspense>
+            ) : (
+              <JsonView
+                key={name}
+                value={
+                  stack || {
+                    description: '',
+                    operations: [],
+                    options: {},
+                    expressions: [],
+                    variables: {}
+                  }
+                }
+              ></JsonView>
+            ))}
+        </TabPanel>
       </Tabs>
     </>
   )
@@ -133,6 +182,8 @@ StackDetailPane.propTypes = {
     history: PropTypes.shape({
       push: PropTypes.func.isRequired
     })
-  }).isRequired
+  }).isRequired,
+  stack: PropTypes.object,
+  setStack: PropTypes.func.isRequired
 }
 export default StackDetailPane

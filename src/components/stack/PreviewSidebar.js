@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import rokka from '../../rokka'
 import Alert from '../Alert'
-import Spinner from '../Spinner'
 
 const PreviewSidebar = ({
   organization,
@@ -17,17 +16,16 @@ const PreviewSidebar = ({
     return null
   }
 
+  const [preview, setPreview] = useState(null)
   const format = previewImage.format === 'jpg' ? 'jpg' : 'png'
-
   const previewImages = {
     original: rokka().render.getUrl(organization, previewImage.hash, format),
     dynamic: currentPreviewImage
       ? currentPreviewImage.src
       : rokka().render.getUrl(organization, previewImage.hash, format, stack, {
-          filename: 'preview_v' + Math.floor(new Date().getTime() / 30 / 1000)
+          filename: 'preview_v' + Math.floor(new Date().getTime() / 10 / 1000)
         })
   }
-
   return (
     <div className="col-md-5 col-sm-5">
       <h3 className="rka-h2 mv-md">
@@ -48,9 +46,24 @@ const PreviewSidebar = ({
             Open in new window
           </a>
         </p>
-        {error ? <Alert alert={{ type: 'error', message: error }} /> : null}
-        {imageLoading ? <Spinner /> : <img src={previewImages.dynamic} alt="Customized" />}
+        {error ? (
+          imageLoading ? (
+            <Alert alert={{ type: 'info', message: 'Image loading.' }} />
+          ) : (
+            <Alert alert={{ type: 'info', message: 'Stack config is not valid.' }} />
+          )
+        ) : (
+          <img src={preview || previewImage.dynamic} alt="Customized" />
+        )}
       </div>
+      <img
+        src={previewImages.dynamic}
+        alt="Customized"
+        style={{ display: 'none' }}
+        onLoad={e => {
+          setPreview(e.target.src)
+        }}
+      />
       <div className="rka-stack-img-container bg-chess bor-light txt-c">
         <p className="pa-md bg-white txt-l">
           Original

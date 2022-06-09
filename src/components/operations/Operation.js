@@ -21,7 +21,7 @@ const Operation = ({
   connectDragPreview,
   connectDropTarget
 }) => {
-  const hasErrors = Object.keys(operation.errors).length
+  const hasErrors = operation.errors && Object.keys(operation.errors).length
   const className = cx('pa-md', 'mb-xs', 'pos-r', {
     'bg-gray-lightest': index % 2,
     'is-active': isActive || hasErrors,

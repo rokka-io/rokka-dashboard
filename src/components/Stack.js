@@ -50,6 +50,10 @@ class Stack extends PureComponent {
     this.props.loadPreviewImage()
   }
 
+  componentDidMount() {
+    this.props.loadPreviewImage()
+  }
+
   onClickDeleteStack() {
     this.setState({
       confirmDeleteStack: true

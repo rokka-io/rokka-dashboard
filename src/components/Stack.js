@@ -82,9 +82,13 @@ class Stack extends PureComponent {
       })
   }
 
-  onClickDuplicateStack(e, json = false) {
+  onClickDuplicateStack(e, json = false, copy = true) {
     const stack = this.getCurrentStack()
-    const name = stack.name + '_copy'
+    let name = stack.name
+    if (copy) {
+      name += '_copy'
+    }
+
     setStackToStorage(stack)
     cloneStack(name, stack)
     this.props.router.history.push(`/new-stack${json ? '/JSON Config' : ''}`)
@@ -151,6 +155,12 @@ class Stack extends PureComponent {
           title={stack.name}
           cloneStack={e => this.onClickDuplicateStack(e, tabindex === 'JSON Config')}
         >
+          <button
+            className="rka-button rka-button-brand"
+            onClick={e => this.onClickDuplicateStack(e, tabindex === 'JSON Config', false)}
+          >
+            Edit stack
+          </button>
           <button
             className="rka-button rka-button-brand"
             onClick={e => this.onClickDuplicateStack(e, tabindex === 'JSON Config')}

@@ -21,6 +21,7 @@ import BaseLayout from './layouts/BaseLayout'
 import StackDetailPane from './stack/StackDetailPane'
 import Spinner from './Spinner'
 import { debounce } from 'lodash'
+import Modal from './Modal'
 
 const ajv = new Ajv({
   allErrors: true
@@ -85,6 +86,7 @@ export class NewStack extends PureComponent {
       error: null,
       activeOperation: 0,
       showLoader: false,
+      confirmOverride: false, // State
       preview: {
         stack: null,
         imageLoading: false,
@@ -211,6 +213,23 @@ export class NewStack extends PureComponent {
     })
   }
 
+  onCancelOverrideStack() {
+    this.setState({
+      confirmOverride: false
+    })
+  }
+
+  onOverrideStack() {
+    console.log('Overriding...')
+
+    // Overriding Stack
+    this.onCreateStack(this.state.name, true)
+
+    this.setState({
+      confirmOverride: false
+    })
+  }
+
   getStackConfig(showLoader = true) {
     let updateOperationsState = false
     const errors = []
@@ -296,16 +315,15 @@ export class NewStack extends PureComponent {
 
   onSubmit(e, preview = false) {
     e.preventDefault()
+    this.onCreateStack(preview ? '_preview_rokka_dashboard' : this.state.name, preview)
+  }
+
+  onCreateStack(name, overwrite = false) {
     this.setState({ showLoader: true })
 
     const config = this.getStackConfig()
 
-    createStack(
-      preview ? '_preview_rokka_dashboard' : this.state.name,
-      config.operations,
-      config.options,
-      preview
-    )
+    createStack(name, config.operations, config.options, overwrite)
       .then(({ body }) => {
         return Promise.all([body, refreshStacks()])
       })
@@ -319,6 +337,7 @@ export class NewStack extends PureComponent {
       })
       .catch(error => {
         this.setState({
+          confirmOverride: true, //new state
           showLoader: false,
           error: error.error.error.message
         })
@@ -533,6 +552,35 @@ export class NewStack extends PureComponent {
       return null
     }
 
+    let $confirmOverrideModal = null
+    if (this.state.confirmOverride) {
+      $confirmOverrideModal = (
+        <Modal onClose={() => this.onCancelOverrideStack()}>
+          <h2 className="rka-h1">Do you really want to override this stack?</h2>
+          <p className="mt-lg mb-md txt-md lh-lg">
+            Please confirm whether your stack should override the copy. This is an operation that
+            cannot be undone.
+          </p>
+          <p className="warning">
+            Please note: Add Note <br />
+            Documentation: Add Documentation
+          </p>
+          <button
+            className="rka-button rka-button-negative mr-md mt-md"
+            onClick={() => this.onOverrideStack()} // new Function
+          >
+            Yes, override this stack
+          </button>
+          <button
+            className="rka-button rka-button-secondary mt-md"
+            onClick={() => this.onCancelOverrideStack()}
+          >
+            Cancel
+          </button>
+        </Modal>
+      )
+    }
+
     return (
       <BaseLayout {...this.props}>
         <div className="section">
@@ -595,6 +643,7 @@ export class NewStack extends PureComponent {
             </div>
           </div>
         </div>
+        {$confirmOverrideModal}
       </BaseLayout>
     )
   }

@@ -220,8 +220,6 @@ export class NewStack extends PureComponent {
   }
 
   onOverrideStack() {
-    console.log('Overriding...')
-
     // Overriding Stack
     this.onCreateStack(this.state.name, true)
 
@@ -240,7 +238,6 @@ export class NewStack extends PureComponent {
       .map(operation => {
         const valid = operationValidators[operation.name](operation.options)
         if (!valid) {
-          console.log('!valid2', operation.name, operationValidators[operation.name].errors)
           updateOperationsState = true
 
           operationValidators[operation.name].errors.forEach(e => {

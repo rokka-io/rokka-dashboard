@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
-import rokka from '../../rokka'
+import rokka, { getRenderUrl } from '../../rokka'
 import Image from './Image'
 import SearchForm from './SearchForm'
 import Spinner from '../Spinner'
@@ -199,8 +199,8 @@ class ImageList extends PureComponent {
 
     return this.state.images.items.map(item => {
       const format = item.format === 'jpg' ? 'jpg' : 'png'
-      const imgUrl = rokka().render.getUrl(this.props.organization, item.hash, format, 'dynamic')
-      const imgSrc = rokka().render.getUrl(
+      const imgUrl = getRenderUrl(this.props.organization, item.hash, format, 'dynamic')
+      const imgSrc = getRenderUrl(
         this.props.organization,
         item.hash,
         format,
@@ -227,8 +227,8 @@ class ImageList extends PureComponent {
     if (this.props.uploadedImages) {
       $uploadedImages = this.props.uploadedImages.map((image, idx) => {
         const format = image.format === 'jpg' ? 'jpg' : 'png'
-        const imgUrl = rokka().render.getUrl(this.props.organization, image.hash, format, 'dynamic')
-        const imgSrc = rokka().render.getUrl(
+        const imgUrl = getRenderUrl(this.props.organization, image.hash, format, 'dynamic')
+        const imgSrc = getRenderUrl(
           this.props.organization,
           image.hash,
           format,

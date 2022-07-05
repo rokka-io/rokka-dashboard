@@ -3,7 +3,7 @@ import React, { Fragment, PureComponent, createRef } from 'react'
 import ReactCrop from 'react-image-crop'
 import cx from 'classnames'
 import { authRequired } from '../utils/auth'
-import rokka from '../rokka'
+import rokka, { getRenderUrl } from '../rokka'
 import { deleteImage, setAlert } from '../state'
 import { FOCUS_POINT, FOCUS_AREA } from './imagedetail/constants'
 import Header from './imagedetail/Header'
@@ -73,7 +73,7 @@ function getSubjectArea(image) {
 
 function transformImage(organization, image) {
   const format = image.format === 'jpg' ? 'jpg' : 'png'
-  image.url = rokka().render.getUrl(organization, image.hash, format, 'dynamic/noop')
+  image.url = getRenderUrl(organization, image.hash, format, 'dynamic/noop')
 
   const { user_metadata: metadata = {} } = image
 

@@ -13,7 +13,7 @@ import {
   generateRandomId
 } from '../state'
 import previewImage from './images/previewImage'
-import rokka from '../rokka'
+import { getRenderUrl } from '../rokka'
 import Ajv from 'ajv'
 import PreviewSidebar from './stack/PreviewSidebar'
 import Header from './stack/Header'
@@ -483,7 +483,7 @@ export class NewStack extends PureComponent {
       })
       return
     }
-    image.src = rokka().render.getUrl(
+    image.src = getRenderUrl(
       this.props.auth.organization,
       previewImage.hash,
       previewImage.format,

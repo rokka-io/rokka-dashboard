@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 import Dropzone from 'react-dropzone'
 import Promise from 'bluebird'
-import rokka from '../../rokka'
+import rokka, { getRenderUrl } from '../../rokka'
 import { updateUploadedImages } from '../../state'
 import uploadIcon from '../../img/upload-icon.svg'
 
@@ -79,12 +79,7 @@ class UploadImage extends PureComponent {
           const item = body.items[0]
           images[idx] = Object.assign(item, {
             uploaded: true,
-            url: rokka().render.getUrl(
-              this.props.organization,
-              item.hash,
-              item.format,
-              'dynamic/noop'
-            )
+            url: getRenderUrl(this.props.organization, item.hash, item.format, 'dynamic/noop')
           })
           this.setState({ images: images })
           setTimeout(() => updateUploadedImages(images), 100)

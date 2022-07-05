@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import rokka from '../../rokka'
+import { getRenderUrl } from '../../rokka'
 import Alert from '../Alert'
 
 const PreviewSidebar = ({
@@ -19,10 +19,10 @@ const PreviewSidebar = ({
   const [preview, setPreview] = useState(null)
   const format = previewImage.format === 'jpg' ? 'jpg' : 'png'
   const previewImages = {
-    original: rokka().render.getUrl(organization, previewImage.hash, format),
+    original: getRenderUrl(organization, previewImage.hash, format),
     dynamic: currentPreviewImage
       ? currentPreviewImage.src
-      : rokka().render.getUrl(organization, previewImage.hash, format, stack, {
+      : getRenderUrl(organization, previewImage.hash, format, stack, {
           filename: 'preview_v' + Math.floor(new Date().getTime() / 10 / 1000)
         })
   }

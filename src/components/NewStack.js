@@ -6,7 +6,6 @@ import cx from 'classnames'
 import { authRequired } from '../utils/auth'
 import {
   resetStackClone,
-  createStack,
   refreshStacks,
   setAlert,
   createStackByConfig,
@@ -94,7 +93,6 @@ export class NewStack extends PureComponent {
       },
       selectedOperation: ''
     }
-
     this.onChange = this.onChange.bind(this)
     this.onChangeName = this.onChangeName.bind(this)
     this.onChangeOptions = this.onChangeOptions.bind(this)
@@ -281,7 +279,8 @@ export class NewStack extends PureComponent {
       error: errors.length ? errors.join('. ') : null
     })
     if (updateOperationsState) {
-      return
+      console.log(updateOperationsState)
+      //return stack
     }
 
     Object.keys(options).forEach(key => {
@@ -299,13 +298,7 @@ export class NewStack extends PureComponent {
     this.setState({ showLoader: true })
 
     const config = this.getStackConfig()
-
-    createStack(
-      preview ? '_preview_rokka_dashboard' : this.state.name,
-      config.operations,
-      config.options,
-      preview
-    )
+    createStackByConfig(preview ? '_preview_rokka_dashboard' : this.state.name, config, preview)
       .then(({ body }) => {
         return Promise.all([body, refreshStacks()])
       })

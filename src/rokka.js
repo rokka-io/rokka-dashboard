@@ -41,7 +41,7 @@ export default () => client
 const cloudFrontDistributionReady = true // TODO: Check if it's ready after first login, to avoid broken images
 export function getRenderUrl(organization, hash, format, stack, options) {
   const url = client.render.getUrl(organization, hash, format, stack, options)
-  if (cloudFrontDistributionReady) {
+  if (!cloudFrontDistributionReady) {
     return url.replace('.rokka.io/', '.render.rokka.io/render/') + '?_docache'
   }
   return url

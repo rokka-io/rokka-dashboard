@@ -48,7 +48,7 @@
     "react-tabs": "^4.2.1",
     "react-test-renderer": "^16.14.0",
     "react-transition-group": "^2.9.0",
-    "rokka": "^3.7.0"
+    "rokka": "^3.8.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -41,6 +41,7 @@ const DEFAULT_STATE = {
     coords: EMPTY_FOCUS_AREA,
     coordsChanged: false
   },
+  metaDataChanged: false,
   image: null,
   imageSize: {
     width: 0,
@@ -116,6 +117,7 @@ class ImageDetail extends PureComponent {
     this.onImageClick = this.onImageClick.bind(this)
     this.requestOnResizeTick = this.requestOnResizeTick.bind(this)
     this.onResize = this.onResize.bind(this)
+    this.onLockImage = this.onLockImage.bind(this)
 
     this.focusPointRef = createRef()
     this.imageRef = createRef()
@@ -213,7 +215,7 @@ class ImageDetail extends PureComponent {
     })
   }
 
-  onSave(e) {
+  async onSave(e) {
     e.preventDefault()
 
     const {
@@ -241,47 +243,54 @@ class ImageDetail extends PureComponent {
 
     const alertType = 'success'
     const alertMessages = []
+    console.log(this.state.metaDataChanged)
+    if (this.state.metaDataChanged) {
+      await rokka()
+        .sourceimages.meta.replace(organization, hash, userMetadata)
+        .catch(e => {
+          console.log(e)
+          setAlert('error', e.error.error.message, 5000)
+        })
 
-    rokka()
-      .sourceimages.meta.replace(organization, hash, userMetadata)
-      .then(() => {
-        alertMessages.push('user metadata updated')
+      alertMessages.push('user metadata updated')
+    }
+    if (!subjectArea.type && subjectArea.coordsChanged && imageHasSubjectArea) {
+      await rokka()
+        .sourceimages.removeSubjectArea(organization, hash)
+        .then(({ headers }) => {
+          const newImageHash = headers.location.replace(`/sourceimages/${organization}/`, '')
 
-        if (!subjectArea.type && subjectArea.coordsChanged && imageHasSubjectArea) {
-          return rokka()
-            .sourceimages.removeSubjectArea(organization, hash)
-            .then(({ headers }) => {
-              const newImageHash = headers.location.replace(`/sourceimages/${organization}/`, '')
+          this.setState(DEFAULT_STATE)
 
-              this.setState(DEFAULT_STATE)
+          this.props.router.history.push(`/images/${newImageHash}`)
+          alertMessages.push('subject area has been removed')
+        })
+        .catch(e => {
+          console.log(e)
+          setAlert('error', e.error.error.message, 5000)
+        })
+    } else if (subjectArea.type && subjectArea.coordsChanged) {
+      await rokka()
+        .sourceimages.setSubjectArea(organization, hash, subjectArea.coords)
+        .then(resp => {
+          if (resp.response && resp.response.headers && resp.response.headers.get('location')) {
+            const newImageHash = resp.response.headers
+              .get('location')
+              .replace(`/sourceimages/${organization}/`, '')
 
-              this.props.router.history.push(`/images/${newImageHash}`)
-              alertMessages.push('subject area has been removed')
-            })
-        } else if (subjectArea.type && subjectArea.coordsChanged) {
-          return rokka()
-            .sourceimages.setSubjectArea(organization, hash, subjectArea.coords)
-            .then(resp => {
-              if (resp.response && resp.response.headers && resp.response.headers.get('location')) {
-                const newImageHash = resp.response.headers
-                  .get('location')
-                  .replace(`/sourceimages/${organization}/`, '')
+            this.setState(DEFAULT_STATE)
+            console.log(newImageHash)
+            this.props.router.history.push(`/images/${newImageHash}`)
+          }
+          alertMessages.push('subject area updated')
+        })
+        .catch(e => {
+          console.log(e)
+          setAlert('error', e.error.error.message, 5000)
+        })
+    }
 
-                this.setState(DEFAULT_STATE)
-                console.log(newImageHash)
-                this.props.router.history.push(`/images/${newImageHash}`)
-              }
-              alertMessages.push('subject area updated')
-            })
-        }
-      })
-      .then(() => {
-        setAlert(alertType, alertMessages, 2000)
-      })
-      .catch(e => {
-        console.log(e)
-        setAlert('error', e.error.error.message, 5000)
-      })
+    setAlert(alertType, alertMessages, 2000)
   }
 
   onAddMetadata(e) {
@@ -302,7 +311,8 @@ class ImageDetail extends PureComponent {
             value: addMetadata.value
           }
         ]
-      })
+      }),
+      metaDataChanged: true
     })
   }
 
@@ -325,7 +335,8 @@ class ImageDetail extends PureComponent {
           Object.assign({}, metadata[index], update),
           ...metadata.slice(index + 1)
         ]
-      })
+      }),
+      metaDataChanged: true
     })
   }
 
@@ -338,7 +349,8 @@ class ImageDetail extends PureComponent {
     this.setState({
       image: Object.assign({}, image, {
         user_metadata: metadata.filter((data, index) => index !== removeIndex)
-      })
+      }),
+      metaDataChanged: true
     })
   }
 
@@ -480,6 +492,27 @@ class ImageDetail extends PureComponent {
     })
   }
 
+  onLockImage(lock) {
+    const {
+      router: { match },
+      auth: { organization }
+    } = this.props
+    const {
+      params: { hash }
+    } = match
+
+    rokka()
+      .sourceimages.setLocked(organization, hash, lock)
+      .catch(e => {
+        console.log(e)
+        setAlert('error', `Error (un)locking image`, 5000)
+      })
+      .then(response => {
+        console.log(response.body)
+        this.setState({ image: { ...this.state.image, locked: response.body.locked } })
+      })
+  }
+
   onCancelDeleteImage() {
     this.setState({
       confirmDeleteImage: false
@@ -513,7 +546,7 @@ class ImageDetail extends PureComponent {
           <p className="mt-lg mb-md txt-md lh-lg">
             Please confirm whether your image
             <span className="txt-bold ml-xs">{this.state.image.hash}</span> should be deleted. This
-            is an operation that cannot be undone.
+            is an operation that cannot be undone in the Dashboard (but via the API).
           </p>
           <button
             className="rka-button rka-button-negative mr-md mt-md"
@@ -563,7 +596,6 @@ class ImageDetail extends PureComponent {
       'dis-n': type === FOCUS_AREA,
       'cur-p': type === FOCUS_POINT
     })
-
     return (
       <Fragment>
         <Header
@@ -614,14 +646,38 @@ class ImageDetail extends PureComponent {
           onChange={this.onChangeMetadata}
           onClickAdd={this.onAddMetadata}
           onClickRemove={this.onRemoveMetadata}
+          disabled={this.state.image && this.state.image.locked}
         />
         <div className="pb-md ph-md bg-white">
-          <button
-            className="rka-button rka-button-negative"
-            onClick={() => this.onClickDeleteImage()}
-          >
-            Delete image
+          <button className="rka-button rka-button-brand mt-sm" onClick={this.onSave}>
+            Save
           </button>
+          {this.state.image && !this.state.image.locked && (
+            <button
+              className="rka-button rka-button-brand ml-sm"
+              onClick={() => this.onLockImage(true)}
+            >
+              Lock image
+            </button>
+          )}
+          {this.state.image && this.state.image.locked ? (
+            <button
+              className="rka-button rka-button-brand  ml-sm"
+              onClick={() => this.onLockImage(false)}
+            >
+              Unlock image
+            </button>
+          ) : (
+            <button
+              className="rka-button rka-button-negative   ml-sm"
+              onClick={() => this.onClickDeleteImage()}
+            >
+              Delete image
+            </button>
+          )}
+        </div>
+        <div className="section rka-box no-min-height mt-sm">
+          Locking an image prevents it from deletion and user metadata changes.
         </div>
         {$confirmDeleteModal}
       </Fragment>

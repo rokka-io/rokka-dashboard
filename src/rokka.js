@@ -4,7 +4,7 @@ let client = rokka()
 const max_age = 3600 * 72
 export const ROKKA_DASHBOARD_TOKEN = 'rokka-dashboard-token'
 export const ROKKA_DASHBOARD_ORG = 'rokka-dashboard-org'
-export const ROKKA_DASHBOARD_IPS = 'rokka-token-ips'
+export const ROKKA_DASHBOARD_IPS = 'rokka-dashboard-ips'
 
 export const apiTokenGetCallback = () => {
   return localStorage.getItem(ROKKA_DASHBOARD_TOKEN)

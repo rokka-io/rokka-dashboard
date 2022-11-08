@@ -39,7 +39,7 @@ class Login extends PureComponent {
 
   onChange(e) {
     const target = e.currentTarget
-    const value = target.value
+    const value = target.value.trim()
     const name = target.name
 
     this.setState({

@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [ 14 ]
+        node: [14]
 
     steps:
       - uses: actions/checkout@v3
@@ -22,5 +22,5 @@ jobs:
 
       - name: npm install and build
         run: |
-           npm ci
-           npm run build
+          npm install
+          npm run build

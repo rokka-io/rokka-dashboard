@@ -1,0 +1,26 @@
+name: Main
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [ 14 ]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js $${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+
+      - name: npm install and build
+        run: |
+           npm ci
+           npm run build

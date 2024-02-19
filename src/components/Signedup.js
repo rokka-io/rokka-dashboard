@@ -20,7 +20,7 @@ class Signedup extends PureComponent {
                 </p>
                 <p className="txt-white">
                   In the meantime, you can read the{' '}
-                  <a className="txt-white" href={'/en/documentation'}>
+                  <a className="txt-white" href={'/documentation'}>
                     documentation
                   </a>{' '}
                   and get familiar with rokka.

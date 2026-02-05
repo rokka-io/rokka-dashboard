@@ -4,7 +4,7 @@ set -e
 
 export PUBLIC_URL='/dashboard'
 
-npm run build
+docker-compose run --rm -e PUBLIC_URL app npm run build
 
 
 

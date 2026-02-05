@@ -128,7 +128,7 @@ class Apikeys extends PureComponent {
           {this.state.showCreate && (
             <button
               className="rka-button rka-button-secondary mr-md"
-              onClick={e => this.showCreateNewKey(e)}
+              onClick={() => this.setState({ showCreate: false, commentValue: '' })}
             >
               Cancel
             </button>

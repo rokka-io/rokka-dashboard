@@ -52,7 +52,6 @@ User action → component method → state function (in `src/state/`) → rokka 
 
 - No semicolons, single quotes (Prettier config in `.prettierrc`)
 - 2-space indentation, LF line endings, 100-char max line length
-- Husky pre-commit hook runs Prettier via lint-staged
 - ESLint config in package.json (`"extends": "react-app"`)
 
 ## Testing

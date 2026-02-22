@@ -1,18 +1,8 @@
-import React, { Component } from 'react'
-import { DragDropContext } from 'react-dnd'
-import TestBackend from 'react-dnd-test-backend'
+import React from 'react'
+import { DndProvider } from 'react-dnd'
+import { TestBackend } from 'react-dnd-test-backend'
 import OperationList from './OperationList'
 import renderer from 'react-test-renderer'
-
-function wrapInTestContext(DecoratedComponent) {
-  class TestContextContainer extends Component {
-    render() {
-      return <DecoratedComponent {...this.props} />
-    }
-  }
-
-  return DragDropContext(TestBackend)(TestContextContainer)
-}
 
 test('OperationList does render with minimal props', () => {
   const failingFunc = () => {
@@ -105,8 +95,11 @@ test('OperationList does render with all props', () => {
       properties: {}
     }
   }
-  const WrappedOperationList = wrapInTestContext(OperationList)
-  const component = renderer.create(<WrappedOperationList {...props} />)
+  const component = renderer.create(
+    <DndProvider backend={TestBackend}>
+      <OperationList {...props} />
+    </DndProvider>
+  )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })

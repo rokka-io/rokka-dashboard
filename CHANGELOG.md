@@ -22,6 +22,7 @@ All notable changes to this project will be documented in this file.
 ### Security
 
 - Upgrade highcharts from 6.x to 12.x and switch to `highcharts-react-official` wrapper (fixes XSS vulnerabilities)
+- Upgrade react-dnd from 5.x to 14.x (fixes node-fetch header forwarding vulnerability via recompose dependency chain)
 
 ### Removed
 

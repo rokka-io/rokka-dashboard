@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
-import { DragDropContext } from 'react-dnd'
-import HTML5Backend from 'react-dnd-html5-backend'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 import cx from 'classnames'
 import { authRequired } from '../utils/auth'
 import {
@@ -527,6 +527,7 @@ export class NewStack extends PureComponent {
     }
 
     return (
+      <DndProvider backend={HTML5Backend}>
       <BaseLayout {...this.props}>
         <div className="section">
           <div className="row">
@@ -589,6 +590,7 @@ export class NewStack extends PureComponent {
           </div>
         </div>
       </BaseLayout>
+      </DndProvider>
     )
   }
 }
@@ -611,4 +613,4 @@ NewStack.propTypes = {
   previewImage: PropTypes.object
 }
 
-export default authRequired(DragDropContext(HTML5Backend)(previewImage(NewStack)))
+export default authRequired(previewImage(NewStack))

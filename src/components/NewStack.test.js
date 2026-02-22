@@ -1,7 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import renderer from 'react-test-renderer'
-import { DragDropContext } from 'react-dnd'
-import TestBackend from 'react-dnd-test-backend'
 import { MemoryRouter } from 'react-router'
 import { NewStack } from './NewStack'
 import operations from '../__tests__/operations.json'
@@ -19,16 +17,6 @@ beforeAll(() => {
 afterAll(() => {
   jest.restoreAllMocks()
 })
-
-function wrapInTestContext(DecoratedComponent) {
-  class TestContextContainer extends Component {
-    render() {
-      return <DecoratedComponent {...this.props} />
-    }
-  }
-
-  return DragDropContext(TestBackend)(TestContextContainer)
-}
 
 const router = {
   location: {
@@ -197,10 +185,9 @@ test('newStack does render with clone stack props', () => {
     loadPreviewImage
   }
 
-  const WrappedNewStack = wrapInTestContext(NewStack)
   const component = renderer.create(
     <MemoryRouter>
-      <WrappedNewStack {...props} />
+      <NewStack {...props} />
     </MemoryRouter>
   )
   let tree = component.toJSON()

@@ -36,7 +36,8 @@ export function resetClient() {
   client = rokka()
 }
 
-export default () => client
+const getClient = () => client
+export default getClient
 
 const cloudFrontDistributionReady = true // TODO: Check if it's ready after first login, to avoid broken images
 export function getRenderUrl(organization, hash, format, stack, options) {

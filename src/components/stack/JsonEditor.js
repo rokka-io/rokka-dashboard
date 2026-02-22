@@ -20,6 +20,7 @@ export const JsonEditor = ({ value, setValue }) => {
 
   useEffect(() => {
     jsonEditorRef.current.set(cleanedValue)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cleanedValue.name])
   return (
     <Editor

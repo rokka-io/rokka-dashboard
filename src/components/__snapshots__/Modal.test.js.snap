@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal renders when open 1`] = `
+<div
+  className="rka-modal-backdrop"
+  onKeyDown={[Function]}
+>
+  <div
+    className="rka-modal-frame"
+  >
+    <div
+      className="rka-modal-body"
+    >
+      <button
+        className="rka-close-icon"
+        onClick={[Function]}
+        title="Close"
+      />
+      <p>
+        Modal content
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal renders with custom classNames 1`] = `
+<div
+  className="rka-modal-backdrop custom-backdrop"
+  onKeyDown={[Function]}
+>
+  <div
+    className="rka-modal-frame custom-frame"
+  >
+    <div
+      className="rka-modal-body"
+    >
+      <button
+        className="rka-close-icon"
+        onClick={[Function]}
+        title="Close"
+      />
+      <p>
+        Styled modal
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal renders with fullscreen prop 1`] = `
+<div
+  className="rka-modal-backdrop"
+  onKeyDown={[Function]}
+>
+  <div
+    className="rka-modal-frame rka-modal-frame-fullscreen"
+  >
+    <div
+      className="rka-modal-body"
+    >
+      <button
+        className="rka-close-icon"
+        onClick={[Function]}
+        title="Close"
+      />
+      <p>
+        Fullscreen modal
+      </p>
+    </div>
+  </div>
+</div>
+`;

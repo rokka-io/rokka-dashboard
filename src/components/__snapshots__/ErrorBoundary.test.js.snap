@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBoundary renders children when no error 1`] = `
+<p>
+  Everything is fine
+</p>
+`;
+
+exports[`ErrorBoundary renders fallback UI when child throws 1`] = `
+<div
+  className="bg-white pa-md clearfix"
+>
+  <h1
+    className="rka-h1"
+  >
+    Something went wrong.
+  </h1>
+  <p>
+    Unable to load the page
+     
+    <span
+      aria-label="sad"
+      role="img"
+    >
+      😟
+    </span>
+    . Please
+     
+    <a
+      className="rka-link"
+      href="https://github.com/rokka-io/rokka-dashboard/issues"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      file an issue on GitHub
+    </a>
+    . Thanks!
+     
+    <span
+      aria-label="yay"
+      role="img"
+    >
+      😍
+    </span>
+  </p>
+</div>
+`;

@@ -15,7 +15,8 @@ npm test -- --watchAll=false     # Run all tests once
 npm test -- path/to/test.js      # Run a single test file
 npm test -- --testNamePattern="pattern"  # Run tests matching name
 npm run build                    # Production build to /build
-npm run prettier                 # Format all source files
+npm run lint                     # ESLint + Prettier check
+npm run lint:fix                 # ESLint autofix + Prettier format
 ```
 
 Node 22 required (see .nvmrc).

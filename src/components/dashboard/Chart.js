@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import HighCharts from 'react-highcharts'
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react-official'
 
 const Chart = ({ data, type, yPointSymbol = null }) => {
   const config = {
@@ -80,7 +81,7 @@ const Chart = ({ data, type, yPointSymbol = null }) => {
     }
   }
 
-  return <HighCharts config={config} />
+  return <HighchartsReact highcharts={Highcharts} options={config} />
 }
 Chart.propTypes = {
   type: PropTypes.string.isRequired,

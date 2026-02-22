@@ -17,6 +17,11 @@ All notable changes to this project will be documented in this file.
 - Upgrade react-scripts from 2.1.0 to 5.0.1
 - Fix SCSS for Dart Sass compatibility (operator spacing, asset URL paths, inline Bourbon Neat helpers)
 - Fix React hooks rule violation in PreviewSidebar (useState before early return)
+- Add `npm run lint` and `npm run lint:fix` scripts (ESLint + Prettier)
+
+### Security
+
+- Upgrade highcharts from 6.x to 12.x and switch to `highcharts-react-official` wrapper (fixes XSS vulnerabilities)
 
 ### Removed
 

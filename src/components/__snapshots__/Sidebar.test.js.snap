@@ -86,6 +86,36 @@ exports[`Sidebar does render 1`] = `
       <a
         aria-current={null}
         className="rka-sidebar-link"
+        href="/apikeys"
+        onClick={[Function]}
+      >
+        Access Control
+      </a>
+    </li>
+    <div
+      className="rka-sidebar-subnav"
+    >
+      <a
+        aria-current={null}
+        className="rka-sidebar-sublink"
+        href="/apikeys"
+        onClick={[Function]}
+      >
+        User Api-Keys
+      </a>
+      <a
+        aria-current={null}
+        className="rka-sidebar-sublink"
+        href="/memberships"
+        onClick={[Function]}
+      >
+        Org Memberships
+      </a>
+    </div>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
         href="/costs"
         onClick={[Function]}
       >
@@ -189,6 +219,36 @@ exports[`Sidebar does render when active 1`] = `
         </div>
       </div>
     </li>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/apikeys"
+        onClick={[Function]}
+      >
+        Access Control
+      </a>
+    </li>
+    <div
+      className="rka-sidebar-subnav"
+    >
+      <a
+        aria-current={null}
+        className="rka-sidebar-sublink"
+        href="/apikeys"
+        onClick={[Function]}
+      >
+        User Api-Keys
+      </a>
+      <a
+        aria-current={null}
+        className="rka-sidebar-sublink"
+        href="/memberships"
+        onClick={[Function]}
+      >
+        Org Memberships
+      </a>
+    </div>
     <li>
       <a
         aria-current={null}
@@ -339,6 +399,36 @@ exports[`Sidebar shows load more button 1`] = `
       <a
         aria-current={null}
         className="rka-sidebar-link"
+        href="/apikeys"
+        onClick={[Function]}
+      >
+        Access Control
+      </a>
+    </li>
+    <div
+      className="rka-sidebar-subnav"
+    >
+      <a
+        aria-current={null}
+        className="rka-sidebar-sublink"
+        href="/apikeys"
+        onClick={[Function]}
+      >
+        User Api-Keys
+      </a>
+      <a
+        aria-current={null}
+        className="rka-sidebar-sublink"
+        href="/memberships"
+        onClick={[Function]}
+      >
+        Org Memberships
+      </a>
+    </div>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
         href="/costs"
         onClick={[Function]}
       >
@@ -474,6 +564,36 @@ exports[`Sidebar shows stacks 1`] = `
         </div>
       </div>
     </li>
+    <li>
+      <a
+        aria-current={null}
+        className="rka-sidebar-link"
+        href="/apikeys"
+        onClick={[Function]}
+      >
+        Access Control
+      </a>
+    </li>
+    <div
+      className="rka-sidebar-subnav"
+    >
+      <a
+        aria-current={null}
+        className="rka-sidebar-sublink"
+        href="/apikeys"
+        onClick={[Function]}
+      >
+        User Api-Keys
+      </a>
+      <a
+        aria-current={null}
+        className="rka-sidebar-sublink"
+        href="/memberships"
+        onClick={[Function]}
+      >
+        Org Memberships
+      </a>
+    </div>
     <li>
       <a
         aria-current={null}

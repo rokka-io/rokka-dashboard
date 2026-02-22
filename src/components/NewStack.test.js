@@ -12,6 +12,14 @@ import cloneStack from '../__tests__/cloneStack.json'
 //      onComponentDidMount calls an update on the state.
 //      Making this better testable is one of the goals of refactoring.
 
+// Fix timestamp-based URLs that cause snapshot flakiness
+beforeAll(() => {
+  jest.spyOn(Date.prototype, 'getTime').mockReturnValue(1700000000000)
+})
+afterAll(() => {
+  jest.restoreAllMocks()
+})
+
 function wrapInTestContext(DecoratedComponent) {
   class TestContextContainer extends Component {
     render() {
@@ -25,6 +33,9 @@ function wrapInTestContext(DecoratedComponent) {
 const router = {
   location: {
     pathname: '/new-stack'
+  },
+  match: {
+    params: {}
   },
   history: {
     push: () => {

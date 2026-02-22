@@ -136,6 +136,36 @@ exports[`NewStack does render with a previewImage 1`] = `
         <a
           aria-current={null}
           className="rka-sidebar-link"
+          href="/apikeys"
+          onClick={[Function]}
+        >
+          Access Control
+        </a>
+      </li>
+      <div
+        className="rka-sidebar-subnav"
+      >
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/apikeys"
+          onClick={[Function]}
+        >
+          User Api-Keys
+        </a>
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/memberships"
+          onClick={[Function]}
+        >
+          Org Memberships
+        </a>
+      </div>
+      <li>
+        <a
+          aria-current={null}
+          className="rka-sidebar-link"
           href="/costs"
           onClick={[Function]}
         >
@@ -182,14 +212,6 @@ exports[`NewStack does render with a previewImage 1`] = `
                 className="flo-r"
               >
                 <button
-                  className="rka-button rka-button-secondary mr-md"
-                  disabled={true}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Update preview
-                </button>
-                <button
                   className="rka-button rka-button-brand disabled flo-r"
                   type="submit"
                 >
@@ -234,7 +256,7 @@ exports[`NewStack does render with a previewImage 1`] = `
                   </div>
                   <div
                     className="react-tabs"
-                    data-tabs={true}
+                    data-rttabs={true}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                   >
@@ -243,32 +265,46 @@ exports[`NewStack does render with a previewImage 1`] = `
                       role="tablist"
                     >
                       <li
-                        aria-controls="react-tabs-5"
+                        aria-controls="react-tabs-7"
                         aria-disabled="false"
                         aria-selected="true"
                         className="react-tabs__tab react-tabs__tab--selected"
-                        id="react-tabs-4"
+                        data-rttab={true}
+                        id="react-tabs-6"
                         role="tab"
                         tabIndex="0"
                       >
                         Operations
                       </li>
                       <li
-                        aria-controls="react-tabs-7"
+                        aria-controls="react-tabs-9"
                         aria-disabled="false"
                         aria-selected="false"
                         className="react-tabs__tab"
-                        id="react-tabs-6"
+                        data-rttab={true}
+                        id="react-tabs-8"
                         role="tab"
                         tabIndex={null}
                       >
                         Options
                       </li>
+                      <li
+                        aria-controls="react-tabs-11"
+                        aria-disabled="false"
+                        aria-selected="false"
+                        className="react-tabs__tab"
+                        data-rttab={true}
+                        id="react-tabs-10"
+                        role="tab"
+                        tabIndex={null}
+                      >
+                        JSON Config
+                      </li>
                     </ul>
                     <div
-                      aria-labelledby="react-tabs-4"
+                      aria-labelledby="react-tabs-6"
                       className="react-tabs__tab-panel react-tabs__tab-panel--selected"
-                      id="react-tabs-5"
+                      id="react-tabs-7"
                       role="tabpanel"
                     >
                       <h3
@@ -290,7 +326,7 @@ exports[`NewStack does render with a previewImage 1`] = `
                           <select
                             className="rka-select"
                             onChange={[Function]}
-                            value="alpha"
+                            value="resize"
                           >
                             <option
                               value="alpha"
@@ -368,9 +404,15 @@ exports[`NewStack does render with a previewImage 1`] = `
                       </div>
                     </div>
                     <div
-                      aria-labelledby="react-tabs-6"
+                      aria-labelledby="react-tabs-8"
                       className="react-tabs__tab-panel"
-                      id="react-tabs-7"
+                      id="react-tabs-9"
+                      role="tabpanel"
+                    />
+                    <div
+                      aria-labelledby="react-tabs-10"
+                      className="react-tabs__tab-panel"
+                      id="react-tabs-11"
                       role="tabpanel"
                     />
                   </div>
@@ -398,7 +440,7 @@ exports[`NewStack does render with a previewImage 1`] = `
                       Customized
                       <a
                         className="rka-link flo-r"
-                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638/preview_vNaN.png"
                         rel="noopener noreferrer"
                         target="_blank"
                       >
@@ -407,9 +449,18 @@ exports[`NewStack does render with a previewImage 1`] = `
                     </p>
                     <img
                       alt="Customized"
-                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                     />
                   </div>
+                  <img
+                    alt="Customized"
+                    onLoad={[Function]}
+                    src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638/preview_vNaN.png"
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  />
                   <div
                     className="rka-stack-img-container bg-chess bor-light txt-c"
                   >
@@ -583,6 +634,36 @@ exports[`NewStack does render with minimal props 1`] = `
         <a
           aria-current={null}
           className="rka-sidebar-link"
+          href="/apikeys"
+          onClick={[Function]}
+        >
+          Access Control
+        </a>
+      </li>
+      <div
+        className="rka-sidebar-subnav"
+      >
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/apikeys"
+          onClick={[Function]}
+        >
+          User Api-Keys
+        </a>
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/memberships"
+          onClick={[Function]}
+        >
+          Org Memberships
+        </a>
+      </div>
+      <li>
+        <a
+          aria-current={null}
+          className="rka-sidebar-link"
           href="/costs"
           onClick={[Function]}
         >
@@ -673,7 +754,7 @@ exports[`NewStack does render with minimal props 1`] = `
                   </div>
                   <div
                     className="react-tabs"
-                    data-tabs={true}
+                    data-rttabs={true}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                   >
@@ -686,6 +767,7 @@ exports[`NewStack does render with minimal props 1`] = `
                         aria-disabled="false"
                         aria-selected="true"
                         className="react-tabs__tab react-tabs__tab--selected"
+                        data-rttab={true}
                         id="react-tabs-0"
                         role="tab"
                         tabIndex="0"
@@ -697,11 +779,24 @@ exports[`NewStack does render with minimal props 1`] = `
                         aria-disabled="false"
                         aria-selected="false"
                         className="react-tabs__tab"
+                        data-rttab={true}
                         id="react-tabs-2"
                         role="tab"
                         tabIndex={null}
                       >
                         Options
+                      </li>
+                      <li
+                        aria-controls="react-tabs-5"
+                        aria-disabled="false"
+                        aria-selected="false"
+                        className="react-tabs__tab"
+                        data-rttab={true}
+                        id="react-tabs-4"
+                        role="tab"
+                        tabIndex={null}
+                      >
+                        JSON Config
                       </li>
                     </ul>
                     <div
@@ -729,7 +824,7 @@ exports[`NewStack does render with minimal props 1`] = `
                           <select
                             className="rka-select"
                             onChange={[Function]}
-                            value="alpha"
+                            value="resize"
                           >
                             <option
                               value="alpha"
@@ -810,6 +905,12 @@ exports[`NewStack does render with minimal props 1`] = `
                       aria-labelledby="react-tabs-2"
                       className="react-tabs__tab-panel"
                       id="react-tabs-3"
+                      role="tabpanel"
+                    />
+                    <div
+                      aria-labelledby="react-tabs-4"
+                      className="react-tabs__tab-panel"
+                      id="react-tabs-5"
                       role="tabpanel"
                     />
                   </div>
@@ -965,6 +1066,36 @@ exports[`NewStack does render with stackOptions 1`] = `
         <a
           aria-current={null}
           className="rka-sidebar-link"
+          href="/apikeys"
+          onClick={[Function]}
+        >
+          Access Control
+        </a>
+      </li>
+      <div
+        className="rka-sidebar-subnav"
+      >
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/apikeys"
+          onClick={[Function]}
+        >
+          User Api-Keys
+        </a>
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/memberships"
+          onClick={[Function]}
+        >
+          Org Memberships
+        </a>
+      </div>
+      <li>
+        <a
+          aria-current={null}
+          className="rka-sidebar-link"
           href="/costs"
           onClick={[Function]}
         >
@@ -1011,14 +1142,6 @@ exports[`NewStack does render with stackOptions 1`] = `
                 className="flo-r"
               >
                 <button
-                  className="rka-button rka-button-secondary mr-md"
-                  disabled={true}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Update preview
-                </button>
-                <button
                   className="rka-button rka-button-brand disabled flo-r"
                   type="submit"
                 >
@@ -1063,7 +1186,7 @@ exports[`NewStack does render with stackOptions 1`] = `
                   </div>
                   <div
                     className="react-tabs"
-                    data-tabs={true}
+                    data-rttabs={true}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                   >
@@ -1072,32 +1195,46 @@ exports[`NewStack does render with stackOptions 1`] = `
                       role="tablist"
                     >
                       <li
-                        aria-controls="react-tabs-9"
+                        aria-controls="react-tabs-13"
                         aria-disabled="false"
                         aria-selected="true"
                         className="react-tabs__tab react-tabs__tab--selected"
-                        id="react-tabs-8"
+                        data-rttab={true}
+                        id="react-tabs-12"
                         role="tab"
                         tabIndex="0"
                       >
                         Operations
                       </li>
                       <li
-                        aria-controls="react-tabs-11"
+                        aria-controls="react-tabs-15"
                         aria-disabled="false"
                         aria-selected="false"
                         className="react-tabs__tab"
-                        id="react-tabs-10"
+                        data-rttab={true}
+                        id="react-tabs-14"
                         role="tab"
                         tabIndex={null}
                       >
                         Options
                       </li>
+                      <li
+                        aria-controls="react-tabs-17"
+                        aria-disabled="false"
+                        aria-selected="false"
+                        className="react-tabs__tab"
+                        data-rttab={true}
+                        id="react-tabs-16"
+                        role="tab"
+                        tabIndex={null}
+                      >
+                        JSON Config
+                      </li>
                     </ul>
                     <div
-                      aria-labelledby="react-tabs-8"
+                      aria-labelledby="react-tabs-12"
                       className="react-tabs__tab-panel react-tabs__tab-panel--selected"
-                      id="react-tabs-9"
+                      id="react-tabs-13"
                       role="tabpanel"
                     >
                       <h3
@@ -1119,7 +1256,7 @@ exports[`NewStack does render with stackOptions 1`] = `
                           <select
                             className="rka-select"
                             onChange={[Function]}
-                            value="alpha"
+                            value="resize"
                           >
                             <option
                               value="alpha"
@@ -1197,9 +1334,15 @@ exports[`NewStack does render with stackOptions 1`] = `
                       </div>
                     </div>
                     <div
-                      aria-labelledby="react-tabs-10"
+                      aria-labelledby="react-tabs-14"
                       className="react-tabs__tab-panel"
-                      id="react-tabs-11"
+                      id="react-tabs-15"
+                      role="tabpanel"
+                    />
+                    <div
+                      aria-labelledby="react-tabs-16"
+                      className="react-tabs__tab-panel"
+                      id="react-tabs-17"
                       role="tabpanel"
                     />
                   </div>
@@ -1227,7 +1370,7 @@ exports[`NewStack does render with stackOptions 1`] = `
                       Customized
                       <a
                         className="rka-link flo-r"
-                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638/preview_vNaN.png"
                         rel="noopener noreferrer"
                         target="_blank"
                       >
@@ -1236,9 +1379,18 @@ exports[`NewStack does render with stackOptions 1`] = `
                     </p>
                     <img
                       alt="Customized"
-                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                     />
                   </div>
+                  <img
+                    alt="Customized"
+                    onLoad={[Function]}
+                    src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638/preview_vNaN.png"
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  />
                   <div
                     className="rka-stack-img-container bg-chess bor-light txt-c"
                   >
@@ -1436,6 +1588,36 @@ exports[`NewStack does render with stacks 1`] = `
         <a
           aria-current={null}
           className="rka-sidebar-link"
+          href="/apikeys"
+          onClick={[Function]}
+        >
+          Access Control
+        </a>
+      </li>
+      <div
+        className="rka-sidebar-subnav"
+      >
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/apikeys"
+          onClick={[Function]}
+        >
+          User Api-Keys
+        </a>
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/memberships"
+          onClick={[Function]}
+        >
+          Org Memberships
+        </a>
+      </div>
+      <li>
+        <a
+          aria-current={null}
+          className="rka-sidebar-link"
           href="/costs"
           onClick={[Function]}
         >
@@ -1482,14 +1664,6 @@ exports[`NewStack does render with stacks 1`] = `
                 className="flo-r"
               >
                 <button
-                  className="rka-button rka-button-secondary mr-md"
-                  disabled={true}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Update preview
-                </button>
-                <button
                   className="rka-button rka-button-brand disabled flo-r"
                   type="submit"
                 >
@@ -1534,7 +1708,7 @@ exports[`NewStack does render with stacks 1`] = `
                   </div>
                   <div
                     className="react-tabs"
-                    data-tabs={true}
+                    data-rttabs={true}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                   >
@@ -1543,32 +1717,46 @@ exports[`NewStack does render with stacks 1`] = `
                       role="tablist"
                     >
                       <li
-                        aria-controls="react-tabs-13"
+                        aria-controls="react-tabs-19"
                         aria-disabled="false"
                         aria-selected="true"
                         className="react-tabs__tab react-tabs__tab--selected"
-                        id="react-tabs-12"
+                        data-rttab={true}
+                        id="react-tabs-18"
                         role="tab"
                         tabIndex="0"
                       >
                         Operations
                       </li>
                       <li
-                        aria-controls="react-tabs-15"
+                        aria-controls="react-tabs-21"
                         aria-disabled="false"
                         aria-selected="false"
                         className="react-tabs__tab"
-                        id="react-tabs-14"
+                        data-rttab={true}
+                        id="react-tabs-20"
                         role="tab"
                         tabIndex={null}
                       >
                         Options
                       </li>
+                      <li
+                        aria-controls="react-tabs-23"
+                        aria-disabled="false"
+                        aria-selected="false"
+                        className="react-tabs__tab"
+                        data-rttab={true}
+                        id="react-tabs-22"
+                        role="tab"
+                        tabIndex={null}
+                      >
+                        JSON Config
+                      </li>
                     </ul>
                     <div
-                      aria-labelledby="react-tabs-12"
+                      aria-labelledby="react-tabs-18"
                       className="react-tabs__tab-panel react-tabs__tab-panel--selected"
-                      id="react-tabs-13"
+                      id="react-tabs-19"
                       role="tabpanel"
                     >
                       <h3
@@ -1590,7 +1778,7 @@ exports[`NewStack does render with stacks 1`] = `
                           <select
                             className="rka-select"
                             onChange={[Function]}
-                            value="alpha"
+                            value="resize"
                           >
                             <option
                               value="alpha"
@@ -1668,9 +1856,15 @@ exports[`NewStack does render with stacks 1`] = `
                       </div>
                     </div>
                     <div
-                      aria-labelledby="react-tabs-14"
+                      aria-labelledby="react-tabs-20"
                       className="react-tabs__tab-panel"
-                      id="react-tabs-15"
+                      id="react-tabs-21"
+                      role="tabpanel"
+                    />
+                    <div
+                      aria-labelledby="react-tabs-22"
+                      className="react-tabs__tab-panel"
+                      id="react-tabs-23"
                       role="tabpanel"
                     />
                   </div>
@@ -1698,7 +1892,7 @@ exports[`NewStack does render with stacks 1`] = `
                       Customized
                       <a
                         className="rka-link flo-r"
-                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
+                        href="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638/preview_vNaN.png"
                         rel="noopener noreferrer"
                         target="_blank"
                       >
@@ -1707,9 +1901,18 @@ exports[`NewStack does render with stacks 1`] = `
                     </p>
                     <img
                       alt="Customized"
-                      src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638.png"
                     />
                   </div>
+                  <img
+                    alt="Customized"
+                    onLoad={[Function]}
+                    src="https://test-org.rokka.io/dynamic/noop/7cb0101d53f1579c0e0da11f2407146eebeca638/preview_vNaN.png"
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
+                  />
                   <div
                     className="rka-stack-img-container bg-chess bor-light txt-c"
                   >
@@ -1883,6 +2086,36 @@ exports[`newStack does render with clone stack props 1`] = `
         <a
           aria-current={null}
           className="rka-sidebar-link"
+          href="/apikeys"
+          onClick={[Function]}
+        >
+          Access Control
+        </a>
+      </li>
+      <div
+        className="rka-sidebar-subnav"
+      >
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/apikeys"
+          onClick={[Function]}
+        >
+          User Api-Keys
+        </a>
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/memberships"
+          onClick={[Function]}
+        >
+          Org Memberships
+        </a>
+      </div>
+      <li>
+        <a
+          aria-current={null}
+          className="rka-sidebar-link"
           href="/costs"
           onClick={[Function]}
         >
@@ -1973,7 +2206,7 @@ exports[`newStack does render with clone stack props 1`] = `
                   </div>
                   <div
                     className="react-tabs"
-                    data-tabs={true}
+                    data-rttabs={true}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                   >
@@ -1982,32 +2215,46 @@ exports[`newStack does render with clone stack props 1`] = `
                       role="tablist"
                     >
                       <li
-                        aria-controls="react-tabs-17"
+                        aria-controls="react-tabs-25"
                         aria-disabled="false"
                         aria-selected="true"
                         className="react-tabs__tab react-tabs__tab--selected"
-                        id="react-tabs-16"
+                        data-rttab={true}
+                        id="react-tabs-24"
                         role="tab"
                         tabIndex="0"
                       >
                         Operations
                       </li>
                       <li
-                        aria-controls="react-tabs-19"
+                        aria-controls="react-tabs-27"
                         aria-disabled="false"
                         aria-selected="false"
                         className="react-tabs__tab"
-                        id="react-tabs-18"
+                        data-rttab={true}
+                        id="react-tabs-26"
                         role="tab"
                         tabIndex={null}
                       >
                         Options
                       </li>
+                      <li
+                        aria-controls="react-tabs-29"
+                        aria-disabled="false"
+                        aria-selected="false"
+                        className="react-tabs__tab"
+                        data-rttab={true}
+                        id="react-tabs-28"
+                        role="tab"
+                        tabIndex={null}
+                      >
+                        JSON Config
+                      </li>
                     </ul>
                     <div
-                      aria-labelledby="react-tabs-16"
+                      aria-labelledby="react-tabs-24"
                       className="react-tabs__tab-panel react-tabs__tab-panel--selected"
-                      id="react-tabs-17"
+                      id="react-tabs-25"
                       role="tabpanel"
                     >
                       <h3
@@ -2354,7 +2601,7 @@ exports[`newStack does render with clone stack props 1`] = `
                                 onChange={[Function]}
                                 placeholder="Anchor from where to crop from. Please see the operations documentation for details. (default: auto)"
                                 type="text"
-                                value=""
+                                value="auto"
                               />
                             </div>
                             <div
@@ -2374,7 +2621,7 @@ exports[`newStack does render with clone stack props 1`] = `
                                 onChange={[Function]}
                                 placeholder="Anchor fallback to use, when no subject area could be found. (default: center_center)"
                                 type="text"
-                                value=""
+                                value="center_center"
                               />
                             </div>
                             <div
@@ -2393,6 +2640,7 @@ exports[`newStack does render with clone stack props 1`] = `
                                 name="mode"
                                 onChange={[Function]}
                                 placeholder="mode (default: absolute)"
+                                value="absolute"
                               >
                                 <option>
                                   mode (default: absolute)
@@ -2714,7 +2962,7 @@ exports[`newStack does render with clone stack props 1`] = `
                                   placeholder="Hex color (default: 000000)"
                                   readOnly={true}
                                   type="text"
-                                  value=""
+                                  value="000000"
                                 />
                               </div>
                             </div>
@@ -2900,6 +3148,7 @@ exports[`newStack does render with clone stack props 1`] = `
                                 name="mode"
                                 onChange={[Function]}
                                 placeholder="mode (default: box)"
+                                value="box"
                               >
                                 <option>
                                   mode (default: box)
@@ -3068,7 +3317,7 @@ exports[`newStack does render with clone stack props 1`] = `
                                   placeholder="Hex color (default: FFFFFF)"
                                   readOnly={true}
                                   type="text"
-                                  value=""
+                                  value="FFFFFF"
                                 />
                               </div>
                             </div>
@@ -3089,7 +3338,7 @@ exports[`newStack does render with clone stack props 1`] = `
                           <select
                             className="rka-select"
                             onChange={[Function]}
-                            value="alpha"
+                            value="resize"
                           >
                             <option
                               value="alpha"
@@ -3167,9 +3416,15 @@ exports[`newStack does render with clone stack props 1`] = `
                       </div>
                     </div>
                     <div
-                      aria-labelledby="react-tabs-18"
+                      aria-labelledby="react-tabs-26"
                       className="react-tabs__tab-panel"
-                      id="react-tabs-19"
+                      id="react-tabs-27"
+                      role="tabpanel"
+                    />
+                    <div
+                      aria-labelledby="react-tabs-28"
+                      className="react-tabs__tab-panel"
+                      id="react-tabs-29"
                       role="tabpanel"
                     />
                   </div>

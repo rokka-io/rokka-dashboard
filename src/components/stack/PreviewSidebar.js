@@ -12,11 +12,11 @@ const PreviewSidebar = ({
   imageLoading = false,
   stack = 'dynamic/noop'
 }) => {
+  const [preview, setPreview] = useState(null)
+
   if (!previewImage) {
     return null
   }
-
-  const [preview, setPreview] = useState(null)
   const format = previewImage.format === 'jpg' ? 'jpg' : 'png'
   const previewImages = {
     original: getRenderUrl(organization, previewImage.hash, format),

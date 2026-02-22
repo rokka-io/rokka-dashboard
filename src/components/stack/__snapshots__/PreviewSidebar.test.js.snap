@@ -35,9 +35,18 @@ exports[`PreviewSidebar does render with currentPreviewImage set 1`] = `
     </p>
     <img
       alt="Customized"
-      src="https://example.com/current-preview-image.png"
     />
   </div>
+  <img
+    alt="Customized"
+    onLoad={[Function]}
+    src="https://example.com/current-preview-image.png"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  />
   <div
     className="rka-stack-img-container bg-chess bor-light txt-c"
   >
@@ -86,7 +95,7 @@ exports[`PreviewSidebar does render with error set 1`] = `
       Customized
       <a
         className="rka-link flo-r"
-        href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+        href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash/preview_vNaN.png"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -94,19 +103,25 @@ exports[`PreviewSidebar does render with error set 1`] = `
       </a>
     </p>
     <div
-      className="rka-alert is-error txt-c"
+      className="rka-alert is-info txt-c"
     >
       <span
         className="rka-alert-msg"
       >
-        Test error
+        Stack config is not valid.
       </span>
     </div>
-    <img
-      alt="Customized"
-      src="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
-    />
   </div>
+  <img
+    alt="Customized"
+    onLoad={[Function]}
+    src="https://test-organization.rokka.io/dynamic/noop/previewImage-hash/preview_vNaN.png"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  />
   <div
     className="rka-stack-img-container bg-chess bor-light txt-c"
   >
@@ -155,30 +170,27 @@ exports[`PreviewSidebar does render with imageLoading set 1`] = `
       Customized
       <a
         className="rka-link flo-r"
-        href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+        href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash/preview_vNaN.png"
         rel="noopener noreferrer"
         target="_blank"
       >
         Open in new window
       </a>
     </p>
-    <div
-      className="sk-folding-cube"
-    >
-      <div
-        className="sk-cube1 sk-cube"
-      />
-      <div
-        className="sk-cube2 sk-cube"
-      />
-      <div
-        className="sk-cube4 sk-cube"
-      />
-      <div
-        className="sk-cube3 sk-cube"
-      />
-    </div>
+    <img
+      alt="Customized"
+    />
   </div>
+  <img
+    alt="Customized"
+    onLoad={[Function]}
+    src="https://test-organization.rokka.io/dynamic/noop/previewImage-hash/preview_vNaN.png"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  />
   <div
     className="rka-stack-img-container bg-chess bor-light txt-c"
   >
@@ -227,7 +239,7 @@ exports[`PreviewSidebar does render with previewImage set 1`] = `
       Customized
       <a
         className="rka-link flo-r"
-        href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
+        href="https://test-organization.rokka.io/dynamic/noop/previewImage-hash/preview_vNaN.png"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -236,9 +248,18 @@ exports[`PreviewSidebar does render with previewImage set 1`] = `
     </p>
     <img
       alt="Customized"
-      src="https://test-organization.rokka.io/dynamic/noop/previewImage-hash.png"
     />
   </div>
+  <img
+    alt="Customized"
+    onLoad={[Function]}
+    src="https://test-organization.rokka.io/dynamic/noop/previewImage-hash/preview_vNaN.png"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  />
   <div
     className="rka-stack-img-container bg-chess bor-light txt-c"
   >

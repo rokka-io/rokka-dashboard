@@ -3,6 +3,11 @@ import InputColor from './InputColor'
 import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
 
+// Mock react-color to avoid HTMLCanvasElement.getContext() issues in jsdom
+jest.mock('react-color', () => ({
+  ChromePicker: props => <div data-testid="color-picker" onChange={props.onChangeComplete} />
+}))
+
 test('InputColor does render', () => {
   const component = renderer.create(<InputColor name="Test" />)
   let tree = component.toJSON()
@@ -43,9 +48,12 @@ test('InputColor onChange', done => {
 
     done()
   }
-  const component = shallow(<InputColor name="Test" value="000000" onChange={onChange} />)
+  const component = shallow(<InputColor name="Test" value="000000" onChange={onChange} />).dive()
 
+  // Click to open the color picker
   component.find('input.rka-input-txt').simulate('click')
+  component.update()
 
-  component.find('ColorPicker').simulate('changeComplete', { hex: '#000000' })
+  // Now the ChromePicker should be rendered
+  component.find('ChromePicker').simulate('changeComplete', { hex: '#000000' })
 })

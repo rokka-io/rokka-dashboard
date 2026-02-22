@@ -14,6 +14,9 @@ test('BaseLayout does render', () => {
   const router = {
     location: {
       pathname: '/'
+    },
+    match: {
+      params: {}
     }
   }
 
@@ -37,6 +40,9 @@ test('BaseLayout does render active sidebar', () => {
   const router = {
     location: {
       pathname: '/'
+    },
+    match: {
+      params: {}
     }
   }
 
@@ -60,6 +66,9 @@ test('BaseLayout does render alert', () => {
   const router = {
     location: {
       pathname: '/'
+    },
+    match: {
+      params: {}
     }
   }
 

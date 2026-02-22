@@ -9,6 +9,9 @@ test('Sidebar does render', () => {
   const router = {
     location: {
       pathname: '/'
+    },
+    match: {
+      params: {}
     }
   }
   const component = renderer.create(
@@ -29,6 +32,9 @@ test('Sidebar does render when active', () => {
   const router = {
     location: {
       pathname: '/'
+    },
+    match: {
+      params: {}
     }
   }
 
@@ -45,6 +51,9 @@ test('Sidebar shows stacks', () => {
   const router = {
     location: {
       pathname: '/'
+    },
+    match: {
+      params: {}
     }
   }
   const stacks = {
@@ -74,6 +83,9 @@ test('Sidebar shows load more button', () => {
   const router = {
     location: {
       pathname: '/'
+    },
+    match: {
+      params: {}
     }
   }
   const stacks = {

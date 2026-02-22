@@ -1,5 +1,18 @@
 $visual-grid-breakpoints: () !default;
 
+// Bourbon Neat helper functions (previously implicit dependencies)
+@function is-even($int) {
+  @return $int % 2 == 0;
+}
+
+@function is-not($value) {
+  @return not $value;
+}
+
+@function belongs-to($value, $list) {
+  @return index($list, $value) != null;
+}
+
 @function new-breakpoint($query: $feature $value $columns, $total-columns: $grid-columns) {
   @if length($query) == 1 {
     $query: $default-feature nth($query, 1) $total-columns;

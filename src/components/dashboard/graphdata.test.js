@@ -18,8 +18,8 @@ test('calculates stats correctly', () => {
   const { stats, totals, symbols } = getStats(from, to, january)
 
   expect(totals).toEqual({
-    traffic: 367,
-    space: 91,
+    traffic: 385,
+    space: 96,
     files: 353
   })
   expect(symbols).toEqual({
@@ -55,12 +55,12 @@ test('calculates stats correctly', () => {
       { y: 0, name: '1/8/2018' },
       { y: 0, name: '1/9/2018' },
       { y: 0, name: '1/10/2018' },
-      { y: 49.24, name: '1/11/2018' },
-      { y: 201.38, name: '1/12/2018' },
-      { y: 1.36, name: '1/13/2018' },
+      { y: 51.63, name: '1/11/2018' },
+      { y: 211.16, name: '1/12/2018' },
+      { y: 1.43, name: '1/13/2018' },
       { y: 0, name: '1/14/2018' },
-      { y: 112.09, name: '1/15/2018' },
-      { y: 3, name: '1/16/2018' },
+      { y: 117.53, name: '1/15/2018' },
+      { y: 3.14, name: '1/16/2018' },
       { y: 0, name: '1/17/2018' }
     ],
     space: [
@@ -90,12 +90,12 @@ test('calculates stats correctly', () => {
       { y: 0, name: '1/8/2018' },
       { y: 0, name: '1/9/2018' },
       { y: 0, name: '1/10/2018' },
-      { y: 187.24, name: '1/11/2018' },
-      { y: 187.23, name: '1/12/2018' },
-      { y: 187.23, name: '1/13/2018' },
-      { y: 187.23, name: '1/14/2018' },
+      { y: 196.34, name: '1/11/2018' },
+      { y: 196.32, name: '1/12/2018' },
+      { y: 196.32, name: '1/13/2018' },
+      { y: 196.32, name: '1/14/2018' },
       { y: 0, name: '1/15/2018' },
-      { y: 91.39, name: '1/16/2018' },
+      { y: 95.83, name: '1/16/2018' },
       { y: 0, name: '1/17/2018' }
     ],
     files: [

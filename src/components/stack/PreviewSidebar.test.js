@@ -2,6 +2,14 @@ import React from 'react'
 import PreviewSidebar from './PreviewSidebar'
 import renderer from 'react-test-renderer'
 
+// Fix timestamp-based URLs that cause snapshot flakiness
+beforeAll(() => {
+  jest.spyOn(Date.prototype, 'getTime').mockReturnValue(1700000000000)
+})
+afterAll(() => {
+  jest.restoreAllMocks()
+})
+
 test('PreviewSidebar does not render when no previewImage set', () => {
   const props = {
     organization: 'test-organization',

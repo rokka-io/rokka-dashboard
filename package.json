@@ -69,9 +69,6 @@
       "pre-commit": "lint-staged"
     }
   },
-  "overrides": {
-    "cheerio": "1.0.0-rc.12"
-  },
   "lint-staged": {
     "*.{js,json,css,md,yml}": [
       "prettier --write",

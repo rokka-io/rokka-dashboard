@@ -7,14 +7,14 @@ import StackOption from './options/StackOption'
 
 class Options extends Component {
   static defaultProps = {
-    title: 'Options'
+    title: 'Options',
   }
 
   constructor(props) {
     super(props)
 
     this.state = {
-      value: ''
+      value: '',
     }
   }
 
@@ -34,7 +34,7 @@ class Options extends Component {
     const addedOptions = Object.keys(options)
     let $options = 'No options added, default options apply.'
     if (addedOptions.length) {
-      $options = addedOptions.reverse().map(name => (
+      $options = addedOptions.reverse().map((name) => (
         <div className="row" key={name}>
           <div className="col-md-12">
             <StackOption
@@ -53,11 +53,11 @@ class Options extends Component {
     if (onChange) {
       const availableOptions = Object.keys(defaultOptions)
         .sort()
-        .filter(name => !addedOptions.includes(name))
-        .map(name => ({
+        .filter((name) => !addedOptions.includes(name))
+        .map((name) => ({
           value: defaultOptions[name].default,
           name,
-          label: name
+          label: name,
         }))
       $addOption = (
         <FormGroup label="Add stack option">
@@ -89,7 +89,7 @@ Options.propTypes = {
   options: PropTypes.object.isRequired,
   stacks: PropTypes.object,
   onChange: PropTypes.func,
-  title: PropTypes.string
+  title: PropTypes.string,
 }
 
 export default Options

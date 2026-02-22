@@ -10,7 +10,7 @@ const ROKKA_DASHBOARD_PREVIEW_IMAGE = 'rokka-dashboard-preview-image'
 function adjustImageFormat({ format, ...properties }) {
   const preview = {
     ...properties,
-    format: validFormats.includes(format) ? format : defaultFormat
+    format: validFormats.includes(format) ? format : defaultFormat,
   }
   window.sessionStorage.setItem(ROKKA_DASHBOARD_PREVIEW_IMAGE, JSON.stringify(preview))
   return preview
@@ -38,7 +38,7 @@ export default function previewImage(WrappedComponent) {
 
       this.state = {
         modalOpen: false,
-        preview: null
+        preview: null,
       }
 
       this.onOpenModal = this.onOpenModal.bind(this)
@@ -74,10 +74,10 @@ export default function previewImage(WrappedComponent) {
             return
           }
           this.setState({
-            preview: adjustImageFormat(body.items[0])
+            preview: adjustImageFormat(body.items[0]),
           })
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err)
         })
     }
@@ -86,20 +86,20 @@ export default function previewImage(WrappedComponent) {
       e.preventDefault()
 
       this.setState({
-        modalOpen: true
+        modalOpen: true,
       })
     }
 
     onCloseModal() {
       this.setState({
-        modalOpen: false
+        modalOpen: false,
       })
     }
 
     onChange(image) {
       this.setState({
         modalOpen: false,
-        preview: adjustImageFormat(image)
+        preview: adjustImageFormat(image),
       })
     }
 
@@ -138,8 +138,8 @@ export default function previewImage(WrappedComponent) {
 
   PreviewImage.propTypes = {
     auth: PropTypes.shape({
-      organization: PropTypes.string.isRequired
-    }).isRequired
+      organization: PropTypes.string.isRequired,
+    }).isRequired,
   }
 
   const displayName = WrappedComponent.displayName || WrappedComponent.name || 'Component'

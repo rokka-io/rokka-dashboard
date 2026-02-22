@@ -20,7 +20,7 @@ test('OperationList does render with minimal props', () => {
     setActiveOperation: failingFunc,
     onMoveOperation: failingFunc,
     onSelectAddOperation: failingFunc,
-    selectedOperation: ''
+    selectedOperation: '',
   }
   const component = renderer.create(<OperationList {...props} />)
   let tree = component.toJSON()
@@ -50,55 +50,55 @@ test('OperationList does render with all props', () => {
           angle: {
             minimum: 0,
             maximum: 360,
-            default: 90
+            default: 90,
           },
           background_color: {
-            default: '#000000'
+            default: '#000000',
           },
           background_opacity: {
             minimum: 0,
-            maximum: 100
-          }
-        }
+            maximum: 100,
+          },
+        },
       },
       crop: {
         properties: {
           width: {
             minimum: 0,
-            maximum: 10000
+            maximum: 10000,
           },
           height: {
             minimum: 0,
-            maximum: 10000
+            maximum: 10000,
           },
           anchor: {
-            default: 'left'
-          }
-        }
-      }
+            default: 'left',
+          },
+        },
+      },
     },
     addedOperations: [
       {
         id: '1',
         name: 'rotate',
         options: {},
-        errors: {}
+        errors: {},
       },
       {
         id: '2',
         name: 'crop',
         options: {},
-        errors: {}
-      }
+        errors: {},
+      },
     ],
     stackOptions: {
-      properties: {}
-    }
+      properties: {},
+    },
   }
   const component = renderer.create(
     <DndProvider backend={TestBackend}>
       <OperationList {...props} />
-    </DndProvider>
+    </DndProvider>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

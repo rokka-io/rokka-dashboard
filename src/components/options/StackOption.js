@@ -40,7 +40,7 @@ const StackOption = ({ name, options, defaultOptions, stacks, onChange }) => {
     value,
     definitions,
     onChange,
-    error
+    error,
   }
 
   if (name === 'basestack') {
@@ -55,7 +55,7 @@ const StackOption = ({ name, options, defaultOptions, stacks, onChange }) => {
   }
 
   const typ = Array.isArray(definitions.type)
-    ? definitions.type.filter(t => t !== 'null')[0]
+    ? definitions.type.filter((t) => t !== 'null')[0]
     : definitions.type
 
   switch (typ) {
@@ -75,7 +75,7 @@ StackOption.propTypes = {
   options: PropTypes.object.isRequired,
   defaultOptions: PropTypes.object.isRequired,
   stacks: PropTypes.object,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
 }
 
 export default StackOption

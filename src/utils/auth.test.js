@@ -12,7 +12,7 @@ test('authRequired renders Login when no auth is provided', () => {
   const component = renderer.create(
     <MemoryRouter>
       <WrappedComponent auth={null} />
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   const tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -22,7 +22,7 @@ test('authRequired renders Login when auth has no apiToken', () => {
   const component = renderer.create(
     <MemoryRouter>
       <WrappedComponent auth={{ apiToken: null }} />
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   const tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -32,7 +32,7 @@ test('authRequired renders protected component when authenticated', () => {
   const component = renderer.create(
     <MemoryRouter>
       <WrappedComponent auth={{ apiToken: 'valid-token' }} />
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   const tree = component.toJSON()
   expect(tree).toMatchSnapshot()

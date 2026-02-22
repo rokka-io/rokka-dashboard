@@ -5,7 +5,7 @@ import { readableInputLabel } from '../../utils/string'
 const Select = ({ value, defaultValue, placeholder, disabled, children, ...props }) => {
   const ph = defaultValue
     ? `${readableInputLabel(
-        placeholder || props.name || props.type || ''
+        placeholder || props.name || props.type || '',
       )} (default: ${defaultValue})`
     : placeholder
 
@@ -27,7 +27,7 @@ Select.propTypes = {
   children: PropTypes.node,
   onChange: PropTypes.func,
   type: PropTypes.string,
-  name: PropTypes.string
+  name: PropTypes.string,
 }
 
 export default Select

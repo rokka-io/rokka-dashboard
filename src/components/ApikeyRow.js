@@ -5,7 +5,7 @@ import { formatDate } from '../utils/string'
 
 const DEFAULT_STATE = {
   currentKeyId: '',
-  delete: false
+  delete: false,
 }
 
 class ApikeyRow extends PureComponent {
@@ -23,7 +23,7 @@ class ApikeyRow extends PureComponent {
       .then(({ body }) => {
         this.props.updateKeys()
       })
-      .catch(err => {
+      .catch((err) => {
         alert("Api Key deletion didn't work:" + err.body.error.message)
       })
   }
@@ -46,19 +46,19 @@ class ApikeyRow extends PureComponent {
             <>
               <button
                 className="rka-button rka-button-brand  mr-md"
-                onClick={e => this.reallyDelete(e)}
+                onClick={(e) => this.reallyDelete(e)}
               >
                 Really Delete!
               </button>
               <button
                 className="rka-button rka-button-secondary"
-                onClick={e => this.setState({ delete: false })}
+                onClick={(e) => this.setState({ delete: false })}
               >
                 Cancel
               </button>
             </>
           ) : (
-            <button className="rka-button rka-button-brand" onClick={e => this.showDelete(e)}>
+            <button className="rka-button rka-button-brand" onClick={(e) => this.showDelete(e)}>
               Delete Api Key
             </button>
           )}
@@ -71,7 +71,7 @@ class ApikeyRow extends PureComponent {
 ApikeyRow.propTypes = {
   apiKey: PropTypes.object.isRequired,
   currentKeyId: PropTypes.string.isRequired,
-  updateKeys: PropTypes.func.isRequired
+  updateKeys: PropTypes.func.isRequired,
 }
 
 export default ApikeyRow

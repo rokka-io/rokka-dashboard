@@ -31,7 +31,7 @@ RangeStackOption.propTypes = {
   required: PropTypes.bool,
   value: PropTypes.number,
   onChange: PropTypes.func,
-  error: PropTypes.string
+  error: PropTypes.string,
 }
 
 export default RangeStackOption

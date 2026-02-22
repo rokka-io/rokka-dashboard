@@ -16,7 +16,7 @@ class Stack extends PureComponent {
     super(props)
 
     this.state = {
-      confirmDeleteStack: false
+      confirmDeleteStack: false,
     }
   }
 
@@ -30,8 +30,8 @@ class Stack extends PureComponent {
     const { items } = stacks
     const {
       match: {
-        params: { name }
-      }
+        params: { name },
+      },
     } = router
 
     if (!items) {
@@ -56,13 +56,13 @@ class Stack extends PureComponent {
 
   onClickDeleteStack() {
     this.setState({
-      confirmDeleteStack: true
+      confirmDeleteStack: true,
     })
   }
 
   onCancelDeleteStack() {
     this.setState({
-      confirmDeleteStack: false
+      confirmDeleteStack: false,
     })
   }
 
@@ -74,7 +74,7 @@ class Stack extends PureComponent {
         this.props.router.history.push(`/stacks`)
         setAlert('success', `Stack ${name} has been deleted.`, 5000)
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err)
 
         this.onCancelDeleteStack()
@@ -94,8 +94,8 @@ class Stack extends PureComponent {
     const { previewImage = null, stacks, operations, router, auth } = this.props
     const {
       match: {
-        params: { name, tabindex }
-      }
+        params: { name, tabindex },
+      },
     } = router
     const { organization } = auth
     if (!stacks.items || !operations) {
@@ -149,11 +149,11 @@ class Stack extends PureComponent {
       <Fragment>
         <Header
           title={stack.name}
-          cloneStack={e => this.onClickDuplicateStack(e, tabindex === 'JSON Config')}
+          cloneStack={(e) => this.onClickDuplicateStack(e, tabindex === 'JSON Config')}
         >
           <button
             className="rka-button rka-button-brand"
-            onClick={e => this.onClickDuplicateStack(e, tabindex === 'JSON Config')}
+            onClick={(e) => this.onClickDuplicateStack(e, tabindex === 'JSON Config')}
           >
             Clone stack
           </button>
@@ -176,7 +176,7 @@ class Stack extends PureComponent {
               <div className="mt-lg">
                 <button
                   className="rka-button rka-button-negative"
-                  onClick={e => this.onClickDeleteStack(e)}
+                  onClick={(e) => this.onClickDeleteStack(e)}
                 >
                   Delete stack
                 </button>
@@ -198,30 +198,30 @@ class Stack extends PureComponent {
 
 Stack.propTypes = {
   auth: PropTypes.shape({
-    organization: PropTypes.string.isRequired
+    organization: PropTypes.string.isRequired,
   }).isRequired,
   stackOptions: PropTypes.object,
   operations: PropTypes.object,
   stacks: PropTypes.shape({
     currentOffset: PropTypes.number,
     items: PropTypes.array,
-    total: PropTypes.number
+    total: PropTypes.number,
   }),
   router: PropTypes.shape({
     match: PropTypes.shape({
       params: PropTypes.shape({
-        name: PropTypes.string
-      }).isRequired
+        name: PropTypes.string,
+      }).isRequired,
     }),
     history: PropTypes.shape({
       replace: PropTypes.func.isRequired,
-      push: PropTypes.func.isRequired
-    })
+      push: PropTypes.func.isRequired,
+    }),
   }).isRequired,
   // from previewImage
   onOpenChoosePreviewImage: PropTypes.func.isRequired,
   loadPreviewImage: PropTypes.func.isRequired,
-  previewImage: PropTypes.object
+  previewImage: PropTypes.object,
 }
 
 export default authRequired(previewImage(Stack))

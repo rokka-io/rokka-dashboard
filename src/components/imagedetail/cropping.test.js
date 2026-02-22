@@ -2,7 +2,7 @@ import {
   calculateScale,
   scalePosition,
   calculateRenderedPosition,
-  pixelToPercent
+  pixelToPercent,
 } from './cropping'
 
 test('calculateScale', () => {
@@ -27,7 +27,7 @@ test('pixelToPercent', () => {
     x: 20,
     y: 10,
     width: 200,
-    height: 400
+    height: 400,
   }
   const { x, y, width, height } = pixelToPercent(crop, 400, 800)
 

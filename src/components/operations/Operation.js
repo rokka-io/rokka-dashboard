@@ -14,7 +14,7 @@ const Operation = ({
   onChange,
   removeOperation,
   setActiveOperation,
-  onMoveOperation
+  onMoveOperation,
 }) => {
   const ref = useRef(null)
 
@@ -23,7 +23,7 @@ const Operation = ({
     item: () => ({
       id: operation.id,
       index,
-      originalIndex: index
+      originalIndex: index,
     }),
     end: (item, monitor) => {
       if (!monitor.didDrop()) {
@@ -31,8 +31,8 @@ const Operation = ({
       }
     },
     collect: (monitor) => ({
-      isDragging: monitor.isDragging()
-    })
+      isDragging: monitor.isDragging(),
+    }),
   })
 
   const [{ isOver }, drop] = useDrop({
@@ -65,8 +65,8 @@ const Operation = ({
       item.index = hoverIndex
     },
     collect: (monitor) => ({
-      isOver: monitor.isOver()
-    })
+      isOver: monitor.isOver(),
+    }),
   })
 
   dragPreview(drop(ref))
@@ -78,7 +78,7 @@ const Operation = ({
     'bor-cranberry': hasErrors,
     'bor-light': !hasErrors,
     opaque: isDragging,
-    'bor-brand-light-dashed': isOver
+    'bor-brand-light-dashed': isOver,
   })
 
   const { name, options, errors } = operation
@@ -86,8 +86,8 @@ const Operation = ({
   return (
     <div className={className} ref={ref}>
       <div ref={drag}>
-        <button className="rka-close-icon" onClick={e => removeOperation(e, index)} />
-        <button className="rka-edit-icon" onClick={e => setActiveOperation(e, index)} />
+        <button className="rka-close-icon" onClick={(e) => removeOperation(e, index)} />
+        <button className="rka-edit-icon" onClick={(e) => setActiveOperation(e, index)} />
         <span className="rka-move-icon" />
         <h3 className="rka-h3 txt-cap">{name}</h3>
       </div>
@@ -97,7 +97,7 @@ const Operation = ({
             availableOperations={availableOperations}
             name={name}
             values={options}
-            onChange={e => onChange(index, e)}
+            onChange={(e) => onChange(index, e)}
             errors={errors}
           />
         </div>
@@ -111,14 +111,14 @@ Operation.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     options: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
+    errors: PropTypes.object.isRequired,
   }).isRequired,
   index: PropTypes.number.isRequired,
   isActive: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   onMoveOperation: PropTypes.func.isRequired,
   removeOperation: PropTypes.func.isRequired,
-  setActiveOperation: PropTypes.func.isRequired
+  setActiveOperation: PropTypes.func.isRequired,
 }
 
 export default Operation

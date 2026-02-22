@@ -19,7 +19,7 @@ class App extends PureComponent {
 
     this.state = state
 
-    this.unsubscribe = subscribe(state => {
+    this.unsubscribe = subscribe((state) => {
       this.setState(state)
     })
   }
@@ -32,24 +32,24 @@ class App extends PureComponent {
     return (
       <HashRouter>
         <div className="App">
-          <Route path="/" exact render={props => <Dashboard router={props} {...this.state} />} />
-          <Route path="/images" render={props => <Images router={props} {...this.state} />} />
-          <Route path="/costs" render={props => <Costs router={props} {...this.state} />} />
-          <Route path="/apikeys" render={props => <Apikeys router={props} {...this.state} />} />
+          <Route path="/" exact render={(props) => <Dashboard router={props} {...this.state} />} />
+          <Route path="/images" render={(props) => <Images router={props} {...this.state} />} />
+          <Route path="/costs" render={(props) => <Costs router={props} {...this.state} />} />
+          <Route path="/apikeys" render={(props) => <Apikeys router={props} {...this.state} />} />
           <Route
             path="/memberships"
-            render={props => <Memberships router={props} {...this.state} />}
+            render={(props) => <Memberships router={props} {...this.state} />}
           />
-          <Route path="/signup" render={props => <Signup router={props} {...this.state} />} />
-          <Route path="/signedup" render={props => <Signedup router={props} {...this.state} />} />
-          <Route path="/stacks" render={props => <Stacks router={props} {...this.state} />} />
+          <Route path="/signup" render={(props) => <Signup router={props} {...this.state} />} />
+          <Route path="/signedup" render={(props) => <Signedup router={props} {...this.state} />} />
+          <Route path="/stacks" render={(props) => <Stacks router={props} {...this.state} />} />
           <Route
             path="/stacks/:name/:tabindex?"
-            render={props => <Stacks router={props} {...this.state} />}
+            render={(props) => <Stacks router={props} {...this.state} />}
           />
           <Route
             path="/new-stack/:tabindex?"
-            render={props => <NewStack router={props} {...this.state} />}
+            render={(props) => <NewStack router={props} {...this.state} />}
           />
         </div>
       </HashRouter>

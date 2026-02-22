@@ -5,6 +5,6 @@ Enzyme.configure({ adapter: new Adapter() })
 
 // shim for requestAnimationFrame for tests (react requires requestAnimationFrame)
 global.window = global
-window.requestAnimationFrame = callback => {
+window.requestAnimationFrame = (callback) => {
   setTimeout(callback, 0)
 }

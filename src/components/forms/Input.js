@@ -28,7 +28,7 @@ Input.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   type: PropTypes.string,
-  name: PropTypes.string
+  name: PropTypes.string,
 }
 
 export default Input

@@ -23,10 +23,10 @@ const BaseStack = ({ label, name, value, stacks = {}, onChange, error }) => {
     return null
   }
 
-  const options = stacks.items.map(item => {
+  const options = stacks.items.map((item) => {
     return {
       value: item.name,
-      label: item.name
+      label: item.name,
     }
   })
   return (
@@ -48,7 +48,7 @@ BaseStack.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   error: PropTypes.string,
-  stacks: PropTypes.object
+  stacks: PropTypes.object,
 }
 
 export default BaseStack

@@ -17,7 +17,7 @@ const FocusPointSvg = forwardRef(({ x, y, isVisible = false }, ref) => (
 FocusPointSvg.propTypes = {
   x: PropTypes.number.isRequired,
   y: PropTypes.number.isRequired,
-  isVisible: PropTypes.bool
+  isVisible: PropTypes.bool,
 }
 
 export default FocusPointSvg

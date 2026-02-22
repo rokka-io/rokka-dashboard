@@ -7,7 +7,7 @@ test('Header does render', () => {
   const component = renderer.create(
     <MemoryRouter>
       <Header auth={{ organization: 'test-organization' }} active={false} />
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -17,7 +17,7 @@ test('Header does render in active mode', () => {
   const component = renderer.create(
     <MemoryRouter>
       <Header auth={{ organization: 'test-organization' }} active />
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

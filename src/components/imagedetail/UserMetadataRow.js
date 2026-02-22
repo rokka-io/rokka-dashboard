@@ -7,7 +7,7 @@ export const ROKKA_TYPES = [
   { label: 'Double', value: 'double' },
   { label: 'Date', value: 'date' },
   { label: 'Location', value: 'latlon' },
-  { label: 'Array', value: 'array' }
+  { label: 'Array', value: 'array' },
 ]
 
 const UserMetadataRow = ({
@@ -19,12 +19,12 @@ const UserMetadataRow = ({
   name = '',
   type = 'str',
   value = '',
-  disabled
+  disabled,
 }) => {
   return (
     <div key={index} className="rka-image-metadata-container mb-xs">
       {!isNew && !disabled ? (
-        <button className="rka-close-icon" onClick={e => onClickRemove(e, index)} />
+        <button className="rka-close-icon" onClick={(e) => onClickRemove(e, index)} />
       ) : null}
       <div className="row">
         <div className="col-md-4">
@@ -35,7 +35,7 @@ const UserMetadataRow = ({
               value={name}
               className="rka-input-txt"
               placeholder="Name"
-              onChange={e => onChange(isNew, index, { name: e.currentTarget.value })}
+              onChange={(e) => onChange(isNew, index, { name: e.currentTarget.value })}
             />
           </div>
         </div>
@@ -45,9 +45,9 @@ const UserMetadataRow = ({
               disabled={disabled}
               className="rka-select"
               value={type}
-              onChange={e => onChange(isNew, index, { type: e.currentTarget.value })}
+              onChange={(e) => onChange(isNew, index, { type: e.currentTarget.value })}
             >
-              {ROKKA_TYPES.map(option => (
+              {ROKKA_TYPES.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
@@ -63,7 +63,7 @@ const UserMetadataRow = ({
               value={value}
               className="rka-input-txt"
               placeholder="Value"
-              onChange={e => onChange(isNew, index, { value: e.currentTarget.value })}
+              onChange={(e) => onChange(isNew, index, { value: e.currentTarget.value })}
             />
           </div>
         </div>
@@ -89,7 +89,7 @@ UserMetadataRow.propTypes = {
   isNew: PropTypes.bool,
   name: PropTypes.string,
   type: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)])
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
 }
 
 export default UserMetadataRow

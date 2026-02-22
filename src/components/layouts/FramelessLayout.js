@@ -12,7 +12,7 @@ const FramelessLayout = ({ children, className = null, alert = null }) => (
 FramelessLayout.propTypes = {
   children: PropTypes.node.isRequired,
   alert: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 }
 
 export default FramelessLayout

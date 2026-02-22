@@ -16,7 +16,7 @@ test('Alert renders one alert', () => {
 
 test('Alert renders multiple alerts', () => {
   const component = renderer.create(
-    <Alert alert={{ type: 'error', message: ['Test alert', 'Rokka yay'] }} />
+    <Alert alert={{ type: 'error', message: ['Test alert', 'Rokka yay'] }} />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

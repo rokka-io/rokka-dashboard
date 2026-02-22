@@ -18,6 +18,9 @@ All notable changes to this project will be documented in this file.
 - Fix SCSS for Dart Sass compatibility (operator spacing, asset URL paths, inline Bourbon Neat helpers)
 - Fix React hooks rule violation in PreviewSidebar (useState before early return)
 - Add `npm run lint` and `npm run lint:fix` scripts (ESLint + Prettier)
+- Upgrade prettier from 1.x to 3.x
+- Upgrade react-transition-group from 2.x to 4.x
+- Upgrade rokka SDK from 3.x to 4.x
 
 ### Security
 

@@ -29,7 +29,7 @@ class ImageList extends PureComponent {
 
     this.state = {
       images: {
-        items: []
+        items: [],
       },
       loading: true,
       currentOffset: 0,
@@ -38,7 +38,7 @@ class ImageList extends PureComponent {
       sortField: 'created',
       sortOrder: 'desc',
       searchDataType: 'str',
-      fields: {}
+      fields: {},
     }
 
     this.onSearchChange = this.onSearchChange.bind(this)
@@ -51,7 +51,7 @@ class ImageList extends PureComponent {
 
   onSearchChange(name, { value = null }, reload = false) {
     const stateChange = {
-      [name]: value
+      [name]: value,
     }
 
     if (name === 'searchField' && value === null) {
@@ -71,7 +71,7 @@ class ImageList extends PureComponent {
       !value.includes('user:')
     ) {
       stateChange.fields = Object.assign({}, this.state.fields, {
-        [value]: { value: value, label: value, userMetadata: true }
+        [value]: { value: value, label: value, userMetadata: true },
       })
       fields = stateChange.fields
       stateChange[name] = value
@@ -94,9 +94,9 @@ class ImageList extends PureComponent {
     this.setState({
       currentOffset: 0,
       images: {
-        items: []
+        items: [],
       },
-      loading: true
+      loading: true,
     })
 
     this.loadImages()
@@ -111,7 +111,7 @@ class ImageList extends PureComponent {
       searchValue,
       searchDataType,
       sortField,
-      sortOrder
+      sortOrder,
     } = this.state
     const { deletedImages = [] } = this.props
     const offset = append ? currentOffset : 0
@@ -132,13 +132,13 @@ class ImageList extends PureComponent {
       .then(({ body }) => {
         const { fields } = this.state
         const items = body.items.filter(({ hash }) => !deletedImages.includes(hash))
-        items.forEach(item => {
-          Object.keys(item).forEach(key => {
+        items.forEach((item) => {
+          Object.keys(item).forEach((key) => {
             if (fields[key] || key === 'dynamic_metadata' || key === 'organization') {
               return
             }
             if (key === 'user_metadata') {
-              Object.keys(item[key]).forEach(userKey => {
+              Object.keys(item[key]).forEach((userKey) => {
                 if (fields[userKey]) {
                   return
                 }
@@ -148,7 +148,7 @@ class ImageList extends PureComponent {
                     type: dataType,
                     value: userKey,
                     label: keyName,
-                    userMetadata: true
+                    userMetadata: true,
                   }
                   return
                 }
@@ -156,7 +156,7 @@ class ImageList extends PureComponent {
                   type: 'str',
                   value: userKey,
                   label: userKey,
-                  userMetadata: true
+                  userMetadata: true,
                 }
               })
               return
@@ -168,14 +168,14 @@ class ImageList extends PureComponent {
         this.setState({
           images: Object.assign({}, images, {
             total: body.total,
-            items: append ? [...images.items, ...items] : items
+            items: append ? [...images.items, ...items] : items,
           }),
           currentOffset: currentOffset + this.props.limit,
           loading: false,
-          fields
+          fields,
         })
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err)
       })
   }
@@ -197,14 +197,14 @@ class ImageList extends PureComponent {
 
     const { highlight } = this.props
 
-    return this.state.images.items.map(item => {
+    return this.state.images.items.map((item) => {
       const format = item.format === 'jpg' ? 'jpg' : 'png'
       const imgUrl = getRenderUrl(this.props.organization, item.hash, format, 'dynamic')
       const imgSrc = getRenderUrl(
         this.props.organization,
         item.hash,
         format,
-        'dynamic/resize-height-120'
+        'dynamic/resize-height-120',
       )
 
       return (
@@ -232,7 +232,7 @@ class ImageList extends PureComponent {
           this.props.organization,
           image.hash,
           format,
-          'dynamic/resize-height-120'
+          'dynamic/resize-height-120',
         )
         return (
           <Image
@@ -293,7 +293,7 @@ ImageList.propTypes = {
   enableLoadMore: PropTypes.bool,
   highlight: PropTypes.string,
   onClickImage: PropTypes.func,
-  className: PropTypes.string
+  className: PropTypes.string,
 }
 
 export default ImageList

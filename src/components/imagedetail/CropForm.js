@@ -7,7 +7,7 @@ const CropForm = ({
   y = '',
   width = '',
   height = '',
-  disableWidthHeight = false
+  disableWidthHeight = false,
 }) => (
   <div className="row">
     <div className="col-md-3 col-sm-3">
@@ -56,7 +56,7 @@ CropForm.propTypes = {
   y: PropTypes.number,
   width: PropTypes.number,
   height: PropTypes.number,
-  disableWidthHeight: PropTypes.bool
+  disableWidthHeight: PropTypes.bool,
 }
 
 export default CropForm

@@ -23,8 +23,8 @@ const Alert = ({ alert = null }) => {
 Alert.propTypes = {
   alert: PropTypes.shape({
     type: PropTypes.string,
-    message: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)])
-  })
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  }),
 }
 
 export default Alert

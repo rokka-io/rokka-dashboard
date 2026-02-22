@@ -8,25 +8,23 @@ const SYMBOL_EXPONENT = {
   GB: 3,
   TB: 4,
   PB: 5,
-  EB: 6
+  EB: 6,
 }
 
 function toChartData({ value, timestamp }, exponent = null) {
   return {
     y: exponent ? filesize(value, { exponent, output: 'object' }).value : value,
     // unix timestamp is in seconds, need it in miliseconds
-    name: moment(timestamp)
-      .toDate()
-      .toLocaleDateString()
+    name: moment(timestamp).toDate().toLocaleDateString(),
   }
 }
 
 function generateStatsPerDay(perDay, stats, exponent = null) {
   const timestamps = stats.map((stat, index) => ({
     index,
-    value: moment(stat.timestamp).valueOf()
+    value: moment(stat.timestamp).valueOf(),
   }))
-  stats = timestamps.map(stat => stats[stat.index])
+  stats = timestamps.map((stat) => stats[stat.index])
 
   const data = []
   let statsIdx = 0
@@ -48,7 +46,7 @@ function generateStatsPerDay(perDay, stats, exponent = null) {
       statsIdx,
       length: stats.length,
       perDay,
-      stats
+      stats,
     })
   }
   return data
@@ -59,12 +57,12 @@ function transformData(
   statsPerDay,
   { bytes_downloaded, space_in_bytes, number_of_files },
   trafficExponent,
-  spaceExponent
+  spaceExponent,
 ) {
   return {
     traffic: generateStatsPerDay(statsPerDay, bytes_downloaded, trafficExponent),
     space: generateStatsPerDay(statsPerDay, space_in_bytes, spaceExponent),
-    files: generateStatsPerDay(statsPerDay, number_of_files)
+    files: generateStatsPerDay(statsPerDay, number_of_files),
   }
 }
 
@@ -75,7 +73,7 @@ function getTotals({ bytes_downloaded, space_in_bytes, number_of_files }) {
   return {
     traffic: bytes_downloaded.reduce((acc, data) => acc + data.value, 0),
     space: currentSpaceUsed ? currentSpaceUsed.value : 0,
-    files: currentFilesUsed ? currentFilesUsed.value : 0
+    files: currentFilesUsed ? currentFilesUsed.value : 0,
   }
 }
 
@@ -95,10 +93,10 @@ export default function getStats(from, to, data) {
 
   const sortedData = {
     bytes_downloaded: data.bytes_downloaded.sort(
-      (a, b) => moment(a.timestamp) - moment(b.timestamp)
+      (a, b) => moment(a.timestamp) - moment(b.timestamp),
     ),
     number_of_files: data.number_of_files.sort((a, b) => moment(a.timestamp) - moment(b.timestamp)),
-    space_in_bytes: data.space_in_bytes.sort((a, b) => moment(a.timestamp) - moment(b.timestamp))
+    space_in_bytes: data.space_in_bytes.sort((a, b) => moment(a.timestamp) - moment(b.timestamp)),
   }
 
   const totals = getTotals(sortedData)
@@ -109,7 +107,7 @@ export default function getStats(from, to, data) {
   const averageSpace = space_in_bytes.length ? totals.space / space_in_bytes.length : 0
   const average = {
     traffic: filesize(averageTraffic, { output: 'object' }),
-    space: filesize(averageSpace, { output: 'object' })
+    space: filesize(averageSpace, { output: 'object' }),
   }
 
   const trafficExponent = SYMBOL_EXPONENT[average.traffic.symbol]
@@ -118,12 +116,12 @@ export default function getStats(from, to, data) {
   totals.traffic = filesize(totals.traffic, {
     exponent: trafficExponent,
     round: 0,
-    output: 'object'
+    output: 'object',
   }).value
   totals.space = filesize(totals.space, {
     exponent: spaceExponent,
     round: 0,
-    output: 'object'
+    output: 'object',
   }).value
 
   return {
@@ -131,7 +129,7 @@ export default function getStats(from, to, data) {
     totals: totals,
     symbols: {
       traffic: average.traffic.symbol,
-      space: average.space.symbol
-    }
+      space: average.space.symbol,
+    },
   }
 }

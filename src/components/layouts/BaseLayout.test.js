@@ -13,11 +13,11 @@ jest.mock('react-transition-group', () => {
 test('BaseLayout does render', () => {
   const router = {
     location: {
-      pathname: '/'
+      pathname: '/',
     },
     match: {
-      params: {}
-    }
+      params: {},
+    },
   }
 
   const component = renderer.create(
@@ -30,7 +30,7 @@ test('BaseLayout does render', () => {
       >
         <span>Test Baselayout</span>
       </BaseLayout>
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -39,11 +39,11 @@ test('BaseLayout does render', () => {
 test('BaseLayout does render active sidebar', () => {
   const router = {
     location: {
-      pathname: '/'
+      pathname: '/',
     },
     match: {
-      params: {}
-    }
+      params: {},
+    },
   }
 
   const component = renderer.create(
@@ -56,7 +56,7 @@ test('BaseLayout does render active sidebar', () => {
       >
         <span>Test Baselayout</span>
       </BaseLayout>
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -65,11 +65,11 @@ test('BaseLayout does render active sidebar', () => {
 test('BaseLayout does render alert', () => {
   const router = {
     location: {
-      pathname: '/'
+      pathname: '/',
     },
     match: {
-      params: {}
-    }
+      params: {},
+    },
   }
 
   const component = renderer.create(
@@ -83,7 +83,7 @@ test('BaseLayout does render alert', () => {
       >
         <span>Test Baselayout</span>
       </BaseLayout>
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

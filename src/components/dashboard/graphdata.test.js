@@ -7,7 +7,7 @@ import january from './__tests__/fixtures/january'
 
 // monkey patch Date.prototype.toLocaleDateString() to always use the same locale regardless which env it's run in.
 const toLocaleDateString = global.Date.prototype.toLocaleDateString
-global.Date.prototype.toLocaleDateString = function() {
+global.Date.prototype.toLocaleDateString = function () {
   return toLocaleDateString.apply(this, ['en'])
 }
 
@@ -20,11 +20,11 @@ test('calculates stats correctly', () => {
   expect(totals).toEqual({
     traffic: 385,
     space: 96,
-    files: 353
+    files: 353,
   })
   expect(symbols).toEqual({
     traffic: 'MB',
-    space: 'MB'
+    space: 'MB',
   })
 
   expect(stats).toEqual({
@@ -61,7 +61,7 @@ test('calculates stats correctly', () => {
       { y: 0, name: '1/14/2018' },
       { y: 117.53, name: '1/15/2018' },
       { y: 3.14, name: '1/16/2018' },
-      { y: 0, name: '1/17/2018' }
+      { y: 0, name: '1/17/2018' },
     ],
     space: [
       { y: 0, name: '12/16/2017' },
@@ -96,7 +96,7 @@ test('calculates stats correctly', () => {
       { y: 196.32, name: '1/14/2018' },
       { y: 0, name: '1/15/2018' },
       { y: 95.83, name: '1/16/2018' },
-      { y: 0, name: '1/17/2018' }
+      { y: 0, name: '1/17/2018' },
     ],
     files: [
       { y: 0, name: '12/16/2017' },
@@ -131,7 +131,7 @@ test('calculates stats correctly', () => {
       { y: 210, name: '1/14/2018' },
       { y: 0, name: '1/15/2018' },
       { y: 353, name: '1/16/2018' },
-      { y: 0, name: '1/17/2018' }
-    ]
+      { y: 0, name: '1/17/2018' },
+    ],
   })
 })

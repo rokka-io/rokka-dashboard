@@ -32,7 +32,7 @@ ArrayStringStackOption.propTypes = {
   value: PropTypes.arrayOf(PropTypes.string),
   required: PropTypes.bool,
   onChange: PropTypes.func,
-  error: PropTypes.string
+  error: PropTypes.string,
 }
 
 export default ArrayStringStackOption

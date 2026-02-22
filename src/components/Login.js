@@ -13,7 +13,7 @@ class Login extends PureComponent {
       organization: null,
       apiKey: null,
       showLoader: false,
-      showTransition: false
+      showTransition: false,
     }
 
     this.onLogin = this.onLogin.bind(this)
@@ -24,10 +24,10 @@ class Login extends PureComponent {
 
     this.setState({ showLoader: true })
 
-    const successCb = done => {
+    const successCb = (done) => {
       this.setState({
         showTransition: true,
-        showLoader: false
+        showLoader: false,
       })
       setTimeout(done, 900)
     }
@@ -43,7 +43,7 @@ class Login extends PureComponent {
     const name = target.name
 
     this.setState({
-      [name]: value
+      [name]: value,
     })
   }
 
@@ -76,7 +76,7 @@ class Login extends PureComponent {
                         id="organization"
                         name="organization"
                         defaultValue={this.state.organization}
-                        onChange={e => this.onChange(e)}
+                        onChange={(e) => this.onChange(e)}
                       />
                     </div>
                     <div className="rka-form-group">
@@ -89,12 +89,12 @@ class Login extends PureComponent {
                         id="apiKey"
                         name="apiKey"
                         defaultValue={this.state.apiKey}
-                        onChange={e => this.onChange(e)}
+                        onChange={(e) => this.onChange(e)}
                       />
                     </div>
                     <button
                       className={cx('rka-button rka-button-brand mt-sm', {
-                        disabled: this.state.showLoader
+                        disabled: this.state.showLoader,
                       })}
                       type="submit"
                     >

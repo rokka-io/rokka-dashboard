@@ -12,7 +12,7 @@ const SORT_ORDERS = {
   boolean: 3,
   string: 2,
   color: 2,
-  default: 0
+  default: 0,
 }
 
 /**
@@ -43,10 +43,10 @@ export default function StackOperation({
   const { properties, required = [] } = availableOperations[name]
 
   const sortedProps = Object.keys(properties).sort(
-    (a, b) => getSortOrder(b, properties[b]) - getSortOrder(a, properties[a])
+    (a, b) => getSortOrder(b, properties[b]) - getSortOrder(a, properties[a]),
   )
 
-  const $rows = sortedProps.map(name => {
+  const $rows = sortedProps.map((name) => {
     const definition = properties[name]
     if (!values) {
       values = []
@@ -62,7 +62,7 @@ export default function StackOperation({
       value: values[name],
       onChange,
       error: errors[name],
-      required: required.includes(name)
+      required: required.includes(name),
     }
 
     if (Array.isArray(definition.values)) {

@@ -8,7 +8,7 @@ class InputColor extends PureComponent {
     super(props)
 
     this.state = {
-      showColorPicker: false
+      showColorPicker: false,
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -17,19 +17,19 @@ class InputColor extends PureComponent {
   handleChange({ hex }) {
     this.props.onChange({
       name: this.props.name,
-      value: hex.replace('#', '')
+      value: hex.replace('#', ''),
     })
   }
 
   toggleColorPicker() {
     this.setState({
-      showColorPicker: !this.state.showColorPicker
+      showColorPicker: !this.state.showColorPicker,
     })
   }
 
   handleClickOutside() {
     this.setState({
-      showColorPicker: false
+      showColorPicker: false,
     })
   }
 
@@ -62,7 +62,7 @@ InputColor.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
   defaultValue: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
 }
 
 export default enhanceWithClickOutside(InputColor)

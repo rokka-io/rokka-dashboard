@@ -10,7 +10,7 @@ const placeholderByType = {
   string: '* for prefix (e.g. "rokka*")',
   date: 'Format: YYYY-MM-ddTHH:mm:ssZ',
   int: 'Range format of [0,10]',
-  double: 'format 0.0'
+  double: 'format 0.0',
 }
 
 const SearchForm = ({
@@ -21,16 +21,16 @@ const SearchForm = ({
   searchValue = '',
   searchDataType = '',
   sortField = null,
-  sortOrder = null
+  sortOrder = null,
 }) => {
-  const fieldOptions = Object.keys(fields).map(key => fields[key])
+  const fieldOptions = Object.keys(fields).map((key) => fields[key])
   let currentFieldOption = fieldOptions.filter(({ value }) => searchField === value)
   if (currentFieldOption) {
     currentFieldOption = currentFieldOption[0]
   }
   const sortOrderOptions = [
     { label: 'Ascending', value: 'asc' },
-    { label: 'Descending', value: 'desc' }
+    { label: 'Descending', value: 'desc' },
   ]
 
   return (
@@ -44,7 +44,7 @@ const SearchForm = ({
               isSearchable
               name="searchField"
               value={currentFieldOption}
-              onChange={value => onChange('searchField', value || {})}
+              onChange={(value) => onChange('searchField', value || {})}
               styles={styles}
             />
           </div>
@@ -56,7 +56,7 @@ const SearchForm = ({
               name="searchDataType"
               isDisabled={!!(currentFieldOption && currentFieldOption.type)}
               value={ROKKA_TYPES.filter(({ value }) => searchDataType === value)}
-              onChange={value => onChange('searchDataType', value || {})}
+              onChange={(value) => onChange('searchDataType', value || {})}
               styles={styles}
             />
           </div>
@@ -70,7 +70,7 @@ const SearchForm = ({
               name="searchValue"
               value={searchValue}
               className="rka-input-txt rka-search-input"
-              onChange={e => onChange('searchValue', { value: e.currentTarget.value })}
+              onChange={(e) => onChange('searchValue', { value: e.currentTarget.value })}
             />
             <svg className="rka-search-icon" onClick={onSubmit}>
               <use xlinkHref={searchIcon + '#search-icon'} />
@@ -84,7 +84,7 @@ const SearchForm = ({
               isSearchable
               name="sortField"
               value={fieldOptions.filter(({ value }) => sortField === value)}
-              onChange={value => onChange('sortField', value || {}, true)}
+              onChange={(value) => onChange('sortField', value || {}, true)}
               styles={styles}
             />
           </div>
@@ -95,7 +95,7 @@ const SearchForm = ({
               options={sortOrderOptions}
               name="sortOrder"
               value={sortOrderOptions.filter(({ value }) => sortOrder === value)}
-              onChange={value => onChange('sortOrder', value || {}, true)}
+              onChange={(value) => onChange('sortOrder', value || {}, true)}
               styles={styles}
             />
           </div>
@@ -113,7 +113,7 @@ SearchForm.propTypes = {
   searchValue: PropTypes.string,
   searchDataType: PropTypes.string,
   sortField: PropTypes.string,
-  sortOrder: PropTypes.string
+  sortOrder: PropTypes.string,
 }
 
 export default SearchForm

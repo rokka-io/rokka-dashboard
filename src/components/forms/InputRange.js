@@ -13,7 +13,7 @@ function getValue(props) {
 
 class InputRange extends Component {
   static defaultProps = {
-    step: 1
+    step: 1,
   }
 
   constructor(props) {
@@ -21,14 +21,14 @@ class InputRange extends Component {
 
     this.state = {
       value: getValue(this.props),
-      showMinMax: false
+      showMinMax: false,
     }
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.state.value) {
       this.setState({
-        value: getValue(nextProps)
+        value: getValue(nextProps),
       })
     }
   }
@@ -41,7 +41,7 @@ class InputRange extends Component {
     }
     this.setState({
       value: newVal,
-      showMinMax: true
+      showMinMax: true,
     })
 
     this.props.onChange(e)
@@ -49,7 +49,7 @@ class InputRange extends Component {
 
   onBlur() {
     this.setState({
-      showMinMax: false
+      showMinMax: false,
     })
   }
 
@@ -65,8 +65,8 @@ class InputRange extends Component {
           className="rka-input-range"
           type="range"
           disabled={!this.props.onChange}
-          onChange={e => this.onChange(e)}
-          onBlur={e => this.onBlur(e)}
+          onChange={(e) => this.onChange(e)}
+          onBlur={(e) => this.onBlur(e)}
           min={this.props.min}
           max={this.props.max}
           value={this.state.value}
@@ -83,13 +83,13 @@ class InputRange extends Component {
               size={5}
               type="text"
               disabled={!this.props.onChange}
-              onChange={e => this.onChange(e)}
+              onChange={(e) => this.onChange(e)}
               value={this.state.value}
             />
           ) : (
             <span
               className={cx('rka-input-range-current txt-bold', {
-                'is-disabled': !this.props.onChange
+                'is-disabled': !this.props.onChange,
               })}
             >
               {this.state.value}
@@ -112,7 +112,7 @@ InputRange.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   step: PropTypes.number,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
 }
 
 export default InputRange

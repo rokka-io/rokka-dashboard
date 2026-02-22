@@ -9,7 +9,7 @@ const Header = ({ children, title }) => (
 )
 Header.propTypes = {
   children: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 }
 
 export default Header

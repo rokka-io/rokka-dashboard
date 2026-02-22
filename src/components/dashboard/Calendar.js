@@ -16,7 +16,7 @@ class Calendar extends PureComponent {
       date: this.today.clone(),
       start: props.from,
       end: props.to,
-      temporaryEnd: null
+      temporaryEnd: null,
     }
 
     this.onKeyDown = this.onKeyDown.bind(this)
@@ -90,7 +90,7 @@ class Calendar extends PureComponent {
     }
 
     this.setState({
-      temporaryEnd
+      temporaryEnd,
     })
   }
 
@@ -120,9 +120,9 @@ class Calendar extends PureComponent {
         {showCalendar ? (
           <div tabIndex="0" className="flo-r mt-xs calendar-wrapper dis-b">
             <CalendarComponent
-              onChangeMonth={date => this.onChangeMonth(date)}
+              onChangeMonth={(date) => this.onChangeMonth(date)}
               date={this.state.date}
-              onPickDate={date => this.onPickDate(date)}
+              onPickDate={(date) => this.onPickDate(date)}
               weekOffset={1}
               renderHeader={({ date, onPrevMonth, onNextMonth }) => (
                 <div>
@@ -155,14 +155,14 @@ class Calendar extends PureComponent {
                   future,
                   first,
                   last,
-                  hoverable
+                  hoverable,
                 })
                 return (
                   <div
                     key={day.format()}
                     className={className}
                     onMouseOver={() => !future && this.onMouseOver(day)}
-                    onClick={e => onPickDate(day)}
+                    onClick={(e) => onPickDate(day)}
                   >
                     <div className="text">{day.format('D')}</div>
                   </div>
@@ -186,7 +186,7 @@ Calendar.propTypes = {
   from: PropTypes.object.isRequired,
   to: PropTypes.object.isRequired,
   onDateClick: PropTypes.func.isRequired,
-  showCalendar: PropTypes.bool.isRequired
+  showCalendar: PropTypes.bool.isRequired,
 }
 
 export default enhanceWithClickOutside(Calendar)

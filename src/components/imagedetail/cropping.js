@@ -19,7 +19,7 @@ function getElementOffset(el) {
 
   return {
     top: rectTop,
-    left: rectLeft
+    left: rectLeft,
   }
 }
 
@@ -61,7 +61,7 @@ export function calculateClickPosition(evt) {
 
   return {
     x: Math.round(clientPos.x - parentElOffset.left),
-    y: Math.round(clientPos.y - parentElOffset.top)
+    y: Math.round(clientPos.y - parentElOffset.top),
   }
 }
 
@@ -75,7 +75,7 @@ export function calculateClickPosition(evt) {
 export function scalePosition({ x, y }, scale) {
   return {
     x: Math.round(x * scale),
-    y: Math.round(y * scale)
+    y: Math.round(y * scale),
   }
 }
 
@@ -109,6 +109,6 @@ export function pixelToPercent(crop, width, height) {
     x: (crop.x * 100) / width,
     y: (crop.y * 100) / height,
     width: (crop.width * 100) / width,
-    height: (crop.height * 100) / height
+    height: (crop.height * 100) / height,
   }
 }

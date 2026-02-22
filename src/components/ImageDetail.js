@@ -15,7 +15,7 @@ import {
   calculateClickPosition,
   scalePosition,
   calculateRenderedPosition,
-  pixelToPercent
+  pixelToPercent,
 } from './imagedetail/cropping'
 import BaseLayout from './layouts/BaseLayout'
 import Spinner from './Spinner'
@@ -25,7 +25,7 @@ const EMPTY_FOCUS_AREA = {
   x: 0,
   y: 0,
   width: 0,
-  height: 0
+  height: 0,
 }
 
 const DEFAULT_STATE = {
@@ -39,19 +39,19 @@ const DEFAULT_STATE = {
     menuActive: false,
     type: null,
     coords: EMPTY_FOCUS_AREA,
-    coordsChanged: false
+    coordsChanged: false,
   },
   metaDataChanged: false,
   image: null,
   imageSize: {
     width: 0,
-    height: 0
+    height: 0,
   },
   addMetadata: {
     name: '',
     type: 'str',
-    value: ''
-  }
+    value: '',
+  },
 }
 
 function getSubjectArea(image) {
@@ -78,7 +78,7 @@ function transformImage(organization, image) {
 
   const { user_metadata: metadata = {} } = image
 
-  image.user_metadata = Object.keys(metadata).map(key => {
+  image.user_metadata = Object.keys(metadata).map((key) => {
     let [rkaType, name] = key.split(':')
     if (!name) {
       name = rkaType
@@ -88,7 +88,7 @@ function transformImage(organization, image) {
       key,
       name,
       type: rkaType,
-      value: metadata[key]
+      value: metadata[key],
     }
   })
 
@@ -135,7 +135,7 @@ class ImageDetail extends PureComponent {
 
   getImage(hash) {
     const {
-      auth: { organization }
+      auth: { organization },
     } = this.props
 
     rokka()
@@ -152,7 +152,7 @@ class ImageDetail extends PureComponent {
             width: subjectArea.width,
             height: subjectArea.height,
             x: subjectArea.x || 0,
-            y: subjectArea.y || 0
+            y: subjectArea.y || 0,
           }
 
           const subjectAreaType =
@@ -161,7 +161,7 @@ class ImageDetail extends PureComponent {
             coords: subjectArea,
             coordsChanged: false,
             type: subjectAreaType,
-            menuActive: true
+            menuActive: true,
           }
 
           if (subjectAreaType === FOCUS_POINT) {
@@ -171,7 +171,7 @@ class ImageDetail extends PureComponent {
 
         this.setState(updateState)
       })
-      .catch(e => {
+      .catch((e) => {
         if (e.error) {
           setAlert('error', e.error.error.message, 5000)
         } else {
@@ -210,8 +210,8 @@ class ImageDetail extends PureComponent {
     this.setState({
       imageSize: {
         width: img.width,
-        height: img.height
-      }
+        height: img.height,
+      },
     })
   }
 
@@ -220,20 +220,20 @@ class ImageDetail extends PureComponent {
 
     const {
       router: { match },
-      auth: { organization }
+      auth: { organization },
     } = this.props
     const {
-      params: { hash }
+      params: { hash },
     } = match
 
     const {
       image: { user_metadata: metadata },
-      subjectArea
+      subjectArea,
     } = this.state
     const imageHasSubjectArea = getSubjectArea(this.state.image) !== null
     const userMetadata = {}
 
-    metadata.forEach(data => {
+    metadata.forEach((data) => {
       let { value } = data
       if (data.type === 'array' && typeof value === 'string') {
         value = value.split(',')
@@ -247,7 +247,7 @@ class ImageDetail extends PureComponent {
     if (this.state.metaDataChanged) {
       await rokka()
         .sourceimages.meta.replace(organization, hash, userMetadata)
-        .catch(e => {
+        .catch((e) => {
           console.log(e)
           setAlert('error', e.error.error.message, 5000)
         })
@@ -265,14 +265,14 @@ class ImageDetail extends PureComponent {
           this.props.router.history.push(`/images/${newImageHash}`)
           alertMessages.push('subject area has been removed')
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e)
           setAlert('error', e.error.error.message, 5000)
         })
     } else if (subjectArea.type && subjectArea.coordsChanged) {
       await rokka()
         .sourceimages.setSubjectArea(organization, hash, subjectArea.coords)
-        .then(resp => {
+        .then((resp) => {
           if (resp.response && resp.response.headers && resp.response.headers.get('location')) {
             const newImageHash = resp.response.headers
               .get('location')
@@ -284,7 +284,7 @@ class ImageDetail extends PureComponent {
           }
           alertMessages.push('subject area updated')
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e)
           setAlert('error', e.error.error.message, 5000)
         })
@@ -308,11 +308,11 @@ class ImageDetail extends PureComponent {
             key: `${addMetadata.type}:${addMetadata.name}`,
             name: addMetadata.name,
             type: addMetadata.type,
-            value: addMetadata.value
-          }
-        ]
+            value: addMetadata.value,
+          },
+        ],
       }),
-      metaDataChanged: true
+      metaDataChanged: true,
     })
   }
 
@@ -320,7 +320,7 @@ class ImageDetail extends PureComponent {
     // new metadata will be added only when clicking the button. The handler is attached regardless.
     if (isNew) {
       this.setState({
-        addMetadata: Object.assign({}, this.state.addMetadata, update)
+        addMetadata: Object.assign({}, this.state.addMetadata, update),
       })
       return
     }
@@ -333,10 +333,10 @@ class ImageDetail extends PureComponent {
         user_metadata: [
           ...metadata.slice(0, index),
           Object.assign({}, metadata[index], update),
-          ...metadata.slice(index + 1)
-        ]
+          ...metadata.slice(index + 1),
+        ],
       }),
-      metaDataChanged: true
+      metaDataChanged: true,
     })
   }
 
@@ -348,9 +348,9 @@ class ImageDetail extends PureComponent {
 
     this.setState({
       image: Object.assign({}, image, {
-        user_metadata: metadata.filter((data, index) => index !== removeIndex)
+        user_metadata: metadata.filter((data, index) => index !== removeIndex),
       }),
-      metaDataChanged: true
+      metaDataChanged: true,
     })
   }
 
@@ -361,10 +361,10 @@ class ImageDetail extends PureComponent {
           x: Math.round(pixelCrop.x),
           y: Math.round(pixelCrop.y),
           width: Math.round(pixelCrop.width),
-          height: Math.round(pixelCrop.height)
+          height: Math.round(pixelCrop.height),
         },
-        coordsChanged: true
-      })
+        coordsChanged: true,
+      }),
     })
   }
 
@@ -375,9 +375,9 @@ class ImageDetail extends PureComponent {
           x: Math.round(pixelCrop.x),
           y: Math.round(pixelCrop.y),
           width: Math.round(pixelCrop.width),
-          height: Math.round(pixelCrop.height)
-        }
-      })
+          height: Math.round(pixelCrop.height),
+        },
+      }),
     })
   }
 
@@ -396,10 +396,10 @@ class ImageDetail extends PureComponent {
     this.setState({
       subjectArea: Object.assign({}, this.state.subjectArea, {
         coords: Object.assign({}, coords, {
-          [name]: value
+          [name]: value,
         }),
-        coordsChanged: true
-      })
+        coordsChanged: true,
+      }),
     })
   }
 
@@ -426,10 +426,10 @@ class ImageDetail extends PureComponent {
           x: actualPos.x,
           y: actualPos.y,
           width: 1,
-          height: 1
+          height: 1,
         },
-        coordsChanged: true
-      })
+        coordsChanged: true,
+      }),
     })
   }
 
@@ -439,7 +439,7 @@ class ImageDetail extends PureComponent {
     const { subjectArea } = this.state
 
     const newSubjectArea = {
-      menuActive: !subjectArea.menuActive
+      menuActive: !subjectArea.menuActive,
     }
     if (!newSubjectArea.menuActive) {
       newSubjectArea.type = null
@@ -448,7 +448,7 @@ class ImageDetail extends PureComponent {
     }
 
     this.setState({
-      subjectArea: Object.assign({}, subjectArea, newSubjectArea)
+      subjectArea: Object.assign({}, subjectArea, newSubjectArea),
     })
   }
 
@@ -458,7 +458,7 @@ class ImageDetail extends PureComponent {
     const { subjectArea } = this.state
 
     const newSubjectArea = {
-      type: subjectArea.type ? null : e.currentTarget.id
+      type: subjectArea.type ? null : e.currentTarget.id,
     }
 
     if (!newSubjectArea.type) {
@@ -470,7 +470,7 @@ class ImageDetail extends PureComponent {
         x: Math.round(img.naturalWidth / 2),
         y: Math.round(img.naturalHeight / 2),
         width: 1,
-        height: 1
+        height: 1,
       }
       newSubjectArea.coordsChanged = true
     }
@@ -482,32 +482,32 @@ class ImageDetail extends PureComponent {
     }
 
     this.setState({
-      subjectArea: Object.assign({}, subjectArea, newSubjectArea)
+      subjectArea: Object.assign({}, subjectArea, newSubjectArea),
     })
   }
 
   onClickDeleteImage() {
     this.setState({
-      confirmDeleteImage: true
+      confirmDeleteImage: true,
     })
   }
 
   onLockImage(lock) {
     const {
       router: { match },
-      auth: { organization }
+      auth: { organization },
     } = this.props
     const {
-      params: { hash }
+      params: { hash },
     } = match
 
     rokka()
       .sourceimages.setLocked(organization, hash, lock)
-      .catch(e => {
+      .catch((e) => {
         console.log(e)
         setAlert('error', `Error (un)locking image`, 5000)
       })
-      .then(response => {
+      .then((response) => {
         console.log(response.body)
         this.setState({ image: { ...this.state.image, locked: response.body.locked } })
       })
@@ -515,7 +515,7 @@ class ImageDetail extends PureComponent {
 
   onCancelDeleteImage() {
     this.setState({
-      confirmDeleteImage: false
+      confirmDeleteImage: false,
     })
   }
 
@@ -529,7 +529,7 @@ class ImageDetail extends PureComponent {
           setAlert('success', `Image ${hash} has been deleted.`, 5000)
         }, 2000)
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err)
 
         this.onCancelDeleteImage()
@@ -584,7 +584,7 @@ class ImageDetail extends PureComponent {
       renderPos = calculateRenderedPosition(
         scale,
         this.focusPointRef.current.clientWidth,
-        subjectArea.coords
+        subjectArea.coords,
       )
     }
 
@@ -594,7 +594,7 @@ class ImageDetail extends PureComponent {
 
     const imgClassName = cx('rka-crop-image', {
       'dis-n': type === FOCUS_AREA,
-      'cur-p': type === FOCUS_POINT
+      'cur-p': type === FOCUS_POINT,
     })
     return (
       <Fragment>
@@ -686,18 +686,18 @@ class ImageDetail extends PureComponent {
 }
 ImageDetail.propTypes = {
   auth: PropTypes.shape({
-    organization: PropTypes.string.isRequired
+    organization: PropTypes.string.isRequired,
   }).isRequired,
   router: PropTypes.shape({
     match: PropTypes.shape({
       params: PropTypes.shape({
-        hash: PropTypes.string.isRequired
-      }).isRequired
+        hash: PropTypes.string.isRequired,
+      }).isRequired,
     }).isRequired,
     history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired
-  }).isRequired
+      push: PropTypes.func.isRequired,
+    }).isRequired,
+  }).isRequired,
 }
 
 export default authRequired(ImageDetail)

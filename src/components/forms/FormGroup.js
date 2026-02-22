@@ -9,7 +9,7 @@ const FormGroup = ({
   className = null,
   required = false,
   htmlFor = null,
-  error = null
+  error = null,
 }) => (
   <div className={cx('rka-form-group', className, { 'has-error': !!error })}>
     <label htmlFor={htmlFor} className="rka-label txt-cap">
@@ -25,7 +25,7 @@ FormGroup.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   required: PropTypes.bool,
-  error: PropTypes.string
+  error: PropTypes.string,
 }
 
 export default FormGroup

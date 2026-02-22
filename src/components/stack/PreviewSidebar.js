@@ -10,7 +10,7 @@ const PreviewSidebar = ({
   currentPreviewImage = null,
   error = null,
   imageLoading = false,
-  stack = 'dynamic/noop'
+  stack = 'dynamic/noop',
 }) => {
   const [preview, setPreview] = useState(null)
 
@@ -23,8 +23,8 @@ const PreviewSidebar = ({
     dynamic: currentPreviewImage
       ? currentPreviewImage.src
       : getRenderUrl(organization, previewImage.hash, format, stack, {
-          filename: 'preview_v' + Math.floor(new Date().getTime() / 10 / 1000)
-        })
+          filename: 'preview_v' + Math.floor(new Date().getTime() / 10 / 1000),
+        }),
   }
   return (
     <div className="col-md-5 col-sm-5">
@@ -60,7 +60,7 @@ const PreviewSidebar = ({
         src={previewImages.dynamic}
         alt="Customized"
         style={{ display: 'none' }}
-        onLoad={e => {
+        onLoad={(e) => {
           setPreview(e.target.src)
         }}
       />
@@ -86,14 +86,14 @@ PreviewSidebar.propTypes = {
   onChange: PropTypes.func.isRequired,
   previewImage: PropTypes.shape({
     hash: PropTypes.string.isRequired,
-    format: PropTypes.string.isRequired
+    format: PropTypes.string.isRequired,
   }),
   currentPreviewImage: PropTypes.shape({
-    src: PropTypes.string.isRequired
+    src: PropTypes.string.isRequired,
   }),
   stack: PropTypes.string,
   error: PropTypes.string,
-  imageLoading: PropTypes.bool
+  imageLoading: PropTypes.bool,
 }
 
 export default PreviewSidebar

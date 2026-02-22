@@ -6,7 +6,7 @@ test('ErrorBoundary renders children when no error', () => {
   const component = renderer.create(
     <ErrorBoundary>
       <p>Everything is fine</p>
-    </ErrorBoundary>
+    </ErrorBoundary>,
   )
   expect(component.toJSON()).toMatchSnapshot()
 })
@@ -21,7 +21,7 @@ test('ErrorBoundary renders fallback UI when child throws', () => {
   const component = renderer.create(
     <ErrorBoundary>
       <ThrowingComponent />
-    </ErrorBoundary>
+    </ErrorBoundary>,
   )
   expect(component.toJSON()).toMatchSnapshot()
 

@@ -4,7 +4,7 @@ import rokka from '../rokka'
 import { formatDate } from '../utils/string'
 
 const DEFAULT_STATE = {
-  delete: false
+  delete: false,
 }
 
 class MembershipRow extends PureComponent {
@@ -22,7 +22,7 @@ class MembershipRow extends PureComponent {
       .then(({ body }) => {
         this.props.updateKeys()
       })
-      .catch(err => {
+      .catch((err) => {
         alert("Membership deletion didn't work:" + err.body.error.message)
       })
   }
@@ -47,13 +47,13 @@ class MembershipRow extends PureComponent {
             <>
               <button
                 className="rka-button rka-button-brand  mr-md"
-                onClick={e => this.reallyDelete(e)}
+                onClick={(e) => this.reallyDelete(e)}
               >
                 Really Delete!
               </button>
               <button
                 className="rka-button rka-button-secondary"
-                onClick={e => this.setState({ delete: false })}
+                onClick={(e) => this.setState({ delete: false })}
               >
                 Cancel
               </button>
@@ -62,12 +62,12 @@ class MembershipRow extends PureComponent {
             <>
               <button
                 className="rka-button rka-button-brand"
-                onClick={e =>
+                onClick={(e) =>
                   this.props.updateState({
                     userIdValue: this.props.membership.user_id,
                     commentValue: this.props.membership.comment,
                     rolesValue: this.props.membership.roles,
-                    showCreate: true
+                    showCreate: true,
                   })
                 }
                 style={{ marginBottom: '0.5em' }}
@@ -76,7 +76,7 @@ class MembershipRow extends PureComponent {
               </button>
               <button
                 className="rka-button rka-button-brand"
-                onClick={e => this.showDelete(e)}
+                onClick={(e) => this.showDelete(e)}
                 style={{ marginLeft: '1em' }}
               >
                 Remove
@@ -94,7 +94,7 @@ MembershipRow.propTypes = {
   updateKeys: PropTypes.func.isRequired,
   organization: PropTypes.string.isRequired,
   currentUserId: PropTypes.string.isRequired,
-  updateState: PropTypes.func.isRequired
+  updateState: PropTypes.func.isRequired,
 }
 
 export default MembershipRow

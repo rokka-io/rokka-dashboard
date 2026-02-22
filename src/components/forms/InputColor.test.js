@@ -5,7 +5,7 @@ import { shallow } from 'enzyme'
 
 // Mock react-color to avoid HTMLCanvasElement.getContext() issues in jsdom
 jest.mock('react-color', () => ({
-  ChromePicker: props => <div data-testid="color-picker" onChange={props.onChangeComplete} />
+  ChromePicker: (props) => <div data-testid="color-picker" onChange={props.onChangeComplete} />,
 }))
 
 test('InputColor does render', () => {
@@ -41,7 +41,7 @@ test('InputColor provides shows defaultValue', () => {
   expect(tree).toMatchSnapshot()
 })
 
-test('InputColor onChange', done => {
+test('InputColor onChange', (done) => {
   const onChange = ({ name, value }) => {
     expect(name).toBe('Test')
     expect(value).toBe('000000')

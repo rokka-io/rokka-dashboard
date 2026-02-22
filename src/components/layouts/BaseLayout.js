@@ -29,8 +29,8 @@ BaseLayout.propTypes = {
   stacks: PropTypes.shape({
     currentOffset: PropTypes.number,
     items: PropTypes.array,
-    total: PropTypes.number
-  })
+    total: PropTypes.number,
+  }),
 }
 
 export default BaseLayout

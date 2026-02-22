@@ -69,11 +69,11 @@ Header.propTypes = {
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     format: PropTypes.string.isRequired,
-    hash: PropTypes.string.isRequired
+    hash: PropTypes.string.isRequired,
   }).isRequired,
   focusMenuActive: PropTypes.bool.isRequired,
   onClickToggleFocusMenu: PropTypes.func.isRequired,
-  onClickSave: PropTypes.func.isRequired
+  onClickSave: PropTypes.func.isRequired,
 }
 
 export default Header

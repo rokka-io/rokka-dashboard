@@ -40,7 +40,7 @@ test('Input shows placeholder', () => {
 
 test('Input shows placeholder with default value', () => {
   const component = renderer.create(
-    <Input defaultValue="DefaultValue" placeholder="Placeholder" onChange={() => {}} />
+    <Input defaultValue="DefaultValue" placeholder="Placeholder" onChange={() => {}} />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -48,7 +48,7 @@ test('Input shows placeholder with default value', () => {
 
 test('Input takes name as placeholder if no placeholder given', () => {
   const component = renderer.create(
-    <Input defaultValue="DefaultValue" name="Name" onChange={() => {}} />
+    <Input defaultValue="DefaultValue" name="Name" onChange={() => {}} />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -56,7 +56,7 @@ test('Input takes name as placeholder if no placeholder given', () => {
 
 test('Input takes type as placeholder if no placeholder & name given', () => {
   const component = renderer.create(
-    <Input defaultValue="DefaultValue" type="Type" onChange={() => {}} />
+    <Input defaultValue="DefaultValue" type="Type" onChange={() => {}} />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

@@ -45,8 +45,8 @@ class Sidebar extends PureComponent {
     const { currentOffset = 0, total = 0, filteredItems = [] } = this.props.stacks
     const tabindex = this.props.router.match.params.tabindex
     const $stacks = filteredItems
-      .filter(stack => !stack.name.startsWith('_preview'))
-      .map(stack => {
+      .filter((stack) => !stack.name.startsWith('_preview'))
+      .map((stack) => {
         return (
           <NavLink
             key={stack.name}
@@ -108,7 +108,7 @@ class Sidebar extends PureComponent {
                   className="rka-input-txt rka-stack-search"
                   type="text"
                   placeholder="Search stack..."
-                  onChange={e => this.filterStacks(e)}
+                  onChange={(e) => this.filterStacks(e)}
                 />
                 <svg className="rka-stack-search-icon">
                   <use xlinkHref={searchIcon + '#search-icon'} />
@@ -178,15 +178,15 @@ Sidebar.propTypes = {
   active: PropTypes.bool.isRequired,
   router: PropTypes.shape({
     location: PropTypes.shape({
-      pathname: PropTypes.string.isRequired
-    }).isRequired
+      pathname: PropTypes.string.isRequired,
+    }).isRequired,
   }).isRequired,
   stacks: PropTypes.shape({
     currentOffset: PropTypes.number,
     items: PropTypes.array,
     filteredItems: PropTypes.array,
-    total: PropTypes.number
-  }).isRequired
+    total: PropTypes.number,
+  }).isRequired,
 }
 
 export default Sidebar

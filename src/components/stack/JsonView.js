@@ -17,11 +17,11 @@ export const JsonView = ({ value }) => {
       string: 'rgb(3, 106, 7)',
       null: 'rgb(0, 0,0)',
       number: 'rgb(0, 0, 205)',
-      boolean: 'rgb(88, 92, 246)'
+      boolean: 'rgb(88, 92, 246)',
     },
-    bracket: 'rgb(0, 0, 0)'
+    bracket: 'rgb(0, 0, 0)',
   }
-  cleanedValue.operations = cleanedValue.operations.map(op => {
+  cleanedValue.operations = cleanedValue.operations.map((op) => {
     delete op.id
     delete op.errors
     return op

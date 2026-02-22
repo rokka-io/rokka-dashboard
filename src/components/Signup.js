@@ -19,7 +19,7 @@ class Signup extends PureComponent {
       organization: '',
       showTransition: false,
       showLoader: false,
-      organizationOnlyLowercaseError: false
+      organizationOnlyLowercaseError: false,
     }
 
     this.onSubmit = this.onSubmit.bind(this)
@@ -30,11 +30,11 @@ class Signup extends PureComponent {
     this.setState({ showLoader: true })
     rokka()
       .users.create(this.state.email, this.state.organization)
-      .then(response => {
+      .then((response) => {
         this.setState({ showLoader: false })
         this.props.router.history.push('/signedup')
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({ showLoader: false })
         let message = err.error.error.message
         if (err.statusCode === 403 || err.statusCode === 404) {
@@ -61,7 +61,7 @@ class Signup extends PureComponent {
 
     this.setState({
       [name]: value,
-      organizationOnlyLowercaseError
+      organizationOnlyLowercaseError,
     })
   }
 
@@ -98,7 +98,7 @@ class Signup extends PureComponent {
                       value={organization}
                       id="organization"
                       name="organization"
-                      onChange={e => this.onChange(e)}
+                      onChange={(e) => this.onChange(e)}
                     />
                     {organizationOnlyLowercaseError && (
                       <div className="mt-xs txt-xs txt-gray">
@@ -116,12 +116,12 @@ class Signup extends PureComponent {
                       type="email"
                       id="email"
                       name="email"
-                      onChange={e => this.onChange(e)}
+                      onChange={(e) => this.onChange(e)}
                     />
                   </div>
                   <button
                     className={cx('rka-button rka-button-brand mt-sm', {
-                      disabled: this.state.showLoader
+                      disabled: this.state.showLoader,
                     })}
                     type="submit"
                   >
@@ -157,9 +157,9 @@ class Signup extends PureComponent {
 Signup.propTypes = {
   router: PropTypes.shape({
     history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired
-  }).isRequired
+      push: PropTypes.func.isRequired,
+    }).isRequired,
+  }).isRequired,
 }
 
 export default Signup

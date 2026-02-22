@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer'
 
 test('Actions does render', () => {
   const component = renderer.create(
-    <Actions menuActive actionsActive onChange={() => {}} onToggleActions={() => {}} />
+    <Actions menuActive actionsActive onChange={() => {}} onToggleActions={() => {}} />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -13,7 +13,7 @@ test('Actions does render', () => {
 
 test('Actions does render with menu inactive', () => {
   const component = renderer.create(
-    <Actions menuActive={false} actionsActive onChange={() => {}} onToggleActions={() => {}} />
+    <Actions menuActive={false} actionsActive onChange={() => {}} onToggleActions={() => {}} />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -26,7 +26,7 @@ test('Actions does render with menu/actions inactive', () => {
       actionsActive={false}
       onChange={() => {}}
       onToggleActions={() => {}}
-    />
+    />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -44,9 +44,9 @@ test('Actions does render with focus area', () => {
         x: 1,
         y: 1,
         width: 100,
-        height: 100
+        height: 100,
       }}
-    />
+    />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -64,9 +64,9 @@ test('Actions does render with focus point', () => {
         x: 1,
         y: 1,
         width: 1,
-        height: 1
+        height: 1,
       }}
-    />
+    />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

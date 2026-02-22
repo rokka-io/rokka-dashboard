@@ -20,24 +20,24 @@ afterAll(() => {
 
 const router = {
   location: {
-    pathname: '/new-stack'
+    pathname: '/new-stack',
   },
   match: {
-    params: {}
+    params: {},
   },
   history: {
     push: () => {
       throw new Error('should not be called')
-    }
-  }
+    },
+  },
 }
 const stacks = {
-  items: []
+  items: [],
 }
 
 test('NewStack does render with minimal props', () => {
   const auth = {
-    organization: 'test-org'
+    organization: 'test-org',
   }
   const onOpenChoosePreviewImage = () => {
     throw new Error('should not be called')
@@ -50,13 +50,13 @@ test('NewStack does render with minimal props', () => {
     router,
     stacks,
     onOpenChoosePreviewImage,
-    loadPreviewImage
+    loadPreviewImage,
   }
 
   const component = renderer.create(
     <MemoryRouter>
       <NewStack {...props} />
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -64,7 +64,7 @@ test('NewStack does render with minimal props', () => {
 
 test('NewStack does render with a previewImage', () => {
   const auth = {
-    organization: 'test-org'
+    organization: 'test-org',
   }
   const onOpenChoosePreviewImage = () => {
     throw new Error('should not be called')
@@ -72,7 +72,7 @@ test('NewStack does render with a previewImage', () => {
   const loadPreviewImage = () => {}
   const previewImage = {
     hash: '7cb0101d53f1579c0e0da11f2407146eebeca638',
-    format: 'image/png'
+    format: 'image/png',
   }
 
   const props = {
@@ -82,13 +82,13 @@ test('NewStack does render with a previewImage', () => {
     stacks,
     onOpenChoosePreviewImage,
     loadPreviewImage,
-    previewImage
+    previewImage,
   }
 
   const component = renderer.create(
     <MemoryRouter>
       <NewStack {...props} />
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -96,7 +96,7 @@ test('NewStack does render with a previewImage', () => {
 
 test('NewStack does render with stackOptions', () => {
   const auth = {
-    organization: 'test-org'
+    organization: 'test-org',
   }
   const onOpenChoosePreviewImage = () => {
     throw new Error('should not be called')
@@ -104,7 +104,7 @@ test('NewStack does render with stackOptions', () => {
   const loadPreviewImage = () => {}
   const previewImage = {
     hash: '7cb0101d53f1579c0e0da11f2407146eebeca638',
-    format: 'image/png'
+    format: 'image/png',
   }
 
   const props = {
@@ -115,13 +115,13 @@ test('NewStack does render with stackOptions', () => {
     onOpenChoosePreviewImage,
     loadPreviewImage,
     previewImage,
-    stackOptions
+    stackOptions,
   }
 
   const component = renderer.create(
     <MemoryRouter>
       <NewStack {...props} />
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -129,7 +129,7 @@ test('NewStack does render with stackOptions', () => {
 
 test('NewStack does render with stacks', () => {
   const auth = {
-    organization: 'test-org'
+    organization: 'test-org',
   }
   const onOpenChoosePreviewImage = () => {
     throw new Error('should not be called')
@@ -137,12 +137,12 @@ test('NewStack does render with stacks', () => {
   const loadPreviewImage = () => {}
   const previewImage = {
     hash: '7cb0101d53f1579c0e0da11f2407146eebeca638',
-    format: 'image/png'
+    format: 'image/png',
   }
   const items = [{ name: 'stack-a' }, { name: 'stack-b' }, { name: 'stack-c' }]
   const stacks = {
     items,
-    filteredItems: items
+    filteredItems: items,
   }
 
   const props = {
@@ -153,13 +153,13 @@ test('NewStack does render with stacks', () => {
     onOpenChoosePreviewImage,
     loadPreviewImage,
     previewImage,
-    stackOptions
+    stackOptions,
   }
 
   const component = renderer.create(
     <MemoryRouter>
       <NewStack {...props} />
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -167,7 +167,7 @@ test('NewStack does render with stacks', () => {
 
 test('newStack does render with clone stack props', () => {
   const auth = {
-    organization: 'test-org'
+    organization: 'test-org',
   }
   const stackClone = cloneStack
   const onOpenChoosePreviewImage = () => {
@@ -182,13 +182,13 @@ test('newStack does render with clone stack props', () => {
     router,
     stacks,
     onOpenChoosePreviewImage,
-    loadPreviewImage
+    loadPreviewImage,
   }
 
   const component = renderer.create(
     <MemoryRouter>
       <NewStack {...props} />
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

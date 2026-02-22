@@ -14,7 +14,7 @@ class Stats extends PureComponent {
       from: moment().subtract(1, 'months'),
       to: moment(),
       stats: {},
-      showCalendar: false
+      showCalendar: false,
     }
 
     this.onRangeChange = this.onRangeChange.bind(this)
@@ -41,7 +41,7 @@ class Stats extends PureComponent {
 
   toggleCalendar() {
     this.setState({
-      showCalendar: !this.state.showCalendar
+      showCalendar: !this.state.showCalendar,
     })
   }
 
@@ -61,10 +61,10 @@ class Stats extends PureComponent {
       .stats.get(this.props.organization, from.format('YYYY-MM-DD'), toPlusOne.format('YYYY-MM-DD'))
       .then(({ body }) => {
         this.setState({
-          stats: getStats(from, to, body)
+          stats: getStats(from, to, body),
         })
       })
-      .catch(e => {
+      .catch((e) => {
         console.error(e)
       })
   }
@@ -139,7 +139,7 @@ class Stats extends PureComponent {
   }
 }
 Stats.propTypes = {
-  organization: PropTypes.string.isRequired
+  organization: PropTypes.string.isRequired,
 }
 
 export default Stats

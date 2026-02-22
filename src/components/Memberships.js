@@ -15,7 +15,7 @@ const DEFAULT_STATE = {
   userIdValue: '',
   rolesValue: [],
   newApiKey: null,
-  newUserId: null
+  newUserId: null,
 }
 
 class Memberships extends PureComponent {
@@ -28,10 +28,10 @@ class Memberships extends PureComponent {
     this.getMemberships()
   }
 
-  updateState = state => {
+  updateState = (state) => {
     this.setState(state)
   }
-  getTable = data => {
+  getTable = (data) => {
     return (
       <table key={'table'}>
         <tbody>
@@ -44,7 +44,7 @@ class Memberships extends PureComponent {
             <th>Last Access (updated every 24h)</th>
             <th> </th>
           </tr>
-          {data.map(key => {
+          {data.map((key) => {
             return (
               <MembershipRow
                 updateState={this.updateState}
@@ -64,10 +64,10 @@ class Memberships extends PureComponent {
   getMemberships = () => {
     rokka()
       .user.getId()
-      .then(id => {
+      .then((id) => {
         this.setState({ currentUserId: id })
       })
-      .catch(err => {
+      .catch((err) => {
         console.log('Could not get current user id', err)
       })
     rokka()
@@ -75,7 +75,7 @@ class Memberships extends PureComponent {
       .then(({ body }) => {
         this.setState({ loading: false, data: body.items })
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({ org: 'error' })
       })
   }
@@ -88,7 +88,7 @@ class Memberships extends PureComponent {
             this.props.auth.organization,
             this.state.userIdValue,
             this.state.rolesValue,
-            this.state.commentValue
+            this.state.commentValue,
           )
           .then(({ body }) => {
             this.setState({
@@ -97,12 +97,12 @@ class Memberships extends PureComponent {
               userIdValue: '',
               rolesValue: [],
               newApiKey: body.api_key,
-              newUserId: body.user_id
+              newUserId: body.user_id,
             })
 
             this.getMemberships()
           })
-          .catch(err => {
+          .catch((err) => {
             this.setState({ showCreate: false })
             setAlert('error', "Membership creation didn't work:" + err.body.error.message, 5000)
           })
@@ -111,7 +111,7 @@ class Memberships extends PureComponent {
           .memberships.createWithNewUser(
             this.props.auth.organization,
             this.state.rolesValue,
-            this.state.commentValue
+            this.state.commentValue,
           )
           .then(({ body }) => {
             this.setState({
@@ -120,12 +120,12 @@ class Memberships extends PureComponent {
               rolesValue: [],
               userIdValue: '',
               newApiKey: body.api_key,
-              newUserId: body.user_id
+              newUserId: body.user_id,
             })
 
             this.getMemberships()
           })
-          .catch(err => {
+          .catch((err) => {
             this.setState({ showCreate: false })
             setAlert('error', "Membership creation didn't work:" + err.body.error.message, 5000)
           })
@@ -161,7 +161,7 @@ class Memberships extends PureComponent {
           {this.state.showCreate && (
             <>
               <h2 className={'rka-h3'}>Roles:</h2>
-              {Object.values(rokka().memberships.ROLES).map(role => {
+              {Object.values(rokka().memberships.ROLES).map((role) => {
                 return (
                   <div key={role}>
                     <input
@@ -169,7 +169,7 @@ class Memberships extends PureComponent {
                       name={role}
                       checked={this.state.rolesValue.includes(role)}
                       className="rka-input-checkbox mb-sm"
-                      onChange={e => {
+                      onChange={(e) => {
                         const checked = e.currentTarget.checked
                         let roles = this.state.rolesValue
                         if (checked) {
@@ -180,7 +180,7 @@ class Memberships extends PureComponent {
                         } else {
                           // remove it if unchecked in in roles
                           if (roles.includes(role)) {
-                            roles = roles.filter(r => r !== role)
+                            roles = roles.filter((r) => r !== role)
                           }
                         }
                         this.setState({ rolesValue: [...roles] })
@@ -198,7 +198,7 @@ class Memberships extends PureComponent {
                   name="userid"
                   value={this.state.userIdValue}
                   className="rka-input-txt mb-sm"
-                  onChange={e => this.setState({ userIdValue: e.currentTarget.value })}
+                  onChange={(e) => this.setState({ userIdValue: e.currentTarget.value })}
                 />
               </div>
               <div>
@@ -209,7 +209,7 @@ class Memberships extends PureComponent {
                   name="comment"
                   value={this.state.commentValue}
                   className="rka-input-txt mb-sm"
-                  onChange={e => this.setState({ commentValue: e.currentTarget.value })}
+                  onChange={(e) => this.setState({ commentValue: e.currentTarget.value })}
                 />
               </div>
             </>
@@ -218,7 +218,7 @@ class Memberships extends PureComponent {
           {this.state.showCreate && (
             <button
               className="rka-button rka-button-secondary mr-md"
-              onClick={e => this.setState({ showCreate: false })}
+              onClick={(e) => this.setState({ showCreate: false })}
             >
               Cancel
             </button>
@@ -227,7 +227,7 @@ class Memberships extends PureComponent {
           <button
             className="rka-button rka-button-brand"
             disabled={this.state.showCreate && this.state.rolesValue.length === 0}
-            onClick={e => this.showCreateNewKey(e)}
+            onClick={(e) => this.showCreateNewKey(e)}
           >
             Add new Membership
           </button>
@@ -240,10 +240,10 @@ class Memberships extends PureComponent {
 Memberships.propTypes = {
   router: PropTypes.shape({
     history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired
+      push: PropTypes.func.isRequired,
+    }).isRequired,
   }).isRequired,
-  auth: PropTypes.object
+  auth: PropTypes.object,
 }
 
 export default authRequired(Memberships)

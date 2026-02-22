@@ -6,11 +6,11 @@ import HighchartsReact from 'highcharts-react-official'
 const Chart = ({ data, type, yPointSymbol = null }) => {
   const config = {
     title: {
-      text: null
+      text: null,
     },
     chart: {
       type,
-      height: 200
+      height: 200,
     },
     plotOptions: {
       series: {
@@ -18,15 +18,15 @@ const Chart = ({ data, type, yPointSymbol = null }) => {
         tooltip: {
           hideDelay: 0,
           headerFormat: '',
-          pointFormat: '{point.y}'
-        }
+          pointFormat: '{point.y}',
+        },
       },
       bar: {
-        groupPadding: 0
+        groupPadding: 0,
       },
       column: {
-        minPointLength: 1
-      }
+        minPointLength: 1,
+      },
     },
     yAxis: {
       title: { enabled: false },
@@ -38,9 +38,9 @@ const Chart = ({ data, type, yPointSymbol = null }) => {
       tickLength: 0,
       labels: {
         style: {
-          font: '12px "Liip Achivo Book", sans-serif'
-        }
-      }
+          font: '12px "Liip Achivo Book", sans-serif',
+        },
+      },
     },
     xAxis: {
       lineWidth: 0,
@@ -50,16 +50,16 @@ const Chart = ({ data, type, yPointSymbol = null }) => {
       tickLength: 0,
       labels: {
         style: {
-          font: '12px "Liip Achivo Book", sans-serif'
-        }
+          font: '12px "Liip Achivo Book", sans-serif',
+        },
       },
-      type: 'category'
+      type: 'category',
     },
     series: [
       {
         showInLegend: false,
-        data
-      }
+        data,
+      },
     ],
     colors: ['#6EA644'],
     tooltip: {
@@ -72,13 +72,13 @@ const Chart = ({ data, type, yPointSymbol = null }) => {
       borderRadius: 4,
       style: {
         color: '#fff',
-        font: '14px "Liip Achivo Semibold", sans-serif'
+        font: '14px "Liip Achivo Semibold", sans-serif',
       },
-      valueSuffix: yPointSymbol
+      valueSuffix: yPointSymbol,
     },
     credits: {
-      enabled: false
-    }
+      enabled: false,
+    },
   }
 
   return <HighchartsReact highcharts={Highcharts} options={config} />
@@ -86,7 +86,7 @@ const Chart = ({ data, type, yPointSymbol = null }) => {
 Chart.propTypes = {
   type: PropTypes.string.isRequired,
   data: PropTypes.array.isRequired,
-  yPointSymbol: PropTypes.string
+  yPointSymbol: PropTypes.string,
 }
 
 export default Chart

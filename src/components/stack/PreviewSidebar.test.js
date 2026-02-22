@@ -15,7 +15,7 @@ test('PreviewSidebar does not render when no previewImage set', () => {
     organization: 'test-organization',
     onChange: () => {
       throw new Error('should not be called')
-    }
+    },
   }
   const component = renderer.create(<PreviewSidebar {...props} />)
   let tree = component.toJSON()
@@ -30,8 +30,8 @@ test('PreviewSidebar does render with previewImage set', () => {
     },
     previewImage: {
       hash: 'previewImage-hash',
-      format: 'png'
-    }
+      format: 'png',
+    },
   }
   const component = renderer.create(<PreviewSidebar {...props} />)
   let tree = component.toJSON()
@@ -46,11 +46,11 @@ test('PreviewSidebar does render with currentPreviewImage set', () => {
     },
     previewImage: {
       hash: 'previewImage-hash',
-      format: 'png'
+      format: 'png',
     },
     currentPreviewImage: {
-      src: 'https://example.com/current-preview-image.png'
-    }
+      src: 'https://example.com/current-preview-image.png',
+    },
   }
   const component = renderer.create(<PreviewSidebar {...props} />)
   let tree = component.toJSON()
@@ -65,9 +65,9 @@ test('PreviewSidebar does render with error set', () => {
     },
     previewImage: {
       hash: 'previewImage-hash',
-      format: 'png'
+      format: 'png',
     },
-    error: 'Test error'
+    error: 'Test error',
   }
   const component = renderer.create(<PreviewSidebar {...props} />)
   let tree = component.toJSON()
@@ -82,9 +82,9 @@ test('PreviewSidebar does render with imageLoading set', () => {
     },
     previewImage: {
       hash: 'previewImage-hash',
-      format: 'png'
+      format: 'png',
     },
-    imageLoading: true
+    imageLoading: true,
   }
   const component = renderer.create(<PreviewSidebar {...props} />)
   let tree = component.toJSON()

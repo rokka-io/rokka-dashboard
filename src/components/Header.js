@@ -6,11 +6,11 @@ import avatarIcon from '../img/avatar-placeholder.svg'
 import logoutIcon from '../img/logout-icon.svg'
 import cx from 'classnames'
 
-const Header = props => (
+const Header = (props) => (
   <header className="rka-header">
     <button
       className={cx('rka-link-button rka-header-menu-icon', { 'is-active': props.active })}
-      onClick={e => {
+      onClick={(e) => {
         toggleSidebar()
         e.preventDefault()
       }}
@@ -27,7 +27,7 @@ const Header = props => (
       </div>
       <button
         className="rka-link-button rka-logout"
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault()
           logout()
         }}
@@ -42,9 +42,9 @@ const Header = props => (
 
 Header.propTypes = {
   auth: PropTypes.shape({
-    organization: PropTypes.string.isRequired
+    organization: PropTypes.string.isRequired,
   }).isRequired,
-  active: PropTypes.bool.isRequired
+  active: PropTypes.bool.isRequired,
 }
 
 export default Header

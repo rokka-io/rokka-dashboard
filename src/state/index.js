@@ -3,7 +3,7 @@ import rokka, {
   authenticate,
   resetClient,
   ROKKA_DASHBOARD_ORG,
-  ROKKA_DASHBOARD_TOKEN
+  ROKKA_DASHBOARD_TOKEN,
 } from '../rokka'
 
 if (localStorage.getItem(ROKKA_DASHBOARD_ORG) && apiTokenGetCallback()) {
@@ -19,7 +19,7 @@ const defaultState = {
   stacks: {},
   operations: {},
   stackOptions: null,
-  alert: null
+  alert: null,
 }
 
 let internalState = defaultState
@@ -59,7 +59,7 @@ export function deleteImage(hash) {
     .sourceimages.delete(internalState.auth.organization, hash)
     .then(() => {
       updateState({
-        deletedImages: [...internalState.deletedImages, hash]
+        deletedImages: [...internalState.deletedImages, hash],
       })
       clearUploadedImages()
     })
@@ -105,8 +105,8 @@ export function login(organization, apiKey, successCb) {
         updateState({
           auth: {
             organization,
-            apiToken: rka.user.getTokenIsValidFor() > 0 ? rka.user.getToken() : null
-          }
+            apiToken: rka.user.getTokenIsValidFor() > 0 ? rka.user.getToken() : null,
+          },
         })
         localStorage.setItem(ROKKA_DASHBOARD_ORG, organization)
         listOperations()
@@ -119,7 +119,7 @@ export function login(organization, apiKey, successCb) {
 
       successCb(done)
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err)
 
       // clear session
@@ -170,11 +170,11 @@ export function listStacks() {
         stacks: {
           items: newItems,
           filter,
-          filteredItems: newItems.filter(item => filterItem(item, filter))
-        }
+          filteredItems: newItems.filter((item) => filterItem(item, filter)),
+        },
       })
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err)
       if (err.statusCode === 403) {
         updateState({ auth: null })
@@ -190,9 +190,9 @@ function filterItem(item, filter) {
 }
 
 export function filterStacks(filter) {
-  const items = internalState.stacks.items.filter(item => filterItem(item, filter))
+  const items = internalState.stacks.items.filter((item) => filterItem(item, filter))
   updateState({
-    stacks: { ...internalState.stacks, filter, filteredItems: items }
+    stacks: { ...internalState.stacks, filter, filteredItems: items },
   })
 }
 
@@ -235,10 +235,10 @@ export function listOperations() {
     .operations.list()
     .then(({ body }) => {
       updateState({
-        operations: body
+        operations: body,
       })
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err)
       if (err.statusCode === 403) {
         updateState({ auth: null })
@@ -257,10 +257,10 @@ export function getDefaultStackOptions() {
     .stackoptions.get()
     .then(({ body }) => {
       updateState({
-        stackOptions: body
+        stackOptions: body,
       })
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err)
       setAlert('error', 'Error fetching default stack options', 10000)
     })
@@ -309,8 +309,8 @@ export function setAlert(type, message, timeout = null) {
   updateState({
     alert: {
       type,
-      message
-    }
+      message,
+    },
   })
 
   if (timeout) {
@@ -351,8 +351,8 @@ export function cloneStack(name, stack) {
   updateState({
     stackClone: {
       ...normalizeStack(stack),
-      name: name
-    }
+      name: name,
+    },
   })
 }
 
@@ -386,11 +386,11 @@ export function normalizeStack(stack) {
  */
 export function resetStackClone() {
   updateState({
-    stackClone: {}
+    stackClone: {},
   })
 }
 export function removeIdAndErrorsToStackOperations(stack) {
-  stack.operations = stack.operations.map(op => {
+  stack.operations = stack.operations.map((op) => {
     delete op.id
     delete op.errors
     return op
@@ -413,7 +413,7 @@ export function generateRandomId() {
 }
 
 export function addIdAndErrorsToStackOperations(stack) {
-  stack.operations = stack.operations.map(op => {
+  stack.operations = stack.operations.map((op) => {
     const newOp = { ...op }
     if (!newOp.errors) {
       newOp.errors = {}

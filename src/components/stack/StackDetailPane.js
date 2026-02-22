@@ -29,15 +29,15 @@ const StackDetailPane = ({
   router,
   stack,
 
-  setStack
+  setStack,
 }) => {
   const operationsTab = stack.operations.length > 0 || !!onAddOperation
   const addedOptionsKeys = Object.keys(options || {})
   const optionsTab = !operationsTab || addedOptionsKeys.length > 0 || !!onChangeOptions
   const {
     match: {
-      params: { tabindex }
-    }
+      params: { tabindex },
+    },
   } = router
 
   const tabs = []
@@ -48,7 +48,7 @@ const StackDetailPane = ({
     tabs.push('Options')
   }
   tabs.push('JSON Config')
-  const foundIndex = tabindex ? tabs.findIndex(tab => tab === tabindex) : 0
+  const foundIndex = tabindex ? tabs.findIndex((tab) => tab === tabindex) : 0
   const tabindexNumber = foundIndex < 0 ? 0 : foundIndex
   return (
     <>
@@ -69,7 +69,7 @@ const StackDetailPane = ({
       )}
       <Tabs
         selectedIndex={tabindexNumber}
-        onSelect={index => {
+        onSelect={(index) => {
           let root
           if (router.match.path.startsWith('/new-stack')) {
             root = '/new-stack'
@@ -80,7 +80,7 @@ const StackDetailPane = ({
         }}
       >
         <TabList>
-          {tabs.map(tab => (
+          {tabs.map((tab) => (
             <Tab key={tab}>{tab}</Tab>
           ))}
         </TabList>
@@ -112,7 +112,7 @@ const StackDetailPane = ({
               <Options
                 title="Default options"
                 options={Object.keys(defaultOptions)
-                  .filter(key => !addedOptionsKeys.includes(key))
+                  .filter((key) => !addedOptionsKeys.includes(key))
                   .reduce((accumulator, key) => {
                     accumulator[key] = defaultOptions[key].default
                     return accumulator
@@ -134,10 +134,10 @@ const StackDetailPane = ({
                       operations: [],
                       options: {},
                       expressions: [],
-                      variables: {}
+                      variables: {},
                     }
                   }
-                  setValue={value => {
+                  setValue={(value) => {
                     setStack(value)
                   }}
                 ></JsonEditor>
@@ -151,7 +151,7 @@ const StackDetailPane = ({
                     operations: [],
                     options: {},
                     expressions: [],
-                    variables: {}
+                    variables: {},
                   }
                 }
               ></JsonView>
@@ -180,10 +180,10 @@ StackDetailPane.propTypes = {
   availableOperations: PropTypes.object,
   router: PropTypes.shape({
     history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    })
+      push: PropTypes.func.isRequired,
+    }),
   }).isRequired,
   stack: PropTypes.object,
-  setStack: PropTypes.func.isRequired
+  setStack: PropTypes.func.isRequired,
 }
 export default StackDetailPane

@@ -14,19 +14,13 @@ class Costs extends PureComponent {
         <Route
           path="/costs"
           exact
-          render={props => {
-            return (
-              <Redirect
-                to={`/costs/${moment()
-                  .startOf('month')
-                  .format('YYYY-MM')}-1`}
-              />
-            )
+          render={(props) => {
+            return <Redirect to={`/costs/${moment().startOf('month').format('YYYY-MM')}-1`} />
           }}
         />
         <Route
           path="/costs/:date"
-          render={props => <CostDetail {...{ ...this.props, ...{ router: props } }} />}
+          render={(props) => <CostDetail {...{ ...this.props, ...{ router: props } }} />}
         />
       </BaseLayout>
     )
@@ -36,10 +30,10 @@ class Costs extends PureComponent {
 Costs.propTypes = {
   router: PropTypes.shape({
     history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired
+      push: PropTypes.func.isRequired,
+    }).isRequired,
   }).isRequired,
-  auth: PropTypes.object
+  auth: PropTypes.object,
 }
 
 export default authRequired(Costs)

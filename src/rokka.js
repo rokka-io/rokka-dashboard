@@ -18,7 +18,7 @@ export function authenticate(apiKey) {
       //no_ip_protection: true, // not sure about this
       expires_in: max_age,
       renewable: true,
-      ips: `request_ip,${localStorage.getItem(ROKKA_DASHBOARD_IPS) || ''}`
+      ips: `request_ip,${localStorage.getItem(ROKKA_DASHBOARD_IPS) || ''}`,
     },
     apiTokenRefreshTime: max_age - 3600 * 24, // refresh it after a day
     apiTokenGetCallback: apiTokenGetCallback,
@@ -28,7 +28,7 @@ export function authenticate(apiKey) {
         // store the ips and remember the last 8 (max is 10 on the API side)
         localStorage.setItem(ROKKA_DASHBOARD_IPS, payload.ips.slice(0, 8).join(','))
       }
-    }
+    },
   })
 }
 

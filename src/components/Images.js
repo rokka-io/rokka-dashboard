@@ -29,7 +29,7 @@ ImageListContainer.propTypes = {
   organization: PropTypes.string.isRequired,
   onClickImage: PropTypes.func.isRequired,
   uploadedImages: PropTypes.array,
-  deletedImages: PropTypes.array
+  deletedImages: PropTypes.array,
 }
 
 class Images extends PureComponent {
@@ -66,7 +66,7 @@ class Images extends PureComponent {
         />
         <Route
           path="/images/:hash"
-          render={props => <ImageDetail {...{ ...this.props, ...{ router: props } }} />}
+          render={(props) => <ImageDetail {...{ ...this.props, ...{ router: props } }} />}
         />
       </BaseLayout>
     )
@@ -76,12 +76,12 @@ class Images extends PureComponent {
 Images.propTypes = {
   router: PropTypes.shape({
     history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired
+      push: PropTypes.func.isRequired,
+    }).isRequired,
   }).isRequired,
   auth: PropTypes.object,
   uploadedImages: PropTypes.array,
-  deletedImages: PropTypes.array
+  deletedImages: PropTypes.array,
 }
 
 export default authRequired(Images)

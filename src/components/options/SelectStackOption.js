@@ -8,7 +8,7 @@ const SelectStackOption = ({ label, name, value, definitions, required, onChange
   if (value === null) {
     value = ''
   }
-  const onChangeLocal = e => {
+  const onChangeLocal = (e) => {
     if (e.target.value.includes(`(default: ${definitions.default})`)) {
       e.target.value = definitions.default
     }
@@ -24,7 +24,7 @@ const SelectStackOption = ({ label, name, value, definitions, required, onChange
         className="rka-select"
         onChange={onChangeLocal}
       >
-        {definitions.values.map(option => (
+        {definitions.values.map((option) => (
           <option key={option} value={option}>
             {option}
           </option>
@@ -40,7 +40,7 @@ SelectStackOption.propTypes = {
   required: PropTypes.bool,
   value: PropTypes.string,
   onChange: PropTypes.func,
-  error: PropTypes.string
+  error: PropTypes.string,
 }
 
 export default SelectStackOption

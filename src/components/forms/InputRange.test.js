@@ -11,7 +11,7 @@ test('InputRange does render', () => {
 
 test('InputRange does render with onChange', () => {
   const component = renderer.create(
-    <InputRange name="Test" min={0} max={100} onChange={() => {}} />
+    <InputRange name="Test" min={0} max={100} onChange={() => {}} />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -43,88 +43,70 @@ test('InputRange does render with a string defaultValue', () => {
 
 test('InputRange allows to set value to zero', () => {
   const component = renderer.create(
-    <InputRange name="Test" min={0} max={100} defaultValue={100} value={0} />
+    <InputRange name="Test" min={0} max={100} defaultValue={100} value={0} />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
-test('InputRange onChange', done => {
-  const onChange = e => {
+test('InputRange onChange', (done) => {
+  const onChange = (e) => {
     expect(e.currentTarget.value).toBe('15')
 
     done()
   }
   const component = shallow(
-    <InputRange name="Test" min={0} max={100} defaultValue="12" onChange={onChange} />
+    <InputRange name="Test" min={0} max={100} defaultValue="12" onChange={onChange} />,
   )
 
   component.find('Input.rka-input-range').simulate('change', { currentTarget: { value: '15' } })
 })
 
-test('InputRange onChange in manual input', done => {
-  const onChange = e => {
+test('InputRange onChange in manual input', (done) => {
+  const onChange = (e) => {
     expect(e.currentTarget.value).toBe('15')
 
     done()
   }
   const component = shallow(
-    <InputRange name="Test" min={0} max={100} defaultValue="12" onChange={onChange} />
+    <InputRange name="Test" min={0} max={100} defaultValue="12" onChange={onChange} />,
   )
 
   component.find('Input.rka-input-txt').simulate('change', { currentTarget: { value: '15' } })
 })
 
-test('InputRange is-active on min/max values', done => {
-  const onChange = e => {
+test('InputRange is-active on min/max values', (done) => {
+  const onChange = (e) => {
     expect(e.currentTarget.value).toBe('15')
 
     done()
   }
   const component = shallow(
-    <InputRange name="Test" min={0} max={100} defaultValue="12" onChange={onChange} />
+    <InputRange name="Test" min={0} max={100} defaultValue="12" onChange={onChange} />,
   )
 
   expect(
-    component
-      .find('.rka-input-range-min')
-      .getElement()
-      .props.className.indexOf('is-active')
+    component.find('.rka-input-range-min').getElement().props.className.indexOf('is-active'),
   ).toBe(-1)
   expect(
-    component
-      .find('.rka-input-range-max')
-      .getElement()
-      .props.className.indexOf('is-active')
+    component.find('.rka-input-range-max').getElement().props.className.indexOf('is-active'),
   ).toBe(-1)
 
   component.find('Input.rka-input-range').simulate('change', { currentTarget: { value: '15' } })
 
   expect(
-    component
-      .find('.rka-input-range-min')
-      .getElement()
-      .props.className.indexOf('is-active')
+    component.find('.rka-input-range-min').getElement().props.className.indexOf('is-active'),
   ).toBeGreaterThan(-1)
   expect(
-    component
-      .find('.rka-input-range-max')
-      .getElement()
-      .props.className.indexOf('is-active')
+    component.find('.rka-input-range-max').getElement().props.className.indexOf('is-active'),
   ).toBeGreaterThan(-1)
 
   component.find('Input.rka-input-range').simulate('blur')
 
   expect(
-    component
-      .find('.rka-input-range-min')
-      .getElement()
-      .props.className.indexOf('is-active')
+    component.find('.rka-input-range-min').getElement().props.className.indexOf('is-active'),
   ).toBe(-1)
   expect(
-    component
-      .find('.rka-input-range-max')
-      .getElement()
-      .props.className.indexOf('is-active')
+    component.find('.rka-input-range-max').getElement().props.className.indexOf('is-active'),
   ).toBe(-1)
 })

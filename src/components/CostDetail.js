@@ -9,7 +9,7 @@ import format from 'format-number'
 const DEFAULT_STATE = {
   org: 'loading',
   month: 'loading',
-  data: {}
+  data: {},
 }
 const numberFormat = format({ padRight: 2 })
 
@@ -40,7 +40,7 @@ class CostDetail extends PureComponent {
           })
         })
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({ org: 'error' })
       })
   }
@@ -60,7 +60,7 @@ class CostDetail extends PureComponent {
                 {values.units_consumed.toLocaleString()} {values.unit}
               </td>
               <td>{numberFormat(values.price_in_chf)} CHF</td>
-            </tr>
+            </tr>,
           )
           return result
         }
@@ -75,7 +75,7 @@ class CostDetail extends PureComponent {
               {values.units_consumed.toLocaleString()} {values.unit}
             </td>
             <td>{numberFormat(values.price_in_chf)} CHF</td>
-          </tr>
+          </tr>,
         )
         return result
       },
@@ -85,12 +85,12 @@ class CostDetail extends PureComponent {
             {title}
           </td>
           <td />
-        </tr>
-      ]
+        </tr>,
+      ],
     )
   }
 
-  getTable = data => {
+  getTable = (data) => {
     return (
       <table key={'table'}>
         <tbody>
@@ -157,25 +157,25 @@ class CostDetail extends PureComponent {
       <div key={'title2'} className="section rka-box no-min-height">
         <h2 className={'rka-h2 mb-md '}>Forecast for this month</h2>
         {this.getTable(this.state.data.combined_forecast)}
-      </div>
+      </div>,
     ]
   }
 }
 
 CostDetail.propTypes = {
   auth: PropTypes.shape({
-    organization: PropTypes.string.isRequired
+    organization: PropTypes.string.isRequired,
   }).isRequired,
   router: PropTypes.shape({
     match: PropTypes.shape({
       params: PropTypes.shape({
-        date: PropTypes.string.isRequired
-      }).isRequired
+        date: PropTypes.string.isRequired,
+      }).isRequired,
     }).isRequired,
     history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired
-  }).isRequired
+      push: PropTypes.func.isRequired,
+    }).isRequired,
+  }).isRequired,
 }
 
 export default authRequired(CostDetail)

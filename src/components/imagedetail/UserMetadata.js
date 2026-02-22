@@ -40,12 +40,12 @@ UserMetadata.propTypes = {
   addMetadata: PropTypes.shape({
     name: PropTypes.string,
     type: PropTypes.string,
-    value: PropTypes.string
+    value: PropTypes.string,
   }).isRequired,
   onChange: PropTypes.func.isRequired,
   onClickRemove: PropTypes.func.isRequired,
   onClickAdd: PropTypes.func.isRequired,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
 }
 
 export default UserMetadata

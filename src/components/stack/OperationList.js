@@ -14,7 +14,7 @@ const OperationList = ({
   selectedOperation,
   activeOperation = 0,
   addedOperations = [],
-  availableOperations = {}
+  availableOperations = {},
 }) => {
   const OperationComponent = onChangeOperation ? Operation : StackOperation
 
@@ -61,9 +61,9 @@ const OperationList = ({
               value={selectedOperation}
             >
               {Object.keys(availableOperations)
-                .filter(name => name !== 'noop')
+                .filter((name) => name !== 'noop')
                 .sort()
-                .map(name => (
+                .map((name) => (
                   <option key={name} value={name}>
                     {name}
                   </option>
@@ -88,7 +88,7 @@ OperationList.propTypes = {
   selectedOperation: PropTypes.string,
   activeOperation: PropTypes.number,
   addedOperations: PropTypes.array,
-  availableOperations: PropTypes.object
+  availableOperations: PropTypes.object,
 }
 
 export default OperationList

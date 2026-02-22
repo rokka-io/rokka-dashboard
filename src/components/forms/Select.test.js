@@ -13,7 +13,7 @@ test('Select does render with options', () => {
     <Select onChange={() => {}}>
       <option value="test">Test</option>
       <option value="test2">Test2</option>
-    </Select>
+    </Select>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -45,7 +45,7 @@ test('Select shows placeholder', () => {
 
 test('Select shows placeholder with default value', () => {
   const component = renderer.create(
-    <Select defaultValue="DefaultValue" placeholder="Placeholder" onChange={() => {}} />
+    <Select defaultValue="DefaultValue" placeholder="Placeholder" onChange={() => {}} />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -53,7 +53,7 @@ test('Select shows placeholder with default value', () => {
 
 test('Select takes name as placeholder if no placeholder given', () => {
   const component = renderer.create(
-    <Select defaultValue="DefaultValue" name="Name" onChange={() => {}} />
+    <Select defaultValue="DefaultValue" name="Name" onChange={() => {}} />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -61,7 +61,7 @@ test('Select takes name as placeholder if no placeholder given', () => {
 
 test('Select takes type as placeholder if no placeholder & name given', () => {
   const component = renderer.create(
-    <Select defaultValue="DefaultValue" type="Type" onChange={() => {}} />
+    <Select defaultValue="DefaultValue" type="Type" onChange={() => {}} />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

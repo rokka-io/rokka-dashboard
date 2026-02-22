@@ -27,7 +27,7 @@ ColorStackOption.propTypes = {
   required: PropTypes.bool,
   value: PropTypes.string,
   onChange: PropTypes.func,
-  error: PropTypes.string
+  error: PropTypes.string,
 }
 
 export default ColorStackOption

@@ -9,7 +9,7 @@ test('Image does render with minimal props', () => {
       url="http://example.org/image.png"
       src="http://example.org/image.src.png"
       name="Example name"
-    />
+    />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -30,7 +30,7 @@ test('Image does render with all props', () => {
         throw new Error('Should not be called')
       }}
       className="additional-classes"
-    />
+    />,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -51,7 +51,7 @@ test('Image onError triggers an error', () => {
         throw new Error('Should not be called')
       }}
       className="additional-classes"
-    />
+    />,
   )
 
   expect(component.find('img').exists()).toBe(true)

@@ -19,7 +19,7 @@ class UploadImage extends PureComponent {
     this.state = {
       upload: UPLOAD_DEFAULT,
       message: null,
-      images: []
+      images: [],
     }
   }
 
@@ -31,42 +31,42 @@ class UploadImage extends PureComponent {
   onDrop(files) {
     this.setState({ upload: UPLOAD_PENDING })
 
-    const hasTooBigFiles = files.find(file => file.size >= FILE_MAX_SIZE)
+    const hasTooBigFiles = files.find((file) => file.size >= FILE_MAX_SIZE)
     if (hasTooBigFiles) {
       this.setState({
         upload: UPLOAD_ERROR,
         message:
-          'File max size is 400 MB for the dashboard. Consider using a CLI API client instead'
+          'File max size is 400 MB for the dashboard. Consider using a CLI API client instead',
       })
       return
     }
-    const invalidFileType = files.find(file => {
+    const invalidFileType = files.find((file) => {
       return file.type === ''
     })
     if (invalidFileType) {
       this.setState({
         upload: UPLOAD_ERROR,
         message:
-          'Invalid file type uploaded. Maybe a folder? Folder upload is not possible yet. Try selecting all files within a folder instead.'
+          'Invalid file type uploaded. Maybe a folder? Folder upload is not possible yet. Try selecting all files within a folder instead.',
       })
     }
 
-    const mapFile = file => {
+    const mapFile = (file) => {
       const fileReader = new window.FileReader()
       let idx = -1
 
-      fileReader.onload = e => {
+      fileReader.onload = (e) => {
         const images = [
           ...this.state.images,
           {
             url: e.target.result,
             name: file.name,
-            uploaded: false
-          }
+            uploaded: false,
+          },
         ]
         idx = images.length - 1
         this.setState({
-          images: images
+          images: images,
         })
       }
       fileReader.readAsDataURL(file)
@@ -79,7 +79,7 @@ class UploadImage extends PureComponent {
           const item = body.items[0]
           images[idx] = Object.assign(item, {
             uploaded: true,
-            url: getRenderUrl(this.props.organization, item.hash, item.format, 'dynamic/noop')
+            url: getRenderUrl(this.props.organization, item.hash, item.format, 'dynamic/noop'),
           })
           this.setState({ images: images })
           setTimeout(() => updateUploadedImages(images), 100)
@@ -90,11 +90,11 @@ class UploadImage extends PureComponent {
       .then(() => {
         this.setState({ upload: UPLOAD_SUCCESSFUL })
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({
           upload: UPLOAD_ERROR,
           message:
-            'Upload failed due to the API returning an error. For example plain text files are not supported.'
+            'Upload failed due to the API returning an error. For example plain text files are not supported.',
         })
         console.error(err)
       })
@@ -127,7 +127,7 @@ class UploadImage extends PureComponent {
     return (
       <div>
         <Dropzone
-          onDrop={files => this.onDrop(files)}
+          onDrop={(files) => this.onDrop(files)}
           className="rka-uploader"
           activeClassName="rka-uploader is-active"
           ref="dropzone"
@@ -142,7 +142,7 @@ class UploadImage extends PureComponent {
               <p className="mt-sm">or</p>
             </div>
           </div>
-          <button className="rka-button rka-button-brand" onClick={e => this.onClick(e)}>
+          <button className="rka-button rka-button-brand" onClick={(e) => this.onClick(e)}>
             Browse images
           </button>
         </Dropzone>
@@ -153,7 +153,7 @@ class UploadImage extends PureComponent {
 }
 
 UploadImage.propTypes = {
-  organization: PropTypes.string.isRequired
+  organization: PropTypes.string.isRequired,
 }
 
 export default UploadImage

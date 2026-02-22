@@ -11,7 +11,7 @@ const DEFAULT_STATE = {
   data: [],
   showCreate: false,
   commentValue: '',
-  newApiKey: null
+  newApiKey: null,
 }
 
 class Apikeys extends PureComponent {
@@ -24,7 +24,7 @@ class Apikeys extends PureComponent {
     this.getKeys()
   }
 
-  getTable = data => {
+  getTable = (data) => {
     return (
       <table key={'table'}>
         <tbody>
@@ -35,7 +35,7 @@ class Apikeys extends PureComponent {
             <th>Last Access (updated every 24h)</th>
             <th> </th>
           </tr>
-          {data.map(key => {
+          {data.map((key) => {
             return (
               <ApikeyRow
                 apiKey={key}
@@ -56,7 +56,7 @@ class Apikeys extends PureComponent {
       .then(({ body }) => {
         this.setState({ currentKeyId: body.id })
       })
-      .catch(err => {
+      .catch((err) => {
         console.log('Could not get current key id')
       })
     rokka()
@@ -64,7 +64,7 @@ class Apikeys extends PureComponent {
       .then(({ body }) => {
         this.setState({ loading: false, data: body })
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({ org: 'error' })
       })
   }
@@ -78,7 +78,7 @@ class Apikeys extends PureComponent {
 
           this.getKeys()
         })
-        .catch(err => {
+        .catch((err) => {
           this.setState({ showCreate: false, commentValue: '' })
           alert("Api Key creation didn't work:" + err.body.error.message)
         })
@@ -121,7 +121,7 @@ class Apikeys extends PureComponent {
               name="comment"
               value={this.state.commentValue}
               className="rka-input-txt mb-sm"
-              onChange={e => this.setState({ commentValue: e.currentTarget.value })}
+              onChange={(e) => this.setState({ commentValue: e.currentTarget.value })}
             />
           )}
 
@@ -135,7 +135,10 @@ class Apikeys extends PureComponent {
           )}
 
           {this.state.data.length < 5 ? (
-            <button className="rka-button rka-button-brand" onClick={e => this.showCreateNewKey(e)}>
+            <button
+              className="rka-button rka-button-brand"
+              onClick={(e) => this.showCreateNewKey(e)}
+            >
               Create new Api Key
             </button>
           ) : (
@@ -153,10 +156,10 @@ class Apikeys extends PureComponent {
 Apikeys.propTypes = {
   router: PropTypes.shape({
     history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired
+      push: PropTypes.func.isRequired,
+    }).isRequired,
   }).isRequired,
-  auth: PropTypes.object
+  auth: PropTypes.object,
 }
 
 export default authRequired(Apikeys)

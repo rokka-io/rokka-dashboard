@@ -12,7 +12,7 @@ import {
   clearDeletedImages,
   updateUploadedImages,
   clearUploadedImages,
-  logout
+  logout,
 } from './index'
 
 // We need to mock rokka so the module-level login() call doesn't fail
@@ -24,7 +24,7 @@ jest.mock('../rokka', () => {
     stackoptions: { get: () => Promise.resolve({ body: {} }) },
     stacks: { list: () => Promise.resolve({ body: { items: [] } }) },
     sourceimages: { delete: () => Promise.resolve() },
-    render: { getUrl: () => '' }
+    render: { getUrl: () => '' },
   })
   mock.apiTokenGetCallback = () => null
   mock.authenticate = () => {}
@@ -39,7 +39,7 @@ let lastState = null
 
 beforeEach(() => {
   lastState = null
-  subscribe(state => {
+  subscribe((state) => {
     lastState = state
   })
 })
@@ -91,7 +91,7 @@ describe('addIdAndErrorsToStackOperations', () => {
   test('adds id and errors to operations without them', () => {
     const stack = { operations: [{ name: 'resize' }, { name: 'blur' }] }
     const result = addIdAndErrorsToStackOperations(stack)
-    result.operations.forEach(op => {
+    result.operations.forEach((op) => {
       expect(op.id).toBeDefined()
       expect(op.errors).toEqual({})
     })
@@ -99,7 +99,7 @@ describe('addIdAndErrorsToStackOperations', () => {
 
   test('preserves existing id and errors', () => {
     const stack = {
-      operations: [{ name: 'resize', id: 'existing-id', errors: { width: 'required' } }]
+      operations: [{ name: 'resize', id: 'existing-id', errors: { width: 'required' } }],
     }
     const result = addIdAndErrorsToStackOperations(stack)
     expect(result.operations[0].id).toBe('existing-id')
@@ -113,13 +113,13 @@ describe('removeIdAndErrorsToStackOperations', () => {
       name: 'test',
       organization: 'org',
       created: '2020-01-01',
-      operations: [{ name: 'resize', id: '123', errors: { width: 'err' } }]
+      operations: [{ name: 'resize', id: '123', errors: { width: 'err' } }],
     }
     const result = removeIdAndErrorsToStackOperations(stack)
     expect(result.name).toBeUndefined()
     expect(result.organization).toBeUndefined()
     expect(result.created).toBeUndefined()
-    result.operations.forEach(op => {
+    result.operations.forEach((op) => {
       expect(op.id).toBeUndefined()
       expect(op.errors).toBeUndefined()
     })
@@ -168,7 +168,7 @@ describe('cloneStack and resetStackClone', () => {
   test('cloneStack stores normalized stack with name', () => {
     cloneStack('my-clone', {
       stack_operations: [{ name: 'resize' }],
-      stack_options: { quality: 80 }
+      stack_options: { quality: 80 },
     })
     expect(lastState.stackClone.name).toBe('my-clone')
     expect(lastState.stackClone.operations).toEqual([{ name: 'resize' }])

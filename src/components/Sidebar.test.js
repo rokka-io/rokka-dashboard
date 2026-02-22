@@ -8,11 +8,11 @@ jest.mock('../../src/state')
 test('Sidebar does render', () => {
   const router = {
     location: {
-      pathname: '/'
+      pathname: '/',
     },
     match: {
-      params: {}
-    }
+      params: {},
+    },
   }
   const component = renderer.create(
     <MemoryRouter>
@@ -22,7 +22,7 @@ test('Sidebar does render', () => {
         router={router}
         stacks={{}}
       />
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -31,17 +31,17 @@ test('Sidebar does render', () => {
 test('Sidebar does render when active', () => {
   const router = {
     location: {
-      pathname: '/'
+      pathname: '/',
     },
     match: {
-      params: {}
-    }
+      params: {},
+    },
   }
 
   const component = renderer.create(
     <MemoryRouter initialEntries={['/stacks']}>
       <Sidebar auth={{ organization: 'test-organization' }} active router={router} stacks={{}} />
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -50,19 +50,19 @@ test('Sidebar does render when active', () => {
 test('Sidebar shows stacks', () => {
   const router = {
     location: {
-      pathname: '/'
+      pathname: '/',
     },
     match: {
-      params: {}
-    }
+      params: {},
+    },
   }
   const stacks = {
     filteredItems: [
       { name: 'stack-a' },
       { name: 'stack-b' },
       { name: 'stack-c' },
-      { name: 'stack-d' }
-    ]
+      { name: 'stack-d' },
+    ],
   }
 
   const component = renderer.create(
@@ -73,7 +73,7 @@ test('Sidebar shows stacks', () => {
         router={router}
         stacks={stacks}
       />
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -82,21 +82,21 @@ test('Sidebar shows stacks', () => {
 test('Sidebar shows load more button', () => {
   const router = {
     location: {
-      pathname: '/'
+      pathname: '/',
     },
     match: {
-      params: {}
-    }
+      params: {},
+    },
   }
   const stacks = {
     filteredItems: [
       { name: 'stack-a' },
       { name: 'stack-b' },
       { name: 'stack-c' },
-      { name: 'stack-d' }
+      { name: 'stack-d' },
     ],
     currentOffset: 0,
-    total: 20
+    total: 20,
   }
 
   const component = renderer.create(
@@ -107,7 +107,7 @@ test('Sidebar shows load more button', () => {
         router={router}
         stacks={stacks}
       />
-    </MemoryRouter>
+    </MemoryRouter>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

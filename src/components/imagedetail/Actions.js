@@ -12,7 +12,7 @@ const Actions = ({
   onChange,
   onToggleActions,
   focusArea = {},
-  focusType = null
+  focusType = null,
 }) => (
   <div className={cx('rka-crop-actions', { 'is-active': menuActive })}>
     <div className={cx('rka-crop-action-container', { 'is-active': actionsActive })}>
@@ -62,9 +62,9 @@ Actions.propTypes = {
     x: PropTypes.number,
     y: PropTypes.number,
     width: PropTypes.number,
-    height: PropTypes.number
+    height: PropTypes.number,
   }),
-  focusType: PropTypes.string
+  focusType: PropTypes.string,
 }
 
 export default Actions

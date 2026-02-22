@@ -44,15 +44,15 @@ class Dashboard extends PureComponent {
 }
 Dashboard.propTypes = {
   auth: PropTypes.shape({
-    organization: PropTypes.string.isRequired
+    organization: PropTypes.string.isRequired,
   }).isRequired,
   router: PropTypes.shape({
     history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired
+      push: PropTypes.func.isRequired,
+    }).isRequired,
   }).isRequired,
   uploadedImages: PropTypes.array,
-  deletedImages: PropTypes.array
+  deletedImages: PropTypes.array,
 }
 
 export default authRequired(Dashboard)

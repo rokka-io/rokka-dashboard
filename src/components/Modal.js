@@ -7,10 +7,10 @@ class Modal extends PureComponent {
     super(props)
 
     this.state = {
-      open: props.open !== false
+      open: props.open !== false,
     }
 
-    this.onKeyDown = e => {
+    this.onKeyDown = (e) => {
       if (e.keyCode === 27) {
         // escape
         this.close(e)
@@ -46,17 +46,17 @@ class Modal extends PureComponent {
     return (
       <div
         className={cx('rka-modal-backdrop', classNames.backdrop)}
-        onKeyDown={e => this.onKeyDown(e)}
+        onKeyDown={(e) => this.onKeyDown(e)}
       >
         <div
           className={cx('rka-modal-frame', classNames.frame, {
-            'rka-modal-frame-fullscreen': fullscreen
+            'rka-modal-frame-fullscreen': fullscreen,
           })}
         >
           <div className={cx('rka-modal-body', classNames.body)}>
             <button
               className={cx('rka-close-icon', classNames.close)}
-              onClick={e => this.close(e)}
+              onClick={(e) => this.close(e)}
               title="Close"
             />
             {this.props.children}
@@ -75,9 +75,9 @@ Modal.propTypes = {
     backdrop: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
     frame: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
     close: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
-    body: PropTypes.oneOf([PropTypes.string, PropTypes.object])
+    body: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
   }),
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
 }
 
 export default Modal

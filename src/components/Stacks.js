@@ -15,11 +15,11 @@ class Stacks extends PureComponent {
               <Route
                 path="/stacks"
                 exact
-                render={props => <NoStackSelected {...{ ...this.props, ...{ router: props } }} />}
+                render={(props) => <NoStackSelected {...{ ...this.props, ...{ router: props } }} />}
               />
               <Route
                 path="/stacks/:name/:tabindex?"
-                render={props => <Stack {...{ ...this.props, ...{ router: props } }} />}
+                render={(props) => <Stack {...{ ...this.props, ...{ router: props } }} />}
               />
             </div>
           </div>

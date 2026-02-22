@@ -1,11 +1,11 @@
 export const styles = {
-  control: base => {
+  control: (base) => {
     return {
       ...base,
       borderColor: '#DDDDD8',
       borderRadius: 0,
       boxShadow: null,
-      lineHeight: '1.2em'
+      lineHeight: '1.2em',
     }
   },
   option: (base, state) => {
@@ -13,7 +13,7 @@ export const styles = {
     return {
       ...base,
       backgroundColor,
-      color: '#000'
+      color: '#000',
     }
-  }
+  },
 }

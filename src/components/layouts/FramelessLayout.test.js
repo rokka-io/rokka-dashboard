@@ -6,7 +6,7 @@ test('FramelessLayout does render', () => {
   const component = renderer.create(
     <FramelessLayout>
       <span>Test</span>
-    </FramelessLayout>
+    </FramelessLayout>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()
@@ -16,7 +16,7 @@ test('FramelessLayout does render with alerts', () => {
   const component = renderer.create(
     <FramelessLayout alert={{ type: 'error', message: 'test' }}>
       <span>Test</span>
-    </FramelessLayout>
+    </FramelessLayout>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

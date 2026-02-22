@@ -6,7 +6,7 @@ test('App does render', () => {
   const component = renderer.create(
     <App>
       <span>Test</span>
-    </App>
+    </App>,
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

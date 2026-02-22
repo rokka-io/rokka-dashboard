@@ -29,7 +29,7 @@ BooleanStackOption.propTypes = {
   required: PropTypes.bool,
   value: PropTypes.bool,
   onChange: PropTypes.func,
-  error: PropTypes.string
+  error: PropTypes.string,
 }
 
 export default BooleanStackOption

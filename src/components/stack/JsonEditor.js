@@ -8,7 +8,7 @@ import { normalizeStack, removeIdAndErrorsToStackOperations } from '../../state'
 export const JsonEditor = ({ value, setValue }) => {
   const jsonEditorRef = useRef(null)
 
-  const setRef = instance => {
+  const setRef = (instance) => {
     if (instance) {
       jsonEditorRef.current = instance.jsonEditor
     } else {
@@ -26,7 +26,7 @@ export const JsonEditor = ({ value, setValue }) => {
       htmlElementProps={{ style: { height: '75vh' } }}
       mode={'code'}
       value={cleanedValue}
-      onChange={e => {
+      onChange={(e) => {
         setValue(e)
       }}
       ref={setRef}

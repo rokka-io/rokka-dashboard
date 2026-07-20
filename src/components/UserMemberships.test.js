@@ -12,9 +12,7 @@ jest.mock('./layouts/BaseLayout', () => ({ children }) => <div>{children}</div>)
 const flush = () => act(async () => {})
 
 const mockMemberships = (items) => ({
-  request: {
-    request: jest.fn().mockResolvedValue({ body: { total: items.length, items } }),
-  },
+  request: jest.fn().mockResolvedValue({ body: { total: items.length, items } }),
 })
 
 const props = {

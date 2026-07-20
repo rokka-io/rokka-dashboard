@@ -41,7 +41,8 @@ class Sidebar extends PureComponent {
     const routePath = this.props.router.location.pathname
     const showStacks = routePath.indexOf('/stack') >= 0 || routePath.startsWith('/new-stack')
 
-    const showAccessControl = routePath === '/apikeys' || routePath === '/memberships'
+    const showAccessControl =
+      routePath === '/apikeys' || routePath === '/memberships' || routePath === '/user-memberships'
     const { currentOffset = 0, total = 0, filteredItems = [] } = this.props.stacks
     const tabindex = this.props.router.match.params.tabindex
     const $stacks = filteredItems
@@ -147,6 +148,14 @@ class Sidebar extends PureComponent {
               activeClassName="is-active"
             >
               Org Memberships
+            </NavLink>
+            <NavLink
+              to="/user-memberships"
+              exact
+              className="rka-sidebar-sublink"
+              activeClassName="is-active"
+            >
+              Your Memberships
             </NavLink>
           </div>
           <li>

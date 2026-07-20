@@ -12,6 +12,7 @@ import '../scss/main.scss'
 import Apikeys from './Apikeys'
 import Signedup from './Signedup'
 import Memberships from './Memberships'
+import UserMemberships from './UserMemberships'
 
 class App extends PureComponent {
   constructor(props) {
@@ -39,6 +40,10 @@ class App extends PureComponent {
           <Route
             path="/memberships"
             render={(props) => <Memberships router={props} {...this.state} />}
+          />
+          <Route
+            path="/user-memberships"
+            render={(props) => <UserMemberships router={props} {...this.state} />}
           />
           <Route path="/signup" render={(props) => <Signup router={props} {...this.state} />} />
           <Route path="/signedup" render={(props) => <Signedup router={props} {...this.state} />} />

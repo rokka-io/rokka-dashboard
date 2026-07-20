@@ -139,7 +139,7 @@ class Sidebar extends PureComponent {
               className="rka-sidebar-sublink"
               activeClassName="is-active"
             >
-              User Api-Keys
+              Api-Keys
             </NavLink>
             <NavLink
               to="/memberships"

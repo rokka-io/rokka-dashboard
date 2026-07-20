@@ -151,7 +151,7 @@ exports[`BaseLayout does render 1`] = `
           href="/apikeys"
           onClick={[Function]}
         >
-          User Api-Keys
+          Api-Keys
         </a>
         <a
           aria-current={null}
@@ -359,7 +359,7 @@ exports[`BaseLayout does render active sidebar 1`] = `
           href="/apikeys"
           onClick={[Function]}
         >
-          User Api-Keys
+          Api-Keys
         </a>
         <a
           aria-current={null}
@@ -567,7 +567,7 @@ exports[`BaseLayout does render alert 1`] = `
           href="/apikeys"
           onClick={[Function]}
         >
-          User Api-Keys
+          Api-Keys
         </a>
         <a
           aria-current={null}

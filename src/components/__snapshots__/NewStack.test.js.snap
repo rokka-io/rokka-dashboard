@@ -151,7 +151,7 @@ exports[`NewStack does render with a previewImage 1`] = `
           href="/apikeys"
           onClick={[Function]}
         >
-          User Api-Keys
+          Api-Keys
         </a>
         <a
           aria-current={null}
@@ -657,7 +657,7 @@ exports[`NewStack does render with minimal props 1`] = `
           href="/apikeys"
           onClick={[Function]}
         >
-          User Api-Keys
+          Api-Keys
         </a>
         <a
           aria-current={null}
@@ -1097,7 +1097,7 @@ exports[`NewStack does render with stackOptions 1`] = `
           href="/apikeys"
           onClick={[Function]}
         >
-          User Api-Keys
+          Api-Keys
         </a>
         <a
           aria-current={null}
@@ -1627,7 +1627,7 @@ exports[`NewStack does render with stacks 1`] = `
           href="/apikeys"
           onClick={[Function]}
         >
-          User Api-Keys
+          Api-Keys
         </a>
         <a
           aria-current={null}
@@ -2133,7 +2133,7 @@ exports[`newStack does render with clone stack props 1`] = `
           href="/apikeys"
           onClick={[Function]}
         >
-          User Api-Keys
+          Api-Keys
         </a>
         <a
           aria-current={null}

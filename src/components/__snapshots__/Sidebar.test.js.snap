@@ -101,7 +101,7 @@ exports[`Sidebar does render 1`] = `
         href="/apikeys"
         onClick={[Function]}
       >
-        User Api-Keys
+        Api-Keys
       </a>
       <a
         aria-current={null}
@@ -246,7 +246,7 @@ exports[`Sidebar does render when active 1`] = `
         href="/apikeys"
         onClick={[Function]}
       >
-        User Api-Keys
+        Api-Keys
       </a>
       <a
         aria-current={null}
@@ -430,7 +430,7 @@ exports[`Sidebar shows load more button 1`] = `
         href="/apikeys"
         onClick={[Function]}
       >
-        User Api-Keys
+        Api-Keys
       </a>
       <a
         aria-current={null}
@@ -607,7 +607,7 @@ exports[`Sidebar shows stacks 1`] = `
         href="/apikeys"
         onClick={[Function]}
       >
-        User Api-Keys
+        Api-Keys
       </a>
       <a
         aria-current={null}

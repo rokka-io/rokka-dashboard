@@ -24,7 +24,7 @@ class UserMemberships extends PureComponent {
 
   getMemberships = () => {
     rokka()
-      .request.request('user/memberships')
+      .request('user/memberships')
       .then(({ body }) => {
         this.setState({ loading: false, error: false, data: body.items || [] })
       })

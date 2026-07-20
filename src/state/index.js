@@ -5,6 +5,7 @@ import rokka, {
   ROKKA_DASHBOARD_ORG,
   ROKKA_DASHBOARD_TOKEN,
 } from '../rokka'
+import { classifyMfaError } from '../utils/mfaErrors'
 
 if (localStorage.getItem(ROKKA_DASHBOARD_ORG) && apiTokenGetCallback()) {
   login(localStorage.getItem(ROKKA_DASHBOARD_ORG), '')
@@ -85,18 +86,25 @@ export function clearUploadedImages() {
  * @param {string}   organization
  * @param {string}   apiKey
  * @param {Function} successCb    Success callback
+ * @param {?string}  totp         TOTP (MFA) code, when the api key requires it
  *
  * @returns {Promise}
  */
-export function login(organization, apiKey, successCb) {
+export function login(organization, apiKey, successCb, totp) {
   authenticate(apiKey)
   const rka = rokka()
   //delete cookie, when token is not valid anymore
   if (rka.user.getTokenIsValidFor() < 0) {
     localStorage.removeItem(ROKKA_DASHBOARD_TOKEN)
   }
-  return rka.organizations
-    .get(organization)
+  // When logging in with an api key, mint the JWT token explicitly: MFA
+  // errors (mfa_required etc.) are only visible on the token endpoint
+  // itself, the implicit refresh inside other requests swallows them.
+  const mint = apiKey
+    ? rka.user.getNewToken(apiKey, totp ? { totp } : undefined)
+    : Promise.resolve()
+  return mint
+    .then(() => rka.organizations.get(organization))
     .then(() => {
       // remove alert in case there was auth failed before.
       removeAlert()
@@ -124,6 +132,12 @@ export function login(organization, apiKey, successCb) {
 
       // clear session
       localStorage.removeItem(ROKKA_DASHBOARD_TOKEN)
+
+      if (classifyMfaError(err)) {
+        // no global alert, the login screen renders the MFA/TOTP UI itself
+        updateState({ auth: null })
+        throw err
+      }
 
       if (err.statusCode === 403 || err.statusCode === 404 || err.statusCode === 401) {
         updateState({ auth: null })

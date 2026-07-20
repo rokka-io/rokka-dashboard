@@ -1,6 +1,9 @@
 import rokka from 'rokka'
 
-let client = rokka()
+// mainly for local development against a local rokka-api
+const apiHost = process.env.REACT_APP_API_HOST || undefined
+
+let client = rokka({ apiHost })
 const max_age = 3600 * 72
 export const ROKKA_DASHBOARD_TOKEN = 'rokka-dashboard-token'
 export const ROKKA_DASHBOARD_ORG = 'rokka-dashboard-org'
@@ -10,9 +13,20 @@ export const apiTokenGetCallback = () => {
   return localStorage.getItem(ROKKA_DASHBOARD_TOKEN)
 }
 
+/**
+ * A client that authenticates with the plain Api-Key header (no JWT token
+ * callbacks). Needed for the MFA/TOTP enrollment from the login screen: an
+ * api key with requires_mfa but no TOTP set up yet can't get a token, it's
+ * only allowed to call the /user/mfa/totp endpoints directly.
+ */
+export function createApiKeyClient(apiKey) {
+  return rokka({ apiKey, apiHost, apiVersion: 1 })
+}
+
 export function authenticate(apiKey) {
   client = rokka({
     apiKey,
+    apiHost,
     apiVersion: 1,
     apiTokenOptions: {
       //no_ip_protection: true, // not sure about this
@@ -33,7 +47,7 @@ export function authenticate(apiKey) {
 }
 
 export function resetClient() {
-  client = rokka()
+  client = rokka({ apiHost })
 }
 
 const getClient = () => client

@@ -161,6 +161,14 @@ exports[`NewStack does render with a previewImage 1`] = `
         >
           Org Memberships
         </a>
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/user-memberships"
+          onClick={[Function]}
+        >
+          Your Memberships
+        </a>
       </div>
       <li>
         <a
@@ -659,6 +667,14 @@ exports[`NewStack does render with minimal props 1`] = `
         >
           Org Memberships
         </a>
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/user-memberships"
+          onClick={[Function]}
+        >
+          Your Memberships
+        </a>
       </div>
       <li>
         <a
@@ -1090,6 +1106,14 @@ exports[`NewStack does render with stackOptions 1`] = `
           onClick={[Function]}
         >
           Org Memberships
+        </a>
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/user-memberships"
+          onClick={[Function]}
+        >
+          Your Memberships
         </a>
       </div>
       <li>
@@ -1613,6 +1637,14 @@ exports[`NewStack does render with stacks 1`] = `
         >
           Org Memberships
         </a>
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/user-memberships"
+          onClick={[Function]}
+        >
+          Your Memberships
+        </a>
       </div>
       <li>
         <a
@@ -2110,6 +2142,14 @@ exports[`newStack does render with clone stack props 1`] = `
           onClick={[Function]}
         >
           Org Memberships
+        </a>
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/user-memberships"
+          onClick={[Function]}
+        >
+          Your Memberships
         </a>
       </div>
       <li>

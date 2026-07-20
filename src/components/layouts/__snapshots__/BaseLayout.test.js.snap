@@ -161,6 +161,14 @@ exports[`BaseLayout does render 1`] = `
         >
           Org Memberships
         </a>
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/user-memberships"
+          onClick={[Function]}
+        >
+          Your Memberships
+        </a>
       </div>
       <li>
         <a
@@ -361,6 +369,14 @@ exports[`BaseLayout does render active sidebar 1`] = `
         >
           Org Memberships
         </a>
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/user-memberships"
+          onClick={[Function]}
+        >
+          Your Memberships
+        </a>
       </div>
       <li>
         <a
@@ -560,6 +576,14 @@ exports[`BaseLayout does render alert 1`] = `
           onClick={[Function]}
         >
           Org Memberships
+        </a>
+        <a
+          aria-current={null}
+          className="rka-sidebar-sublink"
+          href="/user-memberships"
+          onClick={[Function]}
+        >
+          Your Memberships
         </a>
       </div>
       <li>

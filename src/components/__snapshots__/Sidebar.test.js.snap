@@ -111,6 +111,14 @@ exports[`Sidebar does render 1`] = `
       >
         Org Memberships
       </a>
+      <a
+        aria-current={null}
+        className="rka-sidebar-sublink"
+        href="/user-memberships"
+        onClick={[Function]}
+      >
+        Your Memberships
+      </a>
     </div>
     <li>
       <a
@@ -247,6 +255,14 @@ exports[`Sidebar does render when active 1`] = `
         onClick={[Function]}
       >
         Org Memberships
+      </a>
+      <a
+        aria-current={null}
+        className="rka-sidebar-sublink"
+        href="/user-memberships"
+        onClick={[Function]}
+      >
+        Your Memberships
       </a>
     </div>
     <li>
@@ -424,6 +440,14 @@ exports[`Sidebar shows load more button 1`] = `
       >
         Org Memberships
       </a>
+      <a
+        aria-current={null}
+        className="rka-sidebar-sublink"
+        href="/user-memberships"
+        onClick={[Function]}
+      >
+        Your Memberships
+      </a>
     </div>
     <li>
       <a
@@ -592,6 +616,14 @@ exports[`Sidebar shows stacks 1`] = `
         onClick={[Function]}
       >
         Org Memberships
+      </a>
+      <a
+        aria-current={null}
+        className="rka-sidebar-sublink"
+        href="/user-memberships"
+        onClick={[Function]}
+      >
+        Your Memberships
       </a>
     </div>
     <li>

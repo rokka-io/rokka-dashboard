@@ -161,35 +161,37 @@ class Memberships extends PureComponent {
           {this.state.showCreate && (
             <>
               <h2 className={'rka-h3'}>Roles:</h2>
-              {Object.values(rokka().memberships.ROLES).map((role) => {
-                return (
-                  <div key={role}>
-                    <input
-                      type="checkbox"
-                      name={role}
-                      checked={this.state.rolesValue.includes(role)}
-                      className="rka-input-checkbox mb-sm"
-                      onChange={(e) => {
-                        const checked = e.currentTarget.checked
-                        let roles = this.state.rolesValue
-                        if (checked) {
-                          // add it if not there already
-                          if (!roles.includes(role)) {
-                            roles.push(role)
+              {Object.values(rokka().memberships.ROLES)
+                .sort((a, b) => a.localeCompare(b))
+                .map((role) => {
+                  return (
+                    <div key={role}>
+                      <input
+                        type="checkbox"
+                        name={role}
+                        checked={this.state.rolesValue.includes(role)}
+                        className="rka-input-checkbox mb-sm"
+                        onChange={(e) => {
+                          const checked = e.currentTarget.checked
+                          let roles = this.state.rolesValue
+                          if (checked) {
+                            // add it if not there already
+                            if (!roles.includes(role)) {
+                              roles.push(role)
+                            }
+                          } else {
+                            // remove it if unchecked in in roles
+                            if (roles.includes(role)) {
+                              roles = roles.filter((r) => r !== role)
+                            }
                           }
-                        } else {
-                          // remove it if unchecked in in roles
-                          if (roles.includes(role)) {
-                            roles = roles.filter((r) => r !== role)
-                          }
-                        }
-                        this.setState({ rolesValue: [...roles] })
-                      }}
-                    />
-                    {role}
-                  </div>
-                )
-              })}
+                          this.setState({ rolesValue: [...roles] })
+                        }}
+                      />
+                      {role}
+                    </div>
+                  )
+                })}
               <div>
                 <input
                   key={'userid'}

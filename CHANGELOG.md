@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2026-07-11
+
+### Added
+
+- TOTP (MFA) support for Api Keys:
+  - Progressive login flow that asks for a TOTP code when the used Api Key requires MFA, and runs the TOTP enrollment when a pre-flagged key has no TOTP set up yet
+  - Two-factor section on the Api Keys page to set up / disable TOTP (with QR code) and a per-key "Require MFA" toggle, plus a "Require MFA" option when creating a key
+  - `REACT_APP_API_HOST` env var to point the dashboard at a non-production rokka API (for local development)
+- Requires `rokka` SDK 4.2.0 (MFA endpoints, `totp` token param)
+
+### Changed
+
+- `login()` now mints the JWT token explicitly (so MFA errors from the token endpoint are visible instead of being swallowed by the implicit token refresh)
+
 ## 2026-02-22
 
 ### Added

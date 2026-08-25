@@ -1,0 +1,74 @@
+.rka-mfa-enrollment {
+  .rka-mfa-qr {
+    display: inline-block;
+    padding: $space-md;
+    background: $clr-white;
+    border: 1px solid $clr-gray-light;
+    border-radius: 4px;
+    margin: $space-md 0;
+  }
+
+  .rka-mfa-secret-label {
+    margin-bottom: $space-xs;
+    color: $clr-gray-darkest;
+    font-size: $font-sm;
+  }
+
+  .rka-mfa-secret {
+    display: flex;
+    align-items: center;
+    margin-bottom: $space-md;
+
+    code {
+      display: inline-block;
+      padding: $space-xs $space-sm;
+      background: $clr-gray-lightest;
+      border: 1px solid $clr-gray-light;
+      border-radius: 4px;
+      font-family: monospace;
+      letter-spacing: 1px;
+      margin-right: $space-sm;
+    }
+  }
+
+  .rka-mfa-actions {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+  }
+}
+
+.rka-mfa-error {
+  color: $clr-cranberry;
+  font-size: $font-sm;
+  margin: $space-sm 0;
+}
+
+.rka-mfa-status {
+  display: inline-block;
+  padding: 2px $space-sm;
+  border-radius: 4px;
+  font-size: $font-xs;
+  font-weight: $font-bold;
+  text-transform: uppercase;
+
+  &.rka-mfa-status-active {
+    background: $clr-brand-lightest;
+    color: $clr-brand-dark;
+  }
+
+  &.rka-mfa-status-pending {
+    background: lighten($clr-orange-dark, 40%);
+    color: $clr-orange-dark;
+  }
+
+  &.rka-mfa-status-none {
+    background: $clr-gray-lighter;
+    color: $clr-gray-darkest;
+  }
+}
+
+.rka-button-small {
+  padding: $space-xs $space-sm;
+  font-size: $font-sm;
+}

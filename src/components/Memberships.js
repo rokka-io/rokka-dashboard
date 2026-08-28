@@ -260,7 +260,7 @@ class Memberships extends PureComponent {
       <BaseLayout {...this.props}>
         <div key={'title2'} className="section rka-box no-min-height">
           <h2 className={'rka-h2 mb-md'}>The memberships of your organization</h2>
-          <div className={'mb-md'}>
+          <div className={'mb-md lh-lg'}>
             If the list is empty, you don't have enough rights to see it.
           </div>
         </div>
@@ -278,7 +278,8 @@ class Memberships extends PureComponent {
             {this.state.newApiKeyTrusted && (
               <div className={'mt-md'}>
                 This key is <strong>trusted</strong>: it may manage that user's Api Keys even with a
-                read-only role. Never hand it to end users, use it to mint the key you publish.
+                read-only role. Never hand it to untrusted end users, use it to mint the key you
+                publish.
               </div>
             )}
           </div>

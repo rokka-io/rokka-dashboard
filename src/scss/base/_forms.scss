@@ -47,8 +47,8 @@
 }
 
 .rka-label {
-  font-size: $font-xs;
-  color: $clr-gray-darkest;
+  font-size: $font-sm;
+  color: $clr-gray-text;
   font-weight: $font-bold;
   display: block;
   margin-bottom: $space-sm;
@@ -102,16 +102,17 @@
 // The label of a checkbox, on one line with the box itself.
 .rka-label-checkbox {
   font-size: $font-sm;
-  color: $clr-gray-darkest;
+  color: $clr-gray-text;
   font-weight: $font-bold;
   cursor: pointer;
 }
 
-// The sentence under a label which says what the field actually does.
+// The sentence under a label which says what the field actually does. Meant to
+// be read, so it gets the same size as the input text, only not bold.
 .rka-input-help {
-  font-size: $font-xs;
-  line-height: 1.4;
-  color: $clr-gray-darker;
+  font-size: $font-sm;
+  line-height: 1.5;
+  color: $clr-gray-text;
   margin-bottom: $space-sm;
 }
 

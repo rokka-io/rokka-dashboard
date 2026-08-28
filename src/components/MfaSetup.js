@@ -130,7 +130,7 @@ class MfaSetup extends PureComponent {
 
   renderSetup = () => (
     <form onSubmit={this.confirmSetup}>
-      <div className={'mb-md'}>
+      <div className={'mb-md lh-lg'}>
         Scan this code with your authenticator app, then confirm it with the code it shows.
       </div>
       {this.state.setup.provisioning_uri && (
@@ -177,7 +177,7 @@ class MfaSetup extends PureComponent {
 
   renderPending = () => (
     <form onSubmit={this.confirmSetup}>
-      <div className={'mb-md'}>
+      <div className={'mb-md lh-lg'}>
         A two-factor setup was started but never confirmed. If you still have it in your
         authenticator app, confirm it with a current code. Otherwise start over, that replaces the
         unconfirmed secret with a new one.
@@ -203,14 +203,14 @@ class MfaSetup extends PureComponent {
 
   renderActive = () => (
     <>
-      <div className={'mb-md'}>
-        Two-factor authentication is active
+      <div className={'mb-md lh-lg'}>
+        It is active
         {this.state.confirmed ? ` since ${formatDate(this.state.confirmed)}` : ''}. You can now
         require it on individual Api Keys below.
       </div>
       {this.state.showDisable ? (
         <form onSubmit={this.disable}>
-          <div className={'mb-md'}>
+          <div className={'mb-md lh-lg'}>
             Disabling it also removes the "Requires MFA" flag from <strong>all</strong> your Api
             Keys. Enter a current code to confirm.
           </div>
@@ -244,10 +244,7 @@ class MfaSetup extends PureComponent {
 
   renderNone = () => (
     <>
-      <div className={'mb-md'}>
-        Two-factor authentication is not set up. Set it up to be able to require a code for
-        individual Api Keys.
-      </div>
+      <div className={'mb-md'}>It is not set up yet.</div>
       <button
         className="rka-button rka-button-brand"
         disabled={this.state.busy}
@@ -282,8 +279,16 @@ class MfaSetup extends PureComponent {
     return (
       <div className="section rka-box no-min-height">
         <h2 className={'rka-h2 mb-md'}>Two-Factor Authentication (MFA)</h2>
+        <div className={'mb-md lh-lg'}>
+          Once this is set up, you can require a code on individual Api Keys below. Be aware of what
+          that does to such a key: it can <strong>not be used for API calls any more</strong>. The
+          only thing left it can do is be exchanged for a token, together with a current code from
+          your authenticator app — which is exactly what logging into this dashboard does. So it
+          belongs on the key you log in with, not on one a server or a script uses: there is nobody
+          there to type the code.
+        </div>
         {this.renderBody()}
-        {this.state.error && <div className={'mt-md txt-cranberry'}>{this.state.error}</div>}
+        {this.state.error && <div className={'mt-md lh-lg txt-cranberry'}>{this.state.error}</div>}
       </div>
     )
   }

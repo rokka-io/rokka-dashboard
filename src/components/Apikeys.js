@@ -50,8 +50,10 @@ class Apikeys extends PureComponent {
           <tr className={'rka-h3 mb-md'}>
             <th>ID</th>
             <th>Comment</th>
-            <th title="The key can only be exchanged for a token with a two-factor code">MFA</th>
-            <th title="The key may manage this user's Api Keys even with a read-only role">
+            <th title="The key can't be used for API calls, it can only be exchanged for a token together with a two-factor code">
+              MFA
+            </th>
+            <th title="The key may manage this user's Api Keys even with a read-only role. Never hand it to untrusted end users">
               Trusted
             </th>
             <th>Allowed IPs</th>
@@ -232,7 +234,7 @@ class Apikeys extends PureComponent {
 
             <div>Please keep it somewhere safe, you can't restore it.</div>
             {this.state.newApiKeyNeedsEnrollment && (
-              <div className={'mt-md txt-cranberry'}>
+              <div className={'mt-md lh-lg txt-cranberry'}>
                 This key requires two-factor authentication, which isn't active yet. Until you have
                 set it up, the key can only be used to do that setup.
               </div>

@@ -18,6 +18,10 @@ $clr-gray: #CECFCA;
 $clr-gray-dark: #C0C1BC;
 $clr-gray-darker: #A5A59F;
 $clr-gray-darkest: #898A81;
+// The scale above tops out at 3.4:1 contrast on white, which fails WCAG AA for
+// anything but large text. This one is for prose you actually want to be read,
+// labels and the sentences explaining a field (6.8:1).
+$clr-gray-text: #5F615A;
 
 // brand cranberry
 $clr-cranberry: #D34361;

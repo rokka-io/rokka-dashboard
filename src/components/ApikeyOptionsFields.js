@@ -25,8 +25,10 @@ const ApikeyOptionsFields = ({ idPrefix, values, onChange, mfaNote = null }) => 
           Requires two-factor authentication
         </label>
         <div className="rka-input-help">
-          The key alone is then not enough. It can only be exchanged for a token together with a
-          current code from your authenticator app.
+          The key can then not be used for API calls any more. The only thing left it can do is be
+          exchanged for a token, together with a current code from your authenticator app — which is
+          exactly what logging into this dashboard does. So put it on the key you log in with, not
+          on one a server or a script uses: there is nobody there to type the code.
         </div>
         {mfaNote}
       </div>
@@ -45,7 +47,7 @@ const ApikeyOptionsFields = ({ idPrefix, values, onChange, mfaNote = null }) => 
         <div className="rka-input-help">
           Lets the key manage the user's Api Keys even when the user only has a read-only role
           (read, upload, sourceimages:read). It grants no other rights. Never hand a trusted key to
-          end users.
+          untrusted end users — no frontend JavaScript, no mobile app.
         </div>
       </div>
 

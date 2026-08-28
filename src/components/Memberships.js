@@ -259,7 +259,9 @@ class Memberships extends PureComponent {
     return (
       <BaseLayout {...this.props}>
         <div key={'title2'} className="section rka-box no-min-height">
-          <h2 className={'rka-h2 mb-md'}>The memberships of your organization</h2>
+          <h2 className={'rka-h2 mb-md'}>
+            The memberships of this ({this.props.auth.organization}) organization
+          </h2>
           <div className={'mb-md lh-lg'}>
             If the list is empty, you don't have enough rights to see it.
           </div>

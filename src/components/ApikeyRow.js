@@ -1,26 +1,10 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 import rokka from '../rokka'
+import ApikeyOptionsFields from './ApikeyOptionsFields'
 import { formatDate, fromDatetimeLocal, isExpired, toDatetimeLocal } from '../utils/string'
+import { MAX_ALLOWED_IPS, parseAllowedIps } from '../utils/apikeys'
 import { getApiErrorMessage } from '../utils/errors'
-
-// same limit as the API, so a typo doesn't need a round trip to be caught
-const MAX_ALLOWED_IPS = 10
-
-/**
- * Split the textarea content into IPs. Commas and newlines both separate, so
- * pasting either shape of list works.
- *
- * @param {string} value
- *
- * @returns {string[]}
- */
-export function parseAllowedIps(value) {
-  return value
-    .split(/[\n,]/)
-    .map((ip) => ip.trim())
-    .filter((ip) => ip.length > 0)
-}
 
 const formStateFrom = (apiKey) => ({
   requiresMfa: !!apiKey.requires_mfa,
@@ -146,76 +130,24 @@ class ApikeyRow extends PureComponent {
 
   renderEditForm() {
     const { form } = this.state
-    const ipCount = parseAllowedIps(form.allowedIps).length
 
     return (
       <tr>
         <td colSpan={9}>
           <form onSubmit={this.save} className={'mb-md'}>
-            <div className={'mb-sm'}>
-              <label>
-                <input
-                  type="checkbox"
-                  className="rka-input-checkbox"
-                  checked={form.requiresMfa}
-                  onChange={(e) => this.updateForm({ requiresMfa: e.currentTarget.checked })}
-                />{' '}
-                Requires MFA — the key can only be exchanged for a token together with a two-factor
-                code
-              </label>
-              {form.requiresMfa && this.props.totpState !== 'active' && (
-                <div className={'txt-cranberry'}>
-                  You don't have an active two-factor setup yet. This key will only be usable to do
-                  that setup until you have one.
-                </div>
-              )}
-            </div>
-            <div className={'mb-sm'}>
-              <label>
-                <input
-                  type="checkbox"
-                  className="rka-input-checkbox"
-                  checked={form.trusted}
-                  onChange={(e) => this.updateForm({ trusted: e.currentTarget.checked })}
-                />{' '}
-                Trusted — the key may manage this user's Api Keys even with a read-only role. Never
-                hand a trusted key to end users.
-              </label>
-            </div>
-            <div className={'mb-sm'}>
-              <label className="rka-label" htmlFor={`allowed-ips-${this.props.apiKey.id}`}>
-                Allowed IPs ({ipCount}/{MAX_ALLOWED_IPS}, one per line, IPs or IPv4 CIDR ranges,
-                empty for no restriction)
-              </label>
-              <textarea
-                id={`allowed-ips-${this.props.apiKey.id}`}
-                className="rka-input-txt"
-                rows={3}
-                value={form.allowedIps}
-                onChange={(e) => this.updateForm({ allowedIps: e.currentTarget.value })}
-              />
-            </div>
-            <div className={'mb-sm'}>
-              <label className="rka-label" htmlFor={`expires-${this.props.apiKey.id}`}>
-                Expires (in your timezone, empty for never)
-              </label>
-              <input
-                id={`expires-${this.props.apiKey.id}`}
-                type="datetime-local"
-                className="rka-input-txt"
-                value={form.expires}
-                onChange={(e) => this.updateForm({ expires: e.currentTarget.value })}
-              />
-              {form.expires && (
-                <button
-                  className="rka-button rka-button-secondary ml-sm"
-                  type="button"
-                  onClick={() => this.updateForm({ expires: '' })}
-                >
-                  Clear
-                </button>
-              )}
-            </div>
+            <ApikeyOptionsFields
+              idPrefix={`key-${this.props.apiKey.id}`}
+              values={form}
+              onChange={this.updateForm}
+              mfaNote={
+                form.requiresMfa && this.props.totpState !== 'active' ? (
+                  <div className={'rka-input-help txt-cranberry'}>
+                    You don't have an active two-factor setup yet. This key will only be usable to
+                    do that setup until you have one.
+                  </div>
+                ) : null
+              }
+            />
             {this.state.error && <div className={'mb-sm txt-cranberry'}>{this.state.error}</div>}
             <button
               className="rka-button rka-button-brand mr-md"

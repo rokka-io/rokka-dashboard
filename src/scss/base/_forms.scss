@@ -64,6 +64,12 @@
   padding: 0 $space-sm;
   outline: none;
 
+  // The browser default is nearly as dark as real input text, which makes an
+  // example placeholder look like a value that's already been filled in.
+  &::placeholder {
+    color: $clr-gray-darker;
+  }
+
   &:focus {
     transition: border .4s ease;
     border-color: $clr-gray-darker;
@@ -73,6 +79,40 @@
     color: $clr-gray-darkest;
     background: $clr-gray-lighter;
   }
+}
+
+// Multi line variant of .rka-input-txt. That class fixes the height to a single
+// line, which squashes a textarea into looking like a one line input. Has to
+// come after it, same specificity.
+.rka-input-txtarea {
+  height: auto;
+  line-height: 1.5;
+  padding: $space-sm;
+  font-family: inherit;
+  resize: vertical;
+}
+
+// A date only needs as much room as a date. Stretched over the full width it
+// reads like a text field you're supposed to write a sentence into.
+.rka-input-datetime {
+  width: auto;
+  min-width: 16em;
+}
+
+// The label of a checkbox, on one line with the box itself.
+.rka-label-checkbox {
+  font-size: $font-sm;
+  color: $clr-gray-darkest;
+  font-weight: $font-bold;
+  cursor: pointer;
+}
+
+// The sentence under a label which says what the field actually does.
+.rka-input-help {
+  font-size: $font-xs;
+  line-height: 1.4;
+  color: $clr-gray-darker;
+  margin-bottom: $space-sm;
 }
 
 .rka-input-range-container {

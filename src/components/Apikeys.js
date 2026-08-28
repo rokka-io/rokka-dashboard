@@ -3,21 +3,22 @@ import React, { PureComponent } from 'react'
 import { authRequired } from '../utils/auth'
 import BaseLayout from './layouts/BaseLayout'
 import rokka from '../rokka'
-import ApikeyRow, { parseAllowedIps } from './ApikeyRow'
+import ApikeyRow from './ApikeyRow'
+import ApikeyOptionsFields from './ApikeyOptionsFields'
 import MfaSetup from './MfaSetup'
 import { fromDatetimeLocal } from '../utils/string'
+import { MAX_ALLOWED_IPS, parseAllowedIps } from '../utils/apikeys'
 import { getApiErrorMessage } from '../utils/errors'
-
-// same limit as the API, so a typo doesn't need a round trip to be caught
-const MAX_ALLOWED_IPS = 10
 
 const DEFAULT_CREATE_STATE = {
   showCreate: false,
   commentValue: '',
-  requiresMfaValue: false,
-  trustedValue: false,
-  allowedIpsValue: '',
-  expiresValue: '',
+  options: {
+    requiresMfa: false,
+    trusted: false,
+    allowedIps: '',
+    expires: '',
+  },
   createError: null,
 }
 
@@ -116,21 +117,25 @@ class Apikeys extends PureComponent {
    */
   buildCreateOptions = () => {
     const options = {}
-    if (this.state.requiresMfaValue) {
+    if (this.state.options.requiresMfa) {
       options.requires_mfa = true
     }
-    if (this.state.trustedValue) {
+    if (this.state.options.trusted) {
       options.trusted = true
     }
-    const ips = parseAllowedIps(this.state.allowedIpsValue)
+    const ips = parseAllowedIps(this.state.options.allowedIps)
     if (ips.length > 0) {
       options.allowed_ips = ips
     }
-    const expires = fromDatetimeLocal(this.state.expiresValue)
+    const expires = fromDatetimeLocal(this.state.options.expires)
     if (expires) {
       options.expires = expires
     }
     return options
+  }
+
+  updateOptions = (partial) => {
+    this.setState({ options: { ...this.state.options, ...partial } })
   }
 
   showCreateNewKey = () => {
@@ -164,72 +169,38 @@ class Apikeys extends PureComponent {
   }
 
   renderCreateForm() {
-    const ipCount = parseAllowedIps(this.state.allowedIpsValue).length
-
     return (
       <>
-        <input
-          type="text"
-          placeholder={'Api Key Comment (optional)'}
-          name="comment"
-          value={this.state.commentValue}
-          className="rka-input-txt mb-sm"
-          onChange={(e) => this.setState({ commentValue: e.currentTarget.value })}
-        />
-        <div className={'mb-sm'}>
-          <label>
-            <input
-              type="checkbox"
-              className="rka-input-checkbox"
-              checked={this.state.requiresMfaValue}
-              onChange={(e) => this.setState({ requiresMfaValue: e.currentTarget.checked })}
-            />{' '}
-            Requires MFA — the key can only be exchanged for a token together with a two-factor code
+        <div className="rka-form-group">
+          <label className="rka-label" htmlFor="new-comment">
+            Comment
           </label>
-          {this.state.requiresMfaValue && this.state.totpState !== 'active' && (
-            <div className={'txt-cranberry'}>
-              You don't have an active two-factor setup yet. This key will only be usable to do that
-              setup until you have one.
-            </div>
-          )}
-        </div>
-        <div className={'mb-sm'}>
-          <label>
-            <input
-              type="checkbox"
-              className="rka-input-checkbox"
-              checked={this.state.trustedValue}
-              onChange={(e) => this.setState({ trustedValue: e.currentTarget.checked })}
-            />{' '}
-            Trusted — the key may manage this user's Api Keys even with a read-only role. Never hand
-            a trusted key to end users.
-          </label>
-        </div>
-        <div className={'mb-sm'}>
-          <label className="rka-label" htmlFor="new-allowed-ips">
-            Allowed IPs ({ipCount}/{MAX_ALLOWED_IPS}, one per line, IPs or IPv4 CIDR ranges, empty
-            for no restriction)
-          </label>
-          <textarea
-            id="new-allowed-ips"
-            className="rka-input-txt"
-            rows={3}
-            value={this.state.allowedIpsValue}
-            onChange={(e) => this.setState({ allowedIpsValue: e.currentTarget.value })}
-          />
-        </div>
-        <div className={'mb-sm'}>
-          <label className="rka-label" htmlFor="new-expires">
-            Expires (in your timezone, empty for never)
-          </label>
+          <div className="rka-input-help">
+            Optional, only to recognise the key again in this list later on.
+          </div>
           <input
-            id="new-expires"
-            type="datetime-local"
+            id="new-comment"
+            type="text"
+            placeholder={'Used in production'}
+            name="comment"
+            value={this.state.commentValue}
             className="rka-input-txt"
-            value={this.state.expiresValue}
-            onChange={(e) => this.setState({ expiresValue: e.currentTarget.value })}
+            onChange={(e) => this.setState({ commentValue: e.currentTarget.value })}
           />
         </div>
+        <ApikeyOptionsFields
+          idPrefix="new-key"
+          values={this.state.options}
+          onChange={this.updateOptions}
+          mfaNote={
+            this.state.options.requiresMfa && this.state.totpState !== 'active' ? (
+              <div className={'rka-input-help txt-cranberry'}>
+                You don't have an active two-factor setup yet. This key will only be usable to do
+                that setup until you have one.
+              </div>
+            ) : null
+          }
+        />
         {this.state.createError && (
           <div className={'mb-sm txt-cranberry'}>{this.state.createError}</div>
         )}

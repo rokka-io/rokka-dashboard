@@ -4,13 +4,11 @@ import { authRequired } from '../utils/auth'
 import BaseLayout from './layouts/BaseLayout'
 import rokka from '../rokka'
 import MembershipRow from './MembershipRow'
-import { parseAllowedIps } from './ApikeyRow'
+import ApikeyOptionsFields from './ApikeyOptionsFields'
 import { setAlert } from '../state'
 import { fromDatetimeLocal } from '../utils/string'
+import { MAX_ALLOWED_IPS, parseAllowedIps } from '../utils/apikeys'
 import { getApiErrorMessage } from '../utils/errors'
-
-// same limit as the API, so a typo doesn't need a round trip to be caught
-const MAX_ALLOWED_IPS = 10
 
 /**
  * The roles which make a user read-only, i.e. unable to manage its own Api
@@ -24,10 +22,12 @@ const DEFAULT_CREATE_STATE = {
   userIdValue: '',
   rolesValue: [],
   keyCommentValue: '',
-  keyTrustedValue: false,
-  keyRequiresMfaValue: false,
-  keyAllowedIpsValue: '',
-  keyExpiresValue: '',
+  keyOptions: {
+    requiresMfa: false,
+    trusted: false,
+    allowedIps: '',
+    expires: '',
+  },
 }
 
 const DEFAULT_STATE = {
@@ -113,21 +113,25 @@ class Memberships extends PureComponent {
     if (this.state.keyCommentValue) {
       options.comment = this.state.keyCommentValue
     }
-    if (this.state.keyTrustedValue) {
+    if (this.state.keyOptions.trusted) {
       options.trusted = true
     }
-    if (this.state.keyRequiresMfaValue) {
+    if (this.state.keyOptions.requiresMfa) {
       options.requires_mfa = true
     }
-    const ips = parseAllowedIps(this.state.keyAllowedIpsValue)
+    const ips = parseAllowedIps(this.state.keyOptions.allowedIps)
     if (ips.length > 0) {
       options.allowed_ips = ips
     }
-    const expires = fromDatetimeLocal(this.state.keyExpiresValue)
+    const expires = fromDatetimeLocal(this.state.keyOptions.expires)
     if (expires) {
       options.expires = expires
     }
     return Object.keys(options).length > 0 ? options : undefined
+  }
+
+  updateKeyOptions = (partial) => {
+    this.setState({ keyOptions: { ...this.state.keyOptions, ...partial } })
   }
 
   /**
@@ -137,8 +141,8 @@ class Memberships extends PureComponent {
    * @returns {boolean}
    */
   needsTrustedForMfa = () =>
-    this.state.keyRequiresMfaValue &&
-    !this.state.keyTrustedValue &&
+    this.state.keyOptions.requiresMfa &&
+    !this.state.keyOptions.trusted &&
     this.state.rolesValue.some((role) => READ_ONLY_ROLES.includes(role))
 
   showCreateNewKey = () => {
@@ -210,81 +214,43 @@ class Memberships extends PureComponent {
   }
 
   renderInitialApiKeyForm() {
-    const ipCount = parseAllowedIps(this.state.keyAllowedIpsValue).length
-
     return (
       <>
-        <h2 className={'rka-h3 mt-md'}>Initial Api Key (optional):</h2>
-        <div className={'mb-sm'}>
+        <h2 className={'rka-h3 mt-md'}>Initial Api Key (optional)</h2>
+        <div className={'rka-input-help'}>
           These apply to the Api Key the new user gets. Leave them alone for a plain key.
         </div>
-        <div>
+        <div className="rka-form-group">
+          <label className="rka-label" htmlFor="membership-key-comment">
+            Api Key comment
+          </label>
+          <div className="rka-input-help">
+            Optional, only to recognise the key again in a list later on.
+          </div>
           <input
-            key={'keycomment'}
+            id="membership-key-comment"
             type="text"
-            placeholder={'Api Key Comment (optional)'}
+            placeholder={'Initial key'}
             name="keycomment"
             value={this.state.keyCommentValue}
-            className="rka-input-txt mb-sm"
+            className="rka-input-txt"
             onChange={(e) => this.setState({ keyCommentValue: e.currentTarget.value })}
           />
         </div>
-        <div className={'mb-sm'}>
-          <label>
-            <input
-              type="checkbox"
-              className="rka-input-checkbox"
-              checked={this.state.keyTrustedValue}
-              onChange={(e) => this.setState({ keyTrustedValue: e.currentTarget.checked })}
-            />{' '}
-            Trusted — the key may manage that user's Api Keys even with a read-only role. This is
-            the only place you can set it on a user which is read-only right away. Never hand a
-            trusted key to end users.
-          </label>
-        </div>
-        <div className={'mb-sm'}>
-          <label>
-            <input
-              type="checkbox"
-              className="rka-input-checkbox"
-              checked={this.state.keyRequiresMfaValue}
-              onChange={(e) => this.setState({ keyRequiresMfaValue: e.currentTarget.checked })}
-            />{' '}
-            Requires MFA — the key can only be exchanged for a token together with a two-factor code
-          </label>
-          {this.needsTrustedForMfa() && (
-            <div className={'txt-cranberry'}>
-              With a read-only role ({READ_ONLY_ROLES.join(', ')}) the key also has to be trusted,
-              otherwise the new user could never reach the two-factor setup and the key would be
-              unusable.
-            </div>
-          )}
-        </div>
-        <div className={'mb-sm'}>
-          <label className="rka-label" htmlFor="membership-allowed-ips">
-            Allowed IPs ({ipCount}/{MAX_ALLOWED_IPS}, one per line, IPs or IPv4 CIDR ranges, empty
-            for no restriction)
-          </label>
-          <textarea
-            id="membership-allowed-ips"
-            className="rka-input-txt"
-            rows={3}
-            value={this.state.keyAllowedIpsValue}
-            onChange={(e) => this.setState({ keyAllowedIpsValue: e.currentTarget.value })}
-          />
-        </div>
-        <div className={'mb-sm'}>
-          <label className="rka-label" htmlFor="membership-expires">
-            Expires (in your timezone, empty for never)
-          </label>
-          <input
-            id="membership-expires"
-            type="datetime-local"
-            className="rka-input-txt"
-            value={this.state.keyExpiresValue}
-            onChange={(e) => this.setState({ keyExpiresValue: e.currentTarget.value })}
-          />
-        </div>
+        <ApikeyOptionsFields
+          idPrefix="membership-key"
+          values={this.state.keyOptions}
+          onChange={this.updateKeyOptions}
+          mfaNote={
+            this.needsTrustedForMfa() ? (
+              <div className={'rka-input-help txt-cranberry'}>
+                With a read-only role ({READ_ONLY_ROLES.join(', ')}) the key also has to be trusted,
+                otherwise the new user could never reach the two-factor setup and the key would be
+                unusable.
+              </div>
+            ) : null
+          }
+        />
       </>
     )
   }

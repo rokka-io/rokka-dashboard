@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer, { act } from 'react-test-renderer'
-import ApikeyRow, { parseAllowedIps } from './ApikeyRow'
+import ApikeyRow from './ApikeyRow'
 import rokka from '../rokka'
 import { toDatetimeLocal } from '../utils/string'
 
@@ -50,16 +50,6 @@ const checkboxes = (component) =>
 
 beforeEach(() => {
   jest.clearAllMocks()
-})
-
-test('parseAllowedIps splits on commas and newlines and drops blanks', () => {
-  expect(parseAllowedIps(' 1.2.3.4, 10.0.0.0/24 \n\n 5.6.7.8 ,, ')).toEqual([
-    '1.2.3.4',
-    '10.0.0.0/24',
-    '5.6.7.8',
-  ])
-  expect(parseAllowedIps('')).toEqual([])
-  expect(parseAllowedIps('  \n ')).toEqual([])
 })
 
 test('renders the flags, the IP list and the expiry', () => {

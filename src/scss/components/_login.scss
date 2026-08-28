@@ -167,6 +167,22 @@
   }
 }
 
+// The two-factor steps (code field, QR code + secret) don't fit into the fixed
+// height of the login card, let them grow instead.
+.rka-login-container-mfa {
+  @include media($desktop) {
+    height: auto;
+    min-height: 270px;
+  }
+}
+
+.rka-login-form-container-mfa {
+  @include media($desktop) {
+    height: auto;
+    min-height: 270px;
+  }
+}
+
 .rka-signup-form-container {
   word-break: break-word;
   @include media($desktop) {

@@ -10,9 +10,14 @@ export const apiTokenGetCallback = () => {
   return localStorage.getItem(ROKKA_DASHBOARD_TOKEN)
 }
 
+// Point the dashboard at another rokka API (a local docker one, for example).
+// Undefined means the SDK default of https://api.rokka.io.
+const apiHost = process.env.REACT_APP_ROKKA_API_HOST || undefined
+
 export function authenticate(apiKey) {
   client = rokka({
     apiKey,
+    apiHost,
     apiVersion: 1,
     apiTokenOptions: {
       //no_ip_protection: true, // not sure about this
@@ -33,7 +38,26 @@ export function authenticate(apiKey) {
 }
 
 export function resetClient() {
-  client = rokka()
+  client = rokka({ apiHost })
+}
+
+/**
+ * A throwaway client which authenticates with the raw `Api-Key` header only.
+ *
+ * The regular client has an `apiTokenGetCallback`, so every request first tries
+ * to mint a JWT token. A key with `requires_mfa` can't do that before TOTP is
+ * set up (`mfa_enrollment_required`), which is exactly the state in which we
+ * need to reach the enrollment endpoints. Without the callback the key goes out
+ * as `Api-Key` and those endpoints work.
+ *
+ * Don't use this for anything else, it doesn't store or refresh tokens.
+ *
+ * @param {string} apiKey
+ *
+ * @returns {object} a rokka client
+ */
+export function rawKeyClient(apiKey) {
+  return rokka({ apiKey, apiHost, apiVersion: 1 })
 }
 
 const getClient = () => client

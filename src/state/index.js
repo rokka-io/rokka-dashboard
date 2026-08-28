@@ -5,6 +5,7 @@ import rokka, {
   ROKKA_DASHBOARD_ORG,
   ROKKA_DASHBOARD_TOKEN,
 } from '../rokka'
+import { getAuthErrorMessage } from '../utils/errors'
 
 if (localStorage.getItem(ROKKA_DASHBOARD_ORG) && apiTokenGetCallback()) {
   login(localStorage.getItem(ROKKA_DASHBOARD_ORG), '')
@@ -85,18 +86,32 @@ export function clearUploadedImages() {
  * @param {string}   organization
  * @param {string}   apiKey
  * @param {Function} successCb    Success callback
+ * @param {?string}  totp         The current two-factor code, for keys with `requires_mfa`
  *
  * @returns {Promise}
  */
-export function login(organization, apiKey, successCb) {
+export function login(organization, apiKey, successCb, totp = null) {
   authenticate(apiKey)
   const rka = rokka()
-  //delete cookie, when token is not valid anymore
-  if (rka.user.getTokenIsValidFor() < 0) {
+  // Drop a leftover token when an Api Key is given: it may well belong to
+  // another user, and while it's still valid the SDK would use it as a Bearer
+  // instead of the key we were just handed — which would hide an MFA key's
+  // `mfa_required` behind a successful request with the stale token.
+  // Without an Api Key it's the session we're resuming, keep it.
+  if (apiKey || rka.user.getTokenIsValidFor() < 0) {
     localStorage.removeItem(ROKKA_DASHBOARD_TOKEN)
   }
-  return rka.organizations
-    .get(organization)
+  // With an Api Key, mint the token explicitly instead of letting the first
+  // request do it implicitly. The implicit path swallows everything but a 403,
+  // so an `mfa_required` / `key_expired` / `ip_not_allowed` would reach us as a
+  // plain "Authentication failed". Without an Api Key (session resume from
+  // localStorage) there's nothing to mint, the stored token is used as is.
+  const authenticated = apiKey
+    ? rka.user.getNewToken(apiKey, totp ? { totp } : {})
+    : Promise.resolve()
+
+  return authenticated
+    .then(() => rka.organizations.get(organization))
     .then(() => {
       // remove alert in case there was auth failed before.
       removeAlert()
@@ -127,15 +142,17 @@ export function login(organization, apiKey, successCb) {
 
       if (err.statusCode === 403 || err.statusCode === 404 || err.statusCode === 401) {
         updateState({ auth: null })
-        setAlert('error', 'Authentication failed')
+        setAlert('error', getAuthErrorMessage(err, 'Authentication failed'))
       } else if (err.statusCode === 400) {
         updateState({ auth: null })
         setAlert('error', 'Organization name is not valid')
       } else if (err.statusCode === 429) {
         updateState({ auth: null })
-        setAlert('error', 'Too many requests')
+        // a 429 from the token exchange is the TOTP rate limit, not a generic one
+        setAlert('error', getAuthErrorMessage(err, 'Too many requests'))
+      } else {
+        setAlert('error', 'Error getting organizations', 10000)
       }
-      setAlert('error', 'Error getting organizations', 10000)
       throw err
     })
 }
